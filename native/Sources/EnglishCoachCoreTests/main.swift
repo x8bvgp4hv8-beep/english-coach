@@ -23,6 +23,7 @@ catch { failures += 1; print("✗ reject duplicate IDs: \(error)") }
 expect(AnswerChecker.check("  I DON’T   know! ", canonical: "I don't know", accepted: []).isCorrect, "normalize answer")
 expect(AnswerChecker.check("I have not seen it", canonical: "I haven't seen it", accepted: ["I have not seen it"]).isCorrect, "accept explicit alternative")
 expect(!AnswerChecker.check("Never saw it", canonical: "I haven't seen it", accepted: []).isCorrect, "reject unknown alternative")
+expect(AnswerChecker.check("What is your name ?", canonical: "What is your name?", accepted: []).isCorrect, "normalize spacing before punctuation")
 
 let temp = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString).appendingPathComponent("state.json")
 do {

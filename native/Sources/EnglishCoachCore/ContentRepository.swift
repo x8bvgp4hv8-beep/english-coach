@@ -32,7 +32,16 @@ public enum ContentRepository {
     }
 
     public static func loadBundled() throws -> [CoursePack] {
-        try loadBundled(bundle: .module)
+        let bundleName = "EnglishCoach_EnglishCoachCore.bundle"
+        let candidates = [
+            Bundle.main.resourceURL?.appendingPathComponent(bundleName),
+            Bundle.main.bundleURL.appendingPathComponent(bundleName)
+        ].compactMap { $0 }
+        if let url = candidates.first(where: { FileManager.default.fileExists(atPath: $0.path) }),
+           let appBundle = Bundle(url: url) {
+            return try loadBundled(bundle: appBundle)
+        }
+        return try loadBundled(bundle: .module)
     }
 
     public static func loadBundled(bundle: Bundle) throws -> [CoursePack] {
