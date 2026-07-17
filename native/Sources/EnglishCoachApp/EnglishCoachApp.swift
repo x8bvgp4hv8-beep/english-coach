@@ -1,8 +1,5 @@
 import SwiftUI
-
-enum ProductInfo {
-    static let name = "English Coach"
-}
+import EnglishCoachCore
 
 @main
 struct EnglishCoachApp: App {

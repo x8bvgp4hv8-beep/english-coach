@@ -4,15 +4,16 @@ import PackageDescription
 let package = Package(
     name: "EnglishCoach",
     platforms: [.macOS(.v14)],
-    products: [.executable(name: "EnglishCoach", targets: ["EnglishCoachApp"])],
+    products: [
+        .executable(name: "EnglishCoach", targets: ["EnglishCoachApp"]),
+        .executable(name: "EnglishCoachCoreTests", targets: ["EnglishCoachCoreTests"])
+    ],
     targets: [
+        .target(name: "EnglishCoachCore", resources: [.process("Resources")]),
         .executableTarget(
             name: "EnglishCoachApp",
-            resources: [.process("Resources")]
+            dependencies: ["EnglishCoachCore"]
         ),
-        .testTarget(
-            name: "EnglishCoachAppTests",
-            dependencies: ["EnglishCoachApp"]
-        )
+        .executableTarget(name: "EnglishCoachCoreTests", dependencies: ["EnglishCoachCore"])
     ]
 )
