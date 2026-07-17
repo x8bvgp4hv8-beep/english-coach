@@ -55,5 +55,21 @@ do {
     }
 } catch { failures += 1; print("✗ bundled course validation: \(error)") }
 
+do {
+    let course = try ContentRepository.loadBundled().first { $0.level == .a1 }!
+    let lesson = course.chapters[0].lessons[0]
+    var session = LearningSession(state: .fresh)
+    session.start(lesson)
+    expect(session.currentExercise?.id == "a1-info-1", "lesson starts at first exercise")
+    session.completePassiveExercise()
+    session.completePassiveExercise()
+    let wrong = session.submitText("wrong", now: now)
+    expect(!wrong.isCorrect && session.state.reviews.contains { $0.exerciseID == "a1-translate-1" }, "wrong answer creates review")
+    session.advance()
+    while !session.isComplete { session.completeCurrentCorrectlyForTesting(now: now) }
+    expect(session.state.completedLessonIDs.contains(lesson.id), "lesson completion is recorded")
+    expect(session.state.points > 0, "correct work awards points")
+} catch { failures += 1; print("✗ learning session: \(error)") }
+
 if failures > 0 { print("\n\(failures) test(s) failed"); exit(1) }
 print("\nAll core tests passed")
