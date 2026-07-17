@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "level": "A2",
+  "chapters": [{
+    "id": "a2-daily-routines",
+    "title": "Everyday English",
+    "subtitle": "Распорядок дня и Present Simple",
+    "lessons": [{
+      "id": "a2-daily-routines-01",
+      "title": "Daily routines",
+      "summary": "Рассказывай о привычках и обычном дне.",
+      "estimatedMinutes": 9,
+      "exercises": [
+        {"id":"a2-info-1","type":"info","title":"Present Simple","explanation":"Используй Present Simple для привычек. С he, she и it обычно добавляй -s к глаголу."},
+        {"id":"a2-card-1","type":"flashcard","prompt":"I usually get up at seven.","translation":"Я обычно встаю в семь.","example":"On weekdays, I usually get up at seven."},
+        {"id":"a2-translate-1","type":"translate","prompt":"Я обычно пью кофе утром.","canonicalAnswer":"I usually drink coffee in the morning.","acceptedAnswers":["I normally drink coffee in the morning."],"hint":"usually"},
+        {"id":"a2-order-1","type":"word_order","prompt":"Она работает из дома.","canonicalAnswer":"She works from home.","tokens":["from","works","She","home","."]},
+        {"id":"a2-choice-1","type":"multiple_choice","prompt":"He ___ to work by bus.","options":["go","goes","going"],"correctOption":"goes"},
+        {"id":"a2-card-2","type":"flashcard","prompt":"How often do you exercise?","translation":"Как часто ты тренируешься?","example":"How often do you exercise after work?"},
+        {"id":"a2-translate-2","type":"translate","prompt":"Мы не работаем по воскресеньям.","canonicalAnswer":"We do not work on Sundays.","acceptedAnswers":["We don't work on Sundays."]},
+        {"id":"a2-order-2","type":"word_order","prompt":"Когда начинается урок?","canonicalAnswer":"When does the lesson start?","tokens":["lesson","does","When","start","the","?"]},
+        {"id":"a2-choice-2","type":"multiple_choice","prompt":"My sister ___ breakfast at home.","options":["have","has","having"],"correctOption":"has"},
+        {"id":"a2-translate-3","type":"translate","prompt":"Ты часто готовишь дома?","canonicalAnswer":"Do you often cook at home?","acceptedAnswers":["Do you cook at home often?"]}
+      ]
+    }]
+  }]
+}

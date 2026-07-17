@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "level": "C1",
+  "chapters": [{
+    "id": "c1-precision",
+    "title": "Say it precisely",
+    "subtitle": "Осторожные формулировки и профессиональная речь",
+    "lessons": [{
+      "id": "c1-precision-01",
+      "title": "Hedging with confidence",
+      "summary": "Смягчай утверждения, не теряя ясности.",
+      "estimatedMinutes": 12,
+      "exercises": [
+        {"id":"c1-info-1","type":"info","title":"Hedging","explanation":"Слова arguably, tends to и appears to помогают делать точные, осторожные утверждения вместо абсолютных."},
+        {"id":"c1-card-1","type":"flashcard","prompt":"The evidence appears to suggest that…","translation":"По всей видимости, данные указывают на то, что…","example":"The evidence appears to suggest that the change improved retention."},
+        {"id":"c1-translate-1","type":"translate","prompt":"Можно утверждать, что этот подход более устойчив.","canonicalAnswer":"It could be argued that this approach is more sustainable.","acceptedAnswers":["Arguably, this approach is more sustainable."]},
+        {"id":"c1-order-1","type":"word_order","prompt":"Результаты, по всей видимости, подтверждают гипотезу.","canonicalAnswer":"The findings appear to support the hypothesis.","tokens":["support","findings","hypothesis","appear","The","the","to","."]},
+        {"id":"c1-choice-1","type":"multiple_choice","prompt":"The policy ___ benefit smaller teams, although more evidence is needed.","options":["may well","definitely will","must always"],"correctOption":"may well"},
+        {"id":"c1-card-2","type":"flashcard","prompt":"To a certain extent…","translation":"В определённой степени…","example":"To a certain extent, both interpretations are valid."},
+        {"id":"c1-translate-2","type":"translate","prompt":"В определённой степени это зависит от контекста.","canonicalAnswer":"To a certain extent, it depends on the context.","acceptedAnswers":["It depends on the context to a certain extent."]},
+        {"id":"c1-order-2","type":"word_order","prompt":"Это не обязательно означает, что стратегия провалилась.","canonicalAnswer":"This does not necessarily mean that the strategy failed.","tokens":["necessarily","failed","does","strategy","mean","not","This","the","that","."]},
+        {"id":"c1-choice-2","type":"multiple_choice","prompt":"The decline is ___ linked to seasonal demand.","options":["likely to be","absolutely","without doubt"],"correctOption":"likely to be"},
+        {"id":"c1-translate-3","type":"translate","prompt":"Хотя вывод правдоподобен, данные нельзя считать окончательными.","canonicalAnswer":"While the conclusion is plausible, the evidence cannot be considered conclusive.","acceptedAnswers":["Although the conclusion is plausible, the evidence cannot be regarded as conclusive."]}
+      ]
+    }]
+  }]
+}

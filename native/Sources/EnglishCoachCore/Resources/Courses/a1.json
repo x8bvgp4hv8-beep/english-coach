@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "level": "A1",
+  "chapters": [{
+    "id": "a1-introductions",
+    "title": "Hello!",
+    "subtitle": "Знакомство и глагол to be",
+    "lessons": [{
+      "id": "a1-introductions-01",
+      "title": "Meet someone new",
+      "summary": "Научись представляться и задавать простые вопросы.",
+      "estimatedMinutes": 8,
+      "exercises": [
+        {"id":"a1-info-1","type":"info","title":"I am, you are","explanation":"После I используй am. После you, we и they используй are. После he, she и it — is."},
+        {"id":"a1-card-1","type":"flashcard","prompt":"Nice to meet you.","translation":"Приятно познакомиться.","example":"Hi, I'm Anna. Nice to meet you."},
+        {"id":"a1-translate-1","type":"translate","prompt":"Я из Вильнюса.","canonicalAnswer":"I am from Vilnius.","acceptedAnswers":["I'm from Vilnius."],"hint":"I am / I'm"},
+        {"id":"a1-order-1","type":"word_order","prompt":"Как тебя зовут?","canonicalAnswer":"What is your name?","tokens":["your","What","name","is","?"]},
+        {"id":"a1-choice-1","type":"multiple_choice","prompt":"She ___ my sister.","options":["am","is","are"],"correctOption":"is"},
+        {"id":"a1-card-2","type":"flashcard","prompt":"Where are you from?","translation":"Откуда ты?","example":"Where are you from? I'm from Kaunas."},
+        {"id":"a1-translate-2","type":"translate","prompt":"Он мой брат.","canonicalAnswer":"He is my brother.","acceptedAnswers":["He's my brother."]},
+        {"id":"a1-order-2","type":"word_order","prompt":"Мы готовы.","canonicalAnswer":"We are ready.","tokens":["ready","We","are","."]},
+        {"id":"a1-choice-2","type":"multiple_choice","prompt":"I ___ happy to meet you.","options":["am","is","are"],"correctOption":"am"},
+        {"id":"a1-translate-3","type":"translate","prompt":"Они не дома.","canonicalAnswer":"They are not at home.","acceptedAnswers":["They aren't at home.","They're not at home."]}
+      ]
+    }]
+  }]
+}

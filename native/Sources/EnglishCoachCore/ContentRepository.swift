@@ -36,7 +36,11 @@ public enum ContentRepository {
     }
 
     public static func loadBundled(bundle: Bundle) throws -> [CoursePack] {
-        let urls = bundle.urls(forResourcesWithExtension: "json", subdirectory: "Courses") ?? []
+        let root: URL? = bundle.bundleURL
+        let direct = root.flatMap { try? FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil) } ?? []
+        let nested = root.map { $0.appendingPathComponent("Courses") }
+            .flatMap { try? FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil) } ?? []
+        let urls = (direct + nested).filter { $0.pathExtension == "json" }
         return try urls.sorted { $0.lastPathComponent < $1.lastPathComponent }
             .map { try decode(Data(contentsOf: $0)) }
     }

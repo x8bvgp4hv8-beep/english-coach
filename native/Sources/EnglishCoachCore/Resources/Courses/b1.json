@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "level": "B1",
+  "chapters": [{
+    "id": "b1-experiences",
+    "title": "Life experience",
+    "subtitle": "Опыт и Present Perfect",
+    "lessons": [{
+      "id": "b1-experiences-01",
+      "title": "Have you ever…?",
+      "summary": "Говори об опыте без указания точного времени.",
+      "estimatedMinutes": 10,
+      "exercises": [
+        {"id":"b1-info-1","type":"info","title":"Present Perfect","explanation":"Используй have или has плюс третью форму глагола, когда важен опыт или результат сейчас."},
+        {"id":"b1-card-1","type":"flashcard","prompt":"Have you ever tried surfing?","translation":"Ты когда-нибудь пробовал сёрфинг?","example":"Have you ever tried surfing abroad?"},
+        {"id":"b1-translate-1","type":"translate","prompt":"Я никогда не был в Канаде.","canonicalAnswer":"I have never been to Canada.","acceptedAnswers":["I've never been to Canada."]},
+        {"id":"b1-order-1","type":"word_order","prompt":"Она уже закончила работу.","canonicalAnswer":"She has already finished work.","tokens":["finished","already","has","work","She","."]},
+        {"id":"b1-choice-1","type":"multiple_choice","prompt":"We ___ this film before.","options":["saw","have seen","are seeing"],"correctOption":"have seen"},
+        {"id":"b1-card-2","type":"flashcard","prompt":"I haven't decided yet.","translation":"Я ещё не решил.","example":"I haven't decided where to go yet."},
+        {"id":"b1-translate-2","type":"translate","prompt":"Ты уже отправил письмо?","canonicalAnswer":"Have you sent the email yet?","acceptedAnswers":["Have you already sent the email?"]},
+        {"id":"b1-order-2","type":"word_order","prompt":"Мы только что приехали.","canonicalAnswer":"We have just arrived.","tokens":["arrived","have","just","We","."]},
+        {"id":"b1-choice-2","type":"multiple_choice","prompt":"He has ___ started a new job.","options":["just","last week","yesterday"],"correctOption":"just"},
+        {"id":"b1-translate-3","type":"translate","prompt":"Я потерял ключи, поэтому не могу войти.","canonicalAnswer":"I have lost my keys, so I cannot get in.","acceptedAnswers":["I've lost my keys, so I can't get in."]}
+      ]
+    }]
+  }]
+}

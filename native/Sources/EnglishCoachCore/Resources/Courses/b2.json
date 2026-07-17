@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "level": "B2",
+  "chapters": [{
+    "id": "b2-opinions",
+    "title": "Make your point",
+    "subtitle": "Мнения, аргументы и связки",
+    "lessons": [{
+      "id": "b2-opinions-01",
+      "title": "A balanced opinion",
+      "summary": "Выражай мнение уверенно и добавляй нюансы.",
+      "estimatedMinutes": 11,
+      "exercises": [
+        {"id":"b2-info-1","type":"info","title":"Связывай идеи","explanation":"Используй however для контраста, therefore для результата и although для уступки."},
+        {"id":"b2-card-1","type":"flashcard","prompt":"From my perspective…","translation":"С моей точки зрения…","example":"From my perspective, flexible hours improve productivity."},
+        {"id":"b2-translate-1","type":"translate","prompt":"С моей точки зрения, это разумное решение.","canonicalAnswer":"From my perspective, this is a sensible decision.","acceptedAnswers":["In my view, this is a sensible decision."]},
+        {"id":"b2-order-1","type":"word_order","prompt":"Однако у этого подхода есть недостатки.","canonicalAnswer":"However, this approach has drawbacks.","tokens":["approach","However","drawbacks","this","has",",","."]},
+        {"id":"b2-choice-1","type":"multiple_choice","prompt":"The plan is expensive. ___, it may save time later.","options":["However","Therefore","For example"],"correctOption":"However"},
+        {"id":"b2-card-2","type":"flashcard","prompt":"That being said…","translation":"При этом / тем не менее…","example":"The role is demanding. That being said, it is rewarding."},
+        {"id":"b2-translate-2","type":"translate","prompt":"Хотя я понимаю твою точку зрения, я не совсем согласен.","canonicalAnswer":"Although I understand your point, I do not entirely agree.","acceptedAnswers":["Although I understand your point, I don't entirely agree."]},
+        {"id":"b2-order-2","type":"word_order","prompt":"В результате команда закончила раньше.","canonicalAnswer":"As a result, the team finished earlier.","tokens":["team","As","earlier","result","finished","the","a",",","."]},
+        {"id":"b2-choice-2","type":"multiple_choice","prompt":"___ the risks, the idea is worth testing.","options":["Despite","Because","Therefore"],"correctOption":"Despite"},
+        {"id":"b2-translate-3","type":"translate","prompt":"Главное преимущество заключается в том, что система проста.","canonicalAnswer":"The main advantage is that the system is simple.","acceptedAnswers":["The key advantage is that the system is simple."]}
+      ]
+    }]
+  }]
+}

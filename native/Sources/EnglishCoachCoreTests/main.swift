@@ -45,5 +45,15 @@ item = ReviewEngine.recordSuccess(item, now: now); expect(item.intervalDays == 3
 item = ReviewEngine.recordSuccess(item, now: now); expect(item.intervalDays == 7, "third review interval")
 item = ReviewEngine.recordFailure(item, now: now); expect(item.intervalDays == 1 && item.repetitions == 0, "review failure reset")
 
+do {
+    let courses = try ContentRepository.loadBundled()
+    expect(Set(courses.map(\.level)) == Set(CEFRLevel.allCases), "bundled content covers A1-C1")
+    for course in courses {
+        let exercises = course.chapters.flatMap(\.lessons).flatMap(\.exercises)
+        expect(Set(exercises.map(\.type)).isSuperset(of: Set(ExerciseType.allCases)), "\(course.level.rawValue) covers every exercise type")
+        expect(exercises.count >= 10, "\(course.level.rawValue) has at least ten exercises")
+    }
+} catch { failures += 1; print("✗ bundled course validation: \(error)") }
+
 if failures > 0 { print("\n\(failures) test(s) failed"); exit(1) }
 print("\nAll core tests passed")
