@@ -72,5 +72,28 @@ do {
     expect(session.state.points > 0, "correct work awards points")
 } catch { failures += 1; print("✗ learning session: \(error)") }
 
+do {
+    for course in try ContentRepository.loadBundled() {
+        let lesson = course.chapters[0].lessons[0]
+        var session = LearningSession(state: .fresh)
+        session.start(lesson)
+        while !session.isComplete { session.completeCurrentCorrectlyForTesting(now: now) }
+        expect(session.state.completedLessonIDs.contains(lesson.id), "\(course.level.rawValue) starter lesson completes offline")
+    }
+} catch { failures += 1; print("✗ all-level completion: \(error)") }
+
+var reviewState = UserState.fresh
+var reviewSession = LearningSession(state: reviewState)
+do {
+    let lesson = try ContentRepository.loadBundled().first!.chapters[0].lessons[0]
+    let translation = lesson.exercises.first { $0.type == .translate }!
+    reviewSession.start(Lesson(id: "review", title: "Review", summary: "", estimatedMinutes: 1, exercises: [translation]))
+    _ = reviewSession.submitText("wrong", now: now)
+    let firstDue = reviewSession.state.reviews.first!.due
+    reviewSession.retry()
+    _ = reviewSession.submitText(translation.canonicalAnswer!, now: now)
+    expect(reviewSession.state.reviews.first!.due > firstDue, "successful review moves due date forward")
+} catch { failures += 1; print("✗ review completion: \(error)") }
+
 if failures > 0 { print("\n\(failures) test(s) failed"); exit(1) }
 print("\nAll core tests passed")
