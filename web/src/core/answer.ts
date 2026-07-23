@@ -174,6 +174,20 @@ export function diffWords(answer: string, canonical: string): WordDiff[] {
   return diff
 }
 
+/**
+ * What to tell the learner about a wrong answer, or null when the answer is too far
+ * off for a word list to help: naming twelve missing words is noise, not feedback.
+ */
+export function diffSummary(diff: WordDiff[] | undefined): { missing: string[]; extra: string[] } | null {
+  if (!diff || diff.length === 0) return null
+  const same = diff.filter((part) => part.kind === 'same').length
+  const expected = diff.filter((part) => part.kind !== 'extra').length
+  if (expected === 0 || same / expected < 0.5) return null
+  const missing = diff.filter((part) => part.kind === 'missing').map((part) => part.text)
+  const extra = diff.filter((part) => part.kind === 'extra').map((part) => part.text)
+  return missing.length || extra.length ? { missing, extra } : null
+}
+
 export function check(answer: string, canonical: string, accepted: string[] = []): AnswerResult {
   const answerVariants = variants(normalize(answer))
   const expectedVariants = [canonical, ...accepted].flatMap((text) => variants(normalize(text)))

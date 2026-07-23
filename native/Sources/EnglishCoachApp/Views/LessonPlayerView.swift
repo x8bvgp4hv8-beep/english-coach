@@ -184,13 +184,12 @@ struct LessonPlayerView: View {
         }
     }
 
-    /// Names what is missing or extra instead of leaving the learner to compare two sentences.
+    /// Names what is missing or extra, but only when the answer was close enough to fix.
     private func mistakeHint(_ diff: [WordDiff]) -> String? {
-        let missing = diff.filter { $0.kind == .missing }.map(\.text)
-        let extra = diff.filter { $0.kind == .extra }.map(\.text)
+        guard let summary = AnswerChecker.diffSummary(diff) else { return nil }
         var parts: [String] = []
-        if !missing.isEmpty { parts.append("не хватает: \(missing.joined(separator: ", "))") }
-        if !extra.isEmpty { parts.append("лишнее: \(extra.joined(separator: ", "))") }
+        if !summary.missing.isEmpty { parts.append("не хватает: \(summary.missing.joined(separator: ", "))") }
+        if !summary.extra.isEmpty { parts.append("лишнее: \(summary.extra.joined(separator: ", "))") }
         return parts.isEmpty ? nil : parts.joined(separator: "  ·  ")
     }
 

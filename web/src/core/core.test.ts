@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 
-import { check, normalize } from './answer'
+import { check, diffSummary, normalize } from './answer'
 import { decodeCourse, decodePlacement } from './content'
 import { CourseRouting, LevelOrder, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
 import { PracticeEngine } from './practice'
@@ -173,6 +173,13 @@ describe('answer checking', () => {
         }
       }
     }
+  })
+
+  it('stays quiet when the answer is nowhere near the target', () => {
+    // Listing every word of the sentence is noise, not feedback.
+    expect(diffSummary(check('complete nonsense here', 'I usually drink coffee in the morning').diff)).toBeNull()
+    const close = diffSummary(check('I usually drink coffee morning', 'I usually drink coffee in the morning').diff)
+    expect(close?.missing).toEqual(['in', 'the'])
   })
 
   it('explains what is wrong instead of only printing the answer', () => {

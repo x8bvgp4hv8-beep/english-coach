@@ -41,6 +41,9 @@ expect(AnswerChecker.check("It is a cat", canonical: "It is a cut").verdict == .
 expect(AnswerChecker.check("I have two cat", canonical: "I have two cats").verdict == .wrong, "plural is not a typo")
 expect(AnswerChecker.check("I work yesterday", canonical: "I worked yesterday").verdict == .wrong, "past tense ending is not a typo")
 expect(AnswerChecker.check("I visited three city", canonical: "I visited three cities").verdict == .wrong, "irregular plural is not a typo")
+expect(AnswerChecker.diffSummary(AnswerChecker.check("complete nonsense here", canonical: "I usually drink coffee in the morning").diff) == nil, "no word list for a completely unrelated answer")
+let close = AnswerChecker.diffSummary(AnswerChecker.check("I usually drink coffee morning", canonical: "I usually drink coffee in the morning").diff)
+expect(close?.missing == ["in", "the"], "near miss names the missing words")
 let diff = AnswerChecker.check("I go cinema", canonical: "I go to the cinema").diff
 expect(diff.filter { $0.kind == .missing }.map(\.text) == ["to", "the"], "diff names the missing words")
 expect(AnswerChecker.check("I go to the big cinema", canonical: "I go to the cinema").diff.filter { $0.kind == .extra }.map(\.text) == ["big"], "diff names the extra word")

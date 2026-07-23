@@ -187,6 +187,18 @@ public enum AnswerChecker {
         return diff
     }
 
+    /// What to tell the learner about a wrong answer, or nil when the answer is too far
+    /// off for a word list to help: naming twelve missing words is noise, not feedback.
+    public static func diffSummary(_ diff: [WordDiff]) -> (missing: [String], extra: [String])? {
+        guard !diff.isEmpty else { return nil }
+        let same = diff.filter { $0.kind == .same }.count
+        let expected = diff.filter { $0.kind != .extra }.count
+        guard expected > 0, Double(same) / Double(expected) >= 0.5 else { return nil }
+        let missing = diff.filter { $0.kind == .missing }.map(\.text)
+        let extra = diff.filter { $0.kind == .extra }.map(\.text)
+        return missing.isEmpty && extra.isEmpty ? nil : (missing, extra)
+    }
+
     public static func check(_ answer: String, canonical: String, accepted: [String] = []) -> AnswerResult {
         let answerVariants = variants(normalize(answer))
         let expectedVariants = ([canonical] + accepted).flatMap { variants(normalize($0)) }
