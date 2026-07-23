@@ -106,6 +106,82 @@ describe('answer checking', () => {
     expect(check('However , this approach has drawbacks .', 'However, this approach has drawbacks.').isCorrect).toBe(true)
     expect(check('i work on monday', 'I work on Monday.').isCorrect).toBe(true)
   })
+
+  it('treats a contraction and its expansion as the same answer', () => {
+    expect(check("I'm a teacher", 'I am a teacher').verdict).toBe('correct')
+    expect(check('I am a teacher', "I'm a teacher").verdict).toBe('correct')
+    expect(check("She doesn't work here", 'She does not work here').verdict).toBe('correct')
+    expect(check('He has got a car', "He's got a car").verdict).toBe('correct')
+    expect(check('We cannot come', "We can't come").verdict).toBe('correct')
+  })
+
+  it('accepts British and American spelling of the same word', () => {
+    expect(check('My favourite colour is grey', 'My favorite color is gray').verdict).toBe('correct')
+    expect(check('I realized it', 'I realised it').verdict).toBe('correct')
+  })
+
+  it('counts a mistyped long word as a typo, not as a wrong answer', () => {
+    const result = check('I go to the cinemaa every week', 'I go to the cinema every week')
+    expect(result.verdict).toBe('typo')
+    expect(result.isCorrect).toBe(true)
+    expect(result.typo).toBe('cinema')
+    expect(check('I bought a resturant meal', 'I bought a restaurant meal').verdict).toBe('typo')
+  })
+
+  it('never hides a grammar mistake behind typo tolerance', () => {
+    // Tense, agreement, articles, prepositions and short words carry meaning.
+    expect(check('He go to school', 'He goes to school').verdict).toBe('wrong')
+    expect(check('She have a car', 'She has a car').verdict).toBe('wrong')
+    expect(check('I am at the cinema', 'I am in the cinema').verdict).toBe('wrong')
+    expect(check('I saw a cat', 'I saw the cat').verdict).toBe('wrong')
+    expect(check('It is a cat', 'It is a cut').verdict).toBe('wrong')
+    expect(check('I have two cat', 'I have two cats').verdict).toBe('wrong')
+  })
+
+  it('treats every inflection as grammar, not as a slip', () => {
+    expect(check('I work yesterday', 'I worked yesterday').verdict).toBe('wrong')
+    expect(check('I visited three city', 'I visited three cities').verdict).toBe('wrong')
+    expect(check('She is walk home', 'She is walking home').verdict).toBe('wrong')
+  })
+
+  it('does not accept a different exercise as an answer', () => {
+    // Property check over real content: loosening the matcher must not make
+    // unrelated sentences interchangeable.
+    const translations = courses
+      .flatMap((course) => allExercises(course))
+      .filter((e) => e.type === 'translate' && e.canonicalAnswer)
+    let falsePositives = 0
+    for (let i = 0; i < translations.length; i += 1) {
+      const mine = translations[i].canonicalAnswer!
+      for (const other of [translations[(i + 1) % translations.length], translations[(i + 7) % translations.length]]) {
+        if (other.id === translations[i].id) continue
+        if (check(other.canonicalAnswer!, mine).isCorrect) falsePositives += 1
+      }
+    }
+    expect(falsePositives).toBe(0)
+  })
+
+  it('still accepts every canonical answer in the shipped content', () => {
+    for (const course of courses) {
+      for (const exercise of allExercises(course)) {
+        if (exercise.type !== 'translate' && exercise.type !== 'word_order') continue
+        const answer = exercise.canonicalAnswer!
+        expect(check(answer, answer, exercise.acceptedAnswers ?? []).verdict, exercise.id).toBe('correct')
+        for (const alternative of exercise.acceptedAnswers ?? []) {
+          expect(check(alternative, answer, exercise.acceptedAnswers ?? []).verdict, `${exercise.id}: ${alternative}`).toBe('correct')
+        }
+      }
+    }
+  })
+
+  it('explains what is wrong instead of only printing the answer', () => {
+    const result = check('I go cinema', 'I go to the cinema')
+    expect(result.verdict).toBe('wrong')
+    expect(result.diff?.filter((part) => part.kind === 'missing').map((part) => part.text)).toEqual(['to', 'the'])
+
+    const extra = check('I go to the big cinema', 'I go to the cinema')
+    expect(extra.diff?.filter((part) => part.kind === 'extra').map((part) => part.text)).toEqual(['big'])
+  })
 })
 
 describe('routing and review scheduling', () => {
@@ -194,6 +270,29 @@ describe('learning session', () => {
     session.start(lesson)
     while (!session.isComplete) session.completeCurrentCorrectly(now)
     expect(session.state.completedLessonIDs).toContain(lesson.id)
+  })
+
+  it('lets the learner overrule the checker exactly once', () => {
+    const lesson = courses[0].chapters[0].lessons[0]
+    const translation = lesson.exercises.find((e) => e.type === 'translate')!
+    const session = new LearningSession(freshState())
+    session.start({ id: 'x', title: 'X', summary: '', estimatedMinutes: 1, exercises: [translation] })
+
+    const rejected = session.submitText('my own perfectly fine phrasing', now)
+    expect(rejected.isCorrect).toBe(false)
+    expect(session.state.reviews).toHaveLength(1)
+
+    session.markLastAnswerCorrect()
+    expect(session.feedback?.isCorrect).toBe(true)
+    expect(session.state.points).toBe(10)
+    // The penalty this answer caused is undone, not just visually reverted.
+    expect(session.state.reviews).toHaveLength(0)
+    expect(session.state.attempts.at(-1)?.correct).toBe(true)
+
+    // And the phrasing is accepted from now on, in this and in any later session.
+    const later = new LearningSession(session.state)
+    later.start({ id: 'y', title: 'Y', summary: '', estimatedMinutes: 1, exercises: [translation] })
+    expect(later.submitText('my own perfectly fine phrasing', now).isCorrect).toBe(true)
   })
 
   it('moves the due date forward after a successful review', () => {

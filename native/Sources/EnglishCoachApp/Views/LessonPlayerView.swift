@@ -144,9 +144,17 @@ struct LessonPlayerView: View {
     @ViewBuilder private var feedbackView: some View {
         if let feedback = model.feedback {
             VStack(spacing: 12) {
-                Label(feedback.isCorrect ? "Отлично!" : "Пока не так", systemImage: feedback.isCorrect ? "checkmark.circle.fill" : "arrow.counterclockwise.circle.fill")
+                Label(headline(for: feedback.verdict), systemImage: feedback.isCorrect ? "checkmark.circle.fill" : "arrow.counterclockwise.circle.fill")
                     .font(.title3.bold()).foregroundStyle(feedback.isCorrect ? CoachTheme.mint : .orange)
-                if !feedback.isCorrect { Text("Правильный ответ: \(feedback.canonical)").multilineTextAlignment(.center) }
+                if feedback.verdict == .typo, let typo = feedback.typo {
+                    Text("Опечатка: правильно пишется «\(typo)»").font(.callout).foregroundStyle(.secondary).multilineTextAlignment(.center)
+                }
+                if feedback.verdict == .wrong {
+                    Text("Правильный ответ: \(feedback.canonical)").multilineTextAlignment(.center)
+                    if let hint = mistakeHint(feedback.diff) {
+                        Text(hint).font(.callout).foregroundStyle(.orange).multilineTextAlignment(.center)
+                    }
+                }
                 HStack {
                     if !feedback.isCorrect && !model.session.retryUsed {
                         Button("Попробовать ещё") { resetInputs(); model.retry() }.buttonStyle(.bordered)
@@ -154,8 +162,36 @@ struct LessonPlayerView: View {
                     Button("Дальше") { resetInputs(); withAnimation { model.advance() } }
                         .buttonStyle(PrimaryButtonStyle(color: feedback.isCorrect ? CoachTheme.mint : CoachTheme.violet))
                 }
+                // The escape hatch: whatever the checker still gets wrong costs one tap, once.
+                if feedback.verdict == .wrong, canOverrule {
+                    Button("Мой ответ тоже верный") { withAnimation { model.markLastAnswerCorrect() } }
+                        .buttonStyle(.plain).font(.callout).foregroundStyle(CoachTheme.violet)
+                }
             }.padding(.top, 4)
         }
+    }
+
+    private var canOverrule: Bool {
+        guard let type = model.currentExercise?.type else { return false }
+        return type == .translate || type == .wordOrder
+    }
+
+    private func headline(for verdict: Verdict) -> String {
+        switch verdict {
+        case .correct: "Отлично!"
+        case .typo: "Почти! Засчитано"
+        case .wrong: "Пока не так"
+        }
+    }
+
+    /// Names what is missing or extra instead of leaving the learner to compare two sentences.
+    private func mistakeHint(_ diff: [WordDiff]) -> String? {
+        let missing = diff.filter { $0.kind == .missing }.map(\.text)
+        let extra = diff.filter { $0.kind == .extra }.map(\.text)
+        var parts: [String] = []
+        if !missing.isEmpty { parts.append("не хватает: \(missing.joined(separator: ", "))") }
+        if !extra.isEmpty { parts.append("лишнее: \(extra.joined(separator: ", "))") }
+        return parts.isEmpty ? nil : parts.joined(separator: "  ·  ")
     }
 
     private func submitText() { guard !answer.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }; model.submitText(answer) }

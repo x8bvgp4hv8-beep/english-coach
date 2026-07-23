@@ -81,6 +81,7 @@ final class AppModel {
     func submitChoice(_ choice: String) { _ = session.submitChoice(choice); state = session.state; save() }
     func completePassive() { session.completePassiveExercise(); state = session.state; save() }
     func retry() { session.retry() }
+    func markLastAnswerCorrect() { session.markLastAnswerCorrect(); state = session.state; save() }
     func advance() {
         session.advance(); state = session.state
         // Bank the time as soon as the lesson ends, not only when the window is closed.

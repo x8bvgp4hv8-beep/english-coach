@@ -132,13 +132,17 @@ public struct UserState: Codable, Equatable, Sendable {
     /// Seconds spent in lessons per day ("2026-07-23" → 420), for the daily goal.
     /// Optional for backward compatibility with older saved state.json files.
     public var practiceSeconds: [String: Int]?
+    /// Phrasings the learner marked as correct after the checker disagreed, per exercise.
+    /// The escape hatch: whatever the checker misses, it only ever costs one tap, once.
+    public var acceptedAnswers: [String: [String]]?
 
     public static let fresh = UserState(profile: nil, completedLessonIDs: [], attempts: [], reviews: [], points: 0)
 
-    public init(profile: UserProfile?, completedLessonIDs: Set<String>, attempts: [AttemptRecord], reviews: [ReviewItem], points: Int, levelUpDismissed: [String]? = nil, practiceSeconds: [String: Int]? = nil) {
+    public init(profile: UserProfile?, completedLessonIDs: Set<String>, attempts: [AttemptRecord], reviews: [ReviewItem], points: Int, levelUpDismissed: [String]? = nil, practiceSeconds: [String: Int]? = nil, acceptedAnswers: [String: [String]]? = nil) {
         self.profile = profile; self.completedLessonIDs = completedLessonIDs
         self.attempts = attempts; self.reviews = reviews; self.points = points
         self.levelUpDismissed = levelUpDismissed
         self.practiceSeconds = practiceSeconds
+        self.acceptedAnswers = acceptedAnswers
     }
 }

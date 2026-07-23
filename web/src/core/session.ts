@@ -13,6 +13,9 @@ export class LearningSession {
   exerciseIndex = 0
   feedback: AnswerResult | null = null
   retryUsed = false
+  private lastAnswer: string | null = null
+  /** Set when the current attempt created a fresh review item, so it can be undone. */
+  private lastCreatedReviewID: string | null = null
 
   constructor(state: UserState) {
     this.state = state
@@ -41,16 +44,19 @@ export class LearningSession {
 
   submitText(answer: string, now: Date = new Date()): AnswerResult {
     const exercise = this.currentExercise
-    if (!exercise) return { isCorrect: false, canonical: '' }
-    const result = check(answer, exercise.canonicalAnswer ?? '', exercise.acceptedAnswers ?? [])
+    if (!exercise) return { isCorrect: false, verdict: 'wrong', canonical: '' }
+    const learnerApproved = this.state.acceptedAnswers?.[exercise.id] ?? []
+    const result = check(answer, exercise.canonicalAnswer ?? '', [...(exercise.acceptedAnswers ?? []), ...learnerApproved])
+    this.lastAnswer = answer
     this.record(exercise, result, now)
     return result
   }
 
   submitChoice(choice: string, now: Date = new Date()): AnswerResult {
     const exercise = this.currentExercise
-    if (!exercise) return { isCorrect: false, canonical: '' }
+    if (!exercise) return { isCorrect: false, verdict: 'wrong', canonical: '' }
     const result = check(choice, exercise.correctOption ?? '', [])
+    this.lastAnswer = choice
     this.record(exercise, result, now)
     return result
   }
@@ -58,8 +64,39 @@ export class LearningSession {
   completePassiveExercise(now: Date = new Date()): void {
     const exercise = this.currentExercise
     if (!exercise) return
-    this.record(exercise, { isCorrect: true, canonical: exercise.prompt ?? exercise.title ?? '' }, now)
+    this.record(exercise, { isCorrect: true, verdict: 'correct', canonical: exercise.prompt ?? exercise.title ?? '' }, now)
     this.advance()
+  }
+
+  /**
+   * "Я был прав": the learner's phrasing is remembered for this exercise, the attempt
+   * is flipped, and the spaced repetition penalty this answer just caused is undone.
+   * Without the last part the escape hatch would still punish a correct answer.
+   */
+  markLastAnswerCorrect(): void {
+    const exercise = this.currentExercise
+    const answer = this.lastAnswer
+    if (!exercise || !answer || this.feedback?.isCorrect !== false) return
+
+    const approved = this.state.acceptedAnswers ?? {}
+    const forExercise = approved[exercise.id] ?? []
+    this.state.acceptedAnswers = { ...approved, [exercise.id]: [...forExercise, answer] }
+
+    const attempts = [...this.state.attempts]
+    for (let i = attempts.length - 1; i >= 0; i -= 1) {
+      if (attempts[i].exerciseID === exercise.id) {
+        attempts[i] = { ...attempts[i], correct: true }
+        break
+      }
+    }
+    this.state.attempts = attempts
+    this.state.points += 10
+
+    if (this.lastCreatedReviewID) {
+      this.state.reviews = this.state.reviews.filter((item) => item.id !== this.lastCreatedReviewID)
+      this.lastCreatedReviewID = null
+    }
+    this.feedback = { isCorrect: true, verdict: 'correct', canonical: exercise.canonicalAnswer ?? '' }
   }
 
   advance(): void {
@@ -107,6 +144,7 @@ export class LearningSession {
 
   private record(exercise: Exercise, result: AnswerResult, now: Date): void {
     this.feedback = result
+    this.lastCreatedReviewID = null
     this.state.attempts = [
       ...this.state.attempts,
       { id: crypto.randomUUID(), exerciseID: exercise.id, correct: result.isCorrect, date: now },
@@ -124,7 +162,9 @@ export class LearningSession {
       reviews[index] = ReviewEngine.recordFailure(reviews[index], now)
       this.state.reviews = reviews
     } else {
-      this.state.reviews = [...this.state.reviews, ReviewEngine.newItem(exercise.id, now)]
+      const item = ReviewEngine.newItem(exercise.id, now)
+      this.state.reviews = [...this.state.reviews, item]
+      this.lastCreatedReviewID = item.id
     }
   }
 }

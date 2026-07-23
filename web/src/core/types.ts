@@ -91,15 +91,33 @@ export interface UserState {
   levelUpDismissed?: string[]
   /** Seconds spent in lessons per local day ("2026-07-23" → 420). */
   practiceSeconds?: Record<string, number>
+  /**
+   * Phrasings the learner marked as correct after the checker disagreed, per exercise.
+   * The escape hatch: whatever the checker misses, it only ever costs one tap, once.
+   */
+  acceptedAnswers?: Record<string, string[]>
 }
 
 export function freshState(): UserState {
   return { profile: null, completedLessonIDs: [], attempts: [], reviews: [], points: 0 }
 }
 
+export type Verdict = 'correct' | 'typo' | 'wrong'
+
+export interface WordDiff {
+  kind: 'same' | 'missing' | 'extra'
+  text: string
+}
+
 export interface AnswerResult {
+  /** True for both a clean answer and a one-letter typo. */
   isCorrect: boolean
+  verdict: Verdict
   canonical: string
+  /** The correctly spelled word, when the verdict is a typo. */
+  typo?: string
+  /** Word level difference against the expected answer, when it is wrong. */
+  diff?: WordDiff[]
 }
 
 export type ContentErrorKind = 'unsupportedSchema' | 'emptyCourse' | 'duplicateID' | 'invalidExercise'

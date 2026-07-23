@@ -6,6 +6,9 @@ public struct LearningSession: Sendable {
     public private(set) var exerciseIndex = 0
     public private(set) var feedback: AnswerResult?
     public private(set) var retryUsed = false
+    private var lastAnswer: String?
+    /// Set when the current attempt created a fresh review item, so it can be undone.
+    private var lastCreatedReviewID: String?
 
     public init(state: UserState) { self.state = state }
 
@@ -25,26 +28,51 @@ public struct LearningSession: Sendable {
 
     @discardableResult
     public mutating func submitText(_ answer: String, now: Date = .now) -> AnswerResult {
-        guard let exercise = currentExercise else { return AnswerResult(isCorrect: false, canonical: "") }
+        guard let exercise = currentExercise else { return AnswerResult(isCorrect: false, verdict: .wrong, canonical: "") }
         let canonical = exercise.canonicalAnswer ?? ""
-        let result = AnswerChecker.check(answer, canonical: canonical, accepted: exercise.acceptedAnswers ?? [])
+        let learnerApproved = state.acceptedAnswers?[exercise.id] ?? []
+        let result = AnswerChecker.check(answer, canonical: canonical, accepted: (exercise.acceptedAnswers ?? []) + learnerApproved)
+        lastAnswer = answer
         record(exercise: exercise, result: result, now: now)
         return result
     }
 
     @discardableResult
     public mutating func submitChoice(_ choice: String, now: Date = .now) -> AnswerResult {
-        guard let exercise = currentExercise else { return AnswerResult(isCorrect: false, canonical: "") }
+        guard let exercise = currentExercise else { return AnswerResult(isCorrect: false, verdict: .wrong, canonical: "") }
         let canonical = exercise.correctOption ?? ""
         let result = AnswerChecker.check(choice, canonical: canonical, accepted: [])
+        lastAnswer = choice
         record(exercise: exercise, result: result, now: now)
         return result
     }
 
     public mutating func completePassiveExercise(now: Date = .now) {
         guard let exercise = currentExercise else { return }
-        record(exercise: exercise, result: AnswerResult(isCorrect: true, canonical: exercise.prompt ?? exercise.title ?? ""), now: now)
+        record(exercise: exercise, result: AnswerResult(isCorrect: true, verdict: .correct, canonical: exercise.prompt ?? exercise.title ?? ""), now: now)
         advance()
+    }
+
+    /// "Я был прав": remembers the learner's phrasing for this exercise, flips the attempt
+    /// and undoes the spaced repetition penalty this answer just caused. Without the last
+    /// part the escape hatch would still punish a correct answer.
+    public mutating func markLastAnswerCorrect() {
+        guard let exercise = currentExercise, let answer = lastAnswer, feedback?.isCorrect == false else { return }
+        var approved = state.acceptedAnswers ?? [:]
+        approved[exercise.id, default: []].append(answer)
+        state.acceptedAnswers = approved
+
+        if let index = state.attempts.lastIndex(where: { $0.exerciseID == exercise.id }) {
+            let attempt = state.attempts[index]
+            state.attempts[index] = AttemptRecord(id: attempt.id, exerciseID: attempt.exerciseID, correct: true, date: attempt.date)
+        }
+        state.points += 10
+
+        if let created = lastCreatedReviewID {
+            state.reviews.removeAll { $0.id == created }
+            lastCreatedReviewID = nil
+        }
+        feedback = AnswerResult(isCorrect: true, verdict: .correct, canonical: exercise.canonicalAnswer ?? "")
     }
 
     public mutating func advance() {
@@ -79,6 +107,7 @@ public struct LearningSession: Sendable {
 
     private mutating func record(exercise: Exercise, result: AnswerResult, now: Date) {
         feedback = result
+        lastCreatedReviewID = nil
         state.attempts.append(AttemptRecord(id: UUID(), exerciseID: exercise.id, correct: result.isCorrect, date: now))
         if result.isCorrect {
             state.points += 10
@@ -88,7 +117,9 @@ public struct LearningSession: Sendable {
         } else if let index = state.reviews.firstIndex(where: { $0.exerciseID == exercise.id }) {
             state.reviews[index] = ReviewEngine.recordFailure(state.reviews[index], now: now)
         } else {
-            state.reviews.append(ReviewEngine.newItem(exerciseID: exercise.id, now: now))
+            let item = ReviewEngine.newItem(exerciseID: exercise.id, now: now)
+            state.reviews.append(item)
+            lastCreatedReviewID = item.id
         }
     }
 }

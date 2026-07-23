@@ -25,6 +25,26 @@ expect(AnswerChecker.check("I have not seen it", canonical: "I haven't seen it",
 expect(!AnswerChecker.check("Never saw it", canonical: "I haven't seen it", accepted: []).isCorrect, "reject unknown alternative")
 expect(AnswerChecker.check("What is your name ?", canonical: "What is your name?", accepted: []).isCorrect, "normalize spacing before punctuation")
 
+// Contractions, spelling variants and typos. Mirrors web/src/core/core.test.ts.
+expect(AnswerChecker.check("I'm a teacher", canonical: "I am a teacher").verdict == .correct, "contraction equals its expansion")
+expect(AnswerChecker.check("He has got a car", canonical: "He's got a car").verdict == .correct, "ambiguous 's reads as has")
+expect(AnswerChecker.check("We cannot come", canonical: "We can't come").verdict == .correct, "cannot equals can't")
+expect(AnswerChecker.check("My favourite colour is grey", canonical: "My favorite color is gray").verdict == .correct, "British spelling accepted")
+let typoResult = AnswerChecker.check("I go to the cinemaa every week", canonical: "I go to the cinema every week")
+expect(typoResult.verdict == .typo && typoResult.isCorrect && typoResult.typo == "cinema", "one mistyped long word is a typo")
+expect(AnswerChecker.check("I bought a resturant meal", canonical: "I bought a restaurant meal").verdict == .typo, "two-letter slip in a long word is a typo")
+expect(AnswerChecker.check("He go to school", canonical: "He goes to school").verdict == .wrong, "tense is not a typo")
+expect(AnswerChecker.check("She have a car", canonical: "She has a car").verdict == .wrong, "agreement is not a typo")
+expect(AnswerChecker.check("I saw a cat", canonical: "I saw the cat").verdict == .wrong, "article is not a typo")
+expect(AnswerChecker.check("I am at the cinema", canonical: "I am in the cinema").verdict == .wrong, "preposition is not a typo")
+expect(AnswerChecker.check("It is a cat", canonical: "It is a cut").verdict == .wrong, "short word gets no tolerance")
+expect(AnswerChecker.check("I have two cat", canonical: "I have two cats").verdict == .wrong, "plural is not a typo")
+expect(AnswerChecker.check("I work yesterday", canonical: "I worked yesterday").verdict == .wrong, "past tense ending is not a typo")
+expect(AnswerChecker.check("I visited three city", canonical: "I visited three cities").verdict == .wrong, "irregular plural is not a typo")
+let diff = AnswerChecker.check("I go cinema", canonical: "I go to the cinema").diff
+expect(diff.filter { $0.kind == .missing }.map(\.text) == ["to", "the"], "diff names the missing words")
+expect(AnswerChecker.check("I go to the big cinema", canonical: "I go to the cinema").diff.filter { $0.kind == .extra }.map(\.text) == ["big"], "diff names the extra word")
+
 let temp = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString).appendingPathComponent("state.json")
 do {
     var state = UserState.fresh
