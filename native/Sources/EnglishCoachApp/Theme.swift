@@ -9,6 +9,30 @@ enum CoachTheme {
     static let mist = Color(red: 0.90, green: 0.97, blue: 1.00)
     static let lilac = Color(red: 0.95, green: 0.92, blue: 1.00)
     static let background = LinearGradient(colors: [mist, lilac], startPoint: .topLeading, endPoint: .bottomTrailing)
+
+    /// Raised surfaces (header, action rows) and the hairlines that separate them.
+    static let surface = Color.white.opacity(0.72)
+    static let hairline = ink.opacity(0.09)
+    static let track = ink.opacity(0.08)
+    static let rowHover = ink.opacity(0.04)
+}
+
+/// Thin capsule meter. A plain ProgressView cannot be sized and tinted consistently
+/// across the header, so the map draws its own.
+struct MeterBar: View {
+    let value: Double
+    let tint: Color
+    var height: CGFloat = 6
+
+    var body: some View {
+        GeometryReader { geo in
+            ZStack(alignment: .leading) {
+                Capsule().fill(CoachTheme.track)
+                Capsule().fill(tint).frame(width: geo.size.width * max(0, min(1, value)))
+            }
+        }
+        .frame(height: height)
+    }
 }
 
 /// Answer option card — shared by the placement test and the lesson player.
