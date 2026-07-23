@@ -20,7 +20,6 @@ struct OnboardingView: View {
             case .goal: goalPicker
             }
             Spacer()
-            Text("Без аккаунта · Без подписки · Работает офлайн").font(.caption.weight(.medium)).foregroundStyle(.secondary)
         }.padding(42)
     }
 

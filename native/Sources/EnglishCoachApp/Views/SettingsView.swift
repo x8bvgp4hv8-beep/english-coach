@@ -29,8 +29,7 @@ struct SettingsView: View {
                     }.disabled(!(model.state.profile?.remindersEnabled ?? false))
                     if let reminderError { Text(reminderError).font(.caption).foregroundStyle(.orange) }
                 }
-                LabeledContent("Хранение") { Text("Только на этом Mac").foregroundStyle(.secondary) }
-                LabeledContent("Сеть") { Text("Не используется").foregroundStyle(.secondary) }
+                LabeledContent("Всего очков") { Text("\(model.totalPoints)").foregroundStyle(.secondary) }
             }.formStyle(.grouped).padding(20)
         }
         .sheet(isPresented: $showPlacement) {

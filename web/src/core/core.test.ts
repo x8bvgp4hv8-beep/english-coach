@@ -182,6 +182,16 @@ describe('answer checking', () => {
     expect(close?.missing).toEqual(['in', 'the'])
   })
 
+  it('says the order is wrong instead of listing the same words twice', () => {
+    const summary = diffSummary(check('Monday I work on', 'I work on Monday.').diff)
+    expect(summary?.orderOnly).toBe(true)
+  })
+
+  it('shows words the way they are written, not lower-cased', () => {
+    const summary = diffSummary(check('I work', 'I work on Monday').diff)
+    expect(summary?.missing).toEqual(['on', 'Monday'])
+  })
+
   it('explains what is wrong instead of only printing the answer', () => {
     const result = check('I go cinema', 'I go to the cinema')
     expect(result.verdict).toBe('wrong')

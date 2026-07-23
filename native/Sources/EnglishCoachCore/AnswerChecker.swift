@@ -160,9 +160,21 @@ public enum AnswerChecker {
     }
 
     /// Word level diff, so feedback can say what is missing rather than just print the answer.
+    /// Splits into words for display: punctuation is dropped, but the writing is kept.
+    private static func displayWords(_ input: String) -> [String] {
+        input.replacingOccurrences(of: "’", with: "'")
+            .components(separatedBy: CharacterSet(charactersIn: ".,!?;:—–\"()"))
+            .joined(separator: " ")
+            .split(whereSeparator: { $0.isWhitespace })
+            .map(String.init)
+    }
+
     public static func diffWords(_ answer: String, canonical: String) -> [WordDiff] {
         let a = normalize(answer).split(separator: " ").map(String.init)
         let b = normalize(canonical).split(separator: " ").map(String.init)
+        // Compared in lower case, shown as written: "не хватает: Monday", not "monday".
+        let aShown = displayWords(answer)
+        let bShown = displayWords(canonical)
         var table = Array(repeating: Array(repeating: 0, count: b.count + 1), count: a.count + 1)
         if !a.isEmpty, !b.isEmpty {
             for i in stride(from: a.count - 1, through: 0, by: -1) {
@@ -175,28 +187,32 @@ public enum AnswerChecker {
         var i = 0, j = 0
         while i < a.count, j < b.count {
             if a[i] == b[j] {
-                diff.append(WordDiff(kind: .same, text: b[j])); i += 1; j += 1
+                diff.append(WordDiff(kind: .same, text: j < bShown.count ? bShown[j] : b[j])); i += 1; j += 1
             } else if table[i + 1][j] >= table[i][j + 1] {
-                diff.append(WordDiff(kind: .extra, text: a[i])); i += 1
+                diff.append(WordDiff(kind: .extra, text: i < aShown.count ? aShown[i] : a[i])); i += 1
             } else {
-                diff.append(WordDiff(kind: .missing, text: b[j])); j += 1
+                diff.append(WordDiff(kind: .missing, text: j < bShown.count ? bShown[j] : b[j])); j += 1
             }
         }
-        while i < a.count { diff.append(WordDiff(kind: .extra, text: a[i])); i += 1 }
-        while j < b.count { diff.append(WordDiff(kind: .missing, text: b[j])); j += 1 }
+        while i < a.count { diff.append(WordDiff(kind: .extra, text: i < aShown.count ? aShown[i] : a[i])); i += 1 }
+        while j < b.count { diff.append(WordDiff(kind: .missing, text: j < bShown.count ? bShown[j] : b[j])); j += 1 }
         return diff
     }
 
     /// What to tell the learner about a wrong answer, or nil when the answer is too far
     /// off for a word list to help: naming twelve missing words is noise, not feedback.
-    public static func diffSummary(_ diff: [WordDiff]) -> (missing: [String], extra: [String])? {
+    public static func diffSummary(_ diff: [WordDiff]) -> (missing: [String], extra: [String], orderOnly: Bool)? {
         guard !diff.isEmpty else { return nil }
         let same = diff.filter { $0.kind == .same }.count
         let expected = diff.filter { $0.kind != .extra }.count
         guard expected > 0, Double(same) / Double(expected) >= 0.5 else { return nil }
         let missing = diff.filter { $0.kind == .missing }.map(\.text)
         let extra = diff.filter { $0.kind == .extra }.map(\.text)
-        return missing.isEmpty && extra.isEmpty ? nil : (missing, extra)
+        guard !missing.isEmpty || !extra.isEmpty else { return nil }
+        // Same words, different places: listing them as both missing and extra reads as nonsense.
+        let key: ([String]) -> [String] = { $0.map { $0.lowercased() }.sorted() }
+        let orderOnly = !missing.isEmpty && key(missing) == key(extra)
+        return (missing, extra, orderOnly)
     }
 
     public static func check(_ answer: String, canonical: String, accepted: [String] = []) -> AnswerResult {

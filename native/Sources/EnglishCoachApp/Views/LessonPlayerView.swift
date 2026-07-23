@@ -187,6 +187,7 @@ struct LessonPlayerView: View {
     /// Names what is missing or extra, but only when the answer was close enough to fix.
     private func mistakeHint(_ diff: [WordDiff]) -> String? {
         guard let summary = AnswerChecker.diffSummary(diff) else { return nil }
+        if summary.orderOnly { return "Слова верные, но порядок другой" }
         var parts: [String] = []
         if !summary.missing.isEmpty { parts.append("не хватает: \(summary.missing.joined(separator: ", "))") }
         if !summary.extra.isEmpty { parts.append("лишнее: \(summary.extra.joined(separator: ", "))") }

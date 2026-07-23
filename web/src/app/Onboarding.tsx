@@ -82,8 +82,6 @@ export function Onboarding() {
           <button className="primary" onClick={() => model.completeOnboarding(level, goal)}>Открыть маршрут</button>
         </>
       )}
-
-      <p style={{ fontSize: 12 }}>Без аккаунта · Без подписки · Работает офлайн</p>
     </div>
   )
 }

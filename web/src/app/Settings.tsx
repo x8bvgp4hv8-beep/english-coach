@@ -136,15 +136,11 @@ export function Settings() {
         </div>
         {message && <p className="settings-note">{message}</p>}
         <p className="settings-note">
-          Прогресс хранится только на этом телефоне и никуда не отправляется. Safari может очистить данные
-          сайтов, которыми давно не пользовались, поэтому копию стоит сохранять время от времени.
+          Safari может очистить данные сайтов, которыми давно не пользовались, поэтому копию стоит
+          сохранять время от времени.
         </p>
 
         <div className="settings-group">
-          <div className="settings-row">
-            <span className="label">Сеть</span>
-            <span className="value">не используется</span>
-          </div>
           <div className="settings-row">
             <span className="label">Всего очков</span>
             <span className="value">{model.totalPoints}</span>

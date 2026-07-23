@@ -216,6 +216,7 @@ export function Player() {
 function mistakeHint(diff: WordDiff[] | undefined): string | null {
   const summary = diffSummary(diff)
   if (!summary) return null
+  if (summary.orderOnly) return 'Слова верные, но порядок другой'
   const parts: string[] = []
   if (summary.missing.length) parts.push(`не хватает: ${summary.missing.join(', ')}`)
   if (summary.extra.length) parts.push(`лишнее: ${summary.extra.join(', ')}`)

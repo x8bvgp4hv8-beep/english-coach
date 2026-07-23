@@ -143,10 +143,18 @@ function typoOf(answerWords: string[], expectedWords: string[]): string | null {
   return distance > 0 && distance <= budget ? expected : null
 }
 
+/** Splits into words for display: punctuation is dropped, but the writing is kept. */
+function displayWords(input: string): string[] {
+  return input.replace(/’/g, "'").replace(PUNCTUATION, ' ').split(/\s+/).filter(Boolean)
+}
+
 /** Word level diff, so feedback can say what is missing rather than just print the answer. */
 export function diffWords(answer: string, canonical: string): WordDiff[] {
   const a = normalize(answer).split(' ').filter(Boolean)
   const b = normalize(canonical).split(' ').filter(Boolean)
+  // Compared in lower case, shown as written: "не хватает: Monday", not "monday".
+  const aShown = displayWords(answer)
+  const bShown = displayWords(canonical)
   const table: number[][] = Array.from({ length: a.length + 1 }, () => new Array(b.length + 1).fill(0))
   for (let i = a.length - 1; i >= 0; i -= 1) {
     for (let j = b.length - 1; j >= 0; j -= 1) {
@@ -158,19 +166,19 @@ export function diffWords(answer: string, canonical: string): WordDiff[] {
   let j = 0
   while (i < a.length && j < b.length) {
     if (a[i] === b[j]) {
-      diff.push({ kind: 'same', text: b[j] })
+      diff.push({ kind: 'same', text: bShown[j] ?? b[j] })
       i += 1
       j += 1
     } else if (table[i + 1][j] >= table[i][j + 1]) {
-      diff.push({ kind: 'extra', text: a[i] })
+      diff.push({ kind: 'extra', text: aShown[i] ?? a[i] })
       i += 1
     } else {
-      diff.push({ kind: 'missing', text: b[j] })
+      diff.push({ kind: 'missing', text: bShown[j] ?? b[j] })
       j += 1
     }
   }
-  while (i < a.length) { diff.push({ kind: 'extra', text: a[i] }); i += 1 }
-  while (j < b.length) { diff.push({ kind: 'missing', text: b[j] }); j += 1 }
+  while (i < a.length) { diff.push({ kind: 'extra', text: aShown[i] ?? a[i] }); i += 1 }
+  while (j < b.length) { diff.push({ kind: 'missing', text: bShown[j] ?? b[j] }); j += 1 }
   return diff
 }
 
@@ -178,14 +186,18 @@ export function diffWords(answer: string, canonical: string): WordDiff[] {
  * What to tell the learner about a wrong answer, or null when the answer is too far
  * off for a word list to help: naming twelve missing words is noise, not feedback.
  */
-export function diffSummary(diff: WordDiff[] | undefined): { missing: string[]; extra: string[] } | null {
+export function diffSummary(diff: WordDiff[] | undefined): { missing: string[]; extra: string[]; orderOnly: boolean } | null {
   if (!diff || diff.length === 0) return null
   const same = diff.filter((part) => part.kind === 'same').length
   const expected = diff.filter((part) => part.kind !== 'extra').length
   if (expected === 0 || same / expected < 0.5) return null
   const missing = diff.filter((part) => part.kind === 'missing').map((part) => part.text)
   const extra = diff.filter((part) => part.kind === 'extra').map((part) => part.text)
-  return missing.length || extra.length ? { missing, extra } : null
+  if (!missing.length && !extra.length) return null
+  // Same words, different places: listing them as both missing and extra reads as nonsense.
+  const key = (words: string[]) => words.map((word) => word.toLowerCase()).sort().join(' ')
+  const orderOnly = missing.length > 0 && key(missing) === key(extra)
+  return { missing, extra, orderOnly }
 }
 
 export function check(answer: string, canonical: string, accepted: string[] = []): AnswerResult {

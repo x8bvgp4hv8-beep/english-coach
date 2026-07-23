@@ -44,6 +44,10 @@ expect(AnswerChecker.check("I visited three city", canonical: "I visited three c
 expect(AnswerChecker.diffSummary(AnswerChecker.check("complete nonsense here", canonical: "I usually drink coffee in the morning").diff) == nil, "no word list for a completely unrelated answer")
 let close = AnswerChecker.diffSummary(AnswerChecker.check("I usually drink coffee morning", canonical: "I usually drink coffee in the morning").diff)
 expect(close?.missing == ["in", "the"], "near miss names the missing words")
+let reordered = AnswerChecker.diffSummary(AnswerChecker.check("Monday I work on", canonical: "I work on Monday.").diff)
+expect(reordered?.orderOnly == true, "same words in another order is an order mistake")
+let casing = AnswerChecker.diffSummary(AnswerChecker.check("I work", canonical: "I work on Monday").diff)
+expect(casing?.missing == ["on", "Monday"], "missing words keep their writing")
 let diff = AnswerChecker.check("I go cinema", canonical: "I go to the cinema").diff
 expect(diff.filter { $0.kind == .missing }.map(\.text) == ["to", "the"], "diff names the missing words")
 expect(AnswerChecker.check("I go to the big cinema", canonical: "I go to the cinema").diff.filter { $0.kind == .extra }.map(\.text) == ["big"], "diff names the extra word")
