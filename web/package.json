@@ -1,0 +1,32 @@
+{
+  "name": "english-coach-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "sync-content": "node scripts/sync-content.mjs",
+    "dev": "npm run sync-content && vite",
+    "build": "npm run sync-content && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "npm run sync-content && vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "comment": "No @vitejs/plugin-react on purpose: its babel/browserslist chain wants caniuse builds the registry does not serve, and Vite compiles JSX with esbuild anyway. The cost is no Fast Refresh in dev.",
+  "overrides": {
+    "baseline-browser-mapping": "2.10.32",
+    "caniuse-lite": "1.0.30001793"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vite-plugin-pwa": "^0.21.1",
+    "vitest": "^2.1.8"
+  }
+}

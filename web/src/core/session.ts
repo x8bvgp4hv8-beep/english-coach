@@ -1,0 +1,130 @@
+import { check } from './answer'
+import { ReviewEngine } from './engines'
+import type { AnswerResult, Exercise, Lesson, UserState } from './types'
+
+/**
+ * Mirrors EnglishCoachCore/LearningSession.swift.
+ * Swift uses a mutating struct; here it is a class that owns a copy of the state
+ * and hands it back through `state`.
+ */
+export class LearningSession {
+  state: UserState
+  activeLesson: Lesson | null = null
+  exerciseIndex = 0
+  feedback: AnswerResult | null = null
+  retryUsed = false
+
+  constructor(state: UserState) {
+    this.state = state
+  }
+
+  get currentExercise(): Exercise | null {
+    const lesson = this.activeLesson
+    if (!lesson || this.exerciseIndex < 0 || this.exerciseIndex >= lesson.exercises.length) return null
+    return lesson.exercises[this.exerciseIndex]
+  }
+
+  get isComplete(): boolean {
+    return this.activeLesson !== null && this.exerciseIndex >= this.activeLesson.exercises.length
+  }
+
+  get canGoBack(): boolean {
+    return this.exerciseIndex > 0
+  }
+
+  start(lesson: Lesson): void {
+    this.activeLesson = lesson
+    this.exerciseIndex = 0
+    this.feedback = null
+    this.retryUsed = false
+  }
+
+  submitText(answer: string, now: Date = new Date()): AnswerResult {
+    const exercise = this.currentExercise
+    if (!exercise) return { isCorrect: false, canonical: '' }
+    const result = check(answer, exercise.canonicalAnswer ?? '', exercise.acceptedAnswers ?? [])
+    this.record(exercise, result, now)
+    return result
+  }
+
+  submitChoice(choice: string, now: Date = new Date()): AnswerResult {
+    const exercise = this.currentExercise
+    if (!exercise) return { isCorrect: false, canonical: '' }
+    const result = check(choice, exercise.correctOption ?? '', [])
+    this.record(exercise, result, now)
+    return result
+  }
+
+  completePassiveExercise(now: Date = new Date()): void {
+    const exercise = this.currentExercise
+    if (!exercise) return
+    this.record(exercise, { isCorrect: true, canonical: exercise.prompt ?? exercise.title ?? '' }, now)
+    this.advance()
+  }
+
+  advance(): void {
+    this.feedback = null
+    this.retryUsed = false
+    this.exerciseIndex += 1
+    const lesson = this.activeLesson
+    if (lesson && this.exerciseIndex >= lesson.exercises.length && !this.state.completedLessonIDs.includes(lesson.id)) {
+      this.state.completedLessonIDs = [...this.state.completedLessonIDs, lesson.id]
+    }
+  }
+
+  retry(): void {
+    this.retryUsed = true
+    this.feedback = null
+  }
+
+  goBack(): void {
+    if (this.exerciseIndex <= 0) return
+    this.feedback = null
+    this.retryUsed = false
+    this.exerciseIndex -= 1
+  }
+
+  /** Test helper: answers the current exercise correctly, whatever its type. */
+  completeCurrentCorrectly(now: Date = new Date()): void {
+    const exercise = this.currentExercise
+    if (!exercise) return
+    switch (exercise.type) {
+      case 'info':
+      case 'flashcard':
+        this.completePassiveExercise(now)
+        break
+      case 'multiple_choice':
+        this.submitChoice(exercise.correctOption ?? '', now)
+        this.advance()
+        break
+      case 'translate':
+      case 'word_order':
+        this.submitText(exercise.canonicalAnswer ?? '', now)
+        this.advance()
+        break
+    }
+  }
+
+  private record(exercise: Exercise, result: AnswerResult, now: Date): void {
+    this.feedback = result
+    this.state.attempts = [
+      ...this.state.attempts,
+      { id: crypto.randomUUID(), exerciseID: exercise.id, correct: result.isCorrect, date: now },
+    ]
+    const index = this.state.reviews.findIndex((item) => item.exerciseID === exercise.id)
+    if (result.isCorrect) {
+      this.state.points += 10
+      if (index >= 0) {
+        const reviews = [...this.state.reviews]
+        reviews[index] = ReviewEngine.recordSuccess(reviews[index], now)
+        this.state.reviews = reviews
+      }
+    } else if (index >= 0) {
+      const reviews = [...this.state.reviews]
+      reviews[index] = ReviewEngine.recordFailure(reviews[index], now)
+      this.state.reviews = reviews
+    } else {
+      this.state.reviews = [...this.state.reviews, ReviewEngine.newItem(exercise.id, now)]
+    }
+  }
+}
