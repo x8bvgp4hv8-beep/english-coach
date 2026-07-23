@@ -195,6 +195,39 @@ do {
     expect(PracticeLog.adding(seconds: -5, to: nil, on: day).isEmpty, "negative time is ignored")
 }
 
+// Endless practice. Mirrors web/src/core/core.test.ts.
+do {
+    let courses = try ContentRepository.loadBundled()
+    let identity: ([Exercise]) -> [Exercise] = { $0 }
+    let set = PracticeEngine.build(courses: courses, level: .b1, state: .fresh, size: 25, shuffle: identity)
+    expect(set.count == 25, "practice fills the requested size")
+    expect(!set.contains { $0.type == .info }, "practice never offers rule cards")
+    expect(Set(set.map(\.id)).count == set.count, "practice does not repeat an exercise")
+
+    let a1a2 = ProgressionEngine.exerciseIDs(for: .a1, in: courses).union(ProgressionEngine.exerciseIDs(for: .a2, in: courses))
+    let lower = PracticeEngine.build(courses: courses, level: .a2, state: .fresh, size: 40, shuffle: identity)
+    expect(lower.allSatisfy { a1a2.contains($0.id) }, "practice stays at the current level and below")
+
+    let pool = PracticeEngine.pool(courses: courses, level: .a1)
+    var state = UserState.fresh
+    var dueItem = ReviewEngine.newItem(exerciseID: pool[5].id, now: now)
+    dueItem.due = now.addingTimeInterval(-86_400)
+    state.reviews = [dueItem]
+    state.attempts = [
+        AttemptRecord(id: UUID(), exerciseID: pool[9].id, correct: false, date: now),
+        AttemptRecord(id: UUID(), exerciseID: pool[0].id, correct: true, date: now)
+    ]
+    let ordered = PracticeEngine.build(courses: courses, level: .a1, state: state, size: 5, now: now, shuffle: identity)
+    expect(ordered.first?.id == pool[5].id, "due repetitions come first")
+    expect(ordered.count > 1 && ordered[1].id == pool[9].id, "old mistakes come second")
+
+    var practiceSession = LearningSession(state: .fresh)
+    practiceSession.start(PracticeEngine.lesson(Array(set.prefix(3))), recordsCompletion: false)
+    while !practiceSession.isComplete { practiceSession.completeCurrentCorrectlyForTesting(now: now) }
+    expect(practiceSession.state.completedLessonIDs.isEmpty, "practice is never recorded as a completed lesson")
+    expect(practiceSession.state.points > 0, "practice still awards points")
+} catch { failures += 1; print("✗ practice engine: \(error)") }
+
 // ProgressionEngine: level completion, accuracy and advancement suggestion.
 do {
     let courses = try ContentRepository.loadBundled()

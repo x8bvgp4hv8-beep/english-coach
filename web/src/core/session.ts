@@ -13,6 +13,7 @@ export class LearningSession {
   exerciseIndex = 0
   feedback: AnswerResult | null = null
   retryUsed = false
+  private recordsCompletion = true
   private lastAnswer: string | null = null
   /** Set when the current attempt created a fresh review item, so it can be undone. */
   private lastCreatedReviewID: string | null = null
@@ -35,8 +36,13 @@ export class LearningSession {
     return this.exerciseIndex > 0
   }
 
-  start(lesson: Lesson): void {
+  /**
+   * `recordsCompletion: false` for generated sets (practice, daily review): finishing
+   * them must not put a synthetic lesson id into the learner's completed lessons.
+   */
+  start(lesson: Lesson, options: { recordsCompletion?: boolean } = {}): void {
     this.activeLesson = lesson
+    this.recordsCompletion = options.recordsCompletion ?? true
     this.exerciseIndex = 0
     this.feedback = null
     this.retryUsed = false
@@ -104,7 +110,11 @@ export class LearningSession {
     this.retryUsed = false
     this.exerciseIndex += 1
     const lesson = this.activeLesson
-    if (lesson && this.exerciseIndex >= lesson.exercises.length && !this.state.completedLessonIDs.includes(lesson.id)) {
+    if (
+      lesson && this.recordsCompletion &&
+      this.exerciseIndex >= lesson.exercises.length &&
+      !this.state.completedLessonIDs.includes(lesson.id)
+    ) {
       this.state.completedLessonIDs = [...this.state.completedLessonIDs, lesson.id]
     }
   }

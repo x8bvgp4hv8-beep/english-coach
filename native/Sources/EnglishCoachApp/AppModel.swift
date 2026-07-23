@@ -74,7 +74,20 @@ final class AppModel {
         syncAndSave()
     }
 
-    func startLesson(_ lesson: Lesson) { session = LearningSession(state: state); session.start(lesson); lessonStartedAt = .now }
+    func startLesson(_ lesson: Lesson, recordsCompletion: Bool = true) {
+        session = LearningSession(state: state)
+        session.start(lesson, recordsCompletion: recordsCompletion)
+        lessonStartedAt = .now
+    }
+
+    /// Endless practice: the course runs out in an evening, the habit needs longer.
+    var practiceIsAvailable: Bool { !PracticeEngine.pool(courses: courses, level: selectedLevel).isEmpty }
+
+    func startPractice() {
+        let exercises = PracticeEngine.build(courses: courses, level: selectedLevel, state: state)
+        guard !exercises.isEmpty else { return }
+        startLesson(PracticeEngine.lesson(exercises), recordsCompletion: false)
+    }
     func closeLesson() { state = session.state; bankPracticeTime(); session = LearningSession(state: state); save() }
 
     func submitText(_ answer: String) { _ = session.submitText(answer); state = session.state; save() }
@@ -93,7 +106,7 @@ final class AppModel {
         let dueIDs = Set(state.reviews.filter { $0.due <= .now }.map(\.exerciseID))
         let exercises = courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises).filter { dueIDs.contains($0.id) }
         guard !exercises.isEmpty else { return }
-        startLesson(Lesson(id: "daily-review", title: "Повторение", summary: "Закрепи сложные фразы.", estimatedMinutes: max(2, exercises.count), exercises: exercises))
+        startLesson(Lesson(id: "daily-review", title: "Повторение", summary: "Закрепи сложные фразы.", estimatedMinutes: max(2, exercises.count), exercises: exercises), recordsCompletion: false)
     }
 
     func goBack() { session.goBack() }

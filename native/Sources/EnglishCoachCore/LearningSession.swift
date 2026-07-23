@@ -6,6 +6,7 @@ public struct LearningSession: Sendable {
     public private(set) var exerciseIndex = 0
     public private(set) var feedback: AnswerResult?
     public private(set) var retryUsed = false
+    private var recordsCompletion = true
     private var lastAnswer: String?
     /// Set when the current attempt created a fresh review item, so it can be undone.
     private var lastCreatedReviewID: String?
@@ -22,8 +23,11 @@ public struct LearningSession: Sendable {
         return exerciseIndex >= lesson.exercises.count
     }
 
-    public mutating func start(_ lesson: Lesson) {
-        activeLesson = lesson; exerciseIndex = 0; feedback = nil; retryUsed = false
+    /// `recordsCompletion: false` for generated sets (practice, daily review): finishing
+    /// them must not put a synthetic lesson id into the learner's completed lessons.
+    public mutating func start(_ lesson: Lesson, recordsCompletion: Bool = true) {
+        activeLesson = lesson; self.recordsCompletion = recordsCompletion
+        exerciseIndex = 0; feedback = nil; retryUsed = false
     }
 
     @discardableResult
@@ -77,7 +81,7 @@ public struct LearningSession: Sendable {
 
     public mutating func advance() {
         feedback = nil; retryUsed = false; exerciseIndex += 1
-        if let lesson = activeLesson, exerciseIndex >= lesson.exercises.count {
+        if let lesson = activeLesson, recordsCompletion, exerciseIndex >= lesson.exercises.count {
             state.completedLessonIDs.insert(lesson.id)
         }
     }

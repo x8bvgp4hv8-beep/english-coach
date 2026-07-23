@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest'
 import { check, normalize } from './answer'
 import { decodeCourse, decodePlacement } from './content'
 import { CourseRouting, LevelOrder, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
+import { PracticeEngine } from './practice'
 import { LearningSession } from './session'
 import { deserialize, serialize } from './storage'
 import { EXERCISE_TYPES, LEVELS, freshState } from './types'
@@ -335,6 +336,58 @@ describe('placement', () => {
     expect(PlacementScorer.isDecided(bank, throughA2, a1)).toBe(true)
     expect(PlacementScorer.isDecided(bank, allIDs, allIDs)).toBe(true)
     expect(PlacementScorer.isDecided(bank, partialA2, a1)).toBe(false)
+  })
+})
+
+describe('endless practice', () => {
+  // Deterministic shuffling so the assertions are about the ordering rules, not luck.
+  const seeded = () => {
+    let seed = 42
+    return () => {
+      seed = (seed * 1103515245 + 12345) % 2147483648
+      return seed / 2147483648
+    }
+  }
+
+  it('never offers rule cards and never runs out', () => {
+    const state = freshState()
+    const set = PracticeEngine.build({ courses, level: 'B1', state, size: 25, random: seeded() })
+    expect(set).toHaveLength(25)
+    expect(set.some((e) => e.type === 'info')).toBe(false)
+    expect(new Set(set.map((e) => e.id)).size).toBe(25)
+  })
+
+  it('draws only from the current level and below', () => {
+    const set = PracticeEngine.build({ courses, level: 'A2', state: freshState(), size: 40, random: seeded() })
+    const a1a2 = new Set([...ProgressionEngine.exerciseIDs('A1', courses), ...ProgressionEngine.exerciseIDs('A2', courses)])
+    expect(set.every((e) => a1a2.has(e.id))).toBe(true)
+  })
+
+  it('puts due repetitions first, then old mistakes', () => {
+    const state = freshState()
+    const pool = PracticeEngine.pool(courses, 'A1')
+    const dueExercise = pool[5]
+    const failedExercise = pool[9]
+    state.reviews = [{ ...ReviewEngine.newItem(dueExercise.id, now), due: new Date(now.getTime() - 86_400_000) }]
+    state.attempts = [
+      { id: '1', exerciseID: failedExercise.id, correct: false, date: now },
+      { id: '2', exerciseID: pool[0].id, correct: true, date: now },
+    ]
+
+    const set = PracticeEngine.build({ courses, level: 'A1', state, size: 5, now, random: seeded() })
+    expect(set[0].id).toBe(dueExercise.id)
+    expect(set[1].id).toBe(failedExercise.id)
+    // An exercise already answered correctly is not repeated while unseen ones remain.
+    expect(set.slice(2).some((e) => e.id === pool[0].id)).toBe(false)
+  })
+
+  it('does not mark a synthetic lesson as a completed lesson', () => {
+    const set = PracticeEngine.build({ courses, level: 'A1', state: freshState(), size: 3, random: seeded() })
+    const session = new LearningSession(freshState())
+    session.start(PracticeEngine.lesson(set), { recordsCompletion: false })
+    while (!session.isComplete) session.completeCurrentCorrectly(now)
+    expect(session.state.completedLessonIDs).toHaveLength(0)
+    expect(session.state.points).toBeGreaterThan(0)
   })
 })
 

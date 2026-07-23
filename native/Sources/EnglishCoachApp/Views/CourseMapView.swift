@@ -11,6 +11,7 @@ struct CourseMapView: View {
                 LazyVStack(alignment: .leading, spacing: 0) {
                     continueCard
                     if model.dueCount > 0 { reviewCard }
+                    if model.practiceIsAvailable { practiceCard }
                     if let next = model.suggestedNextLevel { levelUpCard(next) }
                     ForEach(Array(chapters.enumerated()), id: \.element.id) { number, chapter in
                         chapterSection(number: number + 1, chapter: chapter)
@@ -111,6 +112,17 @@ struct CourseMapView: View {
             title: "\(model.dueCount) \(pluralize(model.dueCount, "упражнение", "упражнения", "упражнений")) \(pluralize(model.dueCount, "ждёт", "ждут", "ждут"))",
             subtitle: "Ошибки возвращаются, пока не закрепятся",
             action: { model.startReview() }
+        ).padding(.top, 10)
+    }
+
+    private var practiceCard: some View {
+        ActionCard(
+            icon: "bolt.fill",
+            iconColor: CoachTheme.violet,
+            kicker: "ТРЕНИРОВКА",
+            title: "10 упражнений вперемешку",
+            subtitle: "Не кончается: сначала сложное, потом новое",
+            action: { model.startPractice() }
         ).padding(.top, 10)
     }
 
