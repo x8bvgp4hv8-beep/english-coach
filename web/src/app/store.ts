@@ -3,6 +3,7 @@ import {
   LearningSession,
   LevelOrder,
   PlacementScorer,
+  PRACTICE_KINDS,
   PracticeEngine,
   PracticeLog,
   ProgressionEngine,
@@ -172,10 +173,17 @@ export class AppStore {
     }, false)
   }
 
-  startPractice(): void {
-    const exercises = PracticeEngine.build({ courses: this.courses, level: this.selectedLevel, state: this.state })
+  get practiceCounts(): Record<string, number> {
+    return PracticeEngine.counts(this.courses, this.selectedLevel)
+  }
+
+  startPractice(kindID = 'mixed'): void {
+    const kind = PRACTICE_KINDS.find((item) => item.id === kindID) ?? PRACTICE_KINDS[0]
+    const exercises = PracticeEngine.build({
+      courses: this.courses, level: this.selectedLevel, state: this.state, types: kind.types,
+    })
     if (exercises.length === 0) return
-    this.startLesson(PracticeEngine.lesson(exercises), false)
+    this.startLesson(PracticeEngine.lesson(exercises, kind.title), false)
   }
 
   closeLesson(): void {

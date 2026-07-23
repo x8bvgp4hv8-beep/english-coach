@@ -80,6 +80,23 @@ button { cursor: pointer; border: none; background: none; }
 .action-subtitle { font-size: 11px; color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .action-chevron { color: var(--ink-soft); font-size: 18px; }
 
+/* Named sections of the main screen */
+.section-title { margin: 26px 0 2px; }
+.section-title h2 { font-size: 13px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; margin: 0; color: var(--ink); }
+.section-title p { font-size: 12px; color: var(--ink-soft); margin: 3px 0 0; line-height: 1.35; }
+
+/* Kinds of practice */
+.kinds { margin-top: 10px; background: var(--surface-solid); border-radius: var(--radius); overflow: hidden; box-shadow: 0 8px 20px rgba(31, 28, 64, 0.06); }
+.kind { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; min-height: 60px; padding: 10px 14px; border-bottom: 1px solid var(--hairline); }
+.kind:last-child { border-bottom: none; }
+.kind:active:not(:disabled) { background: rgba(31, 28, 64, 0.04); }
+.kind:disabled { opacity: 0.4; }
+.kind-icon { width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; font-size: 17px; flex: none; }
+.kind-body { flex: 1; min-width: 0; }
+.kind-title { display: block; font-size: 15px; font-weight: 650; }
+.kind-subtitle { display: block; font-size: 11px; color: var(--ink-soft); }
+.kind-count { font-size: 13px; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
 /* Chapters and lessons */
 .chapter { margin-top: 26px; }
 .chapter-head { display: flex; align-items: baseline; gap: 8px; }

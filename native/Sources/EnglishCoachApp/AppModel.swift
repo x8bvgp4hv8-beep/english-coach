@@ -82,11 +82,13 @@ final class AppModel {
 
     /// Endless practice: the course runs out in an evening, the habit needs longer.
     var practiceIsAvailable: Bool { !PracticeEngine.pool(courses: courses, level: selectedLevel).isEmpty }
+    var practiceCounts: [String: Int] { PracticeEngine.counts(courses: courses, level: selectedLevel) }
 
-    func startPractice() {
-        let exercises = PracticeEngine.build(courses: courses, level: selectedLevel, state: state)
+    func startPractice(kindID: String = "mixed") {
+        let kind = PracticeEngine.kinds.first { $0.id == kindID } ?? PracticeEngine.kinds[0]
+        let exercises = PracticeEngine.build(courses: courses, level: selectedLevel, state: state, types: kind.types)
         guard !exercises.isEmpty else { return }
-        startLesson(PracticeEngine.lesson(exercises), recordsCompletion: false)
+        startLesson(PracticeEngine.lesson(exercises, title: kind.title), recordsCompletion: false)
     }
     func closeLesson() { state = session.state; bankPracticeTime(); session = LearningSession(state: state); save() }
 

@@ -1,8 +1,29 @@
+import type { ReactNode } from 'react'
+
 import { useStore } from './App'
+import { PRACTICE_KINDS } from '../core'
 import type { AppStore } from './store'
 import type { Chapter, Lesson } from '../core'
 
 type LessonState = 'completed' | 'current' | 'available' | 'locked'
+
+const KIND_ICON: Record<string, string> = {
+  mixed: '⚡', flashcard: '🗂', translate: '✍️', word_order: '🧩', multiple_choice: '☑️',
+}
+const KIND_COLOR: Record<string, string> = {
+  mixed: 'var(--violet)', flashcard: 'var(--blue)', translate: 'var(--amber)',
+  word_order: 'var(--mint)', multiple_choice: '#c17ce0',
+}
+
+/** Named groups, so the screen answers "что тут вообще можно делать". */
+function SectionTitle({ children, hint }: { children: ReactNode; hint?: string }) {
+  return (
+    <div className="section-title">
+      <h2>{children}</h2>
+      {hint && <p>{hint}</p>}
+    </div>
+  )
+}
 
 export function MapScreen() {
   const model = useStore()
@@ -13,9 +34,12 @@ export function MapScreen() {
     <>
       <Header model={model} />
       <div className="scroll">
+        {model.suggestedNextLevel && <LevelUp model={model} />}
+
+        <SectionTitle>Сегодня</SectionTitle>
         {next && (
           <ActionCard
-            icon="▶" color="var(--amber)" kicker="ПРОДОЛЖИТЬ"
+            icon="▶" color="var(--amber)" kicker="СЛЕДУЮЩИЙ УРОК"
             title={next.title}
             subtitle={[model.chapterTitle(next), `${next.estimatedMinutes} мин`].filter(Boolean).join(' · ')}
             onClick={() => model.startLesson(next)}
@@ -29,17 +53,29 @@ export function MapScreen() {
             onClick={() => model.startReview()}
           />
         )}
-        {model.practiceIsAvailable && (
-          <ActionCard
-            icon="⚡" color="var(--violet)" kicker="ТРЕНИРОВКА"
-            title="10 упражнений вперемешку"
-            subtitle="Не кончается: сначала сложное, потом новое"
-            onClick={() => model.startPractice()}
-          />
-        )}
 
-        {model.suggestedNextLevel && <LevelUp model={model} />}
+        <SectionTitle hint="Можно тренировать отдельно, сколько угодно раз">Виды заданий</SectionTitle>
+        <div className="kinds">
+          {PRACTICE_KINDS.map((kind) => (
+            <button
+              key={kind.id}
+              className="kind"
+              disabled={(model.practiceCounts[kind.id] ?? 0) === 0}
+              onClick={() => model.startPractice(kind.id)}
+            >
+              <span className="kind-icon" style={{ background: KIND_COLOR[kind.id] }}>{KIND_ICON[kind.id]}</span>
+              <span className="kind-body">
+                <span className="kind-title">{kind.title}</span>
+                <span className="kind-subtitle">{kind.subtitle}</span>
+              </span>
+              <span className="kind-count">{model.practiceCounts[kind.id] ?? 0}</span>
+            </button>
+          ))}
+        </div>
 
+        <SectionTitle hint="Уроки идут по порядку: правило, новые фразы, упражнения">
+          Маршрут {model.selectedLevel}
+        </SectionTitle>
         {chapters.map((chapter, index) => (
           <ChapterSection key={chapter.id} model={model} chapter={chapter} number={index + 1} />
         ))}

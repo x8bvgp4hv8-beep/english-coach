@@ -1,5 +1,5 @@
 import { LEVELS } from './types'
-import type { CEFRLevel, CoursePack, Exercise, Lesson, UserState } from './types'
+import type { CEFRLevel, CoursePack, Exercise, ExerciseType, Lesson, UserState } from './types'
 
 /**
  * Endless practice built from the corpus that already ships.
@@ -26,17 +26,28 @@ export interface PracticeOptions {
   courses: CoursePack[]
   level: CEFRLevel
   state: UserState
+  /** Restrict the set to one kind of exercise, for the "виды заданий" menu. */
+  types?: ExerciseType[]
   size?: number
   now?: Date
   random?: () => number
 }
+
+/** The kinds of practice offered on the main screen, in the order they are shown. */
+export const PRACTICE_KINDS: Array<{ id: string; title: string; subtitle: string; types: ExerciseType[] }> = [
+  { id: 'mixed', title: 'Всё вперемешку', subtitle: 'Сначала сложное, потом новое', types: ['flashcard', 'translate', 'word_order', 'multiple_choice'] },
+  { id: 'flashcard', title: 'Карточки', subtitle: 'Новые слова и фразы с озвучкой', types: ['flashcard'] },
+  { id: 'translate', title: 'Перевод', subtitle: 'С русского на английский, письменно', types: ['translate'] },
+  { id: 'word_order', title: 'Собрать предложение', subtitle: 'Слова даны, нужен порядок', types: ['word_order'] },
+  { id: 'multiple_choice', title: 'Тесты', subtitle: 'Выбрать правильный вариант', types: ['multiple_choice'] },
+]
 
 export const PracticeEngine = {
   /**
    * Everything the learner may be asked, up to and including the current level.
    * Rule cards are excluded: reading a rule is not practice.
    */
-  pool(courses: CoursePack[], level: CEFRLevel): Exercise[] {
+  pool(courses: CoursePack[], level: CEFRLevel, types?: ExerciseType[]): Exercise[] {
     const ceiling = LEVELS.indexOf(level)
     return courses
       .filter((course) => LEVELS.indexOf(course.level) <= ceiling)
@@ -45,10 +56,16 @@ export const PracticeEngine = {
       .flatMap((chapter) => chapter.lessons)
       .flatMap((lesson) => lesson.exercises)
       .filter((exercise) => exercise.type !== 'info')
+      .filter((exercise) => !types || types.includes(exercise.type))
   },
 
-  build({ courses, level, state, size = DEFAULT_SIZE, now = new Date(), random = Math.random }: PracticeOptions): Exercise[] {
-    const pool = this.pool(courses, level)
+  /** How much material each kind of practice has at this level, for the menu. */
+  counts(courses: CoursePack[], level: CEFRLevel): Record<string, number> {
+    return Object.fromEntries(PRACTICE_KINDS.map((kind) => [kind.id, this.pool(courses, level, kind.types).length]))
+  },
+
+  build({ courses, level, state, types, size = DEFAULT_SIZE, now = new Date(), random = Math.random }: PracticeOptions): Exercise[] {
+    const pool = this.pool(courses, level, types)
     if (pool.length === 0) return []
     const byID = new Map(pool.map((exercise) => [exercise.id, exercise]))
 
@@ -84,10 +101,10 @@ export const PracticeEngine = {
    * Practice is never "completed", so it is handed to the session as a lesson that
    * does not record completion.
    */
-  lesson(exercises: Exercise[]): Lesson {
+  lesson(exercises: Exercise[], title = 'Тренировка'): Lesson {
     return {
       id: PRACTICE_LESSON_ID,
-      title: 'Тренировка',
+      title,
       summary: 'Повторение и новые упражнения вперемешку.',
       estimatedMinutes: Math.max(2, Math.round(exercises.length * 0.6)),
       exercises,

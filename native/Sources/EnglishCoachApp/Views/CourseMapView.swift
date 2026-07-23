@@ -9,10 +9,15 @@ struct CourseMapView: View {
             header
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 0) {
+                    if let next = model.suggestedNextLevel { levelUpCard(next) }
+                    sectionTitle("Сегодня")
                     continueCard
                     if model.dueCount > 0 { reviewCard }
-                    if model.practiceIsAvailable { practiceCard }
-                    if let next = model.suggestedNextLevel { levelUpCard(next) }
+                    if model.practiceIsAvailable {
+                        sectionTitle("Виды заданий", hint: "Можно тренировать отдельно, сколько угодно раз")
+                        practiceKinds
+                    }
+                    sectionTitle("Маршрут \(model.selectedLevel.rawValue)", hint: "Уроки идут по порядку: правило, новые фразы, упражнения")
                     ForEach(Array(chapters.enumerated()), id: \.element.id) { number, chapter in
                         chapterSection(number: number + 1, chapter: chapter)
                     }
@@ -115,15 +120,55 @@ struct CourseMapView: View {
         ).padding(.top, 10)
     }
 
-    private var practiceCard: some View {
-        ActionCard(
-            icon: "bolt.fill",
-            iconColor: CoachTheme.violet,
-            kicker: "ТРЕНИРОВКА",
-            title: "10 упражнений вперемешку",
-            subtitle: "Не кончается: сначала сложное, потом новое",
-            action: { model.startPractice() }
-        ).padding(.top, 10)
+    /// Named groups, so the screen answers "что тут вообще можно делать".
+    private func sectionTitle(_ title: String, hint: String? = nil) -> some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text(title.uppercased()).font(.system(size: 12, weight: .black)).tracking(0.6)
+            if let hint { Text(hint).font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true) }
+        }.padding(.top, 24).frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private static let kindIcons: [String: (String, Color)] = [
+        "mixed": ("bolt.fill", CoachTheme.violet),
+        "flashcard": ("rectangle.on.rectangle.angled", CoachTheme.blue),
+        "translate": ("pencil.line", CoachTheme.amber),
+        "word_order": ("puzzlepiece.fill", CoachTheme.mint),
+        "multiple_choice": ("checkmark.square.fill", Color(red: 0.76, green: 0.49, blue: 0.88))
+    ]
+
+    private var practiceKinds: some View {
+        let counts = model.practiceCounts
+        return VStack(spacing: 0) {
+            ForEach(PracticeEngine.kinds) { kind in
+                let count = counts[kind.id] ?? 0
+                let art = Self.kindIcons[kind.id] ?? ("bolt.fill", CoachTheme.violet)
+                Button { model.startPractice(kindID: kind.id) } label: {
+                    HStack(spacing: 12) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 11, style: .continuous).fill(art.1).frame(width: 36, height: 36)
+                            Image(systemName: art.0).font(.system(size: 15, weight: .bold)).foregroundStyle(.white)
+                        }
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(kind.title).font(.system(size: 15, weight: .semibold))
+                            Text(kind.subtitle).font(.system(size: 11)).foregroundStyle(.secondary)
+                        }
+                        Spacer(minLength: 8)
+                        Text("\(count)").font(.system(size: 13, weight: .bold)).monospacedDigit().foregroundStyle(.secondary)
+                    }
+                    .padding(.horizontal, 14).padding(.vertical, 11)
+                    .frame(maxWidth: .infinity)
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .disabled(count == 0)
+                .opacity(count == 0 ? 0.4 : 1)
+                if kind.id != PracticeEngine.kinds.last?.id {
+                    Rectangle().fill(CoachTheme.hairline).frame(height: 1).padding(.leading, 62)
+                }
+            }
+        }
+        .background(.white.opacity(0.88), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .padding(.top, 10)
     }
 
     private func levelUpCard(_ next: CEFRLevel) -> some View {

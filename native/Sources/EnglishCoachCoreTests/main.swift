@@ -224,6 +224,12 @@ do {
     expect(ordered.first?.id == pool[5].id, "due repetitions come first")
     expect(ordered.count > 1 && ordered[1].id == pool[9].id, "old mistakes come second")
 
+    let cards = PracticeEngine.build(courses: courses, level: .b1, state: .fresh, types: [.flashcard], size: 12, shuffle: identity)
+    expect(!cards.isEmpty && cards.allSatisfy { $0.type == .flashcard }, "a kind of practice offers only that kind")
+    let counts = PracticeEngine.counts(courses: courses, level: .a1)
+    expect(counts["mixed"] == PracticeEngine.pool(courses: courses, level: .a1).count, "mixed counts the whole pool")
+    expect((counts["translate"] ?? 0) > 0 && (counts["translate"] ?? 0) < (counts["mixed"] ?? 0), "each kind counts its own share")
+
     var practiceSession = LearningSession(state: .fresh)
     practiceSession.start(PracticeEngine.lesson(Array(set.prefix(3))), recordsCompletion: false)
     while !practiceSession.isComplete { practiceSession.completeCurrentCorrectlyForTesting(now: now) }

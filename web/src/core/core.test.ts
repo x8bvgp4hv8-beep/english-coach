@@ -388,6 +388,17 @@ describe('endless practice', () => {
     expect(set.slice(2).some((e) => e.id === pool[0].id)).toBe(false)
   })
 
+  it('offers a single kind when the menu asks for one', () => {
+    const cards = PracticeEngine.build({ courses, level: 'B1', state: freshState(), types: ['flashcard'], size: 12, random: seeded() })
+    expect(cards.length).toBeGreaterThan(0)
+    expect(cards.every((e) => e.type === 'flashcard')).toBe(true)
+
+    const counts = PracticeEngine.counts(courses, 'A1')
+    expect(counts.mixed).toBe(PracticeEngine.pool(courses, 'A1').length)
+    expect(counts.translate).toBeGreaterThan(0)
+    expect(counts.translate).toBeLessThan(counts.mixed)
+  })
+
   it('does not mark a synthetic lesson as a completed lesson', () => {
     const set = PracticeEngine.build({ courses, level: 'A1', state: freshState(), size: 3, random: seeded() })
     const session = new LearningSession(freshState())
