@@ -95,5 +95,102 @@ do {
     expect(reviewSession.state.reviews.first!.due > firstDue, "successful review moves due date forward")
 } catch { failures += 1; print("✗ review completion: \(error)") }
 
+// Punctuation is ignored so word-order tokens and forgiving punctuation still match.
+expect(AnswerChecker.check("However , this approach has drawbacks .", canonical: "However, this approach has drawbacks.", accepted: []).isCorrect, "word-order joins with spaces still match canonical punctuation")
+expect(AnswerChecker.check("i work on monday", canonical: "I work on Monday.", accepted: []).isCorrect, "trailing period is forgiven")
+
+// Every bundled exercise must be solvable in-app: word_order tokens must reconstruct the
+// canonical answer, and each multiple_choice correctOption must be accepted.
+func sortedWords(_ text: String) -> [String] { AnswerChecker.normalize(text).split(separator: " ").map(String.init).sorted() }
+do {
+    for course in try ContentRepository.loadBundled() {
+        for exercise in course.chapters.flatMap(\.lessons).flatMap(\.exercises) {
+            switch exercise.type {
+            case .wordOrder:
+                // Tokens are intentionally shuffled; the learner reorders them. Solvable means the
+                // multiset of words (punctuation ignored, as in the app) matches the canonical answer.
+                let ok = sortedWords((exercise.tokens ?? []).joined(separator: " ")) == sortedWords(exercise.canonicalAnswer ?? "")
+                expect(ok, "\(exercise.id): word_order tokens reconstruct answer")
+            case .multipleChoice:
+                let ok = (exercise.options ?? []).contains(exercise.correctOption ?? "___missing")
+                expect(ok, "\(exercise.id): multiple_choice correctOption is valid")
+            case .translate:
+                expect(!(exercise.canonicalAnswer ?? "").isEmpty, "\(exercise.id): translate has an answer")
+            case .info, .flashcard:
+                break
+            }
+        }
+    }
+} catch { failures += 1; print("✗ content solvability: \(error)") }
+
+// Course depth: each level should now have several lessons for real progression.
+do {
+    for course in try ContentRepository.loadBundled() {
+        let lessons = course.chapters.flatMap(\.lessons)
+        expect(lessons.count >= 3, "\(course.level.rawValue) has at least three lessons")
+    }
+} catch { failures += 1; print("✗ course depth: \(error)") }
+
+// Placement bank loads and every question is well-formed with all five levels covered.
+do {
+    let bank = try ContentRepository.loadPlacement()
+    expect(bank.questions.count >= 10, "placement bank has enough questions")
+    expect(Set(bank.questions.map(\.level)) == Set(CEFRLevel.allCases), "placement covers A1-C1")
+    let allValid = bank.questions.allSatisfy { $0.options.contains($0.correctOption) }
+    expect(allValid, "every placement question has a valid correct option")
+} catch { failures += 1; print("✗ placement bank: \(error)") }
+
+// PlacementScorer places the learner where they start to struggle.
+do {
+    let bank = try ContentRepository.loadPlacement().questions
+    let allIDs = Set(bank.map(\.id))
+    expect(PlacementScorer.recommend(bank: bank, correctIDs: allIDs) == .c1, "all correct -> top level")
+    expect(PlacementScorer.recommend(bank: bank, correctIDs: []) == .a1, "none correct -> A1")
+    let throughA2 = Set(bank.filter { $0.level == .a1 || $0.level == .a2 }.map(\.id))
+    expect(PlacementScorer.recommend(bank: bank, correctIDs: throughA2) == .b1, "passes A1-A2 -> starts at B1")
+
+    // Early stop: once a level is failed the rest of the bank cannot change the answer.
+    let a1IDs = Set(bank.filter { $0.level == .a1 }.map(\.id))
+    expect(!PlacementScorer.isDecided(bank: bank, answeredIDs: [], correctIDs: []), "nothing answered -> not decided")
+    expect(PlacementScorer.isDecided(bank: bank, answeredIDs: a1IDs, correctIDs: []), "failed A1 -> decided after five questions")
+    expect(!PlacementScorer.isDecided(bank: bank, answeredIDs: a1IDs, correctIDs: a1IDs), "passed A1 -> keep going")
+    let throughA2Answered = Set(bank.filter { $0.level == .a1 || $0.level == .a2 }.map(\.id))
+    expect(PlacementScorer.isDecided(bank: bank, answeredIDs: throughA2Answered, correctIDs: a1IDs), "failed A2 -> decided")
+    expect(PlacementScorer.isDecided(bank: bank, answeredIDs: allIDs, correctIDs: allIDs), "whole bank answered -> decided")
+    // A half-answered level is never decided, even when every answer so far is wrong.
+    let partialA2 = a1IDs.union(bank.filter { $0.level == .a2 }.prefix(2).map(\.id))
+    expect(!PlacementScorer.isDecided(bank: bank, answeredIDs: partialA2, correctIDs: a1IDs), "mid-level -> wait for the whole block")
+} catch { failures += 1; print("✗ placement scoring: \(error)") }
+
+// PracticeLog: daily goal bookkeeping.
+do {
+    let day = Date(timeIntervalSince1970: 1_753_000_000)
+    let nextDay = day.addingTimeInterval(26 * 3600)
+    var log = PracticeLog.adding(seconds: 240, to: nil, on: day)
+    log = PracticeLog.adding(seconds: 200, to: log, on: day)
+    expect(PracticeLog.minutes(in: log, on: day) == 7, "practice minutes accumulate within a day")
+    expect(PracticeLog.minutes(in: log, on: nextDay) == 0, "practice minutes do not leak into the next day")
+    let capped = PracticeLog.adding(seconds: 10 * 3600, to: nil, on: day)
+    expect(PracticeLog.minutes(in: capped, on: day) == 30, "an idle window is capped at 30 minutes")
+    expect(PracticeLog.adding(seconds: -5, to: nil, on: day).isEmpty, "negative time is ignored")
+}
+
+// ProgressionEngine: level completion, accuracy and advancement suggestion.
+do {
+    let courses = try ContentRepository.loadBundled()
+    let a1Lessons = ProgressionEngine.lessons(for: .a1, in: courses)
+    expect(!a1Lessons.isEmpty, "A1 has lessons")
+    let done = Set(a1Lessons.map(\.id))
+    expect(ProgressionEngine.isLevelComplete(level: .a1, courses: courses, completed: done), "all A1 lessons done -> level complete")
+    expect(!ProgressionEngine.isLevelComplete(level: .a1, courses: courses, completed: []), "no lessons done -> not complete")
+    // High accuracy over A1 exercises should trigger an advancement suggestion.
+    let a1IDs = ProgressionEngine.exerciseIDs(for: .a1, in: courses)
+    let goodAttempts = a1IDs.map { AttemptRecord(id: UUID(), exerciseID: $0, correct: true, date: now) }
+    expect(ProgressionEngine.shouldSuggestAdvance(level: .a1, courses: courses, completed: done, attempts: goodAttempts, dismissed: []), "mastered level suggests advance")
+    expect(!ProgressionEngine.shouldSuggestAdvance(level: .a1, courses: courses, completed: done, attempts: goodAttempts, dismissed: ["A1"]), "dismissed level does not re-suggest")
+    expect(LevelOrder.next(after: .a1) == .a2, "next level after A1 is A2")
+    expect(LevelOrder.next(after: .c1) == nil, "no level after C1")
+} catch { failures += 1; print("✗ progression engine: \(error)") }
+
 if failures > 0 { print("\n\(failures) test(s) failed"); exit(1) }
 print("\nAll core tests passed")

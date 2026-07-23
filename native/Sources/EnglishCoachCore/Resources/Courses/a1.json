@@ -1,27 +1,574 @@
 {
   "schemaVersion": 1,
   "level": "A1",
-  "chapters": [{
-    "id": "a1-introductions",
-    "title": "Hello!",
-    "subtitle": "Знакомство и глагол to be",
-    "lessons": [{
-      "id": "a1-introductions-01",
-      "title": "Meet someone new",
-      "summary": "Научись представляться и задавать простые вопросы.",
-      "estimatedMinutes": 8,
-      "exercises": [
-        {"id":"a1-info-1","type":"info","title":"I am, you are","explanation":"После I используй am. После you, we и they используй are. После he, she и it — is."},
-        {"id":"a1-card-1","type":"flashcard","prompt":"Nice to meet you.","translation":"Приятно познакомиться.","example":"Hi, I'm Anna. Nice to meet you."},
-        {"id":"a1-translate-1","type":"translate","prompt":"Я из Вильнюса.","canonicalAnswer":"I am from Vilnius.","acceptedAnswers":["I'm from Vilnius."],"hint":"I am / I'm"},
-        {"id":"a1-order-1","type":"word_order","prompt":"Как тебя зовут?","canonicalAnswer":"What is your name?","tokens":["your","What","name","is","?"]},
-        {"id":"a1-choice-1","type":"multiple_choice","prompt":"She ___ my sister.","options":["am","is","are"],"correctOption":"is"},
-        {"id":"a1-card-2","type":"flashcard","prompt":"Where are you from?","translation":"Откуда ты?","example":"Where are you from? I'm from Kaunas."},
-        {"id":"a1-translate-2","type":"translate","prompt":"Он мой брат.","canonicalAnswer":"He is my brother.","acceptedAnswers":["He's my brother."]},
-        {"id":"a1-order-2","type":"word_order","prompt":"Мы готовы.","canonicalAnswer":"We are ready.","tokens":["ready","We","are","."]},
-        {"id":"a1-choice-2","type":"multiple_choice","prompt":"I ___ happy to meet you.","options":["am","is","are"],"correctOption":"am"},
-        {"id":"a1-translate-3","type":"translate","prompt":"Они не дома.","canonicalAnswer":"They are not at home.","acceptedAnswers":["They aren't at home.","They're not at home."]}
+  "chapters": [
+    {
+      "id": "a1-introductions",
+      "title": "Hello!",
+      "subtitle": "Знакомство и глагол to be",
+      "lessons": [
+        {
+          "id": "a1-introductions-01",
+          "title": "Meet someone new",
+          "summary": "Научись представляться и задавать простые вопросы.",
+          "estimatedMinutes": 8,
+          "exercises": [
+            {
+              "id": "a1-info-1",
+              "type": "info",
+              "title": "I am, you are",
+              "explanation": "После I используй am. После you, we и they используй are. После he, she и it — is."
+            },
+            {
+              "id": "a1-card-1",
+              "type": "flashcard",
+              "prompt": "Nice to meet you.",
+              "translation": "Приятно познакомиться.",
+              "example": "Hi, I'm Anna. Nice to meet you."
+            },
+            {
+              "id": "a1-translate-1",
+              "type": "translate",
+              "prompt": "Я из Вильнюса.",
+              "canonicalAnswer": "I am from Vilnius.",
+              "acceptedAnswers": [
+                "I'm from Vilnius."
+              ],
+              "hint": "I am / I'm"
+            },
+            {
+              "id": "a1-order-1",
+              "type": "word_order",
+              "prompt": "Как тебя зовут?",
+              "canonicalAnswer": "What is your name?",
+              "tokens": [
+                "your",
+                "What",
+                "name",
+                "is",
+                "?"
+              ]
+            },
+            {
+              "id": "a1-choice-1",
+              "type": "multiple_choice",
+              "prompt": "She ___ my sister.",
+              "options": [
+                "am",
+                "is",
+                "are"
+              ],
+              "correctOption": "is"
+            },
+            {
+              "id": "a1-card-2",
+              "type": "flashcard",
+              "prompt": "Where are you from?",
+              "translation": "Откуда ты?",
+              "example": "Where are you from? I'm from Kaunas."
+            },
+            {
+              "id": "a1-translate-2",
+              "type": "translate",
+              "prompt": "Он мой брат.",
+              "canonicalAnswer": "He is my brother.",
+              "acceptedAnswers": [
+                "He's my brother."
+              ]
+            },
+            {
+              "id": "a1-order-2",
+              "type": "word_order",
+              "prompt": "Мы готовы.",
+              "canonicalAnswer": "We are ready.",
+              "tokens": [
+                "ready",
+                "We",
+                "are",
+                "."
+              ]
+            },
+            {
+              "id": "a1-choice-2",
+              "type": "multiple_choice",
+              "prompt": "I ___ happy to meet you.",
+              "options": [
+                "am",
+                "is",
+                "are"
+              ],
+              "correctOption": "am"
+            },
+            {
+              "id": "a1-translate-3",
+              "type": "translate",
+              "prompt": "Они не дома.",
+              "canonicalAnswer": "They are not at home.",
+              "acceptedAnswers": [
+                "They aren't at home.",
+                "They're not at home."
+              ]
+            }
+          ]
+        }
       ]
-    }]
-  }]
+    },
+    {
+      "id": "a1-ch2",
+      "title": "My Things",
+      "subtitle": "Повседневные предметы и артикли a/an/the",
+      "lessons": [
+        {
+          "id": "a1-ch2-l1",
+          "title": "A pen and an apple",
+          "summary": "Учим артикли a/an, слова this/that и названия предметов.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "a1-ch2-l1-ex1",
+              "type": "info",
+              "title": "a или an",
+              "explanation": "Перед согласным звуком ставь a: a pen, a book. Перед гласным звуком ставь an: an apple, an egg.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch2-l1-ex2",
+              "type": "flashcard",
+              "prompt": "a pen",
+              "translation": "ручка",
+              "example": "This is a pen.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch2-l1-ex3",
+              "type": "flashcard",
+              "prompt": "an apple",
+              "translation": "яблоко",
+              "example": "I have an apple.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch2-l1-ex4",
+              "type": "multiple_choice",
+              "prompt": "This is ___ egg.",
+              "options": [
+                "a",
+                "an",
+                "the"
+              ],
+              "correctOption": "an",
+              "explanation": "Перед гласным звуком используем an.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l1-ex5",
+              "type": "info",
+              "title": "this и that",
+              "explanation": "This — это (предмет рядом). That — то (предмет далеко).",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch2-l1-ex6",
+              "type": "flashcard",
+              "prompt": "a key",
+              "translation": "ключ",
+              "example": "That is my key.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch2-l1-ex7",
+              "type": "translate",
+              "prompt": "Это книга.",
+              "canonicalAnswer": "This is a book.",
+              "acceptedAnswers": [
+                "This is a book"
+              ],
+              "hint": "this + is + a + ...",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l1-ex8",
+              "type": "word_order",
+              "prompt": "Это яблоко.",
+              "canonicalAnswer": "This is an apple.",
+              "tokens": [
+                "apple",
+                "an",
+                "This",
+                "is",
+                "."
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l1-ex9",
+              "type": "multiple_choice",
+              "prompt": "___ is my bag (там, далеко).",
+              "options": [
+                "This",
+                "That",
+                "These"
+              ],
+              "correctOption": "That",
+              "explanation": "Предмет далеко — используем That.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l1-ex10",
+              "type": "translate",
+              "prompt": "Это ручка.",
+              "canonicalAnswer": "This is a pen.",
+              "acceptedAnswers": [
+                "This is a pen"
+              ],
+              "difficulty": 2
+            }
+          ]
+        },
+        {
+          "id": "a1-ch2-l2",
+          "title": "I have got a phone",
+          "summary": "Множественное число, these/those и оборот have got.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "a1-ch2-l2-ex1",
+              "type": "info",
+              "title": "Множественное число",
+              "explanation": "Для множественного числа обычно добавляем -s: book — books, key — keys, phone — phones.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch2-l2-ex2",
+              "type": "flashcard",
+              "prompt": "these books",
+              "translation": "эти книги",
+              "example": "These books are new.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l2-ex3",
+              "type": "multiple_choice",
+              "prompt": "I have three ___ .",
+              "options": [
+                "key",
+                "keys",
+                "a key"
+              ],
+              "correctOption": "keys",
+              "explanation": "После числа больше одного — множественное число.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l2-ex4",
+              "type": "info",
+              "title": "have got",
+              "explanation": "Про то, что у нас есть, говорим have got. С he, she, it — has got: She has got a car.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l2-ex5",
+              "type": "translate",
+              "prompt": "У меня есть собака.",
+              "canonicalAnswer": "I have got a dog.",
+              "acceptedAnswers": [
+                "I've got a dog.",
+                "I have a dog."
+              ],
+              "hint": "I have got a ...",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l2-ex6",
+              "type": "word_order",
+              "prompt": "У меня есть кот.",
+              "canonicalAnswer": "I have got a cat.",
+              "tokens": [
+                "got",
+                "cat",
+                "a",
+                "I",
+                "have",
+                "."
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l2-ex7",
+              "type": "multiple_choice",
+              "prompt": "She ___ a phone.",
+              "options": [
+                "have got",
+                "has got",
+                "got"
+              ],
+              "correctOption": "has got",
+              "explanation": "С she используем has got.",
+              "difficulty": 3
+            },
+            {
+              "id": "a1-ch2-l2-ex8",
+              "type": "translate",
+              "prompt": "У неё есть телефон.",
+              "canonicalAnswer": "She has got a phone.",
+              "acceptedAnswers": [
+                "She's got a phone.",
+                "She has a phone."
+              ],
+              "difficulty": 3
+            },
+            {
+              "id": "a1-ch2-l2-ex9",
+              "type": "flashcard",
+              "prompt": "those chairs",
+              "translation": "те стулья",
+              "example": "Those chairs are old.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch2-l2-ex10",
+              "type": "translate",
+              "prompt": "Это мои ключи.",
+              "canonicalAnswer": "These are my keys.",
+              "acceptedAnswers": [
+                "These are my keys"
+              ],
+              "hint": "these + are + ...",
+              "difficulty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1-ch3",
+      "title": "Everyday Routines",
+      "subtitle": "Present Simple: like/likes, do/does, дни недели, время суток и наречия частотности",
+      "lessons": [
+        {
+          "id": "a1-ch3-l1",
+          "title": "What I like",
+          "summary": "Учимся говорить о том, что мы любим и делаем каждый день.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "a1-ch3-l1-ex1",
+              "type": "info",
+              "title": "He, she, it + s",
+              "explanation": "В Present Simple после he, she, it к глаголу добавляем -s: I like, но he likes. С I, you, we, they глагол не меняется.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch3-l1-ex2",
+              "type": "flashcard",
+              "prompt": "every day",
+              "translation": "каждый день",
+              "example": "I drink water every day.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch3-l1-ex3",
+              "type": "flashcard",
+              "prompt": "on Monday",
+              "translation": "в понедельник",
+              "example": "We have English on Monday.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch3-l1-ex4",
+              "type": "multiple_choice",
+              "prompt": "She ___ coffee in the morning.",
+              "options": [
+                "like",
+                "likes",
+                "liking"
+              ],
+              "correctOption": "likes",
+              "explanation": "После she добавляем -s: likes.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch3-l1-ex5",
+              "type": "translate",
+              "prompt": "Я люблю чай.",
+              "canonicalAnswer": "I like tea.",
+              "acceptedAnswers": [
+                "I love tea."
+              ],
+              "hint": "like = любить, нравиться",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch3-l1-ex6",
+              "type": "word_order",
+              "prompt": "Ты любишь музыку?",
+              "canonicalAnswer": "Do you like music?",
+              "tokens": [
+                "like",
+                "music",
+                "Do",
+                "you",
+                "?"
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch3-l1-ex7",
+              "type": "multiple_choice",
+              "prompt": "___ he like pizza?",
+              "options": [
+                "Do",
+                "Does",
+                "Is"
+              ],
+              "correctOption": "Does",
+              "explanation": "С he в вопросе используем Does.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch3-l1-ex8",
+              "type": "translate",
+              "prompt": "Он не любит молоко.",
+              "canonicalAnswer": "He does not like milk.",
+              "acceptedAnswers": [
+                "He doesn't like milk."
+              ],
+              "hint": "отрицание: does not / doesn't",
+              "difficulty": 3
+            },
+            {
+              "id": "a1-ch3-l1-ex9",
+              "type": "word_order",
+              "prompt": "Я работаю в понедельник.",
+              "canonicalAnswer": "I work on Monday.",
+              "tokens": [
+                "Monday",
+                "on",
+                "I",
+                "work",
+                "."
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch3-l1-ex10",
+              "type": "flashcard",
+              "prompt": "on the weekend",
+              "translation": "на выходных",
+              "example": "I read books on the weekend.",
+              "difficulty": 2
+            }
+          ]
+        },
+        {
+          "id": "a1-ch3-l2",
+          "title": "Times of the day",
+          "summary": "Говорим о времени суток и о том, как часто мы что-то делаем.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "a1-ch3-l2-ex1",
+              "type": "info",
+              "title": "always, usually, often, never",
+              "explanation": "Наречия частотности (always, usually, often, sometimes, never) обычно ставятся перед основным глаголом: I always get up early.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch3-l2-ex2",
+              "type": "flashcard",
+              "prompt": "in the morning",
+              "translation": "утром",
+              "example": "I drink coffee in the morning.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch3-l2-ex3",
+              "type": "flashcard",
+              "prompt": "always",
+              "translation": "всегда",
+              "example": "She always smiles.",
+              "difficulty": 1
+            },
+            {
+              "id": "a1-ch3-l2-ex4",
+              "type": "multiple_choice",
+              "prompt": "I ___ at seven o'clock.",
+              "options": [
+                "always get up",
+                "get always up",
+                "get up always"
+              ],
+              "correctOption": "always get up",
+              "explanation": "Наречие частотности ставим перед глаголом.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch3-l2-ex5",
+              "type": "word_order",
+              "prompt": "Она никогда не пьёт кофе.",
+              "canonicalAnswer": "She never drinks coffee.",
+              "tokens": [
+                "drinks",
+                "coffee",
+                "She",
+                "never",
+                "."
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch3-l2-ex6",
+              "type": "translate",
+              "prompt": "Я всегда завтракаю утром.",
+              "canonicalAnswer": "I always have breakfast in the morning.",
+              "acceptedAnswers": [
+                "I always eat breakfast in the morning."
+              ],
+              "hint": "have breakfast = завтракать",
+              "difficulty": 3
+            },
+            {
+              "id": "a1-ch3-l2-ex7",
+              "type": "multiple_choice",
+              "prompt": "We usually watch TV ___ the evening.",
+              "options": [
+                "in",
+                "on",
+                "at"
+              ],
+              "correctOption": "in",
+              "explanation": "in the morning / afternoon / evening.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch3-l2-ex8",
+              "type": "translate",
+              "prompt": "Он часто работает вечером.",
+              "canonicalAnswer": "He often works in the evening.",
+              "acceptedAnswers": [
+                "He often works in the evenings."
+              ],
+              "hint": "often = часто",
+              "difficulty": 3
+            },
+            {
+              "id": "a1-ch3-l2-ex9",
+              "type": "flashcard",
+              "prompt": "at night",
+              "translation": "ночью",
+              "example": "I sleep at night.",
+              "difficulty": 2
+            },
+            {
+              "id": "a1-ch3-l2-ex10",
+              "type": "info",
+              "title": "in / on / at",
+              "explanation": "Со временем суток используем in the morning, in the evening, но at night и at noon. С днями недели — on Monday.",
+              "difficulty": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

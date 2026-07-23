@@ -58,6 +58,13 @@ public struct LearningSession: Sendable {
         retryUsed = true; feedback = nil
     }
 
+    public var canGoBack: Bool { exerciseIndex > 0 }
+
+    public mutating func goBack() {
+        guard exerciseIndex > 0 else { return }
+        feedback = nil; retryUsed = false; exerciseIndex -= 1
+    }
+
     public mutating func completeCurrentCorrectlyForTesting(now: Date) {
         guard let exercise = currentExercise else { return }
         switch exercise.type {

@@ -56,6 +56,29 @@ public struct Exercise: Codable, Identifiable, Equatable, Sendable {
     public let tokens: [String]?
     public let translation: String?
     public let example: String?
+    public let difficulty: Int?
+}
+
+public struct PlacementQuestion: Codable, Identifiable, Equatable, Sendable {
+    public let id: String
+    public let level: CEFRLevel
+    public let prompt: String
+    public let options: [String]
+    public let correctOption: String
+
+    public init(id: String, level: CEFRLevel, prompt: String, options: [String], correctOption: String) {
+        self.id = id; self.level = level; self.prompt = prompt
+        self.options = options; self.correctOption = correctOption
+    }
+}
+
+public struct PlacementBank: Codable, Equatable, Sendable {
+    public let schemaVersion: Int
+    public let questions: [PlacementQuestion]
+
+    public init(schemaVersion: Int, questions: [PlacementQuestion]) {
+        self.schemaVersion = schemaVersion; self.questions = questions
+    }
 }
 
 public struct UserProfile: Codable, Equatable, Sendable {
@@ -77,6 +100,10 @@ public struct AttemptRecord: Codable, Equatable, Identifiable, Sendable {
     public let exerciseID: String
     public let correct: Bool
     public let date: Date
+
+    public init(id: UUID, exerciseID: String, correct: Bool, date: Date) {
+        self.id = id; self.exerciseID = exerciseID; self.correct = correct; self.date = date
+    }
 }
 
 public struct ReviewItem: Codable, Equatable, Identifiable, Sendable {
@@ -99,11 +126,19 @@ public struct UserState: Codable, Equatable, Sendable {
     public var attempts: [AttemptRecord]
     public var reviews: [ReviewItem]
     public var points: Int
+    /// Levels for which the user dismissed the "move up" suggestion, so we don't nag.
+    /// Optional for backward compatibility with older saved state.json files.
+    public var levelUpDismissed: [String]?
+    /// Seconds spent in lessons per day ("2026-07-23" → 420), for the daily goal.
+    /// Optional for backward compatibility with older saved state.json files.
+    public var practiceSeconds: [String: Int]?
 
     public static let fresh = UserState(profile: nil, completedLessonIDs: [], attempts: [], reviews: [], points: 0)
 
-    public init(profile: UserProfile?, completedLessonIDs: Set<String>, attempts: [AttemptRecord], reviews: [ReviewItem], points: Int) {
+    public init(profile: UserProfile?, completedLessonIDs: Set<String>, attempts: [AttemptRecord], reviews: [ReviewItem], points: Int, levelUpDismissed: [String]? = nil, practiceSeconds: [String: Int]? = nil) {
         self.profile = profile; self.completedLessonIDs = completedLessonIDs
         self.attempts = attempts; self.reviews = reviews; self.points = points
+        self.levelUpDismissed = levelUpDismissed
+        self.practiceSeconds = practiceSeconds
     }
 }

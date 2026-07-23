@@ -4,11 +4,17 @@ import EnglishCoachCore
 struct SettingsView: View {
     @Environment(AppModel.self) private var model
     @State private var reminderError: String?
+    @State private var showPlacement = false
     var body: some View {
         VStack(spacing: 0) {
             HStack { Button { model.screen = .map } label: { Label("Назад", systemImage: "chevron.left") }; Spacer(); Text("Настройки").font(.title2.bold()); Spacer() }.padding(20)
             Form {
                 Picker("Уровень", selection: Binding(get: { model.selectedLevel }, set: { value in model.selectLevel(value) })) { ForEach(CEFRLevel.allCases) { Text($0.rawValue).tag($0) } }
+                if model.hasPlacementTest {
+                    LabeledContent("Тест на уровень") {
+                        Button("Пройти заново") { model.startPlacement(); showPlacement = true }
+                    }
+                }
                 Picker("Дневная цель", selection: Binding(get: { model.state.profile?.dailyGoalMinutes ?? 10 }, set: { value in model.updateGoal(value) })) { ForEach([5, 10, 15], id: \.self) { Text("\($0) минут").tag($0) } }
                 Section("Напоминание") {
                     Toggle("Напоминать каждый день", isOn: Binding(
@@ -26,6 +32,9 @@ struct SettingsView: View {
                 LabeledContent("Хранение") { Text("Только на этом Mac").foregroundStyle(.secondary) }
                 LabeledContent("Сеть") { Text("Не используется").foregroundStyle(.secondary) }
             }.formStyle(.grouped).padding(20)
+        }
+        .sheet(isPresented: $showPlacement) {
+            PlacementSheet { model.cancelPlacement(); showPlacement = false }.environment(model)
         }
     }
 

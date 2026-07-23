@@ -49,8 +49,48 @@ public enum ContentRepository {
         let direct = root.flatMap { try? FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil) } ?? []
         let nested = root.map { $0.appendingPathComponent("Courses") }
             .flatMap { try? FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil) } ?? []
-        let urls = (direct + nested).filter { $0.pathExtension == "json" }
+        let urls = (direct + nested).filter { $0.pathExtension == "json" && !$0.lastPathComponent.contains("placement") }
         return try urls.sorted { $0.lastPathComponent < $1.lastPathComponent }
             .map { try decode(Data(contentsOf: $0)) }
+    }
+
+    // MARK: - Placement test bank
+
+    public static func decodePlacement(_ data: Data) throws -> PlacementBank {
+        let bank = try JSONDecoder().decode(PlacementBank.self, from: data)
+        guard bank.schemaVersion == 1 else { throw ContentError.unsupportedSchema(bank.schemaVersion) }
+        guard !bank.questions.isEmpty else { throw ContentError.emptyCourse }
+        var ids = Set<String>()
+        for question in bank.questions {
+            guard ids.insert(question.id).inserted else { throw ContentError.duplicateID(question.id) }
+            guard question.options.contains(question.correctOption) else { throw ContentError.invalidExercise(question.id) }
+        }
+        return bank
+    }
+
+    public static func loadPlacement() throws -> PlacementBank {
+        let bundleName = "EnglishCoach_EnglishCoachCore.bundle"
+        let candidates = [
+            Bundle.main.resourceURL?.appendingPathComponent(bundleName),
+            Bundle.main.bundleURL.appendingPathComponent(bundleName)
+        ].compactMap { $0 }
+        if let url = candidates.first(where: { FileManager.default.fileExists(atPath: $0.path) }),
+           let appBundle = Bundle(url: url) {
+            return try loadPlacement(bundle: appBundle)
+        }
+        return try loadPlacement(bundle: .module)
+    }
+
+    public static func loadPlacement(bundle: Bundle) throws -> PlacementBank {
+        let root = bundle.bundleURL
+        // The file may land in a Placement/ subfolder or (if the bundler flattens) at the root.
+        let places = [root.appendingPathComponent("Placement"), root]
+        for dir in places {
+            let urls = (try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil)) ?? []
+            if let file = urls.first(where: { $0.lastPathComponent.contains("placement") && $0.pathExtension == "json" }) {
+                return try decodePlacement(Data(contentsOf: file))
+            }
+        }
+        throw ContentError.emptyCourse
     }
 }

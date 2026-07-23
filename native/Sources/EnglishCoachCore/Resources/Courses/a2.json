@@ -1,27 +1,588 @@
 {
   "schemaVersion": 1,
   "level": "A2",
-  "chapters": [{
-    "id": "a2-daily-routines",
-    "title": "Everyday English",
-    "subtitle": "Распорядок дня и Present Simple",
-    "lessons": [{
-      "id": "a2-daily-routines-01",
-      "title": "Daily routines",
-      "summary": "Рассказывай о привычках и обычном дне.",
-      "estimatedMinutes": 9,
-      "exercises": [
-        {"id":"a2-info-1","type":"info","title":"Present Simple","explanation":"Используй Present Simple для привычек. С he, she и it обычно добавляй -s к глаголу."},
-        {"id":"a2-card-1","type":"flashcard","prompt":"I usually get up at seven.","translation":"Я обычно встаю в семь.","example":"On weekdays, I usually get up at seven."},
-        {"id":"a2-translate-1","type":"translate","prompt":"Я обычно пью кофе утром.","canonicalAnswer":"I usually drink coffee in the morning.","acceptedAnswers":["I normally drink coffee in the morning."],"hint":"usually"},
-        {"id":"a2-order-1","type":"word_order","prompt":"Она работает из дома.","canonicalAnswer":"She works from home.","tokens":["from","works","She","home","."]},
-        {"id":"a2-choice-1","type":"multiple_choice","prompt":"He ___ to work by bus.","options":["go","goes","going"],"correctOption":"goes"},
-        {"id":"a2-card-2","type":"flashcard","prompt":"How often do you exercise?","translation":"Как часто ты тренируешься?","example":"How often do you exercise after work?"},
-        {"id":"a2-translate-2","type":"translate","prompt":"Мы не работаем по воскресеньям.","canonicalAnswer":"We do not work on Sundays.","acceptedAnswers":["We don't work on Sundays."]},
-        {"id":"a2-order-2","type":"word_order","prompt":"Когда начинается урок?","canonicalAnswer":"When does the lesson start?","tokens":["lesson","does","When","start","the","?"]},
-        {"id":"a2-choice-2","type":"multiple_choice","prompt":"My sister ___ breakfast at home.","options":["have","has","having"],"correctOption":"has"},
-        {"id":"a2-translate-3","type":"translate","prompt":"Ты часто готовишь дома?","canonicalAnswer":"Do you often cook at home?","acceptedAnswers":["Do you cook at home often?"]}
+  "chapters": [
+    {
+      "id": "a2-daily-routines",
+      "title": "Everyday English",
+      "subtitle": "Распорядок дня и Present Simple",
+      "lessons": [
+        {
+          "id": "a2-daily-routines-01",
+          "title": "Daily routines",
+          "summary": "Рассказывай о привычках и обычном дне.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "a2-info-1",
+              "type": "info",
+              "title": "Present Simple",
+              "explanation": "Используй Present Simple для привычек. С he, she и it обычно добавляй -s к глаголу."
+            },
+            {
+              "id": "a2-card-1",
+              "type": "flashcard",
+              "prompt": "I usually get up at seven.",
+              "translation": "Я обычно встаю в семь.",
+              "example": "On weekdays, I usually get up at seven."
+            },
+            {
+              "id": "a2-translate-1",
+              "type": "translate",
+              "prompt": "Я обычно пью кофе утром.",
+              "canonicalAnswer": "I usually drink coffee in the morning.",
+              "acceptedAnswers": [
+                "I normally drink coffee in the morning."
+              ],
+              "hint": "usually"
+            },
+            {
+              "id": "a2-order-1",
+              "type": "word_order",
+              "prompt": "Она работает из дома.",
+              "canonicalAnswer": "She works from home.",
+              "tokens": [
+                "from",
+                "works",
+                "She",
+                "home",
+                "."
+              ]
+            },
+            {
+              "id": "a2-choice-1",
+              "type": "multiple_choice",
+              "prompt": "He ___ to work by bus.",
+              "options": [
+                "go",
+                "goes",
+                "going"
+              ],
+              "correctOption": "goes"
+            },
+            {
+              "id": "a2-card-2",
+              "type": "flashcard",
+              "prompt": "How often do you exercise?",
+              "translation": "Как часто ты тренируешься?",
+              "example": "How often do you exercise after work?"
+            },
+            {
+              "id": "a2-translate-2",
+              "type": "translate",
+              "prompt": "Мы не работаем по воскресеньям.",
+              "canonicalAnswer": "We do not work on Sundays.",
+              "acceptedAnswers": [
+                "We don't work on Sundays."
+              ]
+            },
+            {
+              "id": "a2-order-2",
+              "type": "word_order",
+              "prompt": "Когда начинается урок?",
+              "canonicalAnswer": "When does the lesson start?",
+              "tokens": [
+                "lesson",
+                "does",
+                "When",
+                "start",
+                "the",
+                "?"
+              ]
+            },
+            {
+              "id": "a2-choice-2",
+              "type": "multiple_choice",
+              "prompt": "My sister ___ breakfast at home.",
+              "options": [
+                "have",
+                "has",
+                "having"
+              ],
+              "correctOption": "has"
+            },
+            {
+              "id": "a2-translate-3",
+              "type": "translate",
+              "prompt": "Ты часто готовишь дома?",
+              "canonicalAnswer": "Do you often cook at home?",
+              "acceptedAnswers": [
+                "Do you cook at home often?"
+              ]
+            }
+          ]
+        }
       ]
-    }]
-  }]
+    },
+    {
+      "id": "a2-ch2",
+      "title": "Past Simple Stories",
+      "subtitle": "Прошедшее простое время: правильные и неправильные глаголы, was/were и слова-маркеры времени",
+      "lessons": [
+        {
+          "id": "a2-ch2-l1",
+          "title": "Telling About the Past",
+          "summary": "Учимся строить утверждения в Past Simple с правильными и неправильными глаголами и словами yesterday, last week, ago.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "a2-ch2-l1-ex1",
+              "type": "info",
+              "title": "Past Simple: правильные глаголы",
+              "explanation": "Правильные глаголы в Past Simple получают окончание -ed: work — worked, play — played, watch — watched. Форма одинаковая для всех лиц.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch2-l1-ex2",
+              "type": "flashcard",
+              "prompt": "yesterday",
+              "translation": "вчера",
+              "example": "I called my friend yesterday.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch2-l1-ex3",
+              "type": "flashcard",
+              "prompt": "last week",
+              "translation": "на прошлой неделе",
+              "example": "We watched a good film last week.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch2-l1-ex4",
+              "type": "multiple_choice",
+              "prompt": "She ___ to the shop yesterday.",
+              "options": [
+                "went",
+                "goes",
+                "go"
+              ],
+              "correctOption": "went",
+              "explanation": "go — неправильный глагол, в прошедшем времени форма went.",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch2-l1-ex5",
+              "type": "translate",
+              "prompt": "Вчера я смотрел фильм.",
+              "canonicalAnswer": "I watched a film yesterday.",
+              "acceptedAnswers": [
+                "I watched a movie yesterday."
+              ],
+              "hint": "watch — правильный глагол",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch2-l1-ex6",
+              "type": "word_order",
+              "prompt": "Мы играли в футбол вчера.",
+              "canonicalAnswer": "We played football yesterday.",
+              "tokens": [
+                "yesterday",
+                "We",
+                "football",
+                ".",
+                "played"
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch2-l1-ex7",
+              "type": "multiple_choice",
+              "prompt": "They ___ pizza last night.",
+              "options": [
+                "ate",
+                "eat",
+                "eaten"
+              ],
+              "correctOption": "ate",
+              "explanation": "eat — неправильный глагол, прошедшая форма ate.",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch2-l1-ex8",
+              "type": "translate",
+              "prompt": "Он купил новую машину неделю назад.",
+              "canonicalAnswer": "He bought a new car a week ago.",
+              "acceptedAnswers": [
+                "He bought a new car one week ago."
+              ],
+              "hint": "buy — bought",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch2-l1-ex9",
+              "type": "flashcard",
+              "prompt": "two days ago",
+              "translation": "два дня назад",
+              "example": "She arrived two days ago.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch2-l1-ex10",
+              "type": "info",
+              "title": "Слово ago",
+              "explanation": "Слово ago ставится ПОСЛЕ промежутка времени: two days ago (два дня назад), a week ago (неделю назад), a year ago (год назад).",
+              "difficulty": 1
+            }
+          ]
+        },
+        {
+          "id": "a2-ch2-l2",
+          "title": "Was, Were and Questions",
+          "summary": "Учимся использовать was/were, а также строить вопросы и отрицания в прошедшем времени.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "a2-ch2-l2-ex1",
+              "type": "info",
+              "title": "was и were",
+              "explanation": "Глагол be в прошедшем времени: I/he/she/it — was, we/you/they — were. Например: I was happy, they were at home.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch2-l2-ex2",
+              "type": "flashcard",
+              "prompt": "last year",
+              "translation": "в прошлом году",
+              "example": "I was in Spain last year.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch2-l2-ex3",
+              "type": "multiple_choice",
+              "prompt": "I ___ very tired after work.",
+              "options": [
+                "was",
+                "were",
+                "am"
+              ],
+              "correctOption": "was",
+              "explanation": "С I используется was.",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch2-l2-ex4",
+              "type": "translate",
+              "prompt": "Они были дома вчера вечером.",
+              "canonicalAnswer": "They were at home yesterday evening.",
+              "acceptedAnswers": [
+                "They were at home last night."
+              ],
+              "hint": "they + were",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch2-l2-ex5",
+              "type": "word_order",
+              "prompt": "Погода была очень хорошей.",
+              "canonicalAnswer": "The weather was very good.",
+              "tokens": [
+                "very",
+                "was",
+                "The",
+                ".",
+                "good",
+                "weather"
+              ],
+              "difficulty": 3
+            },
+            {
+              "id": "a2-ch2-l2-ex6",
+              "type": "multiple_choice",
+              "prompt": "___ you at the party on Saturday?",
+              "options": [
+                "Were",
+                "Was",
+                "Did"
+              ],
+              "correctOption": "Were",
+              "explanation": "С you в вопросе используется Were.",
+              "difficulty": 3
+            },
+            {
+              "id": "a2-ch2-l2-ex7",
+              "type": "translate",
+              "prompt": "Я не ходил в школу вчера.",
+              "canonicalAnswer": "I didn't go to school yesterday.",
+              "acceptedAnswers": [
+                "I did not go to school yesterday."
+              ],
+              "hint": "отрицание: didn't + глагол в начальной форме",
+              "difficulty": 3
+            },
+            {
+              "id": "a2-ch2-l2-ex8",
+              "type": "flashcard",
+              "prompt": "a long time ago",
+              "translation": "давным-давно",
+              "example": "They first met a long time ago.",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch2-l2-ex9",
+              "type": "word_order",
+              "prompt": "Она не была счастлива.",
+              "canonicalAnswer": "She was not happy.",
+              "tokens": [
+                "not",
+                "was",
+                ".",
+                "She",
+                "happy"
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch2-l2-ex10",
+              "type": "translate",
+              "prompt": "Мой брат не любил овощи.",
+              "canonicalAnswer": "My brother didn't like vegetables.",
+              "acceptedAnswers": [
+                "My brother did not like vegetables."
+              ],
+              "hint": "didn't + like",
+              "difficulty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-ch3",
+      "title": "Plans and Comparisons",
+      "subtitle": "Планы на будущее и сравнения: be going to, сравнительная и превосходная степень, some/any/much/many.",
+      "lessons": [
+        {
+          "id": "a2-ch3-l1",
+          "title": "Future Plans",
+          "summary": "Учимся говорить о планах с 'be going to' и использовать some, any, much, many.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "a2-ch3-l1-ex1",
+              "type": "info",
+              "title": "be going to",
+              "explanation": "Мы используем 'be going to' + глагол, чтобы говорить о планах на будущее: I am going to study tonight. Форма: am/is/are + going to + глагол.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch3-l1-ex2",
+              "type": "flashcard",
+              "prompt": "be going to",
+              "translation": "собираться (что-то сделать)",
+              "example": "I am going to call her later.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch3-l1-ex3",
+              "type": "flashcard",
+              "prompt": "some / any",
+              "translation": "немного / сколько-нибудь",
+              "example": "I have some water, but I don't have any juice.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch3-l1-ex4",
+              "type": "translate",
+              "prompt": "Я собираюсь посмотреть фильм сегодня вечером.",
+              "canonicalAnswer": "I am going to watch a movie tonight.",
+              "acceptedAnswers": [
+                "I'm going to watch a movie tonight.",
+                "I am going to watch a film tonight."
+              ],
+              "hint": "be going to + глагол",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch3-l1-ex5",
+              "type": "word_order",
+              "prompt": "Она собирается купить немного молока.",
+              "canonicalAnswer": "She is going to buy some milk .",
+              "tokens": [
+                "going",
+                "She",
+                "milk",
+                "to",
+                "buy",
+                "is",
+                "some",
+                "."
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch3-l1-ex6",
+              "type": "multiple_choice",
+              "prompt": "I don't have ___ money.",
+              "options": [
+                "any",
+                "some",
+                "the"
+              ],
+              "correctOption": "any",
+              "explanation": "В отрицаниях используем 'any'.",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch3-l1-ex7",
+              "type": "translate",
+              "prompt": "Мы не собираемся работать завтра.",
+              "canonicalAnswer": "We are not going to work tomorrow.",
+              "acceptedAnswers": [
+                "We aren't going to work tomorrow.",
+                "We're not going to work tomorrow."
+              ],
+              "hint": "отрицание с be going to",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch3-l1-ex8",
+              "type": "multiple_choice",
+              "prompt": "How ___ apples do you want?",
+              "options": [
+                "many",
+                "much",
+                "any"
+              ],
+              "correctOption": "many",
+              "explanation": "С исчисляемыми существительными (apples) используем 'many'.",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch3-l1-ex9",
+              "type": "info",
+              "title": "some / any / much / many",
+              "explanation": "'some' — в утверждениях, 'any' — в вопросах и отрицаниях. 'much' — с неисчисляемыми (much water), 'many' — с исчисляемыми (many books).",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch3-l1-ex10",
+              "type": "translate",
+              "prompt": "У тебя есть какие-нибудь вопросы?",
+              "canonicalAnswer": "Do you have any questions?",
+              "acceptedAnswers": [
+                "Have you got any questions?"
+              ],
+              "hint": "вопрос с 'any'",
+              "difficulty": 3
+            }
+          ]
+        },
+        {
+          "id": "a2-ch3-l2",
+          "title": "Bigger and Better",
+          "summary": "Сравниваем предметы с помощью сравнительной и превосходной степени прилагательных.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "a2-ch3-l2-ex1",
+              "type": "info",
+              "title": "Comparatives",
+              "explanation": "Короткие прилагательные: + -er + than (bigger than, faster than). Длинные прилагательные: more + прилагательное + than (more interesting than).",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch3-l2-ex2",
+              "type": "flashcard",
+              "prompt": "bigger than",
+              "translation": "больше, чем",
+              "example": "An elephant is bigger than a dog.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch3-l2-ex3",
+              "type": "multiple_choice",
+              "prompt": "A car is ___ than a bike.",
+              "options": [
+                "faster",
+                "fast",
+                "fastest"
+              ],
+              "correctOption": "faster",
+              "explanation": "Сравнительная степень: fast + -er + than.",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch3-l2-ex4",
+              "type": "word_order",
+              "prompt": "Эта книга интереснее.",
+              "canonicalAnswer": "This book is more interesting .",
+              "tokens": [
+                "interesting",
+                "This",
+                "more",
+                "is",
+                "book",
+                "."
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch3-l2-ex5",
+              "type": "multiple_choice",
+              "prompt": "This is the ___ day of my life.",
+              "options": [
+                "best",
+                "better",
+                "good"
+              ],
+              "correctOption": "best",
+              "explanation": "Превосходная степень от 'good' — 'the best'.",
+              "difficulty": 2
+            },
+            {
+              "id": "a2-ch3-l2-ex6",
+              "type": "translate",
+              "prompt": "Этот дом больше, чем мой.",
+              "canonicalAnswer": "This house is bigger than mine.",
+              "acceptedAnswers": [
+                "This house is bigger than my house."
+              ],
+              "hint": "big -> bigger than",
+              "difficulty": 3
+            },
+            {
+              "id": "a2-ch3-l2-ex7",
+              "type": "word_order",
+              "prompt": "Он самый высокий в классе.",
+              "canonicalAnswer": "He is the tallest in the class .",
+              "tokens": [
+                "the",
+                "He",
+                "tallest",
+                "class",
+                "is",
+                "in",
+                "the",
+                "."
+              ],
+              "difficulty": 3
+            },
+            {
+              "id": "a2-ch3-l2-ex8",
+              "type": "flashcard",
+              "prompt": "the most expensive",
+              "translation": "самый дорогой",
+              "example": "This is the most expensive car in the shop.",
+              "difficulty": 1
+            },
+            {
+              "id": "a2-ch3-l2-ex9",
+              "type": "multiple_choice",
+              "prompt": "Russia is ___ than Italy.",
+              "options": [
+                "bigger",
+                "biggest",
+                "more big"
+              ],
+              "correctOption": "bigger",
+              "explanation": "Сравнительная степень: big -> bigger.",
+              "difficulty": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

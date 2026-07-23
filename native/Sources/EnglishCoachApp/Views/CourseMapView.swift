@@ -4,26 +4,38 @@ import EnglishCoachCore
 struct CourseMapView: View {
     @Environment(AppModel.self) private var model
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
     var body: some View {
         VStack(spacing: 0) {
             header
+            levelProgressBar
             ScrollView {
                 VStack(spacing: 16) {
-                    if let chapter = model.selectedCourse?.chapters.first {
-                        Text(chapter.title).font(.system(size: 28, weight: .black, design: .rounded))
-                        Text(chapter.subtitle ?? "").foregroundStyle(.secondary)
-                    }
-                    ForEach(Array(model.currentLessons.enumerated()), id: \.element.id) { index, lesson in
-                        if index > 0 { dottedPath }
-                        LessonNodeView(lesson: lesson, state: nodeState(index, lesson))
-                            .offset(x: index.isMultiple(of: 2) ? -58 : 58)
-                            .onTapGesture { if model.nodeIsUnlocked(index) { model.startLesson(lesson) } }
-                            .animation(reduceMotion ? nil : .spring(response: 0.45, dampingFraction: 0.7), value: model.state.completedLessonIDs)
+                    if let next = model.suggestedNextLevel { levelUpCard(next) }
+                    ForEach(model.selectedCourse?.chapters ?? []) { chapter in
+                        chapterHeader(chapter)
+                        ForEach(chapter.lessons) { lesson in
+                            let index = globalIndex(of: lesson)
+                            if index > 0 { dottedPath }
+                            LessonNodeView(lesson: lesson, state: nodeState(index, lesson))
+                                .offset(x: index.isMultiple(of: 2) ? -58 : 58)
+                                .onTapGesture { if model.nodeIsUnlocked(index) { model.startLesson(lesson) } }
+                                .animation(reduceMotion ? nil : .spring(response: 0.45, dampingFraction: 0.7), value: model.state.completedLessonIDs)
+                        }
                     }
                     Button("Открыть каталог") { model.screen = .catalog }.buttonStyle(.bordered).padding(.top, 20)
                 }.padding(.vertical, 24).padding(.horizontal, 44)
             }
         }
+    }
+
+    private func globalIndex(of lesson: Lesson) -> Int { model.currentLessons.firstIndex { $0.id == lesson.id } ?? 0 }
+
+    private func chapterHeader(_ chapter: Chapter) -> some View {
+        VStack(spacing: 2) {
+            Text(chapter.title).font(.system(size: 24, weight: .black, design: .rounded))
+            if let subtitle = chapter.subtitle { Text(subtitle).font(.callout).foregroundStyle(.secondary).multilineTextAlignment(.center) }
+        }.padding(.top, 12)
     }
 
     private var header: some View {
@@ -34,12 +46,54 @@ struct CourseMapView: View {
             }
             Spacer()
             stat("flame.fill", "\(model.streak())", .orange)
-            stat("sparkles", "\(model.todayPoints)", CoachTheme.violet)
+            stat("sparkles", "\(model.totalPoints)", CoachTheme.violet)
             Menu {
                 ForEach(CEFRLevel.allCases) { level in Button(level.rawValue) { model.selectLevel(level) } }
             } label: { Text(model.selectedLevel.rawValue).font(.headline.bold()).padding(.horizontal, 12).padding(.vertical, 8).background(.white.opacity(0.78), in: Capsule()) }
             Button { model.screen = .settings } label: { Image(systemName: "gearshape.fill") }.buttonStyle(.plain)
         }.padding(20).background(.white.opacity(0.55))
+    }
+
+    private var levelProgressBar: some View {
+        let progress = model.currentLevelProgress
+        return VStack(spacing: 6) {
+            HStack {
+                Text("Уровень \(model.selectedLevel.rawValue)").font(.subheadline.weight(.bold))
+                Spacer()
+                Text("\(Int((progress * 100).rounded()))%").font(.subheadline.monospacedDigit().weight(.semibold)).foregroundStyle(.secondary)
+            }
+            ProgressView(value: progress).tint(CoachTheme.violet)
+            dailyGoalRow
+        }.padding(.horizontal, 20).padding(.vertical, 10).background(.white.opacity(0.4))
+    }
+
+    private var dailyGoalRow: some View {
+        HStack(spacing: 8) {
+            Image(systemName: model.dailyGoalReached ? "checkmark.circle.fill" : "target")
+                .foregroundStyle(model.dailyGoalReached ? CoachTheme.mint : CoachTheme.amber)
+            Text(model.dailyGoalReached
+                 ? "Цель дня выполнена: \(model.todayPracticeMinutes) мин"
+                 : "Цель дня: \(model.todayPracticeMinutes) из \(model.dailyGoalMinutes) мин")
+                .font(.caption.weight(.medium)).foregroundStyle(.secondary)
+            Spacer()
+            ProgressView(value: model.dailyGoalProgress)
+                .tint(model.dailyGoalReached ? CoachTheme.mint : CoachTheme.amber)
+                .frame(width: 90)
+        }.padding(.top, 2)
+    }
+
+    private func levelUpCard(_ next: CEFRLevel) -> some View {
+        VStack(spacing: 12) {
+            Text("🎉 Уровень \(model.selectedLevel.rawValue) пройден!").font(.headline.bold())
+            Text("Ты отлично справляешься. Готов перейти на уровень \(next.rawValue)?").multilineTextAlignment(.center).foregroundStyle(.secondary)
+            HStack(spacing: 12) {
+                Button("Позже") { withAnimation { model.dismissLevelUp() } }.buttonStyle(.bordered)
+                Button("Перейти на \(next.rawValue)") { withAnimation { model.advanceToSuggestedLevel() } }.buttonStyle(PrimaryButtonStyle(color: CoachTheme.mint))
+            }
+        }
+        .padding(20)
+        .background(CoachTheme.mint.opacity(0.14), in: RoundedRectangle(cornerRadius: 20))
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(CoachTheme.mint.opacity(0.45)))
     }
 
     private func stat(_ icon: String, _ text: String, _ color: Color) -> some View {

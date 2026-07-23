@@ -19,6 +19,9 @@ struct RootView: View {
                 }
             }
         }
+        // The palette is a fixed light one, so system controls and `.secondary` text
+        // must stay light too — otherwise they turn light-grey-on-light in Dark Mode.
+        .preferredColorScheme(.light)
         .foregroundStyle(CoachTheme.ink)
         .alert("Прогресс не сохранён", isPresented: Binding(get: { model.transientError != nil }, set: { if !$0 { model.transientError = nil } })) {
             Button("Понятно", role: .cancel) {}

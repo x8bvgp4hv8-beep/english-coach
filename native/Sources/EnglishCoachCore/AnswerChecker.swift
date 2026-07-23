@@ -7,9 +7,14 @@ public struct AnswerResult: Equatable, Sendable {
 
 public enum AnswerChecker {
     public static func normalize(_ input: String) -> String {
-        input.lowercased()
+        // Punctuation is ignored so that word-order tokens (which are joined with
+        // spaces, e.g. "However ,") match a canonical answer where it is attached
+        // ("However,"), and so a learner who forgets a comma or period still passes.
+        let stripped = input.lowercased()
             .replacingOccurrences(of: "’", with: "'")
-            .trimmingCharacters(in: .whitespacesAndNewlines.union(CharacterSet(charactersIn: ".!?")))
+            .components(separatedBy: CharacterSet(charactersIn: ".,!?;:—–\"()"))
+            .joined(separator: " ")
+        return stripped
             .split(whereSeparator: { $0.isWhitespace })
             .joined(separator: " ")
     }

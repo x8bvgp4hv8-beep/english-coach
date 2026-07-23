@@ -11,6 +11,17 @@ enum CoachTheme {
     static let background = LinearGradient(colors: [mist, lilac], startPoint: .topLeading, endPoint: .bottomTrailing)
 }
 
+/// Answer option card — shared by the placement test and the lesson player.
+struct ChoiceButtonStyle: ButtonStyle {
+    var selected: Bool = false
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label.font(.headline).foregroundStyle(selected ? .white : CoachTheme.ink).frame(maxWidth: .infinity).padding(13)
+            .background(selected ? CoachTheme.violet : Color.white, in: RoundedRectangle(cornerRadius: 13))
+            .overlay(RoundedRectangle(cornerRadius: 13).stroke(CoachTheme.violet.opacity(selected ? 0 : 0.2), lineWidth: 2))
+            .scaleEffect(configuration.isPressed ? 0.98 : 1)
+    }
+}
+
 struct PrimaryButtonStyle: ButtonStyle {
     var color = CoachTheme.violet
     func makeBody(configuration: Configuration) -> some View {

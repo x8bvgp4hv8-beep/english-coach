@@ -4,20 +4,38 @@ import EnglishCoachCore
 struct LessonPlayerView: View {
     @Environment(AppModel.self) private var model
     @State private var answer = ""
-    @State private var selectedTokens: [String] = []
+    @State private var selectedIndices: [Int] = []
+    @State private var selectedOption: String?
     @State private var speech = SpeechService()
 
     var body: some View {
         VStack(spacing: 0) {
             topBar
             if model.lessonIsComplete { CompletionView() }
-            else if let exercise = model.currentExercise { exerciseCard(exercise).id(exercise.id).transition(.opacity.combined(with: .move(edge: .trailing))) }
+            else if let exercise = model.currentExercise {
+                exerciseCard(exercise).id(exercise.id).transition(.opacity.combined(with: .move(edge: .trailing)))
+            }
         }
+        .onChange(of: model.currentExercise?.id) { _, _ in resetInputs() }
     }
+
+    private func resetInputs() { answer = ""; selectedIndices = []; selectedOption = nil }
 
     private var topBar: some View {
         VStack(spacing: 10) {
-            HStack { Button("Завершить") { model.closeLesson() }.buttonStyle(.plain).foregroundStyle(.secondary); Spacer(); Text(model.activeLesson?.title ?? "Урок").font(.headline); Spacer(); Text("\(min(model.session.exerciseIndex + 1, model.activeLesson?.exercises.count ?? 1)) / \(model.activeLesson?.exercises.count ?? 1)").monospacedDigit().foregroundStyle(.secondary) }
+            HStack(spacing: 12) {
+                Button { model.closeLesson() } label: { Image(systemName: "xmark") }
+                    .buttonStyle(.plain).foregroundStyle(.secondary).help("Выйти из урока")
+                if model.canGoBack {
+                    Button { withAnimation { model.goBack() } } label: { Label("Назад", systemImage: "chevron.left") }
+                        .buttonStyle(.plain).foregroundStyle(CoachTheme.violet)
+                }
+                Spacer()
+                Text(model.activeLesson?.title ?? "Урок").font(.headline).lineLimit(1)
+                Spacer()
+                Text("\(min(model.session.exerciseIndex + 1, model.activeLesson?.exercises.count ?? 1)) / \(model.activeLesson?.exercises.count ?? 1)")
+                    .monospacedDigit().foregroundStyle(.secondary)
+            }
             ProgressView(value: Double(model.session.exerciseIndex), total: Double(max(1, model.activeLesson?.exercises.count ?? 1))).tint(CoachTheme.violet)
         }.padding(20).background(.white.opacity(0.52))
     }
@@ -56,23 +74,71 @@ struct LessonPlayerView: View {
             if let example = exercise.example { Text(example).italic().padding(12).background(CoachTheme.mist, in: RoundedRectangle(cornerRadius: 12)) }
             Button("Запомнил") { withAnimation { model.completePassive() } }.buttonStyle(PrimaryButtonStyle(color: CoachTheme.blue))
         case .translate:
-            TextField("Напиши перевод…", text: $answer).textFieldStyle(.plain).font(.title3).padding(14).background(.white, in: RoundedRectangle(cornerRadius: 14)).overlay(RoundedRectangle(cornerRadius: 14).stroke(CoachTheme.violet.opacity(0.25), lineWidth: 2)).onSubmit(submitText)
+            TextField("Напиши перевод…", text: $answer).textFieldStyle(.plain).font(.title3).padding(14).background(.white, in: RoundedRectangle(cornerRadius: 14)).overlay(RoundedRectangle(cornerRadius: 14).stroke(CoachTheme.violet.opacity(0.25), lineWidth: 2)).onSubmit(submitText).disabled(model.feedback != nil)
             if model.feedback == nil { Button("Проверить", action: submitText).buttonStyle(PrimaryButtonStyle()) }
         case .wordOrder:
-            Text(selectedTokens.joined(separator: " ")).frame(maxWidth: .infinity, minHeight: 48).padding(10).background(.white, in: RoundedRectangle(cornerRadius: 13))
-            tokenGrid(exercise.tokens ?? [])
-            if model.feedback == nil { Button("Проверить") { model.submitText(selectedTokens.joined(separator: " ")) }.buttonStyle(PrimaryButtonStyle()) }
+            wordOrder(exercise.tokens ?? [])
         case .multipleChoice:
-            ForEach(exercise.options ?? [], id: \.self) { option in
-                Button(option) { model.submitChoice(option) }.buttonStyle(ChoiceButtonStyle())
+            multipleChoice(exercise.options ?? [])
+        }
+    }
+
+    // MARK: - Word order (assemble the sentence, tokens are removable)
+
+    @ViewBuilder private func wordOrder(_ tokens: [String]) -> some View {
+        FlowLayout(spacing: 8) {
+            ForEach(Array(selectedIndices.enumerated()), id: \.offset) { position, index in
+                Button { if model.feedback == nil { withAnimation(.snappy) { _ = selectedIndices.remove(at: position) } } } label: {
+                    chip(tokens[index], filled: true)
+                }.buttonStyle(.plain)
+            }
+        }
+        .frame(maxWidth: .infinity, minHeight: 56, alignment: .leading)
+        .padding(10)
+        .background(CoachTheme.mist, in: RoundedRectangle(cornerRadius: 14))
+        .overlay(alignment: .leading) {
+            if selectedIndices.isEmpty { Text("Нажимай на слова ниже, чтобы собрать фразу").font(.callout).foregroundStyle(.secondary).padding(.horizontal, 14) }
+        }
+
+        FlowLayout(spacing: 8) {
+            ForEach(Array(tokens.enumerated()), id: \.offset) { index, token in
+                let used = selectedIndices.contains(index)
+                Button { if model.feedback == nil, !used { withAnimation(.snappy) { selectedIndices.append(index) } } } label: {
+                    chip(token, filled: false).opacity(used ? 0.25 : 1)
+                }.buttonStyle(.plain).disabled(used || model.feedback != nil)
+            }
+        }
+
+        if model.feedback == nil {
+            HStack(spacing: 12) {
+                Button { withAnimation(.snappy) { selectedIndices = [] } } label: { Label("Очистить", systemImage: "arrow.uturn.backward") }
+                    .buttonStyle(.bordered).disabled(selectedIndices.isEmpty)
+                Button("Проверить") { model.submitText(selectedIndices.map { tokens[$0] }.joined(separator: " ")) }
+                    .buttonStyle(PrimaryButtonStyle()).disabled(selectedIndices.isEmpty)
             }
         }
     }
 
-    private func tokenGrid(_ tokens: [String]) -> some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 76))], spacing: 9) {
-            ForEach(Array(tokens.enumerated()), id: \.offset) { _, token in Button(token) { selectedTokens.append(token) }.buttonStyle(.bordered).disabled(selectedTokens.filter { $0 == token }.count >= tokens.filter { $0 == token }.count) }
+    // MARK: - Multiple choice (select, then confirm)
+
+    @ViewBuilder private func multipleChoice(_ options: [String]) -> some View {
+        ForEach(options, id: \.self) { option in
+            Button { if model.feedback == nil { selectedOption = option } } label: { Text(option) }
+                .buttonStyle(ChoiceButtonStyle(selected: selectedOption == option))
+                .disabled(model.feedback != nil)
         }
+        if model.feedback == nil {
+            Button("Проверить") { if let option = selectedOption { model.submitChoice(option) } }
+                .buttonStyle(PrimaryButtonStyle()).disabled(selectedOption == nil)
+        }
+    }
+
+    private func chip(_ text: String, filled: Bool) -> some View {
+        Text(text).font(.headline)
+            .padding(.horizontal, 14).padding(.vertical, 9)
+            .background(filled ? CoachTheme.violet : Color.white, in: Capsule())
+            .foregroundStyle(filled ? .white : CoachTheme.ink)
+            .overlay(Capsule().stroke(CoachTheme.violet.opacity(filled ? 0 : 0.35), lineWidth: 1.5))
     }
 
     @ViewBuilder private var feedbackView: some View {
@@ -82,8 +148,11 @@ struct LessonPlayerView: View {
                     .font(.title3.bold()).foregroundStyle(feedback.isCorrect ? CoachTheme.mint : .orange)
                 if !feedback.isCorrect { Text("Правильный ответ: \(feedback.canonical)").multilineTextAlignment(.center) }
                 HStack {
-                    if !feedback.isCorrect && !model.session.retryUsed { Button("Попробовать ещё") { answer = ""; selectedTokens = []; model.retry() }.buttonStyle(.bordered) }
-                    Button("Дальше") { answer = ""; selectedTokens = []; withAnimation { model.advance() } }.buttonStyle(PrimaryButtonStyle(color: feedback.isCorrect ? CoachTheme.mint : CoachTheme.violet))
+                    if !feedback.isCorrect && !model.session.retryUsed {
+                        Button("Попробовать ещё") { resetInputs(); model.retry() }.buttonStyle(.bordered)
+                    }
+                    Button("Дальше") { resetInputs(); withAnimation { model.advance() } }
+                        .buttonStyle(PrimaryButtonStyle(color: feedback.isCorrect ? CoachTheme.mint : CoachTheme.violet))
                 }
             }.padding(.top, 4)
         }
@@ -93,8 +162,30 @@ struct LessonPlayerView: View {
     private func label(for type: ExerciseType) -> String { switch type { case .info: "КОРОТКОЕ ПРАВИЛО"; case .flashcard: "НОВАЯ ФРАЗА"; case .translate: "ПЕРЕВЕДИ НА АНГЛИЙСКИЙ"; case .wordOrder: "СОБЕРИ ПРЕДЛОЖЕНИЕ"; case .multipleChoice: "ВЫБЕРИ ОТВЕТ" } }
 }
 
-private struct ChoiceButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label.font(.headline).foregroundStyle(CoachTheme.ink).frame(maxWidth: .infinity).padding(13).background(.white, in: RoundedRectangle(cornerRadius: 13)).overlay(RoundedRectangle(cornerRadius: 13).stroke(CoachTheme.violet.opacity(0.2), lineWidth: 2)).scaleEffect(configuration.isPressed ? 0.98 : 1)
+/// Simple wrapping layout so word chips flow onto multiple lines.
+struct FlowLayout: Layout {
+    var spacing: CGFloat = 8
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout Void) -> CGSize {
+        let maxWidth = proposal.width ?? .infinity
+        var x: CGFloat = 0, y: CGFloat = 0, rowHeight: CGFloat = 0
+        for sub in subviews {
+            let size = sub.sizeThatFits(.unspecified)
+            if x + size.width > maxWidth, x > 0 { x = 0; y += rowHeight + spacing; rowHeight = 0 }
+            x += size.width + spacing
+            rowHeight = max(rowHeight, size.height)
+        }
+        return CGSize(width: maxWidth == .infinity ? x : maxWidth, height: y + rowHeight)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout Void) {
+        var x = bounds.minX, y = bounds.minY, rowHeight: CGFloat = 0
+        for sub in subviews {
+            let size = sub.sizeThatFits(.unspecified)
+            if x + size.width > bounds.maxX, x > bounds.minX { x = bounds.minX; y += rowHeight + spacing; rowHeight = 0 }
+            sub.place(at: CGPoint(x: x, y: y), proposal: ProposedViewSize(size))
+            x += size.width + spacing
+            rowHeight = max(rowHeight, size.height)
+        }
     }
 }

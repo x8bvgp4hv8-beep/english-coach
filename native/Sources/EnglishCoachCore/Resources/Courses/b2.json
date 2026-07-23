@@ -1,27 +1,604 @@
 {
   "schemaVersion": 1,
   "level": "B2",
-  "chapters": [{
-    "id": "b2-opinions",
-    "title": "Make your point",
-    "subtitle": "Мнения, аргументы и связки",
-    "lessons": [{
-      "id": "b2-opinions-01",
-      "title": "A balanced opinion",
-      "summary": "Выражай мнение уверенно и добавляй нюансы.",
-      "estimatedMinutes": 11,
-      "exercises": [
-        {"id":"b2-info-1","type":"info","title":"Связывай идеи","explanation":"Используй however для контраста, therefore для результата и although для уступки."},
-        {"id":"b2-card-1","type":"flashcard","prompt":"From my perspective…","translation":"С моей точки зрения…","example":"From my perspective, flexible hours improve productivity."},
-        {"id":"b2-translate-1","type":"translate","prompt":"С моей точки зрения, это разумное решение.","canonicalAnswer":"From my perspective, this is a sensible decision.","acceptedAnswers":["In my view, this is a sensible decision."]},
-        {"id":"b2-order-1","type":"word_order","prompt":"Однако у этого подхода есть недостатки.","canonicalAnswer":"However, this approach has drawbacks.","tokens":["approach","However","drawbacks","this","has",",","."]},
-        {"id":"b2-choice-1","type":"multiple_choice","prompt":"The plan is expensive. ___, it may save time later.","options":["However","Therefore","For example"],"correctOption":"However"},
-        {"id":"b2-card-2","type":"flashcard","prompt":"That being said…","translation":"При этом / тем не менее…","example":"The role is demanding. That being said, it is rewarding."},
-        {"id":"b2-translate-2","type":"translate","prompt":"Хотя я понимаю твою точку зрения, я не совсем согласен.","canonicalAnswer":"Although I understand your point, I do not entirely agree.","acceptedAnswers":["Although I understand your point, I don't entirely agree."]},
-        {"id":"b2-order-2","type":"word_order","prompt":"В результате команда закончила раньше.","canonicalAnswer":"As a result, the team finished earlier.","tokens":["team","As","earlier","result","finished","the","a",",","."]},
-        {"id":"b2-choice-2","type":"multiple_choice","prompt":"___ the risks, the idea is worth testing.","options":["Despite","Because","Therefore"],"correctOption":"Despite"},
-        {"id":"b2-translate-3","type":"translate","prompt":"Главное преимущество заключается в том, что система проста.","canonicalAnswer":"The main advantage is that the system is simple.","acceptedAnswers":["The key advantage is that the system is simple."]}
+  "chapters": [
+    {
+      "id": "b2-opinions",
+      "title": "Make your point",
+      "subtitle": "Мнения, аргументы и связки",
+      "lessons": [
+        {
+          "id": "b2-opinions-01",
+          "title": "A balanced opinion",
+          "summary": "Выражай мнение уверенно и добавляй нюансы.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "b2-info-1",
+              "type": "info",
+              "title": "Связывай идеи",
+              "explanation": "Используй however для контраста, therefore для результата и although для уступки."
+            },
+            {
+              "id": "b2-card-1",
+              "type": "flashcard",
+              "prompt": "From my perspective…",
+              "translation": "С моей точки зрения…",
+              "example": "From my perspective, flexible hours improve productivity."
+            },
+            {
+              "id": "b2-translate-1",
+              "type": "translate",
+              "prompt": "С моей точки зрения, это разумное решение.",
+              "canonicalAnswer": "From my perspective, this is a sensible decision.",
+              "acceptedAnswers": [
+                "In my view, this is a sensible decision."
+              ]
+            },
+            {
+              "id": "b2-order-1",
+              "type": "word_order",
+              "prompt": "Однако у этого подхода есть недостатки.",
+              "canonicalAnswer": "However, this approach has drawbacks.",
+              "tokens": [
+                "approach",
+                "However",
+                "drawbacks",
+                "this",
+                "has",
+                ",",
+                "."
+              ]
+            },
+            {
+              "id": "b2-choice-1",
+              "type": "multiple_choice",
+              "prompt": "The plan is expensive. ___, it may save time later.",
+              "options": [
+                "However",
+                "Therefore",
+                "For example"
+              ],
+              "correctOption": "However"
+            },
+            {
+              "id": "b2-card-2",
+              "type": "flashcard",
+              "prompt": "That being said…",
+              "translation": "При этом / тем не менее…",
+              "example": "The role is demanding. That being said, it is rewarding."
+            },
+            {
+              "id": "b2-translate-2",
+              "type": "translate",
+              "prompt": "Хотя я понимаю твою точку зрения, я не совсем согласен.",
+              "canonicalAnswer": "Although I understand your point, I do not entirely agree.",
+              "acceptedAnswers": [
+                "Although I understand your point, I don't entirely agree."
+              ]
+            },
+            {
+              "id": "b2-order-2",
+              "type": "word_order",
+              "prompt": "В результате команда закончила раньше.",
+              "canonicalAnswer": "As a result, the team finished earlier.",
+              "tokens": [
+                "team",
+                "As",
+                "earlier",
+                "result",
+                "finished",
+                "the",
+                "a",
+                ",",
+                "."
+              ]
+            },
+            {
+              "id": "b2-choice-2",
+              "type": "multiple_choice",
+              "prompt": "___ the risks, the idea is worth testing.",
+              "options": [
+                "Despite",
+                "Because",
+                "Therefore"
+              ],
+              "correctOption": "Despite"
+            },
+            {
+              "id": "b2-translate-3",
+              "type": "translate",
+              "prompt": "Главное преимущество заключается в том, что система проста.",
+              "canonicalAnswer": "The main advantage is that the system is simple.",
+              "acceptedAnswers": [
+                "The key advantage is that the system is simple."
+              ]
+            }
+          ]
+        }
       ]
-    }]
-  }]
+    },
+    {
+      "id": "b2-ch2",
+      "title": "Hypotheticals and the Passive",
+      "subtitle": "Второй и третий условный тип и страдательный залог",
+      "lessons": [
+        {
+          "id": "b2-ch2-l1",
+          "title": "If Only... Conditionals",
+          "summary": "Учимся говорить о нереальных ситуациях во втором и третьем условном типе.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "b2-ch2-l1-ex1",
+              "type": "info",
+              "title": "Second Conditional",
+              "explanation": "Второй тип условия (нереальное настоящее или будущее): If + Past Simple, ... would + инфинитив. Описывает воображаемые, маловероятные ситуации. С глаголом to be часто используют were для всех лиц: if I were you.",
+              "difficulty": 1
+            },
+            {
+              "id": "b2-ch2-l1-ex2",
+              "type": "flashcard",
+              "prompt": "If I were you",
+              "translation": "На твоём месте (если бы я был тобой)",
+              "example": "If I were you, I would apologize to her.",
+              "difficulty": 1
+            },
+            {
+              "id": "b2-ch2-l1-ex3",
+              "type": "multiple_choice",
+              "prompt": "If I ___ you, I would take the job.",
+              "options": [
+                "were",
+                "am",
+                "will be"
+              ],
+              "correctOption": "were",
+              "explanation": "Во втором условном с to be используется were для всех лиц.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch2-l1-ex4",
+              "type": "translate",
+              "prompt": "Если бы у меня было больше денег, я бы купил новую машину.",
+              "canonicalAnswer": "If I had more money, I would buy a new car.",
+              "acceptedAnswers": [
+                "If I had more money, I'd buy a new car.",
+                "If I had more money, I would get a new car."
+              ],
+              "hint": "If + Past Simple, ... would + инфинитив",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch2-l1-ex5",
+              "type": "word_order",
+              "prompt": "Я бы позвонил тебе, если бы мог.",
+              "canonicalAnswer": "I would call you if I could.",
+              "tokens": [
+                "you",
+                "would",
+                "I",
+                "if",
+                "call",
+                "could",
+                "I",
+                "."
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch2-l1-ex6",
+              "type": "info",
+              "title": "Third Conditional",
+              "explanation": "Третий тип условия (нереальное прошлое): If + Past Perfect, ... would have + причастие (V3). Описывает то, что не случилось в прошлом, и его воображаемый результат.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch2-l1-ex7",
+              "type": "flashcard",
+              "prompt": "I would have helped",
+              "translation": "Я бы помог",
+              "example": "I would have helped if you had asked me.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch2-l1-ex8",
+              "type": "multiple_choice",
+              "prompt": "If she had studied harder, she ___ the exam.",
+              "options": [
+                "would have passed",
+                "would pass",
+                "passed"
+              ],
+              "correctOption": "would have passed",
+              "explanation": "Третий условный: would have + причастие для нереального прошлого.",
+              "difficulty": 3
+            },
+            {
+              "id": "b2-ch2-l1-ex9",
+              "type": "translate",
+              "prompt": "Если бы ты мне сказал, я бы помог.",
+              "canonicalAnswer": "If you had told me, I would have helped.",
+              "acceptedAnswers": [
+                "If you had told me, I'd have helped.",
+                "If you had told me, I would have helped you."
+              ],
+              "hint": "If + Past Perfect, ... would have + V3",
+              "difficulty": 3
+            },
+            {
+              "id": "b2-ch2-l1-ex10",
+              "type": "word_order",
+              "prompt": "Она бы выиграла гонку.",
+              "canonicalAnswer": "She would have won the race.",
+              "tokens": [
+                "have",
+                "would",
+                "race",
+                "She",
+                "won",
+                "the",
+                "."
+              ],
+              "difficulty": 3
+            }
+          ]
+        },
+        {
+          "id": "b2-ch2-l2",
+          "title": "Getting Things Done: The Passive",
+          "summary": "Строим предложения в страдательном залоге, когда важно действие, а не деятель.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "b2-ch2-l2-ex1",
+              "type": "info",
+              "title": "The Passive Voice",
+              "explanation": "Страдательный залог: be (в нужном времени) + причастие прошедшего времени (V3). Используется, когда действующее лицо неизвестно, неважно или очевидно: The house was built in 1990.",
+              "difficulty": 1
+            },
+            {
+              "id": "b2-ch2-l2-ex2",
+              "type": "flashcard",
+              "prompt": "is made of",
+              "translation": "сделан из",
+              "example": "This table is made of solid oak.",
+              "difficulty": 1
+            },
+            {
+              "id": "b2-ch2-l2-ex3",
+              "type": "multiple_choice",
+              "prompt": "The house ___ in 1990.",
+              "options": [
+                "was built",
+                "built",
+                "is building"
+              ],
+              "correctOption": "was built",
+              "explanation": "Страдательный залог в прошедшем: was/were + V3.",
+              "difficulty": 1
+            },
+            {
+              "id": "b2-ch2-l2-ex4",
+              "type": "translate",
+              "prompt": "Здесь говорят по-английски.",
+              "canonicalAnswer": "English is spoken here.",
+              "acceptedAnswers": [
+                "English is spoken here",
+                "They speak English here."
+              ],
+              "hint": "is + V3",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch2-l2-ex5",
+              "type": "word_order",
+              "prompt": "Письмо отправили вчера.",
+              "canonicalAnswer": "The letter was sent yesterday.",
+              "tokens": [
+                "was",
+                "letter",
+                "yesterday",
+                "The",
+                "sent",
+                "."
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch2-l2-ex6",
+              "type": "flashcard",
+              "prompt": "was built",
+              "translation": "был построен",
+              "example": "The bridge was built a hundred years ago.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch2-l2-ex7",
+              "type": "multiple_choice",
+              "prompt": "This song ___ by millions of people.",
+              "options": [
+                "is loved",
+                "loves",
+                "is loving"
+              ],
+              "correctOption": "is loved",
+              "explanation": "Страдательный залог в настоящем: is/are + V3.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch2-l2-ex8",
+              "type": "translate",
+              "prompt": "Эта книга была написана известным автором.",
+              "canonicalAnswer": "This book was written by a famous author.",
+              "acceptedAnswers": [
+                "The book was written by a famous author.",
+                "This book was written by a well-known author."
+              ],
+              "hint": "was + V3 + by ...",
+              "difficulty": 3
+            },
+            {
+              "id": "b2-ch2-l2-ex9",
+              "type": "flashcard",
+              "prompt": "can be done",
+              "translation": "может быть сделано",
+              "example": "This can be done in a few minutes.",
+              "difficulty": 3
+            },
+            {
+              "id": "b2-ch2-l2-ex10",
+              "type": "translate",
+              "prompt": "Работа уже сделана.",
+              "canonicalAnswer": "The work has already been done.",
+              "acceptedAnswers": [
+                "The work's already been done.",
+                "The job has already been done."
+              ],
+              "hint": "has been + V3",
+              "difficulty": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2-ch3",
+      "title": "Reporting and Nuance",
+      "subtitle": "Косвенная речь, конструкция I wish / if only, устойчивые словосочетания и фразовые глаголы",
+      "lessons": [
+        {
+          "id": "b2-ch3-l1",
+          "title": "Reporting What People Say",
+          "summary": "Косвенная речь: сдвиг времён, косвенные вопросы и полезные фразовые глаголы для пересказа.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "b2-ch3-l1-ex1",
+              "type": "info",
+              "title": "Reported speech: сдвиг времён",
+              "explanation": "В косвенной речи глагол обычно «сдвигается» на одно время назад: Present Simple → Past Simple, will → would. Например: \"I am tired\" → He said (that) he was tired.",
+              "difficulty": 1
+            },
+            {
+              "id": "b2-ch3-l1-ex2",
+              "type": "flashcard",
+              "prompt": "to point out",
+              "translation": "указать (на что-то), отметить",
+              "example": "She pointed out that we were running late.",
+              "difficulty": 1
+            },
+            {
+              "id": "b2-ch3-l1-ex3",
+              "type": "multiple_choice",
+              "prompt": "She told me that she ___ call me back later.",
+              "options": [
+                "would",
+                "will",
+                "is going to"
+              ],
+              "correctOption": "would",
+              "explanation": "В косвенной речи will сдвигается в would.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l1-ex4",
+              "type": "translate",
+              "prompt": "Он сказал, что устал.",
+              "canonicalAnswer": "He said he was tired.",
+              "acceptedAnswers": [
+                "He said that he was tired.",
+                "He told me he was tired."
+              ],
+              "hint": "say + сдвиг времени: am → was",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l1-ex5",
+              "type": "word_order",
+              "prompt": "Она сказала, что устала.",
+              "canonicalAnswer": "She said she was tired.",
+              "tokens": [
+                "tired",
+                "She",
+                "was",
+                "said",
+                ".",
+                "she"
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l1-ex6",
+              "type": "flashcard",
+              "prompt": "to bring up",
+              "translation": "поднять (тему), завести речь о чём-то",
+              "example": "He brought up an interesting point during the meeting.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l1-ex7",
+              "type": "multiple_choice",
+              "prompt": "He asked me ___ I was feeling okay.",
+              "options": [
+                "if",
+                "that",
+                "what"
+              ],
+              "correctOption": "if",
+              "explanation": "Косвенный общий вопрос вводится через if или whether.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l1-ex8",
+              "type": "translate",
+              "prompt": "Она спросила, во сколько начинается фильм.",
+              "canonicalAnswer": "She asked what time the film started.",
+              "acceptedAnswers": [
+                "She asked what time the movie started.",
+                "She asked when the film started."
+              ],
+              "hint": "косвенный вопрос: прямой порядок слов, без did",
+              "difficulty": 3
+            },
+            {
+              "id": "b2-ch3-l1-ex9",
+              "type": "word_order",
+              "prompt": "Он спросил, где я живу.",
+              "canonicalAnswer": "He asked where I lived.",
+              "tokens": [
+                "I",
+                "where",
+                "asked",
+                "He",
+                "lived",
+                "."
+              ],
+              "difficulty": 3
+            },
+            {
+              "id": "b2-ch3-l1-ex10",
+              "type": "flashcard",
+              "prompt": "to figure out",
+              "translation": "понять, разобраться (в чём-то)",
+              "example": "I couldn't figure out what she really meant.",
+              "difficulty": 2
+            }
+          ]
+        },
+        {
+          "id": "b2-ch3-l2",
+          "title": "Wishes and Nuance",
+          "summary": "Конструкция I wish / if only для сожалений и полезные устойчивые словосочетания.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "b2-ch3-l2-ex1",
+              "type": "info",
+              "title": "I wish / if only",
+              "explanation": "Для сожаления о настоящем используем I wish / if only + Past Simple: \"I wish I had more time\". О прошлом — Past Perfect: \"I wish I hadn't said that\".",
+              "difficulty": 1
+            },
+            {
+              "id": "b2-ch3-l2-ex2",
+              "type": "flashcard",
+              "prompt": "to make a decision",
+              "translation": "принять решение",
+              "example": "We had to make a decision quickly.",
+              "difficulty": 1
+            },
+            {
+              "id": "b2-ch3-l2-ex3",
+              "type": "translate",
+              "prompt": "Жаль, что я не говорю по-испански.",
+              "canonicalAnswer": "I wish I spoke Spanish.",
+              "acceptedAnswers": [
+                "If only I spoke Spanish.",
+                "I wish I could speak Spanish."
+              ],
+              "hint": "I wish + Past Simple для настоящего",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l2-ex4",
+              "type": "multiple_choice",
+              "prompt": "I wish I ___ taller.",
+              "options": [
+                "were",
+                "am",
+                "will be"
+              ],
+              "correctOption": "were",
+              "explanation": "После I wish о настоящем используется was/were (в правильной речи — were).",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l2-ex5",
+              "type": "info",
+              "title": "Collocations",
+              "explanation": "Многие слова в английском ходят «парами» (collocations): make a decision, take into account, come up with. Их лучше запоминать целиком, а не по словам.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l2-ex6",
+              "type": "flashcard",
+              "prompt": "to take something into account",
+              "translation": "учитывать, принимать во внимание",
+              "example": "You should take the weather into account before you leave.",
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l2-ex7",
+              "type": "translate",
+              "prompt": "Жаль, что я это сказал.",
+              "canonicalAnswer": "I wish I hadn't said that.",
+              "acceptedAnswers": [
+                "I wish I had not said that.",
+                "If only I hadn't said that."
+              ],
+              "hint": "сожаление о прошлом: I wish + Past Perfect",
+              "difficulty": 3
+            },
+            {
+              "id": "b2-ch3-l2-ex8",
+              "type": "multiple_choice",
+              "prompt": "We need to ___ a solution to this problem soon.",
+              "options": [
+                "come up with",
+                "come across",
+                "come down with"
+              ],
+              "correctOption": "come up with",
+              "explanation": "come up with — придумать, найти решение.",
+              "difficulty": 3
+            },
+            {
+              "id": "b2-ch3-l2-ex9",
+              "type": "word_order",
+              "prompt": "Жаль, что у меня мало времени.",
+              "canonicalAnswer": "I wish I had more time.",
+              "tokens": [
+                "had",
+                "I",
+                "time",
+                "wish",
+                "more",
+                "I",
+                "."
+              ],
+              "difficulty": 2
+            },
+            {
+              "id": "b2-ch3-l2-ex10",
+              "type": "flashcard",
+              "prompt": "to come across",
+              "translation": "случайно наткнуться, найти",
+              "example": "I came across an old photo while cleaning my room.",
+              "difficulty": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
