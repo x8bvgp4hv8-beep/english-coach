@@ -105,13 +105,17 @@ struct OnboardingView: View {
     }
 }
 
+/// Same rule as the answer options: a chosen level is a state, so it is tinted and
+/// outlined rather than filled. Solid accent belongs to the button that moves on.
 private struct LevelButtonStyle: ButtonStyle {
     let selected: Bool
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label.font(.headline.weight(.bold)).foregroundStyle(selected ? .white : CoachTheme.ink)
+        configuration.label
+            .font(.headline.weight(.bold))
+            .foregroundStyle(selected ? CoachTheme.violet : CoachTheme.ink)
             .padding(.horizontal, 16).padding(.vertical, 13)
-            .background(selected ? CoachTheme.violet : .white.opacity(0.75), in: RoundedRectangle(cornerRadius: 14))
-            .overlay(RoundedRectangle(cornerRadius: 14).stroke(.white.opacity(0.8)))
+            .background(selected ? CoachTheme.violet.opacity(0.12) : .white.opacity(0.75), in: RoundedRectangle(cornerRadius: 14))
+            .overlay(RoundedRectangle(cornerRadius: 14).stroke(selected ? CoachTheme.violet : .white.opacity(0.8), lineWidth: selected ? 2 : 1))
             .scaleEffect(configuration.isPressed ? 0.96 : 1)
     }
 }

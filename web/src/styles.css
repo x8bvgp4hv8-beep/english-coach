@@ -187,14 +187,26 @@ button { cursor: pointer; border: none; background: none; }
 .hero-mark { width: 74px; height: 74px; margin: 0 auto; border-radius: 50%; background: var(--amber); display: grid; place-items: center; font-size: 32px; box-shadow: 0 10px 24px rgba(255, 171, 56, 0.4); }
 .stack { display: flex; flex-direction: column; gap: 10px; }
 .choices { display: flex; flex-direction: column; gap: 10px; }
+/**
+ * A picked answer is a state, not a second action. Filling it with the accent made it
+ * weigh the same as the button below it, and the eye could not tell which one to press.
+ * Selection is marked with a tint, a firm border and a tick; solid accent is reserved
+ * for the one thing that submits.
+ */
 .choice {
-  width: 100%; min-height: var(--tap); border-radius: 13px; font-weight: 650; font-size: 16px;
+  position: relative;
+  width: 100%; min-height: var(--tap); padding: 0 40px; border-radius: 13px; font-weight: 650; font-size: 16px;
   background: var(--surface-solid); border: 2px solid rgba(109, 102, 224, 0.2);
+  transition: border-color 160ms ease-out, background-color 160ms ease-out;
 }
-.choice.selected { background: var(--violet); border-color: var(--violet); color: #fff; }
+.choice.selected { background: var(--violet-soft); border-color: var(--violet); font-weight: 700; }
+.choice.selected::after {
+  content: '✓'; position: absolute; right: 15px; top: 50%; transform: translateY(-50%);
+  font-size: 15px; font-weight: 800; color: var(--violet);
+}
 .pills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 .pill { min-width: 60px; min-height: var(--tap); padding: 0 14px; border-radius: 13px; font-weight: 800; background: var(--surface-solid); border: 2px solid var(--hairline); }
-.pill.selected { background: var(--violet); border-color: var(--violet); color: #fff; }
+.pill.selected { background: var(--violet-soft); border-color: var(--violet); color: var(--violet); }
 .big-level { font-size: 54px; font-weight: 800; color: var(--violet); line-height: 1; }
 
 /* Lesson player */

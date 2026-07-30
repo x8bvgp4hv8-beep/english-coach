@@ -46,12 +46,25 @@ struct MeterBar: View {
 }
 
 /// Answer option card — shared by the placement test and the lesson player.
+///
+/// A picked answer is a state, not a second action: filling it with the accent made it
+/// weigh the same as the button that submits, and the eye could not tell them apart.
+/// Selection is a tint, a firm border and a tick; the solid accent stays on the action.
 struct ChoiceButtonStyle: ButtonStyle {
     var selected: Bool = false
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label.font(.headline).foregroundStyle(selected ? .white : CoachTheme.ink).frame(maxWidth: .infinity).padding(13)
-            .background(selected ? CoachTheme.violet : Color.white, in: RoundedRectangle(cornerRadius: 13))
-            .overlay(RoundedRectangle(cornerRadius: 13).stroke(CoachTheme.violet.opacity(selected ? 0 : 0.2), lineWidth: 2))
+        configuration.label
+            .font(selected ? .headline.bold() : .headline)
+            .foregroundStyle(CoachTheme.ink)
+            .frame(maxWidth: .infinity).padding(13)
+            .background(selected ? CoachTheme.violet.opacity(0.12) : Color.white, in: RoundedRectangle(cornerRadius: 13))
+            .overlay(RoundedRectangle(cornerRadius: 13).stroke(CoachTheme.violet.opacity(selected ? 1 : 0.2), lineWidth: 2))
+            .overlay(alignment: .trailing) {
+                if selected {
+                    Image(systemName: "checkmark").font(.subheadline.weight(.black))
+                        .foregroundStyle(CoachTheme.violet).padding(.trailing, 14)
+                }
+            }
             .scaleEffect(configuration.isPressed ? 0.98 : 1)
     }
 }
