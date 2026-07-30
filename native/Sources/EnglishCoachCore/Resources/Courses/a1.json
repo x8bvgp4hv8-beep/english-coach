@@ -17,14 +17,20 @@
               "id": "a1-info-1",
               "type": "info",
               "title": "I am, you are",
-              "explanation": "После I используй am. После you, we и they используй are. После he, she и it — is."
+              "explanation": "После I используй am. После you, we и they используй are. После he, she и it — is.",
+              "topics": [
+                "a1-to-be"
+              ]
             },
             {
               "id": "a1-card-1",
               "type": "flashcard",
               "prompt": "Nice to meet you.",
               "translation": "Приятно познакомиться.",
-              "example": "Hi, I'm Anna. Nice to meet you."
+              "example": "Hi, I'm Anna. Nice to meet you.",
+              "topics": [
+                "a1-to-be"
+              ]
             },
             {
               "id": "a1-translate-1",
@@ -34,7 +40,10 @@
               "acceptedAnswers": [
                 "I'm from Vilnius."
               ],
-              "hint": "I am / I'm"
+              "hint": "I am / I'm",
+              "topics": [
+                "a1-to-be"
+              ]
             },
             {
               "id": "a1-order-1",
@@ -47,6 +56,10 @@
                 "name",
                 "is",
                 "?"
+              ],
+              "topics": [
+                "a1-to-be",
+                "a1-questions"
               ]
             },
             {
@@ -58,14 +71,20 @@
                 "is",
                 "are"
               ],
-              "correctOption": "is"
+              "correctOption": "is",
+              "topics": [
+                "a1-to-be"
+              ]
             },
             {
               "id": "a1-card-2",
               "type": "flashcard",
               "prompt": "Where are you from?",
               "translation": "Откуда ты?",
-              "example": "Where are you from? I'm from Kaunas."
+              "example": "Where are you from? I'm from Kaunas.",
+              "topics": [
+                "a1-to-be"
+              ]
             },
             {
               "id": "a1-translate-2",
@@ -74,6 +93,9 @@
               "canonicalAnswer": "He is my brother.",
               "acceptedAnswers": [
                 "He's my brother."
+              ],
+              "topics": [
+                "a1-to-be"
               ]
             },
             {
@@ -86,6 +108,9 @@
                 "We",
                 "are",
                 "."
+              ],
+              "topics": [
+                "a1-to-be"
               ]
             },
             {
@@ -97,7 +122,10 @@
                 "is",
                 "are"
               ],
-              "correctOption": "am"
+              "correctOption": "am",
+              "topics": [
+                "a1-to-be"
+              ]
             },
             {
               "id": "a1-translate-3",
@@ -107,6 +135,9 @@
               "acceptedAnswers": [
                 "They aren't at home.",
                 "They're not at home."
+              ],
+              "topics": [
+                "a1-to-be"
               ]
             }
           ]
@@ -129,7 +160,10 @@
               "type": "info",
               "title": "a или an",
               "explanation": "Перед согласным звуком ставь a: a pen, a book. Перед гласным звуком ставь an: an apple, an egg.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-articles"
+              ]
             },
             {
               "id": "a1-ch2-l1-ex2",
@@ -137,7 +171,10 @@
               "prompt": "a pen",
               "translation": "ручка",
               "example": "This is a pen.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-articles"
+              ]
             },
             {
               "id": "a1-ch2-l1-ex3",
@@ -145,7 +182,10 @@
               "prompt": "an apple",
               "translation": "яблоко",
               "example": "I have an apple.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-articles"
+              ]
             },
             {
               "id": "a1-ch2-l1-ex4",
@@ -158,14 +198,21 @@
               ],
               "correctOption": "an",
               "explanation": "Перед гласным звуком используем an.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-articles",
+                "a1-this-that"
+              ]
             },
             {
               "id": "a1-ch2-l1-ex5",
               "type": "info",
               "title": "this и that",
               "explanation": "This — это (предмет рядом). That — то (предмет далеко).",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-articles"
+              ]
             },
             {
               "id": "a1-ch2-l1-ex6",
@@ -173,7 +220,10 @@
               "prompt": "a key",
               "translation": "ключ",
               "example": "That is my key.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-articles"
+              ]
             },
             {
               "id": "a1-ch2-l1-ex7",
@@ -184,7 +234,11 @@
                 "This is a book"
               ],
               "hint": "this + is + a + ...",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-articles",
+                "a1-this-that"
+              ]
             },
             {
               "id": "a1-ch2-l1-ex8",
@@ -198,7 +252,11 @@
                 "is",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-articles",
+                "a1-this-that"
+              ]
             },
             {
               "id": "a1-ch2-l1-ex9",
@@ -211,7 +269,10 @@
               ],
               "correctOption": "That",
               "explanation": "Предмет далеко — используем That.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-articles"
+              ]
             },
             {
               "id": "a1-ch2-l1-ex10",
@@ -221,7 +282,11 @@
               "acceptedAnswers": [
                 "This is a pen"
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-articles",
+                "a1-this-that"
+              ]
             }
           ]
         },
@@ -236,7 +301,10 @@
               "type": "info",
               "title": "Множественное число",
               "explanation": "Для множественного числа обычно добавляем -s: book — books, key — keys, phone — phones.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-have-got"
+              ]
             },
             {
               "id": "a1-ch2-l2-ex2",
@@ -244,7 +312,10 @@
               "prompt": "these books",
               "translation": "эти книги",
               "example": "These books are new.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-have-got"
+              ]
             },
             {
               "id": "a1-ch2-l2-ex3",
@@ -257,14 +328,20 @@
               ],
               "correctOption": "keys",
               "explanation": "После числа больше одного — множественное число.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-have-got"
+              ]
             },
             {
               "id": "a1-ch2-l2-ex4",
               "type": "info",
               "title": "have got",
               "explanation": "Про то, что у нас есть, говорим have got. С he, she, it — has got: She has got a car.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-have-got"
+              ]
             },
             {
               "id": "a1-ch2-l2-ex5",
@@ -276,7 +353,10 @@
                 "I have a dog."
               ],
               "hint": "I have got a ...",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-have-got"
+              ]
             },
             {
               "id": "a1-ch2-l2-ex6",
@@ -291,7 +371,10 @@
                 "have",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-have-got"
+              ]
             },
             {
               "id": "a1-ch2-l2-ex7",
@@ -304,7 +387,10 @@
               ],
               "correctOption": "has got",
               "explanation": "С she используем has got.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a1-have-got"
+              ]
             },
             {
               "id": "a1-ch2-l2-ex8",
@@ -315,7 +401,10 @@
                 "She's got a phone.",
                 "She has a phone."
               ],
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a1-have-got"
+              ]
             },
             {
               "id": "a1-ch2-l2-ex9",
@@ -323,7 +412,10 @@
               "prompt": "those chairs",
               "translation": "те стулья",
               "example": "Those chairs are old.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-have-got"
+              ]
             },
             {
               "id": "a1-ch2-l2-ex10",
@@ -334,7 +426,11 @@
                 "These are my keys"
               ],
               "hint": "these + are + ...",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a1-have-got",
+                "a1-this-that"
+              ]
             }
           ]
         }
@@ -356,7 +452,10 @@
               "type": "info",
               "title": "He, she, it + s",
               "explanation": "В Present Simple после he, she, it к глаголу добавляем -s: I like, но he likes. С I, you, we, they глагол не меняется.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-present-simple"
+              ]
             },
             {
               "id": "a1-ch3-l1-ex2",
@@ -364,7 +463,10 @@
               "prompt": "every day",
               "translation": "каждый день",
               "example": "I drink water every day.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-present-simple"
+              ]
             },
             {
               "id": "a1-ch3-l1-ex3",
@@ -372,7 +474,11 @@
               "prompt": "on Monday",
               "translation": "в понедельник",
               "example": "We have English on Monday.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-present-simple",
+                "a1-prepositions-time"
+              ]
             },
             {
               "id": "a1-ch3-l1-ex4",
@@ -385,7 +491,11 @@
               ],
               "correctOption": "likes",
               "explanation": "После she добавляем -s: likes.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-present-simple",
+                "a1-prepositions-time"
+              ]
             },
             {
               "id": "a1-ch3-l1-ex5",
@@ -396,7 +506,10 @@
                 "I love tea."
               ],
               "hint": "like = любить, нравиться",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-present-simple"
+              ]
             },
             {
               "id": "a1-ch3-l1-ex6",
@@ -410,7 +523,11 @@
                 "you",
                 "?"
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-present-simple",
+                "a1-questions"
+              ]
             },
             {
               "id": "a1-ch3-l1-ex7",
@@ -423,7 +540,10 @@
               ],
               "correctOption": "Does",
               "explanation": "С he в вопросе используем Does.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-present-simple"
+              ]
             },
             {
               "id": "a1-ch3-l1-ex8",
@@ -434,7 +554,10 @@
                 "He doesn't like milk."
               ],
               "hint": "отрицание: does not / doesn't",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a1-present-simple"
+              ]
             },
             {
               "id": "a1-ch3-l1-ex9",
@@ -448,7 +571,11 @@
                 "work",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-present-simple",
+                "a1-prepositions-time"
+              ]
             },
             {
               "id": "a1-ch3-l1-ex10",
@@ -456,7 +583,10 @@
               "prompt": "on the weekend",
               "translation": "на выходных",
               "example": "I read books on the weekend.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-present-simple"
+              ]
             }
           ]
         },
@@ -471,7 +601,10 @@
               "type": "info",
               "title": "always, usually, often, never",
               "explanation": "Наречия частотности (always, usually, often, sometimes, never) обычно ставятся перед основным глаголом: I always get up early.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-adverbs-frequency"
+              ]
             },
             {
               "id": "a1-ch3-l2-ex2",
@@ -479,7 +612,11 @@
               "prompt": "in the morning",
               "translation": "утром",
               "example": "I drink coffee in the morning.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-adverbs-frequency",
+                "a1-prepositions-time"
+              ]
             },
             {
               "id": "a1-ch3-l2-ex3",
@@ -487,7 +624,10 @@
               "prompt": "always",
               "translation": "всегда",
               "example": "She always smiles.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a1-adverbs-frequency"
+              ]
             },
             {
               "id": "a1-ch3-l2-ex4",
@@ -500,7 +640,10 @@
               ],
               "correctOption": "always get up",
               "explanation": "Наречие частотности ставим перед глаголом.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-adverbs-frequency"
+              ]
             },
             {
               "id": "a1-ch3-l2-ex5",
@@ -514,7 +657,10 @@
                 "never",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-adverbs-frequency"
+              ]
             },
             {
               "id": "a1-ch3-l2-ex6",
@@ -525,7 +671,11 @@
                 "I always eat breakfast in the morning."
               ],
               "hint": "have breakfast = завтракать",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a1-adverbs-frequency",
+                "a1-prepositions-time"
+              ]
             },
             {
               "id": "a1-ch3-l2-ex7",
@@ -538,7 +688,10 @@
               ],
               "correctOption": "in",
               "explanation": "in the morning / afternoon / evening.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-adverbs-frequency"
+              ]
             },
             {
               "id": "a1-ch3-l2-ex8",
@@ -549,7 +702,11 @@
                 "He often works in the evenings."
               ],
               "hint": "often = часто",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a1-adverbs-frequency",
+                "a1-prepositions-time"
+              ]
             },
             {
               "id": "a1-ch3-l2-ex9",
@@ -557,14 +714,21 @@
               "prompt": "at night",
               "translation": "ночью",
               "example": "I sleep at night.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-adverbs-frequency",
+                "a1-prepositions-time"
+              ]
             },
             {
               "id": "a1-ch3-l2-ex10",
               "type": "info",
               "title": "in / on / at",
               "explanation": "Со временем суток используем in the morning, in the evening, но at night и at noon. С днями недели — on Monday.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a1-adverbs-frequency"
+              ]
             }
           ]
         }

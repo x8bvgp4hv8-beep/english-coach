@@ -17,14 +17,20 @@
               "id": "b2-info-1",
               "type": "info",
               "title": "Связывай идеи",
-              "explanation": "Используй however для контраста, therefore для результата и although для уступки."
+              "explanation": "Используй however для контраста, therefore для результата и although для уступки.",
+              "topics": [
+                "b2-linkers"
+              ]
             },
             {
               "id": "b2-card-1",
               "type": "flashcard",
               "prompt": "From my perspective…",
               "translation": "С моей точки зрения…",
-              "example": "From my perspective, flexible hours improve productivity."
+              "example": "From my perspective, flexible hours improve productivity.",
+              "topics": [
+                "b2-linkers"
+              ]
             },
             {
               "id": "b2-translate-1",
@@ -33,6 +39,9 @@
               "canonicalAnswer": "From my perspective, this is a sensible decision.",
               "acceptedAnswers": [
                 "In my view, this is a sensible decision."
+              ],
+              "topics": [
+                "b2-linkers"
               ]
             },
             {
@@ -48,6 +57,9 @@
                 "has",
                 ",",
                 "."
+              ],
+              "topics": [
+                "b2-linkers"
               ]
             },
             {
@@ -59,14 +71,21 @@
                 "Therefore",
                 "For example"
               ],
-              "correctOption": "However"
+              "correctOption": "However",
+              "topics": [
+                "b2-linkers"
+              ]
             },
             {
               "id": "b2-card-2",
               "type": "flashcard",
               "prompt": "That being said…",
               "translation": "При этом / тем не менее…",
-              "example": "The role is demanding. That being said, it is rewarding."
+              "example": "The role is demanding. That being said, it is rewarding.",
+              "topics": [
+                "b2-linkers",
+                "a1-this-that"
+              ]
             },
             {
               "id": "b2-translate-2",
@@ -75,6 +94,9 @@
               "canonicalAnswer": "Although I understand your point, I do not entirely agree.",
               "acceptedAnswers": [
                 "Although I understand your point, I don't entirely agree."
+              ],
+              "topics": [
+                "b2-linkers"
               ]
             },
             {
@@ -92,6 +114,9 @@
                 "a",
                 ",",
                 "."
+              ],
+              "topics": [
+                "b2-linkers"
               ]
             },
             {
@@ -103,7 +128,10 @@
                 "Because",
                 "Therefore"
               ],
-              "correctOption": "Despite"
+              "correctOption": "Despite",
+              "topics": [
+                "b2-linkers"
+              ]
             },
             {
               "id": "b2-translate-3",
@@ -112,6 +140,9 @@
               "canonicalAnswer": "The main advantage is that the system is simple.",
               "acceptedAnswers": [
                 "The key advantage is that the system is simple."
+              ],
+              "topics": [
+                "b2-linkers"
               ]
             }
           ]
@@ -134,7 +165,10 @@
               "type": "info",
               "title": "Second Conditional",
               "explanation": "Второй тип условия (нереальное настоящее или будущее): If + Past Simple, ... would + инфинитив. Описывает воображаемые, маловероятные ситуации. С глаголом to be часто используют were для всех лиц: if I were you.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b2-second-conditional"
+              ]
             },
             {
               "id": "b2-ch2-l1-ex2",
@@ -142,7 +176,10 @@
               "prompt": "If I were you",
               "translation": "На твоём месте (если бы я был тобой)",
               "example": "If I were you, I would apologize to her.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b2-second-conditional"
+              ]
             },
             {
               "id": "b2-ch2-l1-ex3",
@@ -155,7 +192,10 @@
               ],
               "correctOption": "were",
               "explanation": "Во втором условном с to be используется were для всех лиц.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-second-conditional"
+              ]
             },
             {
               "id": "b2-ch2-l1-ex4",
@@ -167,7 +207,10 @@
                 "If I had more money, I would get a new car."
               ],
               "hint": "If + Past Simple, ... would + инфинитив",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-second-conditional"
+              ]
             },
             {
               "id": "b2-ch2-l1-ex5",
@@ -184,14 +227,20 @@
                 "I",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-second-conditional"
+              ]
             },
             {
               "id": "b2-ch2-l1-ex6",
               "type": "info",
               "title": "Third Conditional",
               "explanation": "Третий тип условия (нереальное прошлое): If + Past Perfect, ... would have + причастие (V3). Описывает то, что не случилось в прошлом, и его воображаемый результат.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-second-conditional"
+              ]
             },
             {
               "id": "b2-ch2-l1-ex7",
@@ -199,7 +248,11 @@
               "prompt": "I would have helped",
               "translation": "Я бы помог",
               "example": "I would have helped if you had asked me.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional"
+              ]
             },
             {
               "id": "b2-ch2-l1-ex8",
@@ -212,7 +265,11 @@
               ],
               "correctOption": "would have passed",
               "explanation": "Третий условный: would have + причастие для нереального прошлого.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional"
+              ]
             },
             {
               "id": "b2-ch2-l1-ex9",
@@ -224,7 +281,11 @@
                 "If you had told me, I would have helped you."
               ],
               "hint": "If + Past Perfect, ... would have + V3",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional"
+              ]
             },
             {
               "id": "b2-ch2-l1-ex10",
@@ -240,7 +301,11 @@
                 "the",
                 "."
               ],
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional"
+              ]
             }
           ]
         },
@@ -255,7 +320,10 @@
               "type": "info",
               "title": "The Passive Voice",
               "explanation": "Страдательный залог: be (в нужном времени) + причастие прошедшего времени (V3). Используется, когда действующее лицо неизвестно, неважно или очевидно: The house was built in 1990.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-passive-simple"
+              ]
             },
             {
               "id": "b2-ch2-l2-ex2",
@@ -263,7 +331,10 @@
               "prompt": "is made of",
               "translation": "сделан из",
               "example": "This table is made of solid oak.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-passive-simple"
+              ]
             },
             {
               "id": "b2-ch2-l2-ex3",
@@ -276,7 +347,10 @@
               ],
               "correctOption": "was built",
               "explanation": "Страдательный залог в прошедшем: was/were + V3.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-passive-simple"
+              ]
             },
             {
               "id": "b2-ch2-l2-ex4",
@@ -288,7 +362,10 @@
                 "They speak English here."
               ],
               "hint": "is + V3",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-passive-simple"
+              ]
             },
             {
               "id": "b2-ch2-l2-ex5",
@@ -303,7 +380,11 @@
                 "sent",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-passive-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "b2-ch2-l2-ex6",
@@ -311,7 +392,11 @@
               "prompt": "was built",
               "translation": "был построен",
               "example": "The bridge was built a hundred years ago.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-passive-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "b2-ch2-l2-ex7",
@@ -324,7 +409,11 @@
               ],
               "correctOption": "is loved",
               "explanation": "Страдательный залог в настоящем: is/are + V3.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-passive-simple",
+                "a1-this-that"
+              ]
             },
             {
               "id": "b2-ch2-l2-ex8",
@@ -336,7 +425,11 @@
                 "This book was written by a well-known author."
               ],
               "hint": "was + V3 + by ...",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b1-passive-simple",
+                "a1-this-that"
+              ]
             },
             {
               "id": "b2-ch2-l2-ex9",
@@ -344,7 +437,10 @@
               "prompt": "can be done",
               "translation": "может быть сделано",
               "example": "This can be done in a few minutes.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b1-passive-simple"
+              ]
             },
             {
               "id": "b2-ch2-l2-ex10",
@@ -356,7 +452,10 @@
                 "The job has already been done."
               ],
               "hint": "has been + V3",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b1-passive-simple"
+              ]
             }
           ]
         }
@@ -378,7 +477,10 @@
               "type": "info",
               "title": "Reported speech: сдвиг времён",
               "explanation": "В косвенной речи глагол обычно «сдвигается» на одно время назад: Present Simple → Past Simple, will → would. Например: \"I am tired\" → He said (that) he was tired.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b2-reported-speech"
+              ]
             },
             {
               "id": "b2-ch3-l1-ex2",
@@ -386,7 +488,10 @@
               "prompt": "to point out",
               "translation": "указать (на что-то), отметить",
               "example": "She pointed out that we were running late.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b2-reported-speech"
+              ]
             },
             {
               "id": "b2-ch3-l1-ex3",
@@ -399,7 +504,10 @@
               ],
               "correctOption": "would",
               "explanation": "В косвенной речи will сдвигается в would.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-reported-speech"
+              ]
             },
             {
               "id": "b2-ch3-l1-ex4",
@@ -411,7 +519,10 @@
                 "He told me he was tired."
               ],
               "hint": "say + сдвиг времени: am → was",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-reported-speech"
+              ]
             },
             {
               "id": "b2-ch3-l1-ex5",
@@ -426,7 +537,10 @@
                 ".",
                 "she"
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-reported-speech"
+              ]
             },
             {
               "id": "b2-ch3-l1-ex6",
@@ -434,7 +548,10 @@
               "prompt": "to bring up",
               "translation": "поднять (тему), завести речь о чём-то",
               "example": "He brought up an interesting point during the meeting.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-reported-speech"
+              ]
             },
             {
               "id": "b2-ch3-l1-ex7",
@@ -447,7 +564,10 @@
               ],
               "correctOption": "if",
               "explanation": "Косвенный общий вопрос вводится через if или whether.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-reported-speech"
+              ]
             },
             {
               "id": "b2-ch3-l1-ex8",
@@ -459,7 +579,10 @@
                 "She asked when the film started."
               ],
               "hint": "косвенный вопрос: прямой порядок слов, без did",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b2-reported-speech"
+              ]
             },
             {
               "id": "b2-ch3-l1-ex9",
@@ -474,7 +597,10 @@
                 "lived",
                 "."
               ],
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b2-reported-speech"
+              ]
             },
             {
               "id": "b2-ch3-l1-ex10",
@@ -482,7 +608,10 @@
               "prompt": "to figure out",
               "translation": "понять, разобраться (в чём-то)",
               "example": "I couldn't figure out what she really meant.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-reported-speech"
+              ]
             }
           ]
         },
@@ -497,7 +626,10 @@
               "type": "info",
               "title": "I wish / if only",
               "explanation": "Для сожаления о настоящем используем I wish / if only + Past Simple: \"I wish I had more time\". О прошлом — Past Perfect: \"I wish I hadn't said that\".",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b2-wish"
+              ]
             },
             {
               "id": "b2-ch3-l2-ex2",
@@ -505,7 +637,11 @@
               "prompt": "to make a decision",
               "translation": "принять решение",
               "example": "We had to make a decision quickly.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b2-wish",
+                "b2-collocations"
+              ]
             },
             {
               "id": "b2-ch3-l2-ex3",
@@ -517,7 +653,10 @@
                 "I wish I could speak Spanish."
               ],
               "hint": "I wish + Past Simple для настоящего",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-wish"
+              ]
             },
             {
               "id": "b2-ch3-l2-ex4",
@@ -530,14 +669,20 @@
               ],
               "correctOption": "were",
               "explanation": "После I wish о настоящем используется was/were (в правильной речи — were).",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-wish"
+              ]
             },
             {
               "id": "b2-ch3-l2-ex5",
               "type": "info",
               "title": "Collocations",
               "explanation": "Многие слова в английском ходят «парами» (collocations): make a decision, take into account, come up with. Их лучше запоминать целиком, а не по словам.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-wish"
+              ]
             },
             {
               "id": "b2-ch3-l2-ex6",
@@ -545,7 +690,10 @@
               "prompt": "to take something into account",
               "translation": "учитывать, принимать во внимание",
               "example": "You should take the weather into account before you leave.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-wish"
+              ]
             },
             {
               "id": "b2-ch3-l2-ex7",
@@ -557,7 +705,10 @@
                 "If only I hadn't said that."
               ],
               "hint": "сожаление о прошлом: I wish + Past Perfect",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b2-wish"
+              ]
             },
             {
               "id": "b2-ch3-l2-ex8",
@@ -570,7 +721,11 @@
               ],
               "correctOption": "come up with",
               "explanation": "come up with — придумать, найти решение.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b2-wish",
+                "b2-collocations"
+              ]
             },
             {
               "id": "b2-ch3-l2-ex9",
@@ -586,7 +741,10 @@
                 "I",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-wish"
+              ]
             },
             {
               "id": "b2-ch3-l2-ex10",
@@ -594,7 +752,11 @@
               "prompt": "to come across",
               "translation": "случайно наткнуться, найти",
               "example": "I came across an old photo while cleaning my room.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b2-wish",
+                "b1-while-when"
+              ]
             }
           ]
         }

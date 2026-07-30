@@ -57,6 +57,9 @@ public struct Exercise: Codable, Identifiable, Equatable, Sendable {
     public let translation: String?
     public let example: String?
     public let difficulty: Int?
+    /// Grammar topics from `Syllabus/syllabus.json` that this exercise drills. Optional
+    /// for older packs; the syllabus test refuses ids that are not in the manifest.
+    public let topics: [String]?
 }
 
 public struct PlacementQuestion: Codable, Identifiable, Equatable, Sendable {

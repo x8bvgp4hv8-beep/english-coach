@@ -21,6 +21,31 @@ export interface Exercise {
   translation?: string
   example?: string
   difficulty?: number
+  /** Grammar topics from the syllabus that this exercise drills. */
+  topics?: string[]
+}
+
+export interface SyllabusTopic {
+  id: string
+  level: CEFRLevel
+  title: string
+  summary: string
+  /** How many exercises the topic needs before it counts as taught, not mentioned. */
+  minExercises: number
+}
+
+export interface Syllabus {
+  schemaVersion: number
+  source: string
+  /** Topics currently below target. A ratchet: content lowers it, a new gap fails the build. */
+  coverageDebtCeiling: number
+  topics: SyllabusTopic[]
+}
+
+export interface TopicCoverage {
+  topic: SyllabusTopic
+  exercises: number
+  isCovered: boolean
 }
 
 export interface Lesson {

@@ -49,7 +49,12 @@ public enum ContentRepository {
         let direct = root.flatMap { try? FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil) } ?? []
         let nested = root.map { $0.appendingPathComponent("Courses") }
             .flatMap { try? FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil) } ?? []
-        let urls = (direct + nested).filter { $0.pathExtension == "json" && !$0.lastPathComponent.contains("placement") }
+        // If the bundler flattens the folders, the placement bank and the syllabus land
+        // next to the courses; neither is a course pack.
+        let notCourses = ["placement", "syllabus"]
+        let urls = (direct + nested).filter { url in
+            url.pathExtension == "json" && !notCourses.contains { url.lastPathComponent.contains($0) }
+        }
         return try urls.sorted { $0.lastPathComponent < $1.lastPathComponent }
             .map { try decode(Data(contentsOf: $0)) }
     }
@@ -79,6 +84,45 @@ public enum ContentRepository {
             return try loadPlacement(bundle: appBundle)
         }
         return try loadPlacement(bundle: .module)
+    }
+
+    // MARK: - Syllabus
+
+    public static func decodeSyllabus(_ data: Data) throws -> Syllabus {
+        let syllabus = try JSONDecoder().decode(Syllabus.self, from: data)
+        guard syllabus.schemaVersion == 1 else { throw ContentError.unsupportedSchema(syllabus.schemaVersion) }
+        guard !syllabus.topics.isEmpty else { throw ContentError.emptyCourse }
+        var ids = Set<String>()
+        for topic in syllabus.topics {
+            guard ids.insert(topic.id).inserted else { throw ContentError.duplicateID(topic.id) }
+            guard topic.minExercises > 0 else { throw ContentError.invalidExercise(topic.id) }
+        }
+        return syllabus
+    }
+
+    public static func loadSyllabus() throws -> Syllabus {
+        let bundleName = "EnglishCoach_EnglishCoachCore.bundle"
+        let candidates = [
+            Bundle.main.resourceURL?.appendingPathComponent(bundleName),
+            Bundle.main.bundleURL.appendingPathComponent(bundleName)
+        ].compactMap { $0 }
+        if let url = candidates.first(where: { FileManager.default.fileExists(atPath: $0.path) }),
+           let appBundle = Bundle(url: url) {
+            return try loadSyllabus(bundle: appBundle)
+        }
+        return try loadSyllabus(bundle: .module)
+    }
+
+    public static func loadSyllabus(bundle: Bundle) throws -> Syllabus {
+        let root = bundle.bundleURL
+        // Same as the placement bank: the file may keep its folder or be flattened.
+        for dir in [root.appendingPathComponent("Syllabus"), root] {
+            let urls = (try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil)) ?? []
+            if let file = urls.first(where: { $0.lastPathComponent.contains("syllabus") && $0.pathExtension == "json" }) {
+                return try decodeSyllabus(Data(contentsOf: file))
+            }
+        }
+        throw ContentError.emptyCourse
     }
 
     public static func loadPlacement(bundle: Bundle) throws -> PlacementBank {

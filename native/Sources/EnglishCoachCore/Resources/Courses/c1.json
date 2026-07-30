@@ -17,14 +17,20 @@
               "id": "c1-info-1",
               "type": "info",
               "title": "Hedging",
-              "explanation": "Слова arguably, tends to и appears to помогают делать точные, осторожные утверждения вместо абсолютных."
+              "explanation": "Слова arguably, tends to и appears to помогают делать точные, осторожные утверждения вместо абсолютных.",
+              "topics": [
+                "c1-hedging"
+              ]
             },
             {
               "id": "c1-card-1",
               "type": "flashcard",
               "prompt": "The evidence appears to suggest that…",
               "translation": "По всей видимости, данные указывают на то, что…",
-              "example": "The evidence appears to suggest that the change improved retention."
+              "example": "The evidence appears to suggest that the change improved retention.",
+              "topics": [
+                "c1-hedging"
+              ]
             },
             {
               "id": "c1-translate-1",
@@ -33,6 +39,9 @@
               "canonicalAnswer": "It could be argued that this approach is more sustainable.",
               "acceptedAnswers": [
                 "Arguably, this approach is more sustainable."
+              ],
+              "topics": [
+                "c1-hedging"
               ]
             },
             {
@@ -49,6 +58,9 @@
                 "the",
                 "to",
                 "."
+              ],
+              "topics": [
+                "c1-hedging"
               ]
             },
             {
@@ -60,14 +72,20 @@
                 "definitely will",
                 "must always"
               ],
-              "correctOption": "may well"
+              "correctOption": "may well",
+              "topics": [
+                "c1-hedging"
+              ]
             },
             {
               "id": "c1-card-2",
               "type": "flashcard",
               "prompt": "To a certain extent…",
               "translation": "В определённой степени…",
-              "example": "To a certain extent, both interpretations are valid."
+              "example": "To a certain extent, both interpretations are valid.",
+              "topics": [
+                "c1-hedging"
+              ]
             },
             {
               "id": "c1-translate-2",
@@ -76,6 +94,9 @@
               "canonicalAnswer": "To a certain extent, it depends on the context.",
               "acceptedAnswers": [
                 "It depends on the context to a certain extent."
+              ],
+              "topics": [
+                "c1-hedging"
               ]
             },
             {
@@ -94,6 +115,10 @@
                 "the",
                 "that",
                 "."
+              ],
+              "topics": [
+                "c1-hedging",
+                "a1-this-that"
               ]
             },
             {
@@ -105,7 +130,10 @@
                 "absolutely",
                 "without doubt"
               ],
-              "correctOption": "likely to be"
+              "correctOption": "likely to be",
+              "topics": [
+                "c1-hedging"
+              ]
             },
             {
               "id": "c1-translate-3",
@@ -114,6 +142,10 @@
               "canonicalAnswer": "While the conclusion is plausible, the evidence cannot be considered conclusive.",
               "acceptedAnswers": [
                 "Although the conclusion is plausible, the evidence cannot be regarded as conclusive."
+              ],
+              "topics": [
+                "c1-hedging",
+                "b1-while-when"
               ]
             }
           ]
@@ -136,7 +168,10 @@
               "type": "info",
               "title": "Инверсия после отрицательных наречий",
               "explanation": "Когда предложение начинается с отрицательного или ограничительного наречия (never, rarely, seldom, not only, no sooner), подлежащее и вспомогательный глагол меняются местами — как в вопросе: Never have I seen it.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "c1-inversion"
+              ]
             },
             {
               "id": "c1-ch2-l1-ex2",
@@ -144,7 +179,10 @@
               "prompt": "Never have I seen",
               "translation": "Никогда я не видел",
               "example": "Never have I seen anything like it.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "c1-inversion"
+              ]
             },
             {
               "id": "c1-ch2-l1-ex3",
@@ -152,7 +190,10 @@
               "prompt": "Not only... but also...",
               "translation": "Не только... но и...",
               "example": "Not only did she apologize, but she also paid for the damage.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "c1-inversion"
+              ]
             },
             {
               "id": "c1-ch2-l1-ex4",
@@ -165,7 +206,10 @@
               ],
               "correctOption": "have I seen",
               "explanation": "После Never в начале предложения нужна инверсия: вспомогательный глагол перед подлежащим.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-inversion"
+              ]
             },
             {
               "id": "c1-ch2-l1-ex5",
@@ -177,7 +221,10 @@
                 "I've never seen such a beautiful sunset."
               ],
               "hint": "Начни с Never и используй инверсию.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-inversion"
+              ]
             },
             {
               "id": "c1-ch2-l1-ex6",
@@ -193,7 +240,10 @@
                 ".",
                 "have"
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-inversion"
+              ]
             },
             {
               "id": "c1-ch2-l1-ex7",
@@ -206,7 +256,10 @@
               ],
               "correctOption": "was he",
               "explanation": "После Not only в начале предложения используется инверсия: was he.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-inversion"
+              ]
             },
             {
               "id": "c1-ch2-l1-ex8",
@@ -217,7 +270,10 @@
                 "Not only was she late but she also forgot the tickets."
               ],
               "hint": "Начни с Not only и сделай инверсию.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-inversion"
+              ]
             },
             {
               "id": "c1-ch2-l1-ex9",
@@ -230,14 +286,20 @@
               ],
               "correctOption": "does",
               "explanation": "Инверсия после Seldom требует вспомогательного does для единственного числа.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-inversion"
+              ]
             },
             {
               "id": "c1-ch2-l1-ex10",
               "type": "info",
               "title": "No sooner... than",
               "explanation": "Конструкции No sooner... than и Hardly... when тоже требуют инверсии: No sooner had I arrived than it started to rain.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-inversion"
+              ]
             }
           ]
         },
@@ -252,7 +314,10 @@
               "type": "info",
               "title": "Клефт-конструкции",
               "explanation": "Клефт-конструкции выделяют важную часть фразы. It was... that/who... подчёркивает подлежащее или дополнение, а What... is... выделяет то, что действительно важно.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "c1-cleft"
+              ]
             },
             {
               "id": "c1-ch2-l2-ex2",
@@ -260,7 +325,10 @@
               "prompt": "What I need is...",
               "translation": "Что мне нужно, так это...",
               "example": "What I need is a good night's sleep.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "c1-cleft"
+              ]
             },
             {
               "id": "c1-ch2-l2-ex3",
@@ -273,7 +341,10 @@
               ],
               "correctOption": "It was",
               "explanation": "Клефт-конструкция для выделения подлежащего начинается с It was.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-cleft"
+              ]
             },
             {
               "id": "c1-ch2-l2-ex4",
@@ -284,7 +355,10 @@
                 "It was Maria that broke the vase, not me."
               ],
               "hint": "Используй клефт It was ... who ...",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-cleft"
+              ]
             },
             {
               "id": "c1-ch2-l2-ex5",
@@ -300,7 +374,10 @@
                 "more",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-cleft"
+              ]
             },
             {
               "id": "c1-ch2-l2-ex6",
@@ -311,7 +388,10 @@
                 "What I really need is a vacation."
               ],
               "hint": "Начни с What I really need is...",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-cleft"
+              ]
             },
             {
               "id": "c1-ch2-l2-ex7",
@@ -324,7 +404,10 @@
               ],
               "correctOption": "I want",
               "explanation": "В клефте с What используется обычный порядок слов: What I want is...",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-cleft"
+              ]
             },
             {
               "id": "c1-ch2-l2-ex8",
@@ -332,7 +415,10 @@
               "prompt": "It was then that...",
               "translation": "Именно тогда...",
               "example": "It was then that I realized my mistake.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-cleft"
+              ]
             },
             {
               "id": "c1-ch2-l2-ex9",
@@ -343,7 +429,11 @@
                 "It was yesterday when I met her."
               ],
               "hint": "Клефт: It was ... that ...",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-cleft",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "c1-ch2-l2-ex10",
@@ -359,7 +449,10 @@
                 ".",
                 "we"
               ],
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-cleft"
+              ]
             }
           ]
         }
@@ -381,7 +474,10 @@
               "type": "info",
               "title": "Despite vs Although",
               "explanation": "После despite и in spite of идёт существительное или герундий (despite the delay, despite being tired), а после although — целое придаточное предложение с подлежащим и глаголом.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "c1-concession"
+              ]
             },
             {
               "id": "c1-ch3-l1-ex2",
@@ -389,7 +485,10 @@
               "prompt": "despite",
               "translation": "несмотря на",
               "example": "Despite the setbacks, the team delivered the project on time.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "c1-concession"
+              ]
             },
             {
               "id": "c1-ch3-l1-ex3",
@@ -397,7 +496,10 @@
               "prompt": "whereas",
               "translation": "тогда как, в то время как (контраст)",
               "example": "He favours a cautious approach, whereas his partner prefers to take bold risks.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "c1-concession"
+              ]
             },
             {
               "id": "c1-ch3-l1-ex4",
@@ -405,7 +507,10 @@
               "prompt": "nonetheless",
               "translation": "тем не менее, всё же",
               "example": "The evidence was circumstantial; nonetheless, the jury was convinced.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-concession"
+              ]
             },
             {
               "id": "c1-ch3-l1-ex5",
@@ -418,7 +523,10 @@
               ],
               "correctOption": "Despite",
               "explanation": "Перед существительным (talent) нужно despite, а не although (перед предложением) или however.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-concession"
+              ]
             },
             {
               "id": "c1-ch3-l1-ex6",
@@ -431,7 +539,10 @@
               ],
               "correctOption": "whereas",
               "explanation": "Whereas связывает два противопоставленных предложения.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-concession"
+              ]
             },
             {
               "id": "c1-ch3-l1-ex7",
@@ -443,7 +554,10 @@
                 "Despite her tight schedule, she found time to read the whole report."
               ],
               "hint": "despite + существительное",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-concession"
+              ]
             },
             {
               "id": "c1-ch3-l1-ex8",
@@ -455,7 +569,10 @@
                 "The product got warm reviews; nonetheless, sales stayed sluggish."
               ],
               "hint": "nonetheless = тем не менее",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-concession"
+              ]
             },
             {
               "id": "c1-ch3-l1-ex9",
@@ -475,7 +592,10 @@
                 "it",
                 "."
               ],
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-concession"
+              ]
             },
             {
               "id": "c1-ch3-l1-ex10",
@@ -487,7 +607,10 @@
                 "Even though the plan looked risky, the board unanimously approved it."
               ],
               "hint": "although + предложение",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-concession"
+              ]
             }
           ]
         },
@@ -502,7 +625,10 @@
               "type": "info",
               "title": "Register matters",
               "explanation": "Notwithstanding и albeit звучат формально и уместны в письменной аргументации, тогда как идиомы вроде that said или having said that смягчают контраст в разговорной речи.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "c1-register"
+              ]
             },
             {
               "id": "c1-ch3-l2-ex2",
@@ -510,7 +636,10 @@
               "prompt": "albeit",
               "translation": "хотя и, пусть и",
               "example": "The reform was a success, albeit a costly one.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-register"
+              ]
             },
             {
               "id": "c1-ch3-l2-ex3",
@@ -518,7 +647,10 @@
               "prompt": "that said",
               "translation": "тем не менее; при этом (смягчает предыдущее утверждение)",
               "example": "The film is far too long. That said, the performances are outstanding.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-register"
+              ]
             },
             {
               "id": "c1-ch3-l2-ex4",
@@ -531,7 +663,10 @@
               ],
               "correctOption": "notwithstanding",
               "explanation": "Notwithstanding + существительное означает 'несмотря на' в формальном регистре.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-register"
+              ]
             },
             {
               "id": "c1-ch3-l2-ex5",
@@ -544,7 +679,10 @@
               ],
               "correctOption": "albeit",
               "explanation": "Albeit вводит краткую уступку перед прилагательным или фразой.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-register"
+              ]
             },
             {
               "id": "c1-ch3-l2-ex6",
@@ -556,7 +694,10 @@
                 "The report is thorough, though somewhat long-winded."
               ],
               "hint": "albeit + прилагательное",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-register"
+              ]
             },
             {
               "id": "c1-ch3-l2-ex7",
@@ -568,7 +709,10 @@
                 "The idea is costly. That said, the returns might justify the investment."
               ],
               "hint": "That said = смягчающая уступка",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-register"
+              ]
             },
             {
               "id": "c1-ch3-l2-ex8",
@@ -587,7 +731,10 @@
                 "the",
                 "."
               ],
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-register"
+              ]
             },
             {
               "id": "c1-ch3-l2-ex9",
@@ -599,7 +746,10 @@
                 "He agreed to help, albeit with evident reluctance."
               ],
               "hint": "albeit + предложная фраза",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "c1-register"
+              ]
             },
             {
               "id": "c1-ch3-l2-ex10",
@@ -612,7 +762,10 @@
               ],
               "correctOption": "Notwithstanding",
               "explanation": "Notwithstanding — самый формальный вариант; that said и anyway разговорнее.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "c1-register"
+              ]
             }
           ]
         }

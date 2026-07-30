@@ -258,6 +258,32 @@ do {
     expect(LevelOrder.next(after: .c1) == nil, "no level after C1")
 } catch { failures += 1; print("✗ progression engine: \(error)") }
 
+// Syllabus: what each level owes, and how far the content is from it.
+// Mirrors web/src/core/core.test.ts.
+do {
+    let syllabus = try ContentRepository.loadSyllabus()
+    let courses = try ContentRepository.loadBundled()
+    expect(syllabus.topics.count > 20, "syllabus covers a real programme")
+    expect(Set(syllabus.topics.map(\.level)) == Set(CEFRLevel.allCases), "syllabus covers A1-C1")
+
+    // A typo in a pack would silently create a topic nobody teaches and nobody counts.
+    expect(SyllabusEngine.unknownTopics(of: syllabus, in: courses).isEmpty, "content only tags topics the syllabus defines")
+    let untagged = courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises).filter { ($0.topics ?? []).isEmpty }
+    expect(untagged.isEmpty, "every exercise carries a topic" + (untagged.isEmpty ? "" : ": \(untagged.prefix(3).map(\.id))"))
+
+    // The ratchet: the content is knowingly short of the syllabus, so the test does not
+    // demand a full course — it demands that the shortfall never grows.
+    let gaps = SyllabusEngine.gaps(of: syllabus, in: courses)
+    expect(gaps.count <= syllabus.coverageDebtCeiling,
+           "coverage debt did not grow (\(gaps.count) of ceiling \(syllabus.coverageDebtCeiling))")
+
+    let counts = SyllabusEngine.counts(in: courses)
+    let taggedInfo = courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises)
+        .filter { $0.type == .info && !($0.topics ?? []).isEmpty }
+    expect(!taggedInfo.isEmpty, "rule cards carry their topic, so a rule can be found")
+    expect(counts.values.reduce(0, +) > 0, "practice exercises are counted")
+} catch { failures += 1; print("✗ syllabus: \(error)") }
+
 // Shadowing: the phrases the learner says out loud. Mirrors web/src/core/core.test.ts.
 func singleExercise(_ json: String) -> Exercise? {
     let course = #"{"schemaVersion":1,"level":"A1","chapters":[{"id":"c","title":"C","lessons":[{"id":"l","title":"L","summary":"S","estimatedMinutes":1,"exercises":[\#(json)]}]}]}"#

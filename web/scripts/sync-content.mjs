@@ -17,8 +17,9 @@ for (const file of courseFiles) {
   cpSync(join(source, 'Courses', file), join(target, 'courses', file))
 }
 cpSync(join(source, 'Placement', 'placement.json'), join(target, 'placement.json'))
+cpSync(join(source, 'Syllabus', 'syllabus.json'), join(target, 'syllabus.json'))
 
 // A manifest, because a static host cannot be asked to list a directory.
 writeFileSync(join(target, 'index.json'), JSON.stringify({ courses: courseFiles }, null, 2) + '\n')
 
-console.log(`content: ${courseFiles.length} course packs + placement bank → public/content`)
+console.log(`content: ${courseFiles.length} course packs + placement bank + syllabus → public/content`)

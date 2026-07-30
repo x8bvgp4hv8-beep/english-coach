@@ -17,14 +17,21 @@
               "id": "b1-info-1",
               "type": "info",
               "title": "Present Perfect",
-              "explanation": "Используй have или has плюс третью форму глагола, когда важен опыт или результат сейчас."
+              "explanation": "Используй have или has плюс третью форму глагола, когда важен опыт или результат сейчас.",
+              "topics": [
+                "b1-present-perfect"
+              ]
             },
             {
               "id": "b1-card-1",
               "type": "flashcard",
               "prompt": "Have you ever tried surfing?",
               "translation": "Ты когда-нибудь пробовал сёрфинг?",
-              "example": "Have you ever tried surfing abroad?"
+              "example": "Have you ever tried surfing abroad?",
+              "topics": [
+                "b1-present-perfect",
+                "a1-questions"
+              ]
             },
             {
               "id": "b1-translate-1",
@@ -33,6 +40,9 @@
               "canonicalAnswer": "I have never been to Canada.",
               "acceptedAnswers": [
                 "I've never been to Canada."
+              ],
+              "topics": [
+                "b1-present-perfect"
               ]
             },
             {
@@ -47,6 +57,9 @@
                 "work",
                 "She",
                 "."
+              ],
+              "topics": [
+                "b1-present-perfect"
               ]
             },
             {
@@ -58,14 +71,20 @@
                 "have seen",
                 "are seeing"
               ],
-              "correctOption": "have seen"
+              "correctOption": "have seen",
+              "topics": [
+                "b1-present-perfect"
+              ]
             },
             {
               "id": "b1-card-2",
               "type": "flashcard",
               "prompt": "I haven't decided yet.",
               "translation": "Я ещё не решил.",
-              "example": "I haven't decided where to go yet."
+              "example": "I haven't decided where to go yet.",
+              "topics": [
+                "b1-present-perfect"
+              ]
             },
             {
               "id": "b1-translate-2",
@@ -74,6 +93,10 @@
               "canonicalAnswer": "Have you sent the email yet?",
               "acceptedAnswers": [
                 "Have you already sent the email?"
+              ],
+              "topics": [
+                "b1-present-perfect",
+                "a1-questions"
               ]
             },
             {
@@ -87,6 +110,9 @@
                 "just",
                 "We",
                 "."
+              ],
+              "topics": [
+                "b1-present-perfect"
               ]
             },
             {
@@ -98,7 +124,10 @@
                 "last week",
                 "yesterday"
               ],
-              "correctOption": "just"
+              "correctOption": "just",
+              "topics": [
+                "b1-present-perfect"
+              ]
             },
             {
               "id": "b1-translate-3",
@@ -107,6 +136,9 @@
               "canonicalAnswer": "I have lost my keys, so I cannot get in.",
               "acceptedAnswers": [
                 "I've lost my keys, so I can't get in."
+              ],
+              "topics": [
+                "b1-present-perfect"
               ]
             }
           ]
@@ -129,7 +161,10 @@
               "type": "info",
               "title": "Past Continuous vs Past Simple",
               "explanation": "Past Continuous (was/were + глагол -ing) описывает длительное действие в процессе, а Past Simple — короткое действие, которое его прервало. Например: I was sleeping when the phone rang.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-past-continuous"
+              ]
             },
             {
               "id": "b1-ch2-l1-ex2",
@@ -137,7 +172,11 @@
               "prompt": "was watching",
               "translation": "смотрел (в тот момент)",
               "example": "I was watching TV when you called.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-past-continuous",
+                "b1-while-when"
+              ]
             },
             {
               "id": "b1-ch2-l1-ex3",
@@ -145,7 +184,11 @@
               "prompt": "suddenly",
               "translation": "внезапно, вдруг",
               "example": "We were talking when suddenly the lights went out.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-past-continuous",
+                "b1-while-when"
+              ]
             },
             {
               "id": "b1-ch2-l1-ex4",
@@ -158,7 +201,11 @@
               ],
               "correctOption": "was reading",
               "explanation": "Длительное действие в процессе — Past Continuous.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-past-continuous",
+                "b1-while-when"
+              ]
             },
             {
               "id": "b1-ch2-l1-ex5",
@@ -171,14 +218,21 @@
               ],
               "correctOption": "cut",
               "explanation": "Короткое действие, прервавшее фон — Past Simple.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-past-continuous",
+                "b1-while-when"
+              ]
             },
             {
               "id": "b1-ch2-l1-ex6",
               "type": "info",
               "title": "while и when",
               "explanation": "While обычно ставят перед длительным действием (Past Continuous), а when — перед коротким (Past Simple): While I was walking, when it started to rain.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-past-continuous"
+              ]
             },
             {
               "id": "b1-ch2-l1-ex7",
@@ -189,7 +243,12 @@
                 "What were you doing yesterday evening?"
               ],
               "hint": "Past Continuous для вопроса о процессе",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-past-continuous",
+                "a1-questions",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "b1-ch2-l1-ex8",
@@ -200,7 +259,11 @@
                 "While I was making dinner, the phone rang."
               ],
               "hint": "while + Past Continuous, then Past Simple",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b1-past-continuous",
+                "b1-while-when"
+              ]
             },
             {
               "id": "b1-ch2-l1-ex9",
@@ -215,7 +278,10 @@
                 "reading",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-past-continuous"
+              ]
             },
             {
               "id": "b1-ch2-l1-ex10",
@@ -229,7 +295,11 @@
                 "What",
                 "?"
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-past-continuous",
+                "a1-questions"
+              ]
             }
           ]
         },
@@ -244,7 +314,10 @@
               "type": "info",
               "title": "used to",
               "explanation": "Конструкция used to + глагол описывает привычки и состояния в прошлом, которых больше нет: I used to play football. В отрицании и вопросе используем didn't use to / did you use to.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-used-to"
+              ]
             },
             {
               "id": "b1-ch2-l2-ex2",
@@ -252,7 +325,10 @@
               "prompt": "used to live",
               "translation": "раньше жил (а теперь нет)",
               "example": "We used to live in a small village.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-used-to"
+              ]
             },
             {
               "id": "b1-ch2-l2-ex3",
@@ -265,7 +341,10 @@
               ],
               "correctOption": "used to",
               "explanation": "В утверждении — used to.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-used-to"
+              ]
             },
             {
               "id": "b1-ch2-l2-ex4",
@@ -278,7 +357,10 @@
               ],
               "correctOption": "didn't use to",
               "explanation": "В отрицании после didn't — use to без -d.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b1-used-to"
+              ]
             },
             {
               "id": "b1-ch2-l2-ex5",
@@ -286,7 +368,10 @@
               "prompt": "back then",
               "translation": "тогда, в те времена",
               "example": "Back then, we didn't have mobile phones.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-used-to"
+              ]
             },
             {
               "id": "b1-ch2-l2-ex6",
@@ -298,7 +383,10 @@
                 "In the past I lived in Moscow."
               ],
               "hint": "used to + глагол",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-used-to"
+              ]
             },
             {
               "id": "b1-ch2-l2-ex7",
@@ -310,7 +398,10 @@
                 "She never used to like coffee."
               ],
               "hint": "отрицание: didn't use to",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b1-used-to"
+              ]
             },
             {
               "id": "b1-ch2-l2-ex8",
@@ -325,7 +416,10 @@
                 "to",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-used-to"
+              ]
             },
             {
               "id": "b1-ch2-l2-ex9",
@@ -338,7 +432,11 @@
               ],
               "correctOption": "Did",
               "explanation": "Вопрос с used to строится через Did ... use to.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-used-to",
+                "a2-quantifiers"
+              ]
             },
             {
               "id": "b1-ch2-l2-ex10",
@@ -346,7 +444,11 @@
               "prompt": "these days",
               "translation": "в наши дни, сейчас",
               "example": "I don't watch much TV these days.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-used-to",
+                "a2-quantifiers"
+              ]
             }
           ]
         }
@@ -368,7 +470,10 @@
               "type": "info",
               "title": "First Conditional",
               "explanation": "Первый условный тип описывает реальную ситуацию в будущем. Схема: If + Present Simple, ... will + глагол. Например: If it rains, we will stay home. После if используем настоящее время, а не will.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-first-conditional"
+              ]
             },
             {
               "id": "b1-ch3-l1-ex2",
@@ -376,7 +481,11 @@
               "prompt": "if it rains",
               "translation": "если пойдёт дождь",
               "example": "If it rains, we will take an umbrella.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-first-conditional",
+                "a2-will"
+              ]
             },
             {
               "id": "b1-ch3-l1-ex3",
@@ -384,7 +493,11 @@
               "prompt": "I will call you",
               "translation": "я позвоню тебе",
               "example": "I will call you if I have time.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "b1-first-conditional",
+                "a2-will"
+              ]
             },
             {
               "id": "b1-ch3-l1-ex4",
@@ -397,7 +510,11 @@
               ],
               "correctOption": "study",
               "explanation": "После if в первом условном используем Present Simple, а не will.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-first-conditional",
+                "a2-will"
+              ]
             },
             {
               "id": "b1-ch3-l1-ex5",
@@ -409,7 +526,11 @@
                 "If it is sunny tomorrow, we'll go to the beach."
               ],
               "hint": "if + Present Simple, will + глагол",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-first-conditional",
+                "a2-will"
+              ]
             },
             {
               "id": "b1-ch3-l1-ex6",
@@ -427,7 +548,11 @@
                 "stay",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-first-conditional",
+                "a2-will"
+              ]
             },
             {
               "id": "b1-ch3-l1-ex7",
@@ -440,7 +565,11 @@
               ],
               "correctOption": "will have",
               "explanation": "В главной части предложения используем will + глагол.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-first-conditional",
+                "a2-will"
+              ]
             },
             {
               "id": "b1-ch3-l1-ex8",
@@ -452,7 +581,12 @@
                 "What will you do if he's late?"
               ],
               "hint": "вопрос: What will you do ...",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b1-first-conditional",
+                "a1-questions",
+                "a2-will"
+              ]
             },
             {
               "id": "b1-ch3-l1-ex9",
@@ -460,7 +594,11 @@
               "prompt": "if I have time",
               "translation": "если у меня будет время",
               "example": "If I have time, I will help you with the project.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "b1-first-conditional",
+                "a2-will"
+              ]
             },
             {
               "id": "b1-ch3-l1-ex10",
@@ -477,7 +615,12 @@
                 "he",
                 "?"
               ],
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "b1-first-conditional",
+                "a1-questions",
+                "a2-will"
+              ]
             }
           ]
         },
@@ -492,7 +635,10 @@
               "type": "info",
               "title": "Advice and Obligation",
               "explanation": "Should — это совет («тебе следует»). Have to и must — обязанность («должен», «нужно»). Must not означает строгий запрет («нельзя»). После всех этих глаголов идёт инфинитив без to (кроме have to).",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-modals-advice"
+              ]
             },
             {
               "id": "b1-ch3-l2-ex2",
@@ -500,7 +646,11 @@
               "prompt": "you should rest",
               "translation": "тебе следует отдохнуть",
               "example": "You look tired. You should rest for a while.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-modals-advice",
+                "b1-while-when"
+              ]
             },
             {
               "id": "b1-ch3-l2-ex3",
@@ -513,7 +663,10 @@
               ],
               "correctOption": "should",
               "explanation": "После should глагол идёт без частицы to.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-modals-advice"
+              ]
             },
             {
               "id": "b1-ch3-l2-ex4",
@@ -525,7 +678,10 @@
                 "You should relax more."
               ],
               "hint": "should + глагол без to",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-modals-advice"
+              ]
             },
             {
               "id": "b1-ch3-l2-ex5",
@@ -540,7 +696,10 @@
                 "doctor",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-modals-advice"
+              ]
             },
             {
               "id": "b1-ch3-l2-ex6",
@@ -553,7 +712,10 @@
               ],
               "correctOption": "have to",
               "explanation": "Have to выражает обязанность или необходимость.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-modals-advice"
+              ]
             },
             {
               "id": "b1-ch3-l2-ex7",
@@ -565,7 +727,10 @@
                 "I need to get up early tomorrow."
               ],
               "hint": "have to / must для обязанности",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-modals-advice"
+              ]
             },
             {
               "id": "b1-ch3-l2-ex8",
@@ -573,7 +738,10 @@
               "prompt": "you must not smoke here",
               "translation": "здесь нельзя курить",
               "example": "This is a hospital. You must not smoke here.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-modals-advice"
+              ]
             },
             {
               "id": "b1-ch3-l2-ex9",
@@ -585,7 +753,10 @@
                 "You cannot smoke here."
               ],
               "hint": "must not = строгий запрет",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-modals-advice"
+              ]
             },
             {
               "id": "b1-ch3-l2-ex10",
@@ -598,7 +769,10 @@
               ],
               "correctOption": "have to",
               "explanation": "Have to выражает обязательное правило.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-modals-advice"
+              ]
             }
           ]
         }

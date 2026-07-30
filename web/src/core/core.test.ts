@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest'
 
 import { check, diffSummary, normalize } from './answer'
 import { decodeCourse, decodePlacement } from './content'
+import { SyllabusEngine, decodeSyllabus } from './syllabus'
 import { CourseRouting, LevelOrder, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
 import { PracticeEngine } from './practice'
 import { LearningSession } from './session'
@@ -417,6 +418,46 @@ describe('endless practice', () => {
     while (!session.isComplete) session.completeCurrentCorrectly(now)
     expect(session.state.completedLessonIDs).toHaveLength(0)
     expect(session.state.points).toBeGreaterThan(0)
+  })
+})
+
+describe('syllabus', () => {
+  const syllabus = decodeSyllabus(readJSON('syllabus.json'))
+
+  it('is well formed and covers every level', () => {
+    expect(syllabus.topics.length).toBeGreaterThan(20)
+    expect(new Set(syllabus.topics.map((t) => t.level))).toEqual(new Set(LEVELS))
+  })
+
+  it('is the only vocabulary content may tag itself with', () => {
+    // A typo in a pack would silently create a topic nobody teaches and nobody counts.
+    expect(SyllabusEngine.unknownTopics(syllabus, courses)).toEqual([])
+    for (const course of courses) {
+      for (const exercise of allExercises(course)) {
+        expect(exercise.topics ?? [], `${exercise.id}: has at least one topic`).not.toHaveLength(0)
+      }
+    }
+  })
+
+  /**
+   * The ratchet. The content is knowingly short of the syllabus today, so the test does
+   * not demand a full course; it demands that the shortfall never grows. Filling a topic
+   * lowers the ceiling in syllabus.json, and it can never go back up by accident.
+   */
+  it('does not let the coverage debt grow', () => {
+    const gaps = SyllabusEngine.gaps(syllabus, courses)
+    const report = gaps.map((g) => `${g.topic.level} ${g.topic.id} ${g.exercises}/${g.topic.minExercises}`).join('\n')
+    expect(gaps.length, `тем без покрытия стало больше:\n${report}`).toBeLessThanOrEqual(syllabus.coverageDebtCeiling)
+  })
+
+  it('counts practice, not rule cards', () => {
+    const counts = SyllabusEngine.counts(courses)
+    const info = allExercises(courses[0]).find((e) => e.type === 'info')!
+    expect(info.topics?.length).toBeGreaterThan(0)
+    // The card carries the topic so a rule can be found, but it is not practice.
+    const onlyInfoTopic = (info.topics ?? [])[0]
+    const practice = allExercises(courses[0]).filter((e) => e.type !== 'info' && (e.topics ?? []).includes(onlyInfoTopic))
+    expect(counts[onlyInfoTopic]).toBe(practice.length)
   })
 })
 

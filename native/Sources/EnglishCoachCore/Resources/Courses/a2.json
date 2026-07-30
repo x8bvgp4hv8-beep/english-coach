@@ -17,14 +17,20 @@
               "id": "a2-info-1",
               "type": "info",
               "title": "Present Simple",
-              "explanation": "Используй Present Simple для привычек. С he, she и it обычно добавляй -s к глаголу."
+              "explanation": "Используй Present Simple для привычек. С he, she и it обычно добавляй -s к глаголу.",
+              "topics": [
+                "a1-present-simple"
+              ]
             },
             {
               "id": "a2-card-1",
               "type": "flashcard",
               "prompt": "I usually get up at seven.",
               "translation": "Я обычно встаю в семь.",
-              "example": "On weekdays, I usually get up at seven."
+              "example": "On weekdays, I usually get up at seven.",
+              "topics": [
+                "a1-present-simple"
+              ]
             },
             {
               "id": "a2-translate-1",
@@ -34,7 +40,11 @@
               "acceptedAnswers": [
                 "I normally drink coffee in the morning."
               ],
-              "hint": "usually"
+              "hint": "usually",
+              "topics": [
+                "a1-present-simple",
+                "a1-prepositions-time"
+              ]
             },
             {
               "id": "a2-order-1",
@@ -47,6 +57,9 @@
                 "She",
                 "home",
                 "."
+              ],
+              "topics": [
+                "a1-present-simple"
               ]
             },
             {
@@ -58,14 +71,21 @@
                 "goes",
                 "going"
               ],
-              "correctOption": "goes"
+              "correctOption": "goes",
+              "topics": [
+                "a1-present-simple"
+              ]
             },
             {
               "id": "a2-card-2",
               "type": "flashcard",
               "prompt": "How often do you exercise?",
               "translation": "Как часто ты тренируешься?",
-              "example": "How often do you exercise after work?"
+              "example": "How often do you exercise after work?",
+              "topics": [
+                "a1-present-simple",
+                "a1-questions"
+              ]
             },
             {
               "id": "a2-translate-2",
@@ -74,6 +94,9 @@
               "canonicalAnswer": "We do not work on Sundays.",
               "acceptedAnswers": [
                 "We don't work on Sundays."
+              ],
+              "topics": [
+                "a1-present-simple"
               ]
             },
             {
@@ -88,6 +111,10 @@
                 "start",
                 "the",
                 "?"
+              ],
+              "topics": [
+                "a1-present-simple",
+                "a1-questions"
               ]
             },
             {
@@ -99,7 +126,10 @@
                 "has",
                 "having"
               ],
-              "correctOption": "has"
+              "correctOption": "has",
+              "topics": [
+                "a1-present-simple"
+              ]
             },
             {
               "id": "a2-translate-3",
@@ -108,6 +138,10 @@
               "canonicalAnswer": "Do you often cook at home?",
               "acceptedAnswers": [
                 "Do you cook at home often?"
+              ],
+              "topics": [
+                "a1-present-simple",
+                "a1-questions"
               ]
             }
           ]
@@ -130,7 +164,10 @@
               "type": "info",
               "title": "Past Simple: правильные глаголы",
               "explanation": "Правильные глаголы в Past Simple получают окончание -ed: work — worked, play — played, watch — watched. Форма одинаковая для всех лиц.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-past-simple"
+              ]
             },
             {
               "id": "a2-ch2-l1-ex2",
@@ -138,7 +175,11 @@
               "prompt": "yesterday",
               "translation": "вчера",
               "example": "I called my friend yesterday.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-past-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l1-ex3",
@@ -146,7 +187,11 @@
               "prompt": "last week",
               "translation": "на прошлой неделе",
               "example": "We watched a good film last week.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-past-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l1-ex4",
@@ -159,7 +204,11 @@
               ],
               "correctOption": "went",
               "explanation": "go — неправильный глагол, в прошедшем времени форма went.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-past-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l1-ex5",
@@ -170,7 +219,11 @@
                 "I watched a movie yesterday."
               ],
               "hint": "watch — правильный глагол",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-past-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l1-ex6",
@@ -184,7 +237,11 @@
                 ".",
                 "played"
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-past-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l1-ex7",
@@ -197,7 +254,11 @@
               ],
               "correctOption": "ate",
               "explanation": "eat — неправильный глагол, прошедшая форма ate.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-past-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l1-ex8",
@@ -208,7 +269,11 @@
                 "He bought a new car one week ago."
               ],
               "hint": "buy — bought",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-past-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l1-ex9",
@@ -216,14 +281,21 @@
               "prompt": "two days ago",
               "translation": "два дня назад",
               "example": "She arrived two days ago.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-past-simple",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l1-ex10",
               "type": "info",
               "title": "Слово ago",
               "explanation": "Слово ago ставится ПОСЛЕ промежутка времени: two days ago (два дня назад), a week ago (неделю назад), a year ago (год назад).",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-past-simple"
+              ]
             }
           ]
         },
@@ -238,7 +310,10 @@
               "type": "info",
               "title": "was и were",
               "explanation": "Глагол be в прошедшем времени: I/he/she/it — was, we/you/they — were. Например: I was happy, they were at home.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-was-were"
+              ]
             },
             {
               "id": "a2-ch2-l2-ex2",
@@ -246,7 +321,11 @@
               "prompt": "last year",
               "translation": "в прошлом году",
               "example": "I was in Spain last year.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-was-were",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l2-ex3",
@@ -259,7 +338,10 @@
               ],
               "correctOption": "was",
               "explanation": "С I используется was.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-was-were"
+              ]
             },
             {
               "id": "a2-ch2-l2-ex4",
@@ -270,7 +352,11 @@
                 "They were at home last night."
               ],
               "hint": "they + were",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-was-were",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l2-ex5",
@@ -285,7 +371,10 @@
                 "good",
                 "weather"
               ],
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-was-were"
+              ]
             },
             {
               "id": "a2-ch2-l2-ex6",
@@ -298,7 +387,11 @@
               ],
               "correctOption": "Were",
               "explanation": "С you в вопросе используется Were.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-was-were",
+                "a1-prepositions-time"
+              ]
             },
             {
               "id": "a2-ch2-l2-ex7",
@@ -309,7 +402,11 @@
                 "I did not go to school yesterday."
               ],
               "hint": "отрицание: didn't + глагол в начальной форме",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-was-were",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l2-ex8",
@@ -317,7 +414,11 @@
               "prompt": "a long time ago",
               "translation": "давным-давно",
               "example": "They first met a long time ago.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-was-were",
+                "a2-past-time-markers"
+              ]
             },
             {
               "id": "a2-ch2-l2-ex9",
@@ -331,7 +432,10 @@
                 "She",
                 "happy"
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-was-were"
+              ]
             },
             {
               "id": "a2-ch2-l2-ex10",
@@ -342,7 +446,10 @@
                 "My brother did not like vegetables."
               ],
               "hint": "didn't + like",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-was-were"
+              ]
             }
           ]
         }
@@ -364,7 +471,10 @@
               "type": "info",
               "title": "be going to",
               "explanation": "Мы используем 'be going to' + глагол, чтобы говорить о планах на будущее: I am going to study tonight. Форма: am/is/are + going to + глагол.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-going-to"
+              ]
             },
             {
               "id": "a2-ch3-l1-ex2",
@@ -372,7 +482,10 @@
               "prompt": "be going to",
               "translation": "собираться (что-то сделать)",
               "example": "I am going to call her later.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-going-to"
+              ]
             },
             {
               "id": "a2-ch3-l1-ex3",
@@ -380,7 +493,11 @@
               "prompt": "some / any",
               "translation": "немного / сколько-нибудь",
               "example": "I have some water, but I don't have any juice.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-going-to",
+                "a2-quantifiers"
+              ]
             },
             {
               "id": "a2-ch3-l1-ex4",
@@ -392,7 +509,10 @@
                 "I am going to watch a film tonight."
               ],
               "hint": "be going to + глагол",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-going-to"
+              ]
             },
             {
               "id": "a2-ch3-l1-ex5",
@@ -409,7 +529,11 @@
                 "some",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-going-to",
+                "a2-quantifiers"
+              ]
             },
             {
               "id": "a2-ch3-l1-ex6",
@@ -422,7 +546,11 @@
               ],
               "correctOption": "any",
               "explanation": "В отрицаниях используем 'any'.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-going-to",
+                "a2-quantifiers"
+              ]
             },
             {
               "id": "a2-ch3-l1-ex7",
@@ -434,7 +562,10 @@
                 "We're not going to work tomorrow."
               ],
               "hint": "отрицание с be going to",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-going-to"
+              ]
             },
             {
               "id": "a2-ch3-l1-ex8",
@@ -447,14 +578,21 @@
               ],
               "correctOption": "many",
               "explanation": "С исчисляемыми существительными (apples) используем 'many'.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-going-to",
+                "a2-quantifiers"
+              ]
             },
             {
               "id": "a2-ch3-l1-ex9",
               "type": "info",
               "title": "some / any / much / many",
               "explanation": "'some' — в утверждениях, 'any' — в вопросах и отрицаниях. 'much' — с неисчисляемыми (much water), 'many' — с исчисляемыми (many books).",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-going-to"
+              ]
             },
             {
               "id": "a2-ch3-l1-ex10",
@@ -465,7 +603,12 @@
                 "Have you got any questions?"
               ],
               "hint": "вопрос с 'any'",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-going-to",
+                "a1-questions",
+                "a2-quantifiers"
+              ]
             }
           ]
         },
@@ -480,7 +623,10 @@
               "type": "info",
               "title": "Comparatives",
               "explanation": "Короткие прилагательные: + -er + than (bigger than, faster than). Длинные прилагательные: more + прилагательное + than (more interesting than).",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-comparatives"
+              ]
             },
             {
               "id": "a2-ch3-l2-ex2",
@@ -488,7 +634,10 @@
               "prompt": "bigger than",
               "translation": "больше, чем",
               "example": "An elephant is bigger than a dog.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-comparatives"
+              ]
             },
             {
               "id": "a2-ch3-l2-ex3",
@@ -501,7 +650,10 @@
               ],
               "correctOption": "faster",
               "explanation": "Сравнительная степень: fast + -er + than.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-comparatives"
+              ]
             },
             {
               "id": "a2-ch3-l2-ex4",
@@ -516,7 +668,11 @@
                 "book",
                 "."
               ],
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-comparatives",
+                "a1-this-that"
+              ]
             },
             {
               "id": "a2-ch3-l2-ex5",
@@ -529,7 +685,11 @@
               ],
               "correctOption": "best",
               "explanation": "Превосходная степень от 'good' — 'the best'.",
-              "difficulty": 2
+              "difficulty": 2,
+              "topics": [
+                "a2-comparatives",
+                "a1-this-that"
+              ]
             },
             {
               "id": "a2-ch3-l2-ex6",
@@ -540,7 +700,11 @@
                 "This house is bigger than my house."
               ],
               "hint": "big -> bigger than",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-comparatives",
+                "a1-this-that"
+              ]
             },
             {
               "id": "a2-ch3-l2-ex7",
@@ -557,7 +721,10 @@
                 "the",
                 "."
               ],
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-comparatives"
+              ]
             },
             {
               "id": "a2-ch3-l2-ex8",
@@ -565,7 +732,10 @@
               "prompt": "the most expensive",
               "translation": "самый дорогой",
               "example": "This is the most expensive car in the shop.",
-              "difficulty": 1
+              "difficulty": 1,
+              "topics": [
+                "a2-comparatives"
+              ]
             },
             {
               "id": "a2-ch3-l2-ex9",
@@ -578,7 +748,10 @@
               ],
               "correctOption": "bigger",
               "explanation": "Сравнительная степень: big -> bigger.",
-              "difficulty": 3
+              "difficulty": 3,
+              "topics": [
+                "a2-comparatives"
+              ]
             }
           ]
         }
