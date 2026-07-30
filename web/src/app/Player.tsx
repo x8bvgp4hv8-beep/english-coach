@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { useStore } from './App'
+import { speak } from './speech'
 import { diffSummary } from '../core'
 import type { ExerciseType, WordDiff } from '../core'
 
@@ -10,16 +11,6 @@ const KIND_LABEL: Record<ExerciseType, string> = {
   translate: 'ПЕРЕВЕДИ НА АНГЛИЙСКИЙ',
   word_order: 'СОБЕРИ ПРЕДЛОЖЕНИЕ',
   multiple_choice: 'ВЫБЕРИ ОТВЕТ',
-}
-
-/** System voice, no network and no assets. Safari needs a user gesture to start it. */
-function speak(text: string): void {
-  if (!('speechSynthesis' in window) || !text) return
-  const utterance = new SpeechSynthesisUtterance(text)
-  utterance.lang = 'en-GB'
-  utterance.rate = 0.95
-  speechSynthesis.cancel()
-  speechSynthesis.speak(utterance)
 }
 
 export function Player() {

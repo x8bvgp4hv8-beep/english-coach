@@ -7,12 +7,13 @@ import {
   PracticeEngine,
   PracticeLog,
   ProgressionEngine,
+  ShadowingEngine,
   freshState,
   loadContent,
   localProgressStore,
 } from '../core'
 import type {
-  AnswerResult, CEFRLevel, CoursePack, Exercise, Lesson, PlacementQuestion, UserState,
+  AnswerResult, CEFRLevel, CoursePack, Exercise, Lesson, PlacementQuestion, ShadowingItem, UserState,
 } from '../core'
 
 export type Screen = 'map' | 'settings'
@@ -29,6 +30,10 @@ export class AppStore {
   screen: Screen = 'map'
   startupError: string | null = null
   loading = true
+
+  /** Speaking practice runs on the same session, but on its own screen. */
+  shadowingActive = false
+  shadowingItems: ShadowingItem[] = []
 
   placementActive = false
   placementIndex = 0
@@ -184,6 +189,40 @@ export class AppStore {
     })
     if (exercises.length === 0) return
     this.startLesson(PracticeEngine.lesson(exercises, kind.title), false)
+  }
+
+  // MARK: - Shadowing
+
+  get shadowingCount(): number { return ShadowingEngine.count(this.courses, this.selectedLevel) }
+
+  /** The phrase for the exercise the session is on, found by id rather than position. */
+  get currentShadowingItem(): ShadowingItem | null {
+    const id = this.session.currentExercise?.id
+    return this.shadowingItems.find((item) => item.exerciseID === id) ?? null
+  }
+
+  get shadowingIsComplete(): boolean { return this.shadowingActive && this.session.isComplete }
+
+  startShadowing(): void {
+    const set = ShadowingEngine.build({ courses: this.courses, level: this.selectedLevel, state: this.state })
+    if (set.exercises.length === 0) return
+    this.shadowingItems = set.items
+    this.shadowingActive = true
+    this.startLesson(ShadowingEngine.lesson(set.exercises), false)
+  }
+
+  /** The learner's own verdict: it still feeds points and spaced repetition. */
+  shadowingSelfAssess(correct: boolean): void {
+    this.session.selfAssess(correct)
+    this.state = this.session.state
+    if (this.session.isComplete) this.bankPracticeTime()
+    this.persist()
+  }
+
+  closeShadowing(): void {
+    this.shadowingActive = false
+    this.shadowingItems = []
+    this.closeLesson()
   }
 
   closeLesson(): void {

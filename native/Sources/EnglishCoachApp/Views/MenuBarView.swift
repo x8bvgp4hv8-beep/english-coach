@@ -11,6 +11,11 @@ struct MenuBarView: View {
             show()
         } label: { Label(model.isOnboarding ? "Начать обучение" : "Продолжить урок", systemImage: "play.fill") }
         Button { model.startReview(); show() } label: { Label("Повторить сегодня (\(model.dueCount))", systemImage: "arrow.triangle.2.circlepath") }.disabled(model.dueCount == 0)
+        Button {
+            // Same rule as above: never replace a lesson that is already open.
+            if !model.isOnboarding, model.activeLesson == nil { model.startShadowing() }
+            show()
+        } label: { Label("Проговорить вслух", systemImage: "mic.fill") }.disabled(model.shadowingCount == 0)
         Button { model.screen = .map; show() } label: { Label("Открыть карту", systemImage: "map.fill") }
         Divider()
         Text("🔥 \(model.streak()) дней  ·  ✦ \(model.totalPoints) очков")

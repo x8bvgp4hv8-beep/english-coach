@@ -6,6 +6,9 @@ enum CoachTheme {
     static let blue = Color(red: 0.27, green: 0.64, blue: 0.88)
     static let amber = Color(red: 1.00, green: 0.67, blue: 0.22)
     static let mint = Color(red: 0.33, green: 0.78, blue: 0.59)
+    /// Speaking practice, the one exercise that is not read and typed.
+    static let coral = Color(red: 0.94, green: 0.50, blue: 0.42)
+    static let coralInk = Color(red: 0.79, green: 0.34, blue: 0.25)
     static let mist = Color(red: 0.90, green: 0.97, blue: 1.00)
     static let lilac = Color(red: 0.95, green: 0.92, blue: 1.00)
     static let background = LinearGradient(colors: [mist, lilac], startPoint: .topLeading, endPoint: .bottomTrailing)

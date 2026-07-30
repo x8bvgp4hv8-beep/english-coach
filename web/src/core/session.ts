@@ -75,6 +75,19 @@ export class LearningSession {
   }
 
   /**
+   * Shadowing has no answer to check: the learner hears the phrase, says it, hears
+   * both takes and decides. Their verdict still counts, so a phrase that did not
+   * come out of the mouth comes back like any other mistake.
+   */
+  selfAssess(correct: boolean, now: Date = new Date()): void {
+    const exercise = this.currentExercise
+    if (!exercise) return
+    const canonical = exercise.canonicalAnswer ?? exercise.prompt ?? ''
+    this.record(exercise, { isCorrect: correct, verdict: correct ? 'correct' : 'wrong', canonical }, now)
+    this.advance()
+  }
+
+  /**
    * "Я был прав": the learner's phrasing is remembered for this exercise, the attempt
    * is flipped, and the spaced repetition penalty this answer just caused is undone.
    * Without the last part the escape hatch would still punish a correct answer.

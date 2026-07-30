@@ -92,6 +92,42 @@ final class AppModel {
     }
     func closeLesson() { state = session.state; bankPracticeTime(); session = LearningSession(state: state); save() }
 
+    // MARK: - Shadowing (speaking practice runs on the same session, on its own screen)
+
+    private(set) var shadowingActive = false
+    private(set) var shadowingItems: [ShadowingItem] = []
+
+    var shadowingCount: Int { ShadowingEngine.count(courses: courses, level: selectedLevel) }
+    var shadowingIsComplete: Bool { shadowingActive && session.isComplete }
+
+    /// The phrase for the exercise the session is on, found by id rather than position.
+    var currentShadowingItem: ShadowingItem? {
+        guard let id = session.currentExercise?.id else { return nil }
+        return shadowingItems.first { $0.exerciseID == id }
+    }
+
+    func startShadowing() {
+        let set = ShadowingEngine.build(courses: courses, level: selectedLevel, state: state)
+        guard !set.exercises.isEmpty else { return }
+        shadowingItems = set.items
+        shadowingActive = true
+        startLesson(ShadowingEngine.lesson(set.exercises), recordsCompletion: false)
+    }
+
+    /// The learner's own verdict: it still feeds points and spaced repetition.
+    func shadowingSelfAssess(_ correct: Bool) {
+        session.selfAssess(correct)
+        state = session.state
+        if session.isComplete { bankPracticeTime() }
+        save()
+    }
+
+    func closeShadowing() {
+        shadowingActive = false
+        shadowingItems = []
+        closeLesson()
+    }
+
     func submitText(_ answer: String) { _ = session.submitText(answer); state = session.state; save() }
     func submitChoice(_ choice: String) { _ = session.submitChoice(choice); state = session.state; save() }
     func completePassive() { session.completePassiveExercise(); state = session.state; save() }

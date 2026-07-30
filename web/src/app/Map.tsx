@@ -56,6 +56,15 @@ export function MapScreen() {
 
         <SectionTitle hint="Можно тренировать отдельно, сколько угодно раз">Виды заданий</SectionTitle>
         <div className="kinds">
+          {/* Speaking comes first: it is the only exercise that gets the mouth moving. */}
+          <button className="kind" disabled={model.shadowingCount === 0} onClick={() => model.startShadowing()}>
+            <span className="kind-icon" style={{ background: 'var(--coral)' }}>🎙</span>
+            <span className="kind-body">
+              <span className="kind-title">Вслух за диктором</span>
+              <span className="kind-subtitle">Слушай, повторяй, сравнивай себя с эталоном</span>
+            </span>
+            <span className="kind-count">{model.shadowingCount}</span>
+          </button>
           {PRACTICE_KINDS.map((kind) => (
             <button
               key={kind.id}

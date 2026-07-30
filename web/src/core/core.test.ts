@@ -8,6 +8,7 @@ import { decodeCourse, decodePlacement } from './content'
 import { CourseRouting, LevelOrder, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
 import { PracticeEngine } from './practice'
 import { LearningSession } from './session'
+import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { deserialize, serialize } from './storage'
 import { EXERCISE_TYPES, LEVELS, freshState } from './types'
 import type { CoursePack, Exercise, Lesson, PlacementBank } from './types'
@@ -416,6 +417,91 @@ describe('endless practice', () => {
     while (!session.isComplete) session.completeCurrentCorrectly(now)
     expect(session.state.completedLessonIDs).toHaveLength(0)
     expect(session.state.points).toBeGreaterThan(0)
+  })
+})
+
+describe('shadowing', () => {
+  const seeded = () => {
+    let seed = 7
+    return () => {
+      seed = (seed * 1103515245 + 12345) % 2147483648
+      return seed / 2147483648
+    }
+  }
+  const cyrillic = /[Ѐ-ӿ]/
+
+  it('offers only sayable English, from every level', () => {
+    for (const level of LEVELS) {
+      const pool = ShadowingEngine.pool(courses, level)
+      expect(pool.length, `${level} has phrases to shadow`).toBeGreaterThan(0)
+      for (const exercise of pool) {
+        const item = shadowingPhrase(exercise)!
+        expect(item.text, `${exercise.id}: says something`).not.toBe('')
+        // The learner reads this line out loud: a Russian prompt or a bare gap would be unsayable.
+        expect(cyrillic.test(item.text), `${exercise.id}: the spoken line is English`).toBe(false)
+        expect(item.text, `${exercise.id}: no gap left in the sentence`).not.toMatch(/_{2,}/)
+      }
+    }
+  })
+
+  it('keeps the Russian meaning as the gloss, never as the line to say', () => {
+    const flashcard = allExercises(courses[0]).find((e) => e.type === 'flashcard')!
+    expect(shadowingPhrase(flashcard)).toEqual({
+      exerciseID: flashcard.id, text: flashcard.prompt, gloss: flashcard.translation,
+    })
+
+    const translate = allExercises(courses[0]).find((e) => e.type === 'translate')!
+    const item = shadowingPhrase(translate)!
+    expect(item.text).toBe(translate.canonicalAnswer)
+    expect(item.gloss).toBe(translate.prompt)
+  })
+
+  it('turns a gap-fill into a whole sentence and skips what cannot be said', () => {
+    expect(shadowingPhrase({ id: 'g', type: 'multiple_choice', prompt: 'We ___ this film before.', correctOption: 'have seen' })?.text)
+      .toBe('We have seen this film before.')
+    // Two gaps cannot be filled from one option, so the phrase is left out.
+    expect(shadowingPhrase({ id: 'g2', type: 'multiple_choice', prompt: 'We ___ it ___ .', correctOption: 'have' })).toBeNull()
+    expect(shadowingPhrase({ id: 'g3', type: 'multiple_choice', prompt: 'Which is correct?', correctOption: 'this' })).toBeNull()
+    expect(shadowingPhrase({ id: 'i', type: 'info', explanation: 'Правило' })).toBeNull()
+  })
+
+  it('drops a Russian gloss that sits inside the sentence', () => {
+    // Real content: "That is ___ bag (там, далеко)." — the hint is for the eye, not the mouth.
+    expect(shadowingPhrase({ id: 'h', type: 'flashcard', prompt: 'That is my bag (там, далеко).', translation: 'Вон та сумка моя.' })?.text)
+      .toBe('That is my bag.')
+    expect(shadowingPhrase({ id: 'h2', type: 'flashcard', prompt: 'Совсем русская строка', translation: 'x' })).toBeNull()
+  })
+
+  it('puts due repetitions first, then old mistakes', () => {
+    const state = freshState()
+    const pool = ShadowingEngine.pool(courses, 'A1')
+    state.reviews = [{ ...ReviewEngine.newItem(pool[4].id, now), due: new Date(now.getTime() - 86_400_000) }]
+    state.attempts = [{ id: '1', exerciseID: pool[7].id, correct: false, date: now }]
+
+    const set = ShadowingEngine.build({ courses, level: 'A1', state, size: 5, now, random: seeded() })
+    expect(set.exercises[0].id).toBe(pool[4].id)
+    expect(set.exercises[1].id).toBe(pool[7].id)
+    // Items and exercises stay aligned: the screen reads one, the session records the other.
+    expect(set.items.map((item) => item.exerciseID)).toEqual(set.exercises.map((e) => e.id))
+  })
+
+  it('records the learner\'s own verdict as an attempt and a repetition', () => {
+    const set = ShadowingEngine.build({ courses, level: 'A1', state: freshState(), size: 2, now, random: seeded() })
+    const session = new LearningSession(freshState())
+    session.start(ShadowingEngine.lesson(set.exercises), { recordsCompletion: false })
+
+    session.selfAssess(true, now)
+    expect(session.state.points).toBe(10)
+    expect(session.state.attempts.at(-1)?.correct).toBe(true)
+
+    session.selfAssess(false, now)
+    const failed = session.state.reviews.find((r) => r.exerciseID === set.exercises[1].id)
+    expect(failed, 'a phrase that did not come out comes back').toBeTruthy()
+    // Like any first miss, it is due straight away and shows up in the next set.
+    expect(failed!.due.getTime()).toBeLessThanOrEqual(now.getTime())
+
+    expect(session.isComplete).toBe(true)
+    expect(session.state.completedLessonIDs).toHaveLength(0)
   })
 })
 

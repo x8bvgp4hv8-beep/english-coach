@@ -9,6 +9,8 @@ struct RootView: View {
                 ContentUnavailableView("Материалы не загрузились", systemImage: "exclamationmark.triangle", description: Text(error)).padding(40)
             } else if model.isOnboarding {
                 OnboardingView()
+            } else if model.shadowingActive {
+                ShadowingView()
             } else if model.activeLesson != nil {
                 LessonPlayerView()
             } else {

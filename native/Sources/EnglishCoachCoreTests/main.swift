@@ -258,5 +258,74 @@ do {
     expect(LevelOrder.next(after: .c1) == nil, "no level after C1")
 } catch { failures += 1; print("✗ progression engine: \(error)") }
 
+// Shadowing: the phrases the learner says out loud. Mirrors web/src/core/core.test.ts.
+func singleExercise(_ json: String) -> Exercise? {
+    let course = #"{"schemaVersion":1,"level":"A1","chapters":[{"id":"c","title":"C","lessons":[{"id":"l","title":"L","summary":"S","estimatedMinutes":1,"exercises":[\#(json)]}]}]}"#
+    return (try? ContentRepository.decode(Data(course.utf8)))?.chapters[0].lessons.first?.exercises.first
+}
+func hasCyrillic(_ text: String) -> Bool { text.range(of: "[\u{0400}-\u{04FF}]", options: .regularExpression) != nil }
+
+do {
+    let courses = try ContentRepository.loadBundled()
+    for level in CEFRLevel.allCases {
+        let pool = ShadowingEngine.pool(courses: courses, level: level)
+        expect(!pool.isEmpty, "\(level.rawValue) has phrases to shadow")
+        for exercise in pool {
+            guard let item = ShadowingEngine.phrase(for: exercise) else { failures += 1; print("✗ \(exercise.id): has a phrase"); continue }
+            // The learner reads this line out loud: a Russian prompt or a bare gap is unsayable.
+            expect(!item.text.isEmpty && !hasCyrillic(item.text), "\(exercise.id): the spoken line is English")
+            expect(item.text.range(of: "_{2,}", options: .regularExpression) == nil, "\(exercise.id): no gap left in the sentence")
+        }
+    }
+
+    let flashcard = courses[0].chapters.flatMap(\.lessons).flatMap(\.exercises).first { $0.type == .flashcard }!
+    let card = ShadowingEngine.phrase(for: flashcard)
+    expect(card?.text == flashcard.prompt && card?.gloss == flashcard.translation, "flashcard says its English side")
+    let translate = courses[0].chapters.flatMap(\.lessons).flatMap(\.exercises).first { $0.type == .translate }!
+    let translated = ShadowingEngine.phrase(for: translate)
+    expect(translated?.text == translate.canonicalAnswer && translated?.gloss == translate.prompt, "translate says the answer, not the Russian prompt")
+} catch { failures += 1; print("✗ shadowing pool: \(error)") }
+
+let gapFill = singleExercise(#"{"id":"g","type":"multiple_choice","prompt":"We ___ this film before.","options":["saw","have seen"],"correctOption":"have seen"}"#)
+expect(gapFill.flatMap { ShadowingEngine.phrase(for: $0)?.text } == "We have seen this film before.", "a gap-fill becomes a whole sentence")
+let twoGaps = singleExercise(#"{"id":"g2","type":"multiple_choice","prompt":"We ___ it ___ .","options":["have"],"correctOption":"have"}"#)
+expect(twoGaps.flatMap { ShadowingEngine.phrase(for: $0) } == nil, "a second gap cannot be filled, so the phrase is skipped")
+let noGap = singleExercise(#"{"id":"g3","type":"multiple_choice","prompt":"Which is correct?","options":["this"],"correctOption":"this"}"#)
+expect(noGap.flatMap { ShadowingEngine.phrase(for: $0) } == nil, "a question with no gap is not a phrase")
+let rule = singleExercise(#"{"id":"i","type":"info","title":"Rule","explanation":"Правило"}"#)
+expect(rule.flatMap { ShadowingEngine.phrase(for: $0) } == nil, "a rule card has nothing to say out loud")
+// Real content: "That is my bag (там, далеко)." — the hint is for the eye, not the mouth.
+let glossed = singleExercise(#"{"id":"h","type":"flashcard","prompt":"That is my bag (там, далеко).","translation":"Вон та сумка моя."}"#)
+expect(glossed.flatMap { ShadowingEngine.phrase(for: $0)?.text } == "That is my bag.", "an inline Russian gloss is dropped")
+let allRussian = singleExercise(#"{"id":"h2","type":"flashcard","prompt":"Совсем русская строка","translation":"x"}"#)
+expect(allRussian.flatMap { ShadowingEngine.phrase(for: $0) } == nil, "a Russian line is never handed over to be said")
+
+do {
+    let courses = try ContentRepository.loadBundled()
+    let identity: ([Exercise]) -> [Exercise] = { $0 }
+    let pool = ShadowingEngine.pool(courses: courses, level: .a1)
+    var state = UserState.fresh
+    var dueItem = ReviewEngine.newItem(exerciseID: pool[4].id, now: now)
+    dueItem.due = now.addingTimeInterval(-86_400)
+    state.reviews = [dueItem]
+    state.attempts = [AttemptRecord(id: UUID(), exerciseID: pool[7].id, correct: false, date: now)]
+
+    let set = ShadowingEngine.build(courses: courses, level: .a1, state: state, size: 5, now: now, shuffle: identity)
+    expect(set.exercises.first?.id == pool[4].id, "shadowing puts due repetitions first")
+    expect(set.exercises.count > 1 && set.exercises[1].id == pool[7].id, "shadowing puts old mistakes second")
+    // Items and exercises stay aligned: the screen reads one, the session records the other.
+    expect(set.items.map(\.exerciseID) == set.exercises.map(\.id), "phrases line up with the exercises they came from")
+
+    var speaking = LearningSession(state: .fresh)
+    speaking.start(ShadowingEngine.lesson(set.exercises), recordsCompletion: false)
+    speaking.selfAssess(true, now: now)
+    expect(speaking.state.points == 10 && speaking.state.attempts.last?.correct == true, "a phrase that came out is recorded as correct")
+    speaking.selfAssess(false, now: now)
+    let missed = speaking.state.reviews.first { $0.exerciseID == set.exercises[1].id }
+    // Like any first miss, it is due straight away and shows up in the next set.
+    expect(missed != nil && missed!.due <= now, "a phrase that did not come out comes back")
+    expect(speaking.state.completedLessonIDs.isEmpty, "shadowing is never recorded as a completed lesson")
+} catch { failures += 1; print("✗ shadowing session: \(error)") }
+
 if failures > 0 { print("\n\(failures) test(s) failed"); exit(1) }
 print("\nAll core tests passed")

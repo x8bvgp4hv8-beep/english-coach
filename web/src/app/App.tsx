@@ -4,6 +4,7 @@ import { MapScreen } from './Map'
 import { Onboarding } from './Onboarding'
 import { Player } from './Player'
 import { Settings } from './Settings'
+import { Shadowing } from './Shadowing'
 import { store } from './store'
 import type { AppStore } from './store'
 
@@ -29,6 +30,7 @@ export function App() {
   return (
     <div className="app">
       {model.isOnboarding ? <Onboarding />
+        : model.shadowingActive ? <Shadowing />
         : model.activeLesson ? <Player />
         : model.screen === 'settings' ? <Settings />
         : <MapScreen />}

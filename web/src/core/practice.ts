@@ -33,6 +33,38 @@ export interface PracticeOptions {
   random?: () => number
 }
 
+/**
+ * Everything the learner could be given next, in the order it should be offered:
+ * due repetitions, then old mistakes, then unseen material, then the rest.
+ * Shared with shadowing, which needs the same order over a narrower pool.
+ */
+export function prioritise(pool: Exercise[], state: UserState, now: Date, random: () => number): Exercise[] {
+  const byID = new Map(pool.map((exercise) => [exercise.id, exercise]))
+
+  const due = state.reviews
+    .filter((item) => item.due.getTime() <= now.getTime() && byID.has(item.exerciseID))
+    .sort((a, b) => a.due.getTime() - b.due.getTime())
+    .map((item) => byID.get(item.exerciseID)!)
+
+  const attemptedIDs = new Set(state.attempts.map((a) => a.exerciseID))
+  const failedIDs = new Set(state.attempts.filter((a) => !a.correct).map((a) => a.exerciseID))
+
+  const failed = pool.filter((exercise) => failedIDs.has(exercise.id))
+  const unseen = pool.filter((exercise) => !attemptedIDs.has(exercise.id))
+  const rest = pool.filter((exercise) => attemptedIDs.has(exercise.id) && !failedIDs.has(exercise.id))
+
+  const ordered: Exercise[] = []
+  const taken = new Set<string>()
+  for (const bucket of [due, shuffled(failed, random), shuffled(unseen, random), shuffled(rest, random)]) {
+    for (const exercise of bucket) {
+      if (taken.has(exercise.id)) continue
+      taken.add(exercise.id)
+      ordered.push(exercise)
+    }
+  }
+  return ordered
+}
+
 /** The kinds of practice offered on the main screen, in the order they are shown. */
 export const PRACTICE_KINDS: Array<{ id: string; title: string; subtitle: string; types: ExerciseType[] }> = [
   { id: 'mixed', title: 'Всё вперемешку', subtitle: 'Сначала сложное, потом новое', types: ['flashcard', 'translate', 'word_order', 'multiple_choice'] },
@@ -67,34 +99,7 @@ export const PracticeEngine = {
   build({ courses, level, state, types, size = DEFAULT_SIZE, now = new Date(), random = Math.random }: PracticeOptions): Exercise[] {
     const pool = this.pool(courses, level, types)
     if (pool.length === 0) return []
-    const byID = new Map(pool.map((exercise) => [exercise.id, exercise]))
-
-    const due = state.reviews
-      .filter((item) => item.due.getTime() <= now.getTime() && byID.has(item.exerciseID))
-      .sort((a, b) => a.due.getTime() - b.due.getTime())
-      .map((item) => byID.get(item.exerciseID)!)
-
-    const attemptedIDs = new Set(state.attempts.map((a) => a.exerciseID))
-    const failedIDs = new Set(
-      [...state.attempts].reverse().filter((a) => !a.correct).map((a) => a.exerciseID),
-    )
-
-    const failed = pool.filter((exercise) => failedIDs.has(exercise.id))
-    const unseen = pool.filter((exercise) => !attemptedIDs.has(exercise.id))
-    const rest = pool.filter((exercise) => attemptedIDs.has(exercise.id) && !failedIDs.has(exercise.id))
-
-    const selected: Exercise[] = []
-    const taken = new Set<string>()
-    // Due repetitions first, then old mistakes, then new material, then anything.
-    for (const bucket of [due, shuffled(failed, random), shuffled(unseen, random), shuffled(rest, random)]) {
-      for (const exercise of bucket) {
-        if (selected.length >= size) return selected
-        if (taken.has(exercise.id)) continue
-        taken.add(exercise.id)
-        selected.push(exercise)
-      }
-    }
-    return selected
+    return prioritise(pool, state, now, random).slice(0, size)
   },
 
   /**

@@ -139,29 +139,19 @@ struct CourseMapView: View {
     private var practiceKinds: some View {
         let counts = model.practiceCounts
         return VStack(spacing: 0) {
+            // Speaking comes first: it is the only exercise that gets the mouth moving.
+            kindRow(
+                icon: "mic.fill", color: CoachTheme.coral,
+                title: "Вслух за диктором", subtitle: "Слушай, повторяй, сравнивай себя с эталоном",
+                count: model.shadowingCount, action: { model.startShadowing() }
+            )
+            Rectangle().fill(CoachTheme.hairline).frame(height: 1).padding(.leading, 62)
             ForEach(PracticeEngine.kinds) { kind in
-                let count = counts[kind.id] ?? 0
                 let art = Self.kindIcons[kind.id] ?? ("bolt.fill", CoachTheme.violet)
-                Button { model.startPractice(kindID: kind.id) } label: {
-                    HStack(spacing: 12) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 11, style: .continuous).fill(art.1).frame(width: 36, height: 36)
-                            Image(systemName: art.0).font(.system(size: 15, weight: .bold)).foregroundStyle(.white)
-                        }
-                        VStack(alignment: .leading, spacing: 1) {
-                            Text(kind.title).font(.system(size: 15, weight: .semibold))
-                            Text(kind.subtitle).font(.system(size: 11)).foregroundStyle(.secondary)
-                        }
-                        Spacer(minLength: 8)
-                        Text("\(count)").font(.system(size: 13, weight: .bold)).monospacedDigit().foregroundStyle(.secondary)
-                    }
-                    .padding(.horizontal, 14).padding(.vertical, 11)
-                    .frame(maxWidth: .infinity)
-                    .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .disabled(count == 0)
-                .opacity(count == 0 ? 0.4 : 1)
+                kindRow(
+                    icon: art.0, color: art.1, title: kind.title, subtitle: kind.subtitle,
+                    count: counts[kind.id] ?? 0, action: { model.startPractice(kindID: kind.id) }
+                )
                 if kind.id != PracticeEngine.kinds.last?.id {
                     Rectangle().fill(CoachTheme.hairline).frame(height: 1).padding(.leading, 62)
                 }
@@ -169,6 +159,29 @@ struct CourseMapView: View {
         }
         .background(.white.opacity(0.88), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         .padding(.top, 10)
+    }
+
+    private func kindRow(icon: String, color: Color, title: String, subtitle: String, count: Int, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 12) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 11, style: .continuous).fill(color).frame(width: 36, height: 36)
+                    Image(systemName: icon).font(.system(size: 15, weight: .bold)).foregroundStyle(.white)
+                }
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(title).font(.system(size: 15, weight: .semibold))
+                    Text(subtitle).font(.system(size: 11)).foregroundStyle(.secondary)
+                }
+                Spacer(minLength: 8)
+                Text("\(count)").font(.system(size: 13, weight: .bold)).monospacedDigit().foregroundStyle(.secondary)
+            }
+            .padding(.horizontal, 14).padding(.vertical, 11)
+            .frame(maxWidth: .infinity)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .disabled(count == 0)
+        .opacity(count == 0 ? 0.4 : 1)
     }
 
     private func levelUpCard(_ next: CEFRLevel) -> some View {

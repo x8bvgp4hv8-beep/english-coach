@@ -46,17 +46,15 @@ public enum PracticeEngine {
         Dictionary(uniqueKeysWithValues: kinds.map { ($0.id, pool(courses: courses, level: level, types: $0.types).count) })
     }
 
-    public static func build(
-        courses: [CoursePack],
-        level: CEFRLevel,
+    /// Everything the learner could be given next, in the order it should be offered:
+    /// due repetitions, then old mistakes, then unseen material, then the rest.
+    /// Shared with shadowing, which needs the same order over a narrower pool.
+    public static func prioritise(
+        _ pool: [Exercise],
         state: UserState,
-        types: [ExerciseType]? = nil,
-        size: Int = defaultSize,
         now: Date = .now,
         shuffle: ([Exercise]) -> [Exercise] = { $0.shuffled() }
     ) -> [Exercise] {
-        let pool = pool(courses: courses, level: level, types: types)
-        guard !pool.isEmpty else { return [] }
         let byID = Dictionary(pool.map { ($0.id, $0) }, uniquingKeysWith: { first, _ in first })
 
         let due = state.reviews
@@ -74,16 +72,28 @@ public enum PracticeEngine {
             shuffle(pool.filter { attempted.contains($0.id) && !failed.contains($0.id) })
         ]
 
-        var selected: [Exercise] = []
+        var ordered: [Exercise] = []
         var taken = Set<String>()
         for bucket in buckets {
-            for exercise in bucket {
-                if selected.count >= size { return selected }
-                guard taken.insert(exercise.id).inserted else { continue }
-                selected.append(exercise)
+            for exercise in bucket where taken.insert(exercise.id).inserted {
+                ordered.append(exercise)
             }
         }
-        return selected
+        return ordered
+    }
+
+    public static func build(
+        courses: [CoursePack],
+        level: CEFRLevel,
+        state: UserState,
+        types: [ExerciseType]? = nil,
+        size: Int = defaultSize,
+        now: Date = .now,
+        shuffle: ([Exercise]) -> [Exercise] = { $0.shuffled() }
+    ) -> [Exercise] {
+        let pool = pool(courses: courses, level: level, types: types)
+        guard !pool.isEmpty else { return [] }
+        return Array(prioritise(pool, state: state, now: now, shuffle: shuffle).prefix(size))
     }
 
     /// Practice is never "completed", so the session must be started with

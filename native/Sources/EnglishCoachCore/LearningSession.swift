@@ -57,6 +57,16 @@ public struct LearningSession: Sendable {
         advance()
     }
 
+    /// Shadowing has no answer to check: the learner hears the phrase, says it, hears
+    /// both takes and decides. Their verdict still counts, so a phrase that did not
+    /// come out of the mouth comes back like any other mistake.
+    public mutating func selfAssess(_ correct: Bool, now: Date = .now) {
+        guard let exercise = currentExercise else { return }
+        let canonical = exercise.canonicalAnswer ?? exercise.prompt ?? ""
+        record(exercise: exercise, result: AnswerResult(isCorrect: correct, verdict: correct ? .correct : .wrong, canonical: canonical), now: now)
+        advance()
+    }
+
     /// "Я был прав": remembers the learner's phrasing for this exercise, flips the attempt
     /// and undoes the spaced repetition penalty this answer just caused. Without the last
     /// part the escape hatch would still punish a correct answer.
