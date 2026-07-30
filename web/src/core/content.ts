@@ -46,8 +46,14 @@ export function decodePlacement(raw: unknown): PlacementBank {
   return bank
 }
 
-/** Fetches the packs that `scripts/sync-content.mjs` copied into /content. */
-export async function loadContent(base = '/content'): Promise<{ courses: CoursePack[]; placement: PlacementBank }> {
+/**
+ * Fetches the packs that `scripts/sync-content.mjs` copied into `content/`.
+ *
+ * The path is relative on purpose. An absolute `/content` resolves against the domain
+ * root, which is right on a bare host and wrong on GitHub Pages, where the app lives at
+ * `/<repo>/` — there it asked the domain root and got a 404 with no lessons at all.
+ */
+export async function loadContent(base = 'content'): Promise<{ courses: CoursePack[]; placement: PlacementBank }> {
   const index = (await fetchJSON(`${base}/index.json`)) as { courses: string[] }
   const courses = await Promise.all(
     [...index.courses].sort().map(async (file) => decodeCourse(await fetchJSON(`${base}/courses/${file}`))),
