@@ -756,6 +756,273 @@
           ]
         }
       ]
+    },
+    {
+      "id": "a2-ch4",
+      "title": "Everyday Instructions",
+      "subtitle": "Просьбы и инструкции, счёт продуктов, наречия и общие правила с if",
+      "lessons": [
+        {
+          "id": "a2-ch4-l1",
+          "title": "Turn left and wait",
+          "summary": "Даём указания и просим о чём-то, а заодно говорим, как именно что-то делать.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "a2-ch4-l1-ex1",
+              "type": "info",
+              "title": "Повелительное наклонение",
+              "explanation": "Просьба или указание — глагол в начальной форме без подлежащего: Open the window. Запрет — don't перед глаголом: Don't touch it. Слово please делает просьбу вежливой.",
+              "topics": [
+                "a2-imperative"
+              ]
+            },
+            {
+              "id": "a2-ch4-l1-ex2",
+              "type": "flashcard",
+              "prompt": "Turn left at the corner.",
+              "translation": "Поверни налево на углу.",
+              "example": "Turn left at the corner and go straight.",
+              "topics": [
+                "a2-imperative"
+              ]
+            },
+            {
+              "id": "a2-ch4-l1-ex3",
+              "type": "translate",
+              "prompt": "Закрой дверь, пожалуйста.",
+              "canonicalAnswer": "Close the door, please.",
+              "acceptedAnswers": [
+                "Please close the door."
+              ],
+              "topics": [
+                "a2-imperative"
+              ]
+            },
+            {
+              "id": "a2-ch4-l1-ex4",
+              "type": "translate",
+              "prompt": "Не забудь свой билет.",
+              "canonicalAnswer": "Don't forget your ticket.",
+              "acceptedAnswers": [
+                "Do not forget your ticket."
+              ],
+              "topics": [
+                "a2-imperative"
+              ]
+            },
+            {
+              "id": "a2-ch4-l1-ex5",
+              "type": "word_order",
+              "prompt": "Подожди меня здесь.",
+              "canonicalAnswer": "Wait for me here.",
+              "tokens": [
+                "me",
+                "Wait",
+                "here",
+                "for",
+                "."
+              ],
+              "topics": [
+                "a2-imperative"
+              ]
+            },
+            {
+              "id": "a2-ch4-l1-ex6",
+              "type": "info",
+              "title": "Наречия образа действия",
+              "explanation": "Как именно происходит действие, показывает наречие: обычно прилагательное плюс -ly (slow — slowly, careful — carefully). Есть исключения: good — well, fast — fast, hard — hard.",
+              "topics": [
+                "a2-adverbs-manner"
+              ]
+            },
+            {
+              "id": "a2-ch4-l1-ex7",
+              "type": "multiple_choice",
+              "prompt": "Please drive ___, the road is wet.",
+              "options": [
+                "careful",
+                "carefully",
+                "carefuly"
+              ],
+              "correctOption": "carefully",
+              "topics": [
+                "a2-adverbs-manner",
+                "a2-imperative"
+              ]
+            },
+            {
+              "id": "a2-ch4-l1-ex8",
+              "type": "multiple_choice",
+              "prompt": "She speaks English very ___.",
+              "options": [
+                "good",
+                "well",
+                "goodly"
+              ],
+              "correctOption": "well",
+              "topics": [
+                "a2-adverbs-manner"
+              ]
+            },
+            {
+              "id": "a2-ch4-l1-ex9",
+              "type": "translate",
+              "prompt": "Он говорит медленно.",
+              "canonicalAnswer": "He speaks slowly.",
+              "topics": [
+                "a2-adverbs-manner"
+              ]
+            },
+            {
+              "id": "a2-ch4-l1-ex10",
+              "type": "word_order",
+              "prompt": "Она работает быстро и тихо.",
+              "canonicalAnswer": "She works quickly and quietly.",
+              "tokens": [
+                "quickly",
+                "She",
+                "quietly",
+                "works",
+                "and",
+                "."
+              ],
+              "topics": [
+                "a2-adverbs-manner"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a2-ch4-l2",
+          "title": "Milk, eggs and rules",
+          "summary": "Что можно посчитать, а что нет, и как говорить об общих правилах.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "a2-ch4-l2-ex1",
+              "type": "info",
+              "title": "Исчисляемые и неисчисляемые",
+              "explanation": "Исчисляемые можно посчитать и поставить во множественное число: an egg, two eggs. Неисчисляемые — нет: milk, bread, money, water. С ними не ставят a/an и не говорят many: much milk, a lot of money, a bottle of water.",
+              "topics": [
+                "a2-countable"
+              ]
+            },
+            {
+              "id": "a2-ch4-l2-ex2",
+              "type": "multiple_choice",
+              "prompt": "How ___ milk do we need?",
+              "options": [
+                "many",
+                "much",
+                "a lot"
+              ],
+              "correctOption": "much",
+              "topics": [
+                "a2-countable",
+                "a2-quantifiers"
+              ]
+            },
+            {
+              "id": "a2-ch4-l2-ex3",
+              "type": "multiple_choice",
+              "prompt": "There aren't ___ eggs in the fridge.",
+              "options": [
+                "much",
+                "many",
+                "a much"
+              ],
+              "correctOption": "many",
+              "topics": [
+                "a2-countable",
+                "a2-quantifiers"
+              ]
+            },
+            {
+              "id": "a2-ch4-l2-ex4",
+              "type": "translate",
+              "prompt": "Мне нужна бутылка воды.",
+              "canonicalAnswer": "I need a bottle of water.",
+              "topics": [
+                "a2-countable"
+              ]
+            },
+            {
+              "id": "a2-ch4-l2-ex5",
+              "type": "flashcard",
+              "prompt": "We don't have much time.",
+              "translation": "У нас мало времени.",
+              "example": "Hurry up, we don't have much time.",
+              "topics": [
+                "a2-countable",
+                "a2-quantifiers"
+              ]
+            },
+            {
+              "id": "a2-ch4-l2-ex6",
+              "type": "info",
+              "title": "Нулевое условие",
+              "explanation": "Общие правила и то, что всегда так: if плюс Present Simple, и во второй части тоже Present Simple. If you heat water, it boils. Здесь if можно заменить на when — смысл не изменится.",
+              "topics": [
+                "a2-zero-first-conditional"
+              ]
+            },
+            {
+              "id": "a2-ch4-l2-ex7",
+              "type": "translate",
+              "prompt": "Если нагреть воду, она кипит.",
+              "canonicalAnswer": "If you heat water, it boils.",
+              "topics": [
+                "a2-zero-first-conditional"
+              ]
+            },
+            {
+              "id": "a2-ch4-l2-ex8",
+              "type": "multiple_choice",
+              "prompt": "If it ___ , the streets get wet.",
+              "options": [
+                "will rain",
+                "rains",
+                "rained"
+              ],
+              "correctOption": "rains",
+              "topics": [
+                "a2-zero-first-conditional"
+              ]
+            },
+            {
+              "id": "a2-ch4-l2-ex9",
+              "type": "word_order",
+              "prompt": "Если я много работаю, я устаю.",
+              "canonicalAnswer": "If I work a lot, I get tired.",
+              "tokens": [
+                "work",
+                "If",
+                "I",
+                "a",
+                "lot",
+                "I",
+                "get",
+                "tired",
+                ","
+              ],
+              "topics": [
+                "a2-zero-first-conditional"
+              ]
+            },
+            {
+              "id": "a2-ch4-l2-ex10",
+              "type": "flashcard",
+              "prompt": "If you press this button, the door opens.",
+              "translation": "Если нажать эту кнопку, дверь открывается.",
+              "example": "If you press this button, the door opens by itself.",
+              "topics": [
+                "a2-zero-first-conditional"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

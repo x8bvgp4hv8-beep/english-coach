@@ -777,6 +777,668 @@
           ]
         }
       ]
+    },
+    {
+      "id": "b1-ch4",
+      "title": "Sorting Out the Past",
+      "subtitle": "Present Perfect против Past Simple, длительный перфект и предпрошедшее",
+      "lessons": [
+        {
+          "id": "b1-ch4-l1",
+          "title": "Experience or moment?",
+          "summary": "Выбираем между Present Perfect и Past Simple.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "b1-ch4-l1-ex1",
+              "type": "info",
+              "title": "Опыт или момент",
+              "explanation": "Present Perfect — когда важен сам факт или результат сейчас, без указания времени: I have seen this film. Past Simple — когда есть конкретный момент в прошлом: I saw it yesterday. Слова yesterday, in 2019, last week тянут за собой Past Simple, а ever, never, already, just, yet — Present Perfect.",
+              "topics": [
+                "b1-perfect-vs-past"
+              ]
+            },
+            {
+              "id": "b1-ch4-l1-ex2",
+              "type": "multiple_choice",
+              "prompt": "I ___ this film last night.",
+              "options": [
+                "have watched",
+                "watched",
+                "have watch"
+              ],
+              "correctOption": "watched",
+              "topics": [
+                "b1-perfect-vs-past",
+                "a2-past-simple"
+              ]
+            },
+            {
+              "id": "b1-ch4-l1-ex3",
+              "type": "multiple_choice",
+              "prompt": "___ you ever been to Italy?",
+              "options": [
+                "Did",
+                "Have",
+                "Are"
+              ],
+              "correctOption": "Have",
+              "topics": [
+                "b1-perfect-vs-past",
+                "b1-present-perfect"
+              ]
+            },
+            {
+              "id": "b1-ch4-l1-ex4",
+              "type": "multiple_choice",
+              "prompt": "She ___ her keys, so she can't open the door.",
+              "options": [
+                "lost",
+                "has lost",
+                "was losing"
+              ],
+              "correctOption": "has lost",
+              "topics": [
+                "b1-perfect-vs-past"
+              ]
+            },
+            {
+              "id": "b1-ch4-l1-ex5",
+              "type": "translate",
+              "prompt": "Я уже закончил работу.",
+              "canonicalAnswer": "I have already finished work.",
+              "acceptedAnswers": [
+                "I've already finished work."
+              ],
+              "topics": [
+                "b1-perfect-vs-past",
+                "b1-present-perfect"
+              ]
+            },
+            {
+              "id": "b1-ch4-l1-ex6",
+              "type": "translate",
+              "prompt": "Мы познакомились в 2019 году.",
+              "canonicalAnswer": "We met in 2019.",
+              "topics": [
+                "b1-perfect-vs-past",
+                "a2-past-simple"
+              ]
+            },
+            {
+              "id": "b1-ch4-l1-ex7",
+              "type": "word_order",
+              "prompt": "Он ещё не позвонил мне.",
+              "canonicalAnswer": "He has not called me yet.",
+              "tokens": [
+                "called",
+                "He",
+                "yet",
+                "has",
+                "me",
+                "not",
+                "."
+              ],
+              "topics": [
+                "b1-perfect-vs-past"
+              ]
+            },
+            {
+              "id": "b1-ch4-l1-ex8",
+              "type": "flashcard",
+              "prompt": "I've never tried sushi.",
+              "translation": "Я никогда не пробовал суши.",
+              "example": "I've never tried sushi, but I want to.",
+              "topics": [
+                "b1-perfect-vs-past"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-ch4-l2",
+          "title": "Still going on",
+          "summary": "Действие, которое началось раньше и продолжается до сих пор.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "b1-ch4-l2-ex1",
+              "type": "info",
+              "title": "Present Perfect Continuous",
+              "explanation": "Действие тянется от прошлого до сейчас: have / has been плюс глагол с -ing. I have been waiting for an hour. Часто рядом стоят for (сколько времени) и since (с какого момента).",
+              "topics": [
+                "b1-present-perfect-continuous"
+              ]
+            },
+            {
+              "id": "b1-ch4-l2-ex2",
+              "type": "flashcard",
+              "prompt": "I have been working here for three years.",
+              "translation": "Я работаю здесь три года.",
+              "example": "I have been working here for three years and I like it.",
+              "topics": [
+                "b1-present-perfect-continuous"
+              ]
+            },
+            {
+              "id": "b1-ch4-l2-ex3",
+              "type": "translate",
+              "prompt": "Она учит английский с января.",
+              "canonicalAnswer": "She has been learning English since January.",
+              "acceptedAnswers": [
+                "She's been learning English since January."
+              ],
+              "topics": [
+                "b1-present-perfect-continuous"
+              ]
+            },
+            {
+              "id": "b1-ch4-l2-ex4",
+              "type": "translate",
+              "prompt": "Мы ждём уже час.",
+              "canonicalAnswer": "We have been waiting for an hour.",
+              "acceptedAnswers": [
+                "We've been waiting for an hour."
+              ],
+              "topics": [
+                "b1-present-perfect-continuous"
+              ]
+            },
+            {
+              "id": "b1-ch4-l2-ex5",
+              "type": "multiple_choice",
+              "prompt": "It ___ since morning.",
+              "options": [
+                "has been raining",
+                "is raining",
+                "rained"
+              ],
+              "correctOption": "has been raining",
+              "topics": [
+                "b1-present-perfect-continuous"
+              ]
+            },
+            {
+              "id": "b1-ch4-l2-ex6",
+              "type": "multiple_choice",
+              "prompt": "They have been living here ___ 2015.",
+              "options": [
+                "for",
+                "since",
+                "from"
+              ],
+              "correctOption": "since",
+              "topics": [
+                "b1-present-perfect-continuous"
+              ]
+            },
+            {
+              "id": "b1-ch4-l2-ex7",
+              "type": "word_order",
+              "prompt": "Как долго ты его ждёшь?",
+              "canonicalAnswer": "How long have you been waiting for him?",
+              "tokens": [
+                "been",
+                "How",
+                "waiting",
+                "long",
+                "have",
+                "him",
+                "you",
+                "for",
+                "?"
+              ],
+              "topics": [
+                "b1-present-perfect-continuous"
+              ]
+            },
+            {
+              "id": "b1-ch4-l2-ex8",
+              "type": "flashcard",
+              "prompt": "He has been looking for a job.",
+              "translation": "Он ищет работу.",
+              "example": "He has been looking for a job since spring.",
+              "topics": [
+                "b1-present-perfect-continuous"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-ch4-l3",
+          "title": "Before that",
+          "summary": "Событие, которое случилось раньше другого события в прошлом.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "b1-ch4-l3-ex1",
+              "type": "info",
+              "title": "Past Perfect",
+              "explanation": "Когда одно прошлое событие случилось раньше другого, для более раннего берём had плюс третью форму: When I arrived, the train had already left. Позднее событие остаётся в Past Simple.",
+              "topics": [
+                "b1-past-perfect"
+              ]
+            },
+            {
+              "id": "b1-ch4-l3-ex2",
+              "type": "flashcard",
+              "prompt": "The train had already left.",
+              "translation": "Поезд уже ушёл.",
+              "example": "When we arrived, the train had already left.",
+              "topics": [
+                "b1-past-perfect"
+              ]
+            },
+            {
+              "id": "b1-ch4-l3-ex3",
+              "type": "translate",
+              "prompt": "Когда я пришёл, он уже ушёл.",
+              "canonicalAnswer": "When I arrived, he had already left.",
+              "topics": [
+                "b1-past-perfect",
+                "b1-while-when"
+              ]
+            },
+            {
+              "id": "b1-ch4-l3-ex4",
+              "type": "translate",
+              "prompt": "Она сказала, что забыла мой номер.",
+              "canonicalAnswer": "She said she had forgotten my number.",
+              "topics": [
+                "b1-past-perfect"
+              ]
+            },
+            {
+              "id": "b1-ch4-l3-ex5",
+              "type": "multiple_choice",
+              "prompt": "By the time we got there, the shop ___.",
+              "options": [
+                "closed",
+                "had closed",
+                "was closing"
+              ],
+              "correctOption": "had closed",
+              "topics": [
+                "b1-past-perfect"
+              ]
+            },
+            {
+              "id": "b1-ch4-l3-ex6",
+              "type": "multiple_choice",
+              "prompt": "I couldn't get in because I ___ my key.",
+              "options": [
+                "have lost",
+                "had lost",
+                "lose"
+              ],
+              "correctOption": "had lost",
+              "topics": [
+                "b1-past-perfect"
+              ]
+            },
+            {
+              "id": "b1-ch4-l3-ex7",
+              "type": "word_order",
+              "prompt": "Он не смог заплатить, потому что забыл кошелёк.",
+              "canonicalAnswer": "He could not pay because he had forgotten his wallet.",
+              "tokens": [
+                "pay",
+                "He",
+                "because",
+                "could",
+                "forgotten",
+                "not",
+                "he",
+                "had",
+                "his",
+                "wallet",
+                "."
+              ],
+              "topics": [
+                "b1-past-perfect"
+              ]
+            },
+            {
+              "id": "b1-ch4-l3-ex8",
+              "type": "flashcard",
+              "prompt": "I had never seen anything like it.",
+              "translation": "Я никогда не видел ничего подобного.",
+              "example": "I had never seen anything like it before that trip.",
+              "topics": [
+                "b1-past-perfect"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-ch5",
+      "title": "Joining Ideas",
+      "subtitle": "Относительные придаточные, герундий с инфинитивом и частотные фразовые глаголы",
+      "lessons": [
+        {
+          "id": "b1-ch5-l1",
+          "title": "The man who called",
+          "summary": "Уточняем, о ком и о чём идёт речь, одним предложением вместо двух.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "b1-ch5-l1-ex1",
+              "type": "info",
+              "title": "Относительные придаточные",
+              "explanation": "who — про людей, which — про предметы, that — про то и другое в разговорной речи. Придаточное идёт сразу за словом, которое уточняет: the man who called me, the book which I bought. Where используем про место, whose — про принадлежность.",
+              "topics": [
+                "b1-relative-clauses"
+              ]
+            },
+            {
+              "id": "b1-ch5-l1-ex2",
+              "type": "flashcard",
+              "prompt": "This is the man who helped me.",
+              "translation": "Это тот человек, который мне помог.",
+              "example": "This is the man who helped me with the car.",
+              "topics": [
+                "b1-relative-clauses"
+              ]
+            },
+            {
+              "id": "b1-ch5-l1-ex3",
+              "type": "multiple_choice",
+              "prompt": "The book ___ I bought is very good.",
+              "options": [
+                "who",
+                "which",
+                "whose"
+              ],
+              "correctOption": "which",
+              "topics": [
+                "b1-relative-clauses"
+              ]
+            },
+            {
+              "id": "b1-ch5-l1-ex4",
+              "type": "multiple_choice",
+              "prompt": "That's the woman ___ works with my sister.",
+              "options": [
+                "which",
+                "who",
+                "where"
+              ],
+              "correctOption": "who",
+              "topics": [
+                "b1-relative-clauses"
+              ]
+            },
+            {
+              "id": "b1-ch5-l1-ex5",
+              "type": "multiple_choice",
+              "prompt": "This is the café ___ we first met.",
+              "options": [
+                "which",
+                "where",
+                "who"
+              ],
+              "correctOption": "where",
+              "topics": [
+                "b1-relative-clauses"
+              ]
+            },
+            {
+              "id": "b1-ch5-l1-ex6",
+              "type": "translate",
+              "prompt": "Я знаю девушку, которая живёт здесь.",
+              "canonicalAnswer": "I know the girl who lives here.",
+              "acceptedAnswers": [
+                "I know the girl that lives here."
+              ],
+              "topics": [
+                "b1-relative-clauses"
+              ]
+            },
+            {
+              "id": "b1-ch5-l1-ex7",
+              "type": "word_order",
+              "prompt": "Фильм, который мы посмотрели, был скучным.",
+              "canonicalAnswer": "The film which we watched was boring.",
+              "tokens": [
+                "watched",
+                "The",
+                "boring",
+                "which",
+                "film",
+                "we",
+                "was",
+                "."
+              ],
+              "topics": [
+                "b1-relative-clauses"
+              ]
+            },
+            {
+              "id": "b1-ch5-l1-ex8",
+              "type": "flashcard",
+              "prompt": "I met a woman whose son is a pilot.",
+              "translation": "Я познакомился с женщиной, чей сын — пилот.",
+              "example": "I met a woman whose son is a pilot in Spain.",
+              "topics": [
+                "b1-relative-clauses"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-ch5-l2",
+          "title": "Doing or to do",
+          "summary": "После одних глаголов идёт -ing, после других — to.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "b1-ch5-l2-ex1",
+              "type": "info",
+              "title": "Герундий и инфинитив",
+              "explanation": "После enjoy, finish, keep, mind, avoid идёт форма с -ing: I enjoy reading. После want, decide, hope, promise, need — форма с to: I want to go. После like и start годится и то, и другое. После предлога всегда -ing: good at cooking.",
+              "topics": [
+                "b1-gerund-infinitive"
+              ]
+            },
+            {
+              "id": "b1-ch5-l2-ex2",
+              "type": "multiple_choice",
+              "prompt": "I enjoy ___ in the evening.",
+              "options": [
+                "to read",
+                "reading",
+                "read"
+              ],
+              "correctOption": "reading",
+              "topics": [
+                "b1-gerund-infinitive"
+              ]
+            },
+            {
+              "id": "b1-ch5-l2-ex3",
+              "type": "multiple_choice",
+              "prompt": "She decided ___ a new job.",
+              "options": [
+                "finding",
+                "to find",
+                "find"
+              ],
+              "correctOption": "to find",
+              "topics": [
+                "b1-gerund-infinitive"
+              ]
+            },
+            {
+              "id": "b1-ch5-l2-ex4",
+              "type": "multiple_choice",
+              "prompt": "He is good at ___ problems.",
+              "options": [
+                "solving",
+                "to solve",
+                "solve"
+              ],
+              "correctOption": "solving",
+              "topics": [
+                "b1-gerund-infinitive"
+              ]
+            },
+            {
+              "id": "b1-ch5-l2-ex5",
+              "type": "translate",
+              "prompt": "Я хочу поехать в Лондон.",
+              "canonicalAnswer": "I want to go to London.",
+              "topics": [
+                "b1-gerund-infinitive"
+              ]
+            },
+            {
+              "id": "b1-ch5-l2-ex6",
+              "type": "translate",
+              "prompt": "Она закончила готовить ужин.",
+              "canonicalAnswer": "She finished cooking dinner.",
+              "topics": [
+                "b1-gerund-infinitive"
+              ]
+            },
+            {
+              "id": "b1-ch5-l2-ex7",
+              "type": "word_order",
+              "prompt": "Я не против подождать здесь.",
+              "canonicalAnswer": "I don't mind waiting here.",
+              "tokens": [
+                "waiting",
+                "I",
+                "here",
+                "mind",
+                "don't",
+                "."
+              ],
+              "topics": [
+                "b1-gerund-infinitive"
+              ]
+            },
+            {
+              "id": "b1-ch5-l2-ex8",
+              "type": "flashcard",
+              "prompt": "We hope to see you soon.",
+              "translation": "Надеемся скоро увидеться.",
+              "example": "We hope to see you soon in Vilnius.",
+              "topics": [
+                "b1-gerund-infinitive"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-ch5-l3",
+          "title": "Pick it up",
+          "summary": "Частотные фразовые глаголы, без которых не понять разговорную речь.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "b1-ch5-l3-ex1",
+              "type": "info",
+              "title": "Фразовые глаголы",
+              "explanation": "Глагол плюс предлог часто меняет смысл целиком: look — смотреть, но look for — искать, look after — присматривать. Короткое дополнение можно ставить между частями: pick it up, turn it off.",
+              "topics": [
+                "b1-phrasal-verbs"
+              ]
+            },
+            {
+              "id": "b1-ch5-l3-ex2",
+              "type": "flashcard",
+              "prompt": "I'm looking for my keys.",
+              "translation": "Я ищу свои ключи.",
+              "example": "I'm looking for my keys, have you seen them?",
+              "topics": [
+                "b1-phrasal-verbs"
+              ]
+            },
+            {
+              "id": "b1-ch5-l3-ex3",
+              "type": "flashcard",
+              "prompt": "Please turn off the light.",
+              "translation": "Выключи, пожалуйста, свет.",
+              "example": "Please turn off the light when you leave.",
+              "topics": [
+                "b1-phrasal-verbs",
+                "a2-imperative"
+              ]
+            },
+            {
+              "id": "b1-ch5-l3-ex4",
+              "type": "multiple_choice",
+              "prompt": "Can you look ___ my cat while I'm away?",
+              "options": [
+                "for",
+                "after",
+                "up"
+              ],
+              "correctOption": "after",
+              "topics": [
+                "b1-phrasal-verbs"
+              ]
+            },
+            {
+              "id": "b1-ch5-l3-ex5",
+              "type": "multiple_choice",
+              "prompt": "I gave ___ smoking two years ago.",
+              "options": [
+                "up",
+                "in",
+                "off"
+              ],
+              "correctOption": "up",
+              "topics": [
+                "b1-phrasal-verbs"
+              ]
+            },
+            {
+              "id": "b1-ch5-l3-ex6",
+              "type": "multiple_choice",
+              "prompt": "We need to find ___ what happened.",
+              "options": [
+                "out",
+                "for",
+                "off"
+              ],
+              "correctOption": "out",
+              "topics": [
+                "b1-phrasal-verbs"
+              ]
+            },
+            {
+              "id": "b1-ch5-l3-ex7",
+              "type": "translate",
+              "prompt": "Я встаю в семь.",
+              "canonicalAnswer": "I get up at seven.",
+              "topics": [
+                "b1-phrasal-verbs",
+                "a1-present-simple"
+              ]
+            },
+            {
+              "id": "b1-ch5-l3-ex8",
+              "type": "word_order",
+              "prompt": "Она заботится о своей бабушке.",
+              "canonicalAnswer": "She looks after her grandmother.",
+              "tokens": [
+                "after",
+                "She",
+                "grandmother",
+                "looks",
+                "her",
+                "."
+              ],
+              "topics": [
+                "b1-phrasal-verbs"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
