@@ -2,14 +2,26 @@ import { useRef, useState } from 'react'
 
 import { useStore } from './App'
 import { PlacementTest } from './Placement'
+import { THEMES, applyTheme, loadTheme } from './theme'
 import { LEVELS, exportBackup, importBackup } from '../core'
 import type { CEFRLevel } from '../core'
+import type { ThemeID } from './theme'
+
+/** Three fills apiece: background, card, accent. Enough to choose by eye. */
+const SWATCH: Record<ThemeID, string[]> = {
+  cartoon: ['#f7ecdd', '#fffdf9', '#f26a3d'],
+  minimal: ['#f1f1f5', '#ffffff', '#14121f'],
+  night: ['#16123a', '#2a2555', '#7b6ff0'],
+}
 
 export function Settings() {
   const model = useStore()
   const [placement, setPlacement] = useState<'closed' | 'running' | CEFRLevel>('closed')
   const [message, setMessage] = useState<string | null>(null)
+  const [theme, setTheme] = useState(loadTheme)
   const fileInput = useRef<HTMLInputElement>(null)
+
+  const chooseTheme = (id: ThemeID) => { applyTheme(id); setTheme(id) }
 
   if (placement === 'running') {
     return (
@@ -71,6 +83,26 @@ export function Settings() {
       </header>
 
       <div className="scroll">
+        <div className="section-title" style={{ marginTop: 18 }}>
+          <h2>Оформление</h2>
+          <p>Меняется вид, а не содержание: уроки, прогресс и повторения остаются те же.</p>
+        </div>
+        <div className="themes">
+          {THEMES.map((item) => (
+            <button
+              key={item.id}
+              className={`theme-card${theme === item.id ? ' selected' : ''}`}
+              onClick={() => chooseTheme(item.id)}
+            >
+              <span className="theme-swatch">
+                {SWATCH[item.id].map((fill) => <i key={fill} style={{ background: fill }} />)}
+              </span>
+              <span className="theme-name">{item.title}</span>
+              <span className="theme-note">{item.note}</span>
+            </button>
+          ))}
+        </div>
+
         <div className="settings-group">
           <div className="settings-row">
             <span className="label">Уровень</span>
