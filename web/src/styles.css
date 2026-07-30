@@ -6,7 +6,6 @@
  *
  * `--tap` and the spacing scale never change: the layout is the same app in every skin.
  */
-:root,
 :root[data-theme='cartoon'] {
   color-scheme: light;
   --font: ui-rounded, 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -38,6 +37,8 @@
   --tap: 48px;
 }
 
+/* The default: chosen for daily use, the other two are a tap away in settings. */
+:root,
 :root[data-theme='minimal'] {
   color-scheme: light;
   --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;

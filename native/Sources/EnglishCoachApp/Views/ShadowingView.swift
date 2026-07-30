@@ -47,7 +47,7 @@ struct ShadowingView: View {
                 .tint(CoachTheme.coral)
         }
         .padding(20)
-        .background(.white.opacity(0.52))
+        .background(CoachTheme.surface)
     }
 
     private func card(_ item: ShadowingItem) -> some View {
@@ -103,9 +103,7 @@ struct ShadowingView: View {
                 }
             }
             .padding(28).frame(maxWidth: 470)
-            .background(.white.opacity(0.9), in: RoundedRectangle(cornerRadius: 26, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: 26).stroke(.white, lineWidth: 1))
-            .shadow(color: CoachTheme.coral.opacity(0.14), radius: 28, y: 15)
+            .coachCard(radius: 26)
             Spacer()
         }
         .padding(.horizontal, 28)

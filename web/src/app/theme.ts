@@ -13,7 +13,7 @@ export const THEMES: Array<{ id: ThemeID; title: string; note: string }> = [
 ]
 
 const KEY = 'english-coach.theme'
-const DEFAULT: ThemeID = 'cartoon'
+const DEFAULT: ThemeID = 'minimal'
 
 const known = (value: string | null): value is ThemeID =>
   THEMES.some((theme) => theme.id === value)

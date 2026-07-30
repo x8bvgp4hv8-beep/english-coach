@@ -21,9 +21,15 @@ struct RootView: View {
                 }
             }
         }
-        // The palette is a fixed light one, so system controls and `.secondary` text
-        // must stay light too — otherwise they turn light-grey-on-light in Dark Mode.
-        .preferredColorScheme(.light)
+        // System controls and `.secondary` text must match the chosen theme, not the
+        // system setting: a light palette in Dark Mode gives light-grey-on-light text.
+        .preferredColorScheme(CoachTheme.colorScheme)
+        // `CoachTheme` is read inside every body, so switching a theme has to rebuild
+        // the tree rather than wait for some observed property to change. The rebuild
+        // must not animate: an identity swap keeps the old tree alive for the length of
+        // the transition, and the two copies draw over each other as doubled text.
+        .id(model.themeID)
+        .transaction { $0.animation = nil }
         .foregroundStyle(CoachTheme.ink)
         .alert("Прогресс не сохранён", isPresented: Binding(get: { model.transientError != nil }, set: { if !$0 { model.transientError = nil } })) {
             Button("Понятно", role: .cancel) {}

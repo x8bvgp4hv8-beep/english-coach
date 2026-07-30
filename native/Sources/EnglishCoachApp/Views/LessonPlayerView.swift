@@ -28,7 +28,7 @@ struct LessonPlayerView: View {
                     .buttonStyle(.plain).foregroundStyle(.secondary).help("Выйти из урока")
                 if model.canGoBack {
                     Button { withAnimation { model.goBack() } } label: { Label("Назад", systemImage: "chevron.left") }
-                        .buttonStyle(.plain).foregroundStyle(CoachTheme.violet)
+                        .buttonStyle(.plain).foregroundStyle(CoachTheme.accentColor)
                 }
                 Spacer()
                 Text(model.activeLesson?.title ?? "Урок").font(.headline).lineLimit(1)
@@ -36,15 +36,15 @@ struct LessonPlayerView: View {
                 Text("\(min(model.session.exerciseIndex + 1, model.activeLesson?.exercises.count ?? 1)) / \(model.activeLesson?.exercises.count ?? 1)")
                     .monospacedDigit().foregroundStyle(.secondary)
             }
-            ProgressView(value: Double(model.session.exerciseIndex), total: Double(max(1, model.activeLesson?.exercises.count ?? 1))).tint(CoachTheme.violet)
-        }.padding(20).background(.white.opacity(0.52))
+            ProgressView(value: Double(model.session.exerciseIndex), total: Double(max(1, model.activeLesson?.exercises.count ?? 1))).tint(CoachTheme.accentColor)
+        }.padding(20).background(CoachTheme.surface)
     }
 
     @ViewBuilder private func exerciseCard(_ exercise: Exercise) -> some View {
         VStack(spacing: 22) {
             Spacer(minLength: 12)
             VStack(spacing: 18) {
-                Text(label(for: exercise.type)).font(.caption.weight(.black)).foregroundStyle(CoachTheme.violet).tracking(1.2)
+                Text(label(for: exercise.type)).font(.caption.weight(.black)).foregroundStyle(CoachTheme.accentColor).tracking(1.2)
                 if let title = exercise.title { Text(title).font(.system(size: 27, weight: .black, design: .rounded)).multilineTextAlignment(.center) }
                 if let prompt = exercise.prompt {
                     HStack(spacing: 8) {
@@ -57,9 +57,7 @@ struct LessonPlayerView: View {
                 feedbackView
             }
             .padding(28).frame(maxWidth: 470)
-            .background(.white.opacity(0.9), in: RoundedRectangle(cornerRadius: 26, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: 26).stroke(.white, lineWidth: 1))
-            .shadow(color: CoachTheme.violet.opacity(0.14), radius: 28, y: 15)
+            .coachCard(radius: 26)
             Spacer()
         }.padding(.horizontal, 28).animation(.snappy, value: model.feedback)
     }
@@ -74,7 +72,7 @@ struct LessonPlayerView: View {
             if let example = exercise.example { Text(example).italic().padding(12).background(CoachTheme.mist, in: RoundedRectangle(cornerRadius: 12)) }
             Button("Запомнил") { withAnimation { model.completePassive() } }.buttonStyle(PrimaryButtonStyle(color: CoachTheme.blue))
         case .translate:
-            TextField("Напиши перевод…", text: $answer).textFieldStyle(.plain).font(.title3).padding(14).background(.white, in: RoundedRectangle(cornerRadius: 14)).overlay(RoundedRectangle(cornerRadius: 14).stroke(CoachTheme.violet.opacity(0.25), lineWidth: 2)).onSubmit(submitText).disabled(model.feedback != nil)
+            TextField("Напиши перевод…", text: $answer).textFieldStyle(.plain).font(.title3).padding(14).background(CoachTheme.cardFill, in: RoundedRectangle(cornerRadius: 14)).overlay(RoundedRectangle(cornerRadius: 14).stroke(CoachTheme.borderColor, lineWidth: max(2, CoachTheme.borderWidth))).onSubmit(submitText).disabled(model.feedback != nil)
             if model.feedback == nil { Button("Проверить", action: submitText).buttonStyle(PrimaryButtonStyle()) }
         case .wordOrder:
             wordOrder(exercise.tokens ?? [])
@@ -136,9 +134,9 @@ struct LessonPlayerView: View {
     private func chip(_ text: String, filled: Bool) -> some View {
         Text(text).font(.headline)
             .padding(.horizontal, 14).padding(.vertical, 9)
-            .background(filled ? CoachTheme.violet : Color.white, in: Capsule())
-            .foregroundStyle(filled ? .white : CoachTheme.ink)
-            .overlay(Capsule().stroke(CoachTheme.violet.opacity(filled ? 0 : 0.35), lineWidth: 1.5))
+            .background(filled ? CoachTheme.palette.accent : CoachTheme.cardFill, in: Capsule())
+            .foregroundStyle(filled ? CoachTheme.accentFg : CoachTheme.ink)
+            .overlay(Capsule().stroke(filled ? .clear : CoachTheme.borderColor, lineWidth: max(1.5, CoachTheme.borderWidth)))
     }
 
     @ViewBuilder private var feedbackView: some View {
@@ -165,7 +163,7 @@ struct LessonPlayerView: View {
                 // The escape hatch: whatever the checker still gets wrong costs one tap, once.
                 if feedback.verdict == .wrong, canOverrule {
                     Button("Мой ответ тоже верный") { withAnimation { model.markLastAnswerCorrect() } }
-                        .buttonStyle(.plain).font(.callout).foregroundStyle(CoachTheme.violet)
+                        .buttonStyle(.plain).font(.callout).foregroundStyle(CoachTheme.accentColor)
                 }
             }.padding(.top, 4)
         }

@@ -30,14 +30,17 @@ final class AppModel {
 
     static func live() -> AppModel {
         let store = ProgressStore.live
+        let model: AppModel
         do {
             let bank = (try? ContentRepository.loadPlacement())?.questions ?? []
-            return AppModel(courses: try ContentRepository.loadBundled(), placementBank: bank, state: try store.load(), store: store)
+            model = AppModel(courses: try ContentRepository.loadBundled(), placementBank: bank, state: try store.load(), store: store)
         } catch {
-            let model = AppModel(courses: [], state: .fresh, store: store)
+            model = AppModel(courses: [], state: .fresh, store: store)
             model.startupError = "Не удалось загрузить учебные материалы: \(error.localizedDescription)"
-            return model
         }
+        // Before the first body runs, so the window never paints in the wrong theme.
+        model.loadTheme()
+        return model
     }
 
     var isOnboarding: Bool { state.profile == nil }
@@ -91,6 +94,26 @@ final class AppModel {
         startLesson(PracticeEngine.lesson(exercises, title: kind.title), recordsCompletion: false)
     }
     func closeLesson() { state = session.state; bankPracticeTime(); session = LearningSession(state: state); save() }
+
+    // MARK: - Theme
+    //
+    // Kept in UserDefaults, not in UserState: a theme is chrome, not progress, so it must
+    // not travel in a progress backup or drift from the web client's own preference.
+
+    private static let themeKey = "appearance.theme"
+    private(set) var themeID: ThemeID = .minimal
+
+    func loadTheme() {
+        let stored = UserDefaults.standard.string(forKey: Self.themeKey) ?? ""
+        themeID = ThemeID(rawValue: stored) ?? .minimal
+        CoachTheme.use(themeID)
+    }
+
+    func selectTheme(_ id: ThemeID) {
+        themeID = id
+        CoachTheme.use(id)
+        UserDefaults.standard.set(id.rawValue, forKey: Self.themeKey)
+    }
 
     // MARK: - Shadowing (speaking practice runs on the same session, on its own screen)
 

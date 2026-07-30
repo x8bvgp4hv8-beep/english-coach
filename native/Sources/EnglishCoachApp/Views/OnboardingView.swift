@@ -67,7 +67,7 @@ struct OnboardingView: View {
     private var placementResult: some View {
         VStack(spacing: 20) {
             heading("Твой уровень — \(level.rawValue)", "Мы начнём отсюда. Если станет легко, приложение само предложит перейти выше.")
-            Text(level.rawValue).font(.system(size: 64, weight: .black, design: .rounded)).foregroundStyle(CoachTheme.violet)
+            Text(level.rawValue).font(.system(size: 64, weight: .black, design: .rounded)).foregroundStyle(CoachTheme.accentColor)
             VStack(spacing: 12) {
                 Button("Продолжить") { withAnimation(.snappy) { stage = .goal } }.buttonStyle(PrimaryButtonStyle()).frame(maxWidth: 340)
                 Button("Выбрать другой уровень") { withAnimation(.snappy) { stage = .level } }.buttonStyle(.bordered).frame(maxWidth: 340)
@@ -112,10 +112,10 @@ private struct LevelButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.headline.weight(.bold))
-            .foregroundStyle(selected ? CoachTheme.violet : CoachTheme.ink)
+            .foregroundStyle(selected ? CoachTheme.palette.accent : CoachTheme.ink)
             .padding(.horizontal, 16).padding(.vertical, 13)
-            .background(selected ? CoachTheme.violet.opacity(0.12) : .white.opacity(0.75), in: RoundedRectangle(cornerRadius: 14))
-            .overlay(RoundedRectangle(cornerRadius: 14).stroke(selected ? CoachTheme.violet : .white.opacity(0.8), lineWidth: selected ? 2 : 1))
+            .background(selected ? CoachTheme.accentSoft : CoachTheme.cardFill, in: RoundedRectangle(cornerRadius: 14))
+            .overlay(RoundedRectangle(cornerRadius: 14).stroke(selected ? CoachTheme.palette.accent : CoachTheme.borderColor, lineWidth: selected ? 2 : CoachTheme.borderWidth))
             .scaleEffect(configuration.isPressed ? 0.96 : 1)
     }
 }

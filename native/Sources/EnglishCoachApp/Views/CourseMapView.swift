@@ -37,12 +37,12 @@ struct CourseMapView: View {
         VStack(spacing: 14) {
             HStack(alignment: .center, spacing: 10) {
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("ENGLISH COACH").font(.system(size: 10, weight: .black)).tracking(1.4).foregroundStyle(CoachTheme.violet.opacity(0.75))
+                    Text("ENGLISH COACH").font(.system(size: 10, weight: .black)).tracking(1.4).foregroundStyle(CoachTheme.accentColor.opacity(0.75))
                     Text("Твой маршрут").font(.system(size: 21, weight: .black, design: .rounded))
                 }
                 Spacer(minLength: 8)
                 stat("flame.fill", "\(model.streak())", .orange, "дней подряд")
-                stat("sparkles", "\(model.totalPoints)", CoachTheme.violet, "очков всего")
+                stat("sparkles", "\(model.totalPoints)", CoachTheme.accentColor, "очков всего")
                 levelMenu
                 Button { model.screen = .settings } label: { Image(systemName: "gearshape.fill").font(.system(size: 15)) }
                     .buttonStyle(.plain).foregroundStyle(.secondary).help("Настройки")
@@ -51,7 +51,7 @@ struct CourseMapView: View {
                 meter(title: "Уровень \(model.selectedLevel.rawValue)",
                       caption: "\(Int((model.currentLevelProgress * 100).rounded()))%",
                       value: model.currentLevelProgress,
-                      tint: CoachTheme.violet)
+                      tint: CoachTheme.accentColor)
                 meter(title: "Цель дня",
                       caption: model.dailyGoalReached ? "выполнена" : "\(model.todayPracticeMinutes) / \(model.dailyGoalMinutes) мин",
                       value: model.dailyGoalProgress,
@@ -78,8 +78,8 @@ struct CourseMapView: View {
         }
         .menuStyle(.borderlessButton).fixedSize()
         .padding(.horizontal, 9).padding(.vertical, 5)
-        .background(CoachTheme.violet.opacity(0.12), in: Capsule())
-        .foregroundStyle(CoachTheme.violet)
+        .background(CoachTheme.accentSoft, in: Capsule())
+        .foregroundStyle(CoachTheme.accentColor)
     }
 
     private func meter(title: String, caption: String, value: Double, tint: Color) -> some View {
@@ -128,13 +128,15 @@ struct CourseMapView: View {
         }.padding(.top, 24).frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private static let kindIcons: [String: (String, Color)] = [
+    /// Computed, not stored: a stored dictionary would freeze the colours of whichever
+    /// theme happened to be live when the view was first built.
+    private static var kindIcons: [String: (String, Color)] { [
         "mixed": ("bolt.fill", CoachTheme.violet),
         "flashcard": ("rectangle.on.rectangle.angled", CoachTheme.blue),
         "translate": ("pencil.line", CoachTheme.amber),
         "word_order": ("puzzlepiece.fill", CoachTheme.mint),
         "multiple_choice": ("checkmark.square.fill", Color(red: 0.76, green: 0.49, blue: 0.88))
-    ]
+    ] }
 
     private var practiceKinds: some View {
         let counts = model.practiceCounts
@@ -157,7 +159,7 @@ struct CourseMapView: View {
                 }
             }
         }
-        .background(.white.opacity(0.88), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .coachCard(radius: 16)
         .padding(.top, 10)
     }
 
@@ -206,7 +208,7 @@ struct CourseMapView: View {
         let done = chapter.lessons.filter { model.state.completedLessonIDs.contains($0.id) }.count
         return VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .firstTextBaseline, spacing: 8) {
-                Text("ГЛАВА \(number)").font(.system(size: 10, weight: .black)).tracking(1.2).foregroundStyle(CoachTheme.violet.opacity(0.7))
+                Text("ГЛАВА \(number)").font(.system(size: 10, weight: .black)).tracking(1.2).foregroundStyle(CoachTheme.accentColor.opacity(0.7))
                 Text(chapter.title).font(.system(size: 16, weight: .heavy, design: .rounded))
                 Spacer(minLength: 8)
                 Text("\(done) / \(chapter.lessons.count)").font(.system(size: 11, weight: .bold)).monospacedDigit()
@@ -238,7 +240,7 @@ struct CourseMapView: View {
                 Image(systemName: "chevron.right").font(.system(size: 10, weight: .bold))
             }.font(.system(size: 13, weight: .semibold))
         }
-        .buttonStyle(.plain).foregroundStyle(CoachTheme.violet)
+        .buttonStyle(.plain).foregroundStyle(CoachTheme.accentColor)
         .padding(.top, 26)
     }
 
@@ -282,7 +284,7 @@ private struct LessonRow: View {
 
     private var color: Color {
         switch state {
-        case .completed: CoachTheme.violet
+        case .completed: CoachTheme.accentColor
         case .current: CoachTheme.amber
         case .available: CoachTheme.blue
         case .locked: CoachTheme.ink.opacity(0.28)
@@ -304,7 +306,7 @@ private struct LessonRow: View {
         case .locked: "откроется после предыдущего"
         }
     }
-    private var lineColor: Color { state == .completed ? CoachTheme.violet.opacity(0.35) : CoachTheme.ink.opacity(0.12) }
+    private var lineColor: Color { state == .completed ? CoachTheme.accentColor.opacity(0.35) : CoachTheme.ink.opacity(0.12) }
 
     var body: some View {
         Button(action: action) {
@@ -342,7 +344,7 @@ private struct LessonRow: View {
 
     private var node: some View {
         ZStack {
-            Circle().fill(state == .available ? Color.white : color)
+            Circle().fill(state == .available ? CoachTheme.cardFill : color)
                 .frame(width: state == .current ? 30 : 26, height: state == .current ? 30 : 26)
                 .overlay(Circle().stroke(state == .available ? color.opacity(0.5) : .clear, lineWidth: 2))
                 .shadow(color: state == .current ? color.opacity(0.45) : .clear, radius: 7, y: 3)
@@ -396,9 +398,8 @@ private struct ActionCard: View {
                 Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).foregroundStyle(iconColor)
             }
             .padding(15)
-            .background(.white.opacity(hovering ? 1 : 0.88), in: RoundedRectangle(cornerRadius: 17, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: 17, style: .continuous).stroke(iconColor.opacity(hovering ? 0.35 : 0.16), lineWidth: 1.5))
-            .shadow(color: iconColor.opacity(hovering ? 0.22 : 0.12), radius: hovering ? 16 : 10, y: hovering ? 7 : 5)
+            .coachCard(radius: 17)
+            .overlay(RoundedRectangle(cornerRadius: 17, style: .continuous).stroke(iconColor.opacity(hovering ? 0.35 : 0), lineWidth: 1.5))
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
