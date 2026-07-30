@@ -8,15 +8,17 @@ import {
   PracticeLog,
   ProgressionEngine,
   ShadowingEngine,
+  TopicProgressEngine,
   freshState,
   loadContent,
   localProgressStore,
 } from '../core'
 import type {
-  AnswerResult, CEFRLevel, CoursePack, Exercise, Lesson, PlacementQuestion, ShadowingItem, UserState,
+  AnswerResult, CEFRLevel, CoursePack, Exercise, Lesson, PlacementQuestion, ShadowingItem, Syllabus,
+  TopicProgress, UserState,
 } from '../core'
 
-export type Screen = 'map' | 'settings'
+export type Screen = 'map' | 'settings' | 'topics'
 
 /**
  * The web counterpart of AppModel.swift: one object owning content, profile and the
@@ -25,6 +27,7 @@ export type Screen = 'map' | 'settings'
 export class AppStore {
   courses: CoursePack[] = []
   placementBank: PlacementQuestion[] = []
+  syllabus: Syllabus | null = null
   state: UserState = freshState()
   session = new LearningSession(freshState())
   screen: Screen = 'map'
@@ -58,9 +61,10 @@ export class AppStore {
 
   async load(): Promise<void> {
     try {
-      const { courses, placement } = await loadContent()
+      const { courses, placement, syllabus } = await loadContent()
       this.courses = courses
       this.placementBank = placement.questions
+      this.syllabus = syllabus
       this.state = localProgressStore.load()
       this.session = new LearningSession(this.state)
     } catch (error) {
@@ -189,6 +193,29 @@ export class AppStore {
     })
     if (exercises.length === 0) return
     this.startLesson(PracticeEngine.lesson(exercises, kind.title), false)
+  }
+
+  // MARK: - Grammar topics
+
+  /** Every topic of this level and below, with the learner's record on it. */
+  get topicProgress(): TopicProgress[] {
+    if (!this.syllabus) return []
+    return TopicProgressEngine.all(this.syllabus, this.courses, this.state, this.selectedLevel)
+  }
+
+  /** Worst first, and only once there are enough attempts to mean anything. */
+  get weakTopics(): TopicProgress[] {
+    if (!this.syllabus) return []
+    return TopicProgressEngine.weak(this.syllabus, this.courses, this.state, this.selectedLevel)
+  }
+
+  startTopicPractice(topicID: string): void {
+    const exercises = PracticeEngine.build({
+      courses: this.courses, level: this.selectedLevel, state: this.state, topics: [topicID],
+    })
+    if (exercises.length === 0) return
+    const title = this.syllabus?.topics.find((t) => t.id === topicID)?.title ?? 'Тренировка'
+    this.startLesson(PracticeEngine.lesson(exercises, title), false)
   }
 
   // MARK: - Shadowing

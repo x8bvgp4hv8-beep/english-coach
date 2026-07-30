@@ -18,6 +18,7 @@ struct RootView: View {
                 case .map: CourseMapView()
                 case .catalog: CatalogView()
                 case .settings: SettingsView()
+                case .topics: TopicsView()
                 }
             }
         }

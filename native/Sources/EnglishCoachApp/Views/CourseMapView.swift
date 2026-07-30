@@ -13,10 +13,24 @@ struct CourseMapView: View {
                     sectionTitle("Сегодня")
                     continueCard
                     if model.dueCount > 0 { reviewCard }
+                    if !model.weakTopics.isEmpty {
+                        sectionTitle("Что проседает", hint: "Считается по твоим ответам, а не по пройденным урокам")
+                        ForEach(model.weakTopics.prefix(3)) { item in
+                            ActionCard(
+                                icon: "target",
+                                iconColor: CoachTheme.coral,
+                                kicker: "\(Int((item.accuracy * 100).rounded()))% ВЕРНЫХ",
+                                title: item.topic.title,
+                                subtitle: "\(item.correct) из \(item.attempts) · нажми, чтобы потренировать",
+                                action: { model.startTopicPractice(item.topic.id) }
+                            ).padding(.top, 10)
+                        }
+                    }
                     if model.practiceIsAvailable {
                         sectionTitle("Виды заданий", hint: "Можно тренировать отдельно, сколько угодно раз")
                         practiceKinds
                     }
+                    grammarLink
                     sectionTitle("Маршрут \(model.selectedLevel.rawValue)", hint: "Уроки идут по порядку: правило, новые фразы, упражнения")
                     ForEach(Array(chapters.enumerated()), id: \.element.id) { number, chapter in
                         chapterSection(number: number + 1, chapter: chapter)
@@ -230,6 +244,18 @@ struct CourseMapView: View {
             }
         }
         .padding(.top, 26)
+    }
+
+    private var grammarLink: some View {
+        Button { model.screen = .topics } label: {
+            HStack(spacing: 6) {
+                Image(systemName: "chart.bar.fill")
+                Text("Вся грамматика уровня и мои проценты")
+                Image(systemName: "chevron.right").font(.system(size: 10, weight: .bold))
+            }.font(.system(size: 13, weight: .semibold))
+        }
+        .buttonStyle(.plain).foregroundStyle(CoachTheme.accentColor)
+        .padding(.top, 16)
     }
 
     private var catalogLink: some View {

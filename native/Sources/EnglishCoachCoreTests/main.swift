@@ -277,6 +277,22 @@ do {
     expect(gaps.count <= syllabus.coverageDebtCeiling,
            "coverage debt did not grow (\(gaps.count) of ceiling \(syllabus.coverageDebtCeiling))")
 
+    // Practice can be narrowed to one topic, and attempts turn into a picture of it.
+    let byTopic = PracticeEngine.build(courses: courses, level: .b1, state: .fresh, topics: ["b1-past-perfect"], size: 6)
+    expect(!byTopic.isEmpty && byTopic.allSatisfy { ($0.topics ?? []).contains("b1-past-perfect") },
+           "practice can be narrowed to one topic")
+
+    let pastPerfect = PracticeEngine.pool(courses: courses, level: .b1, topics: ["b1-past-perfect"])
+    var record = UserState.fresh
+    record.attempts = pastPerfect.prefix(4).enumerated().map { index, exercise in
+        AttemptRecord(id: UUID(), exerciseID: exercise.id, correct: index == 0, date: now)
+    }
+    let weak = TopicProgressEngine.weak(syllabus: syllabus, courses: courses, state: record, level: .b1)
+    expect(weak.first?.topic.id == "b1-past-perfect", "the worst topic comes first")
+    expect(weak.first?.attempts == 4 && abs((weak.first?.accuracy ?? 0) - 0.25) < 0.001, "accuracy is counted per topic")
+    let everything = TopicProgressEngine.all(syllabus: syllabus, courses: courses, state: record, level: .b1)
+    expect(everything.allSatisfy { $0.exercises > 0 }, "no topic is offered without exercises behind it")
+
     let counts = SyllabusEngine.counts(in: courses)
     let taggedInfo = courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises)
         .filter { $0.type == .info && !($0.topics ?? []).isEmpty }

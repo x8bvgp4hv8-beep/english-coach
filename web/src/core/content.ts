@@ -1,5 +1,6 @@
+import { decodeSyllabus } from './syllabus'
 import { ContentError } from './types'
-import type { CoursePack, PlacementBank } from './types'
+import type { CoursePack, PlacementBank, Syllabus } from './types'
 
 /** Mirrors EnglishCoachCore/ContentRepository.swift: same validation, same failure modes. */
 
@@ -53,13 +54,14 @@ export function decodePlacement(raw: unknown): PlacementBank {
  * root, which is right on a bare host and wrong on GitHub Pages, where the app lives at
  * `/<repo>/` — there it asked the domain root and got a 404 with no lessons at all.
  */
-export async function loadContent(base = 'content'): Promise<{ courses: CoursePack[]; placement: PlacementBank }> {
+export async function loadContent(base = 'content'): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus }> {
   const index = (await fetchJSON(`${base}/index.json`)) as { courses: string[] }
   const courses = await Promise.all(
     [...index.courses].sort().map(async (file) => decodeCourse(await fetchJSON(`${base}/courses/${file}`))),
   )
   const placement = decodePlacement(await fetchJSON(`${base}/placement.json`))
-  return { courses, placement }
+  const syllabus = decodeSyllabus(await fetchJSON(`${base}/syllabus.json`))
+  return { courses, placement, syllabus }
 }
 
 async function fetchJSON(url: string): Promise<unknown> {

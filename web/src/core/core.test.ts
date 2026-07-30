@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest'
 
 import { check, diffSummary, normalize } from './answer'
 import { decodeCourse, decodePlacement } from './content'
-import { SyllabusEngine, decodeSyllabus } from './syllabus'
+import { SyllabusEngine, TopicProgressEngine, decodeSyllabus } from './syllabus'
 import { CourseRouting, LevelOrder, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
 import { PracticeEngine } from './practice'
 import { LearningSession } from './session'
@@ -448,6 +448,36 @@ describe('syllabus', () => {
     const gaps = SyllabusEngine.gaps(syllabus, courses)
     const report = gaps.map((g) => `${g.topic.level} ${g.topic.id} ${g.exercises}/${g.topic.minExercises}`).join('\n')
     expect(gaps.length, `тем без покрытия стало больше:\n${report}`).toBeLessThanOrEqual(syllabus.coverageDebtCeiling)
+  })
+
+  it('trains one topic on request', () => {
+    const set = PracticeEngine.build({
+      courses, level: 'B1', state: freshState(), topics: ['b1-past-perfect'], size: 6,
+    })
+    expect(set.length).toBeGreaterThan(0)
+    expect(set.every((e) => (e.topics ?? []).includes('b1-past-perfect'))).toBe(true)
+  })
+
+  it('turns attempts into a picture of what is weak', () => {
+    const pool = PracticeEngine.pool(courses, 'B1', undefined, ['b1-past-perfect'])
+    const state = freshState()
+    // Four goes at Past Perfect, one right; a single slip on Present Perfect.
+    state.attempts = [
+      ...pool.slice(0, 4).map((e, i) => ({ id: `p${i}`, exerciseID: e.id, correct: i === 0, date: now })),
+      { id: 'x', exerciseID: PracticeEngine.pool(courses, 'B1', undefined, ['b1-present-perfect'])[0].id, correct: false, date: now },
+    ]
+
+    const weak = TopicProgressEngine.weak(syllabus, courses, state, 'B1')
+    expect(weak[0].topic.id).toBe('b1-past-perfect')
+    expect(weak[0].attempts).toBe(4)
+    expect(weak[0].accuracy).toBeCloseTo(0.25)
+    // One attempt is not an opinion, so Present Perfect is not called weak yet.
+    expect(weak.some((w) => w.topic.id === 'b1-present-perfect')).toBe(false)
+
+    const all = TopicProgressEngine.all(syllabus, courses, state, 'B1')
+    expect(all.every((item) => LEVELS.indexOf(item.topic.level) <= LEVELS.indexOf('B1'))).toBe(true)
+    expect(all.every((item) => item.exercises > 0)).toBe(true)
+    expect(TopicProgressEngine.untouched(syllabus, courses, state, 'B1').length).toBeLessThan(all.length)
   })
 
   it('counts practice, not rule cards', () => {

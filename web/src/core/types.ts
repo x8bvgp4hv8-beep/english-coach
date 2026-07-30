@@ -48,6 +48,17 @@ export interface TopicCoverage {
   isCovered: boolean
 }
 
+/** The learner's record on one grammar topic, for the weak spots screen. */
+export interface TopicProgress {
+  topic: SyllabusTopic
+  attempts: number
+  correct: number
+  /** 0 when the topic has never been attempted, so callers must check `attempts`. */
+  accuracy: number
+  /** How many exercises exist for it, so a topic with none is never offered. */
+  exercises: number
+}
+
 export interface Lesson {
   id: string
   title: string

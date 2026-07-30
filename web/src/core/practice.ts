@@ -28,6 +28,8 @@ export interface PracticeOptions {
   state: UserState
   /** Restrict the set to one kind of exercise, for the "виды заданий" menu. */
   types?: ExerciseType[]
+  /** Restrict the set to grammar topics, for "потренировать Present Perfect". */
+  topics?: string[]
   size?: number
   now?: Date
   random?: () => number
@@ -79,7 +81,7 @@ export const PracticeEngine = {
    * Everything the learner may be asked, up to and including the current level.
    * Rule cards are excluded: reading a rule is not practice.
    */
-  pool(courses: CoursePack[], level: CEFRLevel, types?: ExerciseType[]): Exercise[] {
+  pool(courses: CoursePack[], level: CEFRLevel, types?: ExerciseType[], topics?: string[]): Exercise[] {
     const ceiling = LEVELS.indexOf(level)
     return courses
       .filter((course) => LEVELS.indexOf(course.level) <= ceiling)
@@ -89,6 +91,7 @@ export const PracticeEngine = {
       .flatMap((lesson) => lesson.exercises)
       .filter((exercise) => exercise.type !== 'info')
       .filter((exercise) => !types || types.includes(exercise.type))
+      .filter((exercise) => !topics || (exercise.topics ?? []).some((topic) => topics.includes(topic)))
   },
 
   /** How much material each kind of practice has at this level, for the menu. */
@@ -96,8 +99,8 @@ export const PracticeEngine = {
     return Object.fromEntries(PRACTICE_KINDS.map((kind) => [kind.id, this.pool(courses, level, kind.types).length]))
   },
 
-  build({ courses, level, state, types, size = DEFAULT_SIZE, now = new Date(), random = Math.random }: PracticeOptions): Exercise[] {
-    const pool = this.pool(courses, level, types)
+  build({ courses, level, state, types, topics, size = DEFAULT_SIZE, now = new Date(), random = Math.random }: PracticeOptions): Exercise[] {
+    const pool = this.pool(courses, level, types, topics)
     if (pool.length === 0) return []
     return prioritise(pool, state, now, random).slice(0, size)
   },

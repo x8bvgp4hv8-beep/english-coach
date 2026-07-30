@@ -31,7 +31,7 @@ public enum PracticeEngine {
 
     /// Everything the learner may be asked, up to and including the current level.
     /// Rule cards are excluded: reading a rule is not practice.
-    public static func pool(courses: [CoursePack], level: CEFRLevel, types: [ExerciseType]? = nil) -> [Exercise] {
+    public static func pool(courses: [CoursePack], level: CEFRLevel, types: [ExerciseType]? = nil, topics: [String]? = nil) -> [Exercise] {
         let ceiling = LevelOrder.all.firstIndex(of: level) ?? 0
         return courses
             .filter { (LevelOrder.all.firstIndex(of: $0.level) ?? 0) <= ceiling }
@@ -39,6 +39,10 @@ public enum PracticeEngine {
             .flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises)
             .filter { $0.type != .info }
             .filter { types == nil || types!.contains($0.type) }
+            .filter { exercise in
+                guard let topics else { return true }
+                return (exercise.topics ?? []).contains { topics.contains($0) }
+            }
     }
 
     /// How much material each kind of practice has at this level, for the menu.
@@ -87,11 +91,12 @@ public enum PracticeEngine {
         level: CEFRLevel,
         state: UserState,
         types: [ExerciseType]? = nil,
+        topics: [String]? = nil,
         size: Int = defaultSize,
         now: Date = .now,
         shuffle: ([Exercise]) -> [Exercise] = { $0.shuffled() }
     ) -> [Exercise] {
-        let pool = pool(courses: courses, level: level, types: types)
+        let pool = pool(courses: courses, level: level, types: types, topics: topics)
         guard !pool.isEmpty else { return [] }
         return Array(prioritise(pool, state: state, now: now, shuffle: shuffle).prefix(size))
     }

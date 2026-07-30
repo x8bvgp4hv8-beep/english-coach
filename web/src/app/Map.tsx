@@ -54,6 +54,22 @@ export function MapScreen() {
           />
         )}
 
+        {model.weakTopics.length > 0 && (
+          <>
+            <SectionTitle hint="Считается по твоим ответам, а не по пройденным урокам">Что проседает</SectionTitle>
+            {model.weakTopics.slice(0, 3).map((item) => (
+              <ActionCard
+                key={item.topic.id}
+                icon="◎" color="var(--coral)"
+                kicker={`${Math.round(item.accuracy * 100)}% ВЕРНЫХ`}
+                title={item.topic.title}
+                subtitle={`${item.correct} из ${item.attempts} · нажми, чтобы потренировать`}
+                onClick={() => model.startTopicPractice(item.topic.id)}
+              />
+            ))}
+          </>
+        )}
+
         <SectionTitle hint="Можно тренировать отдельно, сколько угодно раз">Виды заданий</SectionTitle>
         <div className="kinds">
           {/* Speaking comes first: it is the only exercise that gets the mouth moving. */}
@@ -81,6 +97,10 @@ export function MapScreen() {
             </button>
           ))}
         </div>
+
+        <button className="link-button" onClick={() => model.setScreen('topics')} style={{ marginTop: 14 }}>
+          Вся грамматика уровня и мои проценты ›
+        </button>
 
         <SectionTitle hint="Уроки идут по порядку: правило, новые фразы, упражнения">
           Маршрут {model.selectedLevel}

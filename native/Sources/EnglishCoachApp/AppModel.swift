@@ -5,10 +5,11 @@ import EnglishCoachCore
 @MainActor
 @Observable
 final class AppModel {
-    enum Screen { case map, catalog, settings }
+    enum Screen { case map, catalog, settings, topics }
 
     private(set) var courses: [CoursePack]
     private(set) var placementBank: [PlacementQuestion]
+    private(set) var syllabus: Syllabus?
     private(set) var state: UserState
     private(set) var session: LearningSession
     var screen: Screen = .map
@@ -23,8 +24,9 @@ final class AppModel {
     private var placementAnswered: Set<String> = []
     private(set) var placementLastCorrect: Bool?
 
-    init(courses: [CoursePack], placementBank: [PlacementQuestion] = [], state: UserState, store: any ProgressStoring) {
-        self.courses = courses; self.placementBank = placementBank; self.state = state; self.store = store
+    init(courses: [CoursePack], placementBank: [PlacementQuestion] = [], syllabus: Syllabus? = nil, state: UserState, store: any ProgressStoring) {
+        self.courses = courses; self.placementBank = placementBank; self.syllabus = syllabus
+        self.state = state; self.store = store
         self.session = LearningSession(state: state)
     }
 
@@ -33,7 +35,8 @@ final class AppModel {
         let model: AppModel
         do {
             let bank = (try? ContentRepository.loadPlacement())?.questions ?? []
-            model = AppModel(courses: try ContentRepository.loadBundled(), placementBank: bank, state: try store.load(), store: store)
+            model = AppModel(courses: try ContentRepository.loadBundled(), placementBank: bank,
+                             syllabus: try? ContentRepository.loadSyllabus(), state: try store.load(), store: store)
         } catch {
             model = AppModel(courses: [], state: .fresh, store: store)
             model.startupError = "Не удалось загрузить учебные материалы: \(error.localizedDescription)"
@@ -113,6 +116,27 @@ final class AppModel {
         themeID = id
         CoachTheme.use(id)
         UserDefaults.standard.set(id.rawValue, forKey: Self.themeKey)
+    }
+
+    // MARK: - Grammar topics
+
+    /// Every topic of this level and below, with the learner's record on it.
+    var topicProgress: [TopicProgress] {
+        guard let syllabus else { return [] }
+        return TopicProgressEngine.all(syllabus: syllabus, courses: courses, state: state, level: selectedLevel)
+    }
+
+    /// Worst first, and only once there are enough attempts to mean anything.
+    var weakTopics: [TopicProgress] {
+        guard let syllabus else { return [] }
+        return TopicProgressEngine.weak(syllabus: syllabus, courses: courses, state: state, level: selectedLevel)
+    }
+
+    func startTopicPractice(_ topicID: String) {
+        let exercises = PracticeEngine.build(courses: courses, level: selectedLevel, state: state, topics: [topicID])
+        guard !exercises.isEmpty else { return }
+        let title = syllabus?.topics.first { $0.id == topicID }?.title ?? "Тренировка"
+        startLesson(PracticeEngine.lesson(exercises, title: title), recordsCompletion: false)
     }
 
     // MARK: - Shadowing (speaking practice runs on the same session, on its own screen)

@@ -16,6 +16,8 @@ struct MenuBarView: View {
             if !model.isOnboarding, model.activeLesson == nil { model.startShadowing() }
             show()
         } label: { Label("Проговорить вслух", systemImage: "mic.fill") }.disabled(model.shadowingCount == 0)
+        Button { model.screen = .topics; show() } label: { Label("Что проседает", systemImage: "chart.bar.fill") }
+            .disabled(model.isOnboarding)
         Button { model.screen = .map; show() } label: { Label("Открыть карту", systemImage: "map.fill") }
         Divider()
         Text("🔥 \(model.streak()) дней  ·  ✦ \(model.totalPoints) очков")
