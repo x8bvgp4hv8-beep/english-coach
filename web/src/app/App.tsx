@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from 'react'
 
+import { Loading } from './Loading'
 import { MapScreen } from './Map'
 import { Onboarding } from './Onboarding'
 import { Player } from './Player'
@@ -16,7 +17,7 @@ export function useStore(): AppStore {
 export function App() {
   const model = useStore()
 
-  if (model.loading) return <div className="center-note">Загружаем уроки…</div>
+  if (model.loading) return <Loading />
   if (model.startupError) {
     return (
       <div className="center">

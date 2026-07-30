@@ -154,7 +154,8 @@ export function Shadowing() {
       </div>
 
       <div className="scroll" style={{ paddingTop: 18 }}>
-        <div className="card">
+        {/* Keyed by phrase so the card replays its arrival on every step. */}
+        <div className="card" key={item.exerciseID}>
           <div className="exercise-kind" style={{ color: 'var(--coral)' }}>ПОВТОРИ ВСЛУХ</div>
           <div className="exercise-prompt">{item.text}</div>
           {item.gloss && <p className="exercise-explanation muted" style={{ textAlign: 'center' }}>{item.gloss}</p>}

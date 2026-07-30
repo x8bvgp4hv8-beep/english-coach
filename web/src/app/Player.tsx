@@ -60,7 +60,8 @@ export function Player() {
       </div>
 
       <div className="scroll" style={{ paddingTop: 18 }}>
-        <div className="card">
+        {/* Keyed by exercise so the card replays its arrival on every step. */}
+        <div className="card" key={exercise.id}>
           <div className="exercise-kind">{KIND_LABEL[exercise.type]}</div>
           {exercise.title && <h2 className="exercise-title">{exercise.title}</h2>}
           {exercise.prompt && (

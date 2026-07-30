@@ -12,8 +12,13 @@ struct ShadowingView: View {
         VStack(spacing: 0) {
             topBar
             if model.shadowingIsComplete { finished }
-            else if let item = model.currentShadowingItem { card(item).id(item.exerciseID) }
+            else if let item = model.currentShadowingItem {
+                // The next phrase arrives from the side, the same way lesson cards do.
+                card(item).id(item.exerciseID)
+                    .transition(.opacity.combined(with: .move(edge: .trailing)))
+            }
         }
+        .animation(.snappy, value: model.currentShadowingItem?.exerciseID)
         .onChange(of: model.currentShadowingItem?.exerciseID) { _, _ in
             speech.stop()
             recorder.discard()
@@ -92,8 +97,8 @@ struct ShadowingView: View {
                 }
 
                 HStack(spacing: 12) {
-                    Button("Ещё поработать") { model.shadowingSelfAssess(false) }.buttonStyle(.bordered)
-                    Button("Получилось") { model.shadowingSelfAssess(true) }
+                    Button("Ещё поработать") { withAnimation { model.shadowingSelfAssess(false) } }.buttonStyle(.bordered)
+                    Button("Получилось") { withAnimation { model.shadowingSelfAssess(true) } }
                         .buttonStyle(PrimaryButtonStyle(color: CoachTheme.mint))
                 }
             }

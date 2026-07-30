@@ -160,7 +160,7 @@ struct LessonPlayerView: View {
                         Button("Попробовать ещё") { resetInputs(); model.retry() }.buttonStyle(.bordered)
                     }
                     Button("Дальше") { resetInputs(); withAnimation { model.advance() } }
-                        .buttonStyle(PrimaryButtonStyle(color: feedback.isCorrect ? CoachTheme.mint : CoachTheme.violet))
+                        .buttonStyle(feedback.isCorrect ? PrimaryButtonStyle(color: CoachTheme.mint) : PrimaryButtonStyle())
                 }
                 // The escape hatch: whatever the checker still gets wrong costs one tap, once.
                 if feedback.verdict == .wrong, canOverrule {

@@ -13,6 +13,13 @@ enum CoachTheme {
     static let lilac = Color(red: 0.95, green: 0.92, blue: 1.00)
     static let background = LinearGradient(colors: [mist, lilac], startPoint: .topLeading, endPoint: .bottomTrailing)
 
+    /// The main action. A flat fill reads as a form control; the gradient reads as the
+    /// one thing to press. Semantic buttons (green for "counted") stay flat on purpose.
+    static let accent = LinearGradient(
+        colors: [violet, Color(red: 0.51, green: 0.41, blue: 0.91), blue],
+        startPoint: .leading, endPoint: .trailing
+    )
+
     /// Raised surfaces (header, action rows) and the hairlines that separate them.
     static let surface = Color.white.opacity(0.72)
     static let hairline = ink.opacity(0.09)
@@ -49,14 +56,36 @@ struct ChoiceButtonStyle: ButtonStyle {
     }
 }
 
+/// The main action. Without a `color` it takes the accent gradient and a sheen that
+/// sweeps once on press; with a colour it stays flat, because there the colour is the
+/// message (green for "counted", blue for a card).
 struct PrimaryButtonStyle: ButtonStyle {
-    var color = CoachTheme.violet
+    var color: Color?
+
+    init(color: Color? = nil) { self.color = color }
+
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label
+        let shape = RoundedRectangle(cornerRadius: 15, style: .continuous)
+        let glow = color ?? CoachTheme.violet
+        return configuration.label
             .font(.headline.weight(.bold)).foregroundStyle(.white)
             .frame(maxWidth: .infinity).padding(.vertical, 13)
-            .background(color.gradient, in: RoundedRectangle(cornerRadius: 15, style: .continuous))
-            .shadow(color: color.opacity(configuration.isPressed ? 0.12 : 0.28), radius: configuration.isPressed ? 3 : 10, y: configuration.isPressed ? 2 : 6)
+            .background {
+                if let color { shape.fill(color.gradient) } else { shape.fill(CoachTheme.accent) }
+            }
+            .overlay { if color == nil { sheen(pressed: configuration.isPressed).clipShape(shape) } }
+            .shadow(color: glow.opacity(configuration.isPressed ? 0.12 : 0.28), radius: configuration.isPressed ? 3 : 10, y: configuration.isPressed ? 2 : 6)
             .scaleEffect(configuration.isPressed ? 0.98 : 1)
+    }
+
+    private func sheen(pressed: Bool) -> some View {
+        GeometryReader { geo in
+            LinearGradient(colors: [.clear, .white.opacity(0.4), .clear], startPoint: .leading, endPoint: .trailing)
+                .frame(width: geo.size.width * 0.45)
+                .rotationEffect(.degrees(18))
+                .offset(x: pressed ? geo.size.width * 1.15 : -geo.size.width * 0.6)
+                .animation(.easeOut(duration: 0.55), value: pressed)
+        }
+        .allowsHitTesting(false)
     }
 }
