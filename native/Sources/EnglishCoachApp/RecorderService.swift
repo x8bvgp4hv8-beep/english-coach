@@ -15,6 +15,8 @@ final class RecorderService {
     private var takeURL: URL?
 
     var hasTake: Bool { takeURL != nil && status == .ready }
+    /// The finished take, for whoever wants to look at it rather than play it.
+    var takeFile: URL? { status == .ready ? takeURL : nil }
 
     func toggle() { status == .recording ? stop() : start() }
 

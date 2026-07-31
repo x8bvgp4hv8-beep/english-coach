@@ -7,6 +7,7 @@ struct ShadowingView: View {
     @Environment(AppModel.self) private var model
     @State private var speech = SpeechService()
     @State private var recorder = RecorderService()
+    @State private var listener = SpeechRecognizerService()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -22,6 +23,12 @@ struct ShadowingView: View {
         .onChange(of: model.currentShadowingItem?.exerciseID) { _, _ in
             speech.stop()
             recorder.discard()
+            listener.reset()
+        }
+        // The take is transcribed as soon as it exists, so the verdict has something
+        // objective next to the learner's own ear.
+        .onChange(of: recorder.takeFile) { _, file in
+            if let file { listener.transcribe(file) } else { listener.reset() }
         }
         .onDisappear { speech.stop(); recorder.discard() }
     }
@@ -96,6 +103,8 @@ struct ShadowingView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
 
+                heard(item)
+
                 HStack(spacing: 12) {
                     Button("Ещё поработать") { withAnimation { model.shadowingSelfAssess(false) } }.buttonStyle(.bordered)
                     Button("Получилось") { withAnimation { model.shadowingSelfAssess(true) } }
@@ -107,6 +116,47 @@ struct ShadowingView: View {
             Spacer()
         }
         .padding(.horizontal, 28)
+    }
+
+    /// What the recogniser made of the take. It reports words, not vowels, so the copy
+    /// says "услышал" and the learner's own judgement stays the one that counts.
+    @ViewBuilder private func heard(_ item: ShadowingItem) -> some View {
+        switch listener.status {
+        case .working:
+            Label("Разбираю запись…", systemImage: "waveform")
+                .font(.callout).foregroundStyle(.secondary).frame(maxWidth: .infinity, alignment: .leading)
+        case .heard(let text):
+            let result = AnswerChecker.check(text, canonical: item.text)
+            VStack(alignment: .leading, spacing: 6) {
+                Text(result.isCorrect ? "Слова прозвучали разборчиво" : "Компьютер услышал так:")
+                    .font(.callout.weight(.semibold))
+                    .foregroundStyle(result.isCorrect ? CoachTheme.mint : CoachTheme.amber)
+                if !result.isCorrect {
+                    Text(text).font(.callout).italic()
+                    if let hint = missedWords(result.diff) {
+                        Text(hint).font(.caption).foregroundStyle(.secondary)
+                    }
+                    Text("Это распознавание речи, а не оценка акцента: оно может ошибаться, последнее слово за тобой.")
+                        .font(.caption2).foregroundStyle(.secondary)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        case .denied:
+            Text("Распознавание не разрешено. Разреши в «Системных настройках → Конфиденциальность → Распознавание речи», или просто сравнивай на слух.")
+                .font(.caption).foregroundStyle(.secondary)
+        case .unavailable, .failed, .idle:
+            EmptyView()
+        }
+    }
+
+    /// Names the words that did not come through, when the take was close enough to tell.
+    private func missedWords(_ diff: [WordDiff]) -> String? {
+        guard let summary = AnswerChecker.diffSummary(diff) else { return nil }
+        if summary.orderOnly { return "Слова те же, но в другом порядке" }
+        var parts: [String] = []
+        if !summary.missing.isEmpty { parts.append("не расслышал: \(summary.missing.joined(separator: ", "))") }
+        if !summary.extra.isEmpty { parts.append("услышал лишнее: \(summary.extra.joined(separator: ", "))") }
+        return parts.isEmpty ? nil : parts.joined(separator: "  ·  ")
     }
 
     private var note: String {
