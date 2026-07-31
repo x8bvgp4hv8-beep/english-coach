@@ -10,7 +10,12 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/*.png'],
       // The course packs must be available offline, not just the shell.
-      workbox: { globPatterns: ['**/*.{js,css,html,json,png,svg,woff2}'], maximumFileSizeToCacheInBytes: 6 * 1024 * 1024 },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,json,png,svg,woff2}'],
+        maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
+        // Workbox owns caching; push and notification clicks come from our own file.
+        importScripts: ['push-sw.js'],
+      },
       manifest: {
         name: 'English Coach',
         short_name: 'English',

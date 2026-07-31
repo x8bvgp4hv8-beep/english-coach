@@ -1,8 +1,10 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useStore } from './App'
 import { PlacementTest } from './Placement'
+import { disablePush, enablePush, pushState } from './push'
 import { THEMES, applyTheme, loadTheme } from './theme'
+import type { PushState } from './push'
 import { LEVELS, exportBackup, importBackup } from '../core'
 import type { CEFRLevel } from '../core'
 import type { ThemeID } from './theme'
@@ -19,6 +21,10 @@ export function Settings() {
   const [placement, setPlacement] = useState<'closed' | 'running' | CEFRLevel>('closed')
   const [message, setMessage] = useState<string | null>(null)
   const [theme, setTheme] = useState(loadTheme)
+  const [push, setPush] = useState<PushState | null>(null)
+  const [reminderHour, setReminderHour] = useState(model.state.profile?.reminderHour ?? 19)
+
+  useEffect(() => { pushState().then(setPush) }, [])
   const fileInput = useRef<HTMLInputElement>(null)
 
   const chooseTheme = (id: ThemeID) => { applyTheme(id); setTheme(id) }
@@ -144,6 +150,60 @@ export function Settings() {
             </div>
           </div>
         </div>
+
+        <div className="section-title"><h2>Напоминание</h2></div>
+        <div className="settings-group">
+          <div className="settings-row">
+            <span className="label">Каждый день в {String(reminderHour).padStart(2, '0')}:00</span>
+            <span className="value">
+              {push === 'ready' ? 'включено' : push === 'off' ? 'выключено'
+                : push === 'denied' ? 'запрещено браузером'
+                : push === 'needs-install' ? 'нужен ярлык на экране «Домой»'
+                : push === 'unconfigured' ? 'сервер не подключён'
+                : push === null ? '…' : 'не поддерживается'}
+            </span>
+          </div>
+          {(push === 'ready' || push === 'off') && (
+            <>
+              <div className="settings-row">
+                <span className="label">Час</span>
+                <div className="pills">
+                  {[8, 13, 19, 21].map((hour) => (
+                    <button
+                      key={hour}
+                      className={`pill${hour === reminderHour ? ' selected' : ''}`}
+                      style={{ minWidth: 44, minHeight: 36 }}
+                      onClick={async () => {
+                        setReminderHour(hour)
+                        if (push === 'ready') setPush(await enablePush(hour))
+                      }}
+                    >
+                      {hour}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <button
+                className="settings-row"
+                onClick={async () => setPush(push === 'ready' ? await disablePush() : await enablePush(reminderHour))}
+              >
+                <span className="label">{push === 'ready' ? 'Выключить напоминание' : 'Включить напоминание'}</span>
+                <span className="value">›</span>
+              </button>
+            </>
+          )}
+        </div>
+        {push === 'needs-install' && (
+          <p className="settings-note">
+            На iPhone уведомления работают только у приложения с экрана «Домой»: открой сайт в Safari,
+            «Поделиться» → «На экран „Домой“», и запусти с иконки.
+          </p>
+        )}
+        {push === 'denied' && (
+          <p className="settings-note">
+            Браузер запомнил отказ. Разрешить снова можно в настройках сайта или приложения.
+          </p>
+        )}
 
         <div className="settings-group">
           <button className="settings-row" onClick={saveBackup}>
