@@ -81,6 +81,15 @@ export function MapScreen() {
             </span>
             <span className="kind-count">{model.shadowingCount}</span>
           </button>
+          {/* And listening second: it is the only one where the English is not on screen. */}
+          <button className="kind" disabled={model.listeningCount === 0} onClick={() => model.startListening()}>
+            <span className="kind-icon" style={{ background: 'var(--blue)' }}>👂</span>
+            <span className="kind-body">
+              <span className="kind-title">На слух</span>
+              <span className="kind-subtitle">Фразу говорят, текста нет — запиши, что услышал</span>
+            </span>
+            <span className="kind-count">{model.listeningCount}</span>
+          </button>
           {PRACTICE_KINDS.map((kind) => (
             <button
               key={kind.id}

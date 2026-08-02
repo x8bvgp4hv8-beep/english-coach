@@ -162,6 +162,13 @@ struct CourseMapView: View {
                 count: model.shadowingCount, action: { model.startShadowing() }
             )
             Rectangle().fill(CoachTheme.hairline).frame(height: 1).padding(.leading, 62)
+            // And listening second: it is the only one where the English is not on screen.
+            kindRow(
+                icon: "ear.fill", color: CoachTheme.blue,
+                title: "На слух", subtitle: "Фразу говорят, текста нет — запиши, что услышал",
+                count: model.listeningCount, action: { model.startListening() }
+            )
+            Rectangle().fill(CoachTheme.hairline).frame(height: 1).padding(.leading, 62)
             ForEach(PracticeEngine.kinds) { kind in
                 let art = Self.kindIcons[kind.id] ?? ("bolt.fill", CoachTheme.violet)
                 kindRow(

@@ -86,7 +86,7 @@ public enum AnswerChecker {
         // match a canonical answer where it is attached ("However,").
         input.lowercased()
             .replacingOccurrences(of: "’", with: "'")
-            .components(separatedBy: CharacterSet(charactersIn: ".,!?;:—–\"()"))
+            .components(separatedBy: CharacterSet(charactersIn: ".,!?;:—–\"()…"))
             .joined(separator: " ")
             .split(whereSeparator: { $0.isWhitespace })
             .map { spelling[String($0)] ?? String($0) }
@@ -163,7 +163,7 @@ public enum AnswerChecker {
     /// Splits into words for display: punctuation is dropped, but the writing is kept.
     private static func displayWords(_ input: String) -> [String] {
         input.replacingOccurrences(of: "’", with: "'")
-            .components(separatedBy: CharacterSet(charactersIn: ".,!?;:—–\"()"))
+            .components(separatedBy: CharacterSet(charactersIn: ".,!?;:—–\"()…"))
             .joined(separator: " ")
             .split(whereSeparator: { $0.isWhitespace })
             .map(String.init)

@@ -7,6 +7,7 @@ import { check, diffSummary, normalize } from './answer'
 import { decodeCourse, decodePlacement } from './content'
 import { SyllabusEngine, TopicProgressEngine, decodeSyllabus } from './syllabus'
 import { CourseRouting, LevelOrder, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
+import { ListeningEngine, listeningPhrase } from './listening'
 import { PracticeEngine } from './practice'
 import { LearningSession } from './session'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
@@ -573,6 +574,92 @@ describe('shadowing', () => {
 
     expect(session.isComplete).toBe(true)
     expect(session.state.completedLessonIDs).toHaveLength(0)
+  })
+})
+
+describe('listening', () => {
+  const seeded = () => {
+    let seed = 11
+    return () => {
+      seed = (seed * 1103515245 + 12345) % 2147483648
+      return seed / 2147483648
+    }
+  }
+
+  it('offers whole sentences at every level, never a fragment', () => {
+    for (const level of LEVELS) {
+      const pool = ListeningEngine.pool(courses, level)
+      // Eight per set: a level with fewer than that would run out mid-drill.
+      expect(pool.length, `${level} has enough to listen to`).toBeGreaterThanOrEqual(8)
+      for (const exercise of pool) {
+        const item = listeningPhrase(exercise)!
+        // The learner writes this down, so it has to be a whole sentence: an opener
+        // leading nowhere and a collocation card are both unwritable.
+        expect(item.text, `${exercise.id}: not a sentence opener`).not.toContain('…')
+        expect(item.text, `${exercise.id}: reads as a sentence`).toMatch(/^[A-Z].*[.!?]$/)
+        expect(item.text.split(/\s+/).length, `${exercise.id}: long enough to carry structure`).toBeGreaterThanOrEqual(3)
+      }
+    }
+  })
+
+  it('drops what shadowing would still say out loud', () => {
+    // Fine to repeat aloud, impossible to write down: there is no rest of the sentence.
+    const opener: Exercise = { id: 'o', type: 'flashcard', prompt: 'From my perspective…', translation: 'С моей точки зрения…' }
+    expect(shadowingPhrase(opener)).not.toBeNull()
+    expect(listeningPhrase(opener)).toBeNull()
+
+    const short: Exercise = { id: 's', type: 'flashcard', prompt: 'Thank you.', translation: 'Спасибо.' }
+    expect(shadowingPhrase(short)).not.toBeNull()
+    expect(listeningPhrase(short), 'two words is vocabulary, not listening').toBeNull()
+
+    // Real content: collocations ship as cards. Three words, and still nothing to write
+    // down — "on the weekend" is a guess about the sentence it was cut out of.
+    const chunk: Exercise = { id: 'c', type: 'flashcard', prompt: 'on the weekend', translation: 'на выходных' }
+    expect(shadowingPhrase(chunk)).not.toBeNull()
+    expect(listeningPhrase(chunk), 'a collocation card is not a sentence').toBeNull()
+  })
+
+  it('checks against the sentence that was played, not the exercise answer', () => {
+    // A gap fill is played whole, so its own canonical answer ("have seen") is not what
+    // the learner heard and must not be what the answer is compared with.
+    const gap: Exercise = {
+      id: 'g', type: 'multiple_choice', prompt: 'We ___ this film before.',
+      correctOption: 'have seen', canonicalAnswer: 'have seen',
+    }
+    const item = listeningPhrase(gap)!
+    expect(item.text).toBe('We have seen this film before.')
+
+    const session = new LearningSession(freshState())
+    session.start(ListeningEngine.lesson([gap]), { recordsCompletion: false })
+    const result = session.submitHeard('we have seen this film before', item.text, now)
+    expect(result.isCorrect).toBe(true)
+    expect(session.state.points).toBe(10)
+  })
+
+  it('names the words the ear let through, and books a repetition', () => {
+    const set = ListeningEngine.build({ courses, level: 'B1', state: freshState(), size: 2, now, random: seeded() })
+    expect(set.items.map((item) => item.exerciseID)).toEqual(set.exercises.map((e) => e.id))
+
+    const session = new LearningSession(freshState())
+    session.start(ListeningEngine.lesson(set.exercises), { recordsCompletion: false })
+    const result = session.submitHeard('She has finished work.', 'She has already finished work.', now)
+    expect(result.isCorrect).toBe(false)
+    expect(diffSummary(result.diff)?.missing).toEqual(['already'])
+
+    const missed = session.state.reviews.find((r) => r.exerciseID === set.exercises[0].id)
+    expect(missed, 'a sentence that did not come through comes back').toBeTruthy()
+  })
+
+  it('treats "не разобрал" as a miss rather than a free pass', () => {
+    const set = ListeningEngine.build({ courses, level: 'A1', state: freshState(), size: 1, now, random: seeded() })
+    const session = new LearningSession(freshState())
+    session.start(ListeningEngine.lesson(set.exercises), { recordsCompletion: false })
+
+    const result = session.submitHeard('', set.items[0].text, now)
+    expect(result.isCorrect).toBe(false)
+    // The sentence is still handed back, so the reveal has something to show.
+    expect(result.canonical).toBe(set.items[0].text)
+    expect(session.state.points).toBe(0)
   })
 })
 

@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from 'react'
 
+import { Listening } from './Listening'
 import { Loading } from './Loading'
 import { MapScreen } from './Map'
 import { Onboarding } from './Onboarding'
@@ -33,6 +34,7 @@ export function App() {
     <div className="app">
       {model.isOnboarding ? <Onboarding />
         : model.shadowingActive ? <Shadowing />
+        : model.listeningActive ? <Listening />
         : model.activeLesson ? <Player />
         : model.screen === 'settings' ? <Settings />
         : model.screen === 'topics' ? <Topics />

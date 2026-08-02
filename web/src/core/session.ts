@@ -67,6 +67,19 @@ export class LearningSession {
     return result
   }
 
+  /**
+   * Listening: the sentence being checked is the one that was played, and that is not
+   * always the exercise's own answer — a gap fill is played as the whole sentence. So
+   * the expected text comes from the caller rather than from the exercise.
+   */
+  submitHeard(answer: string, phrase: string, now: Date = new Date()): AnswerResult {
+    const exercise = this.currentExercise
+    if (!exercise) return { isCorrect: false, verdict: 'wrong', canonical: phrase }
+    const result = check(answer, phrase)
+    this.record(exercise, result, now)
+    return result
+  }
+
   completePassiveExercise(now: Date = new Date()): void {
     const exercise = this.currentExercise
     if (!exercise) return

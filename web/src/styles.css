@@ -368,7 +368,9 @@ button { cursor: pointer; border: none; background: none; }
 /* Shadowing */
 .listen-row { display: flex; gap: 8px; margin-top: 18px; }
 .listen {
-  flex: 1; min-height: 44px; border-radius: var(--radius-btn); font-size: 14px; font-weight: 650;
+  /* Three to a row on a 390px phone: they wrap into two lines before they shrink. */
+  flex: 1; min-width: 0; white-space: nowrap; min-height: 44px;
+  border-radius: var(--radius-btn); font-size: 13.5px; font-weight: 650;
   background: color-mix(in srgb, var(--coral) 16%, transparent); color: var(--coral);
   border: var(--border-w) solid color-mix(in srgb, var(--coral) 45%, transparent);
 }
@@ -385,6 +387,27 @@ button { cursor: pointer; border: none; background: none; }
   to { box-shadow: 0 0 0 18px rgba(214, 61, 61, 0); }
 }
 @media (prefers-reduced-motion: reduce) { .rec.on { animation: none; } }
+
+/* Listening: nothing to read, so the speaker is the card */
+.listen.blue {
+  background: color-mix(in srgb, var(--blue) 16%, transparent); color: var(--blue);
+  border-color: color-mix(in srgb, var(--blue) 45%, transparent);
+}
+.play-big {
+  display: block; margin: 24px auto 6px; width: 96px; height: 96px; border-radius: 50%;
+  font-size: 38px; color: #fff; background: var(--blue);
+  border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
+}
+.play-big:active { transform: translateY(var(--press-y)) scale(0.99); box-shadow: var(--shadow-btn-active); }
+.heard-line {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 7px;
+  margin-top: 8px; font-size: 17px; font-weight: 650; line-height: 1.45;
+}
+/* The words the ear let through, marked inside the sentence and not only listed under it. */
+.heard-line .missed {
+  color: var(--amber); background: color-mix(in srgb, var(--amber) 16%, transparent);
+  border-radius: 6px; padding: 0 5px;
+}
 
 .player-actions { padding: 12px 18px calc(16px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 8px; }
 .player-actions .row { display: flex; gap: 10px; }

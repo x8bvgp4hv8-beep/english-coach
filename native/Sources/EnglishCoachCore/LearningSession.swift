@@ -51,6 +51,17 @@ public struct LearningSession: Sendable {
         return result
     }
 
+    /// Listening: the sentence being checked is the one that was played, and that is not
+    /// always the exercise's own answer — a gap fill is played as the whole sentence. So
+    /// the expected text comes from the caller rather than from the exercise.
+    @discardableResult
+    public mutating func submitHeard(_ answer: String, phrase: String, now: Date = .now) -> AnswerResult {
+        guard let exercise = currentExercise else { return AnswerResult(isCorrect: false, verdict: .wrong, canonical: phrase) }
+        let result = AnswerChecker.check(answer, canonical: phrase, accepted: [])
+        record(exercise: exercise, result: result, now: now)
+        return result
+    }
+
     public mutating func completePassiveExercise(now: Date = .now) {
         guard let exercise = currentExercise else { return }
         record(exercise: exercise, result: AnswerResult(isCorrect: true, verdict: .correct, canonical: exercise.prompt ?? exercise.title ?? ""), now: now)

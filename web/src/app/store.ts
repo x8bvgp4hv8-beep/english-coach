@@ -2,6 +2,7 @@ import {
   CourseRouting,
   LearningSession,
   LevelOrder,
+  ListeningEngine,
   PlacementScorer,
   PRACTICE_KINDS,
   PracticeEngine,
@@ -14,8 +15,8 @@ import {
   localProgressStore,
 } from '../core'
 import type {
-  AnswerResult, CEFRLevel, CoursePack, Exercise, Lesson, PlacementQuestion, ShadowingItem, Syllabus,
-  TopicProgress, UserState,
+  AnswerResult, CEFRLevel, CoursePack, Exercise, Lesson, ListeningItem, PlacementQuestion, ShadowingItem,
+  Syllabus, TopicProgress, UserState,
 } from '../core'
 
 export type Screen = 'map' | 'settings' | 'topics'
@@ -37,6 +38,10 @@ export class AppStore {
   /** Speaking practice runs on the same session, but on its own screen. */
   shadowingActive = false
   shadowingItems: ShadowingItem[] = []
+
+  /** Listening does the same: same session, its own screen, the text kept hidden. */
+  listeningActive = false
+  listeningItems: ListeningItem[] = []
 
   placementActive = false
   placementIndex = 0
@@ -249,6 +254,43 @@ export class AppStore {
   closeShadowing(): void {
     this.shadowingActive = false
     this.shadowingItems = []
+    this.closeLesson()
+  }
+
+  // MARK: - Listening
+
+  get listeningCount(): number { return ListeningEngine.count(this.courses, this.selectedLevel) }
+
+  /** The sentence for the exercise the session is on, found by id rather than position. */
+  get currentListeningItem(): ListeningItem | null {
+    const id = this.session.currentExercise?.id
+    return this.listeningItems.find((item) => item.exerciseID === id) ?? null
+  }
+
+  get listeningIsComplete(): boolean { return this.listeningActive && this.session.isComplete }
+
+  startListening(): void {
+    const set = ListeningEngine.build({ courses: this.courses, level: this.selectedLevel, state: this.state })
+    if (set.exercises.length === 0) return
+    this.listeningItems = set.items
+    this.listeningActive = true
+    this.startLesson(ListeningEngine.lesson(set.exercises), false)
+  }
+
+  /** Checked against the sentence that was played, which the exercise itself may not hold. */
+  submitHeard(answer: string): void {
+    const item = this.currentListeningItem
+    if (!item) return
+    this.session.submitHeard(answer, item.text)
+    this.afterAttempt()
+  }
+
+  /** "Не разобрал": an honest miss, so the sentence comes back on another day. */
+  revealHeard(): void { this.submitHeard('') }
+
+  closeListening(): void {
+    this.listeningActive = false
+    this.listeningItems = []
     this.closeLesson()
   }
 

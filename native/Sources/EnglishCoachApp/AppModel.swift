@@ -175,6 +175,45 @@ final class AppModel {
         closeLesson()
     }
 
+    // MARK: - Listening (same session, its own screen, the text kept hidden)
+
+    private(set) var listeningActive = false
+    private(set) var listeningItems: [ListeningItem] = []
+
+    var listeningCount: Int { ListeningEngine.count(courses: courses, level: selectedLevel) }
+    var listeningIsComplete: Bool { listeningActive && session.isComplete }
+
+    /// The sentence for the exercise the session is on, found by id rather than position.
+    var currentListeningItem: ListeningItem? {
+        guard let id = session.currentExercise?.id else { return nil }
+        return listeningItems.first { $0.exerciseID == id }
+    }
+
+    func startListening() {
+        let set = ListeningEngine.build(courses: courses, level: selectedLevel, state: state)
+        guard !set.exercises.isEmpty else { return }
+        listeningItems = set.items
+        listeningActive = true
+        startLesson(ListeningEngine.lesson(set.exercises), recordsCompletion: false)
+    }
+
+    /// Checked against the sentence that was played, which the exercise itself may not hold.
+    func submitHeard(_ answer: String) {
+        guard let item = currentListeningItem else { return }
+        session.submitHeard(answer, phrase: item.text)
+        state = session.state
+        save()
+    }
+
+    /// "Не разобрал": an honest miss, so the sentence comes back on another day.
+    func revealHeard() { submitHeard("") }
+
+    func closeListening() {
+        listeningActive = false
+        listeningItems = []
+        closeLesson()
+    }
+
     func submitText(_ answer: String) { _ = session.submitText(answer); state = session.state; save() }
     func submitChoice(_ choice: String) { _ = session.submitChoice(choice); state = session.state; save() }
     func completePassive() { session.completePassiveExercise(); state = session.state; save() }

@@ -4,11 +4,15 @@ import AVFoundation
 final class SpeechService {
     private let synthesizer = AVSpeechSynthesizer()
 
-    func speak(_ text: String) {
+    /// Slow enough that the words come apart, fast enough to still be a sentence.
+    static let slowRate: Float = 0.34
+
+    func speak(_ text: String, rate: Float = 0.47) {
         guard !text.isEmpty else { return }
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-        utterance.rate = 0.47
+        utterance.rate = rate
+        synthesizer.stopSpeaking(at: .immediate)
         synthesizer.speak(utterance)
     }
 

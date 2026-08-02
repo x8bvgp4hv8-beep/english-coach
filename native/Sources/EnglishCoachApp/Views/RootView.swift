@@ -11,6 +11,8 @@ struct RootView: View {
                 OnboardingView()
             } else if model.shadowingActive {
                 ShadowingView()
+            } else if model.listeningActive {
+                ListeningView()
             } else if model.activeLesson != nil {
                 LessonPlayerView()
             } else {

@@ -369,5 +369,72 @@ do {
     expect(speaking.state.completedLessonIDs.isEmpty, "shadowing is never recorded as a completed lesson")
 } catch { failures += 1; print("✗ shadowing session: \(error)") }
 
+// Listening: the sentences taken by ear. Mirrors web/src/core/core.test.ts.
+do {
+    let courses = try ContentRepository.loadBundled()
+    for level in CEFRLevel.allCases {
+        let pool = ListeningEngine.pool(courses: courses, level: level)
+        // Eight per set: a level with fewer than that would run out mid-drill.
+        expect(pool.count >= ListeningEngine.defaultSize, "\(level.rawValue) has enough to listen to")
+        for exercise in pool {
+            guard let item = ListeningEngine.phrase(for: exercise) else { failures += 1; print("✗ \(exercise.id): has a sentence"); continue }
+            // The learner writes this down, so it has to be a whole sentence: an opener
+            // leading nowhere and a collocation card are both unwritable.
+            expect(!item.text.contains("…"), "\(exercise.id): not a sentence opener")
+            expect(item.text.range(of: "^[A-Z].*[.!?]$", options: .regularExpression) != nil, "\(exercise.id): reads as a sentence")
+            expect(item.text.split(whereSeparator: \.isWhitespace).count >= 3, "\(exercise.id): long enough to carry structure")
+        }
+    }
+} catch { failures += 1; print("✗ listening pool: \(error)") }
+
+// Fine to repeat aloud, impossible to write down: there is no rest of the sentence.
+let opener = singleExercise(#"{"id":"o","type":"flashcard","prompt":"From my perspective…","translation":"С моей точки зрения…"}"#)
+expect(opener.flatMap { ShadowingEngine.phrase(for: $0) } != nil, "an opener can still be said out loud")
+expect(opener.flatMap { ListeningEngine.phrase(for: $0) } == nil, "an opener is never given to be written down")
+let short = singleExercise(#"{"id":"s","type":"flashcard","prompt":"Thank you.","translation":"Спасибо."}"#)
+expect(short.flatMap { ShadowingEngine.phrase(for: $0) } != nil, "two words are still worth saying")
+expect(short.flatMap { ListeningEngine.phrase(for: $0) } == nil, "two words is vocabulary, not listening")
+// Real content: collocations ship as cards. Three words, and still nothing to write down —
+// "on the weekend" is a guess about the sentence it was cut out of.
+let chunk = singleExercise(#"{"id":"col","type":"flashcard","prompt":"on the weekend","translation":"на выходных"}"#)
+expect(chunk.flatMap { ShadowingEngine.phrase(for: $0) } != nil, "a collocation is still worth saying")
+expect(chunk.flatMap { ListeningEngine.phrase(for: $0) } == nil, "a collocation card is not a sentence")
+
+// A gap fill is played whole, so its own canonical answer is not what the learner heard
+// and must not be what the answer is compared with.
+if let gap = singleExercise(#"{"id":"g","type":"multiple_choice","prompt":"We ___ this film before.","options":["saw","have seen"],"correctOption":"have seen","canonicalAnswer":"have seen"}"#),
+   let heard = ListeningEngine.phrase(for: gap) {
+    expect(heard.text == "We have seen this film before.", "the whole sentence is what gets played")
+    var ear = LearningSession(state: .fresh)
+    ear.start(ListeningEngine.lesson([gap]), recordsCompletion: false)
+    let result = ear.submitHeard("we have seen this film before", phrase: heard.text, now: now)
+    expect(result.isCorrect && ear.state.points == 10, "the answer is checked against the sentence that was played")
+} else {
+    failures += 1
+    print("✗ listening: a gap-fill sentence is long enough to listen to")
+}
+
+do {
+    let courses = try ContentRepository.loadBundled()
+    let identity: ([Exercise]) -> [Exercise] = { $0 }
+    let set = ListeningEngine.build(courses: courses, level: .b1, state: .fresh, size: 2, now: now, shuffle: identity)
+    expect(set.items.map(\.exerciseID) == set.exercises.map(\.id), "sentences line up with the exercises they came from")
+
+    var ear = LearningSession(state: .fresh)
+    ear.start(ListeningEngine.lesson(set.exercises), recordsCompletion: false)
+    let result = ear.submitHeard("She has finished work.", phrase: "She has already finished work.", now: now)
+    expect(!result.isCorrect, "a missing word is a miss")
+    expect(AnswerChecker.diffSummary(result.diff)?.missing == ["already"], "the word the ear let through is named")
+    let missed = ear.state.reviews.first { $0.exerciseID == set.exercises[0].id }
+    expect(missed != nil, "a sentence that did not come through comes back")
+
+    // "Не разобрал" is an honest miss, not a free pass.
+    var giveUp = LearningSession(state: .fresh)
+    giveUp.start(ListeningEngine.lesson(set.exercises), recordsCompletion: false)
+    let revealed = giveUp.submitHeard("", phrase: set.items[0].text, now: now)
+    expect(!revealed.isCorrect && revealed.canonical == set.items[0].text, "giving up still hands back the sentence")
+    expect(giveUp.state.points == 0, "giving up earns nothing")
+} catch { failures += 1; print("✗ listening session: \(error)") }
+
 if failures > 0 { print("\n\(failures) test(s) failed"); exit(1) }
 print("\nAll core tests passed")

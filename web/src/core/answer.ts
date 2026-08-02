@@ -17,7 +17,7 @@ import type { AnswerResult, WordDiff } from './types'
  * Anything grammatical (wrong tense, missing article, wrong preposition) still fails.
  */
 
-const PUNCTUATION = /[.,!?;:—–"()]/g
+const PUNCTUATION = /[.,!?;:—–"()…]/g
 
 /** Ambiguous forms expand to every reading; the answer matches if any reading matches. */
 const CONTRACTIONS: Record<string, string[]> = {
