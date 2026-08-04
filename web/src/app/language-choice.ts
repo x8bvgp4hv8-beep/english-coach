@@ -1,5 +1,5 @@
 import { setVoiceLanguage } from './speech'
-import { isLanguageCode } from '../core'
+import { DEFAULT_LANGUAGE, isLanguageCode, storageKey } from '../core'
 import type { LanguageCode } from '../core'
 
 /**
@@ -14,7 +14,15 @@ const KEY = 'english-coach.language'
 export function loadLanguage(): LanguageCode | null {
   try {
     const stored = localStorage.getItem(KEY)
-    return isLanguageCode(stored) ? stored : null
+    if (isLanguageCode(stored)) return stored
+    // Someone who was already learning English before there was anything to choose
+    // between must not be met by a picker: to them it reads as "мой прогресс пропал".
+    // The picker is for a first run and for switching, not for an upgrade.
+    if (localStorage.getItem(storageKey(DEFAULT_LANGUAGE)) !== null) {
+      saveLanguage(DEFAULT_LANGUAGE)
+      return DEFAULT_LANGUAGE
+    }
+    return null
   } catch {
     return null
   }

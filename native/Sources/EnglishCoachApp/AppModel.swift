@@ -42,6 +42,12 @@ final class AppModel {
         let model = AppModel(courses: [], state: .fresh, store: ProgressStore.live())
         if let language = LanguageCode(rawValue: stored) {
             model.open(language)
+        } else if FileManager.default.fileExists(atPath: ProgressStore.live(.default).url.path) {
+            // Someone who was already learning English before there was anything to
+            // choose between must not be met by a picker: to them it reads as "мой
+            // прогресс пропал". The picker is for a first run and for switching.
+            UserDefaults.standard.set(LanguageCode.default.rawValue, forKey: languageKey)
+            model.open(.default)
         }
         // Before the first body runs, so the window never paints in the wrong theme.
         model.loadTheme()
