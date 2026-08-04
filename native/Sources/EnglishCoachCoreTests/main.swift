@@ -436,5 +436,64 @@ do {
     expect(giveUp.state.points == 0, "giving up earns nothing")
 } catch { failures += 1; print("✗ listening session: \(error)") }
 
+// MARK: - Languages
+//
+// Whatever is true of the app has to be true of every language it ships, not only of the
+// one it was written for. A new language passes here or it does not ship.
+
+expect(AnswerChecker.check("Soy de Lituania.", canonical: "Soy de Lituania.", language: .es).verdict == .correct, "es: exact answer")
+let esAccents = AnswerChecker.check("Como te llamas?", canonical: "¿Cómo te llamas?", language: .es)
+expect(esAccents.verdict == .typo && esAccents.isCorrect && esAccents.typo == "¿Cómo te llamas?", "es: a missing accent costs the spelling, not the answer")
+expect(AnswerChecker.check("Yo hablo español", canonical: "Yo hablas español", language: .es).verdict == .wrong, "es: person is not a typo")
+expect(AnswerChecker.check("Ella trabaja aquí", canonical: "Ella trabajo aquí", language: .es).verdict == .wrong, "es: conjugation is not a typo")
+expect(AnswerChecker.check("la casa blanco", canonical: "la casa blanca", language: .es).verdict == .wrong, "es: gender is not a typo")
+expect(AnswerChecker.check("Vivo en el restaurnte", canonical: "Vivo en el restaurante", language: .es).verdict == .typo, "es: a real slip in a long word still is one")
+expect(AnswerChecker.check("Tengo un coche nuevo", canonical: "Tengo un carro nuevo", language: .es).verdict == .correct, "es: Spain and Latin America are both right")
+expect(AnswerChecker.check("He comido", canonical: "He comido", language: .es).verdict == .correct, "es: English rules do not leak")
+
+let shipped = ContentRepository.availableLanguages()
+expect(Set(shipped) == Set(LanguageCode.allCases), "every declared language ships content")
+
+for language in shipped {
+    let name = language.rawValue
+    do {
+        let packs = try ContentRepository.loadBundled(language)
+        let syllabus = try ContentRepository.loadSyllabus(language)
+        let bank = try ContentRepository.loadPlacement(language)
+        expect(Set(packs.map(\.level)) == Set(CEFRLevel.allCases), "\(name): courses cover A1-C1")
+        expect(Set(bank.questions.map(\.level)) == Set(CEFRLevel.allCases), "\(name): placement covers A1-C1")
+        expect(syllabus.topics.count > 20, "\(name): syllabus covers a real programme")
+        expect(Set(syllabus.topics.map(\.level)) == Set(CEFRLevel.allCases), "\(name): syllabus covers A1-C1")
+        expect(SyllabusEngine.unknownTopics(of: syllabus, in: packs).isEmpty, "\(name): content only tags topics the syllabus defines")
+
+        let exercises = packs.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises)
+        expect(exercises.allSatisfy { !($0.topics ?? []).isEmpty }, "\(name): every exercise carries a topic")
+        expect(exercises.allSatisfy { exercise in
+            guard exercise.type == .wordOrder, let tokens = exercise.tokens else { return true }
+            let tray = AnswerChecker.normalize(tokens.joined(separator: " "), language: language).split(separator: " ").sorted()
+            let answer = AnswerChecker.normalize(exercise.canonicalAnswer ?? "", language: language).split(separator: " ").sorted()
+            return tray == answer
+        }, "\(name): every word tray can build its answer")
+
+        let gaps = SyllabusEngine.gaps(of: syllabus, in: packs)
+        expect(gaps.count <= syllabus.coverageDebtCeiling,
+               "\(name): coverage debt did not grow (\(gaps.count) of ceiling \(syllabus.coverageDebtCeiling))")
+
+        // A lesson has to be completable start to finish in this language's own rules.
+        let lesson = packs.sorted { $0.level.rawValue < $1.level.rawValue }[0].chapters[0].lessons[0]
+        var session = LearningSession(state: .fresh, language: language)
+        session.start(lesson)
+        while !session.isComplete {
+            guard let exercise = session.currentExercise else { break }
+            if exercise.type == .multipleChoice { session.submitChoice(exercise.correctOption ?? "") }
+            else if let answer = exercise.canonicalAnswer { session.submitText(answer) }
+            else { session.completePassiveExercise() }
+            if !session.isComplete, session.feedback != nil { session.advance() }
+        }
+        expect(session.state.points > 0 && session.state.completedLessonIDs.contains(lesson.id), "\(name): a lesson can be finished")
+    } catch { failures += 1; print("✗ \(name) content: \(error)") }
+}
+
+
 if failures > 0 { print("\n\(failures) test(s) failed"); exit(1) }
 print("\nAll core tests passed")

@@ -28,8 +28,8 @@ export function Onboarding() {
 
       {stage === 'intro' && (
         <>
-          <h1>Привет! Настроим уровень</h1>
-          <p>Короткий тест подберёт, с чего начать. Или выбери уровень сам.</p>
+          <h1>{model.currentLanguage.greeting} Настроим уровень</h1>
+          <p>Курс: {model.currentLanguage.title.toLowerCase()}. Короткий тест подберёт, с чего начать — или выбери уровень сам.</p>
           <div className="stack">
             {model.hasPlacementTest && (
               <button className="primary" onClick={() => { model.startPlacement(); setStage('placement') }}>
@@ -37,6 +37,7 @@ export function Onboarding() {
               </button>
             )}
             <button className="secondary" onClick={() => setStage('level')}>Выбрать уровень сам</button>
+            <button className="quiet" onClick={() => model.openLanguages()}>Другой язык</button>
           </div>
         </>
       )}

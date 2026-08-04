@@ -12,7 +12,9 @@ import { PracticeEngine } from './practice'
 import { LearningSession } from './session'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { deserialize, serialize } from './storage'
+import { LANGUAGE_CODES } from './language'
 import { EXERCISE_TYPES, LEVELS, freshState } from './types'
+import type { LanguageCode } from './language'
 import type { CoursePack, Exercise, Lesson, PlacementBank } from './types'
 
 /**
@@ -23,9 +25,20 @@ import type { CoursePack, Exercise, Lesson, PlacementBank } from './types'
 const contentDir = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'public', 'content')
 const readJSON = (path: string) => JSON.parse(readFileSync(join(contentDir, path), 'utf8'))
 
-const index = readJSON('index.json') as { courses: string[] }
-const courses: CoursePack[] = index.courses.map((file) => decodeCourse(readJSON(`courses/${file}`)))
-const placement: PlacementBank = decodePlacement(readJSON('placement.json'))
+/** One language's shipped content, decoded exactly the way the app decodes it. */
+function readLanguage(language: LanguageCode) {
+  const index = readJSON(`${language}/index.json`) as { courses: string[] }
+  return {
+    courses: index.courses.map((file) => decodeCourse(readJSON(`${language}/courses/${file}`))) as CoursePack[],
+    placement: decodePlacement(readJSON(`${language}/placement.json`)),
+    syllabus: decodeSyllabus(readJSON(`${language}/syllabus.json`)),
+  }
+}
+
+// The engine tests below run on English, because they name English lessons and topics.
+// Everything a second language must also satisfy lives in "each shipped language".
+const courses: CoursePack[] = readLanguage('en').courses
+const placement: PlacementBank = readLanguage('en').placement
 const bank = placement.questions
 const now = new Date(1_000_000)
 
@@ -146,6 +159,29 @@ describe('answer checking', () => {
     expect(check('I work yesterday', 'I worked yesterday').verdict).toBe('wrong')
     expect(check('I visited three city', 'I visited three cities').verdict).toBe('wrong')
     expect(check('She is walk home', 'She is walking home').verdict).toBe('wrong')
+  })
+
+  it('judges Spanish by Spanish rules', () => {
+    expect(check('Soy de Lituania.', 'Soy de Lituania.', [], 'es').verdict).toBe('correct')
+    expect(check('¿Cómo te llamas?', '¿Cómo te llamas?', [], 'es').verdict).toBe('correct')
+    // A phone keyboard makes accents expensive, so a missing one costs the spelling,
+    // not the answer — and the right form is shown.
+    const accents = check('Como te llamas?', '¿Cómo te llamas?', [], 'es')
+    expect(accents.verdict).toBe('typo')
+    expect(accents.isCorrect).toBe(true)
+    expect(accents.typo).toBe('¿Cómo te llamas?')
+    // Endings carry person, number and gender: never a slip of the finger.
+    expect(check('Yo hablo español', 'Yo hablas español', [], 'es').verdict).toBe('wrong')
+    expect(check('Ella trabaja aquí', 'Ella trabajo aquí', [], 'es').verdict).toBe('wrong')
+    expect(check('la casa blanco', 'la casa blanca', [], 'es').verdict).toBe('wrong')
+    expect(check('Es mi amigo', 'Es mi amiga', [], 'es').verdict).toBe('wrong')
+    // A real slip inside a long word still is one.
+    expect(check('Vivo en el restaurnte', 'Vivo en el restaurante', [], 'es').verdict).toBe('typo')
+    // Spain and Latin America say it differently and neither is a mistake.
+    expect(check('Tengo un coche nuevo', 'Tengo un carro nuevo', [], 'es').verdict).toBe('correct')
+    expect(check('Quiero un zumo', 'Quiero un jugo', [], 'es').verdict).toBe('correct')
+    // English rules must not leak: `he` is a Spanish auxiliary, not a pronoun.
+    expect(check('He comido', 'He comido', [], 'es').verdict).toBe('correct')
   })
 
   it('does not accept a different exercise as an answer', () => {
@@ -423,7 +459,7 @@ describe('endless practice', () => {
 })
 
 describe('syllabus', () => {
-  const syllabus = decodeSyllabus(readJSON('syllabus.json'))
+  const syllabus = readLanguage('en').syllabus
 
   it('is well formed and covers every level', () => {
     expect(syllabus.topics.length).toBeGreaterThan(20)
@@ -711,5 +747,66 @@ describe('progress storage', () => {
     expect(loaded).toEqual(state)
     expect(loaded.attempts[0].date).toBeInstanceOf(Date)
     expect(loaded.reviews[0].due.getTime()).toBe(now.getTime())
+  })
+})
+
+/**
+ * Whatever is true of the app has to be true of every language it ships, not only of
+ * the one it was written for. A new language passes here or it does not ship.
+ */
+describe.each(LANGUAGE_CODES)('each shipped language: %s', (language) => {
+  const { courses: packs, placement: bank, syllabus } = readLanguage(language)
+
+  it('ships a course for every level', () => {
+    expect(new Set(packs.map((pack) => pack.level))).toEqual(new Set(LEVELS))
+    for (const pack of packs) {
+      expect(pack.chapters.length, `${pack.level}: has chapters`).toBeGreaterThan(0)
+      for (const exercise of allExercises(pack)) {
+        expect(EXERCISE_TYPES).toContain(exercise.type)
+        if (exercise.type === 'translate') expect(exercise.canonicalAnswer, exercise.id).toBeTruthy()
+        if (exercise.type === 'multiple_choice') expect(exercise.options, exercise.id).toContain(exercise.correctOption)
+        if (exercise.type === 'word_order') {
+          // The tray must be able to build the answer, or the exercise cannot be solved.
+          const tray = normalize((exercise.tokens ?? []).join(' '), language).split(' ').sort()
+          expect(tray, exercise.id).toEqual(normalize(exercise.canonicalAnswer ?? '', language).split(' ').sort())
+        }
+      }
+    }
+  })
+
+  it('tests every level in the placement bank', () => {
+    expect(new Set(bank.questions.map((question) => question.level))).toEqual(new Set(LEVELS))
+  })
+
+  it('keeps content and syllabus in one vocabulary', () => {
+    expect(syllabus.topics.length).toBeGreaterThan(20)
+    expect(new Set(syllabus.topics.map((topic) => topic.level))).toEqual(new Set(LEVELS))
+    expect(SyllabusEngine.unknownTopics(syllabus, packs)).toEqual([])
+    for (const pack of packs) {
+      for (const exercise of allExercises(pack)) {
+        expect(exercise.topics ?? [], `${exercise.id}: has at least one topic`).not.toHaveLength(0)
+      }
+    }
+  })
+
+  it('does not let the coverage debt grow', () => {
+    const gaps = SyllabusEngine.gaps(syllabus, packs)
+    const report = gaps.map((gap) => `${gap.topic.level} ${gap.topic.id} ${gap.exercises}/${gap.topic.minExercises}`).join('\n')
+    expect(gaps.length, `тем без покрытия стало больше:\n${report}`).toBeLessThanOrEqual(syllabus.coverageDebtCeiling)
+  })
+
+  it('can run a lesson end to end in this language', () => {
+    const lesson = packs[0].chapters[0].lessons[0]
+    const session = new LearningSession(freshState(), language)
+    session.start(lesson)
+    while (!session.isComplete) {
+      const exercise = session.currentExercise!
+      if (exercise.type === 'multiple_choice') session.submitChoice(exercise.correctOption ?? '')
+      else if (exercise.canonicalAnswer) session.submitText(exercise.canonicalAnswer)
+      else session.completePassiveExercise()
+      if (!session.isComplete && session.feedback) session.advance()
+    }
+    expect(session.state.points).toBeGreaterThan(0)
+    expect(session.state.completedLessonIDs).toContain(lesson.id)
   })
 })

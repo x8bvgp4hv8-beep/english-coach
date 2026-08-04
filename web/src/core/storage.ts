@@ -1,12 +1,22 @@
+import { DEFAULT_LANGUAGE } from './language'
 import { freshState } from './types'
+import type { LanguageCode } from './language'
 import type { UserState } from './types'
 
 /**
  * Mirrors EnglishCoachCore/ProgressStore.swift, but on localStorage.
  * Dates are stored as ISO strings, exactly like the macOS state.json, so a profile
  * can be moved between the two clients by hand if it ever matters.
+ *
+ * Each language keeps its own record: level, streak, points and spaced repetition are
+ * about one language and would be nonsense pooled. English stays on the original key so
+ * that adding Spanish does not cost anyone their English progress.
  */
 const KEY = 'english-coach.state.v1'
+
+export function storageKey(language: LanguageCode): string {
+  return language === DEFAULT_LANGUAGE ? KEY : `${KEY}.${language}`
+}
 
 export interface ProgressStore {
   load(): UserState
@@ -38,20 +48,23 @@ export function deserialize(raw: string): UserState {
   }
 }
 
-export const localProgressStore: ProgressStore = {
-  load(): UserState {
-    try {
-      const raw = localStorage.getItem(KEY)
-      return raw ? deserialize(raw) : freshState()
-    } catch {
-      // A corrupted or unreadable profile must not brick the app.
-      return freshState()
-    }
-  },
+export function localProgressStore(language: LanguageCode = DEFAULT_LANGUAGE): ProgressStore {
+  const key = storageKey(language)
+  return {
+    load(): UserState {
+      try {
+        const raw = localStorage.getItem(key)
+        return raw ? deserialize(raw) : freshState()
+      } catch {
+        // A corrupted or unreadable profile must not brick the app.
+        return freshState()
+      }
+    },
 
-  save(state: UserState): void {
-    localStorage.setItem(KEY, serialize(state))
-  },
+    save(state: UserState): void {
+      localStorage.setItem(key, serialize(state))
+    },
+  }
 }
 
 /**

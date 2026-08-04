@@ -19,7 +19,7 @@ export default defineConfig({
       manifest: {
         name: 'English Coach',
         short_name: 'English',
-        description: 'Офлайн-тренажёр английского: короткие уроки, карточки и повторение.',
+        description: 'Офлайн-тренажёр английского и испанского: короткие уроки, карточки и повторение.',
         lang: 'ru',
         start_url: './',
         scope: './',

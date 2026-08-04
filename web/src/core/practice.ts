@@ -71,7 +71,7 @@ export function prioritise(pool: Exercise[], state: UserState, now: Date, random
 export const PRACTICE_KINDS: Array<{ id: string; title: string; subtitle: string; types: ExerciseType[] }> = [
   { id: 'mixed', title: 'Всё вперемешку', subtitle: 'Сначала сложное, потом новое', types: ['flashcard', 'translate', 'word_order', 'multiple_choice'] },
   { id: 'flashcard', title: 'Карточки', subtitle: 'Новые слова и фразы с озвучкой', types: ['flashcard'] },
-  { id: 'translate', title: 'Перевод', subtitle: 'С русского на английский, письменно', types: ['translate'] },
+  { id: 'translate', title: 'Перевод', subtitle: 'С русского, письменно', types: ['translate'] },
   { id: 'word_order', title: 'Собрать предложение', subtitle: 'Слова даны, нужен порядок', types: ['word_order'] },
   { id: 'multiple_choice', title: 'Тесты', subtitle: 'Выбрать правильный вариант', types: ['multiple_choice'] },
 ]

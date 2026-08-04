@@ -1,3 +1,5 @@
+import { DEFAULT_LANGUAGE } from './language'
+import type { LanguageCode } from './language'
 import type { AnswerResult, WordDiff } from './types'
 
 /**
@@ -15,12 +17,17 @@ import type { AnswerResult, WordDiff } from './types'
  *   3. a single mistyped long word is a typo, not a wrong answer: it counts as correct
  *      and the misspelling is pointed out.
  * Anything grammatical (wrong tense, missing article, wrong preposition) still fails.
+ *
+ * What "fair" means is not the same in every language, so the tables below hang off a
+ * language rather than off the module: Spanish has no optional contractions to expand,
+ * but it has written accents (a phone keyboard makes them work) and endings that carry
+ * person, number and gender, where English has a bare stem.
  */
 
-const PUNCTUATION = /[.,!?;:—–"()…]/g
+const PUNCTUATION = /[.,!?;:—–"()…¿¡«»]/g
 
 /** Ambiguous forms expand to every reading; the answer matches if any reading matches. */
-const CONTRACTIONS: Record<string, string[]> = {
+const EN_CONTRACTIONS: Record<string, string[]> = {
   "i'm": ['i am'],
   "you're": ['you are'], "we're": ['we are'], "they're": ['they are'],
   "isn't": ['is not'], "aren't": ['are not'], "wasn't": ['was not'], "weren't": ['were not'],
@@ -39,7 +46,7 @@ const CONTRACTIONS: Record<string, string[]> = {
 }
 
 /** British spelling on the left, the form both are folded to on the right. */
-const SPELLING: Record<string, string> = {
+const EN_SPELLING: Record<string, string> = {
   colour: 'color', colours: 'colors', favourite: 'favorite', favourites: 'favorites',
   behaviour: 'behavior', neighbour: 'neighbor', neighbours: 'neighbors', humour: 'humor',
   realise: 'realize', realised: 'realized', organise: 'organize', organised: 'organized',
@@ -52,7 +59,7 @@ const SPELLING: Record<string, string> = {
 }
 
 /** Grammar carriers: a difference here is never "just a typo". */
-const FUNCTION_WORDS = new Set([
+const EN_FUNCTION_WORDS = new Set([
   'a', 'an', 'the', 'is', 'are', 'am', 'was', 'were', 'be', 'been', 'being',
   'do', 'does', 'did', 'have', 'has', 'had', 'will', 'would', 'shall', 'should',
   'can', 'could', 'may', 'might', 'must', 'not', 'no', 'to', 'of', 'in', 'on', 'at',
@@ -61,24 +68,108 @@ const FUNCTION_WORDS = new Set([
   'this', 'that', 'these', 'those', 'there', 'here', 'some', 'any', 'much', 'many',
 ])
 
+/**
+ * The Spanish counterpart. Written the same way and for the same reason: these are the
+ * words where one letter is the whole grammar (el / él, de / da, la / le).
+ */
+const ES_FUNCTION_WORDS = new Set([
+  'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'lo', 'al', 'del',
+  'de', 'a', 'en', 'con', 'sin', 'por', 'para', 'sobre', 'entre', 'hasta', 'desde',
+  'y', 'e', 'o', 'u', 'pero', 'que', 'qué', 'no', 'sí', 'ni', 'como', 'cómo',
+  'se', 'me', 'te', 'le', 'les', 'nos', 'os', 'mi', 'tu', 'su', 'sus', 'mis', 'tus',
+  'yo', 'tú', 'él', 'ella', 'usted', 'nosotros', 'vosotros', 'ellos', 'ellas', 'ustedes',
+  'soy', 'eres', 'es', 'somos', 'sois', 'son', 'ser', 'estar',
+  'estoy', 'estás', 'está', 'estamos', 'están', 'era', 'fue', 'hay',
+  'he', 'has', 'ha', 'hemos', 'han', 'muy', 'más', 'menos', 'ya', 'también', 'tampoco',
+  'este', 'esta', 'estos', 'estas', 'ese', 'esa', 'esos', 'esas', 'aquí', 'allí',
+])
+
+/**
+ * Vocabulary that splits Spain from Latin America. Neither is a mistake, so both are
+ * folded to one form — the same trick as colour / color.
+ */
+const ES_SPELLING: Record<string, string> = {
+  ordenador: 'computadora', ordenadores: 'computadoras',
+  móvil: 'celular', móviles: 'celulares',
+  coche: 'carro', coches: 'carros',
+  zumo: 'jugo', zumos: 'jugos',
+  patata: 'papa', patatas: 'papas',
+  autobús: 'bus', autobuses: 'buses', camión: 'bus',
+  piso: 'apartamento', pisos: 'apartamentos', departamento: 'apartamento',
+  gafas: 'lentes',
+}
+
+/** Endings that carry grammar: dropping one is a mistake, never a slip of the finger. */
+const EN_INFLECTIONS = ['s', 'es', 'ed', 'd', 'ing', 'er', 'est', 'ly', 'ies']
+
+/** Written accents fold for the comparison; ñ does not, because it is its own letter. */
+const ACCENTS: Record<string, string> = {
+  á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u', ü: 'u',
+  à: 'a', è: 'e', ì: 'i', ò: 'o', ù: 'u', â: 'a', ê: 'e', î: 'i', ô: 'o', û: 'u',
+}
+
+interface LanguageRules {
+  contractions: Record<string, string[]>
+  spelling: Record<string, string>
+  functionWords: Set<string>
+  inflections: string[]
+  /**
+   * Endings carry person, number and gender (hablo / habla / hablas), so a difference
+   * in the last letters is grammar and never a slip of the finger.
+   */
+  endingSensitive: boolean
+  /**
+   * Written accents. Missing one is a real mistake, but not the same mistake as the
+   * wrong word, and a phone keyboard makes it far too easy — so it is reported as a
+   * misspelling with the right form shown, and the answer still counts.
+   */
+  accents: boolean
+}
+
+const RULES: Record<LanguageCode, LanguageRules> = {
+  en: {
+    contractions: EN_CONTRACTIONS,
+    spelling: EN_SPELLING,
+    functionWords: EN_FUNCTION_WORDS,
+    inflections: EN_INFLECTIONS,
+    endingSensitive: false,
+    accents: false,
+  },
+  es: {
+    contractions: {},
+    spelling: ES_SPELLING,
+    functionWords: ES_FUNCTION_WORDS,
+    inflections: ['s', 'es', 'as', 'os', 'a', 'o', 'an', 'en'],
+    endingSensitive: true,
+    accents: true,
+  },
+}
+
 const MAX_VARIANTS = 12
 
-export function normalize(input: string): string {
+export function normalize(input: string, language: LanguageCode = DEFAULT_LANGUAGE): string {
+  const rules = RULES[language] ?? RULES[DEFAULT_LANGUAGE]
   return input
     .toLowerCase()
     .replace(/’/g, "'")
     .replace(PUNCTUATION, ' ')
     .split(/\s+/)
     .filter(Boolean)
-    .map((word) => SPELLING[word] ?? word)
+    .map((word) => rules.spelling[word] ?? word)
     .join(' ')
 }
 
+/** Drops written accents, so "esta" and "está" can be compared as the same word. */
+export function foldAccents(input: string): string {
+  return input.replace(/[áéíóúüàèìòùâêîôû]/g, (letter) => ACCENTS[letter] ?? letter)
+}
+
 /** Every reading of a normalized sentence once contractions are expanded. */
-export function variants(normalized: string): string[] {
+export function variants(normalized: string, language: LanguageCode = DEFAULT_LANGUAGE): string[] {
+  const rules = RULES[language] ?? RULES[DEFAULT_LANGUAGE]
   let results: string[][] = [[]]
   for (const word of normalized.split(' ').filter(Boolean)) {
-    const options = CONTRACTIONS[word] ?? [word]
+    const options = rules.contractions[word] ?? [word]
     const next: string[][] = []
     for (const partial of results) {
       for (const option of options) {
@@ -89,7 +180,7 @@ export function variants(normalized: string): string[] {
     }
     results = next
   }
-  return [...new Set(results.map((words) => words.map((w) => SPELLING[w] ?? w).join(' ')))]
+  return [...new Set(results.map((words) => words.map((w) => rules.spelling[w] ?? w).join(' ')))]
 }
 
 function levenshtein(a: string, b: string): number {
@@ -111,18 +202,21 @@ function levenshtein(a: string, b: string): number {
   return previous[b.length]
 }
 
-/** Endings that carry grammar: dropping one is a mistake, never a slip of the finger. */
-const INFLECTIONS = ['s', 'es', 'ed', 'd', 'ing', 'er', 'est', 'ly', 'ies']
-
 /** True when the two words differ only by an inflection, e.g. cat / cats, work / worked. */
-function isInflection(a: string, b: string): boolean {
+function isInflection(a: string, b: string, rules: LanguageRules): boolean {
   const [shorter, longer] = a.length <= b.length ? [a, b] : [b, a]
   if (!longer.startsWith(shorter)) {
     // cities / city: the stem changes, but it is still morphology.
     const stem = longer.replace(/(ies|ied)$/, '')
     return stem.length > 0 && shorter.startsWith(stem) && longer !== shorter
   }
-  return INFLECTIONS.includes(longer.slice(shorter.length))
+  return rules.inflections.includes(longer.slice(shorter.length))
+}
+
+/** hablo / habla: the same stem with another ending is a conjugation, not a slip. */
+function sharesStem(a: string, b: string): boolean {
+  const stem = (word: string) => word.slice(0, Math.max(2, word.length - 2))
+  return Math.abs(a.length - b.length) <= 2 && (stem(a) === stem(b) || a.slice(0, -1) === b.slice(0, -1))
 }
 
 /**
@@ -130,14 +224,15 @@ function isInflection(a: string, b: string): boolean {
  * words and inflections get no tolerance, because "is"/"as", "go"/"goes" and
  * "cat"/"cats" are mistakes, not slips of the finger.
  */
-function typoOf(answerWords: string[], expectedWords: string[]): string | null {
+function typoOf(answerWords: string[], expectedWords: string[], rules: LanguageRules): string | null {
   if (answerWords.length !== expectedWords.length) return null
   const differing = answerWords.map((word, i) => [word, expectedWords[i]] as const).filter(([a, b]) => a !== b)
   if (differing.length !== 1) return null
   const [written, expected] = differing[0]
-  if (FUNCTION_WORDS.has(written) || FUNCTION_WORDS.has(expected)) return null
+  if (rules.functionWords.has(written) || rules.functionWords.has(expected)) return null
   if (expected.length < 4) return null
-  if (isInflection(written, expected)) return null
+  if (isInflection(written, expected, rules)) return null
+  if (rules.endingSensitive && sharesStem(written, expected)) return null
   const distance = levenshtein(written, expected)
   const budget = expected.length >= 8 ? 2 : 1
   return distance > 0 && distance <= budget ? expected : null
@@ -149,9 +244,9 @@ function displayWords(input: string): string[] {
 }
 
 /** Word level diff, so feedback can say what is missing rather than just print the answer. */
-export function diffWords(answer: string, canonical: string): WordDiff[] {
-  const a = normalize(answer).split(' ').filter(Boolean)
-  const b = normalize(canonical).split(' ').filter(Boolean)
+export function diffWords(answer: string, canonical: string, language: LanguageCode = DEFAULT_LANGUAGE): WordDiff[] {
+  const a = normalize(answer, language).split(' ').filter(Boolean)
+  const b = normalize(canonical, language).split(' ').filter(Boolean)
   // Compared in lower case, shown as written: "не хватает: Monday", not "monday".
   const aShown = displayWords(answer)
   const bShown = displayWords(canonical)
@@ -200,22 +295,36 @@ export function diffSummary(diff: WordDiff[] | undefined): { missing: string[]; 
   return { missing, extra, orderOnly }
 }
 
-export function check(answer: string, canonical: string, accepted: string[] = []): AnswerResult {
-  const answerVariants = variants(normalize(answer))
-  const expectedVariants = [canonical, ...accepted].flatMap((text) => variants(normalize(text)))
+export function check(
+  answer: string,
+  canonical: string,
+  accepted: string[] = [],
+  language: LanguageCode = DEFAULT_LANGUAGE,
+): AnswerResult {
+  const rules = RULES[language] ?? RULES[DEFAULT_LANGUAGE]
+  const answerVariants = variants(normalize(answer, language), language)
+  const expectedVariants = [canonical, ...accepted].flatMap((text) => variants(normalize(text, language), language))
 
   if (answerVariants.some((variant) => expectedVariants.includes(variant))) {
     return { isCorrect: true, verdict: 'correct', canonical }
   }
 
+  // Right words, missing accents: the sentence is understood, the spelling is shown.
+  if (rules.accents) {
+    const folded = expectedVariants.map(foldAccents)
+    if (answerVariants.some((variant) => folded.includes(foldAccents(variant)))) {
+      return { isCorrect: true, verdict: 'typo', canonical, typo: canonical }
+    }
+  }
+
   for (const expected of expectedVariants) {
     for (const given of answerVariants) {
-      const corrected = typoOf(given.split(' ').filter(Boolean), expected.split(' ').filter(Boolean))
+      const corrected = typoOf(given.split(' ').filter(Boolean), expected.split(' ').filter(Boolean), rules)
       if (corrected) {
         return { isCorrect: true, verdict: 'typo', canonical, typo: corrected }
       }
     }
   }
 
-  return { isCorrect: false, verdict: 'wrong', canonical, diff: diffWords(answer, canonical) }
+  return { isCorrect: false, verdict: 'wrong', canonical, diff: diffWords(answer, canonical, language) }
 }

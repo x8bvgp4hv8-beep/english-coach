@@ -145,7 +145,9 @@ struct LessonPlayerView: View {
                 Label(headline(for: feedback.verdict), systemImage: feedback.isCorrect ? "checkmark.circle.fill" : "arrow.counterclockwise.circle.fill")
                     .font(.title3.bold()).foregroundStyle(feedback.isCorrect ? CoachTheme.mint : .orange)
                 if feedback.verdict == .typo, let typo = feedback.typo {
-                    Text("Опечатка: правильно пишется «\(typo)»").font(.callout).foregroundStyle(.secondary).multilineTextAlignment(.center)
+                    Text(typo == feedback.canonical
+                         ? "Не хватает ударений: правильно «\(typo)»"
+                         : "Опечатка: правильно пишется «\(typo)»").font(.callout).foregroundStyle(.secondary).multilineTextAlignment(.center)
                 }
                 if feedback.verdict == .wrong {
                     Text("Правильный ответ: \(feedback.canonical)").multilineTextAlignment(.center)
@@ -193,7 +195,7 @@ struct LessonPlayerView: View {
     }
 
     private func submitText() { guard !answer.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }; model.submitText(answer) }
-    private func label(for type: ExerciseType) -> String { switch type { case .info: "КОРОТКОЕ ПРАВИЛО"; case .flashcard: "НОВАЯ ФРАЗА"; case .translate: "ПЕРЕВЕДИ НА АНГЛИЙСКИЙ"; case .wordOrder: "СОБЕРИ ПРЕДЛОЖЕНИЕ"; case .multipleChoice: "ВЫБЕРИ ОТВЕТ" } }
+    private func label(for type: ExerciseType) -> String { switch type { case .info: "КОРОТКОЕ ПРАВИЛО"; case .flashcard: "НОВАЯ ФРАЗА"; case .translate: "ПЕРЕВЕДИ НА \(model.currentLanguage.title.uppercased())"; case .wordOrder: "СОБЕРИ ПРЕДЛОЖЕНИЕ"; case .multipleChoice: "ВЫБЕРИ ОТВЕТ" } }
 }
 
 /// Simple wrapping layout so word chips flow onto multiple lines.

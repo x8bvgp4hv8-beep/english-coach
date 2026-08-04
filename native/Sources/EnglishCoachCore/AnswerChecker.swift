@@ -33,7 +33,36 @@ public struct AnswerResult: Equatable, Sendable {
 /// answers then went into spaced repetition. Contractions and British spelling now
 /// compare equal, and a single mistyped long word counts as a typo. Anything grammatical
 /// (tense, agreement, articles, prepositions, inflections) still fails.
+///
+/// What "fair" means is not the same in every language, so the tables below hang off a
+/// language rather than off the type: Spanish has no optional contractions to expand,
+/// but it has written accents (a phone keyboard makes them work) and endings that carry
+/// person, number and gender, where English has a bare stem.
 public enum AnswerChecker {
+    struct Rules: Sendable {
+        let contractions: [String: [String]]
+        let spelling: [String: String]
+        let functionWords: Set<String>
+        let inflections: [String]
+        /// Endings carry person, number and gender (hablo / habla / hablas), so a
+        /// difference in the last letters is grammar and never a slip of the finger.
+        let endingSensitive: Bool
+        /// Written accents. Missing one is a real mistake, but not the same mistake as
+        /// the wrong word, and a phone keyboard makes it far too easy — so it is shown
+        /// as a misspelling with the right form, and the answer still counts.
+        let accents: Bool
+    }
+
+    static func rules(_ language: LanguageCode) -> Rules {
+        switch language {
+        case .en: Rules(contractions: contractions, spelling: spelling, functionWords: functionWords,
+                        inflections: inflections, endingSensitive: false, accents: false)
+        case .es: Rules(contractions: [:], spelling: spanishSpelling, functionWords: spanishFunctionWords,
+                        inflections: ["s", "es", "as", "os", "a", "o", "an", "en"],
+                        endingSensitive: true, accents: true)
+        }
+    }
+
     /// Ambiguous forms expand to every reading; the answer matches if any reading matches.
     private static let contractions: [String: [String]] = [
         "i'm": ["i am"],
@@ -76,28 +105,71 @@ public enum AnswerChecker {
         "this", "that", "these", "those", "there", "here", "some", "any", "much", "many"
     ]
 
+    /// The Spanish counterpart. Written the same way and for the same reason: these are
+    /// the words where one letter is the whole grammar (el / él, de / da, la / le).
+    private static let spanishFunctionWords: Set<String> = [
+        "el", "la", "los", "las", "un", "una", "unos", "unas", "lo", "al", "del",
+        "de", "a", "en", "con", "sin", "por", "para", "sobre", "entre", "hasta", "desde",
+        "y", "e", "o", "u", "pero", "que", "qué", "no", "sí", "ni", "como", "cómo",
+        "se", "me", "te", "le", "les", "nos", "os", "mi", "tu", "su", "sus", "mis", "tus",
+        "yo", "tú", "él", "ella", "usted", "nosotros", "vosotros", "ellos", "ellas", "ustedes",
+        "soy", "eres", "es", "somos", "sois", "son", "ser", "estar",
+        "estoy", "estás", "está", "estamos", "están", "era", "fue", "hay",
+        "he", "has", "ha", "hemos", "han", "muy", "más", "menos", "ya", "también", "tampoco",
+        "este", "esta", "estos", "estas", "ese", "esa", "esos", "esas", "aquí", "allí"
+    ]
+
+    /// Vocabulary that splits Spain from Latin America. Neither is a mistake, so both are
+    /// folded to one form — the same trick as colour / color.
+    private static let spanishSpelling: [String: String] = [
+        "ordenador": "computadora", "ordenadores": "computadoras",
+        "móvil": "celular", "móviles": "celulares",
+        "coche": "carro", "coches": "carros",
+        "zumo": "jugo", "zumos": "jugos",
+        "patata": "papa", "patatas": "papas",
+        "autobús": "bus", "autobuses": "buses", "camión": "bus",
+        "piso": "apartamento", "pisos": "apartamentos", "departamento": "apartamento",
+        "gafas": "lentes"
+    ]
+
     /// Endings that carry grammar: dropping one is a mistake, never a slip of the finger.
     private static let inflections = ["s", "es", "ed", "d", "ing", "er", "est", "ly", "ies"]
 
+    /// Written accents fold for the comparison; ñ does not, because it is its own letter.
+    private static let accentFolding: [Character: Character] = [
+        "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u", "ü": "u",
+        "à": "a", "è": "e", "ì": "i", "ò": "o", "ù": "u",
+        "â": "a", "ê": "e", "î": "i", "ô": "o", "û": "u"
+    ]
+
+    /// Drops written accents, so "esta" and "está" can be compared as the same word.
+    public static func foldAccents(_ input: String) -> String {
+        String(input.map { accentFolding[$0] ?? $0 })
+    }
+
+    private static let punctuation = CharacterSet(charactersIn: ".,!?;:—–\"()…¿¡«»")
+
     private static let maxVariants = 12
 
-    public static func normalize(_ input: String) -> String {
+    public static func normalize(_ input: String, language: LanguageCode = .default) -> String {
         // Punctuation is dropped so word-order tokens (joined with spaces, "However ,")
         // match a canonical answer where it is attached ("However,").
-        input.lowercased()
+        let table = rules(language).spelling
+        return input.lowercased()
             .replacingOccurrences(of: "’", with: "'")
-            .components(separatedBy: CharacterSet(charactersIn: ".,!?;:—–\"()…"))
+            .components(separatedBy: punctuation)
             .joined(separator: " ")
             .split(whereSeparator: { $0.isWhitespace })
-            .map { spelling[String($0)] ?? String($0) }
+            .map { table[String($0)] ?? String($0) }
             .joined(separator: " ")
     }
 
     /// Every reading of a normalized sentence once contractions are expanded.
-    public static func variants(_ normalized: String) -> [String] {
+    public static func variants(_ normalized: String, language: LanguageCode = .default) -> [String] {
+        let rules = rules(language)
         var results: [[String]] = [[]]
         for word in normalized.split(separator: " ").map(String.init) {
-            let options = contractions[word] ?? [word]
+            let options = rules.contractions[word] ?? [word]
             var next: [[String]] = []
             outer: for partial in results {
                 for option in options {
@@ -109,7 +181,7 @@ public enum AnswerChecker {
         }
         var seen = Set<String>()
         return results
-            .map { $0.map { spelling[$0] ?? $0 }.joined(separator: " ") }
+            .map { $0.map { rules.spelling[$0] ?? $0 }.joined(separator: " ") }
             .filter { seen.insert($0).inserted }
     }
 
@@ -132,7 +204,7 @@ public enum AnswerChecker {
     }
 
     /// True when the two words differ only by an inflection, e.g. cat / cats, work / worked.
-    private static func isInflection(_ a: String, _ b: String) -> Bool {
+    private static func isInflection(_ a: String, _ b: String, _ rules: Rules) -> Bool {
         let shorter = a.count <= b.count ? a : b
         let longer = a.count <= b.count ? b : a
         guard longer.hasPrefix(shorter) else {
@@ -143,17 +215,24 @@ public enum AnswerChecker {
             }
             return !stem.isEmpty && stem != longer && shorter.hasPrefix(stem)
         }
-        return inflections.contains(String(longer.dropFirst(shorter.count)))
+        return rules.inflections.contains(String(longer.dropFirst(shorter.count)))
+    }
+
+    /// hablo / habla: the same stem with another ending is a conjugation, not a slip.
+    private static func sharesStem(_ a: String, _ b: String) -> Bool {
+        let stem: (String) -> String = { String($0.prefix(max(2, $0.count - 2))) }
+        return abs(a.count - b.count) <= 2 && (stem(a) == stem(b) || a.dropLast() == b.dropLast())
     }
 
     /// A single long content word misspelled by one or two letters.
-    private static func typo(answerWords: [String], expectedWords: [String]) -> String? {
+    private static func typo(answerWords: [String], expectedWords: [String], _ rules: Rules) -> String? {
         guard answerWords.count == expectedWords.count else { return nil }
         let differing = zip(answerWords, expectedWords).filter { $0 != $1 }
         guard differing.count == 1, let pair = differing.first else { return nil }
         let (written, expected) = pair
-        guard !functionWords.contains(written), !functionWords.contains(expected) else { return nil }
-        guard expected.count >= 4, !isInflection(written, expected) else { return nil }
+        guard !rules.functionWords.contains(written), !rules.functionWords.contains(expected) else { return nil }
+        guard expected.count >= 4, !isInflection(written, expected, rules) else { return nil }
+        if rules.endingSensitive, sharesStem(written, expected) { return nil }
         let distance = levenshtein(written, expected)
         let budget = expected.count >= 8 ? 2 : 1
         return distance > 0 && distance <= budget ? expected : nil
@@ -163,15 +242,15 @@ public enum AnswerChecker {
     /// Splits into words for display: punctuation is dropped, but the writing is kept.
     private static func displayWords(_ input: String) -> [String] {
         input.replacingOccurrences(of: "’", with: "'")
-            .components(separatedBy: CharacterSet(charactersIn: ".,!?;:—–\"()…"))
+            .components(separatedBy: punctuation)
             .joined(separator: " ")
             .split(whereSeparator: { $0.isWhitespace })
             .map(String.init)
     }
 
-    public static func diffWords(_ answer: String, canonical: String) -> [WordDiff] {
-        let a = normalize(answer).split(separator: " ").map(String.init)
-        let b = normalize(canonical).split(separator: " ").map(String.init)
+    public static func diffWords(_ answer: String, canonical: String, language: LanguageCode = .default) -> [WordDiff] {
+        let a = normalize(answer, language: language).split(separator: " ").map(String.init)
+        let b = normalize(canonical, language: language).split(separator: " ").map(String.init)
         // Compared in lower case, shown as written: "не хватает: Monday", not "monday".
         let aShown = displayWords(answer)
         let bShown = displayWords(canonical)
@@ -215,24 +294,34 @@ public enum AnswerChecker {
         return (missing, extra, orderOnly)
     }
 
-    public static func check(_ answer: String, canonical: String, accepted: [String] = []) -> AnswerResult {
-        let answerVariants = variants(normalize(answer))
-        let expectedVariants = ([canonical] + accepted).flatMap { variants(normalize($0)) }
+    public static func check(_ answer: String, canonical: String, accepted: [String] = [],
+                             language: LanguageCode = .default) -> AnswerResult {
+        let rules = rules(language)
+        let answerVariants = variants(normalize(answer, language: language), language: language)
+        let expectedVariants = ([canonical] + accepted).flatMap { variants(normalize($0, language: language), language: language) }
 
         if answerVariants.contains(where: { expectedVariants.contains($0) }) {
             return AnswerResult(isCorrect: true, verdict: .correct, canonical: canonical)
         }
 
+        // Right words, missing accents: the sentence is understood, the spelling is shown.
+        if rules.accents {
+            let folded = Set(expectedVariants.map(foldAccents))
+            if answerVariants.contains(where: { folded.contains(foldAccents($0)) }) {
+                return AnswerResult(isCorrect: true, verdict: .typo, canonical: canonical, typo: canonical)
+            }
+        }
+
         for expected in expectedVariants {
             for given in answerVariants {
                 if let corrected = typo(answerWords: given.split(separator: " ").map(String.init),
-                                        expectedWords: expected.split(separator: " ").map(String.init)) {
+                                        expectedWords: expected.split(separator: " ").map(String.init), rules) {
                     return AnswerResult(isCorrect: true, verdict: .typo, canonical: canonical, typo: corrected)
                 }
             }
         }
 
         return AnswerResult(isCorrect: false, verdict: .wrong, canonical: canonical,
-                            diff: diffWords(answer, canonical: canonical))
+                            diff: diffWords(answer, canonical: canonical, language: language))
     }
 }

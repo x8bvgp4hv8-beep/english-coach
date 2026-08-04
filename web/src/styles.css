@@ -101,6 +101,45 @@
   --tap: 48px;
 }
 
+/**
+ * The language accent. Themes decide how the app is built; the language decides what
+ * colour it is built in, so the two are separate axes and every combination has to work.
+ *
+ * English keeps the indigo the app was born in. Spanish takes terracotta and saffron —
+ * far enough apart that a glance at the screen says which course you are in, close
+ * enough in weight that neither looks like the "other" one.
+ */
+:root[data-learning='es'] {
+  --violet: #d4623c;
+  --coral: #d94f3d;
+}
+
+:root[data-learning='es'][data-theme='minimal'] {
+  --accent: #b8482a;
+  --accent-soft: rgba(184, 72, 42, 0.09);
+  --btn-fill: #b8482a;
+  --amber: #d38b1c;
+}
+
+:root[data-learning='es'][data-theme='cartoon'] {
+  --bg: linear-gradient(170deg, #fdf1e2 0%, #f8e6d4 100%);
+  --accent: #d2431f;
+  --accent-soft: rgba(210, 67, 31, 0.16);
+  --btn-fill: #d2431f;
+  --violet: #c9552f;
+}
+
+:root[data-learning='es'][data-theme='night'] {
+  --bg: radial-gradient(120% 70% at 50% 0%, #4a1f22 0%, #2a1220 45%, #180d16 100%);
+  --accent: #f0894a;
+  --accent-soft: rgba(240, 137, 74, 0.22);
+  --btn-fill: linear-gradient(100deg, #e2603a 0%, #f0894a 50%, #f5b13c 100%);
+  --violet: #ff9d63;
+  --ink-soft: #c49a92;
+  --shadow-btn: 0 14px 34px rgba(226, 96, 58, 0.42);
+  --shadow-btn-active: 0 6px 16px rgba(226, 96, 58, 0.38);
+}
+
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html, body, #root { height: 100%; }
@@ -459,3 +498,49 @@ button { cursor: pointer; border: none; background: none; }
 .topic-bar { margin-top: 8px; }
 .topic-meta { display: block; font-size: 11px; color: var(--ink-soft); margin-top: 6px; }
 .topic-go { color: var(--ink-soft); font-size: 12px; }
+
+/* Language picker and the chip that opens it */
+.lang-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--accent); padding: 0; min-height: 18px;
+}
+.lang-chip-code {
+  font-size: 9px; letter-spacing: 0.6px; padding: 2px 5px; border-radius: 5px;
+  background: var(--accent-soft); color: var(--accent);
+}
+.lang-chip-caret { font-size: 12px; letter-spacing: 0; opacity: 0.7; }
+
+.lang-screen { padding-top: 8px; }
+.lang-intro { text-align: center; padding: 26px 6px 10px; display: grid; gap: 10px; justify-items: center; }
+.lang-intro h1 { font-size: 26px; font-weight: var(--display-w); margin: 0; }
+.lang-intro p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.45; max-width: 34ch; }
+
+.lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0 14px; }
+@media (max-width: 340px) { .lang-grid { grid-template-columns: 1fr; } }
+
+.lang-card {
+  --card: var(--accent);
+  display: grid; gap: 2px; justify-items: start; text-align: left;
+  padding: 16px 14px 14px; border-radius: var(--radius);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
+  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
+}
+.lang-card:active { transform: translateY(var(--press-y)); box-shadow: var(--shadow-btn-active); }
+.lang-card.current { border-color: var(--card); background: color-mix(in srgb, var(--card) 8%, var(--surface-solid)); }
+/* Fixed, not themed: each card wears its own language's colour whichever one is active. */
+.lang-card.en { --card: #6f6ae0; }
+.lang-card.es { --card: #c9502c; }
+
+.lang-short {
+  font-size: 10px; font-weight: 800; letter-spacing: 1px;
+  padding: 3px 7px; border-radius: 6px; color: #fff; background: var(--card);
+}
+.lang-greeting { font-size: 22px; font-weight: var(--display-w); color: var(--card); margin-top: 10px; line-height: 1.1; }
+.lang-name { font-size: 16px; font-weight: 700; margin-top: 6px; }
+.lang-native { font-size: 12px; color: var(--ink-soft); }
+.lang-note { font-size: 11px; color: var(--ink-soft); line-height: 1.35; margin-top: 8px; }
+.lang-state {
+  margin-top: 10px; font-size: 10px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase;
+  color: var(--card);
+}

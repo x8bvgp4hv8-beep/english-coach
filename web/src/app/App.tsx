@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from 'react'
 
+import { LanguagePicker } from './LanguagePicker'
 import { Listening } from './Listening'
 import { Loading } from './Loading'
 import { MapScreen } from './Map'
@@ -20,6 +21,8 @@ export function App() {
   const model = useStore()
 
   if (model.loading) return <Loading />
+  // The picker comes before the error: a failed language must still be swappable.
+  if (!model.languageChosen) return <div className="app"><LanguagePicker /></div>
   if (model.startupError) {
     return (
       <div className="center">
@@ -32,7 +35,9 @@ export function App() {
 
   return (
     <div className="app">
-      {model.isOnboarding ? <Onboarding />
+      {/* The picker outranks everything: it is reachable from onboarding too. */}
+      {model.screen === 'language' ? <LanguagePicker onBack={() => model.closeLanguages()} />
+        : model.isOnboarding ? <Onboarding />
         : model.shadowingActive ? <Shadowing />
         : model.listeningActive ? <Listening />
         : model.activeLesson ? <Player />

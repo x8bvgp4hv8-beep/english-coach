@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "level": "C1",
+  "chapters": [
+    {
+      "id": "es-c1-matices",
+      "title": "Matices",
+      "subtitle": "Сожаление, регистр и то, что говорится между строк",
+      "lessons": [
+        {
+          "id": "es-c1-matices-01",
+          "title": "Si lo hubiera sabido",
+          "summary": "Pluscuamperfecto de subjuntivo: несбывшееся и сожаление.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "es-c1-l1-e1",
+              "type": "info",
+              "title": "hubiera + причастие",
+              "explanation": "Для того, что уже не изменить: si lo hubiera sabido, no habría venido. Схема — si + pluscuamperfecto de subjuntivo, condicional compuesto. Ту же форму берут упрёк и запоздалое желание: ojalá me lo hubieras dicho.",
+              "topics": ["es-c1-subjuntivo-pluscuamperfecto"]
+            },
+            {
+              "id": "es-c1-l1-e2",
+              "type": "flashcard",
+              "prompt": "Si lo hubiera sabido, habría actuado de otra manera.",
+              "translation": "Если бы я знал, я поступил бы иначе.",
+              "example": "No me avisaste; si lo hubiera sabido, habría actuado de otra manera.",
+              "topics": ["es-c1-subjuntivo-pluscuamperfecto"]
+            },
+            {
+              "id": "es-c1-l1-e3",
+              "type": "multiple_choice",
+              "prompt": "Si me lo ___ antes, no habría cometido ese error.",
+              "options": ["hubieras dicho", "habías dicho", "dirías"],
+              "correctOption": "hubieras dicho",
+              "topics": ["es-c1-subjuntivo-pluscuamperfecto"]
+            },
+            {
+              "id": "es-c1-l1-e4",
+              "type": "translate",
+              "prompt": "Жаль, что ты не приехал.",
+              "canonicalAnswer": "Ojalá hubieras venido.",
+              "acceptedAnswers": ["Ojalá hubieses venido."],
+              "topics": ["es-c1-subjuntivo-pluscuamperfecto"]
+            },
+            {
+              "id": "es-c1-l1-e5",
+              "type": "multiple_choice",
+              "prompt": "Мягче всего звучит отказ:",
+              "options": ["No puedo", "Me temo que no va a ser posible", "Eso no"],
+              "correctOption": "Me temo que no va a ser posible",
+              "topics": ["es-c1-registro"]
+            },
+            {
+              "id": "es-c1-l1-e6",
+              "type": "translate",
+              "prompt": "Буду признателен, если вы ответите до пятницы.",
+              "canonicalAnswer": "Le agradecería que me respondiera antes del viernes.",
+              "acceptedAnswers": ["Le agradecería que me contestara antes del viernes."],
+              "topics": ["es-c1-registro"]
+            },
+            {
+              "id": "es-c1-l1-e7",
+              "type": "flashcard",
+              "prompt": "Tirar la toalla.",
+              "translation": "Опустить руки, сдаться.",
+              "example": "Llevaba meses buscando trabajo y acabó tirando la toalla.",
+              "topics": ["es-c1-modismos"]
+            },
+            {
+              "id": "es-c1-l1-e8",
+              "type": "multiple_choice",
+              "prompt": "«Me suena a chino» значит:",
+              "options": ["мне это знакомо", "я ничего не понимаю", "звучит красиво"],
+              "correctOption": "я ничего не понимаю",
+              "topics": ["es-c1-modismos"]
+            }
+          ]
+        },
+        {
+          "id": "es-c1-matices-02",
+          "title": "Ahora bien",
+          "summary": "Как держать абзац: связки, номинализация и аргумент.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "es-c1-l2-e1",
+              "type": "info",
+              "title": "Связки уровня абзаца",
+              "explanation": "На C1 связывают не предложения, а мысли: ahora bien (вводит возражение), por consiguiente (следствие), en cuanto a (смена ракурса), dicho esto (уступка перед возражением), a la vista de (опора на факты).",
+              "topics": ["es-c1-conectores-discurso"]
+            },
+            {
+              "id": "es-c1-l2-e2",
+              "type": "multiple_choice",
+              "prompt": "Los resultados son buenos. ___, conviene ser prudente.",
+              "options": ["Ahora bien", "Por ejemplo", "Es decir"],
+              "correctOption": "Ahora bien",
+              "topics": ["es-c1-conectores-discurso"]
+            },
+            {
+              "id": "es-c1-l2-e3",
+              "type": "flashcard",
+              "prompt": "En cuanto al presupuesto, hablamos mañana.",
+              "translation": "Что касается бюджета, поговорим завтра.",
+              "example": "En cuanto al presupuesto, hablamos mañana con calma.",
+              "topics": ["es-c1-conectores-discurso"]
+            },
+            {
+              "id": "es-c1-l2-e4",
+              "type": "info",
+              "title": "Глагол становится существительным",
+              "explanation": "Письменный испанский сжимает действие в имя: «cuando se aprobó la ley» → «tras la aprobación de la ley». Это делает текст плотнее, но в разговоре звучит канцелярски.",
+              "topics": ["es-c1-nominalizacion"]
+            },
+            {
+              "id": "es-c1-l2-e5",
+              "type": "multiple_choice",
+              "prompt": "Письменный вариант фразы «después de que llegaron los datos»:",
+              "options": ["tras la llegada de los datos", "cuando los datos llegaron", "al llegar ellos"],
+              "correctOption": "tras la llegada de los datos",
+              "topics": ["es-c1-nominalizacion"]
+            },
+            {
+              "id": "es-c1-l2-e6",
+              "type": "translate",
+              "prompt": "Несмотря на трудности, результат оправдал усилия.",
+              "canonicalAnswer": "A pesar de las dificultades, el resultado compensó el esfuerzo.",
+              "acceptedAnswers": ["Pese a las dificultades, el resultado compensó el esfuerzo."],
+              "topics": ["es-c1-argumentacion"]
+            },
+            {
+              "id": "es-c1-l2-e7",
+              "type": "multiple_choice",
+              "prompt": "«No es que no quiera, es que no puedo» — это:",
+              "options": ["отказ с уступкой", "прямое согласие", "вопрос"],
+              "correctOption": "отказ с уступкой",
+              "topics": ["es-c1-matices"]
+            },
+            {
+              "id": "es-c1-l2-e8",
+              "type": "translate",
+              "prompt": "Речь идёт не о деньгах, а о доверии.",
+              "canonicalAnswer": "No se trata de dinero, sino de confianza.",
+              "acceptedAnswers": ["No es cuestión de dinero, sino de confianza."],
+              "topics": ["es-c1-argumentacion", "es-c1-lexico-abstracto"]
+            },
+            {
+              "id": "es-c1-l2-e9",
+              "type": "flashcard",
+              "prompt": "El planteamiento carece de fundamento.",
+              "translation": "Такой подход не имеет под собой оснований.",
+              "example": "Con estos datos, el planteamiento carece de fundamento.",
+              "topics": ["es-c1-lexico-abstracto"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
+import { applyLanguage, loadLanguage, saveLanguage } from './language-choice'
 import {
   CourseRouting,
+  DEFAULT_LANGUAGE,
   LearningSession,
   LevelOrder,
   ListeningEngine,
@@ -11,21 +13,28 @@ import {
   ShadowingEngine,
   TopicProgressEngine,
   freshState,
+  languageOf,
   loadContent,
   localProgressStore,
 } from '../core'
 import type {
-  AnswerResult, CEFRLevel, CoursePack, Exercise, Lesson, ListeningItem, PlacementQuestion, ShadowingItem,
-  Syllabus, TopicProgress, UserState,
+  AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
+  PlacementQuestion, ShadowingItem, Syllabus, TopicProgress, UserState,
 } from '../core'
 
-export type Screen = 'map' | 'settings' | 'topics'
+export type Screen = 'map' | 'settings' | 'topics' | 'language'
 
 /**
  * The web counterpart of AppModel.swift: one object owning content, profile and the
  * running lesson, with a subscribe hook so React can render it.
+ *
+ * The language sits above all of it. Switching it swaps the courses, the placement bank,
+ * the syllabus, the saved progress and the voice — nothing is shared between them but
+ * the interface itself.
  */
 export class AppStore {
+  /** `null` until the learner has picked a language; that is what opens the picker. */
+  language: LanguageCode | null = null
   courses: CoursePack[] = []
   placementBank: PlacementQuestion[] = []
   syllabus: Syllabus | null = null
@@ -64,14 +73,40 @@ export class AppStore {
   snapshot: object = {}
   getSnapshot = (): object => this.snapshot
 
+  /** Startup: nothing is fetched until it is known which language to fetch. */
   async load(): Promise<void> {
+    const chosen = loadLanguage()
+    if (!chosen) {
+      this.loading = false
+      this.changed()
+      return
+    }
+    applyLanguage(chosen)
+    await this.open(chosen)
+  }
+
+  /** Picking a language on the first screen, or switching to the other one later. */
+  async selectLanguage(language: LanguageCode): Promise<void> {
+    if (language === this.language) { this.screen = 'map'; this.changed(); return }
+    saveLanguage(language)
+    applyLanguage(language)
+    this.loading = true
+    this.screen = 'map'
+    this.closeAllModes()
+    this.changed()
+    await this.open(language)
+  }
+
+  private async open(language: LanguageCode): Promise<void> {
+    this.language = language
+    this.startupError = null
     try {
-      const { courses, placement, syllabus } = await loadContent()
+      const { courses, placement, syllabus } = await loadContent(language)
       this.courses = courses
       this.placementBank = placement.questions
       this.syllabus = syllabus
-      this.state = localProgressStore.load()
-      this.session = new LearningSession(this.state)
+      this.state = localProgressStore(language).load()
+      this.session = new LearningSession(this.state, language)
     } catch (error) {
       this.startupError = error instanceof Error ? error.message : 'Не удалось загрузить учебные материалы'
     } finally {
@@ -80,8 +115,20 @@ export class AppStore {
     }
   }
 
+  /** A language switch must not leave a half-finished lesson from the other one on screen. */
+  private closeAllModes(): void {
+    this.shadowingActive = false
+    this.shadowingItems = []
+    this.listeningActive = false
+    this.listeningItems = []
+    this.placementActive = false
+    this.session = new LearningSession(freshState(), this.language ?? DEFAULT_LANGUAGE)
+  }
+
   // MARK: - Derived
 
+  get languageChosen(): boolean { return this.language !== null }
+  get currentLanguage(): LearningLanguage { return languageOf(this.language ?? DEFAULT_LANGUAGE) }
   get isOnboarding(): boolean { return this.state.profile === null }
   get selectedLevel(): CEFRLevel { return this.state.profile?.selectedLevel ?? 'A1' }
   get selectedCourse(): CoursePack | undefined { return this.courses.find((c) => c.level === this.selectedLevel) }
@@ -157,16 +204,25 @@ export class AppStore {
 
   setScreen(screen: Screen): void { this.screen = screen; this.changed() }
 
+  /** The picker can be opened from the map or from settings; back goes where it came from. */
+  private returnScreen: Screen = 'map'
+  openLanguages(): void {
+    if (this.screen !== 'language') this.returnScreen = this.screen
+    this.screen = 'language'
+    this.changed()
+  }
+  closeLanguages(): void { this.screen = this.returnScreen; this.changed() }
+
   replaceState(state: UserState): void {
     this.state = state
-    this.session = new LearningSession(state)
+    this.session = new LearningSession(state, this.language ?? DEFAULT_LANGUAGE)
     this.persist()
   }
 
   // MARK: - Lessons
 
   startLesson(lesson: Lesson, recordsCompletion = true): void {
-    this.session = new LearningSession(this.state)
+    this.session = new LearningSession(this.state, this.language ?? DEFAULT_LANGUAGE)
     this.session.start(lesson, { recordsCompletion })
     this.lessonStartedAt = new Date()
     this.changed()
@@ -297,7 +353,7 @@ export class AppStore {
   closeLesson(): void {
     this.state = this.session.state
     this.bankPracticeTime()
-    this.session = new LearningSession(this.state)
+    this.session = new LearningSession(this.state, this.language ?? DEFAULT_LANGUAGE)
     this.persist()
   }
 
@@ -403,7 +459,7 @@ export class AppStore {
 
   private persist(): void {
     try {
-      localProgressStore.save(this.state)
+      localProgressStore(this.language ?? DEFAULT_LANGUAGE).save(this.state)
     } catch {
       // A full or blocked storage must not break the lesson in progress.
     }

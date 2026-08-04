@@ -3,15 +3,16 @@ import { useEffect, useState } from 'react'
 import { useStore } from './App'
 import { speak } from './speech'
 import { diffSummary } from '../core'
-import type { ExerciseType, WordDiff } from '../core'
+import type { ExerciseType, LearningLanguage, WordDiff } from '../core'
 
-const KIND_LABEL: Record<ExerciseType, string> = {
+/** The translate label names the target language, so it is built per language. */
+const kindLabel = (type: ExerciseType, language: LearningLanguage): string => ({
   info: 'КОРОТКОЕ ПРАВИЛО',
   flashcard: 'НОВАЯ ФРАЗА',
-  translate: 'ПЕРЕВЕДИ НА АНГЛИЙСКИЙ',
+  translate: `ПЕРЕВЕДИ НА ${language.title.toUpperCase()}`,
   word_order: 'СОБЕРИ ПРЕДЛОЖЕНИЕ',
   multiple_choice: 'ВЫБЕРИ ОТВЕТ',
-}
+}[type])
 
 export function Player() {
   const model = useStore()
@@ -32,7 +33,7 @@ export function Player() {
       <div className="center">
         <div className="hero-mark">⭐️</div>
         <h1>Готово!</h1>
-        <p>Ещё один реальный шаг в английском.</p>
+        <p>Ещё один реальный шаг в {model.currentLanguage.locative}.</p>
         <div className="pills">
           <span className="pill">✦ {model.totalPoints}</span>
           <span className="pill">🔥 {model.streak()}</span>
@@ -62,7 +63,7 @@ export function Player() {
       <div className="scroll" style={{ paddingTop: 18 }}>
         {/* Keyed by exercise so the card replays its arrival on every step. */}
         <div className="card" key={exercise.id}>
-          <div className="exercise-kind">{KIND_LABEL[exercise.type]}</div>
+          <div className="exercise-kind">{kindLabel(exercise.type, model.currentLanguage)}</div>
           {exercise.title && <h2 className="exercise-title">{exercise.title}</h2>}
           {exercise.prompt && (
             <div className="exercise-prompt">
@@ -149,7 +150,11 @@ export function Player() {
                 {feedback.verdict === 'correct' ? 'Отлично!' : feedback.verdict === 'typo' ? 'Почти! Засчитано' : 'Пока не так'}
               </div>
               {feedback.verdict === 'typo' && feedback.typo && (
-                <div className="feedback-note">Опечатка: правильно пишется «{feedback.typo}»</div>
+                <div className="feedback-note">
+                  {feedback.typo === feedback.canonical
+                    ? `Не хватает ударений: правильно «${feedback.typo}»`
+                    : `Опечатка: правильно пишется «${feedback.typo}»`}
+                </div>
               )}
               {feedback.verdict === 'wrong' && (
                 <>

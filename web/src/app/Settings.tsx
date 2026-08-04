@@ -6,14 +6,25 @@ import { disablePush, enablePush, pushState } from './push'
 import { THEMES, applyTheme, loadTheme } from './theme'
 import type { PushState } from './push'
 import { LEVELS, exportBackup, importBackup } from '../core'
-import type { CEFRLevel } from '../core'
+import type { CEFRLevel, LanguageCode } from '../core'
 import type { ThemeID } from './theme'
 
-/** Three fills apiece: background, card, accent. Enough to choose by eye. */
-const SWATCH: Record<ThemeID, string[]> = {
-  cartoon: ['#f7ecdd', '#fffdf9', '#f26a3d'],
-  minimal: ['#f1f1f5', '#ffffff', '#14121f'],
-  night: ['#16123a', '#2a2555', '#7b6ff0'],
+/**
+ * Three fills apiece: background, card, accent. Enough to choose by eye — which means
+ * the accent has to be the one the language actually paints with, or the swatch would
+ * promise indigo and hand back terracotta.
+ */
+const SWATCH: Record<LanguageCode, Record<ThemeID, string[]>> = {
+  en: {
+    cartoon: ['#f7ecdd', '#fffdf9', '#f26a3d'],
+    minimal: ['#f1f1f5', '#ffffff', '#14121f'],
+    night: ['#16123a', '#2a2555', '#7b6ff0'],
+  },
+  es: {
+    cartoon: ['#fdf1e2', '#fffdf9', '#d2431f'],
+    minimal: ['#f1f1f5', '#ffffff', '#b8482a'],
+    night: ['#2a1220', '#3a1f2a', '#f0894a'],
+  },
 }
 
 export function Settings() {
@@ -64,7 +75,8 @@ export function Settings() {
     const url = URL.createObjectURL(exportBackup(model.state))
     const link = document.createElement('a')
     link.href = url
-    link.download = 'english-coach-progress.json'
+    // Named after the language, because each one is a separate record.
+    link.download = `english-coach-progress-${model.language}.json`
     link.click()
     URL.revokeObjectURL(url)
   }
@@ -89,7 +101,14 @@ export function Settings() {
       </header>
 
       <div className="scroll">
-        <div className="section-title" style={{ marginTop: 18 }}>
+        <div className="settings-group" style={{ marginTop: 18 }}>
+          <button className="settings-row" onClick={() => model.openLanguages()}>
+            <span className="label">Язык</span>
+            <span className="value">{model.currentLanguage.title} ›</span>
+          </button>
+        </div>
+
+        <div className="section-title">
           <h2>Оформление</h2>
           <p>Меняется вид, а не содержание: уроки, прогресс и повторения остаются те же.</p>
         </div>
@@ -101,7 +120,7 @@ export function Settings() {
               onClick={() => chooseTheme(item.id)}
             >
               <span className="theme-swatch">
-                {SWATCH[item.id].map((fill) => <i key={fill} style={{ background: fill }} />)}
+                {SWATCH[model.language ?? 'en'][item.id].map((fill) => <i key={fill} style={{ background: fill }} />)}
               </span>
               <span className="theme-name">{item.title}</span>
               <span className="theme-note">{item.note}</span>
@@ -228,8 +247,9 @@ export function Settings() {
         </div>
         {message && <p className="settings-note">{message}</p>}
         <p className="settings-note">
-          Safari может очистить данные сайтов, которыми давно не пользовались, поэтому копию стоит
-          сохранять время от времени.
+          Копия относится к текущему языку ({model.currentLanguage.title.toLowerCase()}): у второго языка
+          свой прогресс и своя копия. Safari может очистить данные сайтов, которыми давно не пользовались,
+          поэтому копию стоит сохранять время от времени.
         </p>
 
         <div className="settings-group">

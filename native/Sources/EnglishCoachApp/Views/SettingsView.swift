@@ -9,6 +9,9 @@ struct SettingsView: View {
         VStack(spacing: 0) {
             HStack { Button { model.screen = .map } label: { Label("Назад", systemImage: "chevron.left") }; Spacer(); Text("Настройки").font(.title2.bold()); Spacer() }.padding(20)
             Form {
+                LabeledContent("Язык") {
+                    Button(model.currentLanguage.title) { model.screen = .language }
+                }
                 Section("Оформление") {
                     // Swatches rather than names: the choice is made by eye.
                     HStack(spacing: 10) {
@@ -47,7 +50,7 @@ struct SettingsView: View {
     }
 
     private func themeCard(_ id: ThemeID) -> some View {
-        let palette = ThemePalette.of(id)
+        let palette = ThemePalette.of(id, language: model.language ?? .default)
         let chosen = model.themeID == id
         return Button { model.selectTheme(id) } label: {
             VStack(alignment: .leading, spacing: 6) {
@@ -76,7 +79,7 @@ struct SettingsView: View {
         model.updateReminder(enabled: enabled, hour: hour)
         if enabled {
             Task {
-                do { try await NotificationService.requestAndSchedule(hour: hour, minute: 0); reminderError = nil }
+                do { try await NotificationService.requestAndSchedule(hour: hour, minute: 0, language: model.currentLanguage); reminderError = nil }
                 catch { reminderError = "macOS не разрешила создать напоминание." }
             }
         } else {

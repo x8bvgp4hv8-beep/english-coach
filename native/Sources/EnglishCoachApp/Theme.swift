@@ -1,4 +1,5 @@
 import SwiftUI
+import EnglishCoachCore
 
 /// The live palette. Views read these names, `ThemePalette` supplies the values, and
 /// `AppModel.selectTheme` swaps the whole set. Nothing here is `let`: that is the point.
@@ -8,7 +9,11 @@ import SwiftUI
 enum CoachTheme {
     static private(set) var palette: ThemePalette = .minimal
 
-    static func use(_ id: ThemeID) { palette = ThemePalette.of(id) }
+    /// Theme and language are two axes of the same palette: the theme decides how the
+    /// app is built, the language decides what colour it is built in.
+    static func use(_ id: ThemeID, language: LanguageCode = .default) {
+        palette = ThemePalette.of(id, language: language)
+    }
 
     static var ink: Color { palette.ink }
     static var inkSoft: Color { palette.inkSoft }

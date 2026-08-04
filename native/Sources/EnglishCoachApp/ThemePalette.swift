@@ -1,4 +1,5 @@
 import SwiftUI
+import EnglishCoachCore
 
 /// The three looks, mirrored from `web/src/styles.css`.
 ///
@@ -28,36 +29,36 @@ enum ThemeID: String, CaseIterable, Identifiable, Sendable {
 }
 
 struct ThemePalette: Sendable {
-    let id: ThemeID
-    let ink: Color
-    let inkSoft: Color
-    let accent: Color
-    let accentSoft: Color
-    let accentFg: Color
-    let violet: Color
-    let blue: Color
-    let amber: Color
-    let mint: Color
-    let coral: Color
-    let coralInk: Color
+    var id: ThemeID
+    var ink: Color
+    var inkSoft: Color
+    var accent: Color
+    var accentSoft: Color
+    var accentFg: Color
+    var violet: Color
+    var blue: Color
+    var amber: Color
+    var mint: Color
+    var coral: Color
+    var coralInk: Color
     /// Raised bars (header, player bar) and the card fill beneath the content.
-    let surface: Color
-    let cardFill: Color
-    let hairline: Color
-    let track: Color
-    let rowHover: Color
-    let backgroundColors: [Color]
+    var surface: Color
+    var cardFill: Color
+    var hairline: Color
+    var track: Color
+    var rowHover: Color
+    var backgroundColors: [Color]
     /// The main action: a flat fill in the physical themes, a gradient at night.
-    let buttonFill: [Color]
-    let radius: CGFloat
-    let borderWidth: CGFloat
-    let borderColor: Color
-    let cardShadowColor: Color
-    let cardShadowRadius: CGFloat
-    let cardShadowY: CGFloat
+    var buttonFill: [Color]
+    var radius: CGFloat
+    var borderWidth: CGFloat
+    var borderColor: Color
+    var cardShadowColor: Color
+    var cardShadowRadius: CGFloat
+    var cardShadowY: CGFloat
     /// How far a pressed button travels: the cartoon one sinks, the flat ones settle.
-    let pressY: CGFloat
-    let colorScheme: ColorScheme
+    var pressY: CGFloat
+    var colorScheme: ColorScheme
 
     var background: LinearGradient {
         LinearGradient(colors: backgroundColors, startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -157,5 +158,42 @@ struct ThemePalette: Sendable {
         case .minimal: minimal
         case .night: night
         }
+    }
+
+    static func of(_ id: ThemeID, language: LanguageCode) -> ThemePalette {
+        of(id).tinted(for: language)
+    }
+
+    /// The language accent, mirrored from `web/src/styles.css`.
+    ///
+    /// The theme decides how the app is built, the language decides what colour it is
+    /// built in, so the two are separate axes and every combination has to work. English
+    /// keeps the indigo the app was born in; Spanish takes terracotta and saffron.
+    func tinted(for language: LanguageCode) -> ThemePalette {
+        guard language == .es else { return self }
+        var p = self
+        p.violet = Color(red: 0.831, green: 0.384, blue: 0.235)
+        p.coral = Color(red: 0.851, green: 0.310, blue: 0.239)
+        switch id {
+        case .minimal:
+            p.accent = Color(red: 0.722, green: 0.282, blue: 0.165)
+            p.accentSoft = Color(red: 0.722, green: 0.282, blue: 0.165).opacity(0.09)
+            p.buttonFill = [Color(red: 0.722, green: 0.282, blue: 0.165)]
+            p.amber = Color(red: 0.827, green: 0.545, blue: 0.110)
+        case .cartoon:
+            p.accent = Color(red: 0.824, green: 0.263, blue: 0.122)
+            p.accentSoft = Color(red: 0.824, green: 0.263, blue: 0.122).opacity(0.16)
+            p.buttonFill = [Color(red: 0.824, green: 0.263, blue: 0.122)]
+            p.violet = Color(red: 0.788, green: 0.333, blue: 0.184)
+            p.backgroundColors = [Color(red: 0.992, green: 0.945, blue: 0.886), Color(red: 0.973, green: 0.902, blue: 0.831)]
+        case .night:
+            p.accent = Color(red: 0.941, green: 0.537, blue: 0.290)
+            p.accentSoft = Color(red: 0.941, green: 0.537, blue: 0.290).opacity(0.26)
+            p.buttonFill = [Color(red: 0.886, green: 0.376, blue: 0.227), Color(red: 0.961, green: 0.694, blue: 0.235)]
+            p.violet = Color(red: 1.0, green: 0.616, blue: 0.388)
+            p.inkSoft = Color(red: 0.769, green: 0.604, blue: 0.573)
+            p.backgroundColors = [Color(red: 0.290, green: 0.122, blue: 0.133), Color(red: 0.094, green: 0.051, blue: 0.086)]
+        }
+        return p
     }
 }

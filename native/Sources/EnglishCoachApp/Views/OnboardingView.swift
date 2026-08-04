@@ -41,7 +41,10 @@ struct OnboardingView: View {
 
     private var intro: some View {
         VStack(spacing: 22) {
-            heading("Привет! Давай настроим уровень", "Пройди короткий тест — и мы подберём стартовый уровень. Или выбери его сам.")
+            heading(
+                "\(model.currentLanguage.greeting) Давай настроим уровень",
+                "Курс: \(model.currentLanguage.title.lowercased()). Короткий тест подберёт стартовый уровень — или выбери его сам."
+            )
             VStack(spacing: 12) {
                 if model.hasPlacementTest {
                     Button {
@@ -51,6 +54,10 @@ struct OnboardingView: View {
                 }
                 Button("Выбрать уровень вручную") { withAnimation(.snappy) { stage = .level } }
                     .buttonStyle(.bordered).frame(maxWidth: 340)
+                // The picker stays one click away: a language chosen by mistake must not
+                // cost an onboarding to undo.
+                Button("Другой язык") { model.screen = .language }
+                    .buttonStyle(.plain).foregroundStyle(CoachTheme.inkSoft)
             }
         }
     }

@@ -31,30 +31,62 @@ public enum ContentRepository {
         return course
     }
 
-    public static func loadBundled() throws -> [CoursePack] {
-        let bundleName = "EnglishCoach_EnglishCoachCore.bundle"
+    // MARK: - Finding the files
+    //
+    // Every content file is named `<language>-<what>.json`, and that prefix is what makes
+    // the lookup work at all: SwiftPM flattens `Resources/Languages/en/…` into the bundle
+    // root, so an `a1.json` per language would collide there. The prefix also survives a
+    // build that keeps the folders, which is why the search below walks the tree instead
+    // of listing one directory.
+
+    private static let bundleName = "EnglishCoach_EnglishCoachCore.bundle"
+
+    /// The resource bundle: inside the built .app it sits next to the binary, in tests it
+    /// is the package's own module bundle.
+    static func contentBundle() -> Bundle {
         let candidates = [
             Bundle.main.resourceURL?.appendingPathComponent(bundleName),
             Bundle.main.bundleURL.appendingPathComponent(bundleName)
         ].compactMap { $0 }
         if let url = candidates.first(where: { FileManager.default.fileExists(atPath: $0.path) }),
            let appBundle = Bundle(url: url) {
-            return try loadBundled(bundle: appBundle)
+            return appBundle
         }
-        return try loadBundled(bundle: .module)
+        return .module
     }
 
-    public static func loadBundled(bundle: Bundle) throws -> [CoursePack] {
-        let root: URL? = bundle.bundleURL
-        let direct = root.flatMap { try? FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil) } ?? []
-        let nested = root.map { $0.appendingPathComponent("Courses") }
-            .flatMap { try? FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil) } ?? []
-        // If the bundler flattens the folders, the placement bank and the syllabus land
-        // next to the courses; neither is a course pack.
-        let notCourses = ["placement", "syllabus"]
-        let urls = (direct + nested).filter { url in
-            url.pathExtension == "json" && !notCourses.contains { url.lastPathComponent.contains($0) }
+    /// Every JSON file in the bundle, however deeply the build chose to nest it.
+    static func jsonFiles(in bundle: Bundle) -> [URL] {
+        let root = bundle.bundleURL
+        guard let walker = FileManager.default.enumerator(at: root, includingPropertiesForKeys: nil) else { return [] }
+        return walker.compactMap { $0 as? URL }.filter { $0.pathExtension == "json" }
+    }
+
+    private static func files(for language: LanguageCode, in bundle: Bundle) -> [URL] {
+        jsonFiles(in: bundle).filter { $0.lastPathComponent.hasPrefix("\(language.rawValue)-") }
+    }
+
+    /// Which languages actually shipped, so the picker never offers an empty course.
+    public static func availableLanguages(bundle: Bundle? = nil) -> [LanguageCode] {
+        let bundle = bundle ?? contentBundle()
+        let names = Set(jsonFiles(in: bundle).map(\.lastPathComponent))
+        return LanguageCode.allCases.filter { code in
+            names.contains { $0.hasPrefix("\(code.rawValue)-") && $0.contains("syllabus") }
         }
+    }
+
+    // MARK: - Course packs
+
+    public static func loadBundled(_ language: LanguageCode = .default) throws -> [CoursePack] {
+        try loadBundled(language, bundle: contentBundle())
+    }
+
+    public static func loadBundled(_ language: LanguageCode = .default, bundle: Bundle) throws -> [CoursePack] {
+        let notCourses = ["placement", "syllabus"]
+        let urls = files(for: language, in: bundle).filter { url in
+            !notCourses.contains { url.lastPathComponent.contains($0) }
+        }
+        guard !urls.isEmpty else { throw ContentError.emptyCourse }
         return try urls.sorted { $0.lastPathComponent < $1.lastPathComponent }
             .map { try decode(Data(contentsOf: $0)) }
     }
@@ -73,17 +105,15 @@ public enum ContentRepository {
         return bank
     }
 
-    public static func loadPlacement() throws -> PlacementBank {
-        let bundleName = "EnglishCoach_EnglishCoachCore.bundle"
-        let candidates = [
-            Bundle.main.resourceURL?.appendingPathComponent(bundleName),
-            Bundle.main.bundleURL.appendingPathComponent(bundleName)
-        ].compactMap { $0 }
-        if let url = candidates.first(where: { FileManager.default.fileExists(atPath: $0.path) }),
-           let appBundle = Bundle(url: url) {
-            return try loadPlacement(bundle: appBundle)
+    public static func loadPlacement(_ language: LanguageCode = .default) throws -> PlacementBank {
+        try loadPlacement(language, bundle: contentBundle())
+    }
+
+    public static func loadPlacement(_ language: LanguageCode = .default, bundle: Bundle) throws -> PlacementBank {
+        guard let file = files(for: language, in: bundle).first(where: { $0.lastPathComponent.contains("placement") }) else {
+            throw ContentError.emptyCourse
         }
-        return try loadPlacement(bundle: .module)
+        return try decodePlacement(Data(contentsOf: file))
     }
 
     // MARK: - Syllabus
@@ -100,41 +130,14 @@ public enum ContentRepository {
         return syllabus
     }
 
-    public static func loadSyllabus() throws -> Syllabus {
-        let bundleName = "EnglishCoach_EnglishCoachCore.bundle"
-        let candidates = [
-            Bundle.main.resourceURL?.appendingPathComponent(bundleName),
-            Bundle.main.bundleURL.appendingPathComponent(bundleName)
-        ].compactMap { $0 }
-        if let url = candidates.first(where: { FileManager.default.fileExists(atPath: $0.path) }),
-           let appBundle = Bundle(url: url) {
-            return try loadSyllabus(bundle: appBundle)
-        }
-        return try loadSyllabus(bundle: .module)
+    public static func loadSyllabus(_ language: LanguageCode = .default) throws -> Syllabus {
+        try loadSyllabus(language, bundle: contentBundle())
     }
 
-    public static func loadSyllabus(bundle: Bundle) throws -> Syllabus {
-        let root = bundle.bundleURL
-        // Same as the placement bank: the file may keep its folder or be flattened.
-        for dir in [root.appendingPathComponent("Syllabus"), root] {
-            let urls = (try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil)) ?? []
-            if let file = urls.first(where: { $0.lastPathComponent.contains("syllabus") && $0.pathExtension == "json" }) {
-                return try decodeSyllabus(Data(contentsOf: file))
-            }
+    public static func loadSyllabus(_ language: LanguageCode = .default, bundle: Bundle) throws -> Syllabus {
+        guard let file = files(for: language, in: bundle).first(where: { $0.lastPathComponent.contains("syllabus") }) else {
+            throw ContentError.emptyCourse
         }
-        throw ContentError.emptyCourse
-    }
-
-    public static func loadPlacement(bundle: Bundle) throws -> PlacementBank {
-        let root = bundle.bundleURL
-        // The file may land in a Placement/ subfolder or (if the bundler flattens) at the root.
-        let places = [root.appendingPathComponent("Placement"), root]
-        for dir in places {
-            let urls = (try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil)) ?? []
-            if let file = urls.first(where: { $0.lastPathComponent.contains("placement") && $0.pathExtension == "json" }) {
-                return try decodePlacement(Data(contentsOf: file))
-            }
-        }
-        throw ContentError.emptyCourse
+        return try decodeSyllabus(Data(contentsOf: file))
     }
 }

@@ -127,7 +127,12 @@ function Header({ model }: { model: AppStore }) {
     <header className="header">
       <div className="header-top">
         <div>
-          <div className="brand-kicker">ENGLISH COACH</div>
+          {/* The language is the first thing on screen and one tap from being changed. */}
+          <button className="lang-chip" onClick={() => model.openLanguages()}>
+            <span className="lang-chip-code">{model.currentLanguage.short}</span>
+            {model.currentLanguage.title}
+            <span className="lang-chip-caret">⌄</span>
+          </button>
           <h1 className="brand-title">Твой маршрут</h1>
         </div>
         <div className="header-stats">

@@ -9,9 +9,13 @@ public struct ProgressStore: ProgressStoring, Sendable {
     public let url: URL
     public init(url: URL) { self.url = url }
 
-    public static var live: ProgressStore {
+    /// Each language keeps its own record: level, streak, points and spaced repetition are
+    /// about one language and would be nonsense pooled. English stays in the original
+    /// `state.json` so that adding Spanish does not cost anyone their English progress.
+    public static func live(_ language: LanguageCode = .default) -> ProgressStore {
         let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-        return ProgressStore(url: base.appendingPathComponent("EnglishCoach/state.json"))
+        let name = language == .default ? "state.json" : "state-\(language.rawValue).json"
+        return ProgressStore(url: base.appendingPathComponent("EnglishCoach/\(name)"))
     }
 
     public func load() throws -> UserState {

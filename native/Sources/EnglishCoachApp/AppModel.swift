@@ -5,7 +5,7 @@ import EnglishCoachCore
 @MainActor
 @Observable
 final class AppModel {
-    enum Screen { case map, catalog, settings, topics }
+    enum Screen { case map, catalog, settings, topics, language }
 
     private(set) var courses: [CoursePack]
     private(set) var placementBank: [PlacementQuestion]
@@ -15,7 +15,13 @@ final class AppModel {
     var screen: Screen = .map
     var startupError: String?
     var transientError: String?
-    private let store: any ProgressStoring
+    private var store: any ProgressStoring
+
+    /// `nil` until the learner has picked a language; that is what opens the picker.
+    /// Everything below it — courses, placement bank, syllabus, progress, voice — belongs
+    /// to one language and is swapped wholesale when it changes.
+    private(set) var language: LanguageCode?
+    private static let languageKey = "learning.language"
 
     // Placement test runtime state
     private(set) var placementActive = false
@@ -24,26 +30,63 @@ final class AppModel {
     private var placementAnswered: Set<String> = []
     private(set) var placementLastCorrect: Bool?
 
-    init(courses: [CoursePack], placementBank: [PlacementQuestion] = [], syllabus: Syllabus? = nil, state: UserState, store: any ProgressStoring) {
+    init(courses: [CoursePack], placementBank: [PlacementQuestion] = [], syllabus: Syllabus? = nil, state: UserState,
+         store: any ProgressStoring, language: LanguageCode? = nil) {
         self.courses = courses; self.placementBank = placementBank; self.syllabus = syllabus
-        self.state = state; self.store = store
-        self.session = LearningSession(state: state)
+        self.state = state; self.store = store; self.language = language
+        self.session = LearningSession(state: state, language: language ?? .default)
     }
 
     static func live() -> AppModel {
-        let store = ProgressStore.live
-        let model: AppModel
-        do {
-            let bank = (try? ContentRepository.loadPlacement())?.questions ?? []
-            model = AppModel(courses: try ContentRepository.loadBundled(), placementBank: bank,
-                             syllabus: try? ContentRepository.loadSyllabus(), state: try store.load(), store: store)
-        } catch {
-            model = AppModel(courses: [], state: .fresh, store: store)
-            model.startupError = "Не удалось загрузить учебные материалы: \(error.localizedDescription)"
+        let stored = UserDefaults.standard.string(forKey: languageKey) ?? ""
+        let model = AppModel(courses: [], state: .fresh, store: ProgressStore.live())
+        if let language = LanguageCode(rawValue: stored) {
+            model.open(language)
         }
         // Before the first body runs, so the window never paints in the wrong theme.
         model.loadTheme()
         return model
+    }
+
+    /// Which languages actually shipped content, so the picker never offers an empty course.
+    var availableLanguages: [LearningLanguage] {
+        let shipped = Set(ContentRepository.availableLanguages())
+        let usable = Languages.all.filter { shipped.contains($0.code) }
+        return usable.isEmpty ? Languages.all : usable
+    }
+
+    var languageChosen: Bool { language != nil }
+    var currentLanguage: LearningLanguage { Languages.of(language ?? .default) }
+
+    /// Picking a language on the first screen, or switching to the other one later.
+    func selectLanguage(_ code: LanguageCode) {
+        guard code != language else { screen = .map; return }
+        UserDefaults.standard.set(code.rawValue, forKey: Self.languageKey)
+        // A switch must not leave a half-finished lesson from the other language on screen.
+        shadowingActive = false; shadowingItems = []
+        listeningActive = false; listeningItems = []
+        cancelPlacement()
+        screen = .map
+        open(code)
+        CoachTheme.use(themeID, language: code)
+    }
+
+    private func open(_ code: LanguageCode) {
+        language = code
+        startupError = nil
+        SpeechService.language = Languages.of(code)
+        let store = ProgressStore.live(code)
+        self.store = store
+        do {
+            courses = try ContentRepository.loadBundled(code)
+            placementBank = (try? ContentRepository.loadPlacement(code))?.questions ?? []
+            syllabus = try? ContentRepository.loadSyllabus(code)
+            state = (try? store.load()) ?? .fresh
+        } catch {
+            courses = []; placementBank = []; syllabus = nil; state = .fresh
+            startupError = "Не удалось загрузить учебные материалы: \(error.localizedDescription)"
+        }
+        session = LearningSession(state: state, language: code)
     }
 
     var isOnboarding: Bool { state.profile == nil }
@@ -81,7 +124,7 @@ final class AppModel {
     }
 
     func startLesson(_ lesson: Lesson, recordsCompletion: Bool = true) {
-        session = LearningSession(state: state)
+        session = LearningSession(state: state, language: language ?? .default)
         session.start(lesson, recordsCompletion: recordsCompletion)
         lessonStartedAt = .now
     }
@@ -96,7 +139,7 @@ final class AppModel {
         guard !exercises.isEmpty else { return }
         startLesson(PracticeEngine.lesson(exercises, title: kind.title), recordsCompletion: false)
     }
-    func closeLesson() { state = session.state; bankPracticeTime(); session = LearningSession(state: state); save() }
+    func closeLesson() { state = session.state; bankPracticeTime(); session = LearningSession(state: state, language: language ?? .default); save() }
 
     // MARK: - Theme
     //
@@ -109,12 +152,12 @@ final class AppModel {
     func loadTheme() {
         let stored = UserDefaults.standard.string(forKey: Self.themeKey) ?? ""
         themeID = ThemeID(rawValue: stored) ?? .minimal
-        CoachTheme.use(themeID)
+        CoachTheme.use(themeID, language: language ?? .default)
     }
 
     func selectTheme(_ id: ThemeID) {
         themeID = id
-        CoachTheme.use(id)
+        CoachTheme.use(id, language: language ?? .default)
         UserDefaults.standard.set(id.rawValue, forKey: Self.themeKey)
     }
 
@@ -343,7 +386,7 @@ final class AppModel {
         return count
     }
 
-    private func syncAndSave() { session = LearningSession(state: state); save() }
+    private func syncAndSave() { session = LearningSession(state: state, language: language ?? .default); save() }
     private func save() {
         do { try store.save(state); transientError = nil }
         catch { transientError = "Не удалось сохранить прогресс. Не закрывай приложение и попробуй ещё раз." }

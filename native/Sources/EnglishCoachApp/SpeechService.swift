@@ -1,4 +1,5 @@
 import AVFoundation
+import EnglishCoachCore
 
 @MainActor
 final class SpeechService {
@@ -7,10 +8,24 @@ final class SpeechService {
     /// Slow enough that the words come apart, fast enough to still be a sentence.
     static let slowRate: Float = 0.34
 
+    /// The app teaches one language at a time, so the voice is a single shared fact rather
+    /// than an argument every view has to pass down. `AppModel` sets it with the language.
+    static var language: LearningLanguage = Languages.of(.default)
+
+    /// The installed voice closest to the language, or none — in which case the system
+    /// reads it in the default voice. A Mac without a Spanish voice still speaks; it just
+    /// speaks badly, which is better than a silent button.
+    private static func voice() -> AVSpeechSynthesisVoice? {
+        for wanted in [language.speechLocale] + language.speechFallbacks {
+            if let match = AVSpeechSynthesisVoice(language: wanted) { return match }
+        }
+        return nil
+    }
+
     func speak(_ text: String, rate: Float = 0.47) {
         guard !text.isEmpty else { return }
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        utterance.voice = Self.voice()
         utterance.rate = rate
         synthesizer.stopSpeaking(at: .immediate)
         synthesizer.speak(utterance)

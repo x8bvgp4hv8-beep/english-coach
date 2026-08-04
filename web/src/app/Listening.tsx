@@ -103,7 +103,11 @@ export function Listening() {
                   : answer.trim() ? 'Не всё дошло' : 'Вот что там было'}
               </div>
               {feedback.verdict === 'typo' && feedback.typo && (
-                <div className="feedback-note">Правильно пишется «{feedback.typo}»</div>
+                <div className="feedback-note">
+                  {feedback.typo === feedback.canonical
+                    ? `Не хватает ударений: правильно «${feedback.typo}»`
+                    : `Правильно пишется «${feedback.typo}»`}
+                </div>
               )}
               {/* The sentence with the words that slipped past marked in it: seeing where
                   the ear gave out is the lesson, the score is not. */}

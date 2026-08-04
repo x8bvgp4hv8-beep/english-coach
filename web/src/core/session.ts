@@ -1,5 +1,7 @@
 import { check } from './answer'
 import { ReviewEngine } from './engines'
+import { DEFAULT_LANGUAGE } from './language'
+import type { LanguageCode } from './language'
 import type { AnswerResult, Exercise, Lesson, UserState } from './types'
 
 /**
@@ -18,7 +20,8 @@ export class LearningSession {
   /** Set when the current attempt created a fresh review item, so it can be undone. */
   private lastCreatedReviewID: string | null = null
 
-  constructor(state: UserState) {
+  /** Which language is being learnt: the checker judges Spanish by Spanish rules. */
+  constructor(state: UserState, readonly language: LanguageCode = DEFAULT_LANGUAGE) {
     this.state = state
   }
 
@@ -52,7 +55,7 @@ export class LearningSession {
     const exercise = this.currentExercise
     if (!exercise) return { isCorrect: false, verdict: 'wrong', canonical: '' }
     const learnerApproved = this.state.acceptedAnswers?.[exercise.id] ?? []
-    const result = check(answer, exercise.canonicalAnswer ?? '', [...(exercise.acceptedAnswers ?? []), ...learnerApproved])
+    const result = check(answer, exercise.canonicalAnswer ?? '', [...(exercise.acceptedAnswers ?? []), ...learnerApproved], this.language)
     this.lastAnswer = answer
     this.record(exercise, result, now)
     return result
@@ -61,7 +64,7 @@ export class LearningSession {
   submitChoice(choice: string, now: Date = new Date()): AnswerResult {
     const exercise = this.currentExercise
     if (!exercise) return { isCorrect: false, verdict: 'wrong', canonical: '' }
-    const result = check(choice, exercise.correctOption ?? '', [])
+    const result = check(choice, exercise.correctOption ?? '', [], this.language)
     this.lastAnswer = choice
     this.record(exercise, result, now)
     return result
@@ -75,7 +78,7 @@ export class LearningSession {
   submitHeard(answer: string, phrase: string, now: Date = new Date()): AnswerResult {
     const exercise = this.currentExercise
     if (!exercise) return { isCorrect: false, verdict: 'wrong', canonical: phrase }
-    const result = check(answer, phrase)
+    const result = check(answer, phrase, [], this.language)
     this.record(exercise, result, now)
     return result
   }

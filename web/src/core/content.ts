@@ -1,5 +1,7 @@
+import { DEFAULT_LANGUAGE } from './language'
 import { decodeSyllabus } from './syllabus'
 import { ContentError } from './types'
+import type { LanguageCode } from './language'
 import type { CoursePack, PlacementBank, Syllabus } from './types'
 
 /** Mirrors EnglishCoachCore/ContentRepository.swift: same validation, same failure modes. */
@@ -48,19 +50,24 @@ export function decodePlacement(raw: unknown): PlacementBank {
 }
 
 /**
- * Fetches the packs that `scripts/sync-content.mjs` copied into `content/`.
+ * Fetches one language's packs, which `scripts/sync-content.mjs` copied into
+ * `content/<code>/`.
  *
  * The path is relative on purpose. An absolute `/content` resolves against the domain
  * root, which is right on a bare host and wrong on GitHub Pages, where the app lives at
  * `/<repo>/` — there it asked the domain root and got a 404 with no lessons at all.
  */
-export async function loadContent(base = 'content'): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus }> {
-  const index = (await fetchJSON(`${base}/index.json`)) as { courses: string[] }
+export async function loadContent(
+  language: LanguageCode = DEFAULT_LANGUAGE,
+  base = 'content',
+): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus }> {
+  const root = `${base}/${language}`
+  const index = (await fetchJSON(`${root}/index.json`)) as { courses: string[] }
   const courses = await Promise.all(
-    [...index.courses].sort().map(async (file) => decodeCourse(await fetchJSON(`${base}/courses/${file}`))),
+    [...index.courses].sort().map(async (file) => decodeCourse(await fetchJSON(`${root}/courses/${file}`))),
   )
-  const placement = decodePlacement(await fetchJSON(`${base}/placement.json`))
-  const syllabus = decodeSyllabus(await fetchJSON(`${base}/syllabus.json`))
+  const placement = decodePlacement(await fetchJSON(`${root}/placement.json`))
+  const syllabus = decodeSyllabus(await fetchJSON(`${root}/syllabus.json`))
   return { courses, placement, syllabus }
 }
 

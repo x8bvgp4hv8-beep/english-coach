@@ -51,7 +51,20 @@ struct CourseMapView: View {
         VStack(spacing: 14) {
             HStack(alignment: .center, spacing: 10) {
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("ENGLISH COACH").font(.system(size: 10, weight: .black)).tracking(1.4).foregroundStyle(CoachTheme.accentColor.opacity(0.75))
+                    // The language is the first thing on screen and one click from being changed.
+                    Button { model.screen = .language } label: {
+                        HStack(spacing: 6) {
+                            Text(model.currentLanguage.short)
+                                .font(.system(size: 9, weight: .black)).tracking(0.6)
+                                .padding(.horizontal, 5).padding(.vertical, 2)
+                                .background(CoachTheme.accentSoft, in: RoundedRectangle(cornerRadius: 5, style: .continuous))
+                            Text(model.currentLanguage.title.uppercased())
+                                .font(.system(size: 10, weight: .black)).tracking(1.4)
+                            Image(systemName: "chevron.down").font(.system(size: 8, weight: .bold)).opacity(0.7)
+                        }
+                        .foregroundStyle(CoachTheme.accentColor.opacity(0.85))
+                    }
+                    .buttonStyle(.plain)
                     Text("Твой маршрут").font(.system(size: 21, weight: .black, design: .rounded))
                 }
                 Spacer(minLength: 8)

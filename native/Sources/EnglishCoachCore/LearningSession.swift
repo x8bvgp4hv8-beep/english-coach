@@ -11,7 +11,12 @@ public struct LearningSession: Sendable {
     /// Set when the current attempt created a fresh review item, so it can be undone.
     private var lastCreatedReviewID: String?
 
-    public init(state: UserState) { self.state = state }
+    /// Which language is being learnt: the checker judges Spanish by Spanish rules.
+    public let language: LanguageCode
+
+    public init(state: UserState, language: LanguageCode = .default) {
+        self.state = state; self.language = language
+    }
 
     public var currentExercise: Exercise? {
         guard let lesson = activeLesson, lesson.exercises.indices.contains(exerciseIndex) else { return nil }
@@ -35,7 +40,7 @@ public struct LearningSession: Sendable {
         guard let exercise = currentExercise else { return AnswerResult(isCorrect: false, verdict: .wrong, canonical: "") }
         let canonical = exercise.canonicalAnswer ?? ""
         let learnerApproved = state.acceptedAnswers?[exercise.id] ?? []
-        let result = AnswerChecker.check(answer, canonical: canonical, accepted: (exercise.acceptedAnswers ?? []) + learnerApproved)
+        let result = AnswerChecker.check(answer, canonical: canonical, accepted: (exercise.acceptedAnswers ?? []) + learnerApproved, language: language)
         lastAnswer = answer
         record(exercise: exercise, result: result, now: now)
         return result
@@ -45,7 +50,7 @@ public struct LearningSession: Sendable {
     public mutating func submitChoice(_ choice: String, now: Date = .now) -> AnswerResult {
         guard let exercise = currentExercise else { return AnswerResult(isCorrect: false, verdict: .wrong, canonical: "") }
         let canonical = exercise.correctOption ?? ""
-        let result = AnswerChecker.check(choice, canonical: canonical, accepted: [])
+        let result = AnswerChecker.check(choice, canonical: canonical, accepted: [], language: language)
         lastAnswer = choice
         record(exercise: exercise, result: result, now: now)
         return result
@@ -57,7 +62,7 @@ public struct LearningSession: Sendable {
     @discardableResult
     public mutating func submitHeard(_ answer: String, phrase: String, now: Date = .now) -> AnswerResult {
         guard let exercise = currentExercise else { return AnswerResult(isCorrect: false, verdict: .wrong, canonical: phrase) }
-        let result = AnswerChecker.check(answer, canonical: phrase, accepted: [])
+        let result = AnswerChecker.check(answer, canonical: phrase, accepted: [], language: language)
         record(exercise: exercise, result: result, now: now)
         return result
     }
