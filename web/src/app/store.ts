@@ -236,6 +236,18 @@ export class AppStore {
     this.persist()
   }
 
+  /**
+   * The web counterpart of AppModel.updateReminder. The chosen hour used to live in the
+   * settings screen's own state, so it was sent to the server and then forgotten: after
+   * a reload the app showed 19:00 while the server had 8:00, and the next tap overwrote
+   * the real choice with the one being displayed.
+   */
+  updateReminder(hour: number, enabled: boolean): void {
+    if (!this.state.profile) return
+    this.state.profile = { ...this.state.profile, reminderHour: hour, remindersEnabled: enabled }
+    this.persist()
+  }
+
   setScreen(screen: Screen): void { this.screen = screen; this.changed() }
 
   /** The picker can be opened from the map or from settings; back goes where it came from. */

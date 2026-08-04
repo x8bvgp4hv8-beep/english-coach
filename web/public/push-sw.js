@@ -13,18 +13,31 @@ self.addEventListener('push', (event) => {
     icon: './icons/icon-192.png',
     badge: './icons/icon-192.png',
     tag: 'daily-practice',
+    // The tag makes each day replace the day before instead of piling up; without
+    // renotify that replacement is silent, so a reminder left unread in the shade
+    // would swallow every following one.
+    renotify: true,
     data: { url: payload.url },
   }))
 })
 
 self.addEventListener('notificationclick', (event) => {
   event.notification.close()
-  const target = event.notification.data?.url ?? './'
+  // The address arrives from the server, so it is not allowed outside our own scope:
+  // the app lives in a subfolder, and a bare '/' would land on someone else's root.
+  const scope = self.registration.scope
+  let target = scope
+  try {
+    const asked = new URL(event.notification.data?.url ?? './', scope).href
+    if (asked.startsWith(scope)) target = asked
+  } catch {
+    // Keep the scope root.
+  }
   event.waitUntil((async () => {
     const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true })
     // Reuse the open app instead of stacking another copy of it.
     for (const client of clients) {
-      if ('focus' in client) return client.focus()
+      if (client.url.startsWith(scope) && 'focus' in client) return client.focus()
     }
     return self.clients.openWindow(target)
   })())

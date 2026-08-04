@@ -33,7 +33,7 @@ export function Settings() {
   const [message, setMessage] = useState<string | null>(null)
   const [theme, setTheme] = useState(loadTheme)
   const [push, setPush] = useState<PushState | null>(null)
-  const [reminderHour, setReminderHour] = useState(model.state.profile?.reminderHour ?? 19)
+  const reminderHour = model.state.profile?.reminderHour ?? 19
   const [updateNote, setUpdateNote] = useState<string | null>(null)
 
   /** The manual escape hatch: the app checks on every foreground, but this says so out loud. */
@@ -190,10 +190,11 @@ export function Settings() {
                 : push === 'denied' ? 'запрещено браузером'
                 : push === 'needs-install' ? 'нужен ярлык на экране «Домой»'
                 : push === 'unconfigured' ? 'сервер не подключён'
+                : push === 'failed' ? 'сервер не принял — попробуй ещё раз'
                 : push === null ? '…' : 'не поддерживается'}
             </span>
           </div>
-          {(push === 'ready' || push === 'off') && (
+          {(push === 'ready' || push === 'off' || push === 'failed') && (
             <>
               <div className="settings-row">
                 <span className="label">Час</span>
@@ -204,8 +205,8 @@ export function Settings() {
                       className={`pill${hour === reminderHour ? ' selected' : ''}`}
                       style={{ minWidth: 44, minHeight: 36 }}
                       onClick={async () => {
-                        setReminderHour(hour)
-                        if (push === 'ready') setPush(await enablePush(hour))
+                        model.updateReminder(hour, push === 'ready')
+                        if (push === 'ready') setPush(await enablePush(hour, model.language ?? 'en'))
                       }}
                     >
                       {hour}
@@ -215,7 +216,14 @@ export function Settings() {
               </div>
               <button
                 className="settings-row"
-                onClick={async () => setPush(push === 'ready' ? await disablePush() : await enablePush(reminderHour))}
+                onClick={async () => {
+                  const next = push === 'ready'
+                    ? await disablePush()
+                    : await enablePush(reminderHour, model.language ?? 'en')
+                  // The switch follows what the server actually accepted, not the tap.
+                  model.updateReminder(reminderHour, next === 'ready')
+                  setPush(next)
+                }}
               >
                 <span className="label">{push === 'ready' ? 'Выключить напоминание' : 'Включить напоминание'}</span>
                 <span className="value">›</span>
@@ -227,6 +235,12 @@ export function Settings() {
           <p className="settings-note">
             На iPhone уведомления работают только у приложения с экрана «Домой»: открой сайт в Safari,
             «Поделиться» → «На экран „Домой“», и запусти с иконки.
+          </p>
+        )}
+        {push === 'failed' && (
+          <p className="settings-note">
+            Браузер подписался, а сервер напоминаний не ответил. Уведомления не придут, пока
+            это не получится — нажми «Включить напоминание» ещё раз.
           </p>
         )}
         {push === 'denied' && (

@@ -11,6 +11,15 @@ compatibility_date = "2026-01-01"
 [triggers]
 crons = ["0 * * * *"]
 
+# Ничего из этого не секрет: публичный ключ и так уходит в браузер, адреса публичны.
+# Секретом остаётся ровно один VAPID_PRIVATE_KEY — он кладётся отдельной командой и
+# в репозиторий не попадает.
+[vars]
+ALLOWED_ORIGINS = "https://x8bvgp4hv8-beep.github.io"
+APP_URL = "https://x8bvgp4hv8-beep.github.io/english-coach/"
+VAPID_SUBJECT = "mailto:macjlo.samarin@gmail.com"
+VAPID_PUBLIC_KEY = "BDSGV7GzYFi8Rxvkg0Zzzt4PNPt1HWn9sBn_wOCLQ_nUXeFXpzP0BHAcEY9BJyj0OW7zW9UwW7NOJ1t9nCaG0z0"
+
 [[kv_namespaces]]
 binding = "SUBSCRIPTIONS"
 id = "ЗАПОЛНИТСЯ_КОМАНДОЙ_ИЗ_README"

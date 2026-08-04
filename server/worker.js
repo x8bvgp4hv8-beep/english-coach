@@ -10,12 +10,29 @@
  * push service says the browser is gone.
  */
 
-const LINES = [
-  'Десять минут английского — и день засчитан.',
-  'Повторения ждут: то, что забывается, возвращается сегодня.',
-  'Пара фраз вслух — это больше, чем ноль.',
-  'Займёмся? Урок короче, чем очередь за кофе.',
-]
+// The app teaches two languages with separate progress, so a reminder that names the
+// wrong one is a lie the learner cannot correct from the interface.
+const LINES = {
+  en: [
+    'Десять минут английского — и день засчитан.',
+    'Повторения ждут: то, что забывается, возвращается сегодня.',
+    'Пара фраз вслух — это больше, чем ноль.',
+    'Займёмся? Урок короче, чем очередь за кофе.',
+  ],
+  es: [
+    'Десять минут испанского — и день засчитан.',
+    'Повторения ждут: то, что забывается, возвращается сегодня.',
+    'Пара фраз вслух — это больше, чем ноль.',
+    '¿Empezamos? Урок короче, чем очередь за кофе.',
+  ],
+}
+
+/**
+ * A subscription must point at a real push service. Without this the worker is a free
+ * scheduler: anyone who learns the address can register any URL and have Cloudflare
+ * call it daily, signed with a valid VAPID token.
+ */
+const PUSH_HOSTS = /(^|\.)(push\.apple\.com|googleapis\.com|push\.services\.mozilla\.com|notify\.windows\.com)$/
 
 export default {
   async fetch(request, env) {
@@ -34,12 +51,17 @@ export default {
     if (request.method === 'POST') {
       const body = await request.json().catch(() => null)
       if (!body?.subscription?.endpoint) return json({ error: 'subscription' }, 400, cors)
+      if (!isPushEndpoint(body.subscription.endpoint)) return json({ error: 'endpoint' }, 400, cors)
+      if (typeof body.subscription.keys?.p256dh !== 'string' || typeof body.subscription.keys?.auth !== 'string') {
+        return json({ error: 'keys' }, 400, cors)
+      }
       // The hour is the learner's local one; the worker runs hourly and matches it.
       const hour = Number.isInteger(body.hour) ? Math.min(23, Math.max(0, body.hour)) : 19
-      await env.SUBSCRIPTIONS.put(key(body.subscription.endpoint), JSON.stringify({
+      await env.SUBSCRIPTIONS.put(await key(body.subscription.endpoint), JSON.stringify({
         subscription: body.subscription,
         hour,
         offsetMinutes: Number.isInteger(body.offsetMinutes) ? body.offsetMinutes : 0,
+        language: body.language === 'es' ? 'es' : 'en',
       }))
       return json({ ok: true }, 200, cors)
     }
@@ -47,7 +69,7 @@ export default {
     if (request.method === 'DELETE') {
       const body = await request.json().catch(() => null)
       if (!body?.endpoint) return json({ error: 'endpoint' }, 400, cors)
-      await env.SUBSCRIPTIONS.delete(key(body.endpoint))
+      await env.SUBSCRIPTIONS.delete(await key(body.endpoint))
       return json({ ok: true }, 200, cors)
     }
 
@@ -60,30 +82,69 @@ export default {
 }
 
 const allowed = (origin, env) => Boolean(origin) && (env.ALLOWED_ORIGINS ?? '').split(',').includes(origin)
-const key = (endpoint) => `sub:${endpoint}`
+
+function isPushEndpoint(endpoint) {
+  try {
+    const url = new URL(endpoint)
+    return url.protocol === 'https:' && PUSH_HOSTS.test(url.hostname)
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Keyed by a digest rather than by the endpoint itself: a KV key is capped at 512 bytes
+ * and Apple hands out long addresses. The endpoint is not lost — it lives inside the
+ * stored record.
+ */
+async function key(endpoint) {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(endpoint))
+  return `sub:${b64url(new Uint8Array(digest))}`
+}
 const json = (body, status, headers) =>
   new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json', ...headers } })
 
 async function sendDue(env, now) {
   const list = await env.SUBSCRIPTIONS.list({ prefix: 'sub:' })
-  const line = LINES[Math.floor(now.getTime() / 86_400_000) % LINES.length]
+  const day = Math.floor(now.getTime() / 86_400_000)
 
   for (const entry of list.keys) {
-    const raw = await env.SUBSCRIPTIONS.get(entry.name)
-    if (!raw) continue
-    const record = JSON.parse(raw)
-    // The learner picked an hour in their own timezone, so the worker shifts UTC by the
-    // offset the browser reported instead of guessing.
-    const local = new Date(now.getTime() - (record.offsetMinutes ?? 0) * 60_000)
-    if (local.getUTCHours() !== record.hour) continue
+    // One broken record used to end the whole run: everyone after it was skipped, and
+    // the cron does not come back until the next hour. Each subscriber stands alone.
+    try {
+      const raw = await env.SUBSCRIPTIONS.get(entry.name)
+      if (!raw) continue
+      const record = JSON.parse(raw)
+      // The learner picked an hour in their own timezone, so the worker shifts UTC by the
+      // offset the browser reported instead of guessing.
+      const local = new Date(now.getTime() - (record.offsetMinutes ?? 0) * 60_000)
+      if (local.getUTCHours() !== record.hour) continue
 
-    const status = await push(record.subscription, {
-      title: 'English Coach',
-      body: line,
-      url: env.APP_URL ?? '/',
-    }, env)
-    // 404 and 410 mean the browser threw the subscription away; keeping it is spam.
-    if (status === 404 || status === 410) await env.SUBSCRIPTIONS.delete(entry.name)
+      if (!record.subscription?.keys?.p256dh || !record.subscription?.keys?.auth) {
+        console.error(`push ${entry.name}: подписка без ключей, удаляю`)
+        await env.SUBSCRIPTIONS.delete(entry.name)
+        continue
+      }
+
+      const lines = LINES[record.language === 'es' ? 'es' : 'en']
+      const { status, detail } = await push(record.subscription, {
+        title: 'English Coach',
+        body: lines[day % lines.length],
+        url: env.APP_URL ?? '/',
+      }, env)
+
+      // 404 and 410 mean the browser threw the subscription away; keeping it is spam.
+      if (status === 404 || status === 410) {
+        await env.SUBSCRIPTIONS.delete(entry.name)
+      } else if (status < 200 || status >= 300) {
+        // Everything else has to be said out loud. A VAPID pair that does not match the
+        // key baked into the client answers 403 to every attempt, and without this line
+        // that failure is invisible: the learner sees "включено" and nothing ever comes.
+        console.error(`push ${entry.name}: ${status} ${detail}`)
+      }
+    } catch (error) {
+      console.error(`push ${entry.name}: исключение`, error)
+    }
   }
 }
 
@@ -104,7 +165,7 @@ async function push(subscription, payload, env) {
     },
     body,
   })
-  return response.status
+  return { status: response.status, detail: response.ok ? '' : (await response.text().catch(() => '')).slice(0, 200) }
 }
 
 /** Signed proof that the push came from this application, per VAPID. */
