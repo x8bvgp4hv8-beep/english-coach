@@ -42,7 +42,7 @@ struct LanguagePickerView: View {
                         }
                     }
 
-                    Text("Прогресс у языков раздельный: занятия по испанскому не сбивают английский стрик и наоборот.")
+                    Text("Прогресс у языков раздельный: занятия по испанскому не сбивают английский стрик и наоборот. Начатый курс ждёт на своей карточке — выбор языка ничего не сбрасывает.")
                         .font(.caption).foregroundStyle(CoachTheme.inkSoft)
                         .multilineTextAlignment(.center).frame(maxWidth: 420)
                 }
@@ -54,6 +54,7 @@ struct LanguagePickerView: View {
     private func card(_ language: LearningLanguage) -> some View {
         let tint = Self.tint(language.code)
         let current = model.language == language.code
+        let started = Self.startedAt(language.code)
         return Button { model.selectLanguage(language.code) } label: {
             VStack(alignment: .leading, spacing: 2) {
                 Text(language.short)
@@ -64,8 +65,11 @@ struct LanguagePickerView: View {
                 Text(language.greeting).font(.title.bold()).foregroundStyle(tint).padding(.top, 10)
                 Text(language.title).font(.headline).padding(.top, 6)
                 Text(language.nativeTitle).font(.caption).foregroundStyle(CoachTheme.inkSoft)
-                Text(language.note).font(.caption).foregroundStyle(CoachTheme.inkSoft).padding(.top, 8)
-                Text(current ? "СЕЙЧАС ЗДЕСЬ" : "НАЧАТЬ")
+                // A course already begun says so with its own numbers: on the very first
+                // screen after an update, that is the answer to "а где мой прогресс".
+                Text(started.map { "Уровень \($0.level.rawValue) · \($0.points) ✦" } ?? language.note)
+                    .font(.caption).foregroundStyle(CoachTheme.inkSoft).padding(.top, 8)
+                Text(current ? "СЕЙЧАС ЗДЕСЬ" : started != nil ? "ПРОДОЛЖИТЬ" : "НАЧАТЬ")
                     .font(.caption2.weight(.black)).kerning(0.6).foregroundStyle(tint).padding(.top, 10)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -77,6 +81,12 @@ struct LanguagePickerView: View {
             )
         }
         .buttonStyle(.plain)
+    }
+
+    /// What is already saved for a language, or nil when it has never been opened.
+    private static func startedAt(_ code: LanguageCode) -> (level: CEFRLevel, points: Int)? {
+        guard let state = try? ProgressStore.live(code).load(), let profile = state.profile else { return nil }
+        return (profile.selectedLevel, state.points)
     }
 
     /// Fixed, not themed: each card wears its own language's colour whichever one is active.

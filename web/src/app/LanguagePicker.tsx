@@ -1,5 +1,5 @@
 import { useStore } from './App'
-import { LANGUAGES, storageKey } from '../core'
+import { LANGUAGES, localProgressStore } from '../core'
 import type { LanguageCode, LearningLanguage } from '../core'
 
 /**
@@ -39,7 +39,7 @@ export function LanguagePicker({ onBack }: { onBack?: () => void }) {
               key={language.code}
               language={language}
               current={model.language === language.code}
-              started={hasProgress(language.code)}
+              started={startedAt(language.code)}
               onChoose={() => model.selectLanguage(language.code)}
             />
           ))}
@@ -47,6 +47,7 @@ export function LanguagePicker({ onBack }: { onBack?: () => void }) {
 
         <p className="settings-note" style={{ textAlign: 'center' }}>
           Прогресс у языков раздельный: занятия по испанскому не сбивают английский стрик и наоборот.
+          Начатый курс ждёт на своей карточке — выбор языка ничего не сбрасывает.
         </p>
       </div>
     </>
@@ -54,7 +55,7 @@ export function LanguagePicker({ onBack }: { onBack?: () => void }) {
 }
 
 function LanguageCard({ language, current, started, onChoose }: {
-  language: LearningLanguage; current: boolean; started: boolean; onChoose: () => void
+  language: LearningLanguage; current: boolean; started: Started | null; onChoose: () => void
 }) {
   return (
     <button className={`lang-card ${language.code}${current ? ' current' : ''}`} onClick={onChoose}>
@@ -62,17 +63,24 @@ function LanguageCard({ language, current, started, onChoose }: {
       <span className="lang-greeting" lang={language.speechLocale}>{language.greeting}</span>
       <span className="lang-name">{language.title}</span>
       <span className="lang-native">{language.nativeTitle}</span>
-      <span className="lang-note">{language.note}</span>
-      <span className="lang-state">{current ? 'сейчас здесь' : started ? 'есть прогресс' : 'начать'}</span>
+      {/* A course already begun says so with its own numbers: on the very first screen
+          after an update, "продолжить · B1 · 320 ✦" is the answer to "а где мой прогресс". */}
+      <span className="lang-note">
+        {started ? `Уровень ${started.level} · ${started.points} ✦` : language.note}
+      </span>
+      <span className="lang-state">{current ? 'сейчас здесь' : started ? 'продолжить' : 'начать'}</span>
     </button>
   )
 }
 
-/** Only to label the card: a language already begun should not look like a fresh start. */
-function hasProgress(language: LanguageCode): boolean {
-  try {
-    return localStorage.getItem(storageKey(language)) !== null
-  } catch {
-    return false
-  }
+interface Started {
+  level: string
+  points: number
+}
+
+/** What is already saved for a language, or null when it has never been opened. */
+function startedAt(language: LanguageCode): Started | null {
+  const state = localProgressStore(language).load()
+  if (!state.profile) return null
+  return { level: state.profile.selectedLevel, points: state.points }
 }
