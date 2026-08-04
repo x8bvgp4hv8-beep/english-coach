@@ -48,6 +48,9 @@ extension View {
 final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.activate(ignoringOtherApps: true)
+        // Without this the banner is dropped whenever the app is in front, and a working
+        // reminder looks broken to anyone testing it with the window open.
+        NotificationPresenter.shared.install()
     }
 
     /// Clicking the Dock icon after the window was closed brings the learning window back.

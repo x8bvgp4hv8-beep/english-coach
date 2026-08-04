@@ -90,6 +90,24 @@ final class AppModel {
             startupError = "Не удалось загрузить учебные материалы: \(error.localizedDescription)"
         }
         session = LearningSession(state: state, language: code)
+        syncReminder()
+    }
+
+    /// A pending notification does not survive a rebuild of the app, and its text names
+    /// the language — so it is re-armed at every launch and after every switch. If the
+    /// system would not deliver it, the profile stops claiming that it would.
+    private func syncReminder() {
+        guard let profile = state.profile, profile.remindersEnabled else { return }
+        let language = currentLanguage
+        Task { @MainActor in
+            let armed = await NotificationService.refresh(
+                hour: profile.reminderHour, minute: profile.reminderMinute, language: language
+            )
+            guard !armed, var current = state.profile, current.remindersEnabled else { return }
+            current.remindersEnabled = false
+            state.profile = current
+            save()
+        }
     }
 
     var isOnboarding: Bool { state.profile == nil }

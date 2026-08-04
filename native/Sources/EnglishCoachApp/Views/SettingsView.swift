@@ -5,6 +5,8 @@ struct SettingsView: View {
     @Environment(AppModel.self) private var model
     @State private var reminderError: String?
     @State private var showPlacement = false
+    /// What the system actually has queued. The stored flag is a wish; this is the fact.
+    @State private var reminderPending: String?
     var body: some View {
         VStack(spacing: 0) {
             HStack { Button { model.screen = .map } label: { Label("Назад", systemImage: "chevron.left") }; Spacer(); Text("Настройки").font(.title2.bold()); Spacer() }.padding(20)
@@ -39,6 +41,9 @@ struct SettingsView: View {
                     )) {
                         ForEach(8...22, id: \.self) { hour in Text(String(format: "%02d:00", hour)).tag(hour) }
                     }.disabled(!(model.state.profile?.remindersEnabled ?? false))
+                    LabeledContent("Запланировано") {
+                        Text(reminderPending ?? "ничего").foregroundStyle(.secondary)
+                    }
                     if let reminderError { Text(reminderError).font(.caption).foregroundStyle(.orange) }
                 }
                 LabeledContent("Всего очков") { Text("\(model.totalPoints)").foregroundStyle(.secondary) }
@@ -47,6 +52,7 @@ struct SettingsView: View {
         .sheet(isPresented: $showPlacement) {
             PlacementSheet { model.cancelPlacement(); showPlacement = false }.environment(model)
         }
+        .task { reminderPending = await NotificationService.pendingSummary() }
     }
 
     private func themeCard(_ id: ThemeID) -> some View {
@@ -77,13 +83,23 @@ struct SettingsView: View {
 
     private func updateReminder(enabled: Bool, hour: Int) {
         model.updateReminder(enabled: enabled, hour: hour)
-        if enabled {
-            Task {
-                do { try await NotificationService.requestAndSchedule(hour: hour, minute: 0, language: model.currentLanguage); reminderError = nil }
-                catch { reminderError = "macOS не разрешила создать напоминание." }
+        guard enabled else {
+            NotificationService.disable()
+            reminderError = nil
+            reminderPending = nil
+            return
+        }
+        Task {
+            do {
+                try await NotificationService.requestAndSchedule(hour: hour, minute: 0, language: model.currentLanguage)
+                reminderError = nil
+            } catch {
+                // A refusal used to be swallowed: the switch stayed on and nothing was
+                // ever scheduled. Now it goes back off, so "включено" keeps its meaning.
+                model.updateReminder(enabled: false, hour: hour)
+                reminderError = error.localizedDescription
             }
-        } else {
-            NotificationService.disable(); reminderError = nil
+            reminderPending = await NotificationService.pendingSummary()
         }
     }
 }
