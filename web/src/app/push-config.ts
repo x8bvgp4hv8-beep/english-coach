@@ -12,4 +12,4 @@
 export const PUSH_PUBLIC_KEY = 'BDSGV7GzYFi8Rxvkg0Zzzt4PNPt1HWn9sBn_wOCLQ_nUXeFXpzP0BHAcEY9BJyj0OW7zW9UwW7NOJ1t9nCaG0z0'
 
 /** Filled in after `npx wrangler deploy` prints the worker URL (see server/README.md). */
-export const PUSH_ENDPOINT = ''
+export const PUSH_ENDPOINT = 'https://english-coach-reminders.kristian333.workers.dev'
