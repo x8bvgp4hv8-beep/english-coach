@@ -34,6 +34,17 @@ export function Settings() {
   const [theme, setTheme] = useState(loadTheme)
   const [push, setPush] = useState<PushState | null>(null)
   const [reminderHour, setReminderHour] = useState(model.state.profile?.reminderHour ?? 19)
+  const [updateNote, setUpdateNote] = useState<string | null>(null)
+
+  /** The manual escape hatch: the app checks on every foreground, but this says so out loud. */
+  const checkForUpdate = async () => {
+    if (model.updateReady) { model.applyUpdateNow(); return }
+    setUpdateNote('проверяю…')
+    const registration = await navigator.serviceWorker?.getRegistration()
+    await registration?.update()
+    // A found update arrives through onNeedRefresh, which flips `updateReady`.
+    setTimeout(() => setUpdateNote(model.updateReady ? 'есть новая версия' : 'установлена последняя'), 1500)
+  }
 
   useEffect(() => { pushState().then(setPush) }, [])
   const fileInput = useRef<HTMLInputElement>(null)
@@ -257,6 +268,15 @@ export function Settings() {
             <span className="label">Всего очков</span>
             <span className="value">{model.totalPoints}</span>
           </div>
+          {/* So "какая у меня версия и почему старая" is one look, not an investigation. */}
+          <div className="settings-row">
+            <span className="label">Версия сборки</span>
+            <span className="value">{__BUILD_ID__}</span>
+          </div>
+          <button className="settings-row" onClick={checkForUpdate}>
+            <span className="label">Проверить обновление</span>
+            <span className="value">{updateNote ?? '›'}</span>
+          </button>
         </div>
       </div>
     </>

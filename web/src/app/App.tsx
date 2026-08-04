@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from 'react'
+import { useEffect, useSyncExternalStore } from 'react'
 
 import { LanguagePicker } from './LanguagePicker'
 import { Listening } from './Listening'
@@ -20,6 +20,10 @@ export function useStore(): AppStore {
 export function App() {
   const model = useStore()
 
+  // A waiting version is applied as soon as the screen is calm — on launch that is
+  // immediate, and during an exercise it waits until the exercise is over.
+  useEffect(() => { model.applyUpdateIfIdle() })
+
   if (model.loading) return <Loading />
   // The picker comes before the error: a failed language must still be swappable.
   if (!model.languageChosen) return <div className="app"><LanguagePicker /></div>
@@ -35,6 +39,12 @@ export function App() {
 
   return (
     <div className="app">
+      {/* Only ever seen mid-exercise: anywhere else the update has already applied itself. */}
+      {model.updateReady && (
+        <button className="update-bar" onClick={() => model.applyUpdateNow()}>
+          Готова новая версия — обновится, когда закончишь. Или нажми, чтобы сейчас.
+        </button>
+      )}
       {/* The picker outranks everything: it is reachable from onboarding too. */}
       {model.screen === 'language' ? <LanguagePicker onBack={() => model.closeLanguages()} />
         : model.isOnboarding ? <Onboarding />

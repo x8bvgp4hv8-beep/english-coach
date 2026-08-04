@@ -2,12 +2,18 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
+  // Shown in settings, so "какая у меня сборка" is answerable without digging into hashes.
+  define: { __BUILD_ID__: JSON.stringify(new Date().toISOString().slice(0, 16).replace('T', ' ')) },
   // Relative base so the build also works from a subfolder on a static host.
   base: './',
   esbuild: { jsx: 'automatic' },
   plugins: [
     VitePWA({
-      registerType: 'autoUpdate',
+      // 'prompt', not 'autoUpdate': the app decides WHEN to swap versions, so an update
+      // can never reload the page in the middle of an exercise. See src/app/sw-update.ts.
+      registerType: 'prompt',
+      // The injected one-liner had no update check and no reload; we register by hand.
+      injectRegister: null,
       includeAssets: ['icons/*.png'],
       // The course packs must be available offline, not just the shell.
       workbox: {

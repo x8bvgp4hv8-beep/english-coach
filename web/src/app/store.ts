@@ -59,6 +59,40 @@ export class AppStore {
   private lessonStartedAt: Date | null = null
   private listeners = new Set<() => void>()
 
+  // MARK: - New version waiting
+  //
+  // The update installs itself, but it swaps the running code only while nothing is in
+  // progress: a reload in the middle of an exercise would look like the app crashed.
+  // In practice that means "on the next launch", which is what an update should feel like.
+
+  updateReady = false
+  private applyUpdate: (() => Promise<void>) | null = null
+
+  /** True while the learner is inside something that must not be interrupted. */
+  get isBusy(): boolean {
+    return this.activeLesson !== null || this.placementActive || this.shadowingActive || this.listeningActive
+  }
+
+  onUpdateReady(apply: () => Promise<void>): void {
+    this.applyUpdate = apply
+    this.updateReady = true
+    this.changed()
+  }
+
+  /** Called from the view whenever the screen is calm enough to swap versions. */
+  applyUpdateIfIdle(): void {
+    if (this.isBusy) return
+    this.applyUpdateNow()
+  }
+
+  /** The same thing on request, from the banner or from settings. */
+  applyUpdateNow(): void {
+    if (!this.updateReady || !this.applyUpdate) return
+    const apply = this.applyUpdate
+    this.applyUpdate = null
+    void apply()
+  }
+
   subscribe = (listener: () => void): (() => void) => {
     this.listeners.add(listener)
     return () => this.listeners.delete(listener)
