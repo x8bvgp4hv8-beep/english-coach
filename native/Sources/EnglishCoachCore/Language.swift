@@ -48,7 +48,7 @@ public enum Languages {
         LearningLanguage(
             code: .es, title: "Испанский", nativeTitle: "Español", short: "ES",
             genitive: "испанского", locative: "испанском",
-            greeting: "¡Hola!", note: "Начало пути: A1 и A2 собраны полностью",
+            greeting: "¡Hola!", note: "A1, A2 и B1 собраны полностью",
             speechLocale: "es-ES", speechFallbacks: ["es-MX", "es"]
         )
     ]

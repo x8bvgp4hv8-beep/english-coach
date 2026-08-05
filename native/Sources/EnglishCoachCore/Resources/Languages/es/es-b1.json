@@ -18,7 +18,9 @@
               "type": "info",
               "title": "Обмен окончаниями",
               "explanation": "Subjuntivo берёт форму «я» в настоящем, убирает -o и меняет окончания местами: hablar → hable, hables, hable, hablemos, hablen; comer → coma, comas, coma. Он включается после выражений желания, эмоции, сомнения и оценки: quiero que…, espero que…, no creo que…, es importante que…",
-              "topics": ["es-b1-subjuntivo-presente"]
+              "topics": [
+                "es-b1-subjuntivo-presente"
+              ]
             },
             {
               "id": "es-b1-l1-e2",
@@ -26,40 +28,69 @@
               "prompt": "Espero que todo salga bien.",
               "translation": "Надеюсь, всё получится.",
               "example": "Mucha suerte mañana, espero que todo salga bien.",
-              "topics": ["es-b1-subjuntivo-deseos"]
+              "topics": [
+                "es-b1-subjuntivo-deseos"
+              ]
             },
             {
               "id": "es-b1-l1-e3",
               "type": "multiple_choice",
               "prompt": "Quiero que ___ conmigo al médico.",
-              "options": ["vienes", "vengas", "vendrás"],
+              "options": [
+                "vienes",
+                "vengas",
+                "vendrás"
+              ],
               "correctOption": "vengas",
-              "topics": ["es-b1-subjuntivo-deseos", "es-b1-subjuntivo-irregular"]
+              "topics": [
+                "es-b1-subjuntivo-deseos",
+                "es-b1-subjuntivo-irregular"
+              ]
             },
             {
               "id": "es-b1-l1-e4",
               "type": "translate",
               "prompt": "Я не думаю, что это хорошая идея.",
               "canonicalAnswer": "No creo que sea una buena idea.",
-              "acceptedAnswers": ["No pienso que sea una buena idea."],
+              "acceptedAnswers": [
+                "No pienso que sea una buena idea."
+              ],
               "hint": "После no creo que — subjuntivo.",
-              "topics": ["es-b1-subjuntivo-presente", "es-b1-subjuntivo-irregular"]
+              "topics": [
+                "es-b1-subjuntivo-presente",
+                "es-b1-subjuntivo-irregular"
+              ]
             },
             {
               "id": "es-b1-l1-e5",
               "type": "multiple_choice",
               "prompt": "Es importante que ___ el informe hoy.",
-              "options": ["terminas", "termines", "terminarás"],
+              "options": [
+                "terminas",
+                "termines",
+                "terminarás"
+              ],
               "correctOption": "termines",
-              "topics": ["es-b1-subjuntivo-presente"]
+              "topics": [
+                "es-b1-subjuntivo-presente"
+              ]
             },
             {
               "id": "es-b1-l1-e6",
               "type": "word_order",
               "prompt": "Мне жаль, что ты не можешь прийти.",
               "canonicalAnswer": "Siento que no puedas venir.",
-              "tokens": ["que", "Siento", "venir", "no", "puedas"],
-              "topics": ["es-b1-subjuntivo-deseos", "es-b1-subjuntivo-irregular"]
+              "tokens": [
+                "que",
+                "Siento",
+                "venir",
+                "no",
+                "puedas"
+              ],
+              "topics": [
+                "es-b1-subjuntivo-deseos",
+                "es-b1-subjuntivo-irregular"
+              ]
             },
             {
               "id": "es-b1-l1-e7",
@@ -67,23 +98,35 @@
               "prompt": "Ojalá tengas razón.",
               "translation": "Хорошо бы ты был прав.",
               "example": "Ojalá tengas razón y no llueva mañana.",
-              "topics": ["es-b1-subjuntivo-deseos"]
+              "topics": [
+                "es-b1-subjuntivo-deseos"
+              ]
             },
             {
               "id": "es-b1-l1-e8",
               "type": "multiple_choice",
               "prompt": "No hables así. — Отрицательная просьба берёт форму из:",
-              "options": ["indicativo", "subjuntivo", "infinitivo"],
+              "options": [
+                "indicativo",
+                "subjuntivo",
+                "infinitivo"
+              ],
               "correctOption": "subjuntivo",
-              "topics": ["es-b1-imperativo-negativo"]
+              "topics": [
+                "es-b1-imperativo-negativo"
+              ]
             },
             {
               "id": "es-b1-l1-e9",
               "type": "translate",
               "prompt": "Не говори ей ничего.",
               "canonicalAnswer": "No le digas nada.",
-              "acceptedAnswers": ["No le cuentes nada."],
-              "topics": ["es-b1-imperativo-negativo"]
+              "acceptedAnswers": [
+                "No le cuentes nada."
+              ],
+              "topics": [
+                "es-b1-imperativo-negativo"
+              ]
             }
           ]
         },
@@ -98,7 +141,10 @@
               "type": "info",
               "title": "-é и -ía",
               "explanation": "Будущее и условное строятся от целого инфинитива: hablaré / hablaría, comeré / comería. Неправильные общие для обоих: tendré/tendría, haré/haría, podré/podría, diré/diría. Condicional — это вежливость (¿podrías…?) и гипотеза, futuro — план и догадка: serán las diez.",
-              "topics": ["es-b1-futuro", "es-b1-condicional"]
+              "topics": [
+                "es-b1-futuro",
+                "es-b1-condicional"
+              ]
             },
             {
               "id": "es-b1-l2-e2",
@@ -106,54 +152,84 @@
               "prompt": "Me gustaría vivir cerca del mar.",
               "translation": "Мне хотелось бы жить у моря.",
               "example": "Algún día me gustaría vivir cerca del mar.",
-              "topics": ["es-b1-condicional"]
+              "topics": [
+                "es-b1-condicional"
+              ]
             },
             {
               "id": "es-b1-l2-e3",
               "type": "multiple_choice",
               "prompt": "¿___ ayudarme un momento?",
-              "options": ["Puedes", "Podrías", "Pudiste"],
+              "options": [
+                "Puedes",
+                "Podrías",
+                "Pudiste"
+              ],
               "correctOption": "Podrías",
-              "topics": ["es-b1-condicional"]
+              "topics": [
+                "es-b1-condicional"
+              ]
             },
             {
               "id": "es-b1-l2-e4",
               "type": "translate",
               "prompt": "Завтра я позвоню тебе.",
               "canonicalAnswer": "Mañana te llamaré.",
-              "acceptedAnswers": ["Te llamaré mañana."],
-              "topics": ["es-b1-futuro"]
+              "acceptedAnswers": [
+                "Te llamaré mañana."
+              ],
+              "topics": [
+                "es-b1-futuro"
+              ]
             },
             {
               "id": "es-b1-l2-e5",
               "type": "multiple_choice",
               "prompt": "No contesta: ___ en una reunión.",
-              "options": ["estará", "estaría", "estuvo"],
+              "options": [
+                "estará",
+                "estaría",
+                "estuvo"
+              ],
               "correctOption": "estará",
-              "topics": ["es-b1-futuro"]
+              "topics": [
+                "es-b1-futuro"
+              ]
             },
             {
               "id": "es-b1-l2-e6",
               "type": "info",
               "title": "Что было раньше прошлого",
               "explanation": "Pluscuamperfecto — había + причастие: cuando llegué, ya se habían ido. Он ставит одно прошлое перед другим, и без него длинный рассказ рассыпается.",
-              "topics": ["es-b1-pluscuamperfecto"]
+              "topics": [
+                "es-b1-pluscuamperfecto"
+              ]
             },
             {
               "id": "es-b1-l2-e7",
               "type": "translate",
               "prompt": "Когда я пришёл, они уже ушли.",
               "canonicalAnswer": "Cuando llegué, ya se habían ido.",
-              "acceptedAnswers": ["Cuando llegué, ellos ya se habían ido."],
-              "topics": ["es-b1-pluscuamperfecto"]
+              "acceptedAnswers": [
+                "Cuando llegué, ellos ya se habían ido."
+              ],
+              "topics": [
+                "es-b1-pluscuamperfecto"
+              ]
             },
             {
               "id": "es-b1-l2-e8",
               "type": "multiple_choice",
               "prompt": "Aquí ___ habla español e inglés.",
-              "options": ["se", "está", "es"],
+              "options": [
+                "se",
+                "está",
+                "es"
+              ],
               "correctOption": "se",
-              "topics": ["es-b1-se-impersonal"]
+              "topics": [
+                "es-b1-se-impersonal"
+              ]
             },
             {
               "id": "es-b1-l2-e9",
@@ -161,32 +237,1127 @@
               "prompt": "Acabo de terminar.",
               "translation": "Я только что закончил.",
               "example": "Acabo de terminar, ya voy.",
-              "topics": ["es-b1-perifrasis"]
+              "topics": [
+                "es-b1-perifrasis"
+              ]
             },
             {
               "id": "es-b1-l2-e10",
               "type": "translate",
               "prompt": "Он сказал, что придёт позже.",
               "canonicalAnswer": "Dijo que vendría más tarde.",
-              "acceptedAnswers": ["Él dijo que vendría más tarde."],
+              "acceptedAnswers": [
+                "Él dijo que vendría más tarde."
+              ],
               "hint": "В косвенной речи будущее становится условным.",
-              "topics": ["es-b1-estilo-indirecto", "es-b1-condicional"]
+              "topics": [
+                "es-b1-estilo-indirecto",
+                "es-b1-condicional"
+              ]
             },
             {
               "id": "es-b1-l2-e11",
               "type": "multiple_choice",
               "prompt": "Es la ciudad ___ nací.",
-              "options": ["que", "donde", "quien"],
+              "options": [
+                "que",
+                "donde",
+                "quien"
+              ],
               "correctOption": "donde",
-              "topics": ["es-b1-relativos"]
+              "topics": [
+                "es-b1-relativos"
+              ]
             },
             {
               "id": "es-b1-l2-e12",
               "type": "translate",
               "prompt": "Хотя идёт дождь, мы выйдем.",
               "canonicalAnswer": "Aunque llueve, vamos a salir.",
-              "acceptedAnswers": ["Aunque está lloviendo, vamos a salir."],
-              "topics": ["es-b1-conectores"]
+              "acceptedAnswers": [
+                "Aunque está lloviendo, vamos a salir."
+              ],
+              "topics": [
+                "es-b1-conectores"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-b1-subjuntivo",
+      "title": "Quiero que sepas",
+      "subtitle": "Subjuntivo: формы и поводы его включить",
+      "lessons": [
+        {
+          "id": "es-b1-subjuntivo-01",
+          "title": "Que hables, que comas",
+          "summary": "Как образуется presente de subjuntivo и когда индикатив уже не годится.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "es-b1-l3-e1",
+              "type": "info",
+              "title": "Окончания меняются местами",
+              "explanation": "Берём форму «я» в настоящем, убираем -o и приписываем чужие окончания: hablar → hable, hables, hable, hablemos, hablen; comer → coma, comas, coma, comamos, coman. То есть глаголы на -ar получают -e, а на -er/-ir получают -a.",
+              "topics": [
+                "es-b1-subjuntivo-presente"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e2",
+              "type": "multiple_choice",
+              "prompt": "Quiero que me ___ la verdad.",
+              "options": [
+                "dices",
+                "digas",
+                "dirás"
+              ],
+              "correctOption": "digas",
+              "topics": [
+                "es-b1-subjuntivo-presente",
+                "es-b1-subjuntivo-irregular"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e3",
+              "type": "translate",
+              "prompt": "Надеюсь, ты приедешь вовремя.",
+              "canonicalAnswer": "Espero que llegues a tiempo.",
+              "acceptedAnswers": [
+                "Espero que vengas a tiempo."
+              ],
+              "topics": [
+                "es-b1-subjuntivo-deseos",
+                "es-b1-subjuntivo-presente"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e4",
+              "type": "multiple_choice",
+              "prompt": "Es necesario que ___ más agua.",
+              "options": [
+                "bebes",
+                "bebas",
+                "beberás"
+              ],
+              "correctOption": "bebas",
+              "topics": [
+                "es-b1-subjuntivo-presente"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e5",
+              "type": "word_order",
+              "prompt": "Мама хочет, чтобы мы ели дома.",
+              "canonicalAnswer": "Mamá quiere que comamos en casa.",
+              "tokens": [
+                "que",
+                "Mamá",
+                "casa",
+                "quiere",
+                "en",
+                "comamos"
+              ],
+              "topics": [
+                "es-b1-subjuntivo-presente",
+                "es-b1-subjuntivo-deseos"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e6",
+              "type": "flashcard",
+              "prompt": "Es mejor que lo hablemos mañana.",
+              "translation": "Лучше обсудим это завтра.",
+              "example": "Ahora estamos cansados: es mejor que lo hablemos mañana.",
+              "topics": [
+                "es-b1-subjuntivo-presente"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e7",
+              "type": "multiple_choice",
+              "prompt": "No es verdad que ellos ___ aquí.",
+              "options": [
+                "viven",
+                "vivan",
+                "vivirán"
+              ],
+              "correctOption": "vivan",
+              "topics": [
+                "es-b1-subjuntivo-presente"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e8",
+              "type": "translate",
+              "prompt": "Мне нужно, чтобы ты меня выслушал.",
+              "canonicalAnswer": "Necesito que me escuches.",
+              "acceptedAnswers": [
+                "Necesito que tú me escuches."
+              ],
+              "topics": [
+                "es-b1-subjuntivo-presente",
+                "es-b1-subjuntivo-deseos"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e9",
+              "type": "multiple_choice",
+              "prompt": "Не говори так быстро, пожалуйста: No ___ tan rápido.",
+              "options": [
+                "hablas",
+                "hables",
+                "hablar"
+              ],
+              "correctOption": "hables",
+              "topics": [
+                "es-b1-imperativo-negativo"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e10",
+              "type": "translate",
+              "prompt": "Не приходи поздно.",
+              "canonicalAnswer": "No vengas tarde.",
+              "acceptedAnswers": [
+                "No llegues tarde."
+              ],
+              "hint": "Отрицательная просьба берёт форму subjuntivo.",
+              "topics": [
+                "es-b1-imperativo-negativo"
+              ]
+            },
+            {
+              "id": "es-b1-l3-e11",
+              "type": "translate",
+              "prompt": "Возможно, они сегодня работают.",
+              "canonicalAnswer": "Es posible que trabajen hoy.",
+              "acceptedAnswers": [
+                "Puede que trabajen hoy."
+              ],
+              "topics": [
+                "es-b1-subjuntivo-presente"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-b1-subjuntivo-02",
+          "title": "Sea, vaya, tenga",
+          "summary": "Неправильные формы и выражения чувства и сомнения.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "es-b1-l4-e1",
+              "type": "info",
+              "title": "Восемь, которые надо помнить",
+              "explanation": "ser → sea, ir → vaya, tener → tenga, hacer → haga, poder → pueda, saber → sepa, dar → dé, estar → esté. Дальше по общему правилу: sepas, sepamos, sepan.",
+              "topics": [
+                "es-b1-subjuntivo-irregular"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e2",
+              "type": "flashcard",
+              "prompt": "Me alegro de que estés aquí.",
+              "translation": "Я рад, что ты здесь.",
+              "example": "¡Me alegro de que estés aquí! Te esperábamos.",
+              "topics": [
+                "es-b1-subjuntivo-deseos",
+                "es-b1-subjuntivo-irregular"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e3",
+              "type": "multiple_choice",
+              "prompt": "Ojalá ___ buen tiempo mañana.",
+              "options": [
+                "hace",
+                "haga",
+                "hará"
+              ],
+              "correctOption": "haga",
+              "topics": [
+                "es-b1-subjuntivo-irregular"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e4",
+              "type": "translate",
+              "prompt": "Я не думаю, что это правда.",
+              "canonicalAnswer": "No creo que sea verdad.",
+              "acceptedAnswers": [
+                "No pienso que sea verdad."
+              ],
+              "topics": [
+                "es-b1-subjuntivo-irregular",
+                "es-b1-subjuntivo-presente"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e5",
+              "type": "multiple_choice",
+              "prompt": "Es raro que no ___ nada del tema.",
+              "options": [
+                "sabe",
+                "sepa",
+                "sabrá"
+              ],
+              "correctOption": "sepa",
+              "topics": [
+                "es-b1-subjuntivo-irregular"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e6",
+              "type": "word_order",
+              "prompt": "Жаль, что ты не можешь остаться.",
+              "canonicalAnswer": "Es una pena que no puedas quedarte.",
+              "tokens": [
+                "pena",
+                "Es",
+                "quedarte",
+                "una",
+                "que",
+                "puedas",
+                "no"
+              ],
+              "topics": [
+                "es-b1-subjuntivo-deseos",
+                "es-b1-subjuntivo-irregular"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e7",
+              "type": "translate",
+              "prompt": "Я хочу, чтобы у тебя всё получилось.",
+              "canonicalAnswer": "Quiero que todo te salga bien.",
+              "acceptedAnswers": [
+                "Espero que todo te salga bien."
+              ],
+              "topics": [
+                "es-b1-subjuntivo-deseos"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e8",
+              "type": "multiple_choice",
+              "prompt": "Te pido que ___ un poco de paciencia.",
+              "options": [
+                "tienes",
+                "tengas",
+                "tendrás"
+              ],
+              "correctOption": "tengas",
+              "topics": [
+                "es-b1-subjuntivo-irregular",
+                "es-b1-subjuntivo-deseos"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e9",
+              "type": "flashcard",
+              "prompt": "Me molesta que llegue tarde.",
+              "translation": "Меня раздражает, что он опаздывает.",
+              "example": "Me molesta que llegue tarde todos los días.",
+              "topics": [
+                "es-b1-subjuntivo-deseos"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e10",
+              "type": "multiple_choice",
+              "prompt": "No creo que ___ al cine hoy.",
+              "options": [
+                "van",
+                "vayan",
+                "irán"
+              ],
+              "correctOption": "vayan",
+              "topics": [
+                "es-b1-subjuntivo-irregular",
+                "es-b1-subjuntivo-presente"
+              ]
+            },
+            {
+              "id": "es-b1-l4-e11",
+              "type": "translate",
+              "prompt": "Странно, что его нет дома.",
+              "canonicalAnswer": "Es extraño que no esté en casa.",
+              "acceptedAnswers": [
+                "Es raro que no esté en casa."
+              ],
+              "topics": [
+                "es-b1-subjuntivo-presente",
+                "es-b1-subjuntivo-irregular"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-b1-lo-que-sera",
+      "title": "Lo que será",
+      "subtitle": "Будущее и условное",
+      "lessons": [
+        {
+          "id": "es-b1-lo-que-sera-01",
+          "title": "Lo haré mañana",
+          "summary": "Futuro simple: план и предположение.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "es-b1-l5-e1",
+              "type": "info",
+              "title": "Окончания клеятся к инфинитиву",
+              "explanation": "hablaré, hablarás, hablará, hablaremos, hablarán — окончание добавляется к целому инфинитиву. Неправильные меняют основу: tendré, haré, podré, diré, saldré, vendré, habrá.",
+              "topics": [
+                "es-b1-futuro"
+              ]
+            },
+            {
+              "id": "es-b1-l5-e2",
+              "type": "flashcard",
+              "prompt": "Mañana te lo contaré todo.",
+              "translation": "Завтра я тебе всё расскажу.",
+              "example": "Ahora no puedo hablar; mañana te lo contaré todo.",
+              "topics": [
+                "es-b1-futuro"
+              ]
+            },
+            {
+              "id": "es-b1-l5-e3",
+              "type": "multiple_choice",
+              "prompt": "El año que viene ___ a España.",
+              "options": [
+                "voy",
+                "iré",
+                "iba"
+              ],
+              "correctOption": "iré",
+              "topics": [
+                "es-b1-futuro"
+              ]
+            },
+            {
+              "id": "es-b1-l5-e4",
+              "type": "translate",
+              "prompt": "Мы приедем в семь.",
+              "canonicalAnswer": "Llegaremos a las siete.",
+              "acceptedAnswers": [
+                "Nosotros llegaremos a las siete."
+              ],
+              "topics": [
+                "es-b1-futuro"
+              ]
+            },
+            {
+              "id": "es-b1-l5-e5",
+              "type": "multiple_choice",
+              "prompt": "¿Dónde está Ana? — ___ en el trabajo.",
+              "options": [
+                "Está",
+                "Estará",
+                "Estuvo"
+              ],
+              "correctOption": "Estará",
+              "topics": [
+                "es-b1-futuro"
+              ]
+            },
+            {
+              "id": "es-b1-l5-e6",
+              "type": "word_order",
+              "prompt": "Завтра будет жарко.",
+              "canonicalAnswer": "Mañana hará calor.",
+              "tokens": [
+                "hará",
+                "Mañana",
+                "calor"
+              ],
+              "topics": [
+                "es-b1-futuro"
+              ]
+            },
+            {
+              "id": "es-b1-l5-e7",
+              "type": "translate",
+              "prompt": "В понедельник у меня не будет времени.",
+              "canonicalAnswer": "El lunes no tendré tiempo.",
+              "acceptedAnswers": [
+                "No tendré tiempo el lunes."
+              ],
+              "topics": [
+                "es-b1-futuro"
+              ]
+            },
+            {
+              "id": "es-b1-l5-e8",
+              "type": "multiple_choice",
+              "prompt": "¿Qué hora es? — No sé, ___ las diez.",
+              "options": [
+                "son",
+                "serán",
+                "fueron"
+              ],
+              "correctOption": "serán",
+              "topics": [
+                "es-b1-futuro"
+              ]
+            },
+            {
+              "id": "es-b1-l5-e9",
+              "type": "flashcard",
+              "prompt": "Ya veremos.",
+              "translation": "Там видно будет.",
+              "example": "No lo decidamos hoy: ya veremos.",
+              "topics": [
+                "es-b1-futuro"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-b1-lo-que-sera-02",
+          "title": "¿Podrías…?",
+          "summary": "Condicional: вежливость, гипотеза и глагольные обороты.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "es-b1-l6-e1",
+              "type": "info",
+              "title": "Те же основы, окончание -ía",
+              "explanation": "hablaría, comerías, viviría, tendríamos, harían. Основы неправильных те же, что у будущего: tendría, haría, podría, diría. Condicional — это вежливая просьба и «я бы».",
+              "topics": [
+                "es-b1-condicional"
+              ]
+            },
+            {
+              "id": "es-b1-l6-e2",
+              "type": "flashcard",
+              "prompt": "¿Te importaría ayudarme?",
+              "translation": "Тебя не затруднит мне помочь?",
+              "example": "Perdona, ¿te importaría ayudarme un momento?",
+              "topics": [
+                "es-b1-condicional"
+              ]
+            },
+            {
+              "id": "es-b1-l6-e3",
+              "type": "multiple_choice",
+              "prompt": "Yo en tu lugar no ___ nada.",
+              "options": [
+                "digo",
+                "diría",
+                "diré"
+              ],
+              "correctOption": "diría",
+              "topics": [
+                "es-b1-condicional"
+              ]
+            },
+            {
+              "id": "es-b1-l6-e4",
+              "type": "translate",
+              "prompt": "Ты не мог бы открыть окно?",
+              "canonicalAnswer": "¿Podrías abrir la ventana?",
+              "acceptedAnswers": [
+                "Podrías abrir la ventana?"
+              ],
+              "topics": [
+                "es-b1-condicional"
+              ]
+            },
+            {
+              "id": "es-b1-l6-e5",
+              "type": "translate",
+              "prompt": "Я бы поехал, но у меня нет времени.",
+              "canonicalAnswer": "Iría, pero no tengo tiempo.",
+              "acceptedAnswers": [
+                "Yo iría, pero no tengo tiempo."
+              ],
+              "topics": [
+                "es-b1-condicional"
+              ]
+            },
+            {
+              "id": "es-b1-l6-e6",
+              "type": "word_order",
+              "prompt": "Мне хотелось бы выучить итальянский.",
+              "canonicalAnswer": "Me gustaría aprender italiano.",
+              "tokens": [
+                "gustaría",
+                "Me",
+                "italiano",
+                "aprender"
+              ],
+              "topics": [
+                "es-b1-condicional"
+              ]
+            },
+            {
+              "id": "es-b1-l6-e7",
+              "type": "multiple_choice",
+              "prompt": "Me dijo que ___ más tarde.",
+              "options": [
+                "llega",
+                "llegaría",
+                "llegará"
+              ],
+              "correctOption": "llegaría",
+              "topics": [
+                "es-b1-condicional",
+                "es-b1-estilo-indirecto"
+              ]
+            },
+            {
+              "id": "es-b1-l6-e8",
+              "type": "flashcard",
+              "prompt": "Estamos a punto de salir.",
+              "translation": "Мы вот-вот выходим.",
+              "example": "Llámame luego, estamos a punto de salir.",
+              "topics": [
+                "es-b1-perifrasis"
+              ]
+            },
+            {
+              "id": "es-b1-l6-e9",
+              "type": "multiple_choice",
+              "prompt": "___ de llegar, todavía no he comido.",
+              "options": [
+                "Acabo",
+                "Vuelvo",
+                "Sigo"
+              ],
+              "correctOption": "Acabo",
+              "topics": [
+                "es-b1-perifrasis"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-b1-antes-y-despues",
+      "title": "Antes y después",
+      "subtitle": "Что было раньше прошлого и как это пересказать",
+      "lessons": [
+        {
+          "id": "es-b1-antes-01",
+          "title": "Ya se habían ido",
+          "summary": "Pluscuamperfecto: одно прошлое перед другим.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "es-b1-l7-e1",
+              "type": "info",
+              "title": "había + причастие",
+              "explanation": "había, habías, había, habíamos, habían + причастие: había llegado, habías dicho. Ставит событие раньше другого прошлого, и без него длинный рассказ рассыпается.",
+              "topics": [
+                "es-b1-pluscuamperfecto"
+              ]
+            },
+            {
+              "id": "es-b1-l7-e2",
+              "type": "flashcard",
+              "prompt": "Nunca había visto algo así.",
+              "translation": "Я никогда такого не видел.",
+              "example": "Me quedé sin palabras: nunca había visto algo así.",
+              "topics": [
+                "es-b1-pluscuamperfecto"
+              ]
+            },
+            {
+              "id": "es-b1-l7-e3",
+              "type": "multiple_choice",
+              "prompt": "Cuando llegamos, la película ya ___.",
+              "options": [
+                "empezó",
+                "había empezado",
+                "empieza"
+              ],
+              "correctOption": "había empezado",
+              "topics": [
+                "es-b1-pluscuamperfecto"
+              ]
+            },
+            {
+              "id": "es-b1-l7-e4",
+              "type": "translate",
+              "prompt": "Я не знал, что ты уже приехал.",
+              "canonicalAnswer": "No sabía que ya habías llegado.",
+              "acceptedAnswers": [
+                "Yo no sabía que ya habías llegado."
+              ],
+              "topics": [
+                "es-b1-pluscuamperfecto"
+              ]
+            },
+            {
+              "id": "es-b1-l7-e5",
+              "type": "word_order",
+              "prompt": "Мы никогда раньше там не были.",
+              "canonicalAnswer": "Nunca habíamos estado allí antes.",
+              "tokens": [
+                "habíamos",
+                "Nunca",
+                "antes",
+                "estado",
+                "allí"
+              ],
+              "topics": [
+                "es-b1-pluscuamperfecto"
+              ]
+            },
+            {
+              "id": "es-b1-l7-e6",
+              "type": "multiple_choice",
+              "prompt": "Me contó que ___ el coche.",
+              "options": [
+                "vendía",
+                "había vendido",
+                "venderá"
+              ],
+              "correctOption": "había vendido",
+              "topics": [
+                "es-b1-pluscuamperfecto",
+                "es-b1-estilo-indirecto"
+              ]
+            },
+            {
+              "id": "es-b1-l7-e7",
+              "type": "translate",
+              "prompt": "Она сказала, что забыла ключи.",
+              "canonicalAnswer": "Dijo que había olvidado las llaves.",
+              "acceptedAnswers": [
+                "Ella dijo que había olvidado las llaves."
+              ],
+              "topics": [
+                "es-b1-pluscuamperfecto",
+                "es-b1-estilo-indirecto"
+              ]
+            },
+            {
+              "id": "es-b1-l7-e8",
+              "type": "flashcard",
+              "prompt": "Se me había olvidado por completo.",
+              "translation": "Я об этом совершенно забыл.",
+              "example": "Perdona, se me había olvidado por completo.",
+              "topics": [
+                "es-b1-pluscuamperfecto"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-b1-antes-02",
+          "title": "Dijo que…",
+          "summary": "Косвенная речь и сдвиг времён.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "es-b1-l8-e1",
+              "type": "info",
+              "title": "Времена отступают на шаг",
+              "explanation": "Настоящее становится imperfecto: «Estoy cansado» → dijo que estaba cansado. Законченное прошлое и perfecto становятся pluscuamperfecto. Будущее становится condicional: «Te llamaré» → dijo que me llamaría.",
+              "topics": [
+                "es-b1-estilo-indirecto"
+              ]
+            },
+            {
+              "id": "es-b1-l8-e2",
+              "type": "multiple_choice",
+              "prompt": "«Estoy cansado» → Dijo que ___ cansado.",
+              "options": [
+                "está",
+                "estaba",
+                "estará"
+              ],
+              "correctOption": "estaba",
+              "topics": [
+                "es-b1-estilo-indirecto"
+              ]
+            },
+            {
+              "id": "es-b1-l8-e3",
+              "type": "translate",
+              "prompt": "Он сказал, что живёт в Мадриде.",
+              "canonicalAnswer": "Dijo que vivía en Madrid.",
+              "acceptedAnswers": [
+                "Él dijo que vivía en Madrid."
+              ],
+              "topics": [
+                "es-b1-estilo-indirecto"
+              ]
+            },
+            {
+              "id": "es-b1-l8-e4",
+              "type": "multiple_choice",
+              "prompt": "«Te llamaré» → Prometió que me ___.",
+              "options": [
+                "llamará",
+                "llamaría",
+                "llamaba"
+              ],
+              "correctOption": "llamaría",
+              "topics": [
+                "es-b1-estilo-indirecto",
+                "es-b1-condicional"
+              ]
+            },
+            {
+              "id": "es-b1-l8-e5",
+              "type": "translate",
+              "prompt": "Она спросила, где я работаю.",
+              "canonicalAnswer": "Me preguntó dónde trabajaba.",
+              "acceptedAnswers": [
+                "Ella me preguntó dónde trabajaba."
+              ],
+              "topics": [
+                "es-b1-estilo-indirecto"
+              ]
+            },
+            {
+              "id": "es-b1-l8-e6",
+              "type": "word_order",
+              "prompt": "Мне сказали, что уже поздно.",
+              "canonicalAnswer": "Me dijeron que ya era tarde.",
+              "tokens": [
+                "que",
+                "Me",
+                "tarde",
+                "dijeron",
+                "era",
+                "ya"
+              ],
+              "topics": [
+                "es-b1-estilo-indirecto"
+              ]
+            },
+            {
+              "id": "es-b1-l8-e7",
+              "type": "multiple_choice",
+              "prompt": "«Hemos terminado» → Dijeron que ___ terminado.",
+              "options": [
+                "han",
+                "habían",
+                "habrán"
+              ],
+              "correctOption": "habían",
+              "topics": [
+                "es-b1-estilo-indirecto",
+                "es-b1-pluscuamperfecto"
+              ]
+            },
+            {
+              "id": "es-b1-l8-e8",
+              "type": "flashcard",
+              "prompt": "Dice que no pasa nada.",
+              "translation": "Говорит, ничего страшного.",
+              "example": "Le pedí perdón y dice que no pasa nada.",
+              "topics": [
+                "es-b1-estilo-indirecto"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-b1-hilar",
+      "title": "Hilar la frase",
+      "subtitle": "Как склеивать длинные предложения",
+      "lessons": [
+        {
+          "id": "es-b1-hilar-01",
+          "title": "El que, donde, se",
+          "summary": "Относительные придаточные и безличное se.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "es-b1-l9-e1",
+              "type": "info",
+              "title": "que, quien, donde",
+              "explanation": "que годится почти всегда. quien — только о людях и после предлога: la persona con quien hablé. donde — о месте. lo que — «то, что»: lo que necesito es tiempo.",
+              "topics": [
+                "es-b1-relativos"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e2",
+              "type": "multiple_choice",
+              "prompt": "El libro ___ me prestaste es buenísimo.",
+              "options": [
+                "que",
+                "quien",
+                "donde"
+              ],
+              "correctOption": "que",
+              "topics": [
+                "es-b1-relativos"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e3",
+              "type": "translate",
+              "prompt": "Это дом, где я вырос.",
+              "canonicalAnswer": "Esta es la casa donde crecí.",
+              "acceptedAnswers": [
+                "Ésta es la casa donde crecí."
+              ],
+              "topics": [
+                "es-b1-relativos"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e4",
+              "type": "multiple_choice",
+              "prompt": "La persona con ___ hablé era muy amable.",
+              "options": [
+                "que",
+                "quien",
+                "donde"
+              ],
+              "correctOption": "quien",
+              "topics": [
+                "es-b1-relativos"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e5",
+              "type": "word_order",
+              "prompt": "Человек, который звонил, не представился.",
+              "canonicalAnswer": "La persona que llamó no se presentó.",
+              "tokens": [
+                "que",
+                "La",
+                "presentó",
+                "persona",
+                "se",
+                "llamó",
+                "no"
+              ],
+              "topics": [
+                "es-b1-relativos"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e6",
+              "type": "flashcard",
+              "prompt": "Lo que necesito es tiempo.",
+              "translation": "Что мне нужно, так это время.",
+              "example": "No es dinero: lo que necesito es tiempo.",
+              "topics": [
+                "es-b1-relativos"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e7",
+              "type": "info",
+              "title": "Когда деятель не важен",
+              "explanation": "se + глагол в третьем лице: se habla español, se venden pisos, ¿cómo se dice? Глагол согласуется с предметом: se vende un piso, se venden pisos.",
+              "topics": [
+                "es-b1-se-impersonal"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e8",
+              "type": "multiple_choice",
+              "prompt": "En España ___ cena muy tarde.",
+              "options": [
+                "se",
+                "es",
+                "está"
+              ],
+              "correctOption": "se",
+              "topics": [
+                "es-b1-se-impersonal"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e9",
+              "type": "translate",
+              "prompt": "Здесь говорят по-испански.",
+              "canonicalAnswer": "Aquí se habla español.",
+              "acceptedAnswers": [
+                "Se habla español aquí."
+              ],
+              "topics": [
+                "es-b1-se-impersonal"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e10",
+              "type": "multiple_choice",
+              "prompt": "___ venden pisos en esta calle.",
+              "options": [
+                "Se",
+                "Es",
+                "Está"
+              ],
+              "correctOption": "Se",
+              "topics": [
+                "es-b1-se-impersonal"
+              ]
+            },
+            {
+              "id": "es-b1-l9-e11",
+              "type": "translate",
+              "prompt": "Как это пишется?",
+              "canonicalAnswer": "¿Cómo se escribe?",
+              "acceptedAnswers": [
+                "Cómo se escribe?"
+              ],
+              "topics": [
+                "es-b1-se-impersonal"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-b1-hilar-02",
+          "title": "Sigo, vuelvo, aunque",
+          "summary": "Глагольные обороты и связки речи.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "es-b1-l10-e1",
+              "type": "info",
+              "title": "Обороты вместо одного глагола",
+              "explanation": "estar + gerundio — прямо сейчас; acabar de — только что; volver a — снова; seguir + gerundio — продолжать; dejar de — перестать; estar a punto de — вот-вот.",
+              "topics": [
+                "es-b1-perifrasis"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e2",
+              "type": "multiple_choice",
+              "prompt": "___ a llamarme mañana, por favor.",
+              "options": [
+                "Vuelve",
+                "Sigue",
+                "Acaba"
+              ],
+              "correctOption": "Vuelve",
+              "topics": [
+                "es-b1-perifrasis"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e3",
+              "type": "translate",
+              "prompt": "Он продолжает работать здесь.",
+              "canonicalAnswer": "Sigue trabajando aquí.",
+              "acceptedAnswers": [
+                "Él sigue trabajando aquí."
+              ],
+              "topics": [
+                "es-b1-perifrasis"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e4",
+              "type": "translate",
+              "prompt": "Мы снова начали заниматься спортом.",
+              "canonicalAnswer": "Volvimos a hacer deporte.",
+              "acceptedAnswers": [
+                "Nosotros volvimos a hacer deporte."
+              ],
+              "topics": [
+                "es-b1-perifrasis"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e5",
+              "type": "flashcard",
+              "prompt": "Estoy buscando trabajo.",
+              "translation": "Я ищу работу.",
+              "example": "Ahora mismo estoy buscando trabajo.",
+              "topics": [
+                "es-b1-perifrasis"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e6",
+              "type": "info",
+              "title": "Связки",
+              "explanation": "aunque — хотя; sin embargo — однако; por eso — поэтому; mientras que — тогда как; además — кроме того; de todas formas — в любом случае.",
+              "topics": [
+                "es-b1-conectores"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e7",
+              "type": "multiple_choice",
+              "prompt": "Estaba cansado; ___, terminó el trabajo.",
+              "options": [
+                "sin embargo",
+                "por eso",
+                "además"
+              ],
+              "correctOption": "sin embargo",
+              "topics": [
+                "es-b1-conectores"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e8",
+              "type": "translate",
+              "prompt": "Было поздно, поэтому мы ушли.",
+              "canonicalAnswer": "Era tarde, por eso nos fuimos.",
+              "acceptedAnswers": [
+                "Era tarde, así que nos fuimos."
+              ],
+              "topics": [
+                "es-b1-conectores"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e9",
+              "type": "multiple_choice",
+              "prompt": "___ llueva, saldremos igual.",
+              "options": [
+                "Aunque",
+                "Porque",
+                "Mientras"
+              ],
+              "correctOption": "Aunque",
+              "topics": [
+                "es-b1-conectores",
+                "es-b1-subjuntivo-presente"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e10",
+              "type": "word_order",
+              "prompt": "Он работает, тогда как его брат учится.",
+              "canonicalAnswer": "Él trabaja, mientras que su hermano estudia.",
+              "tokens": [
+                "trabaja",
+                "Él",
+                "estudia",
+                "mientras",
+                "hermano",
+                "que",
+                "su"
+              ],
+              "topics": [
+                "es-b1-conectores"
+              ]
+            },
+            {
+              "id": "es-b1-l10-e11",
+              "type": "flashcard",
+              "prompt": "De todas formas, gracias.",
+              "translation": "В любом случае спасибо.",
+              "example": "No hace falta, pero de todas formas, gracias.",
+              "topics": [
+                "es-b1-conectores"
+              ]
             }
           ]
         }
