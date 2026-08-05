@@ -357,6 +357,58 @@ describe('learning session', () => {
     expect(later.submitText('my own perfectly fine phrasing', now).isCorrect).toBe(true)
   })
 
+  it('reads a card the first time and asks for it every time after', () => {
+    const card = allExercises(courses[0]).find((e) => e.type === 'flashcard')!
+    const lesson = { id: 'cards', title: 'Cards', summary: '', estimatedMinutes: 1, exercises: [card] }
+
+    const first = new LearningSession(freshState())
+    first.start(lesson, { recordsCompletion: false })
+    expect(first.currentIsRecall, 'a card never met is shown, not asked').toBe(false)
+    first.completePassiveExercise(now)
+
+    const again = new LearningSession(first.state)
+    again.start(lesson, { recordsCompletion: false })
+    expect(again.currentIsRecall, 'the same card met again is a question').toBe(true)
+  })
+
+  it('sends a forgotten card back instead of counting it as known', () => {
+    const card = allExercises(courses[0]).find((e) => e.type === 'flashcard')!
+    const lesson = { id: 'cards', title: 'Cards', summary: '', estimatedMinutes: 1, exercises: [card] }
+
+    // Reading a card is not knowing it, and only mistakes are scheduled to come back.
+    const first = new LearningSession(freshState())
+    first.start(lesson, { recordsCompletion: false })
+    first.completePassiveExercise(now)
+    expect(first.state.reviews.some((r) => r.exerciseID === card.id)).toBe(false)
+
+    // The second meeting is a question, and "не вспомнил" is what queues the word.
+    const second = new LearningSession(first.state)
+    second.start(lesson, { recordsCompletion: false })
+    second.selfAssess(false, now)
+    const queued = second.state.reviews.find((r) => r.exerciseID === card.id)
+    expect(queued, 'a word that did not come to mind comes back').toBeTruthy()
+    expect(queued!.due.getTime()).toBeLessThanOrEqual(now.getTime())
+    expect(second.state.attempts.at(-1)?.correct).toBe(false)
+
+    // "Вспомнил" counts exactly like any other correct answer and pushes it out again.
+    const pointsBefore = second.state.points
+    const third = new LearningSession(second.state)
+    third.start(lesson, { recordsCompletion: false })
+    third.selfAssess(true, now)
+    expect(third.state.reviews.find((r) => r.exerciseID === card.id)!.due.getTime()).toBeGreaterThan(now.getTime())
+    expect(third.state.points).toBeGreaterThan(pointsBefore)
+  })
+
+  it('does not turn a card into a question halfway through the set', () => {
+    const card = allExercises(courses[0]).find((e) => e.type === 'flashcard')!
+    const session = new LearningSession(freshState())
+    session.start({ id: 'cards', title: 'Cards', summary: '', estimatedMinutes: 1, exercises: [card, card] })
+    session.completePassiveExercise(now)
+    session.goBack()
+    // The attempt exists now, but the snapshot was taken when the set opened.
+    expect(session.currentIsRecall).toBe(false)
+  })
+
   it('moves the due date forward after a successful review', () => {
     const lesson = courses[0].chapters[0].lessons[0]
     const translation = lesson.exercises.find((e) => e.type === 'translate')!

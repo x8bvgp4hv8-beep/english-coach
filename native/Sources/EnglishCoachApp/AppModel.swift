@@ -117,6 +117,8 @@ final class AppModel {
     var recommendedLesson: Lesson? { CourseRouting.nextLesson(in: currentLessons, completed: state.completedLessonIDs) ?? currentLessons.first }
     var dueCount: Int { state.reviews.filter { $0.due <= .now }.count }
     var currentExercise: Exercise? { session.currentExercise }
+    /// True when the current card is a repeat and should be recalled rather than read.
+    var currentIsRecall: Bool { session.currentIsRecall }
     var activeLesson: Lesson? { session.activeLesson }
     var feedback: AnswerResult? { session.feedback }
     var lessonIsComplete: Bool { session.isComplete }
@@ -226,12 +228,7 @@ final class AppModel {
     }
 
     /// The learner's own verdict: it still feeds points and spaced repetition.
-    func shadowingSelfAssess(_ correct: Bool) {
-        session.selfAssess(correct)
-        state = session.state
-        if session.isComplete { bankPracticeTime() }
-        save()
-    }
+    func shadowingSelfAssess(_ correct: Bool) { selfAssess(correct) }
 
     func closeShadowing() {
         shadowingActive = false
@@ -283,6 +280,16 @@ final class AppModel {
     func completePassive() { session.completePassiveExercise(); state = session.state; save() }
     func retry() { session.retry() }
     func markLastAnswerCorrect() { session.markLastAnswerCorrect(); state = session.state; save() }
+
+    /// Used where nobody can mark the answer but the learner: speaking aloud, and
+    /// recalling a word from a card. Counts exactly like a checked answer, mistakes included.
+    func selfAssess(_ correct: Bool) {
+        session.selfAssess(correct)
+        state = session.state
+        if session.isComplete { bankPracticeTime() }
+        save()
+    }
+
     func advance() {
         session.advance(); state = session.state
         // Bank the time as soon as the lesson ends, not only when the window is closed.

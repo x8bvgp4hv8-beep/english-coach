@@ -113,6 +113,45 @@ do {
     }
 } catch { failures += 1; print("✗ all-level completion: \(error)") }
 
+// Cards: read once, asked for ever after. Mirrors web/src/core/core.test.ts.
+do {
+    let course = try ContentRepository.loadBundled().first!
+    let card = course.chapters.flatMap(\.lessons).flatMap(\.exercises).first { $0.type == .flashcard }!
+    let lesson = Lesson(id: "cards", title: "Cards", summary: "", estimatedMinutes: 1, exercises: [card])
+
+    // Reading a card is not knowing it, and only mistakes are scheduled to come back.
+    var first = LearningSession(state: .fresh)
+    first.start(lesson, recordsCompletion: false)
+    expect(!first.currentIsRecall, "a card never met is shown, not asked")
+    first.completePassiveExercise(now: now)
+    expect(!first.state.reviews.contains { $0.exerciseID == card.id }, "a card just read is not yet a repetition")
+
+    // The second meeting is a question, and "не вспомнил" is what queues the word.
+    var second = LearningSession(state: first.state)
+    second.start(lesson, recordsCompletion: false)
+    expect(second.currentIsRecall, "the same card met again is a question")
+    second.selfAssess(false, now: now)
+    let queued = second.state.reviews.first { $0.exerciseID == card.id }
+    expect(queued != nil && queued!.due <= now, "a word that did not come to mind comes back")
+    expect(second.state.attempts.last?.correct == false, "an honest miss is recorded as a miss")
+
+    // "Вспомнил" counts exactly like any other correct answer and pushes it out again.
+    let pointsBefore = second.state.points
+    var third = LearningSession(state: second.state)
+    third.start(lesson, recordsCompletion: false)
+    third.selfAssess(true, now: now)
+    let pushed = third.state.reviews.first { $0.exerciseID == card.id }
+    expect(pushed != nil && pushed!.due > now, "a recalled word moves into the future")
+    expect(third.state.points > pointsBefore, "recall earns points like any answer")
+
+    // The shape of a card is fixed when the set opens, not read live mid-exercise.
+    var stable = LearningSession(state: .fresh)
+    stable.start(Lesson(id: "cards", title: "Cards", summary: "", estimatedMinutes: 1, exercises: [card, card]), recordsCompletion: false)
+    stable.completePassiveExercise(now: now)
+    stable.goBack()
+    expect(!stable.currentIsRecall, "a card does not become a question halfway through the set")
+} catch { failures += 1; print("✗ card recall: \(error)") }
+
 var reviewState = UserState.fresh
 var reviewSession = LearningSession(state: reviewState)
 do {

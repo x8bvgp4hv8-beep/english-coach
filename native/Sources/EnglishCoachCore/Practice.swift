@@ -23,7 +23,7 @@ public enum PracticeEngine {
     public static let kinds: [PracticeKind] = [
         PracticeKind(id: "mixed", title: "Всё вперемешку", subtitle: "Сначала сложное, потом новое",
                      types: [.flashcard, .translate, .wordOrder, .multipleChoice]),
-        PracticeKind(id: "flashcard", title: "Карточки", subtitle: "Новые слова и фразы с озвучкой", types: [.flashcard]),
+        PracticeKind(id: "flashcard", title: "Карточки", subtitle: "Новое показывается, знакомое спрашивается", types: [.flashcard]),
         PracticeKind(id: "translate", title: "Перевод", subtitle: "С русского, письменно", types: [.translate]),
         PracticeKind(id: "word_order", title: "Собрать предложение", subtitle: "Слова даны, нужен порядок", types: [.wordOrder]),
         PracticeKind(id: "multiple_choice", title: "Тесты", subtitle: "Выбрать правильный вариант", types: [.multipleChoice])

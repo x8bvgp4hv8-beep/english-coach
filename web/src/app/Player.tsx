@@ -6,13 +6,16 @@ import { diffSummary } from '../core'
 import type { ExerciseType, LearningLanguage, WordDiff } from '../core'
 
 /** The translate label names the target language, so it is built per language. */
-const kindLabel = (type: ExerciseType, language: LearningLanguage): string => ({
-  info: 'КОРОТКОЕ ПРАВИЛО',
-  flashcard: 'НОВАЯ ФРАЗА',
-  translate: `ПЕРЕВЕДИ НА ${language.title.toUpperCase()}`,
-  word_order: 'СОБЕРИ ПРЕДЛОЖЕНИЕ',
-  multiple_choice: 'ВЫБЕРИ ОТВЕТ',
-}[type])
+const kindLabel = (type: ExerciseType, language: LearningLanguage, recall: boolean): string => {
+  if (type === 'flashcard' && recall) return 'ВСПОМНИ ФРАЗУ'
+  return {
+    info: 'КОРОТКОЕ ПРАВИЛО',
+    flashcard: 'НОВАЯ ФРАЗА',
+    translate: `ПЕРЕВЕДИ НА ${language.title.toUpperCase()}`,
+    word_order: 'СОБЕРИ ПРЕДЛОЖЕНИЕ',
+    multiple_choice: 'ВЫБЕРИ ОТВЕТ',
+  }[type]
+}
 
 export function Player() {
   const model = useStore()
@@ -23,8 +26,10 @@ export function Player() {
   const [answer, setAnswer] = useState('')
   const [picked, setPicked] = useState<number[]>([])
   const [option, setOption] = useState<string | null>(null)
+  /** A card being recalled keeps its answer hidden until the learner has tried. */
+  const [revealed, setRevealed] = useState(false)
 
-  useEffect(() => { setAnswer(''); setPicked([]); setOption(null) }, [exercise?.id])
+  useEffect(() => { setAnswer(''); setPicked([]); setOption(null); setRevealed(false) }, [exercise?.id])
 
   if (!lesson) return null
 
@@ -48,6 +53,9 @@ export function Player() {
   const position = Math.min(model.session.exerciseIndex + 1, total)
   const tokens = exercise.tokens ?? []
   const canOverrule = exercise.type === 'translate' || exercise.type === 'word_order'
+  const recall = model.currentIsRecall
+  /** The target side: the question on a first meeting, the answer on every one after. */
+  const answerHidden = recall && !revealed
 
   return (
     <div className="player">
@@ -63,9 +71,9 @@ export function Player() {
       <div className="scroll" style={{ paddingTop: 18 }}>
         {/* Keyed by exercise so the card replays its arrival on every step. */}
         <div className="card" key={exercise.id}>
-          <div className="exercise-kind">{kindLabel(exercise.type, model.currentLanguage)}</div>
+          <div className="exercise-kind">{kindLabel(exercise.type, model.currentLanguage, recall)}</div>
           {exercise.title && <h2 className="exercise-title">{exercise.title}</h2>}
-          {exercise.prompt && (
+          {exercise.prompt && !answerHidden && (
             <div className="exercise-prompt">
               {exercise.prompt}
               {exercise.type === 'flashcard' && (
@@ -78,8 +86,17 @@ export function Player() {
 
           {exercise.type === 'flashcard' && (
             <>
-              <p className="exercise-explanation muted" style={{ textAlign: 'center' }}>{exercise.translation}</p>
-              {exercise.example && <p className="exercise-hint"><em>{exercise.example}</em></p>}
+              {/* On a repeat the Russian is the question, so it leads instead of trailing. */}
+              <p
+                className={answerHidden ? 'exercise-prompt' : 'exercise-explanation muted'}
+                style={{ textAlign: 'center' }}
+              >
+                {exercise.translation}
+              </p>
+              {answerHidden && (
+                <p className="exercise-hint">Скажи про себя, как это будет {model.currentLanguage.adverb}</p>
+              )}
+              {exercise.example && !answerHidden && <p className="exercise-hint"><em>{exercise.example}</em></p>}
             </>
           )}
 
@@ -171,8 +188,24 @@ export function Player() {
         {!feedback && exercise.type === 'info' && (
           <button className="primary" onClick={() => model.completePassive()}>Понятно</button>
         )}
-        {!feedback && exercise.type === 'flashcard' && (
+        {!feedback && exercise.type === 'flashcard' && !recall && (
           <button className="primary" onClick={() => model.completePassive()}>Запомнил</button>
+        )}
+        {!feedback && exercise.type === 'flashcard' && recall && !revealed && (
+          <button
+            className="primary"
+            onClick={() => { setRevealed(true); if (exercise.prompt) speak(exercise.prompt) }}
+          >
+            Показать
+          </button>
+        )}
+        {/* Nobody but the learner knows whether the word actually came to mind, and an
+            honest "нет" is what puts the card back into tomorrow's queue. */}
+        {!feedback && exercise.type === 'flashcard' && recall && revealed && (
+          <div className="row">
+            <button className="secondary" onClick={() => model.selfAssess(false)}>Не вспомнил</button>
+            <button className="primary mint" onClick={() => model.selfAssess(true)}>Вспомнил</button>
+          </div>
         )}
         {!feedback && exercise.type === 'translate' && (
           <button className="primary" disabled={!answer.trim()} onClick={() => model.submitText(answer)}>Проверить</button>

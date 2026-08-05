@@ -346,12 +346,7 @@ export class AppStore {
   }
 
   /** The learner's own verdict: it still feeds points and spaced repetition. */
-  shadowingSelfAssess(correct: boolean): void {
-    this.session.selfAssess(correct)
-    this.state = this.session.state
-    if (this.session.isComplete) this.bankPracticeTime()
-    this.persist()
-  }
+  shadowingSelfAssess(correct: boolean): void { this.selfAssess(correct) }
 
   closeShadowing(): void {
     this.shadowingActive = false
@@ -400,6 +395,20 @@ export class AppStore {
     this.state = this.session.state
     this.bankPracticeTime()
     this.session = new LearningSession(this.state, this.language ?? DEFAULT_LANGUAGE)
+    this.persist()
+  }
+
+  /** True when the current card is a repeat and should be recalled rather than read. */
+  get currentIsRecall(): boolean { return this.session.currentIsRecall }
+
+  /**
+   * Used where nobody can mark the answer but the learner: speaking aloud, and recalling
+   * a word from a card. Counts exactly like a checked answer, mistakes included.
+   */
+  selfAssess(correct: boolean): void {
+    this.session.selfAssess(correct)
+    this.state = this.session.state
+    if (this.session.isComplete) this.bankPracticeTime()
     this.persist()
   }
 

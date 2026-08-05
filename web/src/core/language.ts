@@ -21,6 +21,8 @@ export interface LearningLanguage {
   genitive: string
   /** Russian prepositional, for «шаг в испанском». */
   locative: string
+  /** Russian adverb, for «скажи это по-испански». */
+  adverb: string
   /** The greeting on the picker card: the language speaking for itself. */
   greeting: string
   /** One line of what it is like to start. */
@@ -39,6 +41,7 @@ export const LANGUAGES: readonly LearningLanguage[] = [
     short: 'EN',
     genitive: 'английского',
     locative: 'английском',
+    adverb: 'по-английски',
     greeting: 'Hello!',
     note: 'От первых фраз до свободной речи: A1–C1',
     speechLocale: 'en-GB',
@@ -51,6 +54,7 @@ export const LANGUAGES: readonly LearningLanguage[] = [
     short: 'ES',
     genitive: 'испанского',
     locative: 'испанском',
+    adverb: 'по-испански',
     greeting: '¡Hola!',
     note: 'От первых фраз до свободной речи: A1–C1',
     speechLocale: 'es-ES',

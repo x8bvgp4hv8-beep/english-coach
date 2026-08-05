@@ -6,7 +6,12 @@ struct LessonPlayerView: View {
     @State private var answer = ""
     @State private var selectedIndices: [Int] = []
     @State private var selectedOption: String?
+    /// A card being recalled keeps its answer hidden until the learner has tried.
+    @State private var revealed = false
     @State private var speech = SpeechService()
+
+    /// The target side: the question on a first meeting, the answer on every one after.
+    private var answerHidden: Bool { model.currentIsRecall && !revealed }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -19,7 +24,7 @@ struct LessonPlayerView: View {
         .onChange(of: model.currentExercise?.id) { _, _ in resetInputs() }
     }
 
-    private func resetInputs() { answer = ""; selectedIndices = []; selectedOption = nil }
+    private func resetInputs() { answer = ""; selectedIndices = []; selectedOption = nil; revealed = false }
 
     private var topBar: some View {
         VStack(spacing: 10) {
@@ -46,7 +51,7 @@ struct LessonPlayerView: View {
             VStack(spacing: 18) {
                 Text(label(for: exercise.type)).font(.caption.weight(.black)).foregroundStyle(CoachTheme.accentColor).tracking(1.2)
                 if let title = exercise.title { Text(title).font(.system(size: 27, weight: .black, design: .rounded)).multilineTextAlignment(.center) }
-                if let prompt = exercise.prompt {
+                if let prompt = exercise.prompt, !answerHidden {
                     HStack(spacing: 8) {
                         Text(prompt).font(.system(size: 24, weight: .bold, design: .rounded)).multilineTextAlignment(.center)
                         if exercise.type == .flashcard { Button { speech.speak(prompt) } label: { Image(systemName: "speaker.wave.2.fill") }.buttonStyle(.plain).foregroundStyle(CoachTheme.blue) }
@@ -68,9 +73,32 @@ struct LessonPlayerView: View {
             Text(exercise.explanation ?? "").font(.title3).lineSpacing(6).multilineTextAlignment(.center)
             Button("Понятно") { withAnimation { model.completePassive() } }.buttonStyle(PrimaryButtonStyle())
         case .flashcard:
-            Text(exercise.translation ?? "").font(.title3).foregroundStyle(.secondary)
-            if let example = exercise.example { Text(example).italic().padding(12).background(CoachTheme.mist, in: RoundedRectangle(cornerRadius: 12)) }
-            Button("Запомнил") { withAnimation { model.completePassive() } }.buttonStyle(PrimaryButtonStyle(color: CoachTheme.blue))
+            // On a repeat the Russian is the question, so it leads instead of trailing.
+            Text(exercise.translation ?? "")
+                .font(answerHidden ? .system(size: 24, weight: .bold, design: .rounded) : .title3)
+                .foregroundStyle(answerHidden ? CoachTheme.ink : .secondary)
+                .multilineTextAlignment(.center)
+            if answerHidden {
+                Text("Скажи про себя, как это будет \(model.currentLanguage.adverb)")
+                    .font(.callout).foregroundStyle(.secondary)
+                Button("Показать") {
+                    withAnimation { revealed = true }
+                    if let prompt = exercise.prompt { speech.speak(prompt) }
+                }.buttonStyle(PrimaryButtonStyle(color: CoachTheme.blue))
+            } else {
+                if let example = exercise.example { Text(example).italic().padding(12).background(CoachTheme.mist, in: RoundedRectangle(cornerRadius: 12)) }
+                if model.currentIsRecall {
+                    // Nobody but the learner knows whether the word actually came to mind,
+                    // and an honest "нет" is what puts the card back into tomorrow's queue.
+                    HStack(spacing: 12) {
+                        Button("Не вспомнил") { resetInputs(); withAnimation { model.selfAssess(false) } }.buttonStyle(.bordered)
+                        Button("Вспомнил") { resetInputs(); withAnimation { model.selfAssess(true) } }
+                            .buttonStyle(PrimaryButtonStyle(color: CoachTheme.mint))
+                    }
+                } else {
+                    Button("Запомнил") { withAnimation { model.completePassive() } }.buttonStyle(PrimaryButtonStyle(color: CoachTheme.blue))
+                }
+            }
         case .translate:
             TextField("Напиши перевод…", text: $answer).textFieldStyle(.plain).font(.title3).padding(14).background(CoachTheme.cardFill, in: RoundedRectangle(cornerRadius: 14)).overlay(RoundedRectangle(cornerRadius: 14).stroke(CoachTheme.borderColor, lineWidth: max(2, CoachTheme.borderWidth))).onSubmit(submitText).disabled(model.feedback != nil)
             if model.feedback == nil { Button("Проверить", action: submitText).buttonStyle(PrimaryButtonStyle()) }
@@ -195,7 +223,16 @@ struct LessonPlayerView: View {
     }
 
     private func submitText() { guard !answer.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }; model.submitText(answer) }
-    private func label(for type: ExerciseType) -> String { switch type { case .info: "КОРОТКОЕ ПРАВИЛО"; case .flashcard: "НОВАЯ ФРАЗА"; case .translate: "ПЕРЕВЕДИ НА \(model.currentLanguage.title.uppercased())"; case .wordOrder: "СОБЕРИ ПРЕДЛОЖЕНИЕ"; case .multipleChoice: "ВЫБЕРИ ОТВЕТ" } }
+    private func label(for type: ExerciseType) -> String {
+        if type == .flashcard, model.currentIsRecall { return "ВСПОМНИ ФРАЗУ" }
+        switch type {
+        case .info: return "КОРОТКОЕ ПРАВИЛО"
+        case .flashcard: return "НОВАЯ ФРАЗА"
+        case .translate: return "ПЕРЕВЕДИ НА \(model.currentLanguage.title.uppercased())"
+        case .wordOrder: return "СОБЕРИ ПРЕДЛОЖЕНИЕ"
+        case .multipleChoice: return "ВЫБЕРИ ОТВЕТ"
+        }
+    }
 }
 
 /// Simple wrapping layout so word chips flow onto multiple lines.

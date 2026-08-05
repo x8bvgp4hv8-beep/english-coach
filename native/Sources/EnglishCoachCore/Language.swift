@@ -25,6 +25,8 @@ public struct LearningLanguage: Identifiable, Equatable, Sendable {
     public let genitive: String
     /// Russian prepositional, for «шаг в испанском».
     public let locative: String
+    /// Russian adverb, for «скажи это по-испански».
+    public let adverb: String
     /// The greeting on the picker card: the language speaking for itself.
     public let greeting: String
     /// One line of what it is like to start.
@@ -41,13 +43,13 @@ public enum Languages {
     public static let all: [LearningLanguage] = [
         LearningLanguage(
             code: .en, title: "Английский", nativeTitle: "English", short: "EN",
-            genitive: "английского", locative: "английском",
+            genitive: "английского", locative: "английском", adverb: "по-английски",
             greeting: "Hello!", note: "От первых фраз до свободной речи: A1–C1",
             speechLocale: "en-GB", speechFallbacks: ["en-US", "en"]
         ),
         LearningLanguage(
             code: .es, title: "Испанский", nativeTitle: "Español", short: "ES",
-            genitive: "испанского", locative: "испанском",
+            genitive: "испанского", locative: "испанском", adverb: "по-испански",
             greeting: "¡Hola!", note: "От первых фраз до свободной речи: A1–C1",
             speechLocale: "es-ES", speechFallbacks: ["es-MX", "es"]
         )

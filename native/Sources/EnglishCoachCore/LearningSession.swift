@@ -10,6 +10,10 @@ public struct LearningSession: Sendable {
     private var lastAnswer: String?
     /// Set when the current attempt created a fresh review item, so it can be undone.
     private var lastCreatedReviewID: String?
+    /// Exercises the learner had already met when this set was opened. Taken once at
+    /// `start` rather than read live, so a card does not change shape under the learner's
+    /// hands the moment they answer it, or on the way back through `goBack`.
+    private var seenBefore: Set<String> = []
 
     /// Which language is being learnt: the checker judges Spanish by Spanish rules.
     public let language: LanguageCode
@@ -33,6 +37,20 @@ public struct LearningSession: Sendable {
     public mutating func start(_ lesson: Lesson, recordsCompletion: Bool = true) {
         activeLesson = lesson; self.recordsCompletion = recordsCompletion
         exerciseIndex = 0; feedback = nil; retryUsed = false
+        seenBefore = Set(state.attempts.map(\.exerciseID))
+    }
+
+    /// A card met for the first time is something to read; the same card met again is a
+    /// word to recall.
+    ///
+    /// Without this every flashcard was passive for ever: it showed both sides at once and
+    /// the "Запомнил" button recorded a correct answer whether or not anything had been
+    /// remembered. Since only wrong answers enter the review queue, a word the learner did
+    /// not know was never scheduled to come back at all. Recall makes the second meeting a
+    /// question, so "не вспомнил" is finally something the app can hear.
+    public var currentIsRecall: Bool {
+        guard let exercise = currentExercise else { return false }
+        return exercise.type == .flashcard && seenBefore.contains(exercise.id)
     }
 
     @discardableResult

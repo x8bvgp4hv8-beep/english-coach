@@ -19,6 +19,12 @@ export class LearningSession {
   private lastAnswer: string | null = null
   /** Set when the current attempt created a fresh review item, so it can be undone. */
   private lastCreatedReviewID: string | null = null
+  /**
+   * Exercises the learner had already met when this set was opened. Taken once at
+   * `start` rather than read live, so a card does not change shape under the learner's
+   * hands the moment they answer it, or on the way back through `goBack`.
+   */
+  private seenBefore = new Set<string>()
 
   /** Which language is being learnt: the checker judges Spanish by Spanish rules. */
   constructor(state: UserState, readonly language: LanguageCode = DEFAULT_LANGUAGE) {
@@ -40,6 +46,21 @@ export class LearningSession {
   }
 
   /**
+   * A card met for the first time is something to read; the same card met again is a
+   * word to recall.
+   *
+   * Without this every flashcard was passive for ever: it showed both sides at once and
+   * the "Запомнил" button recorded a correct answer whether or not anything had been
+   * remembered. Since only wrong answers enter the review queue, a word the learner did
+   * not know was never scheduled to come back at all. Recall makes the second meeting a
+   * question, so "не вспомнил" is finally something the app can hear.
+   */
+  get currentIsRecall(): boolean {
+    const exercise = this.currentExercise
+    return exercise !== null && exercise.type === 'flashcard' && this.seenBefore.has(exercise.id)
+  }
+
+  /**
    * `recordsCompletion: false` for generated sets (practice, daily review): finishing
    * them must not put a synthetic lesson id into the learner's completed lessons.
    */
@@ -49,6 +70,7 @@ export class LearningSession {
     this.exerciseIndex = 0
     this.feedback = null
     this.retryUsed = false
+    this.seenBefore = new Set(this.state.attempts.map((attempt) => attempt.exerciseID))
   }
 
   submitText(answer: string, now: Date = new Date()): AnswerResult {
