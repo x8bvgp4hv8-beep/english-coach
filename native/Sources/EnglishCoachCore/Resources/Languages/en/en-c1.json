@@ -33,6 +33,16 @@
               ]
             },
             {
+              "id": "c1-translate-1-pre",
+              "type": "flashcard",
+              "prompt": "They argued that the model is sustainable.",
+              "translation": "Они утверждали, что модель устойчива.",
+              "example": "They argued that the model is sustainable in the long run.",
+              "topics": [
+                "c1-hedging"
+              ]
+            },
+            {
               "id": "c1-translate-1",
               "type": "translate",
               "prompt": "Можно утверждать, что этот подход более устойчив.",
@@ -88,6 +98,16 @@
               ]
             },
             {
+              "id": "c1-translate-2-pre",
+              "type": "flashcard",
+              "prompt": "The meaning depends on the context of the sentence.",
+              "translation": "Смысл зависит от контекста предложения.",
+              "example": "The meaning depends on the context of the sentence, not on the word alone.",
+              "topics": [
+                "c1-hedging"
+              ]
+            },
+            {
               "id": "c1-translate-2",
               "type": "translate",
               "prompt": "В определённой степени это зависит от контекста.",
@@ -133,6 +153,17 @@
               "correctOption": "likely to be",
               "topics": [
                 "c1-hedging"
+              ]
+            },
+            {
+              "id": "c1-translate-3-pre",
+              "type": "flashcard",
+              "prompt": "The evidence is plausible but not conclusive, and the conclusion should be considered carefully.",
+              "translation": "Данные правдоподобны, но не окончательны, и вывод стоит рассматривать осторожно.",
+              "example": "The evidence is plausible but not conclusive, and the conclusion should be considered carefully before publication.",
+              "topics": [
+                "c1-hedging",
+                "b1-while-when"
               ]
             },
             {
@@ -347,6 +378,16 @@
               ]
             },
             {
+              "id": "c1-ch2-l2-ex4-pre",
+              "type": "flashcard",
+              "prompt": "Maria bought a vase yesterday.",
+              "translation": "Мария вчера купила вазу.",
+              "example": "Maria bought a vase yesterday at the market.",
+              "topics": [
+                "c1-cleft"
+              ]
+            },
+            {
               "id": "c1-ch2-l2-ex4",
               "type": "translate",
               "prompt": "Именно Мария разбила вазу, а не я.",
@@ -375,6 +416,16 @@
                 "."
               ],
               "difficulty": 2,
+              "topics": [
+                "c1-cleft"
+              ]
+            },
+            {
+              "id": "c1-ch2-l2-ex6-pre",
+              "type": "flashcard",
+              "prompt": "The holiday starts on Friday.",
+              "translation": "Отпуск начинается в пятницу.",
+              "example": "The holiday starts on Friday and lasts two weeks.",
               "topics": [
                 "c1-cleft"
               ]
@@ -545,6 +596,16 @@
               ]
             },
             {
+              "id": "c1-ch3-l1-ex7-pre",
+              "type": "flashcard",
+              "prompt": "I found the entire schedule online.",
+              "translation": "Я нашёл всё расписание в интернете.",
+              "example": "I found the entire schedule online in one minute.",
+              "topics": [
+                "c1-concession"
+              ]
+            },
+            {
               "id": "c1-ch3-l1-ex7",
               "type": "translate",
               "prompt": "Несмотря на плотный график, она нашла время прочитать весь отчёт.",
@@ -555,6 +616,16 @@
               ],
               "hint": "despite + существительное",
               "difficulty": 2,
+              "topics": [
+                "c1-concession"
+              ]
+            },
+            {
+              "id": "c1-ch3-l1-ex8-pre",
+              "type": "flashcard",
+              "prompt": "Sales were sluggish last year. The product received warm reviews and remained popular.",
+              "translation": "Продажи в прошлом году были вялыми. Продукт получил тёплые отзывы и остался популярным.",
+              "example": "Sales were sluggish last year, yet the product received warm reviews and remained popular.",
               "topics": [
                 "c1-concession"
               ]
@@ -593,6 +664,16 @@
                 "."
               ],
               "difficulty": 3,
+              "topics": [
+                "c1-concession"
+              ]
+            },
+            {
+              "id": "c1-ch3-l1-ex10-pre",
+              "type": "flashcard",
+              "prompt": "The board approved the budget unanimously; nobody looked at the risky part.",
+              "translation": "Совет единогласно утвердил бюджет; на рискованную часть никто не посмотрел.",
+              "example": "The board approved the budget unanimously; nobody looked at the risky part until later.",
               "topics": [
                 "c1-concession"
               ]
@@ -685,6 +766,16 @@
               ]
             },
             {
+              "id": "c1-ch3-l2-ex6-pre",
+              "type": "flashcard",
+              "prompt": "A thorough explanation does not have to be long-winded.",
+              "translation": "Подробное объяснение не обязано быть многословным.",
+              "example": "A thorough explanation does not have to be long-winded to be useful.",
+              "topics": [
+                "c1-register"
+              ]
+            },
+            {
               "id": "c1-ch3-l2-ex6",
               "type": "translate",
               "prompt": "Отчёт тщательный, пусть и немного затянутый.",
@@ -695,6 +786,16 @@
               ],
               "hint": "albeit + прилагательное",
               "difficulty": 3,
+              "topics": [
+                "c1-register"
+              ]
+            },
+            {
+              "id": "c1-ch3-l2-ex7-pre",
+              "type": "flashcard",
+              "prompt": "Nothing can justify an investment without returns.",
+              "translation": "Ничто не оправдает вложение без отдачи.",
+              "example": "Nothing can justify an investment without returns, however elegant the idea.",
               "topics": [
                 "c1-register"
               ]
@@ -732,6 +833,16 @@
                 "."
               ],
               "difficulty": 3,
+              "topics": [
+                "c1-register"
+              ]
+            },
+            {
+              "id": "c1-ch3-l2-ex9-pre",
+              "type": "flashcard",
+              "prompt": "He agreed with obvious pleasure and no reluctance.",
+              "translation": "Он согласился с явным удовольствием и без всякой неохоты.",
+              "example": "He agreed with obvious pleasure and no reluctance at all.",
               "topics": [
                 "c1-register"
               ]
@@ -811,6 +922,16 @@
                 "will not be"
               ],
               "correctOption": "would not be",
+              "topics": [
+                "c1-mixed-conditionals"
+              ]
+            },
+            {
+              "id": "c1-ch4-l1-ex4-pre",
+              "type": "flashcard",
+              "prompt": "A second language is easier when the first one is learned well.",
+              "translation": "Второй язык даётся легче, когда первый выучен хорошо.",
+              "example": "A second language is easier when the first one is learned well at school.",
               "topics": [
                 "c1-mixed-conditionals"
               ]
@@ -939,6 +1060,16 @@
               ]
             },
             {
+              "id": "c1-ch4-l2-ex4-pre",
+              "type": "flashcard",
+              "prompt": "In my view, that is enough.",
+              "translation": "На мой взгляд, этого достаточно.",
+              "example": "In my view, that is enough for a first draft.",
+              "topics": [
+                "c1-emphasis"
+              ]
+            },
+            {
               "id": "c1-ch4-l2-ex4",
               "type": "translate",
               "prompt": "Я действительно понимаю твою точку зрения.",
@@ -1054,6 +1185,16 @@
               ],
               "topics": [
                 "c1-emphasis"
+              ]
+            },
+            {
+              "id": "c1-ch4-l2-ex14-pre",
+              "type": "flashcard",
+              "prompt": "Shares of the company fell, and nothing changed.",
+              "translation": "Акции компании упали, и ничего не изменилось.",
+              "example": "Shares of the company fell, and nothing changed for the staff.",
+              "topics": [
+                "c1-advanced-relatives"
               ]
             },
             {
