@@ -12,16 +12,27 @@ final class SpeechService {
     /// than an argument every view has to pass down. `AppModel` sets it with the language.
     static var language: LearningLanguage = Languages.of(.default)
 
-    /// Apple ships a set of character voices — Eddy, Grandma, Rocko and friends — in every
-    /// language, and they sort ahead of the real one. Reading a model phrase in a cartoon
-    /// voice teaches the wrong thing, so they are never chosen automatically. They stay in
-    /// the picker: it is the learner's app, and someone may want Grandma.
-    private static let novelty: Set<String> = [
-        "Eddy", "Flo", "Grandma", "Grandpa", "Reed", "Rocko", "Sandy", "Shelley",
-        "Albert", "Bad News", "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Wobble",
-        "Fred", "Good News", "Jester", "Junior", "Kathy", "Organ", "Superstar", "Ralph",
-        "Trinoids", "Whisper", "Zarvox"
+    /// The voices worth learning from, by name.
+    ///
+    /// A list of what to exclude was the obvious way round and it does not work: of the
+    /// 41 English voices macOS installs, 35 are cartoons and joke synthesisers from the
+    /// nineties, and on the web the browser hands their names back translated into the
+    /// interface language. So the rule is inverted — only real voices are offered, and
+    /// unknown means not offered. The worst case is a good voice missing from a list of
+    /// six, not a lesson read by a robot.
+    private static let realVoices: Set<String> = [
+        "samantha", "саманта", "daniel", "дэниэл", "alex", "алекс", "karen", "карен",
+        "moira", "мойра", "rishi", "риши", "tessa", "тесса", "fiona", "фиона",
+        "serena", "серена", "kate", "кейт", "oliver", "оливер", "ava", "ава",
+        "allison", "эллисон", "susan", "сьюзан", "nicky", "ники", "aaron", "аарон",
+        "zoe", "зои", "evan", "эван", "nathan", "нейтан", "noelle", "ноэль",
+        "mónica", "monica", "моника", "paulina", "паулина", "jorge", "хорхе",
+        "juan", "хуан", "diego", "диего", "marisol", "марисоль", "carlos", "карлос",
+        "angelica", "angélica", "анхелика", "soledad", "соледад", "isabela", "изабела"
     ]
+
+    /// More than this is a list to scroll, not a choice to make.
+    private static let maxVoices = 6
 
     /// Every installed voice that can read the current language, best first.
     ///
@@ -31,18 +42,31 @@ final class SpeechService {
     /// has nothing better to offer — so this list also tells the settings screen what
     /// quality it is actually working with.
     static func voices(for language: LearningLanguage) -> [AVSpeechSynthesisVoice] {
+        let real = voices(for: language, accepting: { realVoices.contains($0.name.lowercased()) })
+        // An unknown system, or Apple renamed something: better a list with a cartoon in
+        // it than an empty settings screen.
+        return real.isEmpty ? voices(for: language, accepting: { !$0.name.contains(" (") }) : real
+    }
+
+    private static func voices(
+        for language: LearningLanguage,
+        accepting accept: (AVSpeechSynthesisVoice) -> Bool
+    ) -> [AVSpeechSynthesisVoice] {
         let all = AVSpeechSynthesisVoice.speechVoices()
         var found: [AVSpeechSynthesisVoice] = []
+        var seen: Set<String> = []
         for locale in [language.speechLocale] + language.speechFallbacks {
-            for voice in all where voice.language.hasPrefix(locale) && !found.contains(voice) {
+            let here = all
+                .filter { $0.language.hasPrefix(locale) && !seen.contains($0.name) && accept($0) }
+                // Best quality first: the same name can be installed as compact and premium.
+                .sorted { $0.quality.rawValue > $1.quality.rawValue }
+            for voice in here where !seen.contains(voice.name) {
+                seen.insert(voice.name)
                 found.append(voice)
+                if found.count >= maxVoices { return found }
             }
         }
-        return found.sorted { left, right in
-            let leftPlain = !novelty.contains(left.name), rightPlain = !novelty.contains(right.name)
-            if leftPlain != rightPlain { return leftPlain }
-            return left.quality.rawValue > right.quality.rawValue
-        }
+        return found
     }
 
     static func quality(_ voice: AVSpeechSynthesisVoice) -> String {

@@ -18,17 +18,33 @@ export function setVoiceLanguage(code: LanguageCode): void {
 }
 
 /**
- * Apple ships a set of character voices — Eddy, Grandma, Rocko and friends — in every
- * language, and they sort ahead of the real one. Reading a model phrase in a cartoon
- * voice teaches the wrong thing, so they are never chosen automatically. They stay in
- * the picker: it is the learner's app, and someone may want Grandma.
+ * The voices worth learning from, by name.
+ *
+ * A list of what to exclude was the obvious way round and it does not work: of the 41
+ * English voices macOS installs, 35 are cartoons and joke synthesisers from the nineties
+ * — Zarvox, Bells, Superstar — and the browser hands their names back translated into
+ * the interface language ("Альберт", "Виолончель"). A blocklist written in English lets
+ * every one of them through.
+ *
+ * So the rule is inverted: only the real voices are offered, listed in both spellings the
+ * browser can return. Unknown means not offered, which is the safe direction — the worst
+ * case is a good voice missing from a list of six, not a lesson read by a robot.
  */
-const NOVELTY = new Set([
-  'eddy', 'flo', 'grandma', 'grandpa', 'reed', 'rocko', 'sandy', 'shelley',
-  'albert', 'bad news', 'bahh', 'bells', 'boing', 'bubbles', 'cellos', 'wobble',
-  'fred', 'good news', 'jester', 'junior', 'kathy', 'organ', 'superstar', 'ralph',
-  'trinoids', 'whisper', 'zarvox',
+const REAL_VOICES = new Set([
+  // English
+  'samantha', 'саманта', 'daniel', 'дэниэл', 'alex', 'алекс', 'karen', 'карен',
+  'moira', 'мойра', 'rishi', 'риши', 'tessa', 'тесса', 'fiona', 'фиона',
+  'serena', 'серена', 'kate', 'кейт', 'oliver', 'оливер', 'ava', 'ава',
+  'allison', 'эллисон', 'susan', 'сьюзан', 'nicky', 'ники', 'aaron', 'аарон',
+  'zoe', 'зои', 'evan', 'эван', 'nathan', 'нейтан', 'noelle', 'ноэль',
+  // Spanish
+  'mónica', 'monica', 'моника', 'paulina', 'паулина', 'jorge', 'хорхе',
+  'juan', 'хуан', 'diego', 'диего', 'marisol', 'марисоль', 'carlos', 'карлос',
+  'angelica', 'angélica', 'анхелика', 'soledad', 'соледад', 'isabela', 'изабела',
 ])
+
+/** More than this is a list to scroll, not a choice to make. */
+const MAX_VOICES = 6
 
 /** "Eddy (испанский (Испания))" is the same voice as "Eddy" — the suffix is decoration. */
 const baseName = (name: string): string => name.split(' (')[0].trim().toLowerCase()
@@ -36,18 +52,37 @@ const baseName = (name: string): string => name.split(' (')[0].trim().toLowerCas
 const matches = (item: SpeechSynthesisVoice, wanted: string): boolean =>
   item.lang.replace('_', '-').toLowerCase().startsWith(wanted.toLowerCase())
 
-/** Every installed voice that can speak the current language, the plain ones first. */
+/**
+ * The voices worth offering for the current language: real ones only, one entry per
+ * name, and never more than a screenful. The exact locale comes first, so a Spanish
+ * course lists Mónica before Paulina and not the other way round.
+ */
 export function voicesFor(code: LanguageCode = language): SpeechSynthesisVoice[] {
   if (!('speechSynthesis' in window)) return []
   const wanted = languageOf(code)
   const installed = speechSynthesis.getVoices()
-  const found: SpeechSynthesisVoice[] = []
-  for (const locale of [wanted.speechLocale, ...wanted.speechFallbacks]) {
-    for (const item of installed) {
-      if (matches(item, locale) && !found.includes(item)) found.push(item)
+
+  const collect = (accept: (item: SpeechSynthesisVoice) => boolean): SpeechSynthesisVoice[] => {
+    const found: SpeechSynthesisVoice[] = []
+    const seen = new Set<string>()
+    for (const locale of [wanted.speechLocale, ...wanted.speechFallbacks]) {
+      for (const item of installed) {
+        const name = baseName(item.name)
+        if (!matches(item, locale) || seen.has(name) || !accept(item)) continue
+        seen.add(name)
+        found.push(item)
+        if (found.length >= MAX_VOICES) return found
+      }
     }
+    return found
   }
-  return found.sort((a, b) => Number(NOVELTY.has(baseName(a.name))) - Number(NOVELTY.has(baseName(b.name))))
+
+  const real = collect((item) => REAL_VOICES.has(baseName(item.name)))
+  if (real.length > 0) return real
+  // An unknown system, or Apple renamed something: better a list with a cartoon in it
+  // than an empty settings screen. The character voices carry the language in brackets,
+  // so at least those can still be kept out.
+  return collect((item) => !item.name.includes(' ('))
 }
 
 // MARK: - The learner's own choice
@@ -84,11 +119,9 @@ export function activeVoice(): SpeechSynthesisVoice | null {
   if (available.length === 0) return null
   const picked = storedName()
   const mine = picked ? available.find((item) => item.name === picked) : undefined
-  if (mine) return mine
-  // The system default for the language, when it is not a character voice: on Apple
-  // platforms that is Mónica, Daniel or Samantha — the ones meant to be listened to.
-  const preferred = available.filter((item) => !NOVELTY.has(baseName(item.name)))
-  return preferred.find((item) => item.default) ?? preferred[0] ?? null
+  // On Apple platforms the first real voice for a language is the one meant to be
+  // listened to: Mónica, Daniel, Samantha.
+  return mine ?? available.find((item) => item.default) ?? available[0] ?? null
 }
 
 /**
