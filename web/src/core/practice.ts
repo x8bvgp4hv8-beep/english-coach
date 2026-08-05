@@ -13,6 +13,35 @@ import type { CEFRLevel, CoursePack, Exercise, ExerciseType, Lesson, UserState }
 export const PRACTICE_LESSON_ID = 'practice'
 const DEFAULT_SIZE = 10
 
+/**
+ * The course as far as this learner has actually walked it.
+ *
+ * Practice used to draw from the whole level, so a Spanish account opened five minutes
+ * ago was offered the future tense from lesson 11 and word order from lesson 7 before
+ * lesson 1 had been opened. The lessons themselves unlock in order; practice quietly
+ * ignored that.
+ *
+ * Levels below the current one stay open in full — choosing B1 is a claim about A1 and
+ * A2, and the placement test makes that claim on the learner's behalf. The current level
+ * is earned lesson by lesson.
+ *
+ * Trimming the courses rather than the pool keeps every engine unchanged: practice,
+ * shadowing and listening all build on `PracticeEngine.pool`, so they inherit the same
+ * limit by being handed the same trimmed packs.
+ */
+export function taughtCourses(courses: CoursePack[], level: CEFRLevel, completed: Set<string>): CoursePack[] {
+  const ceiling = LEVELS.indexOf(level)
+  return courses.flatMap((course) => {
+    const index = LEVELS.indexOf(course.level)
+    if (index > ceiling) return []
+    if (index < ceiling) return [course]
+    const chapters = course.chapters
+      .map((chapter) => ({ ...chapter, lessons: chapter.lessons.filter((lesson) => completed.has(lesson.id)) }))
+      .filter((chapter) => chapter.lessons.length > 0)
+    return chapters.length > 0 ? [{ ...course, chapters }] : []
+  })
+}
+
 function shuffled<T>(items: T[], random: () => number): T[] {
   const copy = [...items]
   for (let i = copy.length - 1; i > 0; i -= 1) {

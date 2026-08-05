@@ -72,6 +72,9 @@ struct TopicsView: View {
         let seen = item.attempts > 0
         let percent = Int((item.accuracy * 100).rounded())
         let tone: Color = !seen ? CoachTheme.inkSoft : percent < 60 ? CoachTheme.coral : percent < 75 ? CoachTheme.amber : CoachTheme.mint
+        // A topic the course has not reached yet has nothing to drill: the row states
+        // that instead of being a button that does nothing when clicked.
+        let locked = item.exercises == 0
 
         return Button { model.startTopicPractice(item.topic.id) } label: {
             HStack(spacing: 12) {
@@ -79,7 +82,7 @@ struct TopicsView: View {
                     HStack(alignment: .firstTextBaseline) {
                         Text(item.topic.title).font(.system(size: 15, weight: .semibold))
                         Spacer(minLength: 8)
-                        Text(seen ? "\(percent)%" : "\(item.exercises) упр.")
+                        Text(seen ? "\(percent)%" : locked ? "дальше" : "\(item.exercises) упр.")
                             .font(.system(size: 13, weight: .bold)).monospacedDigit().foregroundStyle(tone)
                     }
                     Text(item.topic.summary).font(.system(size: 12)).foregroundStyle(.secondary)
@@ -88,9 +91,12 @@ struct TopicsView: View {
                     if seen {
                         Text("\(item.correct) из \(item.attempts) верно · \(item.topic.level.rawValue)")
                             .font(.system(size: 11)).foregroundStyle(.secondary)
+                    } else if locked {
+                        Text("откроется, когда до неё дойдут уроки")
+                            .font(.system(size: 11)).foregroundStyle(.secondary)
                     }
                 }
-                Image(systemName: "play.fill").font(.system(size: 11)).foregroundStyle(.secondary)
+                Image(systemName: locked ? "circle.dotted" : "play.fill").font(.system(size: 11)).foregroundStyle(.secondary)
             }
             .padding(14)
             .frame(maxWidth: .infinity)
@@ -98,6 +104,8 @@ struct TopicsView: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .disabled(locked)
+        .opacity(locked ? 0.55 : 1)
         .padding(.top, 10)
     }
 }

@@ -209,6 +209,13 @@ button { cursor: pointer; border: none; background: none; }
 .section-title h2 { font-size: 13px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; margin: 0; color: var(--ink); }
 .section-title p { font-size: 12px; color: var(--ink-soft); margin: 3px 0 0; line-height: 1.35; }
 
+/* A section that has nothing in it yet, explaining why rather than showing zeros. */
+.empty-note {
+  margin-top: 10px; padding: 14px 16px; border-radius: var(--radius);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
+  font-size: 13px; line-height: 1.45; color: var(--ink-soft);
+}
+
 /* Kinds of practice */
 .kinds {
   margin-top: 10px; background: var(--surface-solid); border-radius: var(--radius); overflow: hidden;
@@ -489,7 +496,9 @@ button { cursor: pointer; border: none; background: none; }
   background: var(--surface-solid); border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
   transition: transform 140ms ease-out, box-shadow 140ms ease-out;
 }
-.topic:active { transform: translateY(var(--press-y)); box-shadow: var(--shadow-btn-active); }
+.topic:active:not(:disabled) { transform: translateY(var(--press-y)); box-shadow: var(--shadow-btn-active); }
+/* Not yet reached by the lessons: a statement, not a button. */
+.topic:disabled { opacity: 0.45; box-shadow: none; }
 .topic-body { flex: 1; min-width: 0; }
 .topic-head { display: flex; align-items: baseline; gap: 8px; }
 .topic-title { font-size: 15px; font-weight: 700; }

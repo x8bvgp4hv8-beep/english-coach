@@ -89,17 +89,22 @@ public enum TopicProgressEngine {
     /// Below this share of correct answers a topic is worth putting back in front of you.
     public static let weakAccuracy = 0.75
 
-    public static func all(syllabus: Syllabus, courses: [CoursePack], state: UserState, level: CEFRLevel) -> [TopicProgress] {
+    /// `taught` is the part of the course practice may draw from, which is not the whole
+    /// level until the whole level has been walked. The learner's record is read from all
+    /// of `courses` — an answer given is an answer given — but `exercises` counts only
+    /// what can be drilled right now, so the screen never offers a topic that would open
+    /// an empty set.
+    public static func all(
+        syllabus: Syllabus, courses: [CoursePack], state: UserState, level: CEFRLevel, taught: [CoursePack]? = nil
+    ) -> [TopicProgress] {
         let ceiling = LevelOrder.all.firstIndex(of: level) ?? 0
         let inScope = syllabus.topics.filter { (LevelOrder.all.firstIndex(of: $0.level) ?? 0) <= ceiling }
 
         var topicsOf: [String: [String]] = [:]
-        var available: [String: Int] = [:]
         for exercise in courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises) where exercise.type != .info {
-            let topics = exercise.topics ?? []
-            topicsOf[exercise.id] = topics
-            for topic in topics { available[topic, default: 0] += 1 }
+            topicsOf[exercise.id] = exercise.topics ?? []
         }
+        let available = SyllabusEngine.counts(in: taught ?? courses)
 
         var tally: [String: (attempts: Int, correct: Int)] = [:]
         for attempt in state.attempts {
@@ -125,15 +130,20 @@ public enum TopicProgressEngine {
 
     /// Worst first. A topic needs a few attempts before it can be called weak — one slip
     /// on a first sight of Past Perfect says nothing.
-    public static func weak(syllabus: Syllabus, courses: [CoursePack], state: UserState, level: CEFRLevel) -> [TopicProgress] {
-        all(syllabus: syllabus, courses: courses, state: state, level: level)
-            .filter { $0.attempts >= enoughAttempts && $0.accuracy < weakAccuracy }
+    public static func weak(
+        syllabus: Syllabus, courses: [CoursePack], state: UserState, level: CEFRLevel, taught: [CoursePack]? = nil
+    ) -> [TopicProgress] {
+        all(syllabus: syllabus, courses: courses, state: state, level: level, taught: taught)
+            // A topic with nothing to drill yet is a fact, not an offer: it would open an empty set.
+            .filter { $0.exercises > 0 && $0.attempts >= enoughAttempts && $0.accuracy < weakAccuracy }
             .sorted { $0.accuracy == $1.accuracy ? $0.attempts > $1.attempts : $0.accuracy < $1.accuracy }
     }
 
     /// Topics never practised, so the screen can offer them instead of staying empty.
-    public static func untouched(syllabus: Syllabus, courses: [CoursePack], state: UserState, level: CEFRLevel) -> [TopicProgress] {
-        all(syllabus: syllabus, courses: courses, state: state, level: level)
+    public static func untouched(
+        syllabus: Syllabus, courses: [CoursePack], state: UserState, level: CEFRLevel, taught: [CoursePack]? = nil
+    ) -> [TopicProgress] {
+        all(syllabus: syllabus, courses: courses, state: state, level: level, taught: taught)
             .filter { $0.attempts == 0 && $0.exercises > 0 }
     }
 }

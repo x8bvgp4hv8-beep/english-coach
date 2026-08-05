@@ -277,6 +277,27 @@ do {
     expect(counts["mixed"] == PracticeEngine.pool(courses: courses, level: .a1).count, "mixed counts the whole pool")
     expect((counts["translate"] ?? 0) > 0 && (counts["translate"] ?? 0) < (counts["mixed"] ?? 0), "each kind counts its own share")
 
+    // Practice only draws from lessons the learner has finished.
+    let a1Lessons = courses.first { $0.level == .a1 }!.chapters.flatMap(\.lessons)
+    // Day one: nothing has been taught, so there is nothing to practise. Before this the
+    // first tap handed out the future tense from the last chapter of the level.
+    expect(PracticeEngine.taught(courses: courses, level: .a1, completed: []).isEmpty, "an untouched level has nothing to practise")
+
+    let done: Set<String> = [a1Lessons[0].id, a1Lessons[1].id]
+    let reachable = Set((a1Lessons[0].exercises + a1Lessons[1].exercises).map(\.id))
+    let taught = PracticeEngine.taught(courses: courses, level: .a1, completed: done)
+    let fromDone = PracticeEngine.build(courses: taught, level: .a1, state: .fresh, size: 40, shuffle: identity)
+    expect(!fromDone.isEmpty && fromDone.allSatisfy { reachable.contains($0.id) }, "practice draws only from finished lessons")
+    // Shadowing rides on the same pool, so it inherits the same limit.
+    let spoken = ShadowingEngine.build(courses: taught, level: .a1, state: .fresh, size: 20, shuffle: identity)
+    expect(spoken.exercises.allSatisfy { reachable.contains($0.id) }, "speaking practice inherits the same limit")
+
+    // Placement can drop someone straight into B1: A1 and A2 are the claim that put them
+    // there, and locking them behind lessons nobody will replay would empty practice.
+    let placed = PracticeEngine.taught(courses: courses, level: .b1, completed: [])
+    expect(placed.map(\.level) == [.a1, .a2], "levels below the current one stay open in full")
+    expect(!PracticeEngine.pool(courses: placed, level: .b1).isEmpty, "a placed learner still has something to practise")
+
     var practiceSession = LearningSession(state: .fresh)
     practiceSession.start(PracticeEngine.lesson(Array(set.prefix(3))), recordsCompletion: false)
     while !practiceSession.isComplete { practiceSession.completeCurrentCorrectlyForTesting(now: now) }

@@ -29,6 +29,36 @@ public enum PracticeEngine {
         PracticeKind(id: "multiple_choice", title: "Тесты", subtitle: "Выбрать правильный вариант", types: [.multipleChoice])
     ]
 
+    /// The course as far as this learner has actually walked it.
+    ///
+    /// Practice used to draw from the whole level, so a Spanish account opened five
+    /// minutes ago was offered the future tense from lesson 11 and word order from
+    /// lesson 7 before lesson 1 had been opened. The lessons themselves unlock in order;
+    /// practice quietly ignored that.
+    ///
+    /// Levels below the current one stay open in full — choosing B1 is a claim about A1
+    /// and A2, and the placement test makes that claim on the learner's behalf. The
+    /// current level is earned lesson by lesson.
+    ///
+    /// Trimming the courses rather than the pool keeps every engine unchanged: practice,
+    /// shadowing and listening all build on `pool`, so they inherit the same limit by
+    /// being handed the same trimmed packs.
+    public static func taught(courses: [CoursePack], level: CEFRLevel, completed: Set<String>) -> [CoursePack] {
+        let ceiling = LevelOrder.all.firstIndex(of: level) ?? 0
+        return courses.compactMap { course in
+            let index = LevelOrder.all.firstIndex(of: course.level) ?? 0
+            if index > ceiling { return nil }
+            if index < ceiling { return course }
+            let chapters = course.chapters.compactMap { chapter -> Chapter? in
+                let lessons = chapter.lessons.filter { completed.contains($0.id) }
+                guard !lessons.isEmpty else { return nil }
+                return Chapter(id: chapter.id, title: chapter.title, subtitle: chapter.subtitle, lessons: lessons)
+            }
+            guard !chapters.isEmpty else { return nil }
+            return CoursePack(schemaVersion: course.schemaVersion, level: course.level, chapters: chapters)
+        }
+    }
+
     /// Everything the learner may be asked, up to and including the current level.
     /// Rule cards are excluded: reading a rule is not practice.
     public static func pool(courses: [CoursePack], level: CEFRLevel, types: [ExerciseType]? = nil, topics: [String]? = nil) -> [Exercise] {

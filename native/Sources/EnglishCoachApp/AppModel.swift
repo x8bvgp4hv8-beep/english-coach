@@ -152,13 +152,20 @@ final class AppModel {
         lessonStartedAt = .now
     }
 
-    /// Endless practice: the course runs out in an evening, the habit needs longer.
-    var practiceIsAvailable: Bool { !PracticeEngine.pool(courses: courses, level: selectedLevel).isEmpty }
-    var practiceCounts: [String: Int] { PracticeEngine.counts(courses: courses, level: selectedLevel) }
+    // Endless practice: the course runs out in an evening, the habit needs longer.
+
+    /// What practice may draw from: the part of the course the learner has actually been
+    /// taught. Everything that generates its own set — practice, shadowing, listening,
+    /// topic drills — is built on this rather than on the whole level.
+    var practiceCourses: [CoursePack] {
+        PracticeEngine.taught(courses: courses, level: selectedLevel, completed: state.completedLessonIDs)
+    }
+    var practiceIsAvailable: Bool { !PracticeEngine.pool(courses: practiceCourses, level: selectedLevel).isEmpty }
+    var practiceCounts: [String: Int] { PracticeEngine.counts(courses: practiceCourses, level: selectedLevel) }
 
     func startPractice(kindID: String = "mixed") {
         let kind = PracticeEngine.kinds.first { $0.id == kindID } ?? PracticeEngine.kinds[0]
-        let exercises = PracticeEngine.build(courses: courses, level: selectedLevel, state: state, types: kind.types)
+        let exercises = PracticeEngine.build(courses: practiceCourses, level: selectedLevel, state: state, types: kind.types)
         guard !exercises.isEmpty else { return }
         startLesson(PracticeEngine.lesson(exercises, title: kind.title), recordsCompletion: false)
     }
@@ -189,17 +196,17 @@ final class AppModel {
     /// Every topic of this level and below, with the learner's record on it.
     var topicProgress: [TopicProgress] {
         guard let syllabus else { return [] }
-        return TopicProgressEngine.all(syllabus: syllabus, courses: courses, state: state, level: selectedLevel)
+        return TopicProgressEngine.all(syllabus: syllabus, courses: courses, state: state, level: selectedLevel, taught: practiceCourses)
     }
 
     /// Worst first, and only once there are enough attempts to mean anything.
     var weakTopics: [TopicProgress] {
         guard let syllabus else { return [] }
-        return TopicProgressEngine.weak(syllabus: syllabus, courses: courses, state: state, level: selectedLevel)
+        return TopicProgressEngine.weak(syllabus: syllabus, courses: courses, state: state, level: selectedLevel, taught: practiceCourses)
     }
 
     func startTopicPractice(_ topicID: String) {
-        let exercises = PracticeEngine.build(courses: courses, level: selectedLevel, state: state, topics: [topicID])
+        let exercises = PracticeEngine.build(courses: practiceCourses, level: selectedLevel, state: state, topics: [topicID])
         guard !exercises.isEmpty else { return }
         let title = syllabus?.topics.first { $0.id == topicID }?.title ?? "Тренировка"
         startLesson(PracticeEngine.lesson(exercises, title: title), recordsCompletion: false)
@@ -210,7 +217,7 @@ final class AppModel {
     private(set) var shadowingActive = false
     private(set) var shadowingItems: [ShadowingItem] = []
 
-    var shadowingCount: Int { ShadowingEngine.count(courses: courses, level: selectedLevel) }
+    var shadowingCount: Int { ShadowingEngine.count(courses: practiceCourses, level: selectedLevel) }
     var shadowingIsComplete: Bool { shadowingActive && session.isComplete }
 
     /// The phrase for the exercise the session is on, found by id rather than position.
@@ -220,7 +227,7 @@ final class AppModel {
     }
 
     func startShadowing() {
-        let set = ShadowingEngine.build(courses: courses, level: selectedLevel, state: state)
+        let set = ShadowingEngine.build(courses: practiceCourses, level: selectedLevel, state: state)
         guard !set.exercises.isEmpty else { return }
         shadowingItems = set.items
         shadowingActive = true
@@ -241,7 +248,7 @@ final class AppModel {
     private(set) var listeningActive = false
     private(set) var listeningItems: [ListeningItem] = []
 
-    var listeningCount: Int { ListeningEngine.count(courses: courses, level: selectedLevel) }
+    var listeningCount: Int { ListeningEngine.count(courses: practiceCourses, level: selectedLevel) }
     var listeningIsComplete: Bool { listeningActive && session.isComplete }
 
     /// The sentence for the exercise the session is on, found by id rather than position.
@@ -251,7 +258,7 @@ final class AppModel {
     }
 
     func startListening() {
-        let set = ListeningEngine.build(courses: courses, level: selectedLevel, state: state)
+        let set = ListeningEngine.build(courses: practiceCourses, level: selectedLevel, state: state)
         guard !set.exercises.isEmpty else { return }
         listeningItems = set.items
         listeningActive = true

@@ -75,14 +75,17 @@ function TopicRow({ item }: { item: TopicProgress }) {
   const seen = item.attempts > 0
   const percent = Math.round(item.accuracy * 100)
   const tone = !seen ? 'var(--ink-soft)' : percent < 60 ? 'var(--coral)' : percent < 75 ? 'var(--amber)' : 'var(--mint)'
+  // A topic the course has not reached yet has nothing to drill: the row states that
+  // instead of being a button that does nothing when tapped.
+  const locked = item.exercises === 0
 
   return (
-    <button className="topic" onClick={() => model.startTopicPractice(item.topic.id)}>
+    <button className="topic" disabled={locked} onClick={() => model.startTopicPractice(item.topic.id)}>
       <span className="topic-body">
         <span className="topic-head">
           <span className="topic-title">{item.topic.title}</span>
           <span className="topic-score" style={{ color: tone }}>
-            {seen ? `${percent}%` : `${item.exercises} упр.`}
+            {seen ? `${percent}%` : locked ? 'дальше' : `${item.exercises} упр.`}
           </span>
         </span>
         <span className="topic-summary">{item.topic.summary}</span>
@@ -90,8 +93,9 @@ function TopicRow({ item }: { item: TopicProgress }) {
           <span style={{ width: `${seen ? Math.max(4, percent) : 0}%`, background: tone }} />
         </span>
         {seen && <span className="topic-meta">{item.correct} из {item.attempts} верно · {item.topic.level}</span>}
+        {!seen && locked && <span className="topic-meta">откроется, когда до неё дойдут уроки</span>}
       </span>
-      <span className="topic-go">▶</span>
+      <span className="topic-go">{locked ? '·' : '▶'}</span>
     </button>
   )
 }

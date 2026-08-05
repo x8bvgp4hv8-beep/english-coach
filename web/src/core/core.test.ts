@@ -8,7 +8,7 @@ import { decodeCourse, decodePlacement } from './content'
 import { SyllabusEngine, TopicProgressEngine, decodeSyllabus, unseenVocabulary } from './syllabus'
 import { CourseRouting, LevelOrder, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
 import { ListeningEngine, listeningPhrase } from './listening'
-import { PracticeEngine } from './practice'
+import { PracticeEngine, taughtCourses } from './practice'
 import { LearningSession } from './session'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { deserialize, serialize } from './storage'
@@ -503,6 +503,40 @@ describe('endless practice', () => {
     expect(counts.mixed).toBe(PracticeEngine.pool(courses, 'A1').length)
     expect(counts.translate).toBeGreaterThan(0)
     expect(counts.translate).toBeLessThan(counts.mixed)
+  })
+
+  it('only draws from lessons the learner has finished', () => {
+    const a1 = courses.find((c) => c.level === 'A1')!
+    const lessons = a1.chapters.flatMap((chapter) => chapter.lessons)
+
+    // Day one: nothing has been taught, so there is nothing to practise. Before this the
+    // first tap handed out the future tense from the last chapter of the level.
+    expect(taughtCourses(courses, 'A1', new Set())).toHaveLength(0)
+    expect(PracticeEngine.pool(taughtCourses(courses, 'A1', new Set()), 'A1')).toHaveLength(0)
+
+    // After two lessons, practice is those two lessons and nothing else.
+    const done = new Set([lessons[0].id, lessons[1].id])
+    const reachable = new Set([...lessons[0].exercises, ...lessons[1].exercises].map((e) => e.id))
+    const set = PracticeEngine.build({
+      courses: taughtCourses(courses, 'A1', done), level: 'A1', state: freshState(), size: 40, random: seeded(),
+    })
+    expect(set.length).toBeGreaterThan(0)
+    expect(set.every((e) => reachable.has(e.id))).toBe(true)
+
+    // Shadowing and listening ride on the same pool, so they inherit the same limit.
+    const spoken = ShadowingEngine.build({ courses: taughtCourses(courses, 'A1', done), level: 'A1', state: freshState(), size: 20, random: seeded() })
+    expect(spoken.exercises.every((e) => reachable.has(e.id))).toBe(true)
+  })
+
+  it('keeps the levels below the current one open in full', () => {
+    // Placement can drop someone straight into B1: A1 and A2 are the claim that put them
+    // there, and locking them behind lessons nobody will replay would empty practice.
+    const trimmed = taughtCourses(courses, 'B1', new Set())
+    expect(trimmed.map((c) => c.level)).toEqual(['A1', 'A2'])
+    const pool = PracticeEngine.pool(trimmed, 'B1')
+    const below = new Set([...ProgressionEngine.exerciseIDs('A1', courses), ...ProgressionEngine.exerciseIDs('A2', courses)])
+    expect(pool.length).toBeGreaterThan(0)
+    expect(pool.every((e) => below.has(e.id))).toBe(true)
   })
 
   it('does not mark a synthetic lesson as a completed lesson', () => {

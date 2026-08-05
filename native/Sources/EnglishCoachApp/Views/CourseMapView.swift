@@ -26,9 +26,17 @@ struct CourseMapView: View {
                             ).padding(.top, 10)
                         }
                     }
+                    sectionTitle("Виды заданий", hint: model.practiceIsAvailable ? "Можно тренировать отдельно, сколько угодно раз" : nil)
                     if model.practiceIsAvailable {
-                        sectionTitle("Виды заданий", hint: "Можно тренировать отдельно, сколько угодно раз")
                         practiceKinds
+                    } else {
+                        // Nothing has been taught yet, so there is nothing to drill — say
+                        // so instead of showing seven disabled rows of zeros.
+                        Text("Тренировки собираются из пройденного. Пройди первый урок — и здесь появятся карточки, перевод, аудирование и речь вслух.")
+                            .font(.callout).foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(16).coachCard(radius: 18).padding(.top, 10)
                     }
                     grammarLink
                     sectionTitle("Маршрут \(model.selectedLevel.rawValue)", hint: "Уроки идут по порядку: правило, новые фразы, упражнения")

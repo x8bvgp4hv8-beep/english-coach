@@ -70,7 +70,17 @@ export function MapScreen() {
           </>
         )}
 
-        <SectionTitle hint="Можно тренировать отдельно, сколько угодно раз">Виды заданий</SectionTitle>
+        <SectionTitle hint={model.practiceIsAvailable ? 'Можно тренировать отдельно, сколько угодно раз' : undefined}>
+          Виды заданий
+        </SectionTitle>
+        {/* Nothing has been taught yet, so there is nothing to drill — say so instead of
+            showing seven disabled rows of zeros. */}
+        {!model.practiceIsAvailable ? (
+          <p className="empty-note">
+            Тренировки собираются из пройденного. Пройди первый урок — и здесь появятся
+            карточки, перевод, аудирование и речь вслух.
+          </p>
+        ) : (
         <div className="kinds">
           {/* Speaking comes first: it is the only exercise that gets the mouth moving. */}
           <button className="kind" disabled={model.shadowingCount === 0} onClick={() => model.startShadowing()}>
@@ -106,6 +116,7 @@ export function MapScreen() {
             </button>
           ))}
         </div>
+        )}
 
         <button className="link-button" onClick={() => model.setScreen('topics')} style={{ marginTop: 14 }}>
           Вся грамматика уровня и мои проценты ›

@@ -16,6 +16,7 @@ import {
   languageOf,
   loadContent,
   localProgressStore,
+  taughtCourses,
 } from '../core'
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
@@ -183,7 +184,14 @@ export class AppStore {
   get todayPracticeMinutes(): number { return PracticeLog.minutes(this.state.practiceSeconds, new Date()) }
   get dailyGoalProgress(): number { return Math.min(1, this.todayPracticeMinutes / Math.max(1, this.dailyGoalMinutes)) }
   get dailyGoalReached(): boolean { return this.todayPracticeMinutes >= this.dailyGoalMinutes }
-  get practiceIsAvailable(): boolean { return PracticeEngine.pool(this.courses, this.selectedLevel).length > 0 }
+
+  /**
+   * What practice may draw from: the part of the course the learner has actually been
+   * taught. Everything that generates its own set — practice, shadowing, listening,
+   * topic drills — is built on this rather than on the whole level.
+   */
+  get practiceCourses(): CoursePack[] { return taughtCourses(this.courses, this.selectedLevel, this.completed) }
+  get practiceIsAvailable(): boolean { return PracticeEngine.pool(this.practiceCourses, this.selectedLevel).length > 0 }
 
   get suggestedNextLevel(): CEFRLevel | null {
     const dismissed = new Set(this.state.levelUpDismissed ?? [])
@@ -290,13 +298,13 @@ export class AppStore {
   }
 
   get practiceCounts(): Record<string, number> {
-    return PracticeEngine.counts(this.courses, this.selectedLevel)
+    return PracticeEngine.counts(this.practiceCourses, this.selectedLevel)
   }
 
   startPractice(kindID = 'mixed'): void {
     const kind = PRACTICE_KINDS.find((item) => item.id === kindID) ?? PRACTICE_KINDS[0]
     const exercises = PracticeEngine.build({
-      courses: this.courses, level: this.selectedLevel, state: this.state, types: kind.types,
+      courses: this.practiceCourses, level: this.selectedLevel, state: this.state, types: kind.types,
     })
     if (exercises.length === 0) return
     this.startLesson(PracticeEngine.lesson(exercises, kind.title), false)
@@ -307,18 +315,18 @@ export class AppStore {
   /** Every topic of this level and below, with the learner's record on it. */
   get topicProgress(): TopicProgress[] {
     if (!this.syllabus) return []
-    return TopicProgressEngine.all(this.syllabus, this.courses, this.state, this.selectedLevel)
+    return TopicProgressEngine.all(this.syllabus, this.courses, this.state, this.selectedLevel, this.practiceCourses)
   }
 
   /** Worst first, and only once there are enough attempts to mean anything. */
   get weakTopics(): TopicProgress[] {
     if (!this.syllabus) return []
-    return TopicProgressEngine.weak(this.syllabus, this.courses, this.state, this.selectedLevel)
+    return TopicProgressEngine.weak(this.syllabus, this.courses, this.state, this.selectedLevel, this.practiceCourses)
   }
 
   startTopicPractice(topicID: string): void {
     const exercises = PracticeEngine.build({
-      courses: this.courses, level: this.selectedLevel, state: this.state, topics: [topicID],
+      courses: this.practiceCourses, level: this.selectedLevel, state: this.state, topics: [topicID],
     })
     if (exercises.length === 0) return
     const title = this.syllabus?.topics.find((t) => t.id === topicID)?.title ?? 'Тренировка'
@@ -327,7 +335,7 @@ export class AppStore {
 
   // MARK: - Shadowing
 
-  get shadowingCount(): number { return ShadowingEngine.count(this.courses, this.selectedLevel) }
+  get shadowingCount(): number { return ShadowingEngine.count(this.practiceCourses, this.selectedLevel) }
 
   /** The phrase for the exercise the session is on, found by id rather than position. */
   get currentShadowingItem(): ShadowingItem | null {
@@ -338,7 +346,7 @@ export class AppStore {
   get shadowingIsComplete(): boolean { return this.shadowingActive && this.session.isComplete }
 
   startShadowing(): void {
-    const set = ShadowingEngine.build({ courses: this.courses, level: this.selectedLevel, state: this.state })
+    const set = ShadowingEngine.build({ courses: this.practiceCourses, level: this.selectedLevel, state: this.state })
     if (set.exercises.length === 0) return
     this.shadowingItems = set.items
     this.shadowingActive = true
@@ -356,7 +364,7 @@ export class AppStore {
 
   // MARK: - Listening
 
-  get listeningCount(): number { return ListeningEngine.count(this.courses, this.selectedLevel) }
+  get listeningCount(): number { return ListeningEngine.count(this.practiceCourses, this.selectedLevel) }
 
   /** The sentence for the exercise the session is on, found by id rather than position. */
   get currentListeningItem(): ListeningItem | null {
@@ -367,7 +375,7 @@ export class AppStore {
   get listeningIsComplete(): boolean { return this.listeningActive && this.session.isComplete }
 
   startListening(): void {
-    const set = ListeningEngine.build({ courses: this.courses, level: this.selectedLevel, state: this.state })
+    const set = ListeningEngine.build({ courses: this.practiceCourses, level: this.selectedLevel, state: this.state })
     if (set.exercises.length === 0) return
     this.listeningItems = set.items
     this.listeningActive = true

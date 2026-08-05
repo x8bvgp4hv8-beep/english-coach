@@ -73,8 +73,15 @@ export const WEAK_ACCURACY = 0.75
  * against Past Simple, 4 of 9 right".
  */
 export const TopicProgressEngine = {
-  /** Every topic up to and including the level, with the learner's record on it. */
-  all(syllabus: Syllabus, courses: CoursePack[], state: UserState, level: CEFRLevel): TopicProgress[] {
+  /**
+   * Every topic up to and including the level, with the learner's record on it.
+   *
+   * `taught` is the part of the course practice may draw from, which is not the whole
+   * level until the whole level has been walked. The learner's record is read from all of
+   * `courses` — an answer given is an answer given — but `exercises` counts only what can
+   * be drilled right now, so the screen never offers a topic that would open an empty set.
+   */
+  all(syllabus: Syllabus, courses: CoursePack[], state: UserState, level: CEFRLevel, taught: CoursePack[] = courses): TopicProgress[] {
     const ceiling = LEVELS.indexOf(level)
     const inScope = syllabus.topics.filter((topic) => LEVELS.indexOf(topic.level) <= ceiling)
 
@@ -94,8 +101,7 @@ export const TopicProgressEngine = {
       }
     }
 
-    const available: Record<string, number> = {}
-    for (const [, topics] of topicsOf) for (const topic of topics) available[topic] = (available[topic] ?? 0) + 1
+    const available = SyllabusEngine.counts(taught)
 
     return inScope.map((topic) => {
       const tally = attempts.get(topic.id) ?? { attempts: 0, correct: 0 }
@@ -113,15 +119,16 @@ export const TopicProgressEngine = {
    * Worst first. A topic needs a few attempts before it can be called weak — one slip
    * on a first sight of Past Perfect says nothing.
    */
-  weak(syllabus: Syllabus, courses: CoursePack[], state: UserState, level: CEFRLevel): TopicProgress[] {
-    return this.all(syllabus, courses, state, level)
-      .filter((item) => item.attempts >= ENOUGH_ATTEMPTS && item.accuracy < WEAK_ACCURACY)
+  weak(syllabus: Syllabus, courses: CoursePack[], state: UserState, level: CEFRLevel, taught: CoursePack[] = courses): TopicProgress[] {
+    return this.all(syllabus, courses, state, level, taught)
+      // A topic with nothing to drill yet is a fact, not an offer: it would open an empty set.
+      .filter((item) => item.exercises > 0 && item.attempts >= ENOUGH_ATTEMPTS && item.accuracy < WEAK_ACCURACY)
       .sort((a, b) => a.accuracy - b.accuracy || b.attempts - a.attempts)
   },
 
   /** Topics never practised, so the screen can offer them instead of staying empty. */
-  untouched(syllabus: Syllabus, courses: CoursePack[], state: UserState, level: CEFRLevel): TopicProgress[] {
-    return this.all(syllabus, courses, state, level).filter((item) => item.attempts === 0 && item.exercises > 0)
+  untouched(syllabus: Syllabus, courses: CoursePack[], state: UserState, level: CEFRLevel, taught: CoursePack[] = courses): TopicProgress[] {
+    return this.all(syllabus, courses, state, level, taught).filter((item) => item.attempts === 0 && item.exercises > 0)
   },
 }
 
