@@ -39,6 +39,11 @@ export interface Syllabus {
   source: string
   /** Topics currently below target. A ratchet: content lowers it, a new gap fails the build. */
   coverageDebtCeiling: number
+  /**
+   * Translation exercises that still ask for words the course has not shown yet.
+   * The same ratchet, for the other half of "готов ли учащийся к этому заданию".
+   */
+  vocabularyDebtCeiling?: number
   topics: SyllabusTopic[]
 }
 

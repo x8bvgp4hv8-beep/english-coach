@@ -3,6 +3,296 @@
   "level": "A1",
   "chapters": [
     {
+      "id": "es-a1-primeras",
+      "title": "Primeras palabras",
+      "subtitle": "С нуля: как читается и первые фразы целиком",
+      "lessons": [
+        {
+          "id": "es-a1-primeras-01",
+          "title": "¡Hola!",
+          "summary": "Первые шесть слов и то, как испанский читается.",
+          "estimatedMinutes": 7,
+          "exercises": [
+            {
+              "id": "es-a1-l0-e1",
+              "type": "info",
+              "title": "Читается как пишется",
+              "explanation": "Испанский почти не врёт: как написано, так и звучит. Три исключения, которые надо знать сразу. Буква h не читается никогда: hola — это «ола». Сочетание ll звучит как «й»: me llamo — «ме йамо». Буква j — как русское «х»: Jorge — «Хорхе». И ñ — как «нь»: España — «Эспанья».",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e2",
+              "type": "flashcard",
+              "prompt": "Hola.",
+              "translation": "Привет.",
+              "example": "Hola, ¿qué tal?",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e3",
+              "type": "flashcard",
+              "prompt": "Gracias.",
+              "translation": "Спасибо.",
+              "example": "Gracias por todo.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e4",
+              "type": "multiple_choice",
+              "prompt": "«Спасибо» по-испански:",
+              "options": [
+                "Hola",
+                "Gracias",
+                "Adiós"
+              ],
+              "correctOption": "Gracias",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e5",
+              "type": "flashcard",
+              "prompt": "Por favor.",
+              "translation": "Пожалуйста (просьба).",
+              "example": "Un café, por favor.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e6",
+              "type": "flashcard",
+              "prompt": "Adiós.",
+              "translation": "Пока, до свидания.",
+              "example": "Adiós, hasta mañana.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e7",
+              "type": "multiple_choice",
+              "prompt": "Ты прощаешься. Что скажешь?",
+              "options": [
+                "Hola",
+                "Gracias",
+                "Adiós"
+              ],
+              "correctOption": "Adiós",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e8",
+              "type": "word_order",
+              "prompt": "Большое спасибо.",
+              "canonicalAnswer": "Muchas gracias.",
+              "tokens": [
+                "gracias",
+                "Muchas"
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e9",
+              "type": "translate",
+              "prompt": "Спасибо.",
+              "canonicalAnswer": "Gracias.",
+              "acceptedAnswers": [
+                "Muchas gracias."
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e10",
+              "type": "translate",
+              "prompt": "Пожалуйста.",
+              "canonicalAnswer": "Por favor.",
+              "acceptedAnswers": [],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0-e11",
+              "type": "flashcard",
+              "prompt": "Sí. No.",
+              "translation": "Да. Нет.",
+              "example": "¿Café? — Sí, gracias.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-a1-primeras-02",
+          "title": "Me llamo…",
+          "summary": "Назвать своё имя и сказать, откуда ты. Каждая фраза сначала целиком.",
+          "estimatedMinutes": 8,
+          "exercises": [
+            {
+              "id": "es-a1-l0b-e1",
+              "type": "info",
+              "title": "Фраза целиком, без разбора",
+              "explanation": "Me llamo — «меня зовут», дословно «я себя зову». Пока не надо понимать, почему так: выучи фразу как одно слово, разберём её позже. Так же и Soy de… — «я из…».",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e2",
+              "type": "flashcard",
+              "prompt": "Me llamo Ana.",
+              "translation": "Меня зовут Анна.",
+              "example": "Hola, me llamo Ana.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e3",
+              "type": "multiple_choice",
+              "prompt": "Как сказать «меня зовут Педро»?",
+              "options": [
+                "Me llamo Pedro",
+                "Te llamas Pedro",
+                "Se llama Pedro"
+              ],
+              "correctOption": "Me llamo Pedro",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e4",
+              "type": "word_order",
+              "prompt": "Меня зовут Ана.",
+              "canonicalAnswer": "Me llamo Ana.",
+              "tokens": [
+                "llamo",
+                "Me",
+                "Ana"
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e5",
+              "type": "translate",
+              "prompt": "Меня зовут Ана.",
+              "canonicalAnswer": "Me llamo Ana.",
+              "acceptedAnswers": [
+                "Hola, me llamo Ana."
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e6",
+              "type": "flashcard",
+              "prompt": "Soy de Lituania.",
+              "translation": "Я из Литвы.",
+              "example": "Me llamo Ana y soy de Lituania.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e7",
+              "type": "multiple_choice",
+              "prompt": "«Я из Литвы» — это:",
+              "options": [
+                "Soy de Lituania",
+                "Eres de Lituania",
+                "Es de Lituania"
+              ],
+              "correctOption": "Soy de Lituania",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e8",
+              "type": "word_order",
+              "prompt": "Я из Литвы.",
+              "canonicalAnswer": "Soy de Lituania.",
+              "tokens": [
+                "de",
+                "Soy",
+                "Lituania"
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e9",
+              "type": "translate",
+              "prompt": "Я из Литвы.",
+              "canonicalAnswer": "Soy de Lituania.",
+              "acceptedAnswers": [
+                "Yo soy de Lituania."
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e10",
+              "type": "flashcard",
+              "prompt": "¿Cómo te llamas?",
+              "translation": "Как тебя зовут?",
+              "example": "Hola, ¿cómo te llamas?",
+              "topics": [
+                "es-a1-preguntas"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e11",
+              "type": "multiple_choice",
+              "prompt": "Ты хочешь спросить имя. Что скажешь?",
+              "options": [
+                "¿Cómo te llamas?",
+                "Me llamo Ana",
+                "Soy de Lituania"
+              ],
+              "correctOption": "¿Cómo te llamas?",
+              "topics": [
+                "es-a1-preguntas"
+              ]
+            },
+            {
+              "id": "es-a1-l0b-e12",
+              "type": "translate",
+              "prompt": "Как тебя зовут?",
+              "canonicalAnswer": "¿Cómo te llamas?",
+              "acceptedAnswers": [
+                "Cómo te llamas?"
+              ],
+              "topics": [
+                "es-a1-preguntas"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "es-a1-hola",
       "title": "¡Hola!",
       "subtitle": "Знакомство и глагол ser",
@@ -18,7 +308,9 @@
               "type": "info",
               "title": "soy, eres, es",
               "explanation": "Глагол ser — это «быть». Yo soy, tú eres, él/ella es, nosotros somos, ellos son. Само местоимение обычно опускают: окончание уже говорит, кто действует.",
-              "topics": ["es-a1-ser"]
+              "topics": [
+                "es-a1-ser"
+              ]
             },
             {
               "id": "es-a1-l1-e2",
@@ -26,32 +318,52 @@
               "prompt": "Me llamo Ana.",
               "translation": "Меня зовут Анна.",
               "example": "Hola, me llamo Ana. ¿Y tú?",
-              "topics": ["es-a1-ser"]
+              "topics": [
+                "es-a1-ser"
+              ]
             },
             {
               "id": "es-a1-l1-e3",
               "type": "translate",
               "prompt": "Я из Литвы.",
               "canonicalAnswer": "Soy de Lituania.",
-              "acceptedAnswers": ["Yo soy de Lituania."],
+              "acceptedAnswers": [
+                "Yo soy de Lituania."
+              ],
               "hint": "soy de …",
-              "topics": ["es-a1-ser"]
+              "topics": [
+                "es-a1-ser"
+              ]
             },
             {
               "id": "es-a1-l1-e4",
               "type": "word_order",
               "prompt": "Как тебя зовут?",
               "canonicalAnswer": "¿Cómo te llamas?",
-              "tokens": ["te", "¿", "llamas", "Cómo", "?"],
-              "topics": ["es-a1-preguntas"]
+              "tokens": [
+                "te",
+                "¿",
+                "llamas",
+                "Cómo",
+                "?"
+              ],
+              "topics": [
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l1-e5",
               "type": "multiple_choice",
               "prompt": "Ella ___ profesora.",
-              "options": ["soy", "eres", "es"],
+              "options": [
+                "soy",
+                "eres",
+                "es"
+              ],
               "correctOption": "es",
-              "topics": ["es-a1-ser"]
+              "topics": [
+                "es-a1-ser"
+              ]
             },
             {
               "id": "es-a1-l1-e6",
@@ -59,32 +371,59 @@
               "prompt": "¿De dónde eres?",
               "translation": "Откуда ты?",
               "example": "¿De dónde eres? Soy de Vilna.",
-              "topics": ["es-a1-preguntas", "es-a1-ser"]
+              "topics": [
+                "es-a1-preguntas",
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-l1-e7-pre",
+              "type": "flashcard",
+              "prompt": "Mi amigo se llama Pedro.",
+              "translation": "Моего друга зовут Педро.",
+              "example": "Mi amigo se llama Pedro y es de Madrid.",
+              "topics": [
+                "es-a1-ser"
+              ]
             },
             {
               "id": "es-a1-l1-e7",
               "type": "translate",
               "prompt": "Он мой друг.",
               "canonicalAnswer": "Es mi amigo.",
-              "acceptedAnswers": ["Él es mi amigo."],
+              "acceptedAnswers": [
+                "Él es mi amigo."
+              ],
               "hint": "amigo — друг",
-              "topics": ["es-a1-ser"]
+              "topics": [
+                "es-a1-ser"
+              ]
             },
             {
               "id": "es-a1-l1-e8",
               "type": "multiple_choice",
               "prompt": "Nosotros ___ estudiantes.",
-              "options": ["somos", "sois", "son"],
+              "options": [
+                "somos",
+                "sois",
+                "son"
+              ],
               "correctOption": "somos",
-              "topics": ["es-a1-ser"]
+              "topics": [
+                "es-a1-ser"
+              ]
             },
             {
               "id": "es-a1-l1-e9",
               "type": "translate",
               "prompt": "Мы из Вильнюса.",
               "canonicalAnswer": "Somos de Vilna.",
-              "acceptedAnswers": ["Nosotros somos de Vilna."],
-              "topics": ["es-a1-ser"]
+              "acceptedAnswers": [
+                "Nosotros somos de Vilna."
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
             },
             {
               "id": "es-a1-l1-e10",
@@ -92,7 +431,9 @@
               "prompt": "Mucho gusto.",
               "translation": "Очень приятно.",
               "example": "Soy Pedro. — Mucho gusto.",
-              "topics": ["es-a1-ser"]
+              "topics": [
+                "es-a1-ser"
+              ]
             }
           ]
         },
@@ -107,7 +448,9 @@
               "type": "info",
               "title": "Два знака вопроса",
               "explanation": "Вопрос в испанском открывается перевёрнутым знаком: ¿Cómo estás? Так же и восклицание: ¡Hola! Вопросительные слова всегда с ударением: qué, cómo, dónde, quién, cuándo, por qué.",
-              "topics": ["es-a1-preguntas"]
+              "topics": [
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l2-e2",
@@ -115,41 +458,90 @@
               "prompt": "¿Cómo estás?",
               "translation": "Как дела?",
               "example": "¡Hola! ¿Cómo estás? — Muy bien, gracias.",
-              "topics": ["es-a1-preguntas", "es-a1-estar"]
+              "topics": [
+                "es-a1-preguntas",
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-l2-e3-pre",
+              "type": "flashcard",
+              "prompt": "Vives muy lejos.",
+              "translation": "Ты живёшь очень далеко.",
+              "example": "Vives muy lejos del centro.",
+              "topics": [
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l2-e3",
               "type": "translate",
               "prompt": "Где ты живёшь?",
               "canonicalAnswer": "¿Dónde vives?",
-              "acceptedAnswers": ["Dónde vives?", "¿Dónde vives tú?"],
+              "acceptedAnswers": [
+                "Dónde vives?",
+                "¿Dónde vives tú?"
+              ],
               "hint": "vivir — жить",
-              "topics": ["es-a1-preguntas"]
+              "topics": [
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l2-e4",
               "type": "multiple_choice",
               "prompt": "¿___ es tu profesora?",
-              "options": ["Qué", "Quién", "Dónde"],
+              "options": [
+                "Qué",
+                "Quién",
+                "Dónde"
+              ],
               "correctOption": "Quién",
-              "topics": ["es-a1-preguntas"]
+              "topics": [
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l2-e5",
               "type": "word_order",
               "prompt": "Сколько тебе лет?",
               "canonicalAnswer": "¿Cuántos años tienes?",
-              "tokens": ["años", "¿", "tienes", "Cuántos", "?"],
-              "topics": ["es-a1-preguntas", "es-a1-ir-tener"]
+              "tokens": [
+                "años",
+                "¿",
+                "tienes",
+                "Cuántos",
+                "?"
+              ],
+              "topics": [
+                "es-a1-preguntas",
+                "es-a1-ir-tener"
+              ]
+            },
+            {
+              "id": "es-a1-l2-e6-pre",
+              "type": "flashcard",
+              "prompt": "Tengo treinta libros.",
+              "translation": "У меня тридцать книг.",
+              "example": "Tengo treinta libros en casa.",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-numeros"
+              ]
             },
             {
               "id": "es-a1-l2-e6",
               "type": "translate",
               "prompt": "Мне тридцать лет.",
               "canonicalAnswer": "Tengo treinta años.",
-              "acceptedAnswers": ["Yo tengo treinta años."],
+              "acceptedAnswers": [
+                "Yo tengo treinta años."
+              ],
               "hint": "Возраст — через tener: «имею тридцать лет».",
-              "topics": ["es-a1-ir-tener", "es-a1-numeros"]
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-numeros"
+              ]
             },
             {
               "id": "es-a1-l2-e7",
@@ -157,23 +549,47 @@
               "prompt": "No entiendo, ¿puedes repetir?",
               "translation": "Я не понимаю, можешь повторить?",
               "example": "Perdona, no entiendo. ¿Puedes repetir?",
-              "topics": ["es-a1-preguntas"]
+              "topics": [
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l2-e8",
               "type": "multiple_choice",
               "prompt": "¿___ trabajas, en una oficina o en casa?",
-              "options": ["Dónde", "Cuándo", "Quién"],
+              "options": [
+                "Dónde",
+                "Cuándo",
+                "Quién"
+              ],
               "correctOption": "Dónde",
-              "topics": ["es-a1-preguntas"]
+              "topics": [
+                "es-a1-preguntas"
+              ]
+            },
+            {
+              "id": "es-a1-l2-e9-pre",
+              "type": "flashcard",
+              "prompt": "Estudias español muy bien.",
+              "translation": "Ты очень хорошо учишь испанский.",
+              "example": "Estudias español muy bien, se nota.",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a1-presente-ar"
+              ]
             },
             {
               "id": "es-a1-l2-e9",
               "type": "translate",
               "prompt": "Почему ты учишь испанский?",
               "canonicalAnswer": "¿Por qué estudias español?",
-              "acceptedAnswers": ["Por qué estudias español?"],
-              "topics": ["es-a1-preguntas", "es-a1-presente-ar"]
+              "acceptedAnswers": [
+                "Por qué estudias español?"
+              ],
+              "topics": [
+                "es-a1-preguntas",
+                "es-a1-presente-ar"
+              ]
             }
           ]
         }
@@ -195,7 +611,10 @@
               "type": "info",
               "title": "Мужской и женский",
               "explanation": "Слова на -o обычно мужского рода (el libro), на -a — женского (la mesa). Неизвестное называют через un / una, уже известное — через el / la. Прилагательное подстраивается: un libro nuevo, una mesa nueva.",
-              "topics": ["es-a1-genero", "es-a1-articulos"]
+              "topics": [
+                "es-a1-genero",
+                "es-a1-articulos"
+              ]
             },
             {
               "id": "es-a1-l3-e2",
@@ -203,40 +622,70 @@
               "prompt": "Un café, por favor.",
               "translation": "Кофе, пожалуйста.",
               "example": "Buenos días. Un café con leche, por favor.",
-              "topics": ["es-a1-articulos"]
+              "topics": [
+                "es-a1-articulos"
+              ]
             },
             {
               "id": "es-a1-l3-e3",
               "type": "multiple_choice",
               "prompt": "___ mesa está libre.",
-              "options": ["El", "La", "Un"],
+              "options": [
+                "El",
+                "La",
+                "Un"
+              ],
               "correctOption": "La",
-              "topics": ["es-a1-articulos", "es-a1-genero"]
+              "topics": [
+                "es-a1-articulos",
+                "es-a1-genero"
+              ]
             },
             {
               "id": "es-a1-l3-e4",
               "type": "translate",
               "prompt": "Это новая книга.",
               "canonicalAnswer": "Es un libro nuevo.",
-              "acceptedAnswers": ["Este es un libro nuevo."],
+              "acceptedAnswers": [
+                "Este es un libro nuevo."
+              ],
               "hint": "libro — мужского рода",
-              "topics": ["es-a1-genero", "es-a1-articulos"]
+              "topics": [
+                "es-a1-genero",
+                "es-a1-articulos"
+              ]
             },
             {
               "id": "es-a1-l3-e5",
               "type": "multiple_choice",
               "prompt": "Mi hermana es muy ___.",
-              "options": ["simpático", "simpática", "simpáticas"],
+              "options": [
+                "simpático",
+                "simpática",
+                "simpáticas"
+              ],
               "correctOption": "simpática",
-              "topics": ["es-a1-genero"]
+              "topics": [
+                "es-a1-genero"
+              ]
             },
             {
               "id": "es-a1-l3-e6",
               "type": "word_order",
               "prompt": "Дом большой и белый.",
               "canonicalAnswer": "La casa es grande y blanca.",
-              "tokens": ["es", "La", "y", "casa", "blanca", "grande"],
-              "topics": ["es-a1-genero", "es-a1-ser"]
+              "tokens": [
+                "es",
+                "La",
+                "y",
+                "casa",
+                "blanca",
+                "grande"
+              ],
+              "topics": [
+                "es-a1-genero",
+                "es-a1-ser"
+              ]
             },
             {
               "id": "es-a1-l3-e7",
@@ -244,23 +693,47 @@
               "prompt": "La cuenta, por favor.",
               "translation": "Счёт, пожалуйста.",
               "example": "¿Nos trae la cuenta, por favor?",
-              "topics": ["es-a1-articulos"]
+              "topics": [
+                "es-a1-articulos"
+              ]
+            },
+            {
+              "id": "es-a1-l3-e8-pre",
+              "type": "flashcard",
+              "prompt": "Madrid es una ciudad grande.",
+              "translation": "Мадрид — большой город.",
+              "example": "Madrid es una ciudad grande y muy viva.",
+              "topics": [
+                "es-a1-articulos",
+                "es-a1-ir-tener"
+              ]
             },
             {
               "id": "es-a1-l3-e8",
               "type": "translate",
               "prompt": "У меня есть друг в Мадриде.",
               "canonicalAnswer": "Tengo un amigo en Madrid.",
-              "acceptedAnswers": ["Yo tengo un amigo en Madrid."],
-              "topics": ["es-a1-articulos", "es-a1-ir-tener"]
+              "acceptedAnswers": [
+                "Yo tengo un amigo en Madrid."
+              ],
+              "topics": [
+                "es-a1-articulos",
+                "es-a1-ir-tener"
+              ]
             },
             {
               "id": "es-a1-l3-e9",
               "type": "multiple_choice",
               "prompt": "Quiero ___ agua, por favor.",
-              "options": ["un", "una", "el"],
+              "options": [
+                "un",
+                "una",
+                "el"
+              ],
               "correctOption": "un",
-              "topics": ["es-a1-articulos"]
+              "topics": [
+                "es-a1-articulos"
+              ]
             }
           ]
         },
@@ -275,7 +748,10 @@
               "type": "info",
               "title": "-s и -es",
               "explanation": "После гласной добавляется -s: café → cafés, mesa → mesas. После согласной — -es: ciudad → ciudades. Артикли тоже меняются: el → los, la → las. «Есть, имеется» — это hay, и оно не меняется: hay un libro, hay dos libros.",
-              "topics": ["es-a1-plural", "es-a1-numeros"]
+              "topics": [
+                "es-a1-plural",
+                "es-a1-numeros"
+              ]
             },
             {
               "id": "es-a1-l4-e2",
@@ -283,39 +759,80 @@
               "prompt": "Aquí hay dos cafés.",
               "translation": "Здесь два кофе.",
               "example": "En la mesa hay dos cafés y un vaso de agua.",
-              "topics": ["es-a1-numeros", "es-a1-plural"]
+              "topics": [
+                "es-a1-numeros",
+                "es-a1-plural"
+              ]
             },
             {
               "id": "es-a1-l4-e3",
               "type": "multiple_choice",
               "prompt": "En la clase ___ veinte estudiantes.",
-              "options": ["hay", "es", "son"],
+              "options": [
+                "hay",
+                "es",
+                "son"
+              ],
               "correctOption": "hay",
-              "topics": ["es-a1-numeros"]
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-l4-e4-pre",
+              "type": "flashcard",
+              "prompt": "Mis hermanas son altas.",
+              "translation": "Мои сёстры высокие.",
+              "example": "Mis hermanas son altas, como mi padre.",
+              "topics": [
+                "es-a1-plural",
+                "es-a1-numeros"
+              ]
             },
             {
               "id": "es-a1-l4-e4",
               "type": "translate",
               "prompt": "У меня две сестры.",
               "canonicalAnswer": "Tengo dos hermanas.",
-              "acceptedAnswers": ["Yo tengo dos hermanas."],
-              "topics": ["es-a1-plural", "es-a1-numeros"]
+              "acceptedAnswers": [
+                "Yo tengo dos hermanas."
+              ],
+              "topics": [
+                "es-a1-plural",
+                "es-a1-numeros"
+              ]
             },
             {
               "id": "es-a1-l4-e5",
               "type": "multiple_choice",
               "prompt": "Множественное от la ciudad:",
-              "options": ["las ciudads", "las ciudades", "los ciudades"],
+              "options": [
+                "las ciudads",
+                "las ciudades",
+                "los ciudades"
+              ],
               "correctOption": "las ciudades",
-              "topics": ["es-a1-plural"]
+              "topics": [
+                "es-a1-plural"
+              ]
             },
             {
               "id": "es-a1-l4-e6",
               "type": "word_order",
               "prompt": "В городе много парков.",
               "canonicalAnswer": "En la ciudad hay muchos parques.",
-              "tokens": ["hay", "En", "parques", "la", "muchos", "ciudad"],
-              "topics": ["es-a1-plural", "es-a1-numeros"]
+              "tokens": [
+                "hay",
+                "En",
+                "parques",
+                "la",
+                "muchos",
+                "ciudad"
+              ],
+              "topics": [
+                "es-a1-plural",
+                "es-a1-numeros"
+              ]
             },
             {
               "id": "es-a1-l4-e7",
@@ -323,24 +840,49 @@
               "prompt": "¿Cuánto cuesta?",
               "translation": "Сколько стоит?",
               "example": "¿Cuánto cuesta el billete? — Doce euros.",
-              "topics": ["es-a1-numeros", "es-a1-preguntas"]
+              "topics": [
+                "es-a1-numeros",
+                "es-a1-preguntas"
+              ]
+            },
+            {
+              "id": "es-a1-l4-e8-pre",
+              "type": "flashcard",
+              "prompt": "Los sábados estamos libres.",
+              "translation": "По субботам мы свободны.",
+              "example": "Los sábados estamos libres por la tarde.",
+              "topics": [
+                "es-a1-numeros",
+                "es-a1-plural"
+              ]
             },
             {
               "id": "es-a1-l4-e8",
               "type": "translate",
               "prompt": "Здесь нет свободных столиков.",
               "canonicalAnswer": "Aquí no hay mesas libres.",
-              "acceptedAnswers": ["No hay mesas libres aquí."],
+              "acceptedAnswers": [
+                "No hay mesas libres aquí."
+              ],
               "hint": "Отрицание ставится перед hay.",
-              "topics": ["es-a1-numeros", "es-a1-plural"]
+              "topics": [
+                "es-a1-numeros",
+                "es-a1-plural"
+              ]
             },
             {
               "id": "es-a1-l4-e9",
               "type": "multiple_choice",
               "prompt": "Son ___ euros con cincuenta.",
-              "options": ["quince", "cincuenta", "quinientos"],
+              "options": [
+                "quince",
+                "cincuenta",
+                "quinientos"
+              ],
               "correctOption": "quince",
-              "topics": ["es-a1-numeros"]
+              "topics": [
+                "es-a1-numeros"
+              ]
             }
           ]
         }
@@ -362,7 +904,9 @@
               "type": "info",
               "title": "hablo, hablas, habla",
               "explanation": "У глаголов на -ar убираем -ar и добавляем: -o, -as, -a, -amos, -áis, -an. Hablar → hablo, hablas, habla, hablamos, habláis, hablan. Так же работают trabajar, estudiar, escuchar.",
-              "topics": ["es-a1-presente-ar"]
+              "topics": [
+                "es-a1-presente-ar"
+              ]
             },
             {
               "id": "es-a1-l5-e2",
@@ -370,47 +914,100 @@
               "prompt": "Hablo un poco de español.",
               "translation": "Я немного говорю по-испански.",
               "example": "Hablo un poco de español, pero entiendo bastante.",
-              "topics": ["es-a1-presente-ar"]
+              "topics": [
+                "es-a1-presente-ar"
+              ]
+            },
+            {
+              "id": "es-a1-l5-e3-pre",
+              "type": "flashcard",
+              "prompt": "Trabajo mucho.",
+              "translation": "Я много работаю.",
+              "example": "Esta semana trabajo mucho.",
+              "topics": [
+                "es-a1-presente-ar"
+              ]
             },
             {
               "id": "es-a1-l5-e3",
               "type": "translate",
               "prompt": "Я работаю дома.",
               "canonicalAnswer": "Trabajo en casa.",
-              "acceptedAnswers": ["Yo trabajo en casa."],
-              "topics": ["es-a1-presente-ar"]
+              "acceptedAnswers": [
+                "Yo trabajo en casa."
+              ],
+              "topics": [
+                "es-a1-presente-ar"
+              ]
             },
             {
               "id": "es-a1-l5-e4",
               "type": "multiple_choice",
               "prompt": "Nosotros ___ español los martes.",
-              "options": ["estudio", "estudias", "estudiamos"],
+              "options": [
+                "estudio",
+                "estudias",
+                "estudiamos"
+              ],
               "correctOption": "estudiamos",
-              "topics": ["es-a1-presente-ar"]
+              "topics": [
+                "es-a1-presente-ar"
+              ]
             },
             {
               "id": "es-a1-l5-e5",
               "type": "word_order",
               "prompt": "Она каждый день слушает музыку.",
               "canonicalAnswer": "Ella escucha música todos los días.",
-              "tokens": ["escucha", "Ella", "los", "música", "días", "todos"],
-              "topics": ["es-a1-presente-ar"]
+              "tokens": [
+                "escucha",
+                "Ella",
+                "los",
+                "música",
+                "días",
+                "todos"
+              ],
+              "topics": [
+                "es-a1-presente-ar"
+              ]
+            },
+            {
+              "id": "es-a1-l5-e6-pre",
+              "type": "flashcard",
+              "prompt": "Mis padres trabajan mucho.",
+              "translation": "Мои родители много работают.",
+              "example": "Mis padres trabajan mucho y descansan poco.",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-plural"
+              ]
             },
             {
               "id": "es-a1-l5-e6",
               "type": "translate",
               "prompt": "Мои родители работают в Мадриде.",
               "canonicalAnswer": "Mis padres trabajan en Madrid.",
-              "acceptedAnswers": ["Mis padres trabajan en Madrid ahora."],
-              "topics": ["es-a1-presente-ar", "es-a1-plural"]
+              "acceptedAnswers": [
+                "Mis padres trabajan en Madrid ahora."
+              ],
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-plural"
+              ]
             },
             {
               "id": "es-a1-l5-e7",
               "type": "multiple_choice",
               "prompt": "¿Tú ___ el metro para ir al trabajo?",
-              "options": ["toma", "tomas", "tomamos"],
+              "options": [
+                "toma",
+                "tomas",
+                "tomamos"
+              ],
               "correctOption": "tomas",
-              "topics": ["es-a1-presente-ar"]
+              "topics": [
+                "es-a1-presente-ar"
+              ]
             },
             {
               "id": "es-a1-l5-e8",
@@ -418,24 +1015,46 @@
               "prompt": "Necesito ayuda.",
               "translation": "Мне нужна помощь.",
               "example": "Perdone, necesito ayuda con esto.",
-              "topics": ["es-a1-presente-ar"]
+              "topics": [
+                "es-a1-presente-ar"
+              ]
+            },
+            {
+              "id": "es-a1-l5-e9-pre",
+              "type": "flashcard",
+              "prompt": "En casa no fumamos.",
+              "translation": "Дома мы не курим.",
+              "example": "En casa no fumamos nunca.",
+              "topics": [
+                "es-a1-presente-ar"
+              ]
             },
             {
               "id": "es-a1-l5-e9",
               "type": "translate",
               "prompt": "Мы не курим.",
               "canonicalAnswer": "No fumamos.",
-              "acceptedAnswers": ["Nosotros no fumamos."],
+              "acceptedAnswers": [
+                "Nosotros no fumamos."
+              ],
               "hint": "Отрицание — no перед глаголом.",
-              "topics": ["es-a1-presente-ar"]
+              "topics": [
+                "es-a1-presente-ar"
+              ]
             },
             {
               "id": "es-a1-l5-e10",
               "type": "multiple_choice",
               "prompt": "Los niños ___ en el parque.",
-              "options": ["juegan", "juega", "jugamos"],
+              "options": [
+                "juegan",
+                "juega",
+                "jugamos"
+              ],
               "correctOption": "juegan",
-              "topics": ["es-a1-presente-ar"]
+              "topics": [
+                "es-a1-presente-ar"
+              ]
             }
           ]
         },
@@ -450,7 +1069,9 @@
               "type": "info",
               "title": "como, comes / vivo, vives",
               "explanation": "На -er: como, comes, come, comemos, coméis, comen. На -ir почти так же, разница только в «мы» и «вы»: vivimos, vivís. В остальном формы совпадают.",
-              "topics": ["es-a1-presente-er-ir"]
+              "topics": [
+                "es-a1-presente-er-ir"
+              ]
             },
             {
               "id": "es-a1-l6-e2",
@@ -458,40 +1079,79 @@
               "prompt": "Vivo en el centro.",
               "translation": "Я живу в центре.",
               "example": "Vivo en el centro, cerca de la plaza.",
-              "topics": ["es-a1-presente-er-ir"]
+              "topics": [
+                "es-a1-presente-er-ir"
+              ]
+            },
+            {
+              "id": "es-a1-l6-e3-pre",
+              "type": "flashcard",
+              "prompt": "Son las ocho.",
+              "translation": "Восемь часов.",
+              "example": "Son las ocho, es hora de cenar.",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros"
+              ]
             },
             {
               "id": "es-a1-l6-e3",
               "type": "translate",
               "prompt": "Мы едим в восемь.",
               "canonicalAnswer": "Comemos a las ocho.",
-              "acceptedAnswers": ["Nosotros comemos a las ocho."],
-              "topics": ["es-a1-presente-er-ir", "es-a1-numeros"]
+              "acceptedAnswers": [
+                "Nosotros comemos a las ocho."
+              ],
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros"
+              ]
             },
             {
               "id": "es-a1-l6-e4",
               "type": "multiple_choice",
               "prompt": "Ella ___ una carta a su madre.",
-              "options": ["escribo", "escribes", "escribe"],
+              "options": [
+                "escribo",
+                "escribes",
+                "escribe"
+              ],
               "correctOption": "escribe",
-              "topics": ["es-a1-presente-er-ir"]
+              "topics": [
+                "es-a1-presente-er-ir"
+              ]
             },
             {
               "id": "es-a1-l6-e5",
               "type": "word_order",
               "prompt": "Я не пью кофе вечером.",
               "canonicalAnswer": "No bebo café por la noche.",
-              "tokens": ["bebo", "No", "la", "café", "noche", "por"],
-              "topics": ["es-a1-presente-er-ir"]
+              "tokens": [
+                "bebo",
+                "No",
+                "la",
+                "café",
+                "noche",
+                "por"
+              ],
+              "topics": [
+                "es-a1-presente-er-ir"
+              ]
             },
             {
               "id": "es-a1-l6-e6",
               "type": "translate",
               "prompt": "Где вы живёте?",
               "canonicalAnswer": "¿Dónde vivís?",
-              "acceptedAnswers": ["¿Dónde viven ustedes?", "Dónde vivís?"],
+              "acceptedAnswers": [
+                "¿Dónde viven ustedes?",
+                "Dónde vivís?"
+              ],
               "hint": "vosotros vivís — «вы» в Испании",
-              "topics": ["es-a1-presente-er-ir", "es-a1-preguntas"]
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l6-e7",
@@ -499,31 +1159,62 @@
               "prompt": "No lo entiendo bien.",
               "translation": "Я это плохо понимаю.",
               "example": "Habla más despacio, no lo entiendo bien.",
-              "topics": ["es-a1-presente-er-ir"]
+              "topics": [
+                "es-a1-presente-er-ir"
+              ]
             },
             {
               "id": "es-a1-l6-e8",
               "type": "multiple_choice",
               "prompt": "¿Qué ___ tú los domingos?",
-              "options": ["haces", "hace", "hacemos"],
+              "options": [
+                "haces",
+                "hace",
+                "hacemos"
+              ],
               "correctOption": "haces",
-              "topics": ["es-a1-presente-er-ir", "es-a1-preguntas"]
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas"
+              ]
+            },
+            {
+              "id": "es-a1-l6-e9-pre",
+              "type": "flashcard",
+              "prompt": "Mis hermanas leen mucho.",
+              "translation": "Мои сёстры много читают.",
+              "example": "Mis hermanas leen mucho por la noche.",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-plural"
+              ]
             },
             {
               "id": "es-a1-l6-e9",
               "type": "translate",
               "prompt": "Они читают много книг.",
               "canonicalAnswer": "Leen muchos libros.",
-              "acceptedAnswers": ["Ellos leen muchos libros."],
-              "topics": ["es-a1-presente-er-ir", "es-a1-plural"]
+              "acceptedAnswers": [
+                "Ellos leen muchos libros."
+              ],
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-plural"
+              ]
             },
             {
               "id": "es-a1-l6-e10",
               "type": "multiple_choice",
               "prompt": "Yo ___ a las siete todos los días.",
-              "options": ["salgo", "sales", "sale"],
+              "options": [
+                "salgo",
+                "sales",
+                "sale"
+              ],
               "correctOption": "salgo",
-              "topics": ["es-a1-presente-er-ir"]
+              "topics": [
+                "es-a1-presente-er-ir"
+              ]
             }
           ]
         }
@@ -545,7 +1236,10 @@
               "type": "info",
               "title": "Постоянное и временное",
               "explanation": "Ser — про то, что человек или вещь есть: soy ruso, es médica, la mesa es de madera. Estar — про состояние и место: estoy cansado, está en casa, la sopa está fría. Формы estar: estoy, estás, está, estamos, están.",
-              "topics": ["es-a1-ser-estar", "es-a1-estar"]
+              "topics": [
+                "es-a1-ser-estar",
+                "es-a1-estar"
+              ]
             },
             {
               "id": "es-a1-l7-e2",
@@ -553,48 +1247,92 @@
               "prompt": "Estoy cansado hoy.",
               "translation": "Я сегодня устал.",
               "example": "Estoy cansado hoy, pero mañana estaré mejor.",
-              "topics": ["es-a1-estar"]
+              "topics": [
+                "es-a1-estar"
+              ]
             },
             {
               "id": "es-a1-l7-e3",
               "type": "multiple_choice",
               "prompt": "Mi hermano ___ médico.",
-              "options": ["es", "está", "hay"],
+              "options": [
+                "es",
+                "está",
+                "hay"
+              ],
               "correctOption": "es",
-              "topics": ["es-a1-ser-estar"]
+              "topics": [
+                "es-a1-ser-estar"
+              ]
             },
             {
               "id": "es-a1-l7-e4",
               "type": "multiple_choice",
               "prompt": "El café ___ frío.",
-              "options": ["es", "está", "hay"],
+              "options": [
+                "es",
+                "está",
+                "hay"
+              ],
               "correctOption": "está",
-              "topics": ["es-a1-ser-estar"]
+              "topics": [
+                "es-a1-ser-estar"
+              ]
             },
             {
               "id": "es-a1-l7-e5",
               "type": "translate",
               "prompt": "Я дома.",
               "canonicalAnswer": "Estoy en casa.",
-              "acceptedAnswers": ["Yo estoy en casa."],
-              "topics": ["es-a1-estar"]
+              "acceptedAnswers": [
+                "Yo estoy en casa."
+              ],
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-l7-e6-pre",
+              "type": "flashcard",
+              "prompt": "Es una persona alegre.",
+              "translation": "Это весёлый человек.",
+              "example": "Es una persona alegre y tranquila.",
+              "topics": [
+                "es-a1-ser-estar",
+                "es-a1-genero"
+              ]
             },
             {
               "id": "es-a1-l7-e6",
               "type": "translate",
               "prompt": "Она очень весёлая.",
               "canonicalAnswer": "Es muy alegre.",
-              "acceptedAnswers": ["Ella es muy alegre."],
+              "acceptedAnswers": [
+                "Ella es muy alegre."
+              ],
               "hint": "Черта характера — это ser.",
-              "topics": ["es-a1-ser-estar", "es-a1-genero"]
+              "topics": [
+                "es-a1-ser-estar",
+                "es-a1-genero"
+              ]
             },
             {
               "id": "es-a1-l7-e7",
               "type": "word_order",
               "prompt": "Банк находится рядом с площадью.",
               "canonicalAnswer": "El banco está cerca de la plaza.",
-              "tokens": ["está", "El", "de", "banco", "plaza", "cerca", "la"],
-              "topics": ["es-a1-estar"]
+              "tokens": [
+                "está",
+                "El",
+                "de",
+                "banco",
+                "plaza",
+                "cerca",
+                "la"
+              ],
+              "topics": [
+                "es-a1-estar"
+              ]
             },
             {
               "id": "es-a1-l7-e8",
@@ -602,31 +1340,52 @@
               "prompt": "¿Dónde está el baño?",
               "translation": "Где туалет?",
               "example": "Perdone, ¿dónde está el baño?",
-              "topics": ["es-a1-estar", "es-a1-preguntas"]
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l7-e9",
               "type": "multiple_choice",
               "prompt": "Nosotros ___ contentos con el resultado.",
-              "options": ["somos", "estamos", "hay"],
+              "options": [
+                "somos",
+                "estamos",
+                "hay"
+              ],
               "correctOption": "estamos",
-              "topics": ["es-a1-ser-estar", "es-a1-estar"]
+              "topics": [
+                "es-a1-ser-estar",
+                "es-a1-estar"
+              ]
             },
             {
               "id": "es-a1-l7-e10",
               "type": "translate",
               "prompt": "Стол деревянный.",
               "canonicalAnswer": "La mesa es de madera.",
-              "acceptedAnswers": ["La mesa es de madera nueva."],
-              "topics": ["es-a1-ser-estar"]
+              "acceptedAnswers": [
+                "La mesa es de madera nueva."
+              ],
+              "topics": [
+                "es-a1-ser-estar"
+              ]
             },
             {
               "id": "es-a1-l7-e11",
               "type": "multiple_choice",
               "prompt": "¿Cómo ___? — Muy bien, gracias.",
-              "options": ["eres", "estás", "hay"],
+              "options": [
+                "eres",
+                "estás",
+                "hay"
+              ],
               "correctOption": "estás",
-              "topics": ["es-a1-estar", "es-a1-ser-estar"]
+              "topics": [
+                "es-a1-estar",
+                "es-a1-ser-estar"
+              ]
             }
           ]
         }
@@ -648,7 +1407,9 @@
               "type": "info",
               "title": "Me gusta / me gustan",
               "explanation": "Испанский говорит не «я люблю кофе», а «мне нравится кофе»: me gusta el café. Глагол согласуется с тем, что нравится: me gusta el café, но me gustan los libros. Кому: me, te, le, nos, les.",
-              "topics": ["es-a1-gustar"]
+              "topics": [
+                "es-a1-gustar"
+              ]
             },
             {
               "id": "es-a1-l8-e2",
@@ -656,40 +1417,87 @@
               "prompt": "Me gusta mucho este lugar.",
               "translation": "Мне очень нравится это место.",
               "example": "Me gusta mucho este lugar, siempre vuelvo.",
-              "topics": ["es-a1-gustar"]
+              "topics": [
+                "es-a1-gustar"
+              ]
             },
             {
               "id": "es-a1-l8-e3",
               "type": "multiple_choice",
               "prompt": "Me ___ los perros.",
-              "options": ["gusta", "gustan", "gusto"],
+              "options": [
+                "gusta",
+                "gustan",
+                "gusto"
+              ],
               "correctOption": "gustan",
-              "topics": ["es-a1-gustar"]
+              "topics": [
+                "es-a1-gustar"
+              ]
+            },
+            {
+              "id": "es-a1-l8-e4-pre",
+              "type": "flashcard",
+              "prompt": "La comida española es muy buena.",
+              "translation": "Испанская еда очень вкусная.",
+              "example": "La comida española es muy buena y sencilla.",
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-genero"
+              ]
             },
             {
               "id": "es-a1-l8-e4",
               "type": "translate",
               "prompt": "Мне нравится испанская музыка.",
               "canonicalAnswer": "Me gusta la música española.",
-              "acceptedAnswers": ["A mí me gusta la música española."],
-              "topics": ["es-a1-gustar", "es-a1-genero"]
+              "acceptedAnswers": [
+                "A mí me gusta la música española."
+              ],
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-genero"
+              ]
+            },
+            {
+              "id": "es-a1-l8-e5-pre",
+              "type": "flashcard",
+              "prompt": "Levantarse temprano es difícil.",
+              "translation": "Рано вставать тяжело.",
+              "example": "Levantarse temprano es difícil en invierno.",
+              "topics": [
+                "es-a1-gustar"
+              ]
             },
             {
               "id": "es-a1-l8-e5",
               "type": "translate",
               "prompt": "Ему не нравится вставать рано.",
               "canonicalAnswer": "No le gusta levantarse temprano.",
-              "acceptedAnswers": ["A él no le gusta levantarse temprano."],
+              "acceptedAnswers": [
+                "A él no le gusta levantarse temprano."
+              ],
               "hint": "le — «ему»",
-              "topics": ["es-a1-gustar"]
+              "topics": [
+                "es-a1-gustar"
+              ]
             },
             {
               "id": "es-a1-l8-e6",
               "type": "word_order",
               "prompt": "Нам нравится гулять по городу.",
               "canonicalAnswer": "Nos gusta pasear por la ciudad.",
-              "tokens": ["gusta", "Nos", "la", "pasear", "ciudad", "por"],
-              "topics": ["es-a1-gustar"]
+              "tokens": [
+                "gusta",
+                "Nos",
+                "la",
+                "pasear",
+                "ciudad",
+                "por"
+              ],
+              "topics": [
+                "es-a1-gustar"
+              ]
             },
             {
               "id": "es-a1-l8-e7",
@@ -697,23 +1505,48 @@
               "prompt": "A mí también.",
               "translation": "Мне тоже.",
               "example": "Me gusta el mar. — A mí también.",
-              "topics": ["es-a1-gustar"]
+              "topics": [
+                "es-a1-gustar"
+              ]
             },
             {
               "id": "es-a1-l8-e8",
               "type": "multiple_choice",
               "prompt": "¿Te ___ el pescado?",
-              "options": ["gusta", "gustas", "gustan"],
+              "options": [
+                "gusta",
+                "gustas",
+                "gustan"
+              ],
               "correctOption": "gusta",
-              "topics": ["es-a1-gustar", "es-a1-preguntas"]
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-preguntas"
+              ]
+            },
+            {
+              "id": "es-a1-l8-e9-pre",
+              "type": "flashcard",
+              "prompt": "Estos libros son míos.",
+              "translation": "Эти книги мои.",
+              "example": "Estos libros son míos, los otros no.",
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-plural"
+              ]
             },
             {
               "id": "es-a1-l8-e9",
               "type": "translate",
               "prompt": "Им нравятся эти книги.",
               "canonicalAnswer": "Les gustan estos libros.",
-              "acceptedAnswers": ["A ellos les gustan estos libros."],
-              "topics": ["es-a1-gustar", "es-a1-plural"]
+              "acceptedAnswers": [
+                "A ellos les gustan estos libros."
+              ],
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-plural"
+              ]
             }
           ]
         },
@@ -728,7 +1561,9 @@
               "type": "info",
               "title": "voy a + инфинитив",
               "explanation": "Будущее в разговоре строится просто: voy a trabajar, vas a ver, vamos a comer. Формы ir: voy, vas, va, vamos, van. Tener тоже нужен каждый день: tengo, tienes, tiene, tenemos, tienen — и с ним обороты tener hambre, tener frío, tener que (быть должным).",
-              "topics": ["es-a1-ir-tener"]
+              "topics": [
+                "es-a1-ir-tener"
+              ]
             },
             {
               "id": "es-a1-l9-e2",
@@ -736,23 +1571,36 @@
               "prompt": "Voy a viajar en agosto.",
               "translation": "Я поеду в путешествие в августе.",
               "example": "Voy a viajar en agosto, si todo va bien.",
-              "topics": ["es-a1-ir-tener"]
+              "topics": [
+                "es-a1-ir-tener"
+              ]
             },
             {
               "id": "es-a1-l9-e3",
               "type": "translate",
               "prompt": "Завтра я собираюсь работать дома.",
               "canonicalAnswer": "Mañana voy a trabajar en casa.",
-              "acceptedAnswers": ["Voy a trabajar en casa mañana."],
-              "topics": ["es-a1-ir-tener", "es-a1-presente-ar"]
+              "acceptedAnswers": [
+                "Voy a trabajar en casa mañana."
+              ],
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-presente-ar"
+              ]
             },
             {
               "id": "es-a1-l9-e4",
               "type": "multiple_choice",
               "prompt": "Nosotros ___ a ver una película.",
-              "options": ["voy", "vas", "vamos"],
+              "options": [
+                "voy",
+                "vas",
+                "vamos"
+              ],
               "correctOption": "vamos",
-              "topics": ["es-a1-ir-tener"]
+              "topics": [
+                "es-a1-ir-tener"
+              ]
             },
             {
               "id": "es-a1-l9-e5",
@@ -760,40 +1608,77 @@
               "prompt": "Tengo que irme.",
               "translation": "Мне пора идти.",
               "example": "Lo siento, tengo que irme ya.",
-              "topics": ["es-a1-ir-tener"]
+              "topics": [
+                "es-a1-ir-tener"
+              ]
             },
             {
               "id": "es-a1-l9-e6",
               "type": "translate",
               "prompt": "Я хочу есть.",
               "canonicalAnswer": "Tengo hambre.",
-              "acceptedAnswers": ["Yo tengo hambre."],
+              "acceptedAnswers": [
+                "Yo tengo hambre."
+              ],
               "hint": "Дословно — «имею голод».",
-              "topics": ["es-a1-ir-tener"]
+              "topics": [
+                "es-a1-ir-tener"
+              ]
             },
             {
               "id": "es-a1-l9-e7",
               "type": "word_order",
               "prompt": "В субботу мы пойдём на пляж.",
               "canonicalAnswer": "El sábado vamos a la playa.",
-              "tokens": ["vamos", "El", "playa", "sábado", "la", "a"],
-              "topics": ["es-a1-ir-tener"]
+              "tokens": [
+                "vamos",
+                "El",
+                "playa",
+                "sábado",
+                "la",
+                "a"
+              ],
+              "topics": [
+                "es-a1-ir-tener"
+              ]
             },
             {
               "id": "es-a1-l9-e8",
               "type": "multiple_choice",
               "prompt": "___ que estudiar más para el examen.",
-              "options": ["Tengo", "Tienes", "Tiene"],
+              "options": [
+                "Tengo",
+                "Tienes",
+                "Tiene"
+              ],
               "correctOption": "Tengo",
-              "topics": ["es-a1-ir-tener"]
+              "topics": [
+                "es-a1-ir-tener"
+              ]
+            },
+            {
+              "id": "es-a1-l9-e9-pre",
+              "type": "flashcard",
+              "prompt": "El fin de semana voy a hacer deporte.",
+              "translation": "На выходных я буду заниматься спортом.",
+              "example": "El fin de semana voy a hacer deporte con amigos.",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l9-e9",
               "type": "translate",
               "prompt": "Что ты будешь делать в выходные?",
               "canonicalAnswer": "¿Qué vas a hacer el fin de semana?",
-              "acceptedAnswers": ["Qué vas a hacer el fin de semana?"],
-              "topics": ["es-a1-ir-tener", "es-a1-preguntas"]
+              "acceptedAnswers": [
+                "Qué vas a hacer el fin de semana?"
+              ],
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas"
+              ]
             },
             {
               "id": "es-a1-l9-e10",
@@ -801,7 +1686,9 @@
               "prompt": "Hasta luego.",
               "translation": "До скорого.",
               "example": "Bueno, me voy. ¡Hasta luego!",
-              "topics": ["es-a1-ir-tener"]
+              "topics": [
+                "es-a1-ir-tener"
+              ]
             }
           ]
         }

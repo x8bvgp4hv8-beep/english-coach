@@ -21,6 +21,9 @@ public struct Syllabus: Codable, Equatable, Sendable {
     /// The number of topics currently below target. A ratchet: content can only lower it,
     /// and the test fails when it grows, so a new gap cannot slip in unnoticed.
     public let coverageDebtCeiling: Int
+    /// Translation exercises that still ask for words the course has not shown yet.
+    /// The same ratchet, for the other half of "готов ли учащийся к этому заданию".
+    public let vocabularyDebtCeiling: Int?
     public let topics: [SyllabusTopic]
 }
 
@@ -132,5 +135,82 @@ public enum TopicProgressEngine {
     public static func untouched(syllabus: Syllabus, courses: [CoursePack], state: UserState, level: CEFRLevel) -> [TopicProgress] {
         all(syllabus: syllabus, courses: courses, state: state, level: level)
             .filter { $0.attempts == 0 && $0.exercises > 0 }
+    }
+}
+
+
+/// Порядок ввода лексики: не просить произвести то, чего не показывали.
+/// Kept in step with `unseenVocabulary` in web/src/core/syllabus.ts.
+///
+/// The first Spanish lesson used to open by asking the learner to write "Soy de Lituania"
+/// — to a true beginner that is not an exercise, it is a wall. Across the two courses 149
+/// of the 200 translation exercises did the same thing to some degree, and nothing in the
+/// build noticed. So it is measured: a word counts as introduced once the learner has
+/// been shown it, and anything a translation demands beyond that is debt with a ceiling.
+public struct UnseenWords: Equatable, Sendable {
+    public let exerciseID: String
+    public let words: [String]
+}
+
+public enum VocabularyOrder {
+    static func vocabulary(_ text: String?) -> Set<String> {
+        guard let text else { return [] }
+        var found: Set<String> = []
+        var current = ""
+        let joiners: Set<Character> = ["'", "\u{2019}", "-"]
+        for character in text.lowercased() {
+            if character.isLetter || joiners.contains(character) {
+                current.append(character)
+            } else {
+                add(current, to: &found)
+                current = ""
+            }
+        }
+        add(current, to: &found)
+        return found
+    }
+
+    private static func add(_ word: String, to found: inout Set<String>) {
+        let trimmed = word.trimmingCharacters(in: CharacterSet(charactersIn: "\'\u{2019}-"))
+        if trimmed.count > 1 { found.insert(trimmed) }
+    }
+
+    /// What an exercise puts in front of the learner, in the language being learnt.
+    static func shown(_ exercise: Exercise) -> Set<String> {
+        var parts: [String?] = []
+        switch exercise.type {
+        case .info: parts = [exercise.title, exercise.explanation]
+        case .flashcard: parts = [exercise.prompt, exercise.example]
+        case .wordOrder: parts = [(exercise.tokens ?? []).joined(separator: " "), exercise.canonicalAnswer]
+        case .multipleChoice: parts = [exercise.prompt, (exercise.options ?? []).joined(separator: " ")]
+        // Checking a translation reveals its answer, so from then on it is taught too.
+        case .translate: parts = [exercise.canonicalAnswer, exercise.hint]
+        }
+        return parts.reduce(into: Set<String>()) { $0.formUnion(vocabulary($1)) }
+    }
+
+    /// Translation exercises that ask for words the course has not shown yet, in order.
+    public static func unseen(in courses: [CoursePack]) -> [UnseenWords] {
+        var known: Set<String> = []
+        var debt: [UnseenWords] = []
+        let ordered = courses.sorted {
+            (LevelOrder.all.firstIndex(of: $0.level) ?? 0) < (LevelOrder.all.firstIndex(of: $1.level) ?? 0)
+        }
+        for course in ordered {
+            for chapter in course.chapters {
+                for lesson in chapter.lessons {
+                    for exercise in lesson.exercises {
+                        if exercise.type == .translate, let answer = exercise.canonicalAnswer {
+                            let missing = vocabulary(answer).subtracting(known)
+                            if !missing.isEmpty {
+                                debt.append(UnseenWords(exerciseID: exercise.id, words: missing.sorted()))
+                            }
+                        }
+                        known.formUnion(shown(exercise))
+                    }
+                }
+            }
+        }
+        return debt
     }
 }

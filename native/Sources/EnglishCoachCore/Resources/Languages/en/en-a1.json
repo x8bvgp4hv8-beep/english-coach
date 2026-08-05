@@ -3,6 +3,301 @@
   "level": "A1",
   "chapters": [
     {
+      "id": "a1-first-words",
+      "title": "First words",
+      "subtitle": "С нуля: первые фразы целиком, до всякой грамматики",
+      "lessons": [
+        {
+          "id": "a1-first-words-01",
+          "title": "Hello!",
+          "summary": "Шесть слов, с которых начинается любой разговор.",
+          "estimatedMinutes": 7,
+          "exercises": [
+            {
+              "id": "a1-l0-e1",
+              "type": "info",
+              "title": "Сначала фразы, потом правила",
+              "explanation": "Первые фразы учат целиком, как одно слово, и только потом разбирают. Так делает любой ребёнок и любой, кто приезжает в страну: сначала «спасибо» работает, а из чего оно состоит — неважно.",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e2",
+              "type": "flashcard",
+              "prompt": "Hello.",
+              "translation": "Привет. Здравствуйте.",
+              "example": "Hello! How are you?",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e3",
+              "type": "flashcard",
+              "prompt": "Thank you.",
+              "translation": "Спасибо.",
+              "example": "Thank you very much.",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e4",
+              "type": "multiple_choice",
+              "prompt": "«Спасибо» по-английски:",
+              "options": [
+                "Hello",
+                "Thank you",
+                "Goodbye"
+              ],
+              "correctOption": "Thank you",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e5",
+              "type": "flashcard",
+              "prompt": "Please.",
+              "translation": "Пожалуйста (просьба).",
+              "example": "A coffee, please.",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e6",
+              "type": "flashcard",
+              "prompt": "Goodbye.",
+              "translation": "До свидания.",
+              "example": "Goodbye, see you tomorrow.",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e7",
+              "type": "multiple_choice",
+              "prompt": "Ты прощаешься. Что скажешь?",
+              "options": [
+                "Hello",
+                "Thank you",
+                "Goodbye"
+              ],
+              "correctOption": "Goodbye",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e8",
+              "type": "word_order",
+              "prompt": "Спасибо большое.",
+              "canonicalAnswer": "Thank you very much.",
+              "tokens": [
+                "you",
+                "Thank",
+                "much",
+                "very"
+              ],
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e9",
+              "type": "translate",
+              "prompt": "Спасибо.",
+              "canonicalAnswer": "Thank you.",
+              "acceptedAnswers": [
+                "Thank you very much."
+              ],
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e10",
+              "type": "translate",
+              "prompt": "Пожалуйста.",
+              "canonicalAnswer": "Please.",
+              "acceptedAnswers": [],
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0-e11",
+              "type": "flashcard",
+              "prompt": "Yes. No.",
+              "translation": "Да. Нет.",
+              "example": "Coffee? — Yes, please.",
+              "topics": [
+                "a1-to-be"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a1-first-words-02",
+          "title": "My name is…",
+          "summary": "Назвать имя и сказать, откуда ты. Каждая фраза сначала целиком.",
+          "estimatedMinutes": 8,
+          "exercises": [
+            {
+              "id": "a1-l0b-e1",
+              "type": "info",
+              "title": "Два способа назвать себя",
+              "explanation": "My name is Anna и I am Anna значат одно и то же. Второй короче, и в речи чаще именно он. Сокращение I'm — то же самое I am, просто быстрее.",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0b-e2",
+              "type": "flashcard",
+              "prompt": "My name is Anna.",
+              "translation": "Меня зовут Анна.",
+              "example": "Hello, my name is Anna.",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0b-e3",
+              "type": "multiple_choice",
+              "prompt": "Как сказать «меня зовут Пётр»?",
+              "options": [
+                "My name is Peter",
+                "Your name is Peter",
+                "His name is Peter"
+              ],
+              "correctOption": "My name is Peter",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0b-e4",
+              "type": "word_order",
+              "prompt": "Меня зовут Анна.",
+              "canonicalAnswer": "My name is Anna.",
+              "tokens": [
+                "name",
+                "My",
+                "Anna",
+                "is"
+              ],
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0b-e5",
+              "type": "translate",
+              "prompt": "Меня зовут Анна.",
+              "canonicalAnswer": "My name is Anna.",
+              "acceptedAnswers": [
+                "I am Anna.",
+                "I'm Anna."
+              ],
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0b-e6",
+              "type": "flashcard",
+              "prompt": "I am from Vilnius.",
+              "translation": "Я из Вильнюса.",
+              "example": "My name is Anna and I am from Vilnius.",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0b-e7",
+              "type": "multiple_choice",
+              "prompt": "«Я из Вильнюса» — это:",
+              "options": [
+                "I am from Vilnius",
+                "You are from Vilnius",
+                "He is from Vilnius"
+              ],
+              "correctOption": "I am from Vilnius",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0b-e8",
+              "type": "word_order",
+              "prompt": "Я из Вильнюса.",
+              "canonicalAnswer": "I am from Vilnius.",
+              "tokens": [
+                "am",
+                "I",
+                "Vilnius",
+                "from"
+              ],
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0b-e9",
+              "type": "translate",
+              "prompt": "Я из Вильнюса.",
+              "canonicalAnswer": "I am from Vilnius.",
+              "acceptedAnswers": [
+                "I'm from Vilnius."
+              ],
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-l0b-e10",
+              "type": "flashcard",
+              "prompt": "What is your name?",
+              "translation": "Как тебя зовут?",
+              "example": "Hello! What is your name?",
+              "topics": [
+                "a1-questions"
+              ]
+            },
+            {
+              "id": "a1-l0b-e11",
+              "type": "multiple_choice",
+              "prompt": "Ты хочешь спросить имя. Что скажешь?",
+              "options": [
+                "What is your name?",
+                "My name is Anna",
+                "I am from Vilnius"
+              ],
+              "correctOption": "What is your name?",
+              "topics": [
+                "a1-questions"
+              ]
+            },
+            {
+              "id": "a1-l0b-e12",
+              "type": "translate",
+              "prompt": "Как тебя зовут?",
+              "canonicalAnswer": "What is your name?",
+              "acceptedAnswers": [
+                "What's your name?"
+              ],
+              "topics": [
+                "a1-questions"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "a1-introductions",
       "title": "Hello!",
       "subtitle": "Знакомство и глагол to be",
@@ -87,6 +382,16 @@
               ]
             },
             {
+              "id": "a1-translate-2-pre",
+              "type": "flashcard",
+              "prompt": "This is my brother.",
+              "translation": "Это мой брат.",
+              "example": "This is my brother Tom.",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
               "id": "a1-translate-2",
               "type": "translate",
               "prompt": "Он мой брат.",
@@ -123,6 +428,16 @@
                 "are"
               ],
               "correctOption": "am",
+              "topics": [
+                "a1-to-be"
+              ]
+            },
+            {
+              "id": "a1-translate-3-pre",
+              "type": "flashcard",
+              "prompt": "I am not at home.",
+              "translation": "Меня нет дома.",
+              "example": "Sorry, I am not at home now.",
               "topics": [
                 "a1-to-be"
               ]
@@ -344,6 +659,16 @@
               ]
             },
             {
+              "id": "a1-ch2-l2-ex5-pre",
+              "type": "flashcard",
+              "prompt": "Her dog is very big.",
+              "translation": "Её собака очень большая.",
+              "example": "Her dog is very big, but quiet.",
+              "topics": [
+                "a1-have-got"
+              ]
+            },
+            {
               "id": "a1-ch2-l2-ex5",
               "type": "translate",
               "prompt": "У меня есть собака.",
@@ -498,6 +823,16 @@
               ]
             },
             {
+              "id": "a1-ch3-l1-ex5-pre",
+              "type": "flashcard",
+              "prompt": "Tea or coffee?",
+              "translation": "Чай или кофе?",
+              "example": "Good morning! Tea or coffee?",
+              "topics": [
+                "a1-present-simple"
+              ]
+            },
+            {
               "id": "a1-ch3-l1-ex5",
               "type": "translate",
               "prompt": "Я люблю чай.",
@@ -541,6 +876,16 @@
               "correctOption": "Does",
               "explanation": "С he в вопросе используем Does.",
               "difficulty": 2,
+              "topics": [
+                "a1-present-simple"
+              ]
+            },
+            {
+              "id": "a1-ch3-l1-ex8-pre",
+              "type": "flashcard",
+              "prompt": "Coffee with milk, please.",
+              "translation": "Кофе с молоком, пожалуйста.",
+              "example": "One coffee with milk, please.",
               "topics": [
                 "a1-present-simple"
               ]
@@ -663,6 +1008,17 @@
               ]
             },
             {
+              "id": "a1-ch3-l2-ex6-pre",
+              "type": "flashcard",
+              "prompt": "Breakfast is at eight.",
+              "translation": "Завтрак в восемь.",
+              "example": "Breakfast is at eight, do not be late.",
+              "topics": [
+                "a1-adverbs-frequency",
+                "a1-prepositions-time"
+              ]
+            },
+            {
               "id": "a1-ch3-l2-ex6",
               "type": "translate",
               "prompt": "Я всегда завтракаю утром.",
@@ -691,6 +1047,17 @@
               "difficulty": 2,
               "topics": [
                 "a1-adverbs-frequency"
+              ]
+            },
+            {
+              "id": "a1-ch3-l2-ex8-pre",
+              "type": "flashcard",
+              "prompt": "She works in a school.",
+              "translation": "Она работает в школе.",
+              "example": "My sister works in a school.",
+              "topics": [
+                "a1-adverbs-frequency",
+                "a1-prepositions-time"
               ]
             },
             {
@@ -775,6 +1142,16 @@
               ]
             },
             {
+              "id": "a1-ch4-l1-ex4-pre",
+              "type": "flashcard",
+              "prompt": "She is drinking tea.",
+              "translation": "Она пьёт чай (сейчас).",
+              "example": "Be quiet, she is drinking tea and reading.",
+              "topics": [
+                "a1-present-continuous"
+              ]
+            },
+            {
               "id": "a1-ch4-l1-ex4",
               "type": "translate",
               "prompt": "Я пью кофе.",
@@ -782,6 +1159,16 @@
               "acceptedAnswers": [
                 "I'm drinking coffee."
               ],
+              "topics": [
+                "a1-present-continuous"
+              ]
+            },
+            {
+              "id": "a1-ch4-l1-ex5-pre",
+              "type": "flashcard",
+              "prompt": "The bus is late. They are waiting for it.",
+              "translation": "Автобус опаздывает. Они его ждут.",
+              "example": "The bus is late. They are waiting for it in the rain.",
               "topics": [
                 "a1-present-continuous"
               ]
@@ -937,6 +1324,16 @@
               ]
             },
             {
+              "id": "a1-ch4-l2-ex5-pre",
+              "type": "flashcard",
+              "prompt": "She is reading a newspaper.",
+              "translation": "Она читает газету.",
+              "example": "Do not call her, she is reading a newspaper.",
+              "topics": [
+                "a1-present-continuous"
+              ]
+            },
+            {
               "id": "a1-ch4-l2-ex5",
               "type": "translate",
               "prompt": "Сейчас он читает книгу.",
@@ -946,6 +1343,17 @@
               ],
               "topics": [
                 "a1-present-continuous"
+              ]
+            },
+            {
+              "id": "a1-ch4-l2-ex6-pre",
+              "type": "flashcard",
+              "prompt": "We go home by taxi.",
+              "translation": "Мы едем домой на такси.",
+              "example": "It is late, we go home by taxi.",
+              "topics": [
+                "a1-present-simple",
+                "a1-adverbs-frequency"
               ]
             },
             {
@@ -1031,6 +1439,16 @@
               "prompt": "I can drive a car.",
               "translation": "Я умею водить машину.",
               "example": "I can drive a car, but I don't have one.",
+              "topics": [
+                "a1-can"
+              ]
+            },
+            {
+              "id": "a1-ch5-l1-ex3-pre",
+              "type": "flashcard",
+              "prompt": "I play the guitar every evening.",
+              "translation": "Я играю на гитаре каждый вечер.",
+              "example": "I play the guitar every evening after work.",
               "topics": [
                 "a1-can"
               ]
@@ -1130,12 +1548,33 @@
               ]
             },
             {
+              "id": "a1-ch5-l2-ex2-pre",
+              "type": "flashcard",
+              "prompt": "I do not know.",
+              "translation": "Я не знаю.",
+              "example": "Sorry, I do not know.",
+              "topics": [
+                "a1-pronouns"
+              ]
+            },
+            {
               "id": "a1-ch5-l2-ex2",
               "type": "translate",
               "prompt": "Я знаю его.",
               "canonicalAnswer": "I know him.",
               "topics": [
                 "a1-pronouns"
+              ]
+            },
+            {
+              "id": "a1-ch5-l2-ex3-pre",
+              "type": "flashcard",
+              "prompt": "My mother calls me every Sunday.",
+              "translation": "Мама звонит мне каждое воскресенье.",
+              "example": "My mother calls me every Sunday at ten.",
+              "topics": [
+                "a1-pronouns",
+                "a1-present-simple"
               ]
             },
             {
@@ -1184,6 +1623,17 @@
               "explanation": "Обычно добавляем -s: book — books. После s, x, ch, sh — окончание -es: box — boxes, watch — watches. Есть исключения: man — men, woman — women, child — children.",
               "topics": [
                 "a1-plural"
+              ]
+            },
+            {
+              "id": "a1-ch5-l2-ex7-pre",
+              "type": "flashcard",
+              "prompt": "My two sisters live in London.",
+              "translation": "Мои две сестры живут в Лондоне.",
+              "example": "My two sisters live in London and work there.",
+              "topics": [
+                "a1-plural",
+                "a1-have-got"
               ]
             },
             {

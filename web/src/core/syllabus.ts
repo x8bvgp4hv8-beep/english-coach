@@ -1,5 +1,5 @@
 import { LEVELS, ContentError } from './types'
-import type { CEFRLevel, CoursePack, Syllabus, SyllabusTopic, TopicCoverage, TopicProgress, UserState } from './types'
+import type { CEFRLevel, CoursePack, Exercise, Syllabus, SyllabusTopic, TopicCoverage, TopicProgress, UserState } from './types'
 
 /**
  * What each level is supposed to teach, and how far the shipped content is from it.
@@ -123,4 +123,70 @@ export const TopicProgressEngine = {
   untouched(syllabus: Syllabus, courses: CoursePack[], state: UserState, level: CEFRLevel): TopicProgress[] {
     return this.all(syllabus, courses, state, level).filter((item) => item.attempts === 0 && item.exercises > 0)
   },
+}
+
+/**
+ * Порядок ввода лексики: не просить произвести то, чего не показывали.
+ *
+ * The first Spanish lesson used to open by asking the learner to write "Soy de Lituania"
+ * — to a true beginner that is not an exercise, it is a wall. Across the two courses 149
+ * of the 200 translation exercises did the same thing to some degree, and nothing in the
+ * build noticed.
+ *
+ * So it is measured. A word counts as introduced once the learner has been shown it: a
+ * rule card, a flashcard, the words handed out in a sentence-building tray, the options
+ * of a multiple choice, or the answer to an earlier translation. Anything a translation
+ * exercise demands beyond that is debt, and the debt has a ceiling that only goes down.
+ */
+const WORD = /[\p{L}'’-]+/gu
+
+function vocabulary(text: string | undefined): Set<string> {
+  const found = new Set<string>()
+  for (const raw of (text ?? '').match(WORD) ?? []) {
+    const word = raw.toLowerCase().replace(/^['’-]+|['’-]+$/g, '')
+    if (word.length > 1) found.add(word)
+  }
+  return found
+}
+
+/** What an exercise puts in front of the learner, in the language being learnt. */
+function shown(exercise: Exercise): Set<string> {
+  const parts: Array<string | undefined> = []
+  switch (exercise.type) {
+    case 'info': parts.push(exercise.title, exercise.explanation); break
+    case 'flashcard': parts.push(exercise.prompt, exercise.example); break
+    case 'word_order': parts.push((exercise.tokens ?? []).join(' '), exercise.canonicalAnswer); break
+    case 'multiple_choice': parts.push(exercise.prompt, (exercise.options ?? []).join(' ')); break
+    // Checking a translation reveals its answer, so from then on it is taught too.
+    case 'translate': parts.push(exercise.canonicalAnswer, exercise.hint); break
+  }
+  const found = new Set<string>()
+  for (const part of parts) for (const word of vocabulary(part)) found.add(word)
+  return found
+}
+
+export interface UnseenWords {
+  exerciseID: string
+  words: string[]
+}
+
+/** Translation exercises that ask for words the course has not shown yet, in order. */
+export function unseenVocabulary(courses: CoursePack[]): UnseenWords[] {
+  const known = new Set<string>()
+  const debt: UnseenWords[] = []
+  const ordered = [...courses].sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level))
+  for (const course of ordered) {
+    for (const chapter of course.chapters) {
+      for (const lesson of chapter.lessons) {
+        for (const exercise of lesson.exercises) {
+          if (exercise.type === 'translate' && exercise.canonicalAnswer) {
+            const missing = [...vocabulary(exercise.canonicalAnswer)].filter((word) => !known.has(word))
+            if (missing.length > 0) debt.push({ exerciseID: exercise.id, words: missing.sort() })
+          }
+          for (const word of shown(exercise)) known.add(word)
+        }
+      }
+    }
+  }
+  return debt
 }

@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest'
 
 import { check, diffSummary, normalize } from './answer'
 import { decodeCourse, decodePlacement } from './content'
-import { SyllabusEngine, TopicProgressEngine, decodeSyllabus } from './syllabus'
+import { SyllabusEngine, TopicProgressEngine, decodeSyllabus, unseenVocabulary } from './syllabus'
 import { CourseRouting, LevelOrder, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
 import { ListeningEngine, listeningPhrase } from './listening'
 import { PracticeEngine } from './practice'
@@ -303,17 +303,22 @@ describe('bundled content', () => {
 
 describe('learning session', () => {
   it('runs a lesson from first exercise to completion', () => {
+    // Not by id: the opening chapter changes whenever the course does, and this test is
+    // about the session, not about which lesson happens to come first.
     const course = courses.find((c) => c.level === 'A1')!
-    const lesson = course.chapters[0].lessons[0]
+    const lesson = course.chapters.flatMap((c) => c.lessons)
+      .find((item) => item.exercises.some((e) => e.type === 'translate'))!
+    const firstTranslate = lesson.exercises.find((e) => e.type === 'translate')!
     const session = new LearningSession(freshState())
     session.start(lesson)
-    expect(session.currentExercise?.id).toBe('a1-info-1')
+    expect(session.currentExercise?.id).toBe(lesson.exercises[0].id)
 
-    session.completePassiveExercise(now)
-    session.completePassiveExercise(now)
+    while (session.currentExercise && session.currentExercise.id !== firstTranslate.id) {
+      session.completePassiveExercise(now)
+    }
     const wrong = session.submitText('wrong', now)
     expect(wrong.isCorrect).toBe(false)
-    expect(session.state.reviews.some((r) => r.exerciseID === 'a1-translate-1')).toBe(true)
+    expect(session.state.reviews.some((r) => r.exerciseID === firstTranslate.id)).toBe(true)
 
     session.advance()
     while (!session.isComplete) session.completeCurrentCorrectly(now)
@@ -793,6 +798,25 @@ describe.each(LANGUAGE_CODES)('each shipped language: %s', (language) => {
     const gaps = SyllabusEngine.gaps(syllabus, packs)
     const report = gaps.map((gap) => `${gap.topic.level} ${gap.topic.id} ${gap.exercises}/${gap.topic.minExercises}`).join('\n')
     expect(gaps.length, `тем без покрытия стало больше:\n${report}`).toBeLessThanOrEqual(syllabus.coverageDebtCeiling)
+  })
+
+  /**
+   * Готовность к заданию, а не только наличие темы: перевод не должен требовать слов,
+   * которых курс ещё не показывал. Для A1 это не долг, а условие — человек приходит
+   * с нуля, и первое же «напиши Soy de Lituania» его останавливает.
+   */
+  it('never asks a beginner to produce what it has not taught', () => {
+    const a1 = packs.filter((pack) => pack.level === 'A1')
+    const debt = unseenVocabulary(a1)
+    const report = debt.map((item) => `${item.exerciseID}: ${item.words.join(', ')}`).join('\n')
+    expect(debt.length, `A1 требует неизученных слов:\n${report}`).toBe(0)
+  })
+
+  it('does not let the vocabulary debt grow', () => {
+    const debt = unseenVocabulary(packs)
+    const ceiling = syllabus.vocabularyDebtCeiling ?? 0
+    const report = debt.slice(0, 10).map((item) => `${item.exerciseID}: ${item.words.join(', ')}`).join('\n')
+    expect(debt.length, `переводов с неизученными словами стало больше (${debt.length} > ${ceiling}):\n${report}`).toBeLessThanOrEqual(ceiling)
   })
 
   it('can run a lesson end to end in this language', () => {

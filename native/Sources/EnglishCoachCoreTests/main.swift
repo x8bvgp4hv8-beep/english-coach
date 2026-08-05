@@ -84,15 +84,19 @@ do {
 } catch { failures += 1; print("✗ bundled course validation: \(error)") }
 
 do {
+    // Not by id: the opening chapter changes whenever the course does, and this test is
+    // about the session, not about which lesson happens to come first.
     let course = try ContentRepository.loadBundled().first { $0.level == .a1 }!
-    let lesson = course.chapters[0].lessons[0]
+    let lesson = course.chapters.flatMap(\.lessons).first { $0.exercises.contains { $0.type == .translate } }!
+    let firstTranslate = lesson.exercises.first { $0.type == .translate }!
     var session = LearningSession(state: .fresh)
     session.start(lesson)
-    expect(session.currentExercise?.id == "a1-info-1", "lesson starts at first exercise")
-    session.completePassiveExercise()
-    session.completePassiveExercise()
+    expect(session.currentExercise?.id == lesson.exercises[0].id, "lesson starts at first exercise")
+    while let current = session.currentExercise, current.id != firstTranslate.id {
+        session.completePassiveExercise()
+    }
     let wrong = session.submitText("wrong", now: now)
-    expect(!wrong.isCorrect && session.state.reviews.contains { $0.exerciseID == "a1-translate-1" }, "wrong answer creates review")
+    expect(!wrong.isCorrect && session.state.reviews.contains { $0.exerciseID == firstTranslate.id }, "wrong answer creates review")
     session.advance()
     while !session.isComplete { session.completeCurrentCorrectlyForTesting(now: now) }
     expect(session.state.completedLessonIDs.contains(lesson.id), "lesson completion is recorded")
@@ -478,6 +482,17 @@ for language in shipped {
         let gaps = SyllabusEngine.gaps(of: syllabus, in: packs)
         expect(gaps.count <= syllabus.coverageDebtCeiling,
                "\(name): coverage debt did not grow (\(gaps.count) of ceiling \(syllabus.coverageDebtCeiling))")
+
+        // Готовность к заданию, а не только наличие темы: перевод не должен требовать
+        // слов, которых курс ещё не показывал. Для A1 это не долг, а условие — человек
+        // приходит с нуля, и первое же «напиши Soy de Lituania» его останавливает.
+        let beginnerDebt = VocabularyOrder.unseen(in: packs.filter { $0.level == .a1 })
+        expect(beginnerDebt.isEmpty,
+               "\(name): A1 не просит произвести неизученное (\(beginnerDebt.count) мест)")
+        let vocabularyDebt = VocabularyOrder.unseen(in: packs)
+        let vocabularyCeiling = syllabus.vocabularyDebtCeiling ?? 0
+        expect(vocabularyDebt.count <= vocabularyCeiling,
+               "\(name): vocabulary debt did not grow (\(vocabularyDebt.count) of ceiling \(vocabularyCeiling))")
 
         // A lesson has to be completable start to finish in this language's own rules.
         let lesson = packs.sorted { $0.level.rawValue < $1.level.rawValue }[0].chapters[0].lessons[0]
