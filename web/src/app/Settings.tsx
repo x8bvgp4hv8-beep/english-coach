@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useStore } from './App'
 import { PlacementTest } from './Placement'
 import { disablePush, enablePush, pushState } from './push'
+import { chooseVoice, chosenVoiceName, speak, voicesFor } from './speech'
 import { THEMES, applyTheme, loadTheme } from './theme'
 import type { PushState } from './push'
 import { LEVELS, exportBackup, importBackup } from '../core'
@@ -35,6 +36,9 @@ export function Settings() {
   const [push, setPush] = useState<PushState | null>(null)
   const reminderHour = model.state.profile?.reminderHour ?? 19
   const [updateNote, setUpdateNote] = useState<string | null>(null)
+  // Голоса подгружаются асинхронно, поэтому список приходится дождаться.
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
+  const [voiceName, setVoiceName] = useState<string | null>(null)
 
   /** The manual escape hatch: the app checks on every foreground, but this says so out loud. */
   const checkForUpdate = async () => {
@@ -47,6 +51,12 @@ export function Settings() {
   }
 
   useEffect(() => { pushState().then(setPush) }, [])
+  useEffect(() => {
+    const load = () => { setVoices(voicesFor()); setVoiceName(chosenVoiceName()) }
+    load()
+    if ('speechSynthesis' in window) speechSynthesis.addEventListener('voiceschanged', load)
+    return () => { if ('speechSynthesis' in window) speechSynthesis.removeEventListener('voiceschanged', load) }
+  }, [model.language])
   const fileInput = useRef<HTMLInputElement>(null)
 
   const chooseTheme = (id: ThemeID) => { applyTheme(id); setTheme(id) }
@@ -118,6 +128,38 @@ export function Settings() {
             <span className="value">{model.currentLanguage.title} ›</span>
           </button>
         </div>
+
+        {voices.length > 0 && (
+          <>
+            <div className="section-title">
+              <h2>Голос</h2>
+              <p>Им читаются карточки и упражнения на слух. Нажми, чтобы послушать и выбрать.</p>
+            </div>
+            <div className="settings-group">
+              {voices.map((item) => (
+                <button
+                  key={item.name}
+                  className="settings-row"
+                  onClick={() => {
+                    chooseVoice(item.name)
+                    setVoiceName(item.name)
+                    speak(model.currentLanguage.greeting)
+                  }}
+                >
+                  <span className="label">{item.name.split(' (')[0]}</span>
+                  <span className="value">{item.name === voiceName ? 'выбран ✓' : 'послушать ›'}</span>
+                </button>
+              ))}
+            </div>
+            <p className="settings-note">
+              Все голоса на этом устройстве — облегчённые, поэтому звучат механически. Живой голос
+              скачивается отдельно и один раз: на iPhone — Настройки → Универсальный доступ →
+              Устный контент → Голоса, на Маке — Системные настройки → Универсальный доступ →
+              Устная речь → Системный голос → «Управление голосами». Там у нужного языка выбери
+              вариант с пометкой Enhanced или Premium.
+            </p>
+          </>
+        )}
 
         <div className="section-title">
           <h2>Оформление</h2>

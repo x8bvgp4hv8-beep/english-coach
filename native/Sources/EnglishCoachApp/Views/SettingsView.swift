@@ -1,3 +1,4 @@
+import AVFoundation
 import SwiftUI
 import EnglishCoachCore
 
@@ -7,12 +8,38 @@ struct SettingsView: View {
     @State private var showPlacement = false
     /// What the system actually has queued. The stored flag is a wish; this is the fact.
     @State private var reminderPending: String?
+    @State private var voiceIdentifier: String?
+    @State private var speech = SpeechService()
     var body: some View {
         VStack(spacing: 0) {
             HStack { Button { model.screen = .map } label: { Label("Назад", systemImage: "chevron.left") }; Spacer(); Text("Настройки").font(.title2.bold()); Spacer() }.padding(20)
             Form {
                 LabeledContent("Язык") {
                     Button(model.currentLanguage.title) { model.screen = .language }
+                }
+                Section("Голос") {
+                    // Качество тут решает всё: macOS ставит облегчённый голос, он и звучит
+                    // роботом, а улучшенный и премиум — отдельная загрузка. Раз приложение
+                    // не может её сделать за пользователя, оно хотя бы честно показывает,
+                    // с чем работает.
+                    Picker("Читает", selection: Binding(
+                        get: { voiceIdentifier ?? SpeechService.activeVoice()?.identifier ?? "" },
+                        set: { identifier in
+                            let voice = SpeechService.voices(for: model.currentLanguage)
+                                .first { $0.identifier == identifier }
+                            SpeechService.choose(voice, for: model.currentLanguage.code)
+                            voiceIdentifier = identifier
+                            if let voice { speech.speak(model.currentLanguage.greeting, voice: voice) }
+                        }
+                    )) {
+                        ForEach(SpeechService.voices(for: model.currentLanguage), id: \.identifier) { voice in
+                            Text("\(voice.name) — \(SpeechService.quality(voice))").tag(voice.identifier)
+                        }
+                    }
+                    if SpeechService.voices(for: model.currentLanguage).allSatisfy({ $0.quality == .default }) {
+                        Text("Все голоса этого языка — облегчённые, поэтому звучат механически. Живой голос скачивается один раз: Системные настройки → Универсальный доступ → Устная речь → Системный голос → «Управление голосами», там выбрать вариант Enhanced или Premium.")
+                            .font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
+                    }
                 }
                 Section("Оформление") {
                     // Swatches rather than names: the choice is made by eye.
