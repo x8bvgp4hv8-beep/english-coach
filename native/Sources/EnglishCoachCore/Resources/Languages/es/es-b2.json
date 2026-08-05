@@ -18,7 +18,10 @@
               "type": "info",
               "title": "От ellos в indefinido",
               "explanation": "Форма берётся от третьего лица множественного в indefinido: hablaron → hablara, comieron → comiera, tuvieron → tuviera. Вариант на -se (hablase) равноправен и чаще встречается в письме. Схема гипотезы: si + imperfecto de subjuntivo, condicional — si tuviera tiempo, viajaría más.",
-              "topics": ["es-b2-subjuntivo-imperfecto", "es-b2-condicionales"]
+              "topics": [
+                "es-b2-subjuntivo-imperfecto",
+                "es-b2-condicionales"
+              ]
             },
             {
               "id": "es-b2-l1-e2",
@@ -26,55 +29,92 @@
               "prompt": "Si tuviera más tiempo, aprendería otro idioma.",
               "translation": "Будь у меня больше времени, я выучил бы ещё один язык.",
               "example": "Si tuviera más tiempo, aprendería otro idioma, pero el trabajo me come el día.",
-              "topics": ["es-b2-condicionales"]
+              "topics": [
+                "es-b2-condicionales"
+              ]
             },
             {
               "id": "es-b2-l1-e3",
               "type": "multiple_choice",
               "prompt": "Si ___ dinero, compraría esa casa.",
-              "options": ["tengo", "tuviera", "tendría"],
+              "options": [
+                "tengo",
+                "tuviera",
+                "tendría"
+              ],
               "correctOption": "tuviera",
-              "topics": ["es-b2-condicionales"]
+              "topics": [
+                "es-b2-condicionales"
+              ]
             },
             {
               "id": "es-b2-l1-e4",
               "type": "translate",
               "prompt": "Он попросил меня прислать отчёт в понедельник.",
               "canonicalAnswer": "Me pidió que enviara el informe el lunes.",
-              "acceptedAnswers": ["Me pidió que mandara el informe el lunes."],
-              "topics": ["es-b2-concordancia-tiempos", "es-b2-subjuntivo-imperfecto"]
+              "acceptedAnswers": [
+                "Me pidió que mandara el informe el lunes."
+              ],
+              "topics": [
+                "es-b2-concordancia-tiempos",
+                "es-b2-subjuntivo-imperfecto"
+              ]
             },
             {
               "id": "es-b2-l1-e5",
               "type": "multiple_choice",
               "prompt": "Si mañana hace sol, ___ a la playa.",
-              "options": ["iremos", "fuéramos", "iríamos"],
+              "options": [
+                "iremos",
+                "fuéramos",
+                "iríamos"
+              ],
               "correctOption": "iremos",
-              "topics": ["es-b2-condicionales"]
+              "topics": [
+                "es-b2-condicionales"
+              ]
             },
             {
               "id": "es-b2-l1-e6",
               "type": "word_order",
               "prompt": "Я бы хотел, чтобы ты был здесь.",
               "canonicalAnswer": "Me gustaría que estuvieras aquí.",
-              "tokens": ["que", "Me", "aquí", "gustaría", "estuvieras"],
-              "topics": ["es-b2-subjuntivo-imperfecto"]
+              "tokens": [
+                "que",
+                "Me",
+                "aquí",
+                "gustaría",
+                "estuvieras"
+              ],
+              "topics": [
+                "es-b2-subjuntivo-imperfecto"
+              ]
             },
             {
               "id": "es-b2-l1-e7",
               "type": "multiple_choice",
               "prompt": "Aunque ___ caro, lo compraría igual.",
-              "options": ["es", "fuera", "será"],
+              "options": [
+                "es",
+                "fuera",
+                "será"
+              ],
               "correctOption": "fuera",
-              "topics": ["es-b2-oraciones-concesivas"]
+              "topics": [
+                "es-b2-oraciones-concesivas"
+              ]
             },
             {
               "id": "es-b2-l1-e8",
               "type": "translate",
               "prompt": "Даже если он извинится, я не забуду.",
               "canonicalAnswer": "Aunque se disculpe, no lo olvidaré.",
-              "acceptedAnswers": ["Aunque pida perdón, no lo olvidaré."],
-              "topics": ["es-b2-oraciones-concesivas"]
+              "acceptedAnswers": [
+                "Aunque pida perdón, no lo olvidaré."
+              ],
+              "topics": [
+                "es-b2-oraciones-concesivas"
+              ]
             }
           ]
         },
@@ -89,23 +129,35 @@
               "type": "info",
               "title": "Кто сделал — не важно",
               "explanation": "Официальный пассив: el proyecto fue aprobado por el comité. В разговоре испанский предпочитает se: se aprobó el proyecto, se venden pisos. Третий путь — просто третье лицо множественного: me llamaron ayer.",
-              "topics": ["es-b2-voz-pasiva"]
+              "topics": [
+                "es-b2-voz-pasiva"
+              ]
             },
             {
               "id": "es-b2-l2-e2",
               "type": "multiple_choice",
               "prompt": "El informe ___ presentado la semana pasada.",
-              "options": ["fue", "estuvo", "era"],
+              "options": [
+                "fue",
+                "estuvo",
+                "era"
+              ],
               "correctOption": "fue",
-              "topics": ["es-b2-voz-pasiva"]
+              "topics": [
+                "es-b2-voz-pasiva"
+              ]
             },
             {
               "id": "es-b2-l2-e3",
               "type": "translate",
               "prompt": "В этом районе продаются квартиры.",
               "canonicalAnswer": "En este barrio se venden pisos.",
-              "acceptedAnswers": ["Se venden pisos en este barrio."],
-              "topics": ["es-b2-voz-pasiva"]
+              "acceptedAnswers": [
+                "Se venden pisos en este barrio."
+              ],
+              "topics": [
+                "es-b2-voz-pasiva"
+              ]
             },
             {
               "id": "es-b2-l2-e4",
@@ -113,54 +165,918 @@
               "prompt": "De hecho, es al revés.",
               "translation": "На самом деле всё наоборот.",
               "example": "No es más barato; de hecho, es al revés.",
-              "topics": ["es-b2-marcadores"]
+              "topics": [
+                "es-b2-marcadores"
+              ]
             },
             {
               "id": "es-b2-l2-e5",
               "type": "multiple_choice",
               "prompt": "Los datos son claros; ___, la decisión no lo es.",
-              "options": ["por lo tanto", "sin embargo", "es decir"],
+              "options": [
+                "por lo tanto",
+                "sin embargo",
+                "es decir"
+              ],
               "correctOption": "sin embargo",
-              "topics": ["es-b2-marcadores"]
+              "topics": [
+                "es-b2-marcadores"
+              ]
             },
             {
               "id": "es-b2-l2-e6",
               "type": "info",
               "title": "es listo / está listo",
               "explanation": "С некоторыми прилагательными глагол меняет смысл слова: es listo — умный, está listo — готов; es aburrido — скучный, está aburrido — скучает; es rico — богатый, está rico — вкусный.",
-              "topics": ["es-b2-matices-ser-estar"]
+              "topics": [
+                "es-b2-matices-ser-estar"
+              ]
             },
             {
               "id": "es-b2-l2-e7",
               "type": "multiple_choice",
               "prompt": "La paella ___ riquísima.",
-              "options": ["es", "está", "hay"],
+              "options": [
+                "es",
+                "está",
+                "hay"
+              ],
               "correctOption": "está",
-              "topics": ["es-b2-matices-ser-estar"]
+              "topics": [
+                "es-b2-matices-ser-estar"
+              ]
             },
             {
               "id": "es-b2-l2-e8",
               "type": "translate",
               "prompt": "Он перестал курить в прошлом году.",
               "canonicalAnswer": "Dejó de fumar el año pasado.",
-              "acceptedAnswers": ["Él dejó de fumar el año pasado."],
-              "topics": ["es-b2-perifrasis-avanzadas"]
+              "acceptedAnswers": [
+                "Él dejó de fumar el año pasado."
+              ],
+              "topics": [
+                "es-b2-perifrasis-avanzadas"
+              ]
             },
             {
               "id": "es-b2-l2-e9",
               "type": "translate",
               "prompt": "Она спросила, приду ли я.",
               "canonicalAnswer": "Me preguntó si iba a ir.",
-              "acceptedAnswers": ["Me preguntó si iría."],
-              "topics": ["es-b2-estilo-indirecto-avanzado"]
+              "acceptedAnswers": [
+                "Me preguntó si iría."
+              ],
+              "topics": [
+                "es-b2-estilo-indirecto-avanzado"
+              ]
             },
             {
               "id": "es-b2-l2-e10",
               "type": "multiple_choice",
               "prompt": "Формальнее всего звучит:",
-              "options": ["Te mando el archivo", "Le adjunto el archivo", "Ahí va el archivo"],
+              "options": [
+                "Te mando el archivo",
+                "Le adjunto el archivo",
+                "Ahí va el archivo"
+              ],
               "correctOption": "Le adjunto el archivo",
-              "topics": ["es-b2-lexico-formal"]
+              "topics": [
+                "es-b2-lexico-formal"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-b2-si-hubiera",
+      "title": "Si hubiera sabido",
+      "subtitle": "Imperfecto de subjuntivo и три вида условий",
+      "lessons": [
+        {
+          "id": "es-b2-si-hubiera-01",
+          "title": "Hablara, comiera, fuera",
+          "summary": "Формы imperfecto de subjuntivo и где без него не обойтись.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "es-b2-l3-e1",
+              "type": "info",
+              "title": "Форма берётся от ellos в indefinido",
+              "explanation": "hablaron → hablara, comieron → comiera, fueron → fuera, tuvieron → tuviera, hicieron → hiciera, pudieron → pudiera. Вариант на -se (hablase, fuese) равноправен и чаще встречается в письме. Форма «мы» несёт ударение: habláramos, fuéramos.",
+              "topics": [
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l3-e2",
+              "type": "multiple_choice",
+              "prompt": "Me sorprendió que no ___ nada.",
+              "options": [
+                "dijo",
+                "dijera",
+                "dirá"
+              ],
+              "correctOption": "dijera",
+              "topics": [
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l3-e3",
+              "type": "translate",
+              "prompt": "Я хотел, чтобы ты знал правду.",
+              "canonicalAnswer": "Quería que supieras la verdad.",
+              "acceptedAnswers": [
+                "Yo quería que supieras la verdad.",
+                "Quería que supieses la verdad."
+              ],
+              "topics": [
+                "es-b2-subjuntivo-imperfecto",
+                "es-b2-concordancia-tiempos"
+              ]
+            },
+            {
+              "id": "es-b2-l3-e4",
+              "type": "multiple_choice",
+              "prompt": "Форма imperfecto de subjuntivo от «hacer» для «yo»:",
+              "options": [
+                "hacía",
+                "hiciera",
+                "haría"
+              ],
+              "correctOption": "hiciera",
+              "topics": [
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l3-e5",
+              "type": "word_order",
+              "prompt": "Было бы лучше, если бы мы вышли раньше.",
+              "canonicalAnswer": "Sería mejor que saliéramos antes.",
+              "tokens": [
+                "mejor",
+                "Sería",
+                "antes",
+                "que",
+                "saliéramos"
+              ],
+              "topics": [
+                "es-b2-subjuntivo-imperfecto",
+                "es-b2-condicionales"
+              ]
+            },
+            {
+              "id": "es-b2-l3-e6",
+              "type": "flashcard",
+              "prompt": "Como si nada hubiera pasado.",
+              "translation": "Как ни в чём не бывало.",
+              "example": "Entró sonriendo, como si nada hubiera pasado.",
+              "topics": [
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l3-e7",
+              "type": "multiple_choice",
+              "prompt": "No había nadie que ___ ayudarnos.",
+              "options": [
+                "podía",
+                "pudiera",
+                "podrá"
+              ],
+              "correctOption": "pudiera",
+              "topics": [
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l3-e8",
+              "type": "translate",
+              "prompt": "Он вёл себя так, будто был начальником.",
+              "canonicalAnswer": "Se comportaba como si fuera el jefe.",
+              "acceptedAnswers": [
+                "Actuaba como si fuera el jefe."
+              ],
+              "hint": "После como si — всегда imperfecto de subjuntivo.",
+              "topics": [
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l3-e9",
+              "type": "multiple_choice",
+              "prompt": "Te llamé para que me ___ una mano.",
+              "options": [
+                "das",
+                "dieras",
+                "darás"
+              ],
+              "correctOption": "dieras",
+              "topics": [
+                "es-b2-subjuntivo-imperfecto",
+                "es-b2-concordancia-tiempos"
+              ]
+            },
+            {
+              "id": "es-b2-l3-e10",
+              "type": "translate",
+              "prompt": "Мы искали кого-нибудь, кто говорил бы по-русски.",
+              "canonicalAnswer": "Buscábamos a alguien que hablara ruso.",
+              "acceptedAnswers": [
+                "Buscábamos a alguien que hablase ruso."
+              ],
+              "topics": [
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-b2-si-hubiera-02",
+          "title": "Tres tipos de si",
+          "summary": "Реальное, нереальное и упущенное условие.",
+          "estimatedMinutes": 10,
+          "exercises": [
+            {
+              "id": "es-b2-l4-e1",
+              "type": "info",
+              "title": "Три схемы",
+              "explanation": "Реальное: si + presente, futuro — si hace sol, iremos. Нереальное сейчас: si + imperfecto de subjuntivo, condicional — si tuviera tiempo, iría. Упущенное в прошлом: si + pluscuamperfecto de subjuntivo, condicional compuesto — si hubiera sabido, habría ido. После si в реальном условии НИКОГДА не ставится presente de subjuntivo.",
+              "topics": [
+                "es-b2-condicionales"
+              ]
+            },
+            {
+              "id": "es-b2-l4-e2",
+              "type": "multiple_choice",
+              "prompt": "Si ___ más barato, lo compraría.",
+              "options": [
+                "es",
+                "fuera",
+                "será"
+              ],
+              "correctOption": "fuera",
+              "topics": [
+                "es-b2-condicionales"
+              ]
+            },
+            {
+              "id": "es-b2-l4-e3",
+              "type": "translate",
+              "prompt": "Если бы я знал, я бы тебе сказал.",
+              "canonicalAnswer": "Si lo hubiera sabido, te lo habría dicho.",
+              "acceptedAnswers": [
+                "Si lo hubiese sabido, te lo habría dicho."
+              ],
+              "topics": [
+                "es-b2-condicionales"
+              ]
+            },
+            {
+              "id": "es-b2-l4-e4",
+              "type": "multiple_choice",
+              "prompt": "Si ___ tiempo, te ayudo con eso.",
+              "options": [
+                "tengo",
+                "tenga",
+                "tuviera"
+              ],
+              "correctOption": "tengo",
+              "topics": [
+                "es-b2-condicionales"
+              ]
+            },
+            {
+              "id": "es-b2-l4-e5",
+              "type": "word_order",
+              "prompt": "На твоём месте я бы подождал.",
+              "canonicalAnswer": "Yo que tú esperaría.",
+              "tokens": [
+                "que",
+                "Yo",
+                "esperaría",
+                "tú"
+              ],
+              "topics": [
+                "es-b2-condicionales"
+              ]
+            },
+            {
+              "id": "es-b2-l4-e6",
+              "type": "flashcard",
+              "prompt": "Si pudiera, lo haría hoy mismo.",
+              "translation": "Если бы мог, сделал бы сегодня же.",
+              "example": "No depende de mí: si pudiera, lo haría hoy mismo.",
+              "topics": [
+                "es-b2-condicionales"
+              ]
+            },
+            {
+              "id": "es-b2-l4-e7",
+              "type": "multiple_choice",
+              "prompt": "Si hubieras venido, ___ a mi hermana.",
+              "options": [
+                "conocerías",
+                "habrías conocido",
+                "conociste"
+              ],
+              "correctOption": "habrías conocido",
+              "topics": [
+                "es-b2-condicionales"
+              ]
+            },
+            {
+              "id": "es-b2-l4-e8",
+              "type": "translate",
+              "prompt": "Если бы не дождь, мы бы пошли на пляж.",
+              "canonicalAnswer": "Si no lloviera, iríamos a la playa.",
+              "acceptedAnswers": [
+                "Si no lloviese, iríamos a la playa."
+              ],
+              "topics": [
+                "es-b2-condicionales"
+              ]
+            },
+            {
+              "id": "es-b2-l4-e9",
+              "type": "multiple_choice",
+              "prompt": "Me pidió que le ___ el informe el lunes.",
+              "options": [
+                "mando",
+                "mandara",
+                "mandaré"
+              ],
+              "correctOption": "mandara",
+              "topics": [
+                "es-b2-concordancia-tiempos",
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l4-e10",
+              "type": "translate",
+              "prompt": "Он не думал, что мы придём.",
+              "canonicalAnswer": "No pensaba que fuéramos a venir.",
+              "acceptedAnswers": [
+                "No creía que fuéramos a venir."
+              ],
+              "topics": [
+                "es-b2-concordancia-tiempos"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-b2-quien-lo-hizo",
+      "title": "¿Quién lo hizo?",
+      "subtitle": "Пассив, уступка и оттенки ser / estar",
+      "lessons": [
+        {
+          "id": "es-b2-quien-01",
+          "title": "Fue aprobado, se aprobó",
+          "summary": "Три способа не называть деятеля.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "es-b2-l5-e1",
+              "type": "info",
+              "title": "Официальный, разговорный и обходной",
+              "explanation": "Официальный: ser + participio, причастие согласуется — la ley fue aprobada. Разговорный: se aprobó la ley, se venden pisos. Обходной и самый частый: просто третье лицо множественного — me llamaron ayer. Испанский избегает первого варианта там, где английский его любит.",
+              "topics": [
+                "es-b2-voz-pasiva"
+              ]
+            },
+            {
+              "id": "es-b2-l5-e2",
+              "type": "multiple_choice",
+              "prompt": "La ley ___ aprobada el año pasado.",
+              "options": [
+                "fue",
+                "estuvo",
+                "era"
+              ],
+              "correctOption": "fue",
+              "topics": [
+                "es-b2-voz-pasiva"
+              ]
+            },
+            {
+              "id": "es-b2-l5-e3",
+              "type": "translate",
+              "prompt": "Меня вчера вызвали в офис.",
+              "canonicalAnswer": "Ayer me llamaron a la oficina.",
+              "acceptedAnswers": [
+                "Me llamaron ayer a la oficina."
+              ],
+              "hint": "Испанец скажет это третьим лицом множественного, а не пассивом.",
+              "topics": [
+                "es-b2-voz-pasiva"
+              ]
+            },
+            {
+              "id": "es-b2-l5-e4",
+              "type": "multiple_choice",
+              "prompt": "Las casas ___ construidas en los años sesenta.",
+              "options": [
+                "fue",
+                "fueron",
+                "estuvieron"
+              ],
+              "correctOption": "fueron",
+              "topics": [
+                "es-b2-voz-pasiva"
+              ]
+            },
+            {
+              "id": "es-b2-l5-e5",
+              "type": "word_order",
+              "prompt": "Здесь не курят.",
+              "canonicalAnswer": "Aquí no se fuma.",
+              "tokens": [
+                "no",
+                "Aquí",
+                "fuma",
+                "se"
+              ],
+              "topics": [
+                "es-b2-voz-pasiva"
+              ]
+            },
+            {
+              "id": "es-b2-l5-e6",
+              "type": "info",
+              "title": "aunque меняет смысл",
+              "explanation": "aunque + индикатив — факт, который признан: aunque es caro (он дорогой, и это известно). aunque + subjuntivo — уступка предположению: aunque sea caro (пусть даже дорогой). То же с a pesar de que.",
+              "topics": [
+                "es-b2-oraciones-concesivas"
+              ]
+            },
+            {
+              "id": "es-b2-l5-e7",
+              "type": "multiple_choice",
+              "prompt": "Aunque ___ caro, lo compraría igual.",
+              "options": [
+                "es",
+                "fuera",
+                "será"
+              ],
+              "correctOption": "fuera",
+              "topics": [
+                "es-b2-oraciones-concesivas"
+              ]
+            },
+            {
+              "id": "es-b2-l5-e8",
+              "type": "translate",
+              "prompt": "Хотя он и устал, он закончил работу.",
+              "canonicalAnswer": "Aunque estaba cansado, terminó el trabajo.",
+              "acceptedAnswers": [
+                "A pesar de que estaba cansado, terminó el trabajo."
+              ],
+              "topics": [
+                "es-b2-oraciones-concesivas"
+              ]
+            },
+            {
+              "id": "es-b2-l5-e9",
+              "type": "multiple_choice",
+              "prompt": "Por mucho que lo ___, no lo entiendo.",
+              "options": [
+                "leo",
+                "lea",
+                "leeré"
+              ],
+              "correctOption": "lea",
+              "topics": [
+                "es-b2-oraciones-concesivas"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-b2-quien-02",
+          "title": "Es listo, está listo",
+          "summary": "Когда глагол меняет значение самого слова.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "es-b2-l6-e1",
+              "type": "info",
+              "title": "Одно прилагательное — два смысла",
+              "explanation": "es listo — умный, está listo — готов. es aburrido — скучный, está aburrido — скучает. es rico — богатый, está rico — вкусный. es malo — плохой, está malo — болен или испортился. es verde — зелёный, está verde — незрелый.",
+              "topics": [
+                "es-b2-matices-ser-estar"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e2",
+              "type": "multiple_choice",
+              "prompt": "Este libro ___ aburrido, no lo termines.",
+              "options": [
+                "es",
+                "está",
+                "hay"
+              ],
+              "correctOption": "es",
+              "topics": [
+                "es-b2-matices-ser-estar"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e3",
+              "type": "translate",
+              "prompt": "Суп невкусный: он испортился.",
+              "canonicalAnswer": "La sopa está mala.",
+              "acceptedAnswers": [
+                "La sopa está mala, se ha estropeado."
+              ],
+              "topics": [
+                "es-b2-matices-ser-estar"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e4",
+              "type": "multiple_choice",
+              "prompt": "¿Ya ___ listo para salir?",
+              "options": [
+                "eres",
+                "estás",
+                "hay"
+              ],
+              "correctOption": "estás",
+              "topics": [
+                "es-b2-matices-ser-estar"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e5",
+              "type": "flashcard",
+              "prompt": "El plátano todavía está verde.",
+              "translation": "Банан ещё не дозрел.",
+              "example": "No lo comas, el plátano todavía está verde.",
+              "topics": [
+                "es-b2-matices-ser-estar"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e6",
+              "type": "translate",
+              "prompt": "Он не богатый, но еда у него вкусная.",
+              "canonicalAnswer": "No es rico, pero su comida está rica.",
+              "acceptedAnswers": [
+                "Él no es rico, pero su comida está rica."
+              ],
+              "topics": [
+                "es-b2-matices-ser-estar"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e7",
+              "type": "info",
+              "title": "Обороты сверх базовых",
+              "explanation": "llegar a ser — стать со временем; ponerse a — взяться за; dejar de — перестать; andar + gerundio — «ходить и делать»; venir + gerundio — длится с некоторых пор; acabar + gerundio — кончить тем, что.",
+              "topics": [
+                "es-b2-perifrasis-avanzadas"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e8",
+              "type": "multiple_choice",
+              "prompt": "Después de años, ___ a ser director.",
+              "options": [
+                "llegó",
+                "puso",
+                "dejó"
+              ],
+              "correctOption": "llegó",
+              "topics": [
+                "es-b2-perifrasis-avanzadas"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e9",
+              "type": "translate",
+              "prompt": "Он взялся за работу без единого слова.",
+              "canonicalAnswer": "Se puso a trabajar sin decir nada.",
+              "acceptedAnswers": [
+                "Se puso a trabajar sin decir una palabra."
+              ],
+              "topics": [
+                "es-b2-perifrasis-avanzadas"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e10",
+              "type": "multiple_choice",
+              "prompt": "Últimamente ___ diciendo que quiere cambiar de trabajo.",
+              "options": [
+                "viene",
+                "va",
+                "deja"
+              ],
+              "correctOption": "viene",
+              "topics": [
+                "es-b2-perifrasis-avanzadas"
+              ]
+            },
+            {
+              "id": "es-b2-l6-e11",
+              "type": "flashcard",
+              "prompt": "Acabó aceptando la oferta.",
+              "translation": "В итоге он принял предложение.",
+              "example": "Lo dudó mucho, pero acabó aceptando la oferta.",
+              "topics": [
+                "es-b2-perifrasis-avanzadas"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es-b2-como-se-dice",
+      "title": "Dicho de otro modo",
+      "subtitle": "Маркеры речи, регистр и пересказ",
+      "lessons": [
+        {
+          "id": "es-b2-como-01",
+          "title": "De hecho, sin embargo",
+          "summary": "Слова, которые держат мысль вместе.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "es-b2-l7-e1",
+              "type": "info",
+              "title": "Что чем вводится",
+              "explanation": "de hecho — на самом деле, вводит уточнение против ожидания. por lo tanto — следовательно. en cuanto a — что касается. ahora bien — однако, возражение с уважением к сказанному. es decir — то есть. por cierto — кстати.",
+              "topics": [
+                "es-b2-marcadores"
+              ]
+            },
+            {
+              "id": "es-b2-l7-e2",
+              "type": "multiple_choice",
+              "prompt": "No es más barato; ___, cuesta el doble.",
+              "options": [
+                "de hecho",
+                "por cierto",
+                "en cuanto a"
+              ],
+              "correctOption": "de hecho",
+              "topics": [
+                "es-b2-marcadores"
+              ]
+            },
+            {
+              "id": "es-b2-l7-e3",
+              "type": "translate",
+              "prompt": "Что касается цены, поговорим завтра.",
+              "canonicalAnswer": "En cuanto al precio, hablamos mañana.",
+              "acceptedAnswers": [
+                "En cuanto al precio, lo hablamos mañana."
+              ],
+              "topics": [
+                "es-b2-marcadores"
+              ]
+            },
+            {
+              "id": "es-b2-l7-e4",
+              "type": "multiple_choice",
+              "prompt": "Los datos son claros; ___, la decisión no lo es.",
+              "options": [
+                "por lo tanto",
+                "sin embargo",
+                "es decir"
+              ],
+              "correctOption": "sin embargo",
+              "topics": [
+                "es-b2-marcadores"
+              ]
+            },
+            {
+              "id": "es-b2-l7-e5",
+              "type": "flashcard",
+              "prompt": "Por cierto, ¿tienes un momento?",
+              "translation": "Кстати, у тебя есть минутка?",
+              "example": "Por cierto, ¿tienes un momento para hablar del proyecto?",
+              "topics": [
+                "es-b2-marcadores"
+              ]
+            },
+            {
+              "id": "es-b2-l7-e6",
+              "type": "word_order",
+              "prompt": "Следовательно, план надо менять.",
+              "canonicalAnswer": "Por lo tanto, hay que cambiar el plan.",
+              "tokens": [
+                "lo",
+                "Por",
+                "plan",
+                "tanto",
+                "el",
+                "hay",
+                "cambiar",
+                "que"
+              ],
+              "topics": [
+                "es-b2-marcadores"
+              ]
+            },
+            {
+              "id": "es-b2-l7-e7",
+              "type": "info",
+              "title": "Как то же самое пишут",
+              "explanation": "Разговорное против письменного: te mando → le adjunto; hablamos → quedamos a la espera de su respuesta; perdona → le ruego que disculpe; gracias → le agradezco de antemano. В письме к незнакомому — usted, а не tú.",
+              "topics": [
+                "es-b2-lexico-formal"
+              ]
+            },
+            {
+              "id": "es-b2-l7-e8",
+              "type": "multiple_choice",
+              "prompt": "Формальнее всего звучит:",
+              "options": [
+                "Te mando el contrato",
+                "Le adjunto el contrato",
+                "Ahí va el contrato"
+              ],
+              "correctOption": "Le adjunto el contrato",
+              "topics": [
+                "es-b2-lexico-formal"
+              ]
+            },
+            {
+              "id": "es-b2-l7-e9",
+              "type": "translate",
+              "prompt": "Заранее благодарю за ответ.",
+              "canonicalAnswer": "Le agradezco de antemano su respuesta.",
+              "acceptedAnswers": [
+                "Les agradezco de antemano su respuesta."
+              ],
+              "topics": [
+                "es-b2-lexico-formal"
+              ]
+            },
+            {
+              "id": "es-b2-l7-e10",
+              "type": "multiple_choice",
+              "prompt": "В письме незнакомому человеку правильно:",
+              "options": [
+                "¿Puedes mandarme los datos?",
+                "¿Podría enviarme los datos?",
+                "Mándame los datos"
+              ],
+              "correctOption": "¿Podría enviarme los datos?",
+              "topics": [
+                "es-b2-lexico-formal"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-b2-como-02",
+          "title": "Me preguntó si…",
+          "summary": "Пересказ просьб, вопросов и приказов.",
+          "estimatedMinutes": 9,
+          "exercises": [
+            {
+              "id": "es-b2-l8-e1",
+              "type": "info",
+              "title": "Просьба становится subjuntivo",
+              "explanation": "Приказ и просьба в пересказе идут через que + subjuntivo: «Ven» → me dijo que viniera. Вопрос без вопросительного слова — через si: «¿Vienes?» → me preguntó si iba. Вопросительное слово сохраняется: me preguntó cuándo llegaba.",
+              "topics": [
+                "es-b2-estilo-indirecto-avanzado"
+              ]
+            },
+            {
+              "id": "es-b2-l8-e2",
+              "type": "multiple_choice",
+              "prompt": "«Espérame» → Me pidió que lo ___.",
+              "options": [
+                "espero",
+                "esperara",
+                "esperaré"
+              ],
+              "correctOption": "esperara",
+              "topics": [
+                "es-b2-estilo-indirecto-avanzado",
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l8-e3",
+              "type": "translate",
+              "prompt": "Она спросила, приду ли я.",
+              "canonicalAnswer": "Me preguntó si iba a ir.",
+              "acceptedAnswers": [
+                "Me preguntó si iría."
+              ],
+              "topics": [
+                "es-b2-estilo-indirecto-avanzado"
+              ]
+            },
+            {
+              "id": "es-b2-l8-e4",
+              "type": "multiple_choice",
+              "prompt": "«¿Cuándo empiezas?» → Me preguntó cuándo ___.",
+              "options": [
+                "empiezo",
+                "empezaba",
+                "empezaré"
+              ],
+              "correctOption": "empezaba",
+              "topics": [
+                "es-b2-estilo-indirecto-avanzado",
+                "es-b2-concordancia-tiempos"
+              ]
+            },
+            {
+              "id": "es-b2-l8-e5",
+              "type": "translate",
+              "prompt": "Он велел мне не беспокоиться.",
+              "canonicalAnswer": "Me dijo que no me preocupara.",
+              "acceptedAnswers": [
+                "Me pidió que no me preocupara."
+              ],
+              "topics": [
+                "es-b2-estilo-indirecto-avanzado",
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l8-e6",
+              "type": "word_order",
+              "prompt": "Они сказали, что уже всё закончили.",
+              "canonicalAnswer": "Dijeron que ya lo habían terminado todo.",
+              "tokens": [
+                "que",
+                "Dijeron",
+                "todo",
+                "ya",
+                "terminado",
+                "lo",
+                "habían"
+              ],
+              "topics": [
+                "es-b2-estilo-indirecto-avanzado",
+                "es-b2-concordancia-tiempos"
+              ]
+            },
+            {
+              "id": "es-b2-l8-e7",
+              "type": "flashcard",
+              "prompt": "Insistió en que fuéramos con él.",
+              "translation": "Он настоял, чтобы мы пошли с ним.",
+              "example": "No aceptó un no: insistió en que fuéramos con él.",
+              "topics": [
+                "es-b2-estilo-indirecto-avanzado"
+              ]
+            },
+            {
+              "id": "es-b2-l8-e8",
+              "type": "multiple_choice",
+              "prompt": "Nos rogó que ___ discretos.",
+              "options": [
+                "somos",
+                "fuéramos",
+                "seremos"
+              ],
+              "correctOption": "fuéramos",
+              "topics": [
+                "es-b2-concordancia-tiempos",
+                "es-b2-subjuntivo-imperfecto"
+              ]
+            },
+            {
+              "id": "es-b2-l8-e9",
+              "type": "translate",
+              "prompt": "Я попросил, чтобы мне объяснили ещё раз.",
+              "canonicalAnswer": "Pedí que me lo explicaran otra vez.",
+              "acceptedAnswers": [
+                "Pedí que me lo explicasen otra vez."
+              ],
+              "topics": [
+                "es-b2-concordancia-tiempos",
+                "es-b2-estilo-indirecto-avanzado"
+              ]
+            },
+            {
+              "id": "es-b2-l8-e10",
+              "type": "multiple_choice",
+              "prompt": "Официальный ответ на просьбу, которую нельзя выполнить:",
+              "options": [
+                "No puedo",
+                "Me temo que no será posible",
+                "Eso ni hablar"
+              ],
+              "correctOption": "Me temo que no será posible",
+              "topics": [
+                "es-b2-lexico-formal"
+              ]
             }
           ]
         }

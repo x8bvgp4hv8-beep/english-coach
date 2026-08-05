@@ -52,7 +52,7 @@ export const LANGUAGES: readonly LearningLanguage[] = [
     genitive: 'испанского',
     locative: 'испанском',
     greeting: '¡Hola!',
-    note: 'A1, A2 и B1 собраны полностью',
+    note: 'A1–B2 собраны полностью',
     speechLocale: 'es-ES',
     speechFallbacks: ['es-MX', 'es'],
   },
