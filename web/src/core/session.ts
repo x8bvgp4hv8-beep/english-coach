@@ -2,7 +2,7 @@ import { check } from './answer'
 import { ReviewEngine } from './engines'
 import { DEFAULT_LANGUAGE } from './language'
 import type { LanguageCode } from './language'
-import type { AnswerResult, Exercise, Lesson, UserState } from './types'
+import type { AnswerResult, Exercise, Lesson, ReviewItem, UserState } from './types'
 
 /**
  * Mirrors EnglishCoachCore/LearningSession.swift.
@@ -17,8 +17,8 @@ export class LearningSession {
   retryUsed = false
   private recordsCompletion = true
   private lastAnswer: string | null = null
-  /** Set when the current attempt created a fresh review item, so it can be undone. */
-  private lastCreatedReviewID: string | null = null
+  /** Enough to redo the last attempt as if it had been right, for the escape hatch. */
+  private lastReview: { exerciseID: string; before: ReviewItem | null; at: Date } | null = null
   /**
    * Exercises the learner had already met when this set was opened. Taken once at
    * `start` rather than read live, so a card does not change shape under the learner's
@@ -51,9 +51,9 @@ export class LearningSession {
    *
    * Without this every flashcard was passive for ever: it showed both sides at once and
    * the "Запомнил" button recorded a correct answer whether or not anything had been
-   * remembered. Since only wrong answers enter the review queue, a word the learner did
-   * not know was never scheduled to come back at all. Recall makes the second meeting a
-   * question, so "не вспомнил" is finally something the app can hear.
+   * remembered, so a word nobody knew was scheduled as one that had been recalled. Recall
+   * makes the second meeting a question, so "не вспомнил" is finally something the app
+   * can hear.
    */
   get currentIsRecall(): boolean {
     const exercise = this.currentExercise
@@ -126,9 +126,9 @@ export class LearningSession {
   }
 
   /**
-   * "Я был прав": the learner's phrasing is remembered for this exercise, the attempt
-   * is flipped, and the spaced repetition penalty this answer just caused is undone.
-   * Without the last part the escape hatch would still punish a correct answer.
+   * "Я был прав": the learner's phrasing is remembered for this exercise, the attempt is
+   * flipped, and the exercise is rescheduled as if the answer had been right. Without the
+   * last part the escape hatch would still punish a correct answer.
    */
   markLastAnswerCorrect(): void {
     const exercise = this.currentExercise
@@ -149,9 +149,18 @@ export class LearningSession {
     this.state.attempts = attempts
     this.state.points += 10
 
-    if (this.lastCreatedReviewID) {
-      this.state.reviews = this.state.reviews.filter((item) => item.id !== this.lastCreatedReviewID)
-      this.lastCreatedReviewID = null
+    // Not "remove the penalty" but "reschedule as if the answer had been right": the
+    // exercise was still answered, and it is still due one day from now like any other.
+    if (this.lastReview && this.lastReview.exerciseID === exercise.id) {
+      const { before, at } = this.lastReview
+      const corrected = ReviewEngine.recordSuccess(before ?? ReviewEngine.newItem(exercise.id, at), at)
+      const index = this.state.reviews.findIndex((item) => item.exerciseID === exercise.id)
+      if (index >= 0) {
+        const reviews = [...this.state.reviews]
+        reviews[index] = corrected
+        this.state.reviews = reviews
+      }
+      this.lastReview = null
     }
     this.feedback = { isCorrect: true, verdict: 'correct', canonical: exercise.canonicalAnswer ?? '' }
   }
@@ -203,29 +212,35 @@ export class LearningSession {
     }
   }
 
+  /**
+   * Every answer schedules the exercise; only the interval differs.
+   *
+   * A review item used to be created on failure alone, so anything answered correctly
+   * the first time was never scheduled again — which is the opposite of what spaced
+   * repetition is for. The engine had always been able to do it: `recordSuccess` walks
+   * 1 → 3 → 7 days and then multiplies by ease, and nothing ever called it on a first
+   * correct answer. What the app had was a queue of mistakes wearing an SRS coat.
+   */
   private record(exercise: Exercise, result: AnswerResult, now: Date): void {
     this.feedback = result
-    this.lastCreatedReviewID = null
     this.state.attempts = [
       ...this.state.attempts,
       { id: crypto.randomUUID(), exerciseID: exercise.id, correct: result.isCorrect, date: now },
     ]
+    if (result.isCorrect) this.state.points += 10
+
     const index = this.state.reviews.findIndex((item) => item.exerciseID === exercise.id)
-    if (result.isCorrect) {
-      this.state.points += 10
-      if (index >= 0) {
-        const reviews = [...this.state.reviews]
-        reviews[index] = ReviewEngine.recordSuccess(reviews[index], now)
-        this.state.reviews = reviews
-      }
-    } else if (index >= 0) {
+    const known = index >= 0 ? this.state.reviews[index] : null
+    const base = known ?? ReviewEngine.newItem(exercise.id, now)
+    const updated = result.isCorrect ? ReviewEngine.recordSuccess(base, now) : ReviewEngine.recordFailure(base, now)
+    this.lastReview = { exerciseID: exercise.id, before: known, at: now }
+
+    if (known) {
       const reviews = [...this.state.reviews]
-      reviews[index] = ReviewEngine.recordFailure(reviews[index], now)
+      reviews[index] = updated
       this.state.reviews = reviews
     } else {
-      const item = ReviewEngine.newItem(exercise.id, now)
-      this.state.reviews = [...this.state.reviews, item]
-      this.lastCreatedReviewID = item.id
+      this.state.reviews = [...this.state.reviews, updated]
     }
   }
 }

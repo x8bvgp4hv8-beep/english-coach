@@ -132,7 +132,26 @@ export const PracticeLog = {
 
 // MARK: - Spaced repetition
 
+/**
+ * How many repetitions one sitting may hold.
+ *
+ * Now that every answer is scheduled, a few days away can leave a hundred exercises due,
+ * and "повторение: 100 упражнений" is a wall nobody walks up to. The rest are not lost —
+ * they stay due and come back tomorrow, oldest first.
+ */
+const REVIEW_SESSION_SIZE = 20
+
 export const ReviewEngine = {
+  sessionSize: REVIEW_SESSION_SIZE,
+
+  /** What to repeat now: everything overdue, the longest-waiting first, capped. */
+  due(reviews: ReviewItem[], now: Date, limit = REVIEW_SESSION_SIZE): ReviewItem[] {
+    return reviews
+      .filter((item) => item.due.getTime() <= now.getTime())
+      .sort((a, b) => a.due.getTime() - b.due.getTime())
+      .slice(0, limit)
+  },
+
   newItem(exerciseID: string, now: Date): ReviewItem {
     return { id: exerciseID, exerciseID, due: new Date(now.getTime()), intervalDays: 0, ease: 2.3, repetitions: 0 }
   },

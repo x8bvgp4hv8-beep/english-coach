@@ -347,8 +347,11 @@ describe('learning session', () => {
     session.markLastAnswerCorrect()
     expect(session.feedback?.isCorrect).toBe(true)
     expect(session.state.points).toBe(10)
-    // The penalty this answer caused is undone, not just visually reverted.
-    expect(session.state.reviews).toHaveLength(0)
+    // Rescheduled as if the answer had been right, not just visually reverted: still on
+    // the calendar, but on the calendar of something known.
+    expect(session.state.reviews).toHaveLength(1)
+    expect(session.state.reviews[0].repetitions).toBe(1)
+    expect(session.state.reviews[0].due.getTime()).toBe(now.getTime() + 86_400_000)
     expect(session.state.attempts.at(-1)?.correct).toBe(true)
 
     // And the phrasing is accepted from now on, in this and in any later session.
@@ -375,27 +378,28 @@ describe('learning session', () => {
     const card = allExercises(courses[0]).find((e) => e.type === 'flashcard')!
     const lesson = { id: 'cards', title: 'Cards', summary: '', estimatedMinutes: 1, exercises: [card] }
 
-    // Reading a card is not knowing it, and only mistakes are scheduled to come back.
+    // Reading the card once schedules it, like any other answer.
     const first = new LearningSession(freshState())
     first.start(lesson, { recordsCompletion: false })
     first.completePassiveExercise(now)
-    expect(first.state.reviews.some((r) => r.exerciseID === card.id)).toBe(false)
+    expect(first.state.reviews.find((r) => r.exerciseID === card.id)!.repetitions).toBe(1)
 
-    // The second meeting is a question, and "не вспомнил" is what queues the word.
+    // "Не вспомнил" collapses the interval instead of letting the word keep climbing —
+    // which is the whole point: a passive card claimed a success nobody had earned.
     const second = new LearningSession(first.state)
     second.start(lesson, { recordsCompletion: false })
     second.selfAssess(false, now)
-    const queued = second.state.reviews.find((r) => r.exerciseID === card.id)
-    expect(queued, 'a word that did not come to mind comes back').toBeTruthy()
-    expect(queued!.due.getTime()).toBeLessThanOrEqual(now.getTime())
+    const missed = second.state.reviews.find((r) => r.exerciseID === card.id)!
+    expect(missed.repetitions).toBe(0)
+    expect(missed.intervalDays).toBe(1)
     expect(second.state.attempts.at(-1)?.correct).toBe(false)
 
-    // "Вспомнил" counts exactly like any other correct answer and pushes it out again.
+    // "Вспомнил" counts exactly like any other correct answer and stretches it again.
     const pointsBefore = second.state.points
     const third = new LearningSession(second.state)
     third.start(lesson, { recordsCompletion: false })
     third.selfAssess(true, now)
-    expect(third.state.reviews.find((r) => r.exerciseID === card.id)!.due.getTime()).toBeGreaterThan(now.getTime())
+    expect(third.state.reviews.find((r) => r.exerciseID === card.id)!.repetitions).toBe(1)
     expect(third.state.points).toBeGreaterThan(pointsBefore)
   })
 
@@ -409,16 +413,45 @@ describe('learning session', () => {
     expect(session.currentIsRecall).toBe(false)
   })
 
-  it('moves the due date forward after a successful review', () => {
+  it('schedules every answer, and stretches the interval as it keeps being right', () => {
     const lesson = courses[0].chapters[0].lessons[0]
     const translation = lesson.exercises.find((e) => e.type === 'translate')!
-    const session = new LearningSession(freshState())
-    session.start({ id: 'review', title: 'Review', summary: '', estimatedMinutes: 1, exercises: [translation] })
-    session.submitText('wrong', now)
-    const firstDue = session.state.reviews[0].due
-    session.retry()
-    session.submitText(translation.canonicalAnswer!, now)
-    expect(session.state.reviews[0].due.getTime()).toBeGreaterThan(firstDue.getTime())
+    const set = { id: 'review', title: 'Review', summary: '', estimatedMinutes: 1, exercises: [translation] }
+
+    // A correct answer is scheduled too. Before this only mistakes were, so anything
+    // answered right the first time was never checked again.
+    const first = new LearningSession(freshState())
+    first.start(set, { recordsCompletion: false })
+    first.submitText(translation.canonicalAnswer!, now)
+    expect(first.state.reviews).toHaveLength(1)
+    expect(first.state.reviews[0].intervalDays).toBe(1)
+
+    // 1 → 3 → 7 days as it keeps coming back right.
+    const second = new LearningSession(first.state)
+    second.start(set, { recordsCompletion: false })
+    second.submitText(translation.canonicalAnswer!, now)
+    expect(second.state.reviews[0].intervalDays).toBe(3)
+
+    // And a miss collapses it back to a day, whatever it had grown to.
+    const third = new LearningSession(second.state)
+    third.start(set, { recordsCompletion: false })
+    third.submitText('wrong', now)
+    expect(third.state.reviews[0].intervalDays).toBe(1)
+    expect(third.state.reviews[0].repetitions).toBe(0)
+  })
+
+  it('caps one sitting of repetitions and takes the longest waiting first', () => {
+    const day = 86_400_000
+    const reviews = Array.from({ length: 30 }, (_, i) => ({
+      ...ReviewEngine.newItem(`e${i}`, now),
+      due: new Date(now.getTime() - i * day),
+    }))
+    const notYet = { ...ReviewEngine.newItem('later', now), due: new Date(now.getTime() + day) }
+
+    const due = ReviewEngine.due([...reviews, notYet], now)
+    expect(due).toHaveLength(ReviewEngine.sessionSize)
+    expect(due[0].exerciseID).toBe('e29')
+    expect(due.some((item) => item.exerciseID === 'later')).toBe(false)
   })
 })
 
@@ -696,8 +729,10 @@ describe('shadowing', () => {
     session.selfAssess(false, now)
     const failed = session.state.reviews.find((r) => r.exerciseID === set.exercises[1].id)
     expect(failed, 'a phrase that did not come out comes back').toBeTruthy()
-    // Like any first miss, it is due straight away and shows up in the next set.
-    expect(failed!.due.getTime()).toBeLessThanOrEqual(now.getTime())
+    // Like any miss, it drops to a one-day interval — and `prioritise` also puts it in
+    // the "old mistakes" bucket, so it is back in the very next set regardless.
+    expect(failed!.intervalDays).toBe(1)
+    expect(failed!.repetitions).toBe(0)
 
     expect(session.isComplete).toBe(true)
     expect(session.state.completedLessonIDs).toHaveLength(0)

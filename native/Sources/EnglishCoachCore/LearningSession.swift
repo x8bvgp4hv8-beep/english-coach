@@ -8,8 +8,8 @@ public struct LearningSession: Sendable {
     public private(set) var retryUsed = false
     private var recordsCompletion = true
     private var lastAnswer: String?
-    /// Set when the current attempt created a fresh review item, so it can be undone.
-    private var lastCreatedReviewID: String?
+    /// Enough to redo the last attempt as if it had been right, for the escape hatch.
+    private var lastReview: (exerciseID: String, before: ReviewItem?, at: Date)?
     /// Exercises the learner had already met when this set was opened. Taken once at
     /// `start` rather than read live, so a card does not change shape under the learner's
     /// hands the moment they answer it, or on the way back through `goBack`.
@@ -45,9 +45,9 @@ public struct LearningSession: Sendable {
     ///
     /// Without this every flashcard was passive for ever: it showed both sides at once and
     /// the "Запомнил" button recorded a correct answer whether or not anything had been
-    /// remembered. Since only wrong answers enter the review queue, a word the learner did
-    /// not know was never scheduled to come back at all. Recall makes the second meeting a
-    /// question, so "не вспомнил" is finally something the app can hear.
+    /// remembered, so a word nobody knew was scheduled as one that had been recalled.
+    /// Recall makes the second meeting a question, so "не вспомнил" is finally something
+    /// the app can hear.
     public var currentIsRecall: Bool {
         guard let exercise = currentExercise else { return false }
         return exercise.type == .flashcard && seenBefore.contains(exercise.id)
@@ -102,8 +102,8 @@ public struct LearningSession: Sendable {
     }
 
     /// "Я был прав": remembers the learner's phrasing for this exercise, flips the attempt
-    /// and undoes the spaced repetition penalty this answer just caused. Without the last
-    /// part the escape hatch would still punish a correct answer.
+    /// and reschedules the exercise as if the answer had been right. Without the last part
+    /// the escape hatch would still punish a correct answer.
     public mutating func markLastAnswerCorrect() {
         guard let exercise = currentExercise, let answer = lastAnswer, feedback?.isCorrect == false else { return }
         var approved = state.acceptedAnswers ?? [:]
@@ -116,9 +116,13 @@ public struct LearningSession: Sendable {
         }
         state.points += 10
 
-        if let created = lastCreatedReviewID {
-            state.reviews.removeAll { $0.id == created }
-            lastCreatedReviewID = nil
+        // Not "remove the penalty" but "reschedule as if the answer had been right": the
+        // exercise was still answered, and it is still due one day from now like any other.
+        if let last = lastReview, last.exerciseID == exercise.id,
+           let index = state.reviews.firstIndex(where: { $0.exerciseID == exercise.id }) {
+            let base = last.before ?? ReviewEngine.newItem(exerciseID: exercise.id, now: last.at)
+            state.reviews[index] = ReviewEngine.recordSuccess(base, now: last.at)
+            lastReview = nil
         }
         feedback = AnswerResult(isCorrect: true, verdict: .correct, canonical: exercise.canonicalAnswer ?? "")
     }
@@ -153,21 +157,26 @@ public struct LearningSession: Sendable {
         }
     }
 
+    /// Every answer schedules the exercise; only the interval differs.
+    ///
+    /// A review item used to be created on failure alone, so anything answered correctly
+    /// the first time was never scheduled again — which is the opposite of what spaced
+    /// repetition is for. The engine had always been able to do it: `recordSuccess` walks
+    /// 1 → 3 → 7 days and then multiplies by ease, and nothing ever called it on a first
+    /// correct answer. What the app had was a queue of mistakes wearing an SRS coat.
     private mutating func record(exercise: Exercise, result: AnswerResult, now: Date) {
         feedback = result
-        lastCreatedReviewID = nil
         state.attempts.append(AttemptRecord(id: UUID(), exerciseID: exercise.id, correct: result.isCorrect, date: now))
-        if result.isCorrect {
-            state.points += 10
-            if let index = state.reviews.firstIndex(where: { $0.exerciseID == exercise.id }) {
-                state.reviews[index] = ReviewEngine.recordSuccess(state.reviews[index], now: now)
-            }
-        } else if let index = state.reviews.firstIndex(where: { $0.exerciseID == exercise.id }) {
-            state.reviews[index] = ReviewEngine.recordFailure(state.reviews[index], now: now)
-        } else {
-            let item = ReviewEngine.newItem(exerciseID: exercise.id, now: now)
-            state.reviews.append(item)
-            lastCreatedReviewID = item.id
-        }
+        if result.isCorrect { state.points += 10 }
+
+        let index = state.reviews.firstIndex { $0.exerciseID == exercise.id }
+        let known = index.map { state.reviews[$0] }
+        let base = known ?? ReviewEngine.newItem(exerciseID: exercise.id, now: now)
+        let updated = result.isCorrect
+            ? ReviewEngine.recordSuccess(base, now: now)
+            : ReviewEngine.recordFailure(base, now: now)
+        lastReview = (exercise.id, known, now)
+
+        if let index { state.reviews[index] = updated } else { state.reviews.append(updated) }
     }
 }

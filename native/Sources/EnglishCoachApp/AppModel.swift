@@ -304,12 +304,25 @@ final class AppModel {
         save()
     }
 
+    /// The repetitions that are due, oldest first and capped at one sitting. Built from all
+    /// the courses rather than from `practiceCourses`: an exercise is only ever scheduled
+    /// after it has been answered, so everything here has already been taught.
     func startReview() {
-        let dueIDs = Set(state.reviews.filter { $0.due <= .now }.map(\.exerciseID))
-        let exercises = courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises).filter { dueIDs.contains($0.id) }
+        var byID: [String: Exercise] = [:]
+        for exercise in courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises) { byID[exercise.id] = exercise }
+        let exercises = ReviewEngine.due(in: state.reviews, now: .now).compactMap { byID[$0.exerciseID] }
         guard !exercises.isEmpty else { return }
-        startLesson(Lesson(id: "daily-review", title: "Повторение", summary: "Закрепи сложные фразы.", estimatedMinutes: max(2, exercises.count), exercises: exercises), recordsCompletion: false)
+        startLesson(
+            Lesson(
+                id: "daily-review", title: "Повторение", summary: "Закрепи то, что пора освежить.",
+                estimatedMinutes: max(2, Int((Double(exercises.count) * 0.6).rounded())), exercises: exercises
+            ),
+            recordsCompletion: false
+        )
     }
+
+    /// How many of them one sitting takes, so the card can say so when there are more.
+    var reviewSessionSize: Int { ReviewEngine.sessionSize }
 
     func goBack() { session.goBack() }
     var canGoBack: Bool { session.canGoBack }

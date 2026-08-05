@@ -10,6 +10,7 @@ import {
   PracticeEngine,
   PracticeLog,
   ProgressionEngine,
+  ReviewEngine,
   ShadowingEngine,
   TopicProgressEngine,
   freshState,
@@ -173,6 +174,8 @@ export class AppStore {
     return CourseRouting.nextLesson(this.currentLessons, this.completed) ?? this.currentLessons[0] ?? null
   }
   get dueCount(): number { return this.state.reviews.filter((item) => item.due.getTime() <= Date.now()).length }
+  /** How many of them one sitting takes, so the card can say so when there are more. */
+  get reviewSessionSize(): number { return ReviewEngine.sessionSize }
   get activeLesson(): Lesson | null { return this.session.activeLesson }
   get currentExercise(): Exercise | null { return this.session.currentExercise }
   get feedback(): AnswerResult | null { return this.session.feedback }
@@ -282,17 +285,25 @@ export class AppStore {
     this.changed()
   }
 
+  /**
+   * The repetitions that are due, oldest first and capped at one sitting. Built from all
+   * the courses rather than from `practiceCourses`: an exercise is only ever scheduled
+   * after it has been answered, so everything here has already been taught.
+   */
   startReview(): void {
-    const dueIDs = new Set(this.state.reviews.filter((r) => r.due.getTime() <= Date.now()).map((r) => r.exerciseID))
-    const exercises = this.courses
-      .flatMap((c) => c.chapters).flatMap((c) => c.lessons).flatMap((l) => l.exercises)
-      .filter((e) => dueIDs.has(e.id))
+    const byID = new Map(
+      this.courses.flatMap((c) => c.chapters).flatMap((c) => c.lessons).flatMap((l) => l.exercises)
+        .map((exercise) => [exercise.id, exercise]),
+    )
+    const exercises = ReviewEngine.due(this.state.reviews, new Date())
+      .map((item) => byID.get(item.exerciseID))
+      .filter((exercise): exercise is Exercise => exercise !== undefined)
     if (exercises.length === 0) return
     this.startLesson({
       id: 'daily-review',
       title: 'Повторение',
-      summary: 'Закрепи сложные фразы.',
-      estimatedMinutes: Math.max(2, exercises.length),
+      summary: 'Закрепи то, что пора освежить.',
+      estimatedMinutes: Math.max(2, Math.round(exercises.length * 0.6)),
       exercises,
     }, false)
   }

@@ -150,7 +150,9 @@ struct CourseMapView: View {
             iconColor: CoachTheme.blue,
             kicker: "ПОВТОРЕНИЕ",
             title: "\(model.dueCount) \(pluralize(model.dueCount, "упражнение", "упражнения", "упражнений")) \(pluralize(model.dueCount, "ждёт", "ждут", "ждут"))",
-            subtitle: "Ошибки возвращаются, пока не закрепятся",
+            subtitle: model.dueCount > model.reviewSessionSize
+                ? "За раз — \(model.reviewSessionSize), начиная с самых давних"
+                : "Пройденное возвращается, пока не осядет",
             action: { model.startReview() }
         ).padding(.top, 10)
     }

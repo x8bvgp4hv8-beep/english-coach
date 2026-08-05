@@ -119,29 +119,29 @@ do {
     let card = course.chapters.flatMap(\.lessons).flatMap(\.exercises).first { $0.type == .flashcard }!
     let lesson = Lesson(id: "cards", title: "Cards", summary: "", estimatedMinutes: 1, exercises: [card])
 
-    // Reading a card is not knowing it, and only mistakes are scheduled to come back.
+    // Reading the card once schedules it, like any other answer.
     var first = LearningSession(state: .fresh)
     first.start(lesson, recordsCompletion: false)
     expect(!first.currentIsRecall, "a card never met is shown, not asked")
     first.completePassiveExercise(now: now)
-    expect(!first.state.reviews.contains { $0.exerciseID == card.id }, "a card just read is not yet a repetition")
+    expect(first.state.reviews.first { $0.exerciseID == card.id }?.repetitions == 1, "a card read once is scheduled once")
 
-    // The second meeting is a question, and "не вспомнил" is what queues the word.
+    // "Не вспомнил" collapses the interval instead of letting the word keep climbing —
+    // which is the whole point: a passive card claimed a success nobody had earned.
     var second = LearningSession(state: first.state)
     second.start(lesson, recordsCompletion: false)
     expect(second.currentIsRecall, "the same card met again is a question")
     second.selfAssess(false, now: now)
-    let queued = second.state.reviews.first { $0.exerciseID == card.id }
-    expect(queued != nil && queued!.due <= now, "a word that did not come to mind comes back")
+    let missed = second.state.reviews.first { $0.exerciseID == card.id }
+    expect(missed?.repetitions == 0 && missed?.intervalDays == 1, "a word that did not come to mind drops back to a day")
     expect(second.state.attempts.last?.correct == false, "an honest miss is recorded as a miss")
 
-    // "Вспомнил" counts exactly like any other correct answer and pushes it out again.
+    // "Вспомнил" counts exactly like any other correct answer and stretches it again.
     let pointsBefore = second.state.points
     var third = LearningSession(state: second.state)
     third.start(lesson, recordsCompletion: false)
     third.selfAssess(true, now: now)
-    let pushed = third.state.reviews.first { $0.exerciseID == card.id }
-    expect(pushed != nil && pushed!.due > now, "a recalled word moves into the future")
+    expect(third.state.reviews.first { $0.exerciseID == card.id }?.repetitions == 1, "a recalled word starts climbing again")
     expect(third.state.points > pointsBefore, "recall earns points like any answer")
 
     // The shape of a card is fixed when the set opens, not read live mid-exercise.
@@ -152,18 +152,45 @@ do {
     expect(!stable.currentIsRecall, "a card does not become a question halfway through the set")
 } catch { failures += 1; print("✗ card recall: \(error)") }
 
-var reviewState = UserState.fresh
-var reviewSession = LearningSession(state: reviewState)
 do {
     let lesson = try ContentRepository.loadBundled().first!.chapters[0].lessons[0]
     let translation = lesson.exercises.first { $0.type == .translate }!
-    reviewSession.start(Lesson(id: "review", title: "Review", summary: "", estimatedMinutes: 1, exercises: [translation]))
-    _ = reviewSession.submitText("wrong", now: now)
-    let firstDue = reviewSession.state.reviews.first!.due
-    reviewSession.retry()
-    _ = reviewSession.submitText(translation.canonicalAnswer!, now: now)
-    expect(reviewSession.state.reviews.first!.due > firstDue, "successful review moves due date forward")
-} catch { failures += 1; print("✗ review completion: \(error)") }
+    let set = Lesson(id: "review", title: "Review", summary: "", estimatedMinutes: 1, exercises: [translation])
+
+    // A correct answer is scheduled too. Before this only mistakes were, so anything
+    // answered right the first time was never checked again.
+    var first = LearningSession(state: .fresh)
+    first.start(set, recordsCompletion: false)
+    _ = first.submitText(translation.canonicalAnswer!, now: now)
+    expect(first.state.reviews.count == 1 && first.state.reviews[0].intervalDays == 1, "a correct answer is scheduled too")
+
+    // 1 -> 3 -> 7 days as it keeps coming back right.
+    var second = LearningSession(state: first.state)
+    second.start(set, recordsCompletion: false)
+    _ = second.submitText(translation.canonicalAnswer!, now: now)
+    expect(second.state.reviews[0].intervalDays == 3, "the interval stretches while the answer stays right")
+
+    // And a miss collapses it back to a day, whatever it had grown to.
+    var third = LearningSession(state: second.state)
+    third.start(set, recordsCompletion: false)
+    _ = third.submitText("wrong", now: now)
+    expect(third.state.reviews[0].intervalDays == 1 && third.state.reviews[0].repetitions == 0, "a miss collapses the interval")
+
+    // One sitting is capped, longest waiting first.
+    let day: TimeInterval = 86_400
+    var many = (0..<30).map { index -> ReviewItem in
+        var item = ReviewEngine.newItem(exerciseID: "e\(index)", now: now)
+        item.due = now.addingTimeInterval(-Double(index) * day)
+        return item
+    }
+    var later = ReviewEngine.newItem(exerciseID: "later", now: now)
+    later.due = now.addingTimeInterval(day)
+    many.append(later)
+    let due = ReviewEngine.due(in: many, now: now)
+    expect(due.count == ReviewEngine.sessionSize, "one sitting of repetitions is capped")
+    expect(due.first?.exerciseID == "e29", "the longest waiting comes first")
+    expect(!due.contains { $0.exerciseID == "later" }, "what is not due yet is left alone")
+} catch { failures += 1; print("✗ review scheduling: \(error)") }
 
 // Punctuation is ignored so word-order tokens and forgiving punctuation still match.
 expect(AnswerChecker.check("However , this approach has drawbacks .", canonical: "However, this approach has drawbacks.", accepted: []).isCorrect, "word-order joins with spaces still match canonical punctuation")
@@ -427,9 +454,10 @@ do {
     speaking.selfAssess(true, now: now)
     expect(speaking.state.points == 10 && speaking.state.attempts.last?.correct == true, "a phrase that came out is recorded as correct")
     speaking.selfAssess(false, now: now)
-    let missed = speaking.state.reviews.first { $0.exerciseID == set.exercises[1].id }
-    // Like any first miss, it is due straight away and shows up in the next set.
-    expect(missed != nil && missed!.due <= now, "a phrase that did not come out comes back")
+    let missedPhrase = speaking.state.reviews.first { $0.exerciseID == set.exercises[1].id }
+    // Like any miss, it drops to a one-day interval — and `prioritise` also puts it in
+    // the "old mistakes" bucket, so it is back in the very next set regardless.
+    expect(missedPhrase?.intervalDays == 1 && missedPhrase?.repetitions == 0, "a phrase that did not come out comes back")
     expect(speaking.state.completedLessonIDs.isEmpty, "shadowing is never recorded as a completed lesson")
 } catch { failures += 1; print("✗ shadowing session: \(error)") }
 

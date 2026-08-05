@@ -49,7 +49,9 @@ export function MapScreen() {
           <ActionCard
             icon="↻" color="var(--blue)" kicker="ПОВТОРЕНИЕ"
             title={`${model.dueCount} ${plural(model.dueCount, 'упражнение', 'упражнения', 'упражнений')} ${plural(model.dueCount, 'ждёт', 'ждут', 'ждут')}`}
-            subtitle="Ошибки возвращаются, пока не закрепятся"
+            subtitle={model.dueCount > model.reviewSessionSize
+              ? `За раз — ${model.reviewSessionSize}, начиная с самых давних`
+              : 'Пройденное возвращается, пока не осядет'}
             onClick={() => model.startReview()}
           />
         )}

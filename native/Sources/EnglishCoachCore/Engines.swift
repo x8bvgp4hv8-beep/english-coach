@@ -111,6 +111,18 @@ public enum PracticeLog {
 }
 
 public enum ReviewEngine {
+    /// How many repetitions one sitting may hold.
+    ///
+    /// Now that every answer is scheduled, a few days away can leave a hundred exercises
+    /// due, and "повторение: 100 упражнений" is a wall nobody walks up to. The rest are
+    /// not lost — they stay due and come back tomorrow, oldest first.
+    public static let sessionSize = 20
+
+    /// What to repeat now: everything overdue, the longest-waiting first, capped.
+    public static func due(in reviews: [ReviewItem], now: Date, limit: Int = sessionSize) -> [ReviewItem] {
+        Array(reviews.filter { $0.due <= now }.sorted { $0.due < $1.due }.prefix(limit))
+    }
+
     public static func newItem(exerciseID: String, now: Date) -> ReviewItem {
         ReviewItem(id: exerciseID, exerciseID: exerciseID, due: now, intervalDays: 0, ease: 2.3, repetitions: 0)
     }
