@@ -6114,6 +6114,608 @@
           ]
         },
         {
+          "id": "es-a2-mientras-06",
+          "title": "Estaba a punto de salir",
+          "summary": "Уже собирался, и тут.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-mientras-06-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-por-para",
+                "es-a2-tema-relato"
+              ],
+              "title": "В последний момент",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Estaba a punto de salir y sonó el timbre.",
+                  "translation": "Я уже собиралась выходить, и тут позвонили в дверь."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Quién era?",
+                  "translation": "Кто это был?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Un repartidor con un paquete.",
+                  "translation": "Курьер с посылкой."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y llegaste tarde por eso?",
+                  "translation": "И из-за этого опоздала?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Diez minutos, nada grave.",
+                  "translation": "На десять минут, ничего страшного."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-mientras-06-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Estaba a punto de salir.",
+              "translation": "Я уже собирался выходить.",
+              "example": "Estaba a punto de salir y sonó el timbre."
+            },
+            {
+              "id": "es-a2-mientras-06-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Sonó el timbre.",
+              "translation": "Позвонили в дверь.",
+              "example": "Estaba a punto de salir y sonó el timbre."
+            },
+            {
+              "id": "es-a2-mientras-06-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "el repartidor",
+              "translation": "курьер",
+              "example": "Un repartidor con un paquete."
+            },
+            {
+              "id": "es-a2-mientras-06-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "¿Quién era?",
+              "translation": "Кто это был?",
+              "example": "¿Quién era a esa hora?"
+            },
+            {
+              "id": "es-a2-mientras-06-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "nada grave",
+              "translation": "ничего страшного",
+              "example": "Diez minutos, nada grave."
+            },
+            {
+              "id": "es-a2-mientras-06-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Уже собирался, и тут",
+              "explanation": "Оборот estar a punto de значит «вот-вот»: estaba a punto de salir, estoy a punto de terminar. В рассказе он всегда фон, а событие рядом — indefinido: y sonó el timbre."
+            },
+            {
+              "id": "es-a2-mientras-06-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "___ a punto de salir.",
+              "options": [
+                "Estaba",
+                "Estuve una vez",
+                "Estar"
+              ],
+              "correctOption": "Estaba"
+            },
+            {
+              "id": "es-a2-mientras-06-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Y ___ el timbre.",
+              "options": [
+                "sonó",
+                "sonaba siempre",
+                "sonar"
+              ],
+              "correctOption": "sonó"
+            },
+            {
+              "id": "es-a2-mientras-06-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Кто это был?» — это:",
+              "options": [
+                "¿Quién era?",
+                "¿Quién fue una vez?",
+                "¿Quién es ayer?"
+              ],
+              "correctOption": "¿Quién era?"
+            },
+            {
+              "id": "es-a2-mientras-06-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Ничего страшного.",
+              "canonicalAnswer": "Nada grave.",
+              "tokens": [
+                "grave",
+                "Nada"
+              ]
+            },
+            {
+              "id": "es-a2-mientras-06-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Я уже собиралась выходить.",
+              "canonicalAnswer": "Estaba a punto de salir."
+            },
+            {
+              "id": "es-a2-mientras-06-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Позвонили в дверь.",
+              "canonicalAnswer": "Sonó el timbre."
+            },
+            {
+              "id": "es-a2-mientras-06-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-por-para",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "И из-за этого опоздала?",
+              "canonicalAnswer": "¿Y llegaste tarde por eso?"
+            }
+          ]
+        },
+        {
+          "id": "es-a2-mientras-07",
+          "title": "Como no contestabas",
+          "summary": "Причина в фоне.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-mientras-07-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "title": "Почему так вышло",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Como no contestabas, me fui sola.",
+                  "translation": "Раз ты не отвечал, я пошла одна."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Estaba en una reunión larguísima.",
+                  "translation": "Я был на очень долгом совещании."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Ya me lo imaginaba.",
+                  "translation": "Я так и думала."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Te escribí al salir, pero ya era tarde.",
+                  "translation": "Написал тебе, когда вышел, но было поздно."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Otro día lo hacemos bien.",
+                  "translation": "В другой раз сделаем нормально."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-mientras-07-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Como no contestabas",
+              "translation": "Раз ты не отвечал",
+              "example": "Como no contestabas, me fui sola."
+            },
+            {
+              "id": "es-a2-mientras-07-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Me fui sola.",
+              "translation": "Я пошла одна.",
+              "example": "Como no contestabas, me fui sola."
+            },
+            {
+              "id": "es-a2-mientras-07-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Ya me lo imaginaba.",
+              "translation": "Я так и думала.",
+              "example": "Ya me lo imaginaba, tranquilo."
+            },
+            {
+              "id": "es-a2-mientras-07-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "al salir",
+              "translation": "когда вышел",
+              "example": "Te escribí al salir de la reunión."
+            },
+            {
+              "id": "es-a2-mientras-07-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Ya era tarde.",
+              "translation": "Было уже поздно.",
+              "example": "Te escribí al salir, pero ya era tarde."
+            },
+            {
+              "id": "es-a2-mientras-07-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Раз уж так вышло",
+              "explanation": "Причину в начале предложения вводят como: como no contestabas, me fui sola. После como идёт фон (imperfecto), а следствие — событие (indefinido). Порядок обратный русскому: сначала причина, потом что сделали."
+            },
+            {
+              "id": "es-a2-mientras-07-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "___ no contestabas, me fui sola.",
+              "options": [
+                "Como",
+                "Porque",
+                "Que"
+              ],
+              "correctOption": "Como"
+            },
+            {
+              "id": "es-a2-mientras-07-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Te escribí ___ salir.",
+              "options": [
+                "al",
+                "a",
+                "en"
+              ],
+              "correctOption": "al"
+            },
+            {
+              "id": "es-a2-mientras-07-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Я так и думала» — это:",
+              "options": [
+                "Ya me lo imaginaba.",
+                "Ya me lo imaginé mañana.",
+                "Ya lo imagino ayer."
+              ],
+              "correctOption": "Ya me lo imaginaba."
+            },
+            {
+              "id": "es-a2-mientras-07-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Было уже поздно.",
+              "canonicalAnswer": "Ya era tarde.",
+              "tokens": [
+                "era",
+                "tarde",
+                "Ya"
+              ]
+            },
+            {
+              "id": "es-a2-mientras-07-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Раз ты не отвечал, я пошла одна.",
+              "canonicalAnswer": "Como no contestabas, me fui sola."
+            },
+            {
+              "id": "es-a2-mientras-07-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-superlativos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Я был на очень долгом совещании.",
+              "canonicalAnswer": "Estaba en una reunión larguísima."
+            },
+            {
+              "id": "es-a2-mientras-07-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "В другой раз сделаем нормально.",
+              "canonicalAnswer": "Otro día lo hacemos bien."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-mientras-08",
+          "title": "De repente",
+          "summary": "Вдруг, посреди всего.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-mientras-08-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "title": "Внезапно",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Íbamos por la carretera y de repente frenó.",
+                  "translation": "Мы ехали по трассе, и вдруг он затормозил."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Y qué pasó?",
+                  "translation": "И что случилось?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Había un animal en medio.",
+                  "translation": "Посреди дороги было животное."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Menudo susto, ¿no?",
+                  "translation": "Ну и испуг, да?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Nos quedamos callados un rato.",
+                  "translation": "Мы какое-то время молчали."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-mientras-08-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "de repente",
+              "translation": "вдруг",
+              "example": "Y de repente frenó."
+            },
+            {
+              "id": "es-a2-mientras-08-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Íbamos por la carretera.",
+              "translation": "Мы ехали по трассе.",
+              "example": "Íbamos por la carretera tranquilos."
+            },
+            {
+              "id": "es-a2-mientras-08-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Había un animal en medio.",
+              "translation": "Посреди было животное.",
+              "example": "Había un animal en medio de la carretera."
+            },
+            {
+              "id": "es-a2-mientras-08-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Nos quedamos callados.",
+              "translation": "Мы замолчали.",
+              "example": "Nos quedamos callados un rato."
+            },
+            {
+              "id": "es-a2-mientras-08-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "la carretera",
+              "translation": "трасса",
+              "example": "Íbamos por la carretera."
+            },
+            {
+              "id": "es-a2-mientras-08-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Вдруг",
+              "explanation": "Слово de repente всегда стоит перед событием и переключает рассказ с фона на действие: íbamos tranquilos y de repente frenó. Синонимы — de pronto, de golpe."
+            },
+            {
+              "id": "es-a2-mientras-08-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Y ___ frenó.",
+              "options": [
+                "de repente",
+                "de mientras",
+                "de siempre"
+              ],
+              "correctOption": "de repente"
+            },
+            {
+              "id": "es-a2-mientras-08-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "___ un animal en medio.",
+              "options": [
+                "Había",
+                "Hubo una vez",
+                "Hay"
+              ],
+              "correctOption": "Había"
+            },
+            {
+              "id": "es-a2-mientras-08-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Мы замолчали» — это:",
+              "options": [
+                "Nos quedamos callados.",
+                "Nos quedábamos callados siempre.",
+                "Nos quedar callados."
+              ],
+              "correctOption": "Nos quedamos callados."
+            },
+            {
+              "id": "es-a2-mientras-08-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Мы ехали по трассе.",
+              "canonicalAnswer": "Íbamos por la carretera.",
+              "tokens": [
+                "por",
+                "la",
+                "carretera",
+                "Íbamos"
+              ]
+            },
+            {
+              "id": "es-a2-mientras-08-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "И вдруг он затормозил.",
+              "canonicalAnswer": "Y de repente frenó."
+            },
+            {
+              "id": "es-a2-mientras-08-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Посреди дороги было животное.",
+              "canonicalAnswer": "Había un animal en medio."
+            },
+            {
+              "id": "es-a2-mientras-08-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Ну и испуг, да?",
+              "canonicalAnswer": "Menudo susto, ¿no?"
+            }
+          ]
+        },
+        {
           "id": "es-a2-mientras-check",
           "title": "Проверка: пока шёл дождь",
           "summary": "Весь блок целиком, без подсказок.",
@@ -7210,6 +7812,611 @@
           ]
         },
         {
+          "id": "es-a2-hoy-06",
+          "title": "Últimamente",
+          "summary": "В последнее время.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-hoy-06-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-trabajo"
+              ],
+              "title": "В последнее время",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Últimamente he dormido fatal.",
+                  "translation": "В последнее время я ужасно сплю."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Desde cuándo te pasa?",
+                  "translation": "С каких пор это с тобой?"
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Desde que cambié de turno.",
+                  "translation": "С тех пор как сменила смену."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Prueba a apagar el móvil antes.",
+                  "translation": "Попробуй выключать телефон заранее."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Lo he intentado, pero nada.",
+                  "translation": "Пробовала, но никак."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-hoy-06-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Últimamente he dormido fatal.",
+              "translation": "В последнее время я ужасно сплю.",
+              "example": "Últimamente he dormido fatal, no sé por qué."
+            },
+            {
+              "id": "es-a2-hoy-06-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Desde cuándo te pasa?",
+              "translation": "С каких пор это с тобой?",
+              "example": "¿Desde cuándo te pasa eso?"
+            },
+            {
+              "id": "es-a2-hoy-06-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-comparativos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Desde que cambié de turno.",
+              "translation": "С тех пор как сменила смену.",
+              "example": "Desde que cambié de turno duermo peor."
+            },
+            {
+              "id": "es-a2-hoy-06-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Lo he intentado.",
+              "translation": "Я это пробовал.",
+              "example": "Lo he intentado, pero nada."
+            },
+            {
+              "id": "es-a2-hoy-06-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "el turno",
+              "translation": "смена",
+              "example": "Desde que cambié de turno."
+            },
+            {
+              "id": "es-a2-hoy-06-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "title": "В последнее время",
+              "explanation": "Слово últimamente тянет за собой perfecto: últimamente he dormido mal, últimamente ha llovido mucho. Оно про промежуток, который ещё длится, поэтому indefinido тут не подходит."
+            },
+            {
+              "id": "es-a2-hoy-06-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Últimamente ___ dormido fatal.",
+              "options": [
+                "he",
+                "has",
+                "había"
+              ],
+              "correctOption": "he"
+            },
+            {
+              "id": "es-a2-hoy-06-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Desde que ___ de turno.",
+              "options": [
+                "cambié",
+                "cambiaba",
+                "cambiar"
+              ],
+              "correctOption": "cambié"
+            },
+            {
+              "id": "es-a2-hoy-06-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "«Пробовала, но никак» — это:",
+              "options": [
+                "Lo he intentado, pero nada.",
+                "Lo intento ayer, pero nada.",
+                "Lo intentaba mañana."
+              ],
+              "correctOption": "Lo he intentado, pero nada."
+            },
+            {
+              "id": "es-a2-hoy-06-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "С каких пор это с тобой?",
+              "canonicalAnswer": "¿Desde cuándo te pasa?",
+              "tokens": [
+                "cuándo",
+                "te",
+                "pasa",
+                "Desde"
+              ]
+            },
+            {
+              "id": "es-a2-hoy-06-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "В последнее время я ужасно сплю.",
+              "canonicalAnswer": "Últimamente he dormido fatal."
+            },
+            {
+              "id": "es-a2-hoy-06-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Попробуй выключать телефон заранее.",
+              "canonicalAnswer": "Prueba a apagar el móvil antes."
+            },
+            {
+              "id": "es-a2-hoy-06-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Я это пробовал.",
+              "canonicalAnswer": "Lo he intentado."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-hoy-07",
+          "title": "Todavía no me ha llegado",
+          "summary": "Ещё не пришло.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-hoy-07-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Ждём ответа",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Todavía no me ha llegado la respuesta.",
+                  "translation": "Ответ мне ещё не пришёл."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Cuánto hace que escribiste?",
+                  "translation": "Сколько прошло с тех пор, как ты написал?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Una semana justa.",
+                  "translation": "Ровно неделя."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Yo insistiría, con educación.",
+                  "translation": "Я бы напомнила, вежливо."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Sí, mañana escribo otra vez.",
+                  "translation": "Да, завтра напишу ещё раз."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-hoy-07-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Todavía no me ha llegado.",
+              "translation": "Мне ещё не пришло.",
+              "example": "Todavía no me ha llegado la respuesta."
+            },
+            {
+              "id": "es-a2-hoy-07-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Cuánto hace que escribiste?",
+              "translation": "Сколько прошло с тех пор, как написал?",
+              "example": "¿Cuánto hace que escribiste el correo?"
+            },
+            {
+              "id": "es-a2-hoy-07-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "una semana justa",
+              "translation": "ровно неделя",
+              "example": "Una semana justa, ni un día más."
+            },
+            {
+              "id": "es-a2-hoy-07-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Yo insistiría.",
+              "translation": "Я бы напомнил.",
+              "example": "Yo insistiría, con educación."
+            },
+            {
+              "id": "es-a2-hoy-07-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "con educación",
+              "translation": "вежливо",
+              "example": "Yo insistiría, con educación."
+            },
+            {
+              "id": "es-a2-hoy-07-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Сколько прошло с тех пор",
+              "explanation": "Вопрос ¿cuánto hace que…? — «сколько времени прошло, как…»: ¿cuánto hace que escribiste? После него глагол в indefinido, потому что само событие уже закончилось."
+            },
+            {
+              "id": "es-a2-hoy-07-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Todavía no me ___ llegado.",
+              "options": [
+                "ha",
+                "he",
+                "han"
+              ],
+              "correctOption": "ha"
+            },
+            {
+              "id": "es-a2-hoy-07-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Cuánto hace que ___?",
+              "options": [
+                "escribiste",
+                "escribías",
+                "escribir"
+              ],
+              "correctOption": "escribiste"
+            },
+            {
+              "id": "es-a2-hoy-07-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "«Вежливо» — это:",
+              "options": [
+                "con educación",
+                "por educación fuerte",
+                "de educado"
+              ],
+              "correctOption": "con educación"
+            },
+            {
+              "id": "es-a2-hoy-07-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Ровно неделя.",
+              "canonicalAnswer": "Una semana justa.",
+              "tokens": [
+                "semana",
+                "justa",
+                "Una"
+              ]
+            },
+            {
+              "id": "es-a2-hoy-07-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Ответ мне ещё не пришёл.",
+              "canonicalAnswer": "Todavía no me ha llegado la respuesta."
+            },
+            {
+              "id": "es-a2-hoy-07-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Я бы напомнила, вежливо.",
+              "canonicalAnswer": "Yo insistiría, con educación."
+            },
+            {
+              "id": "es-a2-hoy-07-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Завтра напишу ещё раз.",
+              "canonicalAnswer": "Mañana escribo otra vez."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-hoy-08",
+          "title": "He estado pensando",
+          "summary": "Думал и решил.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-hoy-08-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Решение",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "He estado pensando en lo del curso.",
+                  "translation": "Я думала насчёт курса."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y qué has decidido?",
+                  "translation": "И что решила?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Que me apunto, aunque sea caro.",
+                  "translation": "Что записываюсь, пусть даже дорого."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Me parece muy buena idea.",
+                  "translation": "По-моему, отличная идея."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Llevo un año dándole vueltas.",
+                  "translation": "Я год это обдумываю."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-hoy-08-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "He estado pensando.",
+              "translation": "Я думал.",
+              "example": "He estado pensando en lo del curso."
+            },
+            {
+              "id": "es-a2-hoy-08-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Qué has decidido?",
+              "translation": "Что ты решил?",
+              "example": "¿Y qué has decidido al final?"
+            },
+            {
+              "id": "es-a2-hoy-08-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "aunque sea caro",
+              "translation": "пусть даже дорого",
+              "example": "Que me apunto, aunque sea caro."
+            },
+            {
+              "id": "es-a2-hoy-08-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Me parece buena idea.",
+              "translation": "По-моему, хорошая идея.",
+              "example": "Me parece muy buena idea."
+            },
+            {
+              "id": "es-a2-hoy-08-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "darle vueltas",
+              "translation": "обдумывать",
+              "example": "Llevo un año dándole vueltas."
+            },
+            {
+              "id": "es-a2-hoy-08-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Долго что-то делал",
+              "explanation": "Растянутое во времени действие — he estado + форма на -ando: he estado pensando, he estado buscando, hemos estado hablando. Оно про процесс, а не про результат."
+            },
+            {
+              "id": "es-a2-hoy-08-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "He ___ pensando en el curso.",
+              "options": [
+                "estado",
+                "sido",
+                "tenido"
+              ],
+              "correctOption": "estado"
+            },
+            {
+              "id": "es-a2-hoy-08-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Y qué ___ decidido?",
+              "options": [
+                "has",
+                "he",
+                "han"
+              ],
+              "correctOption": "has"
+            },
+            {
+              "id": "es-a2-hoy-08-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "«Я год это обдумываю» — это:",
+              "options": [
+                "Llevo un año dándole vueltas.",
+                "Llevé un año dar vueltas.",
+                "Llevo un año dado vueltas."
+              ],
+              "correctOption": "Llevo un año dándole vueltas."
+            },
+            {
+              "id": "es-a2-hoy-08-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "По-моему, отличная идея.",
+              "canonicalAnswer": "Me parece muy buena idea.",
+              "tokens": [
+                "parece",
+                "muy",
+                "buena",
+                "idea",
+                "Me"
+              ]
+            },
+            {
+              "id": "es-a2-hoy-08-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Я думала насчёт курса.",
+              "canonicalAnswer": "He estado pensando en lo del curso."
+            },
+            {
+              "id": "es-a2-hoy-08-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "И что решила?",
+              "canonicalAnswer": "¿Y qué has decidido?"
+            },
+            {
+              "id": "es-a2-hoy-08-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Что записываюсь.",
+              "canonicalAnswer": "Que me apunto."
+            }
+          ]
+        },
+        {
           "id": "es-a2-hoy-check",
           "title": "Проверка: сегодня уже",
           "summary": "Весь блок целиком, без подсказок.",
@@ -8298,6 +9505,623 @@
               ],
               "prompt": "Вот так работать приятно.",
               "canonicalAnswer": "Así da gusto trabajar."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-hecho-06",
+          "title": "Ya está arreglado",
+          "summary": "Уже починили.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-hecho-06-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-tramites"
+              ],
+              "title": "Починили",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Al final arreglaron el ascensor?",
+                  "translation": "Лифт в итоге починили?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Sí, ya está arreglado desde el lunes.",
+                  "translation": "Да, с понедельника уже работает."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Menos mal, cuatro pisos cansan.",
+                  "translation": "Слава богу, четыре этажа утомляют."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Y a mi madre le venía fatal.",
+                  "translation": "А моей маме было совсем неудобно."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Claro, con las bolsas y todo.",
+                  "translation": "Конечно, с сумками и всем прочим."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-hecho-06-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Ya está arreglado.",
+              "translation": "Уже починено.",
+              "example": "Sí, ya está arreglado desde el lunes."
+            },
+            {
+              "id": "es-a2-hecho-06-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "el ascensor",
+              "translation": "лифт",
+              "example": "¿Al final arreglaron el ascensor?"
+            },
+            {
+              "id": "es-a2-hecho-06-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "cuatro pisos cansan",
+              "translation": "четыре этажа утомляют",
+              "example": "Menos mal, cuatro pisos cansan."
+            },
+            {
+              "id": "es-a2-hecho-06-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Le venía fatal.",
+              "translation": "Ему было совсем неудобно.",
+              "example": "A mi madre le venía fatal."
+            },
+            {
+              "id": "es-a2-hecho-06-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "con las bolsas y todo",
+              "translation": "с сумками и всем прочим",
+              "example": "Claro, con las bolsas y todo."
+            },
+            {
+              "id": "es-a2-hecho-06-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "title": "Кому это было удобно",
+              "explanation": "Оборот venir bien / venir mal — про удобство: me viene bien el jueves, le venía fatal. Он работает как gustar: человек стоит коротким словом впереди."
+            },
+            {
+              "id": "es-a2-hecho-06-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser-estar",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Ya ___ arreglado desde el lunes.",
+              "options": [
+                "está",
+                "es",
+                "ha"
+              ],
+              "correctOption": "está"
+            },
+            {
+              "id": "es-a2-hecho-06-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "A mi madre ___ venía fatal.",
+              "options": [
+                "le",
+                "la",
+                "lo"
+              ],
+              "correctOption": "le"
+            },
+            {
+              "id": "es-a2-hecho-06-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "«Четыре этажа утомляют» — это:",
+              "options": [
+                "Cuatro pisos cansan.",
+                "Cuatro pisos cansa.",
+                "Cuatro pisos cansado."
+              ],
+              "correctOption": "Cuatro pisos cansan."
+            },
+            {
+              "id": "es-a2-hecho-06-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Лифт в итоге починили?",
+              "canonicalAnswer": "¿Al final arreglaron el ascensor?",
+              "tokens": [
+                "final",
+                "arreglaron",
+                "el",
+                "ascensor",
+                "Al"
+              ]
+            },
+            {
+              "id": "es-a2-hecho-06-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Уже починено.",
+              "canonicalAnswer": "Ya está arreglado."
+            },
+            {
+              "id": "es-a2-hecho-06-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Слава богу.",
+              "canonicalAnswer": "Menos mal."
+            },
+            {
+              "id": "es-a2-hecho-06-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Моей маме было совсем неудобно.",
+              "canonicalAnswer": "A mi madre le venía fatal."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-hecho-07",
+          "title": "Escrito a mano",
+          "summary": "Как это сделано.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-hecho-07-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "title": "Записка",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Mira, una nota escrita a mano.",
+                  "translation": "Смотри, записка от руки."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿De quién es?",
+                  "translation": "От кого она?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "No pone nombre, solo un dibujo.",
+                  "translation": "Имени нет, только рисунок."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Qué misterio, oye.",
+                  "translation": "Ну и загадка."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "La guardo, por si acaso.",
+                  "translation": "Сохраню, на всякий случай."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-hecho-07-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "escrita a mano",
+              "translation": "написанная от руки",
+              "example": "Una nota escrita a mano."
+            },
+            {
+              "id": "es-a2-hecho-07-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "¿De quién es?",
+              "translation": "От кого она?",
+              "example": "¿De quién es la nota?"
+            },
+            {
+              "id": "es-a2-hecho-07-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "No pone nombre.",
+              "translation": "Имени не написано.",
+              "example": "No pone nombre, solo un dibujo."
+            },
+            {
+              "id": "es-a2-hecho-07-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "el dibujo",
+              "translation": "рисунок",
+              "example": "Solo un dibujo, nada más."
+            },
+            {
+              "id": "es-a2-hecho-07-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "La guardo.",
+              "translation": "Сохраню её.",
+              "example": "La guardo, por si acaso."
+            },
+            {
+              "id": "es-a2-hecho-07-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "title": "Сделано как",
+              "explanation": "Причастие описывает предмет и согласуется с ним: una nota escrita a mano, un plato hecho en casa, las cartas escritas ayer. Форма меняется по роду и числу."
+            },
+            {
+              "id": "es-a2-hecho-07-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Una nota ___ a mano.",
+              "options": [
+                "escrita",
+                "escrito",
+                "escribir"
+              ],
+              "correctOption": "escrita"
+            },
+            {
+              "id": "es-a2-hecho-07-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "No ___ nombre en la nota.",
+              "options": [
+                "pone",
+                "ponen",
+                "poner"
+              ],
+              "correctOption": "pone"
+            },
+            {
+              "id": "es-a2-hecho-07-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "«Сохраню её» — это:",
+              "options": [
+                "La guardo.",
+                "Lo guardo ella.",
+                "Le guardo."
+              ],
+              "correctOption": "La guardo."
+            },
+            {
+              "id": "es-a2-hecho-07-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "От кого она?",
+              "canonicalAnswer": "¿De quién es?",
+              "tokens": [
+                "quién",
+                "es",
+                "De"
+              ]
+            },
+            {
+              "id": "es-a2-hecho-07-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Записка от руки.",
+              "canonicalAnswer": "Una nota escrita a mano."
+            },
+            {
+              "id": "es-a2-hecho-07-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Только рисунок.",
+              "canonicalAnswer": "Solo un dibujo."
+            },
+            {
+              "id": "es-a2-hecho-07-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Сохраню, на всякий случай.",
+              "canonicalAnswer": "La guardo, por si acaso."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-hecho-08",
+          "title": "Lo dado por hecho",
+          "summary": "Считали, что решено.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-hecho-08-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-comparativos",
+                "es-a2-tema-tramites"
+              ],
+              "title": "Недопоняли",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Yo lo daba por hecho, la verdad.",
+                  "translation": "Я, честно, считал это решённым."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Nadie lo confirmó, ese es el tema.",
+                  "translation": "Никто не подтвердил, в этом и дело."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Pues habrá que preguntarlo hoy.",
+                  "translation": "Значит, надо сегодня спросить."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Mejor por escrito, así queda.",
+                  "translation": "Лучше письменно, так останется."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Tienes razón, escribo yo.",
+                  "translation": "Ты права, я напишу."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-hecho-08-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-participios",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Lo daba por hecho.",
+              "translation": "Я считал это решённым.",
+              "example": "Yo lo daba por hecho, la verdad."
+            },
+            {
+              "id": "es-a2-hecho-08-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Nadie lo confirmó.",
+              "translation": "Никто не подтвердил.",
+              "example": "Nadie lo confirmó, ese es el tema."
+            },
+            {
+              "id": "es-a2-hecho-08-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "ese es el tema",
+              "translation": "в этом и дело",
+              "example": "Nadie lo confirmó, ese es el tema."
+            },
+            {
+              "id": "es-a2-hecho-08-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-comparativos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "por escrito",
+              "translation": "письменно",
+              "example": "Mejor por escrito, así queda."
+            },
+            {
+              "id": "es-a2-hecho-08-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-comparativos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Así queda.",
+              "translation": "Так останется.",
+              "example": "Mejor por escrito, así queda."
+            },
+            {
+              "id": "es-a2-hecho-08-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "title": "Считать решённым",
+              "explanation": "Оборот dar por hecho значит «считать само собой разумеющимся»: lo daba por hecho, no lo des por hecho. Он всегда с lo и почти всегда в imperfecto — это ведь было убеждение."
+            },
+            {
+              "id": "es-a2-hecho-08-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-participios",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Yo lo ___ por hecho.",
+              "options": [
+                "daba",
+                "di una vez",
+                "dar"
+              ],
+              "correctOption": "daba"
+            },
+            {
+              "id": "es-a2-hecho-08-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Mejor ___ escrito.",
+              "options": [
+                "por",
+                "para",
+                "en"
+              ],
+              "correctOption": "por"
+            },
+            {
+              "id": "es-a2-hecho-08-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "«В этом и дело» — это:",
+              "options": [
+                "Ese es el tema.",
+                "Eso es el tema suyo.",
+                "Este es tema."
+              ],
+              "correctOption": "Ese es el tema."
+            },
+            {
+              "id": "es-a2-hecho-08-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Значит, надо сегодня спросить.",
+              "canonicalAnswer": "Habrá que preguntarlo hoy.",
+              "tokens": [
+                "que",
+                "preguntarlo",
+                "hoy",
+                "Habrá"
+              ]
+            },
+            {
+              "id": "es-a2-hecho-08-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-participios",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Я считал это решённым.",
+              "canonicalAnswer": "Lo daba por hecho."
+            },
+            {
+              "id": "es-a2-hecho-08-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Никто не подтвердил.",
+              "canonicalAnswer": "Nadie lo confirmó."
+            },
+            {
+              "id": "es-a2-hecho-08-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Лучше письменно.",
+              "canonicalAnswer": "Mejor por escrito."
             }
           ]
         },
