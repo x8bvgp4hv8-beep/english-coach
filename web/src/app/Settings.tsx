@@ -190,6 +190,7 @@ export function Settings() {
               ))}
             </div>
           </div>
+          <p className="level-size">{model.levelSize(model.selectedLevel)}</p>
           {model.hasPlacementTest && (
             <button className="settings-row" onClick={() => { model.startPlacement(); setPlacement('running') }}>
               <span className="label">Тест на уровень</span>

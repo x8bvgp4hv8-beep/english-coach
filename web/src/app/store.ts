@@ -1,4 +1,5 @@
 import { applyLanguage, loadLanguage, saveLanguage } from './language-choice'
+import { plural } from './plural'
 import {
   CourseRouting,
   DEFAULT_LANGUAGE,
@@ -231,6 +232,22 @@ export class AppStore {
       return null
     }
     return LevelOrder.next(this.selectedLevel)
+  }
+
+  /**
+   * What a level actually contains, said out loud in the picker.
+   *
+   * Spanish A1 is 92 hours and Spanish A2 is one: choosing A2 today means finishing the
+   * course in an evening. The learner deserves to see that before they pick, not after.
+   */
+  levelSize(level: CEFRLevel): string {
+    const hours = ProgressionEngine.hours(level, this.courses)
+    if (hours < 1) return `${level} — меньше часа, уровень ещё не наполнен`
+    const rounded = Math.round(hours)
+    if (!ProgressionEngine.isReady(level, this.courses)) {
+      return `${level} — пока ${rounded} ${plural(rounded, 'час', 'часа', 'часов')}, уровень ещё не наполнен`
+    }
+    return `${level} — ${rounded} ${plural(rounded, 'час', 'часа', 'часов')} занятий`
   }
 
   streak(): number {

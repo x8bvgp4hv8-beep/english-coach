@@ -423,8 +423,23 @@ do {
     // High accuracy over A1 exercises should trigger an advancement suggestion.
     let a1IDs = ProgressionEngine.exerciseIDs(for: .a1, in: courses)
     let goodAttempts = a1IDs.map { AttemptRecord(id: UUID(), exerciseID: $0, correct: true, date: now) }
-    expect(ProgressionEngine.shouldSuggestAdvance(level: .a1, courses: courses, completed: done, attempts: goodAttempts, dismissed: []), "mastered level suggests advance")
-    expect(!ProgressionEngine.shouldSuggestAdvance(level: .a1, courses: courses, completed: done, attempts: goodAttempts, dismissed: ["A1"]), "dismissed level does not re-suggest")
+    // Испанский A1 — 92 часа, испанский A2 — один: звать в пустую комнату нельзя,
+    // поэтому наполненность следующего уровня — часть правила, а не оформление.
+    expect(!ProgressionEngine.isReady(.a2, in: courses), "the shipped A2 is still a sketch")
+    expect(!ProgressionEngine.shouldSuggestAdvance(level: .a1, courses: courses, completed: done, attempts: goodAttempts, dismissed: []),
+           "a barely built next level is not suggested")
+
+    let stocked = courses.map { pack -> CoursePack in
+        guard pack.level == .a2 else { return pack }
+        return CoursePack(schemaVersion: pack.schemaVersion, level: pack.level, chapters: pack.chapters.map { chapter in
+            Chapter(id: chapter.id, title: chapter.title, subtitle: chapter.subtitle, lessons: chapter.lessons.map { lesson in
+                Lesson(id: lesson.id, title: lesson.title, summary: lesson.summary, estimatedMinutes: 120, exercises: lesson.exercises, kind: lesson.kind)
+            }, canDo: chapter.canDo)
+        })
+    }
+    expect(ProgressionEngine.isReady(.a2, in: stocked), "a stocked A2 is ready")
+    expect(ProgressionEngine.shouldSuggestAdvance(level: .a1, courses: stocked, completed: done, attempts: goodAttempts, dismissed: []), "mastered level suggests advance")
+    expect(!ProgressionEngine.shouldSuggestAdvance(level: .a1, courses: stocked, completed: done, attempts: goodAttempts, dismissed: ["A1"]), "dismissed level does not re-suggest")
     expect(LevelOrder.next(after: .a1) == .a2, "next level after A1 is A2")
     expect(LevelOrder.next(after: .c1) == nil, "no level after C1")
 } catch { failures += 1; print("✗ progression engine: \(error)") }

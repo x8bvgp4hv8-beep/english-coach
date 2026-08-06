@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { ReactNode } from 'react'
 
 import { useStore } from './App'
+import { plural } from './plural'
 import { PRACTICE_KINDS } from '../core'
 import type { AppStore } from './store'
 import type { Chapter, Lesson } from '../core'
@@ -337,11 +338,3 @@ function lessonState(model: AppStore, lesson: Lesson): LessonState {
   return model.lessonIsUnlocked(lesson) ? 'available' : 'locked'
 }
 
-function plural(count: number, one: string, few: string, many: string): string {
-  const mod100 = count % 100
-  const mod10 = count % 10
-  if (mod100 >= 11 && mod100 <= 14) return many
-  if (mod10 === 1) return one
-  if (mod10 >= 2 && mod10 <= 4) return few
-  return many
-}

@@ -88,6 +88,22 @@ export const ProgressionEngine = {
     return relevant.filter((a) => a.correct).length / relevant.length
   },
 
+  /** Hours of lessons a level actually ships, which is not the same as what it promises. */
+  hours(level: CEFRLevel, courses: CoursePack[]): number {
+    return this.lessons(level, courses).reduce((sum, lesson) => sum + lesson.estimatedMinutes, 0) / 60
+  },
+
+  /**
+   * Cambridge puts a CEFR level at 90–100 guided hours. Anything under ten is a sketch,
+   * and inviting someone into it is a promise the content cannot keep: Spanish A1 is
+   * 92 hours and Spanish A2 is one, so "переходи на A2" would end the course.
+   */
+  readyHours: 10,
+
+  isReady(level: CEFRLevel, courses: CoursePack[]): boolean {
+    return this.hours(level, courses) >= this.readyHours
+  },
+
   shouldSuggestAdvance(
     level: CEFRLevel,
     courses: CoursePack[],
@@ -96,9 +112,12 @@ export const ProgressionEngine = {
     dismissed: Set<string>,
     accuracyThreshold = 0.8,
   ): boolean {
-    if (LevelOrder.next(level) === null) return false
+    const next = LevelOrder.next(level)
+    if (next === null) return false
     if (dismissed.has(level)) return false
     if (!this.isLevelComplete(level, courses, completed)) return false
+    // Not into an empty room.
+    if (!this.isReady(next, courses)) return false
     return this.accuracy(level, courses, attempts) >= accuracyThreshold
   },
 }

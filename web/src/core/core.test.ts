@@ -15,7 +15,7 @@ import { deserialize, serialize } from './storage'
 import { LANGUAGE_CODES } from './language'
 import { ATTEMPT_LOG_LIMIT, EXERCISE_TYPES, LEVELS, freshState, seenExerciseIDs, trimAttempts } from './types'
 import type { LanguageCode } from './language'
-import type { CoursePack, Exercise, Lesson, PlacementBank } from './types'
+import type { CEFRLevel, CoursePack, Exercise, Lesson, PlacementBank } from './types'
 
 /**
  * A port of native/Sources/EnglishCoachCoreTests/main.swift.
@@ -886,12 +886,45 @@ describe('progression', () => {
     const goodAttempts = [...ProgressionEngine.exerciseIDs('A1', courses)].map((id) => ({
       id, exerciseID: id, correct: true, date: now,
     }))
-    expect(ProgressionEngine.shouldSuggestAdvance('A1', courses, done, goodAttempts, new Set())).toBe(true)
-    expect(ProgressionEngine.shouldSuggestAdvance('A1', courses, done, goodAttempts, new Set(['A1']))).toBe(false)
+    // The shipped A2 is an hour long, so nothing is suggested — see the test below.
+    const stocked = withStockedLevel(courses, 'A2')
+    expect(ProgressionEngine.shouldSuggestAdvance('A1', stocked, done, goodAttempts, new Set())).toBe(true)
+    expect(ProgressionEngine.shouldSuggestAdvance('A1', stocked, done, goodAttempts, new Set(['A1']))).toBe(false)
     expect(LevelOrder.next('A1')).toBe('A2')
     expect(LevelOrder.next('C1')).toBeNull()
   })
+
+  /**
+   * Испанский A1 — 92 часа, испанский A2 — один. Предложить «переходи на A2» значило бы
+   * позвать человека в пустую комнату: курс кончится в тот же вечер.
+   */
+  it('does not invite the learner into a level that is barely built', () => {
+    const a1 = ProgressionEngine.lessons('A1', courses)
+    const done = new Set(a1.map((lesson) => lesson.id))
+    const goodAttempts = [...ProgressionEngine.exerciseIDs('A1', courses)].map((id) => ({
+      id, exerciseID: id, correct: true, date: now,
+    }))
+
+    expect(ProgressionEngine.hours('A2', courses)).toBeLessThan(ProgressionEngine.readyHours)
+    expect(ProgressionEngine.isReady('A2', courses)).toBe(false)
+    expect(ProgressionEngine.shouldSuggestAdvance('A1', courses, done, goodAttempts, new Set())).toBe(false)
+
+    const stocked = withStockedLevel(courses, 'A2')
+    expect(ProgressionEngine.isReady('A2', stocked)).toBe(true)
+    expect(ProgressionEngine.shouldSuggestAdvance('A1', stocked, done, goodAttempts, new Set())).toBe(true)
+  })
 })
+
+/** The same courses, with one level padded past the "ready" bar. */
+function withStockedLevel(packs: CoursePack[], level: CEFRLevel): CoursePack[] {
+  return packs.map((pack) => pack.level !== level ? pack : {
+    ...pack,
+    chapters: pack.chapters.map((chapter) => ({
+      ...chapter,
+      lessons: chapter.lessons.map((lesson) => ({ ...lesson, estimatedMinutes: 120 })),
+    })),
+  })
+}
 
 describe('daily practice log', () => {
   const day = new Date(1_753_000_000_000)

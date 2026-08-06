@@ -77,12 +77,27 @@ public enum ProgressionEngine {
         return Double(relevant.filter(\.correct).count) / Double(relevant.count)
     }
 
-    /// True when the level is fully completed with high accuracy and a harder level exists,
-    /// unless the user already dismissed the suggestion for this level.
+    /// Hours of lessons a level actually ships, which is not the same as what it promises.
+    public static func hours(for level: CEFRLevel, in courses: [CoursePack]) -> Double {
+        Double(lessons(for: level, in: courses).reduce(0) { $0 + $1.estimatedMinutes }) / 60
+    }
+
+    /// Cambridge puts a CEFR level at 90–100 guided hours. Under ten it is a sketch, and
+    /// inviting someone into it is a promise the content cannot keep: испанский A1 — 92
+    /// часа, испанский A2 — один, и «переходи на A2» закончило бы курс в тот же вечер.
+    public static let readyHours: Double = 10
+
+    public static func isReady(_ level: CEFRLevel, in courses: [CoursePack]) -> Bool {
+        hours(for: level, in: courses) >= readyHours
+    }
+
+    /// True when the level is fully completed with high accuracy and a harder level exists
+    /// and is actually built, unless the user already dismissed the suggestion.
     public static func shouldSuggestAdvance(level: CEFRLevel, courses: [CoursePack], completed: Set<String>, attempts: [AttemptRecord], dismissed: Set<String>, accuracyThreshold: Double = 0.8) -> Bool {
-        guard LevelOrder.next(after: level) != nil else { return false }
+        guard let next = LevelOrder.next(after: level) else { return false }
         guard !dismissed.contains(level.rawValue) else { return false }
         guard isLevelComplete(level: level, courses: courses, completed: completed) else { return false }
+        guard isReady(next, in: courses) else { return false }
         return accuracy(level: level, courses: courses, attempts: attempts) >= accuracyThreshold
     }
 }

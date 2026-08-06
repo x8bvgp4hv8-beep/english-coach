@@ -73,6 +73,10 @@ public struct CoursePack: Codable, Identifiable, Equatable, Sendable {
     public let level: CEFRLevel
     public let chapters: [Chapter]
     public var id: String { level.rawValue }
+
+    public init(schemaVersion: Int, level: CEFRLevel, chapters: [Chapter]) {
+        self.schemaVersion = schemaVersion; self.level = level; self.chapters = chapters
+    }
 }
 
 public struct Chapter: Codable, Identifiable, Equatable, Sendable {

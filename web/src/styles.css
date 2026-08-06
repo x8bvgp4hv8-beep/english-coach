@@ -594,6 +594,9 @@ button { cursor: pointer; border: none; background: none; }
   border-bottom: 1px solid var(--hairline);
 }
 
+/* What a level actually contains, under the picker that chooses it. */
+.level-size { font-size: 12px; color: var(--ink-soft); margin: 10px 0 0; }
+
 /* Progress is no longer being written. Loud on purpose. */
 .alert-bar {
   display: flex; align-items: center; gap: 10px;

@@ -65,6 +65,8 @@ export function Onboarding() {
               </button>
             ))}
           </div>
+          {/* What that pill actually contains, before it is chosen rather than after. */}
+          <p className="level-size">{model.levelSize(level)}</p>
           <button className="primary" onClick={() => setStage('goal')}>Продолжить</button>
         </>
       )}

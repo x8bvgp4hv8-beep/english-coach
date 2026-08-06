@@ -53,8 +53,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
+        # Ten minutes is the action's hard cap on waiting for Pages — a longer `timeout`
+        # is clamped back down with a warning, so a stuck queue has to be re-run, not
+        # waited out.
         uses: actions/deploy-pages@v4
-        with:
-          # Pages has been sitting in `deployment_queued` for longer than the ten-minute
-          # default, failing runs whose build was fine. Twenty minutes rides that out.
-          timeout: 1200000
