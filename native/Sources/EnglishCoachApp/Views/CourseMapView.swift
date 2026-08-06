@@ -42,7 +42,7 @@ struct CourseMapView: View {
                             .padding(16).coachCard(radius: 18).padding(.top, 10)
                     }
                     grammarLink
-                    sectionTitle("Маршрут \(model.selectedLevel.rawValue)", hint: "Уроки идут по порядку: правило, новые фразы, упражнения")
+                    sectionTitle("Маршрут \(model.selectedLevel.rawValue)", hint: "Каждый урок: послушай — новые слова — правило — узнай — скажи сам")
                     ForEach(Array(chapters.enumerated()), id: \.element.id) { number, chapter in
                         chapterSection(number: number + 1, chapter: chapter)
                     }

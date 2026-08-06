@@ -128,7 +128,7 @@ export function MapScreen() {
           Все темы уровня и мои проценты ›
         </button>
 
-        <SectionTitle hint="Уроки идут по порядку: правило, новые фразы, упражнения">
+        <SectionTitle hint="Каждый урок: послушай — новые слова — правило — узнай — скажи сам">
           Маршрут {model.selectedLevel}
         </SectionTitle>
         {chapters.map((chapter, index) => (
