@@ -387,6 +387,26 @@ final class AppModel {
         ProgressionEngine.levelProgress(level: level, courses: courses, completed: state.completedLessonIDs)
     }
     var currentLevelProgress: Double { levelProgress(selectedLevel) }
+
+    /// Прогресс по блоку, в котором человек сейчас, а не по уровню.
+    ///
+    /// В A1 тридцать блоков и 513 уроков: «Уровень A1 — 0%» — это то, что показывал
+    /// счётчик после законченного урока, и однозначные проценты держались бы неделями.
+    /// Блок — та единица, движение которой видно.
+    var unitProgress: (title: String, caption: String, value: Double) {
+        let chapters = selectedCourse?.chapters ?? []
+        guard let next = recommendedLesson,
+              let index = chapters.firstIndex(where: { $0.lessons.contains { $0.id == next.id } }) else {
+            return (title: "Уровень \(selectedLevel.rawValue)", caption: "пройден", value: 1)
+        }
+        let chapter = chapters[index]
+        let done = chapter.lessons.filter { state.completedLessonIDs.contains($0.id) }.count
+        return (
+            title: "Блок \(index + 1) из \(chapters.count)",
+            caption: "\(done) / \(chapter.lessons.count)",
+            value: Double(done) / Double(chapter.lessons.count)
+        )
+    }
     func levelIsComplete(_ level: CEFRLevel) -> Bool {
         ProgressionEngine.isLevelComplete(level: level, courses: courses, completed: state.completedLessonIDs)
     }

@@ -112,9 +112,9 @@ struct CourseMapView: View {
                     .buttonStyle(.plain).foregroundStyle(.secondary).help("Настройки")
             }
             HStack(spacing: 18) {
-                meter(title: "Уровень \(model.selectedLevel.rawValue)",
-                      caption: "\(Int((model.currentLevelProgress * 100).rounded()))%",
-                      value: model.currentLevelProgress,
+                meter(title: model.unitProgress.title,
+                      caption: model.unitProgress.caption,
+                      value: model.unitProgress.value,
                       tint: CoachTheme.accentColor)
                 meter(title: "Цель дня",
                       caption: model.dailyGoalReached ? "выполнена" : "\(model.todayPracticeMinutes) / \(model.dailyGoalMinutes) мин",
@@ -341,7 +341,7 @@ struct CourseMapView: View {
         Button { model.screen = .topics } label: {
             HStack(spacing: 6) {
                 Image(systemName: "chart.bar.fill")
-                Text("Вся грамматика уровня и мои проценты")
+                Text("Все темы уровня и мои проценты")
                 Image(systemName: "chevron.right").font(.system(size: 10, weight: .bold))
             }.font(.system(size: 13, weight: .semibold))
         }

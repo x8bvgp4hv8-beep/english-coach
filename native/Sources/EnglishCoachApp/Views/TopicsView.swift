@@ -49,7 +49,7 @@ struct TopicsView: View {
             Button { model.screen = .map } label: { Label("Назад", systemImage: "chevron.left") }
                 .buttonStyle(.plain).foregroundStyle(CoachTheme.accentColor)
             Spacer()
-            Text("Грамматика").font(.title2.bold())
+            Text("Темы").font(.title2.bold())
             Spacer()
             Text("Назад").opacity(0)
         }

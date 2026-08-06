@@ -189,6 +189,29 @@ export class AppStore {
   get currentLevelProgress(): number {
     return ProgressionEngine.levelProgress(this.selectedLevel, this.courses, this.completed)
   }
+
+  /**
+   * Progress through the unit the learner is inside, not through the level.
+   *
+   * A1 is 30 units and 513 lessons: "Уровень A1 — 0%" is what the meter said after a
+   * finished lesson, and it keeps saying single digits for weeks. The unit is the scale
+   * a person can actually feel moving.
+   */
+  get unitProgress(): { title: string; caption: string; value: number } {
+    const chapters = this.selectedCourse?.chapters ?? []
+    const next = this.recommendedLesson
+    const index = chapters.findIndex((chapter) => chapter.lessons.some((lesson) => lesson.id === next?.id))
+    if (index < 0) {
+      return { title: `Уровень ${this.selectedLevel}`, caption: 'пройден', value: 1 }
+    }
+    const chapter = chapters[index]
+    const done = chapter.lessons.filter((lesson) => this.completed.has(lesson.id)).length
+    return {
+      title: `Блок ${index + 1} из ${chapters.length}`,
+      caption: `${done} / ${chapter.lessons.length}`,
+      value: done / chapter.lessons.length,
+    }
+  }
   get dailyGoalMinutes(): number { return this.state.profile?.dailyGoalMinutes ?? 10 }
   get todayPracticeMinutes(): number { return PracticeLog.minutes(this.state.practiceSeconds, new Date()) }
   get dailyGoalProgress(): number { return Math.min(1, this.todayPracticeMinutes / Math.max(1, this.dailyGoalMinutes)) }

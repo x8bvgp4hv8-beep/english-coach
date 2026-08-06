@@ -124,7 +124,7 @@ export function MapScreen() {
         )}
 
         <button className="link-button" onClick={() => model.setScreen('topics')} style={{ marginTop: 14 }}>
-          Вся грамматика уровня и мои проценты ›
+          Все темы уровня и мои проценты ›
         </button>
 
         <SectionTitle hint="Уроки идут по порядку: правило, новые фразы, упражнения">
@@ -188,9 +188,9 @@ function Header({ model }: { model: AppStore }) {
       </div>
       <div className="meters">
         <Meter
-          title={`Уровень ${model.selectedLevel}`}
-          value={model.currentLevelProgress}
-          caption={`${Math.round(model.currentLevelProgress * 100)}%`}
+          title={model.unitProgress.title}
+          value={model.unitProgress.value}
+          caption={model.unitProgress.caption}
           color="var(--violet)"
         />
         <Meter

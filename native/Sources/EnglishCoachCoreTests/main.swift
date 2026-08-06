@@ -647,6 +647,17 @@ for language in shipped {
             return tray == answer
         }, "\(name): every word tray can build its answer")
 
+        // Юнит — это тема «что ты умеешь», а не одно правило: в нём и вопросы, и глаголы,
+        // и числа. Пакетный скрипт когда-то пометил весь блок «Работа» темой «Глагол ser»,
+        // и экран тем вместе с «что проседает» показывали выдумку. Одна тема на юнит — нет.
+        for pack in packs where pack.schemaVersion >= 2 {
+            for chapter in pack.chapters {
+                let drilled = chapter.lessons.flatMap(\.exercises).filter { $0.type != .info && $0.type != .dialogue }
+                let topics = Set(drilled.flatMap { $0.topics ?? [] })
+                expect(topics.count >= 4, "\(name): \(chapter.id) — \(drilled.count) упражнений на \(topics.count) тем")
+            }
+        }
+
         let gaps = SyllabusEngine.gaps(of: syllabus, in: packs)
         expect(gaps.count <= syllabus.coverageDebtCeiling,
                "\(name): coverage debt did not grow (\(gaps.count) of ceiling \(syllabus.coverageDebtCeiling))")

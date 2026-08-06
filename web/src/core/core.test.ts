@@ -1010,6 +1010,23 @@ describe.each(LANGUAGE_CODES)('each shipped language: %s', (language) => {
     }
   })
 
+  /**
+   * Юнит — это тема «что ты умеешь», а не одно грамматическое правило: в нём и вопросы,
+   * и глаголы, и числа. Пока темы проставлялись пакетным скриптом, весь блок «Работа»
+   * был помечен «Глагол ser» — и «что проседает», и тренировка по теме, и экран тем
+   * показывали выдумку. Одна тема на весь юнит больше не проходит.
+   */
+  it('tags units by what each exercise actually practises', () => {
+    for (const pack of packs.filter((item) => item.schemaVersion >= 2)) {
+      for (const chapter of pack.chapters) {
+        const drilled = chapter.lessons.flatMap((lesson) => lesson.exercises)
+          .filter((exercise) => exercise.type !== 'info' && exercise.type !== 'dialogue')
+        const topics = new Set(drilled.flatMap((exercise) => exercise.topics ?? []))
+        expect(topics.size, `${chapter.id}: ${drilled.length} упражнений на ${topics.size} тем`).toBeGreaterThanOrEqual(4)
+      }
+    }
+  })
+
   it('does not let the coverage debt grow', () => {
     const gaps = SyllabusEngine.gaps(syllabus, packs)
     const report = gaps.map((gap) => `${gap.topic.level} ${gap.topic.id} ${gap.exercises}/${gap.topic.minExercises}`).join('\n')
