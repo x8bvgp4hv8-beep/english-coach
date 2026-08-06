@@ -20,8 +20,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-COURSE = ROOT / 'native/Sources/EnglishCoachCore/Resources/Languages/es/es-a1.json'
-SYLLABUS = ROOT / 'native/Sources/EnglishCoachCore/Resources/Languages/es/es-syllabus.json'
+LANGS = ROOT / 'native/Sources/EnglishCoachCore/Resources/Languages/es'
+COURSE = LANGS / 'es-a1.json'
+COURSE_A2 = LANGS / 'es-a2.json'
+SYLLABUS = LANGS / 'es-syllabus.json'
 
 # ---------------------------------------------------------------- lexical themes
 
@@ -79,17 +81,72 @@ UNIT_THEME = {
     'Когда что-то пошло не так': 'es-a1-tema-problemas',
 }
 
+# ---------------------------------------------------------------- A2 themes
+
+THEMES_A2 = [
+    ('es-a2-tema-relato', 'Рассказ о прошлом', 'Вчера, в детстве, в поездке: что было и как было.'),
+    ('es-a2-tema-salud', 'Здоровье и происшествия', 'Что случилось, где болит, что сказал врач.'),
+    ('es-a2-tema-vivienda', 'Жильё и переезд', 'Объявление, просмотр, сравнение вариантов.'),
+    ('es-a2-tema-trabajo', 'Работа и учёба', 'Отчитаться, попросить срок, рассказать про опыт.'),
+    ('es-a2-tema-compras', 'Покупки и возвраты', 'Вернуть, обменять, пожаловаться на брак.'),
+    ('es-a2-tema-cocina', 'Кухня и инструкции', 'Рецепт по шагам, запрет и предупреждение.'),
+    ('es-a2-tema-planes', 'Встречи и планы', 'Договориться, перенести, отменить, пригласить.'),
+    ('es-a2-tema-noticias', 'Новости и слухи', 'Что случилось у знакомых и как на это ответить.'),
+    ('es-a2-tema-ocio', 'Досуг и мнения', 'Спорт, сериалы, книги, советы и вкусы.'),
+    ('es-a2-tema-tecno', 'Техника и интернет', 'Не работает, стёрлось, пропало, что уже пробовал.'),
+    ('es-a2-tema-ciudad', 'Город и перемены', 'Каким район был и каким стал.'),
+    ('es-a2-tema-tramites', 'Дела и услуги', 'Запись, бланки, документы, сроки.'),
+    ('es-a2-tema-viaje', 'Поездки и аэропорт', 'Рейс, задержка, багаж, дорога.'),
+    ('es-a2-tema-urgencia', 'Срочное', 'Помощь, скорая, как объяснить и успокоить.'),
+]
+
+UNIT_THEME_A2 = {
+    'es-a2-ayer': 'es-a2-tema-relato',
+    'es-a2-fui': 'es-a2-tema-relato',
+    'es-a2-pequeno': 'es-a2-tema-relato',
+    'es-a2-mientras': 'es-a2-tema-relato',
+    'es-a2-hoy': 'es-a2-tema-trabajo',
+    'es-a2-hecho': 'es-a2-tema-tramites',
+    'es-a2-lo': 'es-a2-tema-compras',
+    'es-a2-te-lo': 'es-a2-tema-trabajo',
+    'es-a2-mas-que': 'es-a2-tema-vivienda',
+    'es-a2-el-mejor': 'es-a2-tema-ocio',
+    'es-a2-ven': 'es-a2-tema-cocina',
+    'es-a2-por-para': 'es-a2-tema-planes',
+    'es-a2-viaje': 'es-a2-tema-viaje',
+    'es-a2-medico': 'es-a2-tema-salud',
+    'es-a2-piso': 'es-a2-tema-vivienda',
+    'es-a2-curro': 'es-a2-tema-trabajo',
+    'es-a2-queja': 'es-a2-tema-compras',
+    'es-a2-receta': 'es-a2-tema-cocina',
+    'es-a2-quedar': 'es-a2-tema-planes',
+    'es-a2-noticias': 'es-a2-tema-noticias',
+    'es-a2-estudiaba': 'es-a2-tema-trabajo',
+    'es-a2-fiesta': 'es-a2-tema-planes',
+    'es-a2-deporte': 'es-a2-tema-ocio',
+    'es-a2-series': 'es-a2-tema-ocio',
+    'es-a2-tecno': 'es-a2-tema-tecno',
+    'es-a2-barrio': 'es-a2-tema-ciudad',
+    'es-a2-tramites': 'es-a2-tema-tramites',
+    'es-a2-aeropuerto': 'es-a2-tema-viaje',
+    'es-a2-urgencia': 'es-a2-tema-urgencia',
+    'es-a2-balance': 'es-a2-tema-relato',
+}
+
 # ---------------------------------------------------------------- grammar detectors
 
 AR_VERBS = """hablar trabajar estudiar comprar escuchar tomar necesitar llamar cocinar viajar pagar
 cenar desayunar descansar mirar buscar esperar preguntar ayudar llegar entrar quedar usar cambiar
 reservar alquilar limpiar lavar planchar arreglar preparar terminar empezar bailar cantar nadar
 caminar andar visitar invitar dejar llevar pasar tardar apagar encender firmar enviar mandar
-contestar reparar recordar olvidar tocar sacar echar acabar quitar ganar gastar ahorrar""".split()
+contestar reparar recordar olvidar tocar sacar echar acabar quitar ganar gastar ahorrar
+mudar regalar robar borrar apagar guardar probar cortar mezclar rellenar firmar bailar
+estropear cansar apuntar acostar levantar quemar tardar mirar notar cambiar""".split()
 
 ER_IR_VERBS = """comer beber leer aprender comprender vender correr responder creer deber
 vivir escribir abrir subir salir venir decir hacer poner ver saber conocer pedir servir
-dormir volver poder querer entender perder repetir seguir sentir preferir recibir descubrir""".split()
+dormir volver poder querer entender perder repetir seguir sentir preferir recibir descubrir
+caer traer parecer conocer mover devolver reconocer""".split()
 
 # Regular endings, plus the irregular forms that A1 actually uses.
 IRREGULAR = {
@@ -244,46 +301,169 @@ def form_of(text, words):
     return None
 
 
-def main():
-    course = json.loads(COURSE.read_text())
-    syllabus = json.loads(SYLLABUS.read_text())
+# ---------------------------------------------------------------- A2 detectors
 
+IRREGULAR_PAST = set("""fui fuiste fue fuimos fueron hice hiciste hizo hicimos hicieron
+tuve tuviste tuvo tuvimos tuvieron estuve estuviste estuvo estuvimos estuvieron
+dije dijiste dijo dijimos dijeron vine viniste vino vinimos vinieron
+puse pusiste puso pusimos pusieron pude pudiste pudo pudimos pudieron
+quise quiso supe supo traje trajo di dio dieron vi vio""".split())
+
+IRREGULAR_PARTICIPLE = set("""hecho dicho visto escrito abierto vuelto puesto roto muerto
+descubierto devuelto""".split())
+
+HABER = {'he', 'has', 'ha', 'hemos', 'han'}
+
+IMPERATIVE = set("""ven dime pon haz ten sal ve sigue gira cruza prueba espera toma pasa mira
+oye trae corta bate mezcla añade deja baja sube llama apunta cuenta perdona
+llame traiga rellene firme espere tome tómese descanse pase pruebe mande apague
+mándamelo dímelo enséñamelo""".split())
+
+NEGATIVE_IMPERATIVE = set("""pongas toques muevas hagas digas vayas salgas dejes olvides
+mueva camine ponga toque haga diga vaya salga deje olvide""".split())
+
+
+def past_forms(verbs, endings):
+    out = set()
+    for verb in verbs:
+        stem = verb[:-2]
+        for ending in endings:
+            out.add(stem + ending)
+    return out
+
+
+INDEFINIDO = (past_forms(AR_VERBS, ['é', 'aste', 'ó', 'aron'])
+              | past_forms(ER_IR_VERBS, ['í', 'iste', 'ió', 'ieron']))
+IMPERFECTO = (past_forms(AR_VERBS, ['aba', 'abas', 'ábamos', 'aban'])
+              | past_forms(ER_IR_VERBS, ['ía', 'ías', 'íamos', 'ían'])
+              | set("""era eras éramos eran iba ibas íbamos iban veía veías veían había
+              tenía tenías tenían quería querías querían podía podías podían sabía sabían
+              decía decían hacía hacían llevaba llevaban estaba estabas estábamos estaban""".split()))
+
+# «Мы работаем» и «мы поработали» пишутся одинаково: trabajamos, comimos. Такие формы
+# не считаются признаком прошедшего — иначе половина настоящего времени уедет в indefinido.
+AMBIGUOUS_PAST = past_forms(AR_VERBS, ['amos']) | past_forms(ER_IR_VERBS, ['imos'])
+INDEFINIDO -= AMBIGUOUS_PAST
+
+
+def structure_of_a2(text, words):
+    """Что за конструкция в предложении — из тех, которым учит именно A2."""
+    if words & HABER and (any(w.endswith(('ado', 'ido')) for w in words) or words & IRREGULAR_PARTICIPLE):
+        return 'es-a2-perfecto'
+    past = words & (INDEFINIDO | IRREGULAR_PAST)
+    background = words & IMPERFECTO
+    if past and background:
+        return 'es-a2-contraste-pasados'
+    if words & IRREGULAR_PAST:
+        return 'es-a2-indefinido-irregular'
+    if past:
+        return 'es-a2-indefinido'
+    if background:
+        return 'es-a2-imperfecto'
+    tokens = WORD.findall(text.lower())
+    if tokens and tokens[0] in IMPERATIVE:
+        return 'es-a2-imperativo'
+    # Запрет — только сразу после no: «¡Vaya!» это междометие, а не «не ходи».
+    if any(word == 'no' and tokens[index + 1] in NEGATIVE_IMPERATIVE
+           for index, word in enumerate(tokens[:-1])):
+        return 'es-a2-imperativo'
+    return None
+
+
+PRONOUN_PAIR = re.compile(r'\b(me|te|se|nos|os|le|les)\s+(lo|la|los|las)\b')
+SUPERLATIVE = re.compile(r'\b(el|la|los|las)\s+(más|menos|mejor|peor)\b')
+
+# Слово после lo / la — это глагол, а не существительное: «la compré» против «la compra».
+# Иначе «la casa» и «la mesa» уезжают в прямое дополнение, а туда им нельзя.
+VERB_AFTER_OBJECT = (HABER | INDEFINIDO | IRREGULAR_PAST | IMPERFECTO | AR_FORMS | ER_IR_FORMS
+                     | {'veo', 'ves', 've', 'vemos', 'ven', 'tengo', 'tienes', 'tiene', 'quiero',
+                        'puedo', 'puedes', 'puede', 'dejo', 'dejas', 'deja', 'encuentro'})
+
+
+def direct_object(lower):
+    words = WORD.findall(lower)
+    for index, word in enumerate(words[:-1]):
+        if word in {'lo', 'la', 'los', 'las'} and words[index + 1] in VERB_AFTER_OBJECT:
+            return True
+    return False
+
+
+def form_of_a2(text, words):
+    """Какая форма отрабатывается — из тех, которым учит именно A2."""
+    lower = text.lower()
+    if PRONOUN_PAIR.search(lower) or words & {'le', 'les'}:
+        return 'es-a2-objeto-indirecto'
+    if direct_object(lower):
+        return 'es-a2-objeto-directo'
+    if SUPERLATIVE.search(lower) or any(w.endswith(('ísimo', 'ísima', 'ísimos', 'ísimas')) for w in words):
+        return 'es-a2-superlativos'
+    if ('más' in words and 'que' in words) or ('menos' in words and 'que' in words) \
+            or ('tan' in words and 'como' in words) or words & {'mejor', 'peor'}:
+        return 'es-a2-comparativos'
+    if words & IRREGULAR_PARTICIPLE:
+        return 'es-a2-participios'
+    if ' para ' in f' {lower} ' or lower.startswith('para ') or 'gracias por' in lower \
+            or 'perdona por' in lower or 'perdone por' in lower or 'por eso' in lower:
+        return 'es-a2-por-para'
+    return None
+
+
+def main():
+    syllabus = json.loads(SYLLABUS.read_text())
     known = {t['id'] for t in syllabus['topics']}
-    for topic_id, title, summary in THEMES:
-        if topic_id not in known:
-            syllabus['topics'].append({
-                'id': topic_id, 'level': 'A1', 'title': title, 'summary': summary, 'minExercises': 8,
-            })
+    for level, themes in (('A1', THEMES), ('A2', THEMES_A2)):
+        for topic_id, title, summary in themes:
+            if topic_id not in known:
+                syllabus['topics'].append({
+                    'id': topic_id, 'level': level, 'title': title, 'summary': summary, 'minExercises': 8,
+                })
 
     stats = {}
-    for chapter in course['chapters']:
-        theme = UNIT_THEME[chapter['title']]
-        for lesson in chapter['lessons']:
-            for exercise in lesson['exercises']:
-                text = spanish_of(exercise)
-                words = set(WORD.findall(text.lower()))
-                topics = []
-                structure = choice_between(exercise) or structure_of(text.lower(), words)
-                if structure:
-                    topics.append(structure)
-                form = form_of(text, words)
-                if form:
-                    topics.append(form)
-                topics.append(theme)
-                exercise['topics'] = topics
-                for topic in topics:
-                    stats[topic] = stats.get(topic, 0) + 1
+
+    def retag(path, unit_theme, key, structure_extra=None, form_extra=None):
+        course = json.loads(path.read_text())
+        for chapter in course['chapters']:
+            theme = unit_theme[chapter[key]]
+            for lesson in chapter['lessons']:
+                for exercise in lesson['exercises']:
+                    text = spanish_of(exercise)
+                    words = set(WORD.findall(text.lower()))
+                    topics = []
+                    structure = choice_between(exercise)
+                    if not structure and structure_extra:
+                        structure = structure_extra(text.lower(), words)
+                    if not structure:
+                        structure = structure_of(text.lower(), words)
+                    if structure:
+                        topics.append(structure)
+                    form = form_extra(text, words) if form_extra else None
+                    if not form:
+                        form = form_of(text, words)
+                    if form:
+                        topics.append(form)
+                    topics.append(theme)
+                    exercise['topics'] = topics
+                    for topic in topics:
+                        stats[topic] = stats.get(topic, 0) + 1
+        if '--write' in sys.argv:
+            path.write_text(json.dumps(course, ensure_ascii=False, indent=2) + '\n')
+
+    retag(COURSE, UNIT_THEME, 'title')
+    retag(COURSE_A2, UNIT_THEME_A2, 'id', structure_of_a2, form_of_a2)
 
     if '--write' in sys.argv:
-        COURSE.write_text(json.dumps(course, ensure_ascii=False, indent=2) + '\n')
         SYLLABUS.write_text(json.dumps(syllabus, ensure_ascii=False, indent=2) + '\n')
         print('written')
 
     titles = {t['id']: t['title'] for t in syllabus['topics']}
-    for topic_id, count in sorted(stats.items(), key=lambda kv: -kv[1]):
-        print(f'{count:6}  {titles.get(topic_id, topic_id)}')
-    missing = [t['id'] for t in syllabus['topics'] if t['level'] == 'A1' and t['id'] not in stats]
-    print('A1 topics with no exercises:', missing or 'none')
+    by_level = {t['id']: t['level'] for t in syllabus['topics']}
+    for level in ('A1', 'A2'):
+        print(f'--- {level}')
+        rows = [(c, i) for i, c in stats.items() if by_level.get(i) == level]
+        for count, topic_id in sorted(rows, reverse=True):
+            print(f'{count:6}  {titles.get(topic_id, topic_id)}')
+        missing = [t['id'] for t in syllabus['topics'] if t['level'] == level and t['id'] not in stats]
+        print(f'{level} topics with no exercises:', missing or 'none')
 
 
 main()
