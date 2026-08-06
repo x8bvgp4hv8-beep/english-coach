@@ -5,7 +5,7 @@
 // flattens a resource folder into the bundle root and two `a1.json` would collide there.
 // The web has no such problem, so the prefix is dropped on the way out and the language
 // becomes a folder: `content/en/courses/a1.json`.
-import { cpSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -34,7 +34,10 @@ for (const language of languages) {
   for (const file of files) {
     const name = plain(file)
     const isCourse = courseFiles.includes(name)
-    cpSync(join(from, file), join(to, isCourse ? join('courses', name) : name))
+    // Re-emitted without the authoring indentation: the Spanish A1 pack is 3.4 MB
+    // pretty-printed and the phone downloads it before the first lesson.
+    const json = JSON.parse(readFileSync(join(from, file), 'utf8'))
+    writeFileSync(join(to, isCourse ? join('courses', name) : name), JSON.stringify(json))
   }
 
   // A manifest, because a static host cannot be asked to list a directory.
