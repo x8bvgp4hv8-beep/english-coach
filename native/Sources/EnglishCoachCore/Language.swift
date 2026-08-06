@@ -44,13 +44,13 @@ public enum Languages {
         LearningLanguage(
             code: .en, title: "Английский", nativeTitle: "English", short: "EN",
             genitive: "английского", locative: "английском", adverb: "по-английски",
-            greeting: "Hello!", note: "От первых фраз до свободной речи: A1–C1",
+            greeting: "Hello!", note: "Пять уровней от A1 до C1, пока по полтора часа каждый",
             speechLocale: "en-GB", speechFallbacks: ["en-US", "en"]
         ),
         LearningLanguage(
             code: .es, title: "Испанский", nativeTitle: "Español", short: "ES",
             genitive: "испанского", locative: "испанском", adverb: "по-испански",
-            greeting: "¡Hola!", note: "От первых фраз до свободной речи: A1–C1",
+            greeting: "¡Hola!", note: "A1 — полные 92 часа с нуля; дальше A2–C1, пока по часу",
             speechLocale: "es-ES", speechFallbacks: ["es-MX", "es"]
         )
     ]

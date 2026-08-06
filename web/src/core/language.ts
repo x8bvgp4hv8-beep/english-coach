@@ -43,7 +43,8 @@ export const LANGUAGES: readonly LearningLanguage[] = [
     locative: 'английском',
     adverb: 'по-английски',
     greeting: 'Hello!',
-    note: 'От первых фраз до свободной речи: A1–C1',
+    // Пять уровней есть, но каждый — полтора часа. Обещать «до свободной речи» нельзя.
+    note: 'Пять уровней от A1 до C1, пока по полтора часа каждый',
     speechLocale: 'en-GB',
     speechFallbacks: ['en-US', 'en'],
   },
@@ -56,7 +57,7 @@ export const LANGUAGES: readonly LearningLanguage[] = [
     locative: 'испанском',
     adverb: 'по-испански',
     greeting: '¡Hola!',
-    note: 'От первых фраз до свободной речи: A1–C1',
+    note: 'A1 — полные 92 часа с нуля; дальше A2–C1, пока по часу',
     speechLocale: 'es-ES',
     speechFallbacks: ['es-MX', 'es'],
   },
