@@ -3884,6 +3884,5313 @@
           "kind": "checkpoint"
         }
       ]
+    },
+    {
+      "id": "es-a1-ciudad",
+      "title": "Город и дорога",
+      "subtitle": "Найти место в городе и понять, как до него дойти",
+      "canDo": [
+        "назвать места в городе",
+        "спросить, есть ли что-то рядом",
+        "спросить, как пройти",
+        "понять простое объяснение дороги"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-ciudad-01",
+          "title": "En la ciudad",
+          "summary": "Места в городе и как сказать, что где находится.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-ciudad-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "title": "Где здесь банк",
+              "lines": [
+                {
+                  "speaker": "Turista",
+                  "text": "Perdona, ¿hay un banco cerca de aquí?",
+                  "translation": "Извините, здесь рядом есть банк?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí, está en la calle Mayor.",
+                  "translation": "Да, на улице Майор."
+                },
+                {
+                  "speaker": "Turista",
+                  "text": "¿Está lejos?",
+                  "translation": "Это далеко?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "No, está a cinco minutos.",
+                  "translation": "Нет, в пяти минутах."
+                },
+                {
+                  "speaker": "Turista",
+                  "text": "Muchas gracias.",
+                  "translation": "Большое спасибо."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-ciudad-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "el banco, la tienda, la farmacia",
+              "translation": "банк, магазин, аптека",
+              "example": "La farmacia está en la calle Mayor."
+            },
+            {
+              "id": "es-a1-ciudad-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "la estación, la parada del autobús",
+              "translation": "вокзал, автобусная остановка",
+              "example": "La parada del autobús está aquí."
+            },
+            {
+              "id": "es-a1-ciudad-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "el supermercado, el mercado",
+              "translation": "супермаркет, рынок",
+              "example": "El mercado está cerca de la plaza."
+            },
+            {
+              "id": "es-a1-ciudad-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "¿Hay un banco cerca de aquí?",
+              "translation": "Здесь рядом есть банк?",
+              "example": "¿Hay una farmacia cerca de aquí?"
+            },
+            {
+              "id": "es-a1-ciudad-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Está a cinco minutos.",
+              "translation": "Это в пяти минутах.",
+              "example": "La estación está a diez minutos."
+            },
+            {
+              "id": "es-a1-ciudad-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "title": "cerca, lejos, al lado",
+              "explanation": "cerca de — рядом с, lejos de — далеко от, al lado de — прямо возле. После каждого обязательно идёт de: cerca de la plaza, lejos del centro."
+            },
+            {
+              "id": "es-a1-ciudad-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "«Аптека» — это:",
+              "options": [
+                "la farmacia",
+                "la tienda",
+                "el banco"
+              ],
+              "correctOption": "la farmacia"
+            },
+            {
+              "id": "es-a1-ciudad-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "¿___ un banco cerca de aquí?",
+              "options": [
+                "Hay",
+                "Está",
+                "Es"
+              ],
+              "correctOption": "Hay"
+            },
+            {
+              "id": "es-a1-ciudad-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "La estación está ___ diez minutos.",
+              "options": [
+                "a",
+                "en",
+                "de"
+              ],
+              "correctOption": "a"
+            },
+            {
+              "id": "es-a1-ciudad-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Рынок рядом с площадью.",
+              "canonicalAnswer": "El mercado está cerca de la plaza.",
+              "tokens": [
+                "mercado",
+                "está",
+                "cerca",
+                "de",
+                "la",
+                "plaza",
+                "El"
+              ]
+            },
+            {
+              "id": "es-a1-ciudad-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Здесь рядом есть аптека?",
+              "canonicalAnswer": "¿Hay una farmacia cerca de aquí?"
+            },
+            {
+              "id": "es-a1-ciudad-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Вокзал в десяти минутах.",
+              "canonicalAnswer": "La estación está a diez minutos."
+            },
+            {
+              "id": "es-a1-ciudad-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Магазин на улице Майор.",
+              "canonicalAnswer": "La tienda está en la calle Mayor."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-ciudad-02",
+          "title": "¿Cómo llego?",
+          "summary": "Спросить дорогу и понять ответ: прямо, направо, налево.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-ciudad-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "title": "Как дойти до вокзала",
+              "lines": [
+                {
+                  "speaker": "Turista",
+                  "text": "¿Cómo llego a la estación?",
+                  "translation": "Как мне дойти до вокзала?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sigue todo recto y gira a la derecha.",
+                  "translation": "Иди прямо и поверни направо."
+                },
+                {
+                  "speaker": "Turista",
+                  "text": "¿A la derecha?",
+                  "translation": "Направо?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí. Después cruza la plaza.",
+                  "translation": "Да. Потом перейди площадь."
+                },
+                {
+                  "speaker": "Turista",
+                  "text": "Vale, gracias.",
+                  "translation": "Хорошо, спасибо."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-ciudad-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Sigue todo recto.",
+              "translation": "Иди прямо.",
+              "example": "Sigue todo recto hasta la plaza."
+            },
+            {
+              "id": "es-a1-ciudad-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Gira a la derecha.",
+              "translation": "Поверни направо.",
+              "example": "Gira a la izquierda en la calle Mayor."
+            },
+            {
+              "id": "es-a1-ciudad-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Cruza la calle.",
+              "translation": "Перейди улицу.",
+              "example": "Cruza la plaza y gira a la derecha."
+            },
+            {
+              "id": "es-a1-ciudad-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "¿Cómo llego a la estación?",
+              "translation": "Как дойти до вокзала?",
+              "example": "¿Cómo llego al mercado?"
+            },
+            {
+              "id": "es-a1-ciudad-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Está a la izquierda.",
+              "translation": "Это слева.",
+              "example": "El banco está a la derecha."
+            },
+            {
+              "id": "es-a1-ciudad-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "title": "направо, налево, прямо",
+              "explanation": "Направо — a la derecha, налево — a la izquierda, прямо — todo recto. Команда одному человеку звучит коротко: gira, sigue, cruza."
+            },
+            {
+              "id": "es-a1-ciudad-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "«Поверни налево» — это:",
+              "options": [
+                "Gira a la izquierda",
+                "Gira a la derecha",
+                "Sigue todo recto"
+              ],
+              "correctOption": "Gira a la izquierda"
+            },
+            {
+              "id": "es-a1-ciudad-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "¿Cómo ___ a la estación?",
+              "options": [
+                "llego",
+                "llega",
+                "llegas"
+              ],
+              "correctOption": "llego"
+            },
+            {
+              "id": "es-a1-ciudad-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Sigue todo ___.",
+              "options": [
+                "recto",
+                "derecha",
+                "izquierda"
+              ],
+              "correctOption": "recto"
+            },
+            {
+              "id": "es-a1-ciudad-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Перейди улицу.",
+              "canonicalAnswer": "Cruza la calle.",
+              "tokens": [
+                "la",
+                "calle",
+                "Cruza"
+              ]
+            },
+            {
+              "id": "es-a1-ciudad-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Как дойти до рынка?",
+              "canonicalAnswer": "¿Cómo llego al mercado?"
+            },
+            {
+              "id": "es-a1-ciudad-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Иди прямо.",
+              "canonicalAnswer": "Sigue todo recto."
+            },
+            {
+              "id": "es-a1-ciudad-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Банк справа.",
+              "canonicalAnswer": "El banco está a la derecha."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-ciudad-check",
+          "title": "Проверка: город и дорога",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-ciudad-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Здесь рядом есть банк?",
+              "canonicalAnswer": "¿Hay un banco cerca de aquí?"
+            },
+            {
+              "id": "es-a1-ciudad-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Как дойти до вокзала?",
+              "canonicalAnswer": "¿Cómo llego a la estación?"
+            },
+            {
+              "id": "es-a1-ciudad-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Иди прямо и поверни направо.",
+              "canonicalAnswer": "Sigue todo recto y gira a la derecha."
+            },
+            {
+              "id": "es-a1-ciudad-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Аптека слева.",
+              "canonicalAnswer": "La farmacia está a la izquierda."
+            },
+            {
+              "id": "es-a1-ciudad-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar"
+              ],
+              "prompt": "Это в пяти минутах.",
+              "canonicalAnswer": "Está a cinco minutos."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-tienda",
+      "title": "Магазин и одежда",
+      "subtitle": "Выбрать вещь, примерить и заплатить",
+      "canDo": [
+        "назвать одежду и цвета",
+        "сказать, что ищешь",
+        "попросить примерить",
+        "заплатить и спросить сумму"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-tienda-01",
+          "title": "Colores y ropa",
+          "summary": "Одежда, цвета и то, как цвет подстраивается под слово.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-tienda-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "title": "Ищу футболку",
+              "lines": [
+                {
+                  "speaker": "Vendedora",
+                  "text": "Buenos días. ¿Qué desea?",
+                  "translation": "Добрый день. Что желаете?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Busco una camiseta blanca.",
+                  "translation": "Ищу белую футболку."
+                },
+                {
+                  "speaker": "Vendedora",
+                  "text": "¿De qué talla?",
+                  "translation": "Какого размера?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Mediana, por favor.",
+                  "translation": "Среднего, пожалуйста."
+                },
+                {
+                  "speaker": "Vendedora",
+                  "text": "Aquí tiene.",
+                  "translation": "Вот, пожалуйста."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-tienda-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "la camiseta, la camisa, los pantalones",
+              "translation": "футболка, рубашка, брюки",
+              "example": "Los pantalones son negros."
+            },
+            {
+              "id": "es-a1-tienda-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "el vestido, la chaqueta, los zapatos",
+              "translation": "платье, куртка, туфли",
+              "example": "Los zapatos son muy caros."
+            },
+            {
+              "id": "es-a1-tienda-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "blanco, negro, rojo, azul, verde",
+              "translation": "белый, чёрный, красный, синий, зелёный",
+              "example": "El vestido es muy bonito."
+            },
+            {
+              "id": "es-a1-tienda-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Busco una camiseta blanca.",
+              "translation": "Ищу белую футболку.",
+              "example": "Busco unos zapatos negros."
+            },
+            {
+              "id": "es-a1-tienda-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "¿De qué talla?",
+              "translation": "Какого размера?",
+              "example": "Talla pequeña, mediana o grande."
+            },
+            {
+              "id": "es-a1-tienda-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "title": "Цвет подстраивается под слово",
+              "explanation": "Camiseta blanca, но vestido blanco. Во множественном добавляется -s: zapatos negros. Цвета на -e и на согласный меняются только по числу: verde и verdes, azul и azules."
+            },
+            {
+              "id": "es-a1-tienda-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "La camiseta es ___.",
+              "options": [
+                "blanca",
+                "blanco",
+                "blancos"
+              ],
+              "correctOption": "blanca"
+            },
+            {
+              "id": "es-a1-tienda-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Los zapatos son ___.",
+              "options": [
+                "negros",
+                "negro",
+                "negra"
+              ],
+              "correctOption": "negros"
+            },
+            {
+              "id": "es-a1-tienda-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "«Ищу платье» — это:",
+              "options": [
+                "Busco un vestido",
+                "Busco una vestido",
+                "Busca un vestido"
+              ],
+              "correctOption": "Busco un vestido"
+            },
+            {
+              "id": "es-a1-tienda-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Брюки чёрные.",
+              "canonicalAnswer": "Los pantalones son negros.",
+              "tokens": [
+                "pantalones",
+                "son",
+                "negros",
+                "Los"
+              ]
+            },
+            {
+              "id": "es-a1-tienda-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Ищу белую рубашку.",
+              "canonicalAnswer": "Busco una camisa blanca."
+            },
+            {
+              "id": "es-a1-tienda-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Платье очень красивое.",
+              "canonicalAnswer": "El vestido es muy bonito."
+            },
+            {
+              "id": "es-a1-tienda-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Туфли очень дорогие.",
+              "canonicalAnswer": "Los zapatos son muy caros."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-tienda-02",
+          "title": "En la caja",
+          "summary": "Примерить, спросить сумму и заплатить.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-tienda-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "title": "На кассе",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Puedo probar esta chaqueta?",
+                  "translation": "Можно померить эту куртку?"
+                },
+                {
+                  "speaker": "Vendedora",
+                  "text": "Sí, claro.",
+                  "translation": "Да, конечно."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Me queda bien. ¿Cuánto es?",
+                  "translation": "Мне подходит. Сколько с меня?"
+                },
+                {
+                  "speaker": "Vendedora",
+                  "text": "Son treinta euros.",
+                  "translation": "Тридцать евро."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Puedo pagar con tarjeta?",
+                  "translation": "Можно заплатить картой?"
+                },
+                {
+                  "speaker": "Vendedora",
+                  "text": "Sí, por supuesto.",
+                  "translation": "Да, конечно."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-tienda-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "¿Puedo probar esta chaqueta?",
+              "translation": "Можно померить эту куртку?",
+              "example": "¿Puedo probar estos zapatos?"
+            },
+            {
+              "id": "es-a1-tienda-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Me queda bien.",
+              "translation": "Мне подходит.",
+              "example": "Esta camisa me queda grande."
+            },
+            {
+              "id": "es-a1-tienda-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "¿Cuánto es?",
+              "translation": "Сколько с меня?",
+              "example": "¿Cuánto es todo?"
+            },
+            {
+              "id": "es-a1-tienda-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "¿Puedo pagar con tarjeta?",
+              "translation": "Можно заплатить картой?",
+              "example": "Prefiero pagar en efectivo."
+            },
+            {
+              "id": "es-a1-tienda-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Me lo llevo.",
+              "translation": "Я это беру.",
+              "example": "Muy bien, me lo llevo."
+            },
+            {
+              "id": "es-a1-tienda-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "title": "Вежливая просьба через puedo",
+              "explanation": "Puedo плюс инфинитив — это «можно я…»: puedo probar, puedo pagar. Отвечают обычно claro или por supuesto — и то и другое значит «конечно»."
+            },
+            {
+              "id": "es-a1-tienda-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "¿___ probar esta chaqueta?",
+              "options": [
+                "Puedo",
+                "Puedes",
+                "Puede"
+              ],
+              "correctOption": "Puedo"
+            },
+            {
+              "id": "es-a1-tienda-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "«Можно заплатить картой?» — это:",
+              "options": [
+                "¿Puedo pagar con tarjeta?",
+                "¿Prefiero pagar en efectivo?",
+                "¿Cuánto es?"
+              ],
+              "correctOption": "¿Puedo pagar con tarjeta?"
+            },
+            {
+              "id": "es-a1-tienda-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Esta camisa me ___ grande.",
+              "options": [
+                "queda",
+                "quedo",
+                "quedas"
+              ],
+              "correctOption": "queda"
+            },
+            {
+              "id": "es-a1-tienda-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Я это беру.",
+              "canonicalAnswer": "Me lo llevo.",
+              "tokens": [
+                "lo",
+                "llevo",
+                "Me"
+              ]
+            },
+            {
+              "id": "es-a1-tienda-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Можно померить эти туфли?",
+              "canonicalAnswer": "¿Puedo probar estos zapatos?"
+            },
+            {
+              "id": "es-a1-tienda-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Сколько с меня?",
+              "canonicalAnswer": "¿Cuánto es?"
+            },
+            {
+              "id": "es-a1-tienda-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Мне подходит.",
+              "canonicalAnswer": "Me queda bien."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-tienda-check",
+          "title": "Проверка: магазин",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-tienda-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Ищу чёрные туфли.",
+              "canonicalAnswer": "Busco unos zapatos negros."
+            },
+            {
+              "id": "es-a1-tienda-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Можно померить эту куртку?",
+              "canonicalAnswer": "¿Puedo probar esta chaqueta?"
+            },
+            {
+              "id": "es-a1-tienda-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Можно заплатить картой?",
+              "canonicalAnswer": "¿Puedo pagar con tarjeta?"
+            },
+            {
+              "id": "es-a1-tienda-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Платье очень красивое.",
+              "canonicalAnswer": "El vestido es muy bonito."
+            },
+            {
+              "id": "es-a1-tienda-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-genero"
+              ],
+              "prompt": "Я это беру.",
+              "canonicalAnswer": "Me lo llevo."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-comida",
+      "title": "Еда и ресторан",
+      "subtitle": "Рассказать, что ешь, и заказать обед",
+      "canDo": [
+        "назвать продукты и блюда",
+        "сказать, что обычно ешь",
+        "заказать первое и второе",
+        "сказать, что вкусно"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-comida-01",
+          "title": "La comida",
+          "summary": "Продукты, приёмы пищи и что ты ешь обычно.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-comida-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "title": "Что ты обычно ешь",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Qué comes normalmente?",
+                  "translation": "Что ты обычно ешь?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Por la mañana, pan con queso y café.",
+                  "translation": "Утром хлеб с сыром и кофе."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y al mediodía?",
+                  "translation": "А в обед?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Carne o pescado con verduras.",
+                  "translation": "Мясо или рыбу с овощами."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "A mí me gusta mucho la fruta.",
+                  "translation": "А я очень люблю фрукты."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-comida-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "el pan, el queso, la leche",
+              "translation": "хлеб, сыр, молоко",
+              "example": "Por la mañana bebo leche."
+            },
+            {
+              "id": "es-a1-comida-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "la carne, el pescado, el pollo",
+              "translation": "мясо, рыба, курица",
+              "example": "Me gusta más el pollo."
+            },
+            {
+              "id": "es-a1-comida-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "las verduras, la fruta, la ensalada",
+              "translation": "овощи, фрукты, салат",
+              "example": "La ensalada está muy buena."
+            },
+            {
+              "id": "es-a1-comida-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "el desayuno, la comida, la cena",
+              "translation": "завтрак, обед, ужин",
+              "example": "La cena es a las nueve."
+            },
+            {
+              "id": "es-a1-comida-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "¿Qué comes normalmente?",
+              "translation": "Что ты обычно ешь?",
+              "example": "Normalmente como pollo con verduras."
+            },
+            {
+              "id": "es-a1-comida-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "title": "la comida — и еда, и обед",
+              "explanation": "В Испании la comida значит и еду вообще, и обед — главный приём пищи дня, около двух. Ужин называется la cena, и он поздний, часов в девять."
+            },
+            {
+              "id": "es-a1-comida-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "«Курица» — это:",
+              "options": [
+                "el pollo",
+                "el pescado",
+                "la carne"
+              ],
+              "correctOption": "el pollo"
+            },
+            {
+              "id": "es-a1-comida-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Me gusta más ___ pollo.",
+              "options": [
+                "el",
+                "la",
+                "los"
+              ],
+              "correctOption": "el"
+            },
+            {
+              "id": "es-a1-comida-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "La ___ es a las nueve.",
+              "options": [
+                "cena",
+                "desayuno",
+                "leche"
+              ],
+              "correctOption": "cena"
+            },
+            {
+              "id": "es-a1-comida-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Салат очень вкусный.",
+              "canonicalAnswer": "La ensalada está muy buena.",
+              "tokens": [
+                "ensalada",
+                "está",
+                "muy",
+                "buena",
+                "La"
+              ]
+            },
+            {
+              "id": "es-a1-comida-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Утром я пью молоко.",
+              "canonicalAnswer": "Por la mañana bebo leche."
+            },
+            {
+              "id": "es-a1-comida-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Мне больше нравится курица.",
+              "canonicalAnswer": "Me gusta más el pollo."
+            },
+            {
+              "id": "es-a1-comida-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Обычно я ем курицу с овощами.",
+              "canonicalAnswer": "Normalmente como pollo con verduras."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-comida-02",
+          "title": "En el restaurante",
+          "summary": "Заказ в два блюда, напиток и счёт.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-comida-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "title": "Заказ",
+              "lines": [
+                {
+                  "speaker": "Camarero",
+                  "text": "Buenas tardes. ¿Qué van a tomar?",
+                  "translation": "Добрый день. Что будете заказывать?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "De primero, una ensalada.",
+                  "translation": "На первое салат."
+                },
+                {
+                  "speaker": "Camarero",
+                  "text": "¿Y de segundo?",
+                  "translation": "А на второе?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Pollo con verduras, por favor.",
+                  "translation": "Курицу с овощами, пожалуйста."
+                },
+                {
+                  "speaker": "Camarero",
+                  "text": "¿Para beber?",
+                  "translation": "Пить что-нибудь?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Agua, gracias.",
+                  "translation": "Воду, спасибо."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-comida-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "De primero, una ensalada.",
+              "translation": "На первое салат.",
+              "example": "De primero quiero una sopa."
+            },
+            {
+              "id": "es-a1-comida-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "De segundo, pollo.",
+              "translation": "На второе курицу.",
+              "example": "De segundo, pescado con verduras."
+            },
+            {
+              "id": "es-a1-comida-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "¿Para beber?",
+              "translation": "Пить что-нибудь?",
+              "example": "Para beber, agua, por favor."
+            },
+            {
+              "id": "es-a1-comida-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Está muy rico.",
+              "translation": "Очень вкусно.",
+              "example": "El pescado está muy rico."
+            },
+            {
+              "id": "es-a1-comida-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "La cuenta, por favor.",
+              "translation": "Счёт, пожалуйста.",
+              "example": "Camarero, la cuenta, por favor."
+            },
+            {
+              "id": "es-a1-comida-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "title": "Обед в два блюда",
+              "explanation": "В ресторане спрашивают de primero и de segundo — на первое и на второе. Отвечать можно просто названием блюда: de primero, una ensalada."
+            },
+            {
+              "id": "es-a1-comida-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "«На первое салат» — это:",
+              "options": [
+                "De primero, una ensalada",
+                "De segundo, una ensalada",
+                "Para beber, una ensalada"
+              ],
+              "correctOption": "De primero, una ensalada"
+            },
+            {
+              "id": "es-a1-comida-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "¿Para ___?",
+              "options": [
+                "beber",
+                "bebo",
+                "bebes"
+              ],
+              "correctOption": "beber"
+            },
+            {
+              "id": "es-a1-comida-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "El pescado está muy ___.",
+              "options": [
+                "rico",
+                "rica",
+                "ricos"
+              ],
+              "correctOption": "rico"
+            },
+            {
+              "id": "es-a1-comida-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Счёт, пожалуйста.",
+              "canonicalAnswer": "La cuenta, por favor.",
+              "tokens": [
+                "cuenta",
+                "por",
+                "favor",
+                "La"
+              ]
+            },
+            {
+              "id": "es-a1-comida-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "На второе рыбу с овощами.",
+              "canonicalAnswer": "De segundo, pescado con verduras."
+            },
+            {
+              "id": "es-a1-comida-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Пить воду, пожалуйста.",
+              "canonicalAnswer": "Para beber, agua, por favor."
+            },
+            {
+              "id": "es-a1-comida-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Очень вкусно.",
+              "canonicalAnswer": "Está muy rico."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-comida-check",
+          "title": "Проверка: еда",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-comida-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Что ты обычно ешь?",
+              "canonicalAnswer": "¿Qué comes normalmente?"
+            },
+            {
+              "id": "es-a1-comida-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "На первое салат.",
+              "canonicalAnswer": "De primero, una ensalada."
+            },
+            {
+              "id": "es-a1-comida-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Мне больше нравится курица.",
+              "canonicalAnswer": "Me gusta más el pollo."
+            },
+            {
+              "id": "es-a1-comida-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Счёт, пожалуйста.",
+              "canonicalAnswer": "La cuenta, por favor."
+            },
+            {
+              "id": "es-a1-comida-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Рыба очень вкусная.",
+              "canonicalAnswer": "El pescado está muy rico."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-clima",
+      "title": "Погода и время года",
+      "subtitle": "Сказать, какая погода, и что будет завтра",
+      "canDo": [
+        "сказать, какая погода",
+        "спросить про погоду",
+        "назвать время года и месяц",
+        "сказать, что будет завтра"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-clima-01",
+          "title": "¿Qué tiempo hace?",
+          "summary": "Погода сегодня и завтра, и почему тут глагол hacer.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-clima-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Какая погода",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Qué tiempo hace hoy?",
+                  "translation": "Какая сегодня погода?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Hace mucho calor.",
+                  "translation": "Очень жарко."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Y mañana?",
+                  "translation": "А завтра?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Mañana va a llover.",
+                  "translation": "Завтра будет дождь."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Entonces me quedo en casa.",
+                  "translation": "Тогда я останусь дома."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-clima-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Hace calor.",
+              "translation": "Жарко.",
+              "example": "En agosto hace mucho calor."
+            },
+            {
+              "id": "es-a1-clima-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Hace frío.",
+              "translation": "Холодно.",
+              "example": "En enero hace frío."
+            },
+            {
+              "id": "es-a1-clima-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Hace sol.",
+              "translation": "Солнечно.",
+              "example": "Hoy hace sol y no hace viento."
+            },
+            {
+              "id": "es-a1-clima-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Está lloviendo.",
+              "translation": "Идёт дождь.",
+              "example": "Está lloviendo, no salgo."
+            },
+            {
+              "id": "es-a1-clima-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿Qué tiempo hace hoy?",
+              "translation": "Какая сегодня погода?",
+              "example": "¿Qué tiempo hace en Madrid?"
+            },
+            {
+              "id": "es-a1-clima-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Погода говорится через hace",
+              "explanation": "Про погоду по-испански говорят hace: hace calor, hace frío, hace sol, hace viento. Дождь и снег устроены иначе: está lloviendo, está nevando."
+            },
+            {
+              "id": "es-a1-clima-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "___ mucho calor.",
+              "options": [
+                "Hace",
+                "Está",
+                "Es"
+              ],
+              "correctOption": "Hace"
+            },
+            {
+              "id": "es-a1-clima-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "«Холодно» — это:",
+              "options": [
+                "Hace frío",
+                "Hace calor",
+                "Hace sol"
+              ],
+              "correctOption": "Hace frío"
+            },
+            {
+              "id": "es-a1-clima-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Está ___, no salgo.",
+              "options": [
+                "lloviendo",
+                "llover",
+                "llueve"
+              ],
+              "correctOption": "lloviendo"
+            },
+            {
+              "id": "es-a1-clima-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Сегодня солнечно.",
+              "canonicalAnswer": "Hoy hace sol.",
+              "tokens": [
+                "hace",
+                "sol",
+                "Hoy"
+              ]
+            },
+            {
+              "id": "es-a1-clima-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Какая сегодня погода?",
+              "canonicalAnswer": "¿Qué tiempo hace hoy?"
+            },
+            {
+              "id": "es-a1-clima-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "В августе очень жарко.",
+              "canonicalAnswer": "En agosto hace mucho calor."
+            },
+            {
+              "id": "es-a1-clima-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Идёт дождь.",
+              "canonicalAnswer": "Está lloviendo."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-clima-02",
+          "title": "Las estaciones",
+          "summary": "Времена года, месяцы и любимое время года.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-clima-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Любимое время года",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Cuál es tu estación favorita?",
+                  "translation": "Какое твоё любимое время года?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El verano. Me gusta la playa.",
+                  "translation": "Лето. Мне нравится пляж."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "A mí me gusta más el otoño.",
+                  "translation": "А мне больше нравится осень."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Por qué?",
+                  "translation": "Почему?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "No hace calor y hay menos gente.",
+                  "translation": "Не жарко и меньше народу."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-clima-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "la primavera, el verano",
+              "translation": "весна, лето",
+              "example": "En primavera hace buen tiempo."
+            },
+            {
+              "id": "es-a1-clima-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "el otoño, el invierno",
+              "translation": "осень, зима",
+              "example": "En invierno hace mucho frío."
+            },
+            {
+              "id": "es-a1-clima-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "enero, febrero, marzo",
+              "translation": "январь, февраль, март",
+              "example": "En marzo todavía hace frío."
+            },
+            {
+              "id": "es-a1-clima-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "julio, agosto, septiembre",
+              "translation": "июль, август, сентябрь",
+              "example": "En agosto voy a viajar."
+            },
+            {
+              "id": "es-a1-clima-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿Cuál es tu estación favorita?",
+              "translation": "Какое твоё любимое время года?",
+              "example": "Mi estación favorita es el verano."
+            },
+            {
+              "id": "es-a1-clima-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Времена года и предлог en",
+              "explanation": "Сами по себе они с артиклем: el verano, el invierno, la primavera, el otoño. А после en артикль пропадает: en verano, en invierno."
+            },
+            {
+              "id": "es-a1-clima-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "«Зима» — это:",
+              "options": [
+                "el invierno",
+                "el otoño",
+                "el verano"
+              ],
+              "correctOption": "el invierno"
+            },
+            {
+              "id": "es-a1-clima-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "En ___ hace mucho frío.",
+              "options": [
+                "invierno",
+                "el invierno",
+                "la invierno"
+              ],
+              "correctOption": "invierno"
+            },
+            {
+              "id": "es-a1-clima-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Mi estación ___ es el verano.",
+              "options": [
+                "favorita",
+                "favorito",
+                "favoritas"
+              ],
+              "correctOption": "favorita"
+            },
+            {
+              "id": "es-a1-clima-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Летом я еду на пляж.",
+              "canonicalAnswer": "En verano voy a la playa.",
+              "tokens": [
+                "verano",
+                "voy",
+                "a",
+                "la",
+                "playa",
+                "En"
+              ]
+            },
+            {
+              "id": "es-a1-clima-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Какое твоё любимое время года?",
+              "canonicalAnswer": "¿Cuál es tu estación favorita?"
+            },
+            {
+              "id": "es-a1-clima-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Зимой очень холодно.",
+              "canonicalAnswer": "En invierno hace mucho frío."
+            },
+            {
+              "id": "es-a1-clima-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Весной хорошая погода.",
+              "canonicalAnswer": "En primavera hace buen tiempo."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-clima-check",
+          "title": "Проверка: погода",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-clima-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Какая сегодня погода?",
+              "canonicalAnswer": "¿Qué tiempo hace hoy?"
+            },
+            {
+              "id": "es-a1-clima-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Очень жарко.",
+              "canonicalAnswer": "Hace mucho calor."
+            },
+            {
+              "id": "es-a1-clima-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Завтра будет дождь.",
+              "canonicalAnswer": "Mañana va a llover."
+            },
+            {
+              "id": "es-a1-clima-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Зимой очень холодно.",
+              "canonicalAnswer": "En invierno hace mucho frío."
+            },
+            {
+              "id": "es-a1-clima-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Моё любимое время года — лето.",
+              "canonicalAnswer": "Mi estación favorita es el verano."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-salud",
+      "title": "Здоровье",
+      "subtitle": "Сказать, что болит, и сходить в аптеку",
+      "canDo": [
+        "сказать, что болит",
+        "сказать, что плохо себя чувствуешь",
+        "попросить лекарство в аптеке",
+        "записаться к врачу"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-salud-01",
+          "title": "No me encuentro bien",
+          "summary": "Что болит и как об этом сказать.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-salud-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Мне нехорошо",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "No me encuentro bien.",
+                  "translation": "Мне нехорошо."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Qué te pasa?",
+                  "translation": "Что с тобой?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Me duele la cabeza.",
+                  "translation": "У меня болит голова."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Tienes fiebre?",
+                  "translation": "У тебя температура?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Un poco. Voy a descansar.",
+                  "translation": "Немного. Пойду отдохну."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-salud-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Me duele la cabeza.",
+              "translation": "У меня болит голова.",
+              "example": "Me duele mucho la cabeza."
+            },
+            {
+              "id": "es-a1-salud-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Me duele el estómago.",
+              "translation": "У меня болит живот.",
+              "example": "Después de comer me duele el estómago."
+            },
+            {
+              "id": "es-a1-salud-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Tengo fiebre.",
+              "translation": "У меня температура.",
+              "example": "Tengo fiebre y estoy cansado."
+            },
+            {
+              "id": "es-a1-salud-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Estoy enfermo.",
+              "translation": "Я болею.",
+              "example": "Hoy estoy enfermo y no voy al trabajo."
+            },
+            {
+              "id": "es-a1-salud-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿Qué te pasa?",
+              "translation": "Что с тобой?",
+              "example": "¿Qué te pasa? No me encuentro bien."
+            },
+            {
+              "id": "es-a1-salud-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "me duele и me duelen",
+              "explanation": "Болит что-то одно — me duele: me duele la cabeza. Болят несколько — me duelen: me duelen los ojos. Устроено как gustar: болит не «я», а «мне»."
+            },
+            {
+              "id": "es-a1-salud-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Me ___ la cabeza.",
+              "options": [
+                "duele",
+                "duelen",
+                "duelo"
+              ],
+              "correctOption": "duele"
+            },
+            {
+              "id": "es-a1-salud-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "«У меня температура» — это:",
+              "options": [
+                "Tengo fiebre",
+                "Estoy enfermo",
+                "Me duele la cabeza"
+              ],
+              "correctOption": "Tengo fiebre"
+            },
+            {
+              "id": "es-a1-salud-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Me ___ los ojos.",
+              "options": [
+                "duelen",
+                "duele",
+                "dueles"
+              ],
+              "correctOption": "duelen"
+            },
+            {
+              "id": "es-a1-salud-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Я болею.",
+              "canonicalAnswer": "Estoy enfermo.",
+              "tokens": [
+                "enfermo",
+                "Estoy"
+              ]
+            },
+            {
+              "id": "es-a1-salud-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "У меня болит живот.",
+              "canonicalAnswer": "Me duele el estómago."
+            },
+            {
+              "id": "es-a1-salud-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Что с тобой?",
+              "canonicalAnswer": "¿Qué te pasa?"
+            },
+            {
+              "id": "es-a1-salud-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "У меня температура и я устал.",
+              "canonicalAnswer": "Tengo fiebre y estoy cansado."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-salud-02",
+          "title": "En la farmacia",
+          "summary": "Купить лекарство и записаться к врачу.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-salud-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "В аптеке",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Buenos días. Necesito algo para la cabeza.",
+                  "translation": "Здравствуйте. Нужно что-нибудь от головы."
+                },
+                {
+                  "speaker": "Farmacéutica",
+                  "text": "¿Le duele mucho?",
+                  "translation": "Сильно болит?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí, desde ayer.",
+                  "translation": "Да, со вчерашнего дня."
+                },
+                {
+                  "speaker": "Farmacéutica",
+                  "text": "Tome estas pastillas, una cada ocho horas.",
+                  "translation": "Возьмите эти таблетки, по одной каждые восемь часов."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Necesito receta?",
+                  "translation": "Нужен рецепт?"
+                },
+                {
+                  "speaker": "Farmacéutica",
+                  "text": "No, no hace falta.",
+                  "translation": "Нет, не нужно."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-salud-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Necesito algo para la cabeza.",
+              "translation": "Мне нужно что-нибудь от головы.",
+              "example": "Necesito algo para el estómago."
+            },
+            {
+              "id": "es-a1-salud-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Tome estas pastillas.",
+              "translation": "Возьмите эти таблетки.",
+              "example": "Una pastilla cada ocho horas."
+            },
+            {
+              "id": "es-a1-salud-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿Necesito receta?",
+              "translation": "Нужен рецепт?",
+              "example": "Para esto no necesito receta."
+            },
+            {
+              "id": "es-a1-salud-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Me duele desde ayer.",
+              "translation": "Болит со вчерашнего дня.",
+              "example": "Estoy enfermo desde el lunes."
+            },
+            {
+              "id": "es-a1-salud-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Quiero pedir cita con el médico.",
+              "translation": "Хочу записаться к врачу.",
+              "example": "Quiero pedir cita para el martes."
+            },
+            {
+              "id": "es-a1-salud-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Вежливое «вы»",
+              "explanation": "К незнакомому человеку обращаются на usted, и глагол берёт форму третьего лица: ¿le duele? вместо ¿te duele?, tome вместо toma."
+            },
+            {
+              "id": "es-a1-salud-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Necesito algo ___ la cabeza.",
+              "options": [
+                "para",
+                "por",
+                "de"
+              ],
+              "correctOption": "para"
+            },
+            {
+              "id": "es-a1-salud-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "«Нужен рецепт?» — это:",
+              "options": [
+                "¿Necesito receta?",
+                "¿Necesito pastillas?",
+                "¿Necesito cita?"
+              ],
+              "correctOption": "¿Necesito receta?"
+            },
+            {
+              "id": "es-a1-salud-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Una pastilla ___ ocho horas.",
+              "options": [
+                "cada",
+                "todos",
+                "desde"
+              ],
+              "correctOption": "cada"
+            },
+            {
+              "id": "es-a1-salud-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Хочу записаться к врачу.",
+              "canonicalAnswer": "Quiero pedir cita con el médico.",
+              "tokens": [
+                "pedir",
+                "cita",
+                "con",
+                "el",
+                "médico",
+                "Quiero"
+              ]
+            },
+            {
+              "id": "es-a1-salud-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Мне нужно что-нибудь от живота.",
+              "canonicalAnswer": "Necesito algo para el estómago."
+            },
+            {
+              "id": "es-a1-salud-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Болит со вчерашнего дня.",
+              "canonicalAnswer": "Me duele desde ayer."
+            },
+            {
+              "id": "es-a1-salud-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Хочу записаться на вторник.",
+              "canonicalAnswer": "Quiero pedir cita para el martes."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-salud-check",
+          "title": "Проверка: здоровье",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-salud-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "У меня болит голова.",
+              "canonicalAnswer": "Me duele la cabeza."
+            },
+            {
+              "id": "es-a1-salud-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "У меня температура.",
+              "canonicalAnswer": "Tengo fiebre."
+            },
+            {
+              "id": "es-a1-salud-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Что с тобой?",
+              "canonicalAnswer": "¿Qué te pasa?"
+            },
+            {
+              "id": "es-a1-salud-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Мне нужно что-нибудь от головы.",
+              "canonicalAnswer": "Necesito algo para la cabeza."
+            },
+            {
+              "id": "es-a1-salud-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Хочу записаться к врачу.",
+              "canonicalAnswer": "Quiero pedir cita con el médico."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-quedar",
+      "title": "Встречи и приглашения",
+      "subtitle": "Позвать, договориться и вежливо отказаться",
+      "canDo": [
+        "пригласить куда-нибудь",
+        "договориться о времени и месте",
+        "согласиться с удовольствием",
+        "вежливо отказаться и предложить другой день"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-quedar-01",
+          "title": "¿Quedamos?",
+          "summary": "Позвать и договориться, где и во сколько.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-quedar-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Договариваемся",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Quieres tomar un café mañana?",
+                  "translation": "Хочешь завтра выпить кофе?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¡Vale! ¿A qué hora?",
+                  "translation": "Давай! Во сколько?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿A las seis?",
+                  "translation": "В шесть?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Perfecto. ¿Dónde quedamos?",
+                  "translation": "Отлично. Где встречаемся?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "En la plaza, al lado del banco.",
+                  "translation": "На площади, возле банка."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-quedar-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿Quieres tomar un café?",
+              "translation": "Хочешь выпить кофе?",
+              "example": "¿Quieres tomar algo mañana?"
+            },
+            {
+              "id": "es-a1-quedar-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿A qué hora quedamos?",
+              "translation": "Во сколько встречаемся?",
+              "example": "¿A qué hora quedamos el sábado?"
+            },
+            {
+              "id": "es-a1-quedar-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿Dónde quedamos?",
+              "translation": "Где встречаемся?",
+              "example": "Quedamos en la plaza."
+            },
+            {
+              "id": "es-a1-quedar-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¡Vale, perfecto!",
+              "translation": "Давай, отлично!",
+              "example": "Vale, perfecto, hasta mañana."
+            },
+            {
+              "id": "es-a1-quedar-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Te invito.",
+              "translation": "Я угощаю.",
+              "example": "Hoy te invito yo."
+            },
+            {
+              "id": "es-a1-quedar-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "quedar — это договориться о встрече",
+              "explanation": "Quedar значит не «остаться», а «условиться встретиться»: ¿dónde quedamos? — где встречаемся? Quedamos a las seis — договорились на шесть."
+            },
+            {
+              "id": "es-a1-quedar-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿A qué hora ___?",
+              "options": [
+                "quedamos",
+                "quedo",
+                "quedas"
+              ],
+              "correctOption": "quedamos"
+            },
+            {
+              "id": "es-a1-quedar-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "«Где встречаемся?» — это:",
+              "options": [
+                "¿Dónde quedamos?",
+                "¿A qué hora quedamos?",
+                "¿Quieres tomar un café?"
+              ],
+              "correctOption": "¿Dónde quedamos?"
+            },
+            {
+              "id": "es-a1-quedar-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿___ tomar un café?",
+              "options": [
+                "Quieres",
+                "Quiero",
+                "Quiere"
+              ],
+              "correctOption": "Quieres"
+            },
+            {
+              "id": "es-a1-quedar-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Встречаемся на площади.",
+              "canonicalAnswer": "Quedamos en la plaza.",
+              "tokens": [
+                "en",
+                "la",
+                "plaza",
+                "Quedamos"
+              ]
+            },
+            {
+              "id": "es-a1-quedar-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Хочешь завтра что-нибудь выпить?",
+              "canonicalAnswer": "¿Quieres tomar algo mañana?"
+            },
+            {
+              "id": "es-a1-quedar-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Во сколько встречаемся в субботу?",
+              "canonicalAnswer": "¿A qué hora quedamos el sábado?"
+            },
+            {
+              "id": "es-a1-quedar-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Сегодня я угощаю.",
+              "canonicalAnswer": "Hoy te invito yo."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-quedar-02",
+          "title": "Lo siento, no puedo",
+          "summary": "Отказаться так, чтобы позвали ещё раз.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-quedar-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "В другой день",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Vienes al cine el viernes?",
+                  "translation": "Пойдёшь в кино в пятницу?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Lo siento, no puedo. Tengo que trabajar.",
+                  "translation": "Прости, не могу. Мне надо работать."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y el sábado?",
+                  "translation": "А в субботу?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El sábado sí, con mucho gusto.",
+                  "translation": "В субботу да, с удовольствием."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Genial. Te llamo el viernes.",
+                  "translation": "Отлично. Позвоню тебе в пятницу."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-quedar-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Lo siento, no puedo.",
+              "translation": "Прости, не могу.",
+              "example": "Lo siento, hoy no puedo."
+            },
+            {
+              "id": "es-a1-quedar-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Con mucho gusto.",
+              "translation": "С удовольствием.",
+              "example": "El sábado sí, con mucho gusto."
+            },
+            {
+              "id": "es-a1-quedar-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿Vienes al cine?",
+              "translation": "Пойдёшь в кино?",
+              "example": "¿Vienes al cine el viernes?"
+            },
+            {
+              "id": "es-a1-quedar-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Te llamo mañana.",
+              "translation": "Позвоню тебе завтра.",
+              "example": "Te llamo el viernes por la tarde."
+            },
+            {
+              "id": "es-a1-quedar-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Otro día, ¿vale?",
+              "translation": "В другой раз, ладно?",
+              "example": "Hoy no puedo, otro día, ¿vale?"
+            },
+            {
+              "id": "es-a1-quedar-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Отказ без грубости",
+              "explanation": "Отказываются мягко: lo siento, no puedo — и сразу называют причину: tengo que trabajar. А потом предлагают другой день: otro día, ¿vale?"
+            },
+            {
+              "id": "es-a1-quedar-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "«С удовольствием» — это:",
+              "options": [
+                "Con mucho gusto",
+                "Lo siento, no puedo",
+                "Otro día"
+              ],
+              "correctOption": "Con mucho gusto"
+            },
+            {
+              "id": "es-a1-quedar-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿___ al cine el viernes?",
+              "options": [
+                "Vienes",
+                "Vengo",
+                "Viene"
+              ],
+              "correctOption": "Vienes"
+            },
+            {
+              "id": "es-a1-quedar-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Te ___ mañana.",
+              "options": [
+                "llamo",
+                "llamas",
+                "llama"
+              ],
+              "correctOption": "llamo"
+            },
+            {
+              "id": "es-a1-quedar-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Прости, не могу.",
+              "canonicalAnswer": "Lo siento, no puedo.",
+              "tokens": [
+                "siento",
+                "no",
+                "puedo",
+                "Lo"
+              ]
+            },
+            {
+              "id": "es-a1-quedar-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Пойдёшь в кино в пятницу?",
+              "canonicalAnswer": "¿Vienes al cine el viernes?"
+            },
+            {
+              "id": "es-a1-quedar-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Сегодня не могу, в другой раз, ладно?",
+              "canonicalAnswer": "Hoy no puedo, otro día, ¿vale?"
+            },
+            {
+              "id": "es-a1-quedar-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Позвоню тебе завтра.",
+              "canonicalAnswer": "Te llamo mañana."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-quedar-check",
+          "title": "Проверка: встречи",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-quedar-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Хочешь выпить кофе?",
+              "canonicalAnswer": "¿Quieres tomar un café?"
+            },
+            {
+              "id": "es-a1-quedar-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Где встречаемся?",
+              "canonicalAnswer": "¿Dónde quedamos?"
+            },
+            {
+              "id": "es-a1-quedar-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Прости, не могу.",
+              "canonicalAnswer": "Lo siento, no puedo."
+            },
+            {
+              "id": "es-a1-quedar-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "С удовольствием.",
+              "canonicalAnswer": "Con mucho gusto."
+            },
+            {
+              "id": "es-a1-quedar-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Позвоню тебе завтра.",
+              "canonicalAnswer": "Te llamo mañana."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-hotel",
+      "title": "Отель",
+      "subtitle": "Заселиться и решить вопрос на ресепшене",
+      "canDo": [
+        "сказать, что у тебя бронь",
+        "попросить номер на нужный срок",
+        "спросить про завтрак",
+        "сказать, что что-то не работает"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-hotel-01",
+          "title": "Una habitación, por favor",
+          "summary": "Бронь, тип номера и во сколько завтрак.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-hotel-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Заселение",
+              "lines": [
+                {
+                  "speaker": "Recepcionista",
+                  "text": "Buenas tardes. ¿Tiene reserva?",
+                  "translation": "Добрый день. У вас бронь?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí, a nombre de Ana.",
+                  "translation": "Да, на имя Ана."
+                },
+                {
+                  "speaker": "Recepcionista",
+                  "text": "Una habitación doble para tres noches.",
+                  "translation": "Двухместный номер на три ночи."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Exacto. ¿A qué hora es el desayuno?",
+                  "translation": "Именно. Во сколько завтрак?"
+                },
+                {
+                  "speaker": "Recepcionista",
+                  "text": "De ocho a diez.",
+                  "translation": "С восьми до десяти."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-hotel-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "una habitación doble",
+              "translation": "двухместный номер",
+              "example": "Quiero una habitación doble."
+            },
+            {
+              "id": "es-a1-hotel-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "una habitación individual",
+              "translation": "одноместный номер",
+              "example": "Para mí, una habitación individual."
+            },
+            {
+              "id": "es-a1-hotel-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Tengo una reserva a nombre de Ana.",
+              "translation": "У меня бронь на имя Ана.",
+              "example": "¿Tiene reserva?"
+            },
+            {
+              "id": "es-a1-hotel-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "para tres noches",
+              "translation": "на три ночи",
+              "example": "Una habitación para dos noches."
+            },
+            {
+              "id": "es-a1-hotel-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿A qué hora es el desayuno?",
+              "translation": "Во сколько завтрак?",
+              "example": "El desayuno es de ocho a diez."
+            },
+            {
+              "id": "es-a1-hotel-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "de … a … — промежуток",
+              "explanation": "Отрезок времени задаётся парой de и a: de ocho a diez — с восьми до десяти. Так же и про дни: de lunes a viernes."
+            },
+            {
+              "id": "es-a1-hotel-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Quiero una habitación ___.",
+              "options": [
+                "doble",
+                "dobles",
+                "doblo"
+              ],
+              "correctOption": "doble"
+            },
+            {
+              "id": "es-a1-hotel-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "«На две ночи» — это:",
+              "options": [
+                "para dos noches",
+                "para dos días",
+                "de dos noches"
+              ],
+              "correctOption": "para dos noches"
+            },
+            {
+              "id": "es-a1-hotel-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "El desayuno es ___ ocho a diez.",
+              "options": [
+                "de",
+                "en",
+                "por"
+              ],
+              "correctOption": "de"
+            },
+            {
+              "id": "es-a1-hotel-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "У меня бронь.",
+              "canonicalAnswer": "Tengo una reserva.",
+              "tokens": [
+                "una",
+                "reserva",
+                "Tengo"
+              ]
+            },
+            {
+              "id": "es-a1-hotel-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Хочу одноместный номер.",
+              "canonicalAnswer": "Quiero una habitación individual."
+            },
+            {
+              "id": "es-a1-hotel-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Номер на две ночи.",
+              "canonicalAnswer": "Una habitación para dos noches."
+            },
+            {
+              "id": "es-a1-hotel-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Во сколько завтрак?",
+              "canonicalAnswer": "¿A qué hora es el desayuno?"
+            }
+          ]
+        },
+        {
+          "id": "es-a1-hotel-02",
+          "title": "En la habitación",
+          "summary": "Что-то не работает, чего-то не хватает.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-hotel-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Не работает вайфай",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Perdone, no funciona el wifi.",
+                  "translation": "Извините, не работает вайфай."
+                },
+                {
+                  "speaker": "Recepcionista",
+                  "text": "¿Cuál es su número de habitación?",
+                  "translation": "Какой у вас номер комнаты?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "La doscientos cinco.",
+                  "translation": "Двести пятый."
+                },
+                {
+                  "speaker": "Recepcionista",
+                  "text": "Ahora mismo lo miramos.",
+                  "translation": "Сейчас посмотрим."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Gracias. Una cosa más: ¿hay toallas?",
+                  "translation": "Спасибо. Ещё одно: полотенца есть?"
+                },
+                {
+                  "speaker": "Recepcionista",
+                  "text": "Sí, están en el baño.",
+                  "translation": "Да, они в ванной."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-hotel-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "No funciona el wifi.",
+              "translation": "Не работает вайфай.",
+              "example": "No funciona la luz."
+            },
+            {
+              "id": "es-a1-hotel-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿Cuál es su número de habitación?",
+              "translation": "Какой у вас номер комнаты?",
+              "example": "Mi habitación es la doscientos cinco."
+            },
+            {
+              "id": "es-a1-hotel-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "¿Hay toallas en el baño?",
+              "translation": "В ванной есть полотенца?",
+              "example": "Sí, las toallas están en el baño."
+            },
+            {
+              "id": "es-a1-hotel-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "cien, doscientos, trescientos",
+              "translation": "сто, двести, триста",
+              "example": "La habitación trescientos dos."
+            },
+            {
+              "id": "es-a1-hotel-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Una cosa más.",
+              "translation": "Ещё одно.",
+              "example": "Una cosa más: ¿a qué hora es el desayuno?"
+            },
+            {
+              "id": "es-a1-hotel-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "title": "Сотни согласуются со словом",
+              "explanation": "doscientos euros, но doscientas personas — сотня подстраивается под то слово, к которому относится."
+            },
+            {
+              "id": "es-a1-hotel-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "No ___ el wifi.",
+              "options": [
+                "funciona",
+                "funcionan",
+                "funciono"
+              ],
+              "correctOption": "funciona"
+            },
+            {
+              "id": "es-a1-hotel-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "«Двести» — это:",
+              "options": [
+                "doscientos",
+                "docientos",
+                "dos cientos"
+              ],
+              "correctOption": "doscientos"
+            },
+            {
+              "id": "es-a1-hotel-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Las toallas ___ en el baño.",
+              "options": [
+                "están",
+                "hay",
+                "es"
+              ],
+              "correctOption": "están"
+            },
+            {
+              "id": "es-a1-hotel-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Не работает свет.",
+              "canonicalAnswer": "No funciona la luz.",
+              "tokens": [
+                "funciona",
+                "la",
+                "luz",
+                "No"
+              ]
+            },
+            {
+              "id": "es-a1-hotel-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "В ванной есть полотенца?",
+              "canonicalAnswer": "¿Hay toallas en el baño?"
+            },
+            {
+              "id": "es-a1-hotel-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Не работает вайфай.",
+              "canonicalAnswer": "No funciona el wifi."
+            },
+            {
+              "id": "es-a1-hotel-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Моя комната двести пятая.",
+              "canonicalAnswer": "Mi habitación es la doscientos cinco."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-hotel-check",
+          "title": "Проверка: отель",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-hotel-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "У меня бронь на имя Ана.",
+              "canonicalAnswer": "Tengo una reserva a nombre de Ana."
+            },
+            {
+              "id": "es-a1-hotel-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Хочу двухместный номер.",
+              "canonicalAnswer": "Quiero una habitación doble."
+            },
+            {
+              "id": "es-a1-hotel-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Во сколько завтрак?",
+              "canonicalAnswer": "¿A qué hora es el desayuno?"
+            },
+            {
+              "id": "es-a1-hotel-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "Не работает вайфай.",
+              "canonicalAnswer": "No funciona el wifi."
+            },
+            {
+              "id": "es-a1-hotel-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener"
+              ],
+              "prompt": "В ванной есть полотенца?",
+              "canonicalAnswer": "¿Hay toallas en el baño?"
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-transporte",
+      "title": "Транспорт и поездка",
+      "subtitle": "Купить билет и добраться до места",
+      "canDo": [
+        "купить билет на поезд",
+        "спросить, когда отправление",
+        "сказать, каким транспортом едешь",
+        "пройти регистрацию в аэропорту"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-transp-01",
+          "title": "Un billete, por favor",
+          "summary": "Билет, время отправления и вид транспорта.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-transp-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "title": "В кассе",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Un billete para Madrid, por favor.",
+                  "translation": "Один билет до Мадрида, пожалуйста."
+                },
+                {
+                  "speaker": "Empleado",
+                  "text": "¿De ida o de ida y vuelta?",
+                  "translation": "В одну сторону или туда и обратно?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "De ida y vuelta.",
+                  "translation": "Туда и обратно."
+                },
+                {
+                  "speaker": "Empleado",
+                  "text": "Son cuarenta euros.",
+                  "translation": "Сорок евро."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿A qué hora sale el tren?",
+                  "translation": "Во сколько отправляется поезд?"
+                },
+                {
+                  "speaker": "Empleado",
+                  "text": "A las nueve y cuarto.",
+                  "translation": "В девять пятнадцать."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-transp-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "un billete para Madrid",
+              "translation": "билет до Мадрида",
+              "example": "Quiero un billete para Madrid."
+            },
+            {
+              "id": "es-a1-transp-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "de ida y vuelta",
+              "translation": "туда и обратно",
+              "example": "Un billete de ida y vuelta, por favor."
+            },
+            {
+              "id": "es-a1-transp-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿A qué hora sale el tren?",
+              "translation": "Во сколько отправляется поезд?",
+              "example": "El tren sale a las nueve."
+            },
+            {
+              "id": "es-a1-transp-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "el tren, el autobús, el avión",
+              "translation": "поезд, автобус, самолёт",
+              "example": "Voy en tren, no en avión."
+            },
+            {
+              "id": "es-a1-transp-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿Cuánto tarda?",
+              "translation": "Сколько времени занимает?",
+              "example": "El tren tarda dos horas."
+            },
+            {
+              "id": "es-a1-transp-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "title": "Транспорт — через en",
+              "explanation": "Каким транспортом едешь, говорится через en: en tren, en autobús, en avión, en metro. Пешком стоит особняком: a pie."
+            },
+            {
+              "id": "es-a1-transp-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Voy ___ tren.",
+              "options": [
+                "en",
+                "a",
+                "con"
+              ],
+              "correctOption": "en"
+            },
+            {
+              "id": "es-a1-transp-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "«Туда и обратно» — это:",
+              "options": [
+                "de ida y vuelta",
+                "de ida",
+                "de vuelta"
+              ],
+              "correctOption": "de ida y vuelta"
+            },
+            {
+              "id": "es-a1-transp-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿A qué hora ___ el tren?",
+              "options": [
+                "sale",
+                "salgo",
+                "sales"
+              ],
+              "correctOption": "sale"
+            },
+            {
+              "id": "es-a1-transp-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Поезд отправляется в девять.",
+              "canonicalAnswer": "El tren sale a las nueve.",
+              "tokens": [
+                "tren",
+                "sale",
+                "a",
+                "las",
+                "nueve",
+                "El"
+              ]
+            },
+            {
+              "id": "es-a1-transp-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Билет до Мадрида, пожалуйста.",
+              "canonicalAnswer": "Un billete para Madrid, por favor."
+            },
+            {
+              "id": "es-a1-transp-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Я еду на поезде, не на самолёте.",
+              "canonicalAnswer": "Voy en tren, no en avión."
+            },
+            {
+              "id": "es-a1-transp-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Поезд идёт два часа.",
+              "canonicalAnswer": "El tren tarda dos horas."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-transp-02",
+          "title": "En el aeropuerto",
+          "summary": "Регистрация, багаж и выход на посадку.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-transp-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "title": "Регистрация",
+              "lines": [
+                {
+                  "speaker": "Empleada",
+                  "text": "Su pasaporte, por favor.",
+                  "translation": "Ваш паспорт, пожалуйста."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Aquí tiene mi pasaporte.",
+                  "translation": "Вот мой паспорт."
+                },
+                {
+                  "speaker": "Empleada",
+                  "text": "¿Lleva equipaje?",
+                  "translation": "У вас есть багаж?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Solo llevo una maleta.",
+                  "translation": "Везу только один чемодан."
+                },
+                {
+                  "speaker": "Empleada",
+                  "text": "La puerta de embarque es la doce.",
+                  "translation": "Выход на посадку двенадцатый."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿A qué hora sale el vuelo?",
+                  "translation": "Во сколько вылет?"
+                }
+              ]
+            },
+            {
+              "id": "es-a1-transp-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Su pasaporte, por favor.",
+              "translation": "Ваш паспорт, пожалуйста.",
+              "example": "Aquí tiene mi pasaporte."
+            },
+            {
+              "id": "es-a1-transp-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿Lleva equipaje?",
+              "translation": "У вас есть багаж?",
+              "example": "Solo llevo una maleta."
+            },
+            {
+              "id": "es-a1-transp-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "la puerta de embarque",
+              "translation": "выход на посадку",
+              "example": "La puerta de embarque es la doce."
+            },
+            {
+              "id": "es-a1-transp-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Mi vuelo sale a las diez.",
+              "translation": "Мой рейс вылетает в десять.",
+              "example": "El vuelo sale a las diez."
+            },
+            {
+              "id": "es-a1-transp-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿Dónde está la puerta doce?",
+              "translation": "Где двенадцатый выход?",
+              "example": "La puerta doce está a la derecha."
+            },
+            {
+              "id": "es-a1-transp-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "title": "В аэропорту всегда usted",
+              "explanation": "Со служащими говорят на usted: su pasaporte, ¿lleva equipaje? Глагол в третьем лице, а «ваш» — su."
+            },
+            {
+              "id": "es-a1-transp-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿___ equipaje?",
+              "options": [
+                "Lleva",
+                "Llevas",
+                "Llevo"
+              ],
+              "correctOption": "Lleva"
+            },
+            {
+              "id": "es-a1-transp-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "«Только один чемодан» — это:",
+              "options": [
+                "Solo una maleta",
+                "Solo un pasaporte",
+                "Solo un billete"
+              ],
+              "correctOption": "Solo una maleta"
+            },
+            {
+              "id": "es-a1-transp-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Mi vuelo ___ a las diez.",
+              "options": [
+                "sale",
+                "salgo",
+                "salen"
+              ],
+              "correctOption": "sale"
+            },
+            {
+              "id": "es-a1-transp-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Вот мой паспорт.",
+              "canonicalAnswer": "Aquí tiene mi pasaporte.",
+              "tokens": [
+                "tiene",
+                "mi",
+                "pasaporte",
+                "Aquí"
+              ]
+            },
+            {
+              "id": "es-a1-transp-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Везу только один чемодан.",
+              "canonicalAnswer": "Solo llevo una maleta."
+            },
+            {
+              "id": "es-a1-transp-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Где двенадцатый выход?",
+              "canonicalAnswer": "¿Dónde está la puerta doce?"
+            },
+            {
+              "id": "es-a1-transp-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Мой рейс вылетает в десять.",
+              "canonicalAnswer": "Mi vuelo sale a las diez."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-transp-check",
+          "title": "Проверка: транспорт",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-transp-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Билет до Мадрида, пожалуйста.",
+              "canonicalAnswer": "Un billete para Madrid, por favor."
+            },
+            {
+              "id": "es-a1-transp-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Туда и обратно.",
+              "canonicalAnswer": "De ida y vuelta."
+            },
+            {
+              "id": "es-a1-transp-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Во сколько отправляется поезд?",
+              "canonicalAnswer": "¿A qué hora sale el tren?"
+            },
+            {
+              "id": "es-a1-transp-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Вот мой паспорт.",
+              "canonicalAnswer": "Aquí tiene mi pasaporte."
+            },
+            {
+              "id": "es-a1-transp-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Мой рейс вылетает в десять.",
+              "canonicalAnswer": "Mi vuelo sale a las diez."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-trabajo",
+      "title": "Работа",
+      "subtitle": "Назвать профессию и рассказать про свой день",
+      "canDo": [
+        "назвать свою профессию",
+        "сказать, где работаешь",
+        "спросить собеседника о работе",
+        "рассказать про рабочий график"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-trabajo-01",
+          "title": "¿A qué te dedicas?",
+          "summary": "Профессии и почему после ser нет артикля.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-trabajo-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "title": "Чем занимаешься",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿A qué te dedicas?",
+                  "translation": "Чем ты занимаешься?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Soy profesora. Trabajo en una escuela.",
+                  "translation": "Я учительница. Работаю в школе."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y te gusta?",
+                  "translation": "И нравится?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Mucho. ¿Tú qué haces?",
+                  "translation": "Очень. А ты чем занимаешься?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Soy ingeniero en una empresa grande.",
+                  "translation": "Я инженер в большой компании."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-trabajo-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Soy profesor. Soy profesora.",
+              "translation": "Я учитель. Я учительница.",
+              "example": "Mi madre es profesora."
+            },
+            {
+              "id": "es-a1-trabajo-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "el médico, el ingeniero, el camarero",
+              "translation": "врач, инженер, официант",
+              "example": "Mi hermano es ingeniero."
+            },
+            {
+              "id": "es-a1-trabajo-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Trabajo en una escuela.",
+              "translation": "Я работаю в школе.",
+              "example": "Trabajo en una empresa grande."
+            },
+            {
+              "id": "es-a1-trabajo-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "¿A qué te dedicas?",
+              "translation": "Чем ты занимаешься?",
+              "example": "¿A qué te dedicas? Soy médico."
+            },
+            {
+              "id": "es-a1-trabajo-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Estoy buscando trabajo.",
+              "translation": "Я ищу работу.",
+              "example": "Ahora estoy buscando trabajo."
+            },
+            {
+              "id": "es-a1-trabajo-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "title": "Профессия идёт без артикля",
+              "explanation": "После ser профессия ставится голой: soy profesora, es ingeniero. Артикль появляется, только когда есть определение: es un profesor muy bueno."
+            },
+            {
+              "id": "es-a1-trabajo-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Soy ___.",
+              "options": [
+                "profesora",
+                "la profesora",
+                "una profesora"
+              ],
+              "correctOption": "profesora"
+            },
+            {
+              "id": "es-a1-trabajo-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "«Официант» — это:",
+              "options": [
+                "el camarero",
+                "el médico",
+                "el ingeniero"
+              ],
+              "correctOption": "el camarero"
+            },
+            {
+              "id": "es-a1-trabajo-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "¿A qué te ___?",
+              "options": [
+                "dedicas",
+                "dedico",
+                "dedica"
+              ],
+              "correctOption": "dedicas"
+            },
+            {
+              "id": "es-a1-trabajo-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Я работаю в школе.",
+              "canonicalAnswer": "Trabajo en una escuela.",
+              "tokens": [
+                "en",
+                "una",
+                "escuela",
+                "Trabajo"
+              ]
+            },
+            {
+              "id": "es-a1-trabajo-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Мой брат инженер.",
+              "canonicalAnswer": "Mi hermano es ingeniero."
+            },
+            {
+              "id": "es-a1-trabajo-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Чем ты занимаешься?",
+              "canonicalAnswer": "¿A qué te dedicas?"
+            },
+            {
+              "id": "es-a1-trabajo-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Я работаю в большой компании.",
+              "canonicalAnswer": "Trabajo en una empresa grande."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-trabajo-02",
+          "title": "Mi horario",
+          "summary": "Во сколько начинаешь, во сколько заканчиваешь.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-trabajo-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "title": "Рабочий день",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Cuántas horas trabajas al día?",
+                  "translation": "Сколько часов в день ты работаешь?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Ocho. Empiezo a las nueve y termino a las seis.",
+                  "translation": "Восемь. Начинаю в девять, заканчиваю в шесть."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Y descansas al mediodía?",
+                  "translation": "А в обед отдыхаешь?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Sí, una hora para comer.",
+                  "translation": "Да, час на обед."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Yo trabajo desde casa los viernes.",
+                  "translation": "А я по пятницам работаю из дома."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-trabajo-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Empiezo a las nueve.",
+              "translation": "Я начинаю в девять.",
+              "example": "Empiezo a trabajar a las nueve."
+            },
+            {
+              "id": "es-a1-trabajo-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Termino a las seis.",
+              "translation": "Я заканчиваю в шесть.",
+              "example": "Termino de trabajar a las seis."
+            },
+            {
+              "id": "es-a1-trabajo-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Trabajo ocho horas al día.",
+              "translation": "Работаю восемь часов в день.",
+              "example": "Trabajo cuarenta horas a la semana."
+            },
+            {
+              "id": "es-a1-trabajo-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Trabajo desde casa.",
+              "translation": "Работаю из дома.",
+              "example": "Los viernes trabajo desde casa."
+            },
+            {
+              "id": "es-a1-trabajo-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Tengo una reunión a las diez.",
+              "translation": "У меня встреча в десять.",
+              "example": "Hoy tengo dos reuniones."
+            },
+            {
+              "id": "es-a1-trabajo-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "title": "empezar a и terminar de",
+              "explanation": "Empiezo a trabajar — начинаю работать, через предлог a. Termino de trabajar — заканчиваю, через предлог de. Предлог тут не выбирается, он закреплён за глаголом."
+            },
+            {
+              "id": "es-a1-trabajo-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "___ a las nueve.",
+              "options": [
+                "Empiezo",
+                "Empiezas",
+                "Empieza"
+              ],
+              "correctOption": "Empiezo"
+            },
+            {
+              "id": "es-a1-trabajo-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Termino ___ trabajar a las seis.",
+              "options": [
+                "de",
+                "a",
+                "en"
+              ],
+              "correctOption": "de"
+            },
+            {
+              "id": "es-a1-trabajo-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "«Работаю из дома» — это:",
+              "options": [
+                "Trabajo desde casa",
+                "Trabajo a casa",
+                "Trabajo con casa"
+              ],
+              "correctOption": "Trabajo desde casa"
+            },
+            {
+              "id": "es-a1-trabajo-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "У меня встреча в десять.",
+              "canonicalAnswer": "Tengo una reunión a las diez.",
+              "tokens": [
+                "una",
+                "reunión",
+                "a",
+                "las",
+                "diez",
+                "Tengo"
+              ]
+            },
+            {
+              "id": "es-a1-trabajo-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Я начинаю работать в девять.",
+              "canonicalAnswer": "Empiezo a trabajar a las nueve."
+            },
+            {
+              "id": "es-a1-trabajo-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Работаю восемь часов в день.",
+              "canonicalAnswer": "Trabajo ocho horas al día."
+            },
+            {
+              "id": "es-a1-trabajo-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "По пятницам я работаю из дома.",
+              "canonicalAnswer": "Los viernes trabajo desde casa."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-trabajo-check",
+          "title": "Проверка: работа",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-trabajo-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Чем ты занимаешься?",
+              "canonicalAnswer": "¿A qué te dedicas?"
+            },
+            {
+              "id": "es-a1-trabajo-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Я учительница.",
+              "canonicalAnswer": "Soy profesora."
+            },
+            {
+              "id": "es-a1-trabajo-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Я работаю в большой компании.",
+              "canonicalAnswer": "Trabajo en una empresa grande."
+            },
+            {
+              "id": "es-a1-trabajo-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "Я начинаю в девять и заканчиваю в шесть.",
+              "canonicalAnswer": "Empiezo a las nueve y termino a las seis."
+            },
+            {
+              "id": "es-a1-trabajo-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser"
+              ],
+              "prompt": "У меня встреча в десять.",
+              "canonicalAnswer": "Tengo una reunión a las diez."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-telefono",
+      "title": "Телефон и сообщения",
+      "subtitle": "Позвонить, договориться, написать",
+      "canDo": [
+        "позвонить и представиться",
+        "сказать, что не можешь говорить",
+        "написать короткое сообщение",
+        "извиниться за опоздание"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-tel-01",
+          "title": "¿Dígame?",
+          "summary": "Звонок: представиться и договориться перезвонить.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-tel-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "title": "Звонок",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Dígame?",
+                  "translation": "Алло?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Hola, soy Ana. ¿Está Pedro?",
+                  "translation": "Привет, это Ана. Педро на месте?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Soy yo. ¿Qué tal?",
+                  "translation": "Это я. Как дела?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Bien. ¿Puedes hablar ahora?",
+                  "translation": "Хорошо. Можешь сейчас говорить?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Ahora no, te llamo en diez minutos.",
+                  "translation": "Сейчас нет, перезвоню через десять минут."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-tel-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿Dígame?",
+              "translation": "Алло?",
+              "example": "¿Dígame? ¿Quién es?"
+            },
+            {
+              "id": "es-a1-tel-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Hola, soy Ana.",
+              "translation": "Привет, это Ана.",
+              "example": "Hola, soy Ana. ¿Está Pedro?"
+            },
+            {
+              "id": "es-a1-tel-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿Puedes hablar ahora?",
+              "translation": "Можешь сейчас говорить?",
+              "example": "No puedo hablar ahora."
+            },
+            {
+              "id": "es-a1-tel-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Te llamo en diez minutos.",
+              "translation": "Перезвоню через десять минут.",
+              "example": "Te llamo en una hora."
+            },
+            {
+              "id": "es-a1-tel-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Perdona, se ha cortado.",
+              "translation": "Прости, связь прервалась.",
+              "example": "Se ha cortado, te llamo yo."
+            },
+            {
+              "id": "es-a1-tel-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "title": "По телефону «это я» — soy yo",
+              "explanation": "Представляясь, говорят soy Ana, а не «это Ана». И подтверждают soy yo — «это я». Снимая трубку, испанцы отвечают ¿dígame?"
+            },
+            {
+              "id": "es-a1-tel-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿___? ¿Quién es?",
+              "options": [
+                "Dígame",
+                "Digo",
+                "Dices"
+              ],
+              "correctOption": "Dígame"
+            },
+            {
+              "id": "es-a1-tel-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "«Перезвоню через час» — это:",
+              "options": [
+                "Te llamo en una hora",
+                "Te llamo a una hora",
+                "Llamo una hora"
+              ],
+              "correctOption": "Te llamo en una hora"
+            },
+            {
+              "id": "es-a1-tel-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "No puedo ___ ahora.",
+              "options": [
+                "hablar",
+                "hablo",
+                "hablas"
+              ],
+              "correctOption": "hablar"
+            },
+            {
+              "id": "es-a1-tel-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Привет, это Ана.",
+              "canonicalAnswer": "Hola, soy Ana.",
+              "tokens": [
+                "soy",
+                "Ana",
+                "Hola"
+              ]
+            },
+            {
+              "id": "es-a1-tel-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Можешь сейчас говорить?",
+              "canonicalAnswer": "¿Puedes hablar ahora?"
+            },
+            {
+              "id": "es-a1-tel-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Перезвоню через час.",
+              "canonicalAnswer": "Te llamo en una hora."
+            },
+            {
+              "id": "es-a1-tel-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Сейчас не могу говорить.",
+              "canonicalAnswer": "No puedo hablar ahora."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-tel-02",
+          "title": "Te escribo",
+          "summary": "Короткое сообщение и как его закончить.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-tel-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "title": "Сообщение",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Te escribo un mensaje con la dirección.",
+                  "translation": "Напишу тебе сообщение с адресом."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Vale, gracias. ¿Nos vemos a las seis?",
+                  "translation": "Хорошо, спасибо. Увидимся в шесть?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí, en la plaza.",
+                  "translation": "Да, на площади."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Perfecto. Hasta luego.",
+                  "translation": "Отлично. До скорого."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Un abrazo.",
+                  "translation": "Обнимаю."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-tel-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Te escribo un mensaje.",
+              "translation": "Напишу тебе сообщение.",
+              "example": "Te escribo un mensaje con la dirección."
+            },
+            {
+              "id": "es-a1-tel-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿Nos vemos a las seis?",
+              "translation": "Увидимся в шесть?",
+              "example": "Nos vemos mañana en la plaza."
+            },
+            {
+              "id": "es-a1-tel-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Un abrazo.",
+              "translation": "Обнимаю.",
+              "example": "Hasta mañana, un abrazo."
+            },
+            {
+              "id": "es-a1-tel-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿Me pasas tu dirección?",
+              "translation": "Скинешь мне адрес?",
+              "example": "¿Me pasas tu número?"
+            },
+            {
+              "id": "es-a1-tel-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Perdona por el retraso.",
+              "translation": "Прости за опоздание.",
+              "example": "Perdona por el retraso, llego en cinco minutos."
+            },
+            {
+              "id": "es-a1-tel-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "title": "Как закончить сообщение",
+              "explanation": "Друзьям пишут un abrazo — «обнимаю», или un beso. В письме по делу ставят saludos. Это не подпись, а обычная концовка, без неё сообщение звучит сухо."
+            },
+            {
+              "id": "es-a1-tel-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "¿Nos ___ a las seis?",
+              "options": [
+                "vemos",
+                "veo",
+                "ves"
+              ],
+              "correctOption": "vemos"
+            },
+            {
+              "id": "es-a1-tel-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "«Обнимаю» — это:",
+              "options": [
+                "Un abrazo",
+                "Un mensaje",
+                "Un saludo"
+              ],
+              "correctOption": "Un abrazo"
+            },
+            {
+              "id": "es-a1-tel-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Te ___ un mensaje.",
+              "options": [
+                "escribo",
+                "escribes",
+                "escribe"
+              ],
+              "correctOption": "escribo"
+            },
+            {
+              "id": "es-a1-tel-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Увидимся завтра на площади.",
+              "canonicalAnswer": "Nos vemos mañana en la plaza.",
+              "tokens": [
+                "vemos",
+                "mañana",
+                "en",
+                "la",
+                "plaza",
+                "Nos"
+              ]
+            },
+            {
+              "id": "es-a1-tel-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Напишу тебе сообщение с адресом.",
+              "canonicalAnswer": "Te escribo un mensaje con la dirección."
+            },
+            {
+              "id": "es-a1-tel-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Скинешь мне свой номер?",
+              "canonicalAnswer": "¿Me pasas tu número?"
+            },
+            {
+              "id": "es-a1-tel-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Прости за опоздание.",
+              "canonicalAnswer": "Perdona por el retraso."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-tel-check",
+          "title": "Проверка: телефон",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-tel-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Привет, это Ана.",
+              "canonicalAnswer": "Hola, soy Ana."
+            },
+            {
+              "id": "es-a1-tel-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Можешь сейчас говорить?",
+              "canonicalAnswer": "¿Puedes hablar ahora?"
+            },
+            {
+              "id": "es-a1-tel-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Перезвоню через десять минут.",
+              "canonicalAnswer": "Te llamo en diez minutos."
+            },
+            {
+              "id": "es-a1-tel-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Увидимся завтра на площади.",
+              "canonicalAnswer": "Nos vemos mañana en la plaza."
+            },
+            {
+              "id": "es-a1-tel-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar"
+              ],
+              "prompt": "Прости за опоздание.",
+              "canonicalAnswer": "Perdona por el retraso."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-fechas",
+      "title": "Даты и праздники",
+      "subtitle": "Назвать число, день рождения и поздравить",
+      "canDo": [
+        "назвать сегодняшнюю дату",
+        "сказать, когда день рождения",
+        "назвать месяц",
+        "поздравить с праздником"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-fecha-01",
+          "title": "¿Qué fecha es hoy?",
+          "summary": "Числа месяца и как строится дата.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-fecha-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "title": "Какое число",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Qué fecha es hoy?",
+                  "translation": "Какое сегодня число?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Hoy es el diez de mayo.",
+                  "translation": "Сегодня десятое мая."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Ya? Mi cumpleaños es el quince.",
+                  "translation": "Уже? У меня день рождения пятнадцатого."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¡Felicidades por adelantado!",
+                  "translation": "Заранее поздравляю!"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Gracias. Vamos a celebrarlo el sábado.",
+                  "translation": "Спасибо. Отметим в субботу."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-fecha-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "¿Qué fecha es hoy?",
+              "translation": "Какое сегодня число?",
+              "example": "Hoy es el diez de mayo."
+            },
+            {
+              "id": "es-a1-fecha-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "abril, mayo, junio",
+              "translation": "апрель, май, июнь",
+              "example": "Mi cumpleaños es en junio."
+            },
+            {
+              "id": "es-a1-fecha-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "octubre, noviembre, diciembre",
+              "translation": "октябрь, ноябрь, декабрь",
+              "example": "En diciembre hace mucho frío."
+            },
+            {
+              "id": "es-a1-fecha-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Mi cumpleaños es el quince de mayo.",
+              "translation": "У меня день рождения пятнадцатого мая.",
+              "example": "¿Cuándo es tu cumpleaños?"
+            },
+            {
+              "id": "es-a1-fecha-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "¡Felicidades!",
+              "translation": "Поздравляю!",
+              "example": "¡Felicidades por tu cumpleaños!"
+            },
+            {
+              "id": "es-a1-fecha-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "title": "Дата: el, число, de, месяц",
+              "explanation": "Собирается всегда одинаково: el diez de mayo. Год к этому добавляют через de: el diez de mayo de dos mil veinte."
+            },
+            {
+              "id": "es-a1-fecha-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Hoy es ___ diez de mayo.",
+              "options": [
+                "el",
+                "la",
+                "en"
+              ],
+              "correctOption": "el"
+            },
+            {
+              "id": "es-a1-fecha-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "«Когда твой день рождения?» — это:",
+              "options": [
+                "¿Cuándo es tu cumpleaños?",
+                "¿Qué fecha es hoy?",
+                "¿Cuántos años tienes?"
+              ],
+              "correctOption": "¿Cuándo es tu cumpleaños?"
+            },
+            {
+              "id": "es-a1-fecha-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Mi cumpleaños es ___ junio.",
+              "options": [
+                "en",
+                "el",
+                "de"
+              ],
+              "correctOption": "en"
+            },
+            {
+              "id": "es-a1-fecha-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Какое сегодня число?",
+              "canonicalAnswer": "¿Qué fecha es hoy?",
+              "tokens": [
+                "fecha",
+                "es",
+                "hoy",
+                "Qué"
+              ]
+            },
+            {
+              "id": "es-a1-fecha-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Сегодня десятое мая.",
+              "canonicalAnswer": "Hoy es el diez de mayo."
+            },
+            {
+              "id": "es-a1-fecha-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Когда твой день рождения?",
+              "canonicalAnswer": "¿Cuándo es tu cumpleaños?"
+            },
+            {
+              "id": "es-a1-fecha-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "В декабре очень холодно.",
+              "canonicalAnswer": "En diciembre hace mucho frío."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-fecha-02",
+          "title": "Vamos a celebrarlo",
+          "summary": "Праздники и поздравления.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-fecha-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "title": "Праздники",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Qué haces en Navidad?",
+                  "translation": "Что ты делаешь на Рождество?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Voy a casa de mis padres.",
+                  "translation": "Еду к родителям."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Y en Nochevieja?",
+                  "translation": "А в Новый год?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Con amigos. ¿Vienes?",
+                  "translation": "С друзьями. Придёшь?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¡Claro! ¿A qué hora empieza la fiesta?",
+                  "translation": "Конечно! Во сколько начинается праздник?"
+                }
+              ]
+            },
+            {
+              "id": "es-a1-fecha-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "la Navidad, la Nochevieja",
+              "translation": "Рождество, Новый год",
+              "example": "En Navidad voy a casa de mis padres."
+            },
+            {
+              "id": "es-a1-fecha-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Voy a una fiesta.",
+              "translation": "Я иду на праздник.",
+              "example": "La fiesta empieza a las diez."
+            },
+            {
+              "id": "es-a1-fecha-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "¡Feliz cumpleaños!",
+              "translation": "С днём рождения!",
+              "example": "¡Feliz cumpleaños, Ana!"
+            },
+            {
+              "id": "es-a1-fecha-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "¡Feliz Navidad!",
+              "translation": "С Рождеством!",
+              "example": "¡Feliz Navidad y feliz año nuevo!"
+            },
+            {
+              "id": "es-a1-fecha-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Vamos a celebrarlo.",
+              "translation": "Отметим это.",
+              "example": "Vamos a celebrarlo el sábado."
+            },
+            {
+              "id": "es-a1-fecha-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "title": "feliz или felicidades",
+              "explanation": "Feliz идёт вместе с праздником: feliz cumpleaños, feliz Navidad. Felicidades — просто «поздравляю», годится в любом случае."
+            },
+            {
+              "id": "es-a1-fecha-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "«С днём рождения!» — это:",
+              "options": [
+                "¡Feliz cumpleaños!",
+                "¡Feliz Navidad!",
+                "¡Felicidades por adelantado!"
+              ],
+              "correctOption": "¡Feliz cumpleaños!"
+            },
+            {
+              "id": "es-a1-fecha-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "La fiesta ___ a las diez.",
+              "options": [
+                "empieza",
+                "empiezo",
+                "empiezas"
+              ],
+              "correctOption": "empieza"
+            },
+            {
+              "id": "es-a1-fecha-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "En ___ voy a casa de mis padres.",
+              "options": [
+                "Navidad",
+                "la Navidad",
+                "el Navidad"
+              ],
+              "correctOption": "Navidad"
+            },
+            {
+              "id": "es-a1-fecha-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Отметим это в субботу.",
+              "canonicalAnswer": "Vamos a celebrarlo el sábado.",
+              "tokens": [
+                "a",
+                "celebrarlo",
+                "el",
+                "sábado",
+                "Vamos"
+              ]
+            },
+            {
+              "id": "es-a1-fecha-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "С днём рождения, Ана!",
+              "canonicalAnswer": "¡Feliz cumpleaños, Ana!"
+            },
+            {
+              "id": "es-a1-fecha-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Праздник начинается в десять.",
+              "canonicalAnswer": "La fiesta empieza a las diez."
+            },
+            {
+              "id": "es-a1-fecha-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "На Рождество я еду к родителям.",
+              "canonicalAnswer": "En Navidad voy a casa de mis padres."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-fecha-check",
+          "title": "Проверка: даты",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-fecha-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Какое сегодня число?",
+              "canonicalAnswer": "¿Qué fecha es hoy?"
+            },
+            {
+              "id": "es-a1-fecha-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Сегодня десятое мая.",
+              "canonicalAnswer": "Hoy es el diez de mayo."
+            },
+            {
+              "id": "es-a1-fecha-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Когда твой день рождения?",
+              "canonicalAnswer": "¿Cuándo es tu cumpleaños?"
+            },
+            {
+              "id": "es-a1-fecha-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "С днём рождения!",
+              "canonicalAnswer": "¡Feliz cumpleaños!"
+            },
+            {
+              "id": "es-a1-fecha-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros"
+              ],
+              "prompt": "Отметим это в субботу.",
+              "canonicalAnswer": "Vamos a celebrarlo el sábado."
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-ocio",
+      "title": "Свободное время",
+      "subtitle": "Чем занимаешься и что предложить",
+      "canDo": [
+        "рассказать о своих занятиях",
+        "сказать, как часто что-то делаешь",
+        "предложить сходить куда-нибудь",
+        "согласиться на предложение"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-ocio-01",
+          "title": "En mi tiempo libre",
+          "summary": "Занятия, спорт и как часто ты их делаешь.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-ocio-01-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "title": "Свободное время",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Qué haces en tu tiempo libre?",
+                  "translation": "Что ты делаешь в свободное время?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Leo mucho y hago deporte.",
+                  "translation": "Много читаю и занимаюсь спортом."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Qué deporte haces?",
+                  "translation": "Каким спортом?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Voy a nadar dos veces por semana.",
+                  "translation": "Хожу плавать два раза в неделю."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Yo prefiero correr por el parque.",
+                  "translation": "А я предпочитаю бегать в парке."
+                }
+              ]
+            },
+            {
+              "id": "es-a1-ocio-01-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "en mi tiempo libre",
+              "translation": "в свободное время",
+              "example": "En mi tiempo libre leo mucho."
+            },
+            {
+              "id": "es-a1-ocio-01-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "hacer deporte, nadar, correr",
+              "translation": "заниматься спортом, плавать, бегать",
+              "example": "Voy a nadar los martes."
+            },
+            {
+              "id": "es-a1-ocio-01-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "dos veces por semana",
+              "translation": "два раза в неделю",
+              "example": "Hago deporte tres veces por semana."
+            },
+            {
+              "id": "es-a1-ocio-01-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Prefiero correr por el parque.",
+              "translation": "Я предпочитаю бегать в парке.",
+              "example": "Prefiero leer en casa."
+            },
+            {
+              "id": "es-a1-ocio-01-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "¿Qué haces en tu tiempo libre?",
+              "translation": "Что ты делаешь в свободное время?",
+              "example": "En mi tiempo libre veo películas."
+            },
+            {
+              "id": "es-a1-ocio-01-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "title": "Как часто — через veces",
+              "explanation": "Один раз — una vez, два раза — dos veces. Дальше добавляется срок: dos veces por semana, tres veces al mes."
+            },
+            {
+              "id": "es-a1-ocio-01-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Hago deporte tres ___ por semana.",
+              "options": [
+                "veces",
+                "vez",
+                "vezas"
+              ],
+              "correctOption": "veces"
+            },
+            {
+              "id": "es-a1-ocio-01-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "«Я предпочитаю читать дома» — это:",
+              "options": [
+                "Prefiero leer en casa",
+                "Prefiero correr en casa",
+                "Prefiero casa"
+              ],
+              "correctOption": "Prefiero leer en casa"
+            },
+            {
+              "id": "es-a1-ocio-01-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Voy a ___ los martes.",
+              "options": [
+                "nadar",
+                "nado",
+                "nadas"
+              ],
+              "correctOption": "nadar"
+            },
+            {
+              "id": "es-a1-ocio-01-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "В свободное время я много читаю.",
+              "canonicalAnswer": "En mi tiempo libre leo mucho.",
+              "tokens": [
+                "mi",
+                "tiempo",
+                "libre",
+                "leo",
+                "mucho",
+                "En"
+              ]
+            },
+            {
+              "id": "es-a1-ocio-01-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Что ты делаешь в свободное время?",
+              "canonicalAnswer": "¿Qué haces en tu tiempo libre?"
+            },
+            {
+              "id": "es-a1-ocio-01-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Я занимаюсь спортом три раза в неделю.",
+              "canonicalAnswer": "Hago deporte tres veces por semana."
+            },
+            {
+              "id": "es-a1-ocio-01-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Я предпочитаю бегать в парке.",
+              "canonicalAnswer": "Prefiero correr por el parque."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-ocio-02",
+          "title": "¿Vamos al cine?",
+          "summary": "Предложить кино, музей или ужин.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-ocio-02-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "title": "Куда пойдём",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Vamos al cine esta tarde?",
+                  "translation": "Пойдём в кино сегодня днём?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Qué película quieres ver?",
+                  "translation": "Какой фильм хочешь посмотреть?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Me gusta el cine español.",
+                  "translation": "Мне нравится испанское кино."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Vale. ¿Y después cenamos?",
+                  "translation": "Давай. А потом поужинаем?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¡Buena idea!",
+                  "translation": "Хорошая идея!"
+                }
+              ]
+            },
+            {
+              "id": "es-a1-ocio-02-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "¿Vamos al cine?",
+              "translation": "Пойдём в кино?",
+              "example": "¿Vamos al cine esta tarde?"
+            },
+            {
+              "id": "es-a1-ocio-02-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "¿Qué película quieres ver?",
+              "translation": "Какой фильм хочешь посмотреть?",
+              "example": "Quiero ver una película española."
+            },
+            {
+              "id": "es-a1-ocio-02-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "¡Buena idea!",
+              "translation": "Хорошая идея!",
+              "example": "Buena idea, vamos."
+            },
+            {
+              "id": "es-a1-ocio-02-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "¿Y después cenamos?",
+              "translation": "А потом поужинаем?",
+              "example": "Después cenamos en casa."
+            },
+            {
+              "id": "es-a1-ocio-02-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "el museo, el teatro, el concierto",
+              "translation": "музей, театр, концерт",
+              "example": "El sábado vamos a un concierto."
+            },
+            {
+              "id": "es-a1-ocio-02-e7",
+              "type": "info",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "title": "Предложение через vamos",
+              "explanation": "Vamos a — это и «идём», и «давай»: vamos al cine, vamos a cenar. Соглашаются коротко: vale или buena idea."
+            },
+            {
+              "id": "es-a1-ocio-02-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "¿___ al cine esta tarde?",
+              "options": [
+                "Vamos",
+                "Voy",
+                "Van"
+              ],
+              "correctOption": "Vamos"
+            },
+            {
+              "id": "es-a1-ocio-02-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "«Какой фильм хочешь посмотреть?» — это:",
+              "options": [
+                "¿Qué película quieres ver?",
+                "¿Qué película ves?",
+                "¿Quieres una película?"
+              ],
+              "correctOption": "¿Qué película quieres ver?"
+            },
+            {
+              "id": "es-a1-ocio-02-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "El sábado vamos a un ___.",
+              "options": [
+                "concierto",
+                "museo grande",
+                "teatro pequeño"
+              ],
+              "correctOption": "concierto"
+            },
+            {
+              "id": "es-a1-ocio-02-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Хорошая идея, идём.",
+              "canonicalAnswer": "Buena idea, vamos.",
+              "tokens": [
+                "idea",
+                "vamos",
+                "Buena"
+              ]
+            },
+            {
+              "id": "es-a1-ocio-02-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Пойдём в кино сегодня днём?",
+              "canonicalAnswer": "¿Vamos al cine esta tarde?"
+            },
+            {
+              "id": "es-a1-ocio-02-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Хочу посмотреть испанский фильм.",
+              "canonicalAnswer": "Quiero ver una película española."
+            },
+            {
+              "id": "es-a1-ocio-02-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Потом поужинаем дома.",
+              "canonicalAnswer": "Después cenamos en casa."
+            }
+          ]
+        },
+        {
+          "id": "es-a1-ocio-check",
+          "title": "Проверка: свободное время",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-ocio-check-e1",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Что ты делаешь в свободное время?",
+              "canonicalAnswer": "¿Qué haces en tu tiempo libre?"
+            },
+            {
+              "id": "es-a1-ocio-check-e2",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Я занимаюсь спортом три раза в неделю.",
+              "canonicalAnswer": "Hago deporte tres veces por semana."
+            },
+            {
+              "id": "es-a1-ocio-check-e3",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Пойдём в кино?",
+              "canonicalAnswer": "¿Vamos al cine?"
+            },
+            {
+              "id": "es-a1-ocio-check-e4",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Хочу посмотреть испанский фильм.",
+              "canonicalAnswer": "Quiero ver una película española."
+            },
+            {
+              "id": "es-a1-ocio-check-e5",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar"
+              ],
+              "prompt": "Хорошая идея!",
+              "canonicalAnswer": "¡Buena idea!"
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
     }
   ]
 }
