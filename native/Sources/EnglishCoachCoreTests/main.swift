@@ -412,6 +412,27 @@ do {
     expect(practiceSession.state.points > 0, "practice still awards points")
 } catch { failures += 1; print("✗ practice engine: \(error)") }
 
+// Повторение — это то, на что можно ответить: правило и диалог в очередь не попадают.
+do {
+    let courses = try ContentRepository.loadBundled()
+    let lessons = courses.flatMap(\.chapters).flatMap(\.lessons)
+    if let lesson = lessons.first(where: { $0.exercises.contains { $0.type == .info } }) {
+        var session = LearningSession(state: .fresh)
+        session.start(lesson)
+        while !session.isComplete { session.completeCurrentCorrectlyForTesting(now: now) }
+        let scheduled = Set(session.state.reviews.map(\.exerciseID))
+        let passive = lesson.exercises.filter { $0.type == .info || $0.type == .dialogue }
+        expect(!passive.isEmpty, "the lesson has something passive to skip")
+        expect(passive.allSatisfy { !scheduled.contains($0.id) }, "exposure is not scheduled for review")
+        expect(lesson.exercises.filter { $0.type != .info && $0.type != .dialogue }.allSatisfy { scheduled.contains($0.id) },
+               "answers are scheduled for review")
+        let attempted = Set(session.state.attempts.map(\.exerciseID))
+        expect(passive.allSatisfy { attempted.contains($0.id) }, "exposure still counts as an attempt")
+    } else {
+        failures += 1; print("✗ review composition: no lesson with a rule card")
+    }
+} catch { failures += 1; print("✗ review composition: \(error)") }
+
 // ProgressionEngine: level completion, accuracy and advancement suggestion.
 do {
     let courses = try ContentRepository.loadBundled()

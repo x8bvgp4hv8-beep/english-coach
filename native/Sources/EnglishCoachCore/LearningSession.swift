@@ -170,6 +170,11 @@ public struct LearningSession: Sendable {
         state.trimAttempts()
         if result.isCorrect { state.points += 10 }
 
+        // Reading a rule again and listening to the same dialogue again are exposure, not
+        // practice — the syllabus counter already refuses to count them. Scheduling them
+        // meant a session capped at twenty spending a seventh of itself on "Дальше".
+        guard exercise.type != .info, exercise.type != .dialogue else { return }
+
         let index = state.reviews.firstIndex { $0.exerciseID == exercise.id }
         let known = index.map { state.reviews[$0] }
         let base = known ?? ReviewEngine.newItem(exerciseID: exercise.id, now: now)

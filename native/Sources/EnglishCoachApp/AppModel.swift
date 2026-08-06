@@ -310,7 +310,10 @@ final class AppModel {
     func startReview() {
         var byID: [String: Exercise] = [:]
         for exercise in courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises) { byID[exercise.id] = exercise }
-        let exercises = ReviewEngine.due(in: state.reviews, now: .now).compactMap { byID[$0.exerciseID] }
+        // Profiles written before rule cards stopped being scheduled still carry them.
+        let exercises = ReviewEngine.due(in: state.reviews, now: .now)
+            .compactMap { byID[$0.exerciseID] }
+            .filter { $0.type != .info && $0.type != .dialogue }
         guard !exercises.isEmpty else { return }
         startLesson(
             Lesson(

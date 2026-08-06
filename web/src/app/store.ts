@@ -364,6 +364,8 @@ export class AppStore {
     const exercises = ReviewEngine.due(this.state.reviews, new Date())
       .map((item) => byID.get(item.exerciseID))
       .filter((exercise): exercise is Exercise => exercise !== undefined)
+      // Profiles written before rule cards stopped being scheduled still carry them.
+      .filter((exercise) => exercise.type !== 'info' && exercise.type !== 'dialogue')
     if (exercises.length === 0) return
     this.startLesson({
       id: 'daily-review',

@@ -505,6 +505,31 @@ describe('learning session', () => {
   })
 })
 
+describe('what a review session is made of', () => {
+  it('does not schedule rule cards and dialogues', () => {
+    const course = courses.find((pack) => pack.level === 'A1')!
+    const lesson = course.chapters.flatMap((chapter) => chapter.lessons)
+      .find((item) => item.exercises.some((exercise) => exercise.type === 'info'))!
+    const session = new LearningSession(freshState())
+    session.start(lesson)
+    while (!session.isComplete) session.completeCurrentCorrectly(now)
+
+    const scheduled = new Set(session.state.reviews.map((item) => item.exerciseID))
+    const passive = lesson.exercises.filter((e) => e.type === 'info' || e.type === 'dialogue')
+    expect(passive.length, 'the lesson has something passive to skip').toBeGreaterThan(0)
+    for (const exercise of passive) {
+      expect(scheduled.has(exercise.id), `${exercise.id}: exposure is not scheduled`).toBe(false)
+    }
+    // Everything answerable in the same lesson still is.
+    for (const exercise of lesson.exercises.filter((e) => e.type !== 'info' && e.type !== 'dialogue')) {
+      expect(scheduled.has(exercise.id), `${exercise.id}: answers are scheduled`).toBe(true)
+    }
+    // And the attempt log still remembers the passive ones, so the streak counts them.
+    const attempted = new Set(session.state.attempts.map((attempt) => attempt.exerciseID))
+    for (const exercise of passive) expect(attempted.has(exercise.id)).toBe(true)
+  })
+})
+
 describe('placement', () => {
   it('is well formed', () => {
     expect(bank.length).toBeGreaterThanOrEqual(10)

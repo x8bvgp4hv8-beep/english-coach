@@ -230,6 +230,11 @@ export class LearningSession {
     ])
     if (result.isCorrect) this.state.points += 10
 
+    // Reading a rule again and listening to the same dialogue again are exposure, not
+    // practice — the syllabus counter already refuses to count them. Scheduling them
+    // meant a session capped at twenty spending a seventh of itself on "Дальше".
+    if (exercise.type === 'info' || exercise.type === 'dialogue') return
+
     const index = this.state.reviews.findIndex((item) => item.exerciseID === exercise.id)
     const known = index >= 0 ? this.state.reviews[index] : null
     const base = known ?? ReviewEngine.newItem(exercise.id, now)
