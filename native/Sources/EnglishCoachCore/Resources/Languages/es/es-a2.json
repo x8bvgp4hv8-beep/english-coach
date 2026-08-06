@@ -18965,6 +18965,611 @@
           ]
         },
         {
+          "id": "es-a2-receta-03",
+          "title": "Se pone a fuego lento",
+          "summary": "Рецепт без «ты».",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-receta-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "title": "Как готовят",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Cómo se hace el arroz?",
+                  "translation": "Как делают рис?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Se pone a fuego lento veinte minutos.",
+                  "translation": "Ставят на медленный огонь на двадцать минут."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Y se tapa?",
+                  "translation": "И накрывают?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Sí, y no se abre hasta el final.",
+                  "translation": "Да, и не открывают до конца."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Ahí está mi error, entonces.",
+                  "translation": "Вот в чём моя ошибка, значит."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-receta-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "¿Cómo se hace?",
+              "translation": "Как это делают?",
+              "example": "¿Cómo se hace el arroz?"
+            },
+            {
+              "id": "es-a2-receta-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "a fuego lento",
+              "translation": "на медленном огне",
+              "example": "Se pone a fuego lento veinte minutos."
+            },
+            {
+              "id": "es-a2-receta-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Se tapa.",
+              "translation": "Накрывают.",
+              "example": "Sí, se tapa y ya está."
+            },
+            {
+              "id": "es-a2-receta-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "No se abre.",
+              "translation": "Не открывают.",
+              "example": "No se abre hasta el final."
+            },
+            {
+              "id": "es-a2-receta-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "el arroz",
+              "translation": "рис",
+              "example": "¿Cómo se hace el arroz?"
+            },
+            {
+              "id": "es-a2-receta-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "title": "Рецепт без адресата",
+              "explanation": "В написанных рецептах вместо «ты» ставят se: se pone, se tapa, se deja, no se abre. Так же говорят и про общий порядок: aquí se cena tarde, en España se saluda al entrar."
+            },
+            {
+              "id": "es-a2-receta-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "¿Cómo ___ hace el arroz?",
+              "options": [
+                "se",
+                "lo",
+                "le"
+              ],
+              "correctOption": "se"
+            },
+            {
+              "id": "es-a2-receta-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "___ pone a fuego lento.",
+              "options": [
+                "Se",
+                "Le",
+                "Lo"
+              ],
+              "correctOption": "Se"
+            },
+            {
+              "id": "es-a2-receta-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "«Не открывают до конца» — это:",
+              "options": [
+                "No se abre hasta el final.",
+                "No abre se hasta el final.",
+                "No lo abre el final."
+              ],
+              "correctOption": "No se abre hasta el final."
+            },
+            {
+              "id": "es-a2-receta-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Вот в чём моя ошибка.",
+              "canonicalAnswer": "Ahí está mi error.",
+              "tokens": [
+                "está",
+                "mi",
+                "error",
+                "Ahí"
+              ]
+            },
+            {
+              "id": "es-a2-receta-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Как делают рис?",
+              "canonicalAnswer": "¿Cómo se hace el arroz?"
+            },
+            {
+              "id": "es-a2-receta-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "На медленном огне двадцать минут.",
+              "canonicalAnswer": "A fuego lento veinte minutos."
+            },
+            {
+              "id": "es-a2-receta-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "И накрывают?",
+              "canonicalAnswer": "¿Y se tapa?"
+            }
+          ]
+        },
+        {
+          "id": "es-a2-receta-04",
+          "title": "Un poco de todo",
+          "summary": "Количества на кухне.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-receta-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-cocina"
+              ],
+              "title": "Сколько чего",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Cuánta sal le pongo?",
+                  "translation": "Сколько соли класть?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Una pizca, no más.",
+                  "translation": "Щепотку, не больше."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¿Y aceite?",
+                  "translation": "А масла?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Un chorrito, y ya está.",
+                  "translation": "Немного, и всё."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Vale, voy probando.",
+                  "translation": "Ладно, буду пробовать по ходу."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-receta-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "¿Cuánta sal le pongo?",
+              "translation": "Сколько соли класть?",
+              "example": "¿Cuánta sal le pongo al final?"
+            },
+            {
+              "id": "es-a2-receta-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "una pizca",
+              "translation": "щепотка",
+              "example": "Una pizca, no más."
+            },
+            {
+              "id": "es-a2-receta-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-articulos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "un chorrito",
+              "translation": "немного жидкого",
+              "example": "Un chorrito de aceite y ya está."
+            },
+            {
+              "id": "es-a2-receta-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Voy probando.",
+              "translation": "Буду пробовать по ходу.",
+              "example": "Vale, voy probando."
+            },
+            {
+              "id": "es-a2-receta-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "la sal",
+              "translation": "соль",
+              "example": "¿Cuánta sal le pongo?"
+            },
+            {
+              "id": "es-a2-receta-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "title": "Сколько чего",
+              "explanation": "Кухонные меры почти всегда неточные: una pizca (щепотка), un chorrito (чуть-чуть жидкого), un puñado (горсть), un poco. И слово cuánto подстраивается: ¿cuánta sal? ¿cuántos huevos?"
+            },
+            {
+              "id": "es-a2-receta-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "¿___ sal le pongo?",
+              "options": [
+                "Cuánta",
+                "Cuánto",
+                "Cuántas"
+              ],
+              "correctOption": "Cuánta"
+            },
+            {
+              "id": "es-a2-receta-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-articulos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Un ___ de aceite y ya está.",
+              "options": [
+                "chorrito",
+                "pizca",
+                "puñado"
+              ],
+              "correctOption": "chorrito"
+            },
+            {
+              "id": "es-a2-receta-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "«Буду пробовать по ходу» — это:",
+              "options": [
+                "Voy probando.",
+                "Voy a probado.",
+                "Voy probar."
+              ],
+              "correctOption": "Voy probando."
+            },
+            {
+              "id": "es-a2-receta-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Щепотку, не больше.",
+              "canonicalAnswer": "Una pizca, no más.",
+              "tokens": [
+                "pizca",
+                "no",
+                "más",
+                "Una"
+              ]
+            },
+            {
+              "id": "es-a2-receta-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Сколько соли класть?",
+              "canonicalAnswer": "¿Cuánta sal le pongo?"
+            },
+            {
+              "id": "es-a2-receta-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Немного масла.",
+              "canonicalAnswer": "Un chorrito de aceite."
+            },
+            {
+              "id": "es-a2-receta-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "И всё.",
+              "canonicalAnswer": "Y ya está."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-receta-05",
+          "title": "Se me ha quemado",
+          "summary": "Когда не вышло.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-receta-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-cocina"
+              ],
+              "title": "Подгорело",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Se me ha quemado la cebolla.",
+                  "translation": "У меня подгорел лук."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Bueno, empieza otra vez.",
+                  "translation": "Ну, начни заново."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Es que bajé el fuego tarde.",
+                  "translation": "Просто я поздно убавила огонь."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Pasa siempre, no te agobies.",
+                  "translation": "Так всегда бывает, не парься."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Menos mal que hay más.",
+                  "translation": "Хорошо, что ещё есть."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-receta-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Se me ha quemado.",
+              "translation": "У меня подгорело.",
+              "example": "Se me ha quemado la cebolla."
+            },
+            {
+              "id": "es-a2-receta-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "la cebolla",
+              "translation": "лук",
+              "example": "Se me ha quemado la cebolla."
+            },
+            {
+              "id": "es-a2-receta-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Bajé el fuego tarde.",
+              "translation": "Я поздно убавил огонь.",
+              "example": "Es que bajé el fuego tarde."
+            },
+            {
+              "id": "es-a2-receta-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "No te agobies.",
+              "translation": "Не парься.",
+              "example": "Pasa siempre, no te agobies."
+            },
+            {
+              "id": "es-a2-receta-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Menos mal que hay más.",
+              "translation": "Хорошо, что ещё есть.",
+              "example": "Menos mal que hay más cebolla."
+            },
+            {
+              "id": "es-a2-receta-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "title": "Оно само подгорело",
+              "explanation": "На кухне всё ломается «само»: se me ha quemado, se me ha pasado (переварилось), se me ha caído. И утешают тоже коротко: pasa siempre, no te agobies, no pasa nada."
+            },
+            {
+              "id": "es-a2-receta-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "___ me ha quemado la cebolla.",
+              "options": [
+                "Se",
+                "Me",
+                "Lo"
+              ],
+              "correctOption": "Se"
+            },
+            {
+              "id": "es-a2-receta-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Es que ___ el fuego tarde.",
+              "options": [
+                "bajé",
+                "bajaba",
+                "bajar"
+              ],
+              "correctOption": "bajé"
+            },
+            {
+              "id": "es-a2-receta-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "«Не парься» — это:",
+              "options": [
+                "No te agobies.",
+                "No te agobias.",
+                "No agobiarte."
+              ],
+              "correctOption": "No te agobies."
+            },
+            {
+              "id": "es-a2-receta-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Начни заново.",
+              "canonicalAnswer": "Empieza otra vez.",
+              "tokens": [
+                "otra",
+                "vez",
+                "Empieza"
+              ]
+            },
+            {
+              "id": "es-a2-receta-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "У меня подгорел лук.",
+              "canonicalAnswer": "Se me ha quemado la cebolla."
+            },
+            {
+              "id": "es-a2-receta-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Я поздно убавила огонь.",
+              "canonicalAnswer": "Bajé el fuego tarde."
+            },
+            {
+              "id": "es-a2-receta-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Хорошо, что ещё есть.",
+              "canonicalAnswer": "Menos mal que hay más."
+            }
+          ]
+        },
+        {
           "id": "es-a2-receta-check",
           "title": "Проверка: как это делается",
           "summary": "Весь блок целиком, без подсказок.",
@@ -19441,6 +20046,609 @@
               ],
               "prompt": "Прости, что предупреждаю так поздно.",
               "canonicalAnswer": "Perdona por avisar tan tarde."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-quedar-03",
+          "title": "Llego cinco minutos tarde",
+          "summary": "Опаздываю.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-quedar-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-numeros",
+                "es-a2-tema-planes"
+              ],
+              "title": "Опоздание",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Llego cinco minutos tarde, perdona.",
+                  "translation": "Опаздываю на пять минут, извини."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Tranquilo, yo también voy justa.",
+                  "translation": "Спокойно, я тоже впритык."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Es que el metro va fatal.",
+                  "translation": "Просто метро ужасно ходит."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Nos vemos en la puerta entonces.",
+                  "translation": "Тогда встретимся у входа."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Voy corriendo, hasta ahora.",
+                  "translation": "Бегу, до скорого."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-quedar-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Llego cinco minutos tarde.",
+              "translation": "Опаздываю на пять минут.",
+              "example": "Llego cinco minutos tarde, perdona."
+            },
+            {
+              "id": "es-a2-quedar-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Voy justa.",
+              "translation": "Я впритык.",
+              "example": "Tranquilo, yo también voy justa."
+            },
+            {
+              "id": "es-a2-quedar-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "El metro va fatal.",
+              "translation": "Метро ужасно ходит.",
+              "example": "Es que el metro va fatal hoy."
+            },
+            {
+              "id": "es-a2-quedar-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Voy corriendo.",
+              "translation": "Бегу.",
+              "example": "Voy corriendo, hasta ahora."
+            },
+            {
+              "id": "es-a2-quedar-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "hasta ahora",
+              "translation": "до скорого",
+              "example": "Voy corriendo, hasta ahora."
+            },
+            {
+              "id": "es-a2-quedar-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "title": "Предупредить об опоздании",
+              "explanation": "Опоздание объявляют настоящим временем: llego tarde, llego en diez minutos, ya voy. И «до скорого» тут особое: hasta ahora — когда встреча через несколько минут."
+            },
+            {
+              "id": "es-a2-quedar-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "___ cinco minutos tarde.",
+              "options": [
+                "Llego",
+                "Llegué",
+                "Llegar"
+              ],
+              "correctOption": "Llego"
+            },
+            {
+              "id": "es-a2-quedar-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Es que el metro ___ fatal.",
+              "options": [
+                "va",
+                "está",
+                "hace"
+              ],
+              "correctOption": "va"
+            },
+            {
+              "id": "es-a2-quedar-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "«Бегу» — это:",
+              "options": [
+                "Voy corriendo.",
+                "Voy corrido.",
+                "Voy correr."
+              ],
+              "correctOption": "Voy corriendo."
+            },
+            {
+              "id": "es-a2-quedar-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Тогда встретимся у входа.",
+              "canonicalAnswer": "Nos vemos en la puerta entonces.",
+              "tokens": [
+                "vemos",
+                "en",
+                "la",
+                "puerta",
+                "entonces",
+                "Nos"
+              ]
+            },
+            {
+              "id": "es-a2-quedar-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Опаздываю на пять минут.",
+              "canonicalAnswer": "Llego cinco minutos tarde."
+            },
+            {
+              "id": "es-a2-quedar-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Я тоже впритык.",
+              "canonicalAnswer": "Yo también voy justa."
+            },
+            {
+              "id": "es-a2-quedar-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "До скорого.",
+              "canonicalAnswer": "Hasta ahora."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-quedar-04",
+          "title": "¿Te apetece?",
+          "summary": "Предложить и отказаться мягко.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-quedar-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "title": "Предложение",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Te apetece un café luego?",
+                  "translation": "Хочешь потом кофе?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Hoy no puedo, tengo lío.",
+                  "translation": "Сегодня не могу, у меня запара."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Y mañana a la misma hora?",
+                  "translation": "А завтра в то же время?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Mañana sí, me viene genial.",
+                  "translation": "Завтра да, отлично подходит."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Pues apuntado.",
+                  "translation": "Тогда записано."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-quedar-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "¿Te apetece un café?",
+              "translation": "Хочешь кофе?",
+              "example": "¿Te apetece un café luego?"
+            },
+            {
+              "id": "es-a2-quedar-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Tengo lío.",
+              "translation": "У меня запара.",
+              "example": "Hoy no puedo, tengo lío."
+            },
+            {
+              "id": "es-a2-quedar-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "a la misma hora",
+              "translation": "в то же время",
+              "example": "¿Y mañana a la misma hora?"
+            },
+            {
+              "id": "es-a2-quedar-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Me viene genial.",
+              "translation": "Отлично подходит.",
+              "example": "Mañana sí, me viene genial."
+            },
+            {
+              "id": "es-a2-quedar-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Apuntado.",
+              "translation": "Записано.",
+              "example": "Pues apuntado."
+            },
+            {
+              "id": "es-a2-quedar-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "title": "Мягкий отказ",
+              "explanation": "Отказ почти всегда идёт парой: причина плюс встречное предложение. Hoy no puedo, tengo lío. ¿Y mañana? Так отказ не выглядит отказом."
+            },
+            {
+              "id": "es-a2-quedar-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "¿Te ___ un café luego?",
+              "options": [
+                "apetece",
+                "apeteces",
+                "apetecer"
+              ],
+              "correctOption": "apetece"
+            },
+            {
+              "id": "es-a2-quedar-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Hoy no puedo, ___ lío.",
+              "options": [
+                "tengo",
+                "hay",
+                "estoy"
+              ],
+              "correctOption": "tengo"
+            },
+            {
+              "id": "es-a2-quedar-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "«Отлично подходит» — это:",
+              "options": [
+                "Me viene genial.",
+                "Me va genial ayer.",
+                "Me viene genialmente."
+              ],
+              "correctOption": "Me viene genial."
+            },
+            {
+              "id": "es-a2-quedar-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "А завтра в то же время?",
+              "canonicalAnswer": "¿Y mañana a la misma hora?",
+              "tokens": [
+                "mañana",
+                "a",
+                "la",
+                "misma",
+                "hora",
+                "Y"
+              ]
+            },
+            {
+              "id": "es-a2-quedar-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Хочешь потом кофе?",
+              "canonicalAnswer": "¿Te apetece un café luego?"
+            },
+            {
+              "id": "es-a2-quedar-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Сегодня не могу, у меня запара.",
+              "canonicalAnswer": "Hoy no puedo, tengo lío."
+            },
+            {
+              "id": "es-a2-quedar-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Тогда записано.",
+              "canonicalAnswer": "Pues apuntado."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-quedar-05",
+          "title": "Al final no fui",
+          "summary": "Не пошёл и почему.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-quedar-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-planes"
+              ],
+              "title": "Не сложилось",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Fuiste al final a la cena?",
+                  "translation": "Ты в итоге пошёл на ужин?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Al final no fui, me quedé dormido.",
+                  "translation": "В итоге не пошёл, заснул."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¡No me digas!",
+                  "translation": "Да ладно!"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Me eché una siesta y hasta las nueve.",
+                  "translation": "Прилёг вздремнуть и до девяти."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Menuda siesta, madre mía.",
+                  "translation": "Ну и сиеста, мамочки."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-quedar-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Al final no fui.",
+              "translation": "В итоге я не пошёл.",
+              "example": "Al final no fui, me quedé dormido."
+            },
+            {
+              "id": "es-a2-quedar-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Me quedé dormido.",
+              "translation": "Я заснул.",
+              "example": "Al final no fui, me quedé dormido."
+            },
+            {
+              "id": "es-a2-quedar-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "¡No me digas!",
+              "translation": "Да ладно!",
+              "example": "¡No me digas! ¿En serio?"
+            },
+            {
+              "id": "es-a2-quedar-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-numeros",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Me eché una siesta.",
+              "translation": "Я прилёг вздремнуть.",
+              "example": "Me eché una siesta y hasta las nueve."
+            },
+            {
+              "id": "es-a2-quedar-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-articulos",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "la siesta",
+              "translation": "дневной сон",
+              "example": "Me eché una siesta."
+            },
+            {
+              "id": "es-a2-quedar-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "title": "В итоге",
+              "explanation": "Итог рассказывают через al final: al final no fui, al final salió bien, al final lo dejamos. Удивление собеседника — готовая фраза ¡no me digas!, дословно «не говори мне»."
+            },
+            {
+              "id": "es-a2-quedar-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "___ final no fui.",
+              "options": [
+                "Al",
+                "En",
+                "Por"
+              ],
+              "correctOption": "Al"
+            },
+            {
+              "id": "es-a2-quedar-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Me ___ dormido en el sofá.",
+              "options": [
+                "quedé",
+                "quedaba siempre",
+                "quedar"
+              ],
+              "correctOption": "quedé"
+            },
+            {
+              "id": "es-a2-quedar-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "«Да ладно!» — это:",
+              "options": [
+                "¡No me digas!",
+                "¡No me dices!",
+                "¡No digas me!"
+              ],
+              "correctOption": "¡No me digas!"
+            },
+            {
+              "id": "es-a2-quedar-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-articulos",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Я прилёг вздремнуть.",
+              "canonicalAnswer": "Me eché una siesta.",
+              "tokens": [
+                "eché",
+                "una",
+                "siesta",
+                "Me"
+              ]
+            },
+            {
+              "id": "es-a2-quedar-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "В итоге я не пошёл.",
+              "canonicalAnswer": "Al final no fui."
+            },
+            {
+              "id": "es-a2-quedar-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Я заснул.",
+              "canonicalAnswer": "Me quedé dormido."
+            },
+            {
+              "id": "es-a2-quedar-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Ну и сиеста.",
+              "canonicalAnswer": "Menuda siesta."
             }
           ]
         },
@@ -19930,6 +21138,614 @@
               ],
               "prompt": "И она подала заявление?",
               "canonicalAnswer": "¿Y puso una denuncia?"
+            }
+          ]
+        },
+        {
+          "id": "es-a2-noticias-03",
+          "title": "Han cerrado la calle",
+          "summary": "Городские новости.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-noticias-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-por-para",
+                "es-a2-tema-noticias"
+              ],
+              "title": "На улице",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Han cerrado la calle por obras.",
+                  "translation": "Улицу закрыли из-за ремонта."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Hasta cuándo?",
+                  "translation": "До каких пор?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Dicen que hasta septiembre.",
+                  "translation": "Говорят, до сентября."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Pues vaya lío para aparcar.",
+                  "translation": "Ну и морока с парковкой."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Habrá que ir andando.",
+                  "translation": "Придётся ходить пешком."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-noticias-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-genero",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Han cerrado la calle.",
+              "translation": "Улицу закрыли.",
+              "example": "Han cerrado la calle por obras."
+            },
+            {
+              "id": "es-a2-noticias-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "¿Hasta cuándo?",
+              "translation": "До каких пор?",
+              "example": "¿Hasta cuándo van a estar así?"
+            },
+            {
+              "id": "es-a2-noticias-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Dicen que…",
+              "translation": "Говорят, что…",
+              "example": "Dicen que hasta septiembre."
+            },
+            {
+              "id": "es-a2-noticias-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "vaya lío",
+              "translation": "ну и морока",
+              "example": "Pues vaya lío para aparcar."
+            },
+            {
+              "id": "es-a2-noticias-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "ir andando",
+              "translation": "ходить пешком",
+              "example": "Habrá que ir andando."
+            },
+            {
+              "id": "es-a2-noticias-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "title": "Говорят, что",
+              "explanation": "Слухи и объявления вводят безличным dicen que: dicen que hasta septiembre, dicen que va a llover. Кто именно сказал — не называют, и это нормально."
+            },
+            {
+              "id": "es-a2-noticias-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-genero",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "___ cerrado la calle por obras.",
+              "options": [
+                "Han",
+                "Ha",
+                "Hay"
+              ],
+              "correctOption": "Han"
+            },
+            {
+              "id": "es-a2-noticias-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "___ que hasta septiembre.",
+              "options": [
+                "Dicen",
+                "Dice",
+                "Decir"
+              ],
+              "correctOption": "Dicen"
+            },
+            {
+              "id": "es-a2-noticias-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "«Придётся ходить пешком» — это:",
+              "options": [
+                "Habrá que ir andando.",
+                "Hay que ido andando.",
+                "Habrá ir andando."
+              ],
+              "correctOption": "Habrá que ir andando."
+            },
+            {
+              "id": "es-a2-noticias-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "До каких пор?",
+              "canonicalAnswer": "¿Hasta cuándo?",
+              "tokens": [
+                "cuándo",
+                "Hasta"
+              ]
+            },
+            {
+              "id": "es-a2-noticias-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-genero",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Улицу закрыли из-за ремонта.",
+              "canonicalAnswer": "Han cerrado la calle por obras."
+            },
+            {
+              "id": "es-a2-noticias-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Говорят, до сентября.",
+              "canonicalAnswer": "Dicen que hasta septiembre."
+            },
+            {
+              "id": "es-a2-noticias-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Ну и морока с парковкой.",
+              "canonicalAnswer": "Vaya lío para aparcar."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-noticias-04",
+          "title": "Se ha casado",
+          "summary": "Личные новости.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-noticias-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-superlativos",
+                "es-a2-tema-noticias"
+              ],
+              "title": "Про знакомых",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Sabes que Ana se ha casado?",
+                  "translation": "Знаешь, что Ана вышла замуж?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Cuándo? No me he enterado.",
+                  "translation": "Когда? Я не слышал."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "El mes pasado, en el pueblo.",
+                  "translation": "В прошлом месяце, в деревне."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Pues me alegro un montón por ella.",
+                  "translation": "Очень за неё рад."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Estaba guapísima, te enseño fotos.",
+                  "translation": "Она была красавицей, покажу фото."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-noticias-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Se ha casado.",
+              "translation": "Она вышла замуж.",
+              "example": "¿Sabes que Ana se ha casado?"
+            },
+            {
+              "id": "es-a2-noticias-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "No me he enterado.",
+              "translation": "Я не слышал.",
+              "example": "¿Cuándo? No me he enterado."
+            },
+            {
+              "id": "es-a2-noticias-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "en el pueblo",
+              "translation": "в деревне",
+              "example": "El mes pasado, en el pueblo."
+            },
+            {
+              "id": "es-a2-noticias-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Me alegro por ella.",
+              "translation": "Я рад за неё.",
+              "example": "Pues me alegro un montón por ella."
+            },
+            {
+              "id": "es-a2-noticias-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-superlativos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Estaba guapísima.",
+              "translation": "Она была красавицей.",
+              "example": "Estaba guapísima, te enseño fotos."
+            },
+            {
+              "id": "es-a2-noticias-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "title": "Радоваться за кого-то",
+              "explanation": "Радость за другого — alegrarse por: me alegro por ella, nos alegramos por vosotros. А про то, как человек выглядел в тот день, — estar: estaba guapísima, estaba muy contento."
+            },
+            {
+              "id": "es-a2-noticias-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Ana se ___ casado.",
+              "options": [
+                "ha",
+                "he",
+                "han"
+              ],
+              "correctOption": "ha"
+            },
+            {
+              "id": "es-a2-noticias-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Me alegro ___ ella.",
+              "options": [
+                "por",
+                "para",
+                "de"
+              ],
+              "correctOption": "por"
+            },
+            {
+              "id": "es-a2-noticias-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "«Я не слышал» — это:",
+              "options": [
+                "No me he enterado.",
+                "No me enteré nunca.",
+                "No he enterado."
+              ],
+              "correctOption": "No me he enterado."
+            },
+            {
+              "id": "es-a2-noticias-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "В прошлом месяце, в деревне.",
+              "canonicalAnswer": "El mes pasado, en el pueblo.",
+              "tokens": [
+                "mes",
+                "pasado",
+                "en",
+                "el",
+                "pueblo",
+                "El"
+              ]
+            },
+            {
+              "id": "es-a2-noticias-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Она вышла замуж.",
+              "canonicalAnswer": "Se ha casado."
+            },
+            {
+              "id": "es-a2-noticias-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Я очень за неё рад.",
+              "canonicalAnswer": "Me alegro un montón por ella."
+            },
+            {
+              "id": "es-a2-noticias-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-superlativos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Она была красавицей.",
+              "canonicalAnswer": "Estaba guapísima."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-noticias-05",
+          "title": "Menos mal que no pasó nada",
+          "summary": "Обошлось.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-noticias-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-comparativos",
+                "es-a2-tema-noticias"
+              ],
+              "title": "Обошлось",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Tuvieron un accidente el domingo.",
+                  "translation": "В воскресенье они попали в аварию."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y están bien?",
+                  "translation": "И они в порядке?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí, menos mal que no pasó nada grave.",
+                  "translation": "Да, к счастью, ничего серьёзного."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Qué susto, madre mía.",
+                  "translation": "Ну и испуг, мамочки."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El coche sí quedó fatal.",
+                  "translation": "А машине вот досталось."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-noticias-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-articulos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Tuvieron un accidente.",
+              "translation": "Они попали в аварию.",
+              "example": "Tuvieron un accidente el domingo."
+            },
+            {
+              "id": "es-a2-noticias-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-comparativos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "No pasó nada grave.",
+              "translation": "Ничего серьёзного не случилось.",
+              "example": "Menos mal que no pasó nada grave."
+            },
+            {
+              "id": "es-a2-noticias-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Qué susto.",
+              "translation": "Ну и испуг.",
+              "example": "Qué susto, madre mía."
+            },
+            {
+              "id": "es-a2-noticias-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Quedó fatal.",
+              "translation": "Ему сильно досталось.",
+              "example": "El coche sí quedó fatal."
+            },
+            {
+              "id": "es-a2-noticias-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-articulos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "el accidente",
+              "translation": "авария",
+              "example": "Tuvieron un accidente el domingo."
+            },
+            {
+              "id": "es-a2-noticias-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "title": "Обошлось",
+              "explanation": "Облегчение выражают через menos mal que: menos mal que no pasó nada, menos mal que estabas allí. А про то, в каком состоянии всё осталось, — quedar: quedó fatal, quedó bien, quedó como nuevo."
+            },
+            {
+              "id": "es-a2-noticias-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-articulos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "___ un accidente el domingo.",
+              "options": [
+                "Tuvieron",
+                "Tenían",
+                "Tener"
+              ],
+              "correctOption": "Tuvieron"
+            },
+            {
+              "id": "es-a2-noticias-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-comparativos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Menos mal que no ___ nada grave.",
+              "options": [
+                "pasó",
+                "pasaba",
+                "pasar"
+              ],
+              "correctOption": "pasó"
+            },
+            {
+              "id": "es-a2-noticias-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "«Машине досталось» — это:",
+              "options": [
+                "El coche quedó fatal.",
+                "El coche queda fatal ayer.",
+                "El coche era fatal."
+              ],
+              "correctOption": "El coche quedó fatal."
+            },
+            {
+              "id": "es-a2-noticias-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "И они в порядке?",
+              "canonicalAnswer": "¿Y están bien?",
+              "tokens": [
+                "están",
+                "bien",
+                "Y"
+              ]
+            },
+            {
+              "id": "es-a2-noticias-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-articulos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Они попали в аварию.",
+              "canonicalAnswer": "Tuvieron un accidente."
+            },
+            {
+              "id": "es-a2-noticias-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-comparativos",
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "К счастью, ничего серьёзного.",
+              "canonicalAnswer": "Menos mal que no pasó nada grave."
+            },
+            {
+              "id": "es-a2-noticias-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-noticias"
+              ],
+              "prompt": "Ну и испуг.",
+              "canonicalAnswer": "Qué susto."
             }
           ]
         },
