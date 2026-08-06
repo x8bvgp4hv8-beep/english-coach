@@ -1,4 +1,4 @@
-import { LEVELS } from './types'
+import { LEVELS, seenExerciseIDs } from './types'
 import type { CEFRLevel, CoursePack, Exercise, ExerciseType, Lesson, UserState } from './types'
 
 /**
@@ -77,7 +77,9 @@ export function prioritise(pool: Exercise[], state: UserState, now: Date, random
     .sort((a, b) => a.due.getTime() - b.due.getTime())
     .map((item) => byID.get(item.exerciseID)!)
 
-  const attemptedIDs = new Set(state.attempts.map((a) => a.exerciseID))
+  // "Seen" must outlive the attempt window, or trimmed-away exercises would come back
+  // dressed as new material. Misses, on the other hand, are meant to be recent.
+  const attemptedIDs = seenExerciseIDs(state)
   const failedIDs = new Set(state.attempts.filter((a) => !a.correct).map((a) => a.exerciseID))
 
   const failed = pool.filter((exercise) => failedIDs.has(exercise.id))

@@ -2,6 +2,7 @@ import { check } from './answer'
 import { ReviewEngine } from './engines'
 import { DEFAULT_LANGUAGE } from './language'
 import type { LanguageCode } from './language'
+import { seenExerciseIDs, trimAttempts } from './types'
 import type { AnswerResult, Exercise, Lesson, ReviewItem, UserState } from './types'
 
 /**
@@ -70,7 +71,7 @@ export class LearningSession {
     this.exerciseIndex = 0
     this.feedback = null
     this.retryUsed = false
-    this.seenBefore = new Set(this.state.attempts.map((attempt) => attempt.exerciseID))
+    this.seenBefore = seenExerciseIDs(this.state)
   }
 
   submitText(answer: string, now: Date = new Date()): AnswerResult {
@@ -223,10 +224,10 @@ export class LearningSession {
    */
   private record(exercise: Exercise, result: AnswerResult, now: Date): void {
     this.feedback = result
-    this.state.attempts = [
+    this.state.attempts = trimAttempts([
       ...this.state.attempts,
       { id: crypto.randomUUID(), exerciseID: exercise.id, correct: result.isCorrect, date: now },
-    ]
+    ])
     if (result.isCorrect) this.state.points += 10
 
     const index = this.state.reviews.findIndex((item) => item.exerciseID === exercise.id)

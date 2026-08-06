@@ -37,7 +37,7 @@ public struct LearningSession: Sendable {
     public mutating func start(_ lesson: Lesson, recordsCompletion: Bool = true) {
         activeLesson = lesson; self.recordsCompletion = recordsCompletion
         exerciseIndex = 0; feedback = nil; retryUsed = false
-        seenBefore = Set(state.attempts.map(\.exerciseID))
+        seenBefore = state.seenExerciseIDs
     }
 
     /// A card met for the first time is something to read; the same card met again is a
@@ -167,6 +167,7 @@ public struct LearningSession: Sendable {
     private mutating func record(exercise: Exercise, result: AnswerResult, now: Date) {
         feedback = result
         state.attempts.append(AttemptRecord(id: UUID(), exerciseID: exercise.id, correct: result.isCorrect, date: now))
+        state.trimAttempts()
         if result.isCorrect { state.points += 10 }
 
         let index = state.reviews.firstIndex { $0.exerciseID == exercise.id }

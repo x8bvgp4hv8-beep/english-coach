@@ -6,7 +6,8 @@ import { disablePush, enablePush, pushState } from './push'
 import { chooseVoice, chosenVoiceName, speak, voicesFor } from './speech'
 import { THEMES, applyTheme, loadTheme } from './theme'
 import type { PushState } from './push'
-import { LEVELS, exportBackup, importBackup } from '../core'
+import { LEVELS, importBackup } from '../core'
+import { downloadBackup } from './backup'
 import type { CEFRLevel, LanguageCode } from '../core'
 import type { ThemeID } from './theme'
 
@@ -92,15 +93,7 @@ export function Settings() {
     )
   }
 
-  const saveBackup = () => {
-    const url = URL.createObjectURL(exportBackup(model.state))
-    const link = document.createElement('a')
-    link.href = url
-    // Named after the language, because each one is a separate record.
-    link.download = `english-coach-progress-${model.language}.json`
-    link.click()
-    URL.revokeObjectURL(url)
-  }
+  const saveBackup = () => downloadBackup(model.state, model.language)
 
   const loadBackup = async (file: File) => {
     try {

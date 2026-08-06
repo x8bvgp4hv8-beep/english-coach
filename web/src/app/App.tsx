@@ -1,5 +1,6 @@
 import { useEffect, useSyncExternalStore } from 'react'
 
+import { downloadBackup } from './backup'
 import { LanguagePicker } from './LanguagePicker'
 import { Listening } from './Listening'
 import { Loading } from './Loading'
@@ -44,6 +45,14 @@ export function App() {
         <button className="update-bar" onClick={() => model.applyUpdateNow()}>
           Готова новая версия — обновится, когда закончишь. Или нажми, чтобы сейчас.
         </button>
+      )}
+      {/* Saving has stopped working. Silence here costs the learner everything they do
+          next, so it is said plainly and the way out is one tap away. */}
+      {model.storageFailed && (
+        <div className="alert-bar">
+          <span>Браузер больше не сохраняет прогресс — кончилось место.</span>
+          <button onClick={() => downloadBackup(model.state, model.language)}>Сохранить файл</button>
+        </div>
       )}
       {/* The picker outranks everything: it is reachable from onboarding too. */}
       {model.screen === 'language' ? <LanguagePicker onBack={() => model.closeLanguages()} />

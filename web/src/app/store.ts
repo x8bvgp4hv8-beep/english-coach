@@ -45,6 +45,12 @@ export class AppStore {
   screen: Screen = 'map'
   startupError: string | null = null
   loading = true
+  /**
+   * Set when localStorage refuses a write — a full quota, or Safari in private mode.
+   * Swallowing it means the learner keeps studying into a void and loses the lot on
+   * reload, so the screen has to say it out loud.
+   */
+  storageFailed = false
 
   /** Speaking practice runs on the same session, but on its own screen. */
   shadowingActive = false
@@ -554,8 +560,11 @@ export class AppStore {
   private persist(): void {
     try {
       localProgressStore(this.language ?? DEFAULT_LANGUAGE).save(this.state)
+      this.storageFailed = false
     } catch {
-      // A full or blocked storage must not break the lesson in progress.
+      // A full or blocked storage must not break the lesson in progress — but it must
+      // not pass unnoticed either. The banner offers the backup file as the way out.
+      this.storageFailed = true
     }
     this.changed()
   }

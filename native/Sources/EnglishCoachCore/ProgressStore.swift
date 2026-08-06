@@ -21,7 +21,10 @@ public struct ProgressStore: ProgressStoring, Sendable {
     public func load() throws -> UserState {
         guard FileManager.default.fileExists(atPath: url.path) else { return .fresh }
         let decoder = JSONDecoder(); decoder.dateDecodingStrategy = .iso8601
-        return try decoder.decode(UserState.self, from: Data(contentsOf: url))
+        var state = try decoder.decode(UserState.self, from: Data(contentsOf: url))
+        // Profiles written before the log was bounded get cut down on the way in.
+        state.trimAttempts()
+        return state
     }
 
     public func save(_ state: UserState) throws {

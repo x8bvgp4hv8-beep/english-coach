@@ -218,4 +218,26 @@ public struct UserState: Codable, Equatable, Sendable {
         self.practiceSeconds = practiceSeconds
         self.acceptedAnswers = acceptedAnswers
     }
+
+    /// How many answers the log keeps.
+    ///
+    /// The web client shares this core, and there an origin gets about 4.8 MB of
+    /// localStorage: a finished A1 already spends over a megabyte on review items, and
+    /// an unbounded log crossed the quota at ~30 000 answers — silently, because the
+    /// save is wrapped in a catch. The window only holds statistics; "has this been
+    /// answered before" comes from `seenExerciseIDs`, which never forgets.
+    public static let attemptLogLimit = 4000
+
+    /// Every exercise the learner has ever answered. Review items are one per exercise
+    /// and are never dropped, so they outlive the attempt window.
+    public var seenExerciseIDs: Set<String> {
+        var seen = Set(reviews.map(\.exerciseID))
+        for attempt in attempts { seen.insert(attempt.exerciseID) }
+        return seen
+    }
+
+    public mutating func trimAttempts() {
+        guard attempts.count > Self.attemptLogLimit else { return }
+        attempts = Array(attempts.suffix(Self.attemptLogLimit))
+    }
 }

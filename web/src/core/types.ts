@@ -207,6 +207,35 @@ export function freshState(): UserState {
   return { profile: null, completedLessonIDs: [], attempts: [], reviews: [], points: 0 }
 }
 
+/**
+ * How many answers the log keeps. Measured, not guessed: an origin gets about 4.8 MB of
+ * localStorage, one attempt costs ~110 bytes, and a finished A1 already spends ~1.1 MB on
+ * review items. An unbounded log crossed the quota at ~30 000 answers — and because the
+ * save is wrapped in a catch, it would have failed in silence, losing everything since.
+ *
+ * The window only holds statistics (recent accuracy, topic tallies, recent mistakes).
+ * "Has this been answered before" comes from `seenExerciseIDs`, which never forgets.
+ */
+export const ATTEMPT_LOG_LIMIT = 4000
+
+export function trimAttempts(attempts: AttemptRecord[]): AttemptRecord[] {
+  return attempts.length > ATTEMPT_LOG_LIMIT ? attempts.slice(-ATTEMPT_LOG_LIMIT) : attempts
+}
+
+/**
+ * Every exercise the learner has ever answered.
+ *
+ * Review items are one per exercise and are never dropped, so they outlive the attempt
+ * window; the attempts are unioned in anyway for profiles written before scheduling
+ * covered correct answers too.
+ */
+export function seenExerciseIDs(state: UserState): Set<string> {
+  const seen = new Set<string>()
+  for (const item of state.reviews) seen.add(item.exerciseID)
+  for (const attempt of state.attempts) seen.add(attempt.exerciseID)
+  return seen
+}
+
 export type Verdict = 'correct' | 'typo' | 'wrong'
 
 export interface WordDiff {

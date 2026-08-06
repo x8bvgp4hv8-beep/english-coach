@@ -13,7 +13,7 @@ import { LearningSession } from './session'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { deserialize, serialize } from './storage'
 import { LANGUAGE_CODES } from './language'
-import { EXERCISE_TYPES, LEVELS, freshState } from './types'
+import { ATTEMPT_LOG_LIMIT, EXERCISE_TYPES, LEVELS, freshState, seenExerciseIDs, trimAttempts } from './types'
 import type { LanguageCode } from './language'
 import type { CoursePack, Exercise, Lesson, PlacementBank } from './types'
 
@@ -907,6 +907,51 @@ describe('daily practice log', () => {
   it('caps a forgotten tab at 30 minutes and ignores negative time', () => {
     expect(PracticeLog.minutes(PracticeLog.adding(10 * 3600, undefined, day), day)).toBe(30)
     expect(PracticeLog.adding(-5, undefined, day)).toEqual({})
+  })
+})
+
+/**
+ * A profile has to fit in localStorage. An origin gets about 4.8 MB, a finished A1
+ * spends over a megabyte of it on review items, and the attempt log used to grow with
+ * no ceiling at all — so this is about not losing three months of work in silence.
+ */
+describe('the attempt log stays inside the storage quota', () => {
+  const attempt = (index: number) => ({ id: `a${index}`, exerciseID: `e${index}`, correct: true, date: now })
+
+  it('keeps the newest answers and drops the oldest', () => {
+    const log = Array.from({ length: ATTEMPT_LOG_LIMIT + 500 }, (_, index) => attempt(index))
+    const trimmed = trimAttempts(log)
+    expect(trimmed.length).toBe(ATTEMPT_LOG_LIMIT)
+    expect(trimmed[trimmed.length - 1].exerciseID).toBe(`e${ATTEMPT_LOG_LIMIT + 499}`)
+    expect(trimmed[0].exerciseID).toBe('e500')
+  })
+
+  it('leaves a short log alone', () => {
+    const log = [attempt(1), attempt(2)]
+    expect(trimAttempts(log)).toBe(log)
+  })
+
+  it('cuts an oversized profile down as it is loaded', () => {
+    const state = freshState()
+    state.attempts = Array.from({ length: ATTEMPT_LOG_LIMIT + 10 }, (_, index) => attempt(index))
+    expect(deserialize(serialize(state)).attempts.length).toBe(ATTEMPT_LOG_LIMIT)
+  })
+
+  it('still remembers an exercise whose attempt has been trimmed away', () => {
+    // The review item is the permanent record: one per exercise, never dropped.
+    const state = freshState()
+    state.reviews = [ReviewEngine.newItem('old-exercise', now)]
+    expect(seenExerciseIDs(state).has('old-exercise')).toBe(true)
+  })
+
+  it('does not let a session grow the log past the ceiling', () => {
+    const lesson = courses.find((course) => course.level === 'A1')!.chapters[0].lessons[0]
+    const session = new LearningSession(freshState())
+    session.state.attempts = Array.from({ length: ATTEMPT_LOG_LIMIT }, (_, index) => attempt(index))
+    session.start(lesson)
+    session.completeCurrentCorrectly(now)
+    expect(session.state.attempts.length).toBe(ATTEMPT_LOG_LIMIT)
+    expect(session.state.attempts[ATTEMPT_LOG_LIMIT - 1].exerciseID).toBe(lesson.exercises[0].id)
   })
 })
 

@@ -593,3 +593,16 @@ button { cursor: pointer; border: none; background: none; }
   color: var(--accent); background: var(--accent-soft);
   border-bottom: 1px solid var(--hairline);
 }
+
+/* Progress is no longer being written. Loud on purpose. */
+.alert-bar {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 10px 18px;
+  font-size: 12px; font-weight: 650; line-height: 1.35;
+  color: #fff; background: var(--coral);
+}
+.alert-bar button {
+  margin-left: auto; flex: none;
+  font: inherit; color: var(--coral); background: #fff;
+  border: 0; border-radius: 999px; padding: 5px 12px;
+}

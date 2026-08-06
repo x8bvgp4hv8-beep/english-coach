@@ -1,5 +1,5 @@
 import { DEFAULT_LANGUAGE } from './language'
-import { freshState } from './types'
+import { freshState, trimAttempts } from './types'
 import type { LanguageCode } from './language'
 import type { UserState } from './types'
 
@@ -42,7 +42,8 @@ export function deserialize(raw: string): UserState {
   return {
     ...stored,
     completedLessonIDs: stored.completedLessonIDs ?? [],
-    attempts: (stored.attempts ?? []).map((a) => ({ ...a, date: new Date(a.date) })),
+    // Profiles written before the log was bounded get cut down on the way in.
+    attempts: trimAttempts((stored.attempts ?? []).map((a) => ({ ...a, date: new Date(a.date) }))),
     reviews: (stored.reviews ?? []).map((r) => ({ ...r, due: new Date(r.due) })),
     points: stored.points ?? 0,
   }

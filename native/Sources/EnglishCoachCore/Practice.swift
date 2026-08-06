@@ -96,7 +96,9 @@ public enum PracticeEngine {
             .sorted { $0.due < $1.due }
             .compactMap { byID[$0.exerciseID] }
 
-        let attempted = Set(state.attempts.map(\.exerciseID))
+        // "Seen" must outlive the attempt window, or trimmed-away exercises would come
+        // back dressed as new material. Misses, on the other hand, are meant to be recent.
+        let attempted = state.seenExerciseIDs
         let failed = Set(state.attempts.filter { !$0.correct }.map(\.exerciseID))
 
         let buckets: [[Exercise]] = [

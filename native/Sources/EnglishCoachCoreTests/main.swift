@@ -107,6 +107,33 @@ do {
     expect(loaded == state, "persist state round trip")
 } catch { failures += 1; print("✗ persist state round trip: \(error)") }
 
+// A profile has to fit in the web client's localStorage quota (~4.8 MB per origin),
+// so the answer log is a window, not an archive.
+do {
+    var state = UserState.fresh
+    state.attempts = (0..<(UserState.attemptLogLimit + 500)).map {
+        AttemptRecord(id: UUID(), exerciseID: "e\($0)", correct: true, date: Date(timeIntervalSince1970: 0))
+    }
+    state.trimAttempts()
+    expect(state.attempts.count == UserState.attemptLogLimit, "attempt log stops at its ceiling")
+    expect(state.attempts.first?.exerciseID == "e500", "the oldest answers are the ones dropped")
+    expect(state.attempts.last?.exerciseID == "e\(UserState.attemptLogLimit + 499)", "the newest answer is kept")
+
+    var trimmed = UserState.fresh
+    trimmed.reviews = [ReviewEngine.newItem(exerciseID: "old-exercise", now: Date(timeIntervalSince1970: 0))]
+    expect(trimmed.seenExerciseIDs.contains("old-exercise"), "a trimmed-away exercise is still remembered")
+
+    let big = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString).appendingPathComponent("state.json")
+    var oversized = UserState.fresh
+    oversized.attempts = (0..<(UserState.attemptLogLimit + 10)).map {
+        AttemptRecord(id: UUID(), exerciseID: "e\($0)", correct: true, date: Date(timeIntervalSince1970: 0))
+    }
+    let store = ProgressStore(url: big)
+    try store.save(oversized)
+    let reloaded = try store.load()
+    expect(reloaded.attempts.count == UserState.attemptLogLimit, "an oversized profile is cut down as it loads")
+} catch { failures += 1; print("✗ attempt log ceiling: \(error)") }
+
 let lessons = [Lesson(id: "one", title: "One", summary: "", estimatedMinutes: 5, exercises: []), Lesson(id: "two", title: "Two", summary: "", estimatedMinutes: 5, exercises: [])]
 expect(CourseRouting.nextLesson(in: lessons, completed: ["one"])?.id == "two", "recommend first incomplete lesson")
 expect(!CourseRouting.isUnlocked(index: 1, lessons: lessons, completed: []), "lock sequential lesson")
