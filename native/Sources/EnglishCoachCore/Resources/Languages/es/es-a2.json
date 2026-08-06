@@ -5861,6 +5861,616 @@
           ]
         },
         {
+          "id": "es-a2-hecho-03",
+          "title": "Está todo pagado",
+          "summary": "Дела закрыты.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-hecho-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "title": "Перед отъездом",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Está todo pagado?",
+                  "translation": "Всё оплачено?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Sí, la luz y el alquiler.",
+                  "translation": "Да, свет и аренда."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Y las maletas?",
+                  "translation": "А чемоданы?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Están hechas desde ayer.",
+                  "translation": "Собраны ещё со вчера."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Entonces podemos salir tranquilos.",
+                  "translation": "Тогда можем спокойно выезжать."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-hecho-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Está todo pagado.",
+              "translation": "Всё оплачено.",
+              "example": "¿Está todo pagado ya?"
+            },
+            {
+              "id": "es-a2-hecho-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "el alquiler",
+              "translation": "аренда",
+              "example": "La luz y el alquiler están pagados."
+            },
+            {
+              "id": "es-a2-hecho-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-plural",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Están hechas.",
+              "translation": "Они собраны.",
+              "example": "Las maletas están hechas desde ayer."
+            },
+            {
+              "id": "es-a2-hecho-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "desde ayer",
+              "translation": "со вчера",
+              "example": "Están hechas desde ayer."
+            },
+            {
+              "id": "es-a2-hecho-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "salir tranquilos",
+              "translation": "выехать спокойно",
+              "example": "Entonces podemos salir tranquilos."
+            },
+            {
+              "id": "es-a2-hecho-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "title": "Дело закрыто",
+              "explanation": "Результат описывают через estar + причастие: está pagado, está hecho, está reservado, está mandado. Причастие подстраивается: las maletas están hechas, la cena está preparada."
+            },
+            {
+              "id": "es-a2-hecho-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "¿Está todo ___?",
+              "options": [
+                "pagado",
+                "pagar",
+                "pagué"
+              ],
+              "correctOption": "pagado"
+            },
+            {
+              "id": "es-a2-hecho-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser-estar",
+                "es-a1-plural",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Las maletas ___ hechas.",
+              "options": [
+                "están",
+                "son",
+                "han"
+              ],
+              "correctOption": "están"
+            },
+            {
+              "id": "es-a2-hecho-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "«Со вчера» — это:",
+              "options": [
+                "desde ayer",
+                "de ayer hasta",
+                "por ayer"
+              ],
+              "correctOption": "desde ayer"
+            },
+            {
+              "id": "es-a2-hecho-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Всё оплачено.",
+              "canonicalAnswer": "Está todo pagado.",
+              "tokens": [
+                "todo",
+                "pagado",
+                "Está"
+              ]
+            },
+            {
+              "id": "es-a2-hecho-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Свет и аренда.",
+              "canonicalAnswer": "La luz y el alquiler."
+            },
+            {
+              "id": "es-a2-hecho-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Они собраны со вчера.",
+              "canonicalAnswer": "Están hechas desde ayer."
+            },
+            {
+              "id": "es-a2-hecho-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Тогда можем спокойно выезжать.",
+              "canonicalAnswer": "Entonces podemos salir tranquilos."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-hecho-04",
+          "title": "Lo he vuelto a hacer",
+          "summary": "Сделал снова.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-hecho-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "title": "Опять то же",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "He vuelto a olvidar las llaves.",
+                  "translation": "Я снова забыла ключи."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Otra vez? Es la tercera.",
+                  "translation": "Опять? Уже третий раз."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Lo sé, soy un desastre.",
+                  "translation": "Знаю, я катастрофа."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Ponte una copia en el bolso.",
+                  "translation": "Положи копию в сумку."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Buena idea, lo hago hoy.",
+                  "translation": "Хорошая идея, сегодня сделаю."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-hecho-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-participios",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "He vuelto a olvidar.",
+              "translation": "Я снова забыл.",
+              "example": "He vuelto a olvidar las llaves."
+            },
+            {
+              "id": "es-a2-hecho-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Es la tercera.",
+              "translation": "Это уже третий раз.",
+              "example": "¿Otra vez? Es la tercera."
+            },
+            {
+              "id": "es-a2-hecho-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Soy un desastre.",
+              "translation": "Я катастрофа.",
+              "example": "Lo sé, soy un desastre."
+            },
+            {
+              "id": "es-a2-hecho-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "una copia",
+              "translation": "копия",
+              "example": "Ponte una copia en el bolso."
+            },
+            {
+              "id": "es-a2-hecho-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "el bolso",
+              "translation": "сумка",
+              "example": "Ponte una copia en el bolso."
+            },
+            {
+              "id": "es-a2-hecho-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "title": "Сделать снова",
+              "explanation": "Повтор действия — volver a + глагол: he vuelto a olvidar, volví a llamar, no lo vuelvas a hacer. Это короче и естественнее, чем otra vez после глагола."
+            },
+            {
+              "id": "es-a2-hecho-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-participios",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "He ___ a olvidar las llaves.",
+              "options": [
+                "vuelto",
+                "volvido",
+                "volver"
+              ],
+              "correctOption": "vuelto"
+            },
+            {
+              "id": "es-a2-hecho-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "___ una copia en el bolso.",
+              "options": [
+                "Ponte",
+                "Pones",
+                "Poner"
+              ],
+              "correctOption": "Ponte"
+            },
+            {
+              "id": "es-a2-hecho-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-articulos",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "«Я катастрофа» — это:",
+              "options": [
+                "Soy un desastre.",
+                "Estoy un desastre.",
+                "Tengo un desastre."
+              ],
+              "correctOption": "Soy un desastre."
+            },
+            {
+              "id": "es-a2-hecho-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Опять? Уже третий раз.",
+              "canonicalAnswer": "¿Otra vez? Es la tercera.",
+              "tokens": [
+                "vez",
+                "Es",
+                "la",
+                "tercera",
+                "Otra"
+              ]
+            },
+            {
+              "id": "es-a2-hecho-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-participios",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Я снова забыл ключи.",
+              "canonicalAnswer": "He vuelto a olvidar las llaves."
+            },
+            {
+              "id": "es-a2-hecho-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Хорошая идея.",
+              "canonicalAnswer": "Buena idea."
+            },
+            {
+              "id": "es-a2-hecho-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Сегодня сделаю.",
+              "canonicalAnswer": "Lo hago hoy."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-hecho-05",
+          "title": "Ya lo tengo hecho",
+          "summary": "Готово заранее.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-hecho-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "title": "Заранее",
+              "lines": [
+                {
+                  "speaker": "Jefe",
+                  "text": "¿Puedes preparar el resumen?",
+                  "translation": "Можешь подготовить сводку?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Ya lo tengo hecho.",
+                  "translation": "У меня уже готово."
+                },
+                {
+                  "speaker": "Jefe",
+                  "text": "¿En serio? Qué rapidez.",
+                  "translation": "Серьёзно? Вот это скорость."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Lo dejé listo el viernes.",
+                  "translation": "Я закончила его в пятницу."
+                },
+                {
+                  "speaker": "Jefe",
+                  "text": "Así da gusto trabajar.",
+                  "translation": "Вот так работать приятно."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-hecho-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Ya lo tengo hecho.",
+              "translation": "У меня уже готово.",
+              "example": "Ya lo tengo hecho desde el viernes."
+            },
+            {
+              "id": "es-a2-hecho-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "el resumen",
+              "translation": "сводка",
+              "example": "¿Puedes preparar el resumen?"
+            },
+            {
+              "id": "es-a2-hecho-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Qué rapidez.",
+              "translation": "Вот это скорость.",
+              "example": "¿En serio? Qué rapidez."
+            },
+            {
+              "id": "es-a2-hecho-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Lo dejé listo.",
+              "translation": "Я это доделал.",
+              "example": "Lo dejé listo el viernes."
+            },
+            {
+              "id": "es-a2-hecho-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Da gusto.",
+              "translation": "Приятно.",
+              "example": "Así da gusto trabajar."
+            },
+            {
+              "id": "es-a2-hecho-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "title": "Уже готово у меня",
+              "explanation": "Оборот tener + причастие подчёркивает результат в моих руках: ya lo tengo hecho, tengo la mesa reservada, tengo los billetes comprados. Причастие согласуется с предметом."
+            },
+            {
+              "id": "es-a2-hecho-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Ya lo ___ hecho.",
+              "options": [
+                "tengo",
+                "he",
+                "estoy"
+              ],
+              "correctOption": "tengo"
+            },
+            {
+              "id": "es-a2-hecho-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Lo ___ listo el viernes.",
+              "options": [
+                "dejé",
+                "dejaba",
+                "dejar"
+              ],
+              "correctOption": "dejé"
+            },
+            {
+              "id": "es-a2-hecho-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "«Приятно» — это:",
+              "options": [
+                "Da gusto.",
+                "Hace gusto.",
+                "Tiene gusto."
+              ],
+              "correctOption": "Da gusto."
+            },
+            {
+              "id": "es-a2-hecho-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Вот это скорость.",
+              "canonicalAnswer": "Qué rapidez.",
+              "tokens": [
+                "rapidez",
+                "Qué"
+              ]
+            },
+            {
+              "id": "es-a2-hecho-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "У меня уже готово.",
+              "canonicalAnswer": "Ya lo tengo hecho."
+            },
+            {
+              "id": "es-a2-hecho-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-directo",
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Я это доделал в пятницу.",
+              "canonicalAnswer": "Lo dejé listo el viernes."
+            },
+            {
+              "id": "es-a2-hecho-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-tramites"
+              ],
+              "prompt": "Вот так работать приятно.",
+              "canonicalAnswer": "Así da gusto trabajar."
+            }
+          ]
+        },
+        {
           "id": "es-a2-hecho-check",
           "title": "Проверка: сделано и сказано",
           "summary": "Весь блок целиком, без подсказок.",
@@ -6355,6 +6965,619 @@
           ]
         },
         {
+          "id": "es-a2-lo-03",
+          "title": "Voy a hacerlo",
+          "summary": "Короткое слово прилипает сзади.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-lo-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "title": "Обещание",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Vas a llamar al fontanero?",
+                  "translation": "Ты позвонишь сантехнику?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Voy a llamarlo esta tarde.",
+                  "translation": "Позвоню ему сегодня днём."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "No se te olvide, por favor.",
+                  "translation": "Только не забудь, пожалуйста."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Que no, lo apunto ahora mismo.",
+                  "translation": "Да нет же, прямо сейчас запишу."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Gracias, eres un sol.",
+                  "translation": "Спасибо, ты солнце."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-lo-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Voy a llamarlo.",
+              "translation": "Я ему позвоню.",
+              "example": "Voy a llamarlo esta tarde."
+            },
+            {
+              "id": "es-a2-lo-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "el fontanero",
+              "translation": "сантехник",
+              "example": "¿Vas a llamar al fontanero?"
+            },
+            {
+              "id": "es-a2-lo-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "No se te olvide.",
+              "translation": "Не забудь.",
+              "example": "No se te olvide, por favor."
+            },
+            {
+              "id": "es-a2-lo-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "ahora mismo",
+              "translation": "прямо сейчас",
+              "example": "Lo apunto ahora mismo."
+            },
+            {
+              "id": "es-a2-lo-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-articulos",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Eres un sol.",
+              "translation": "Ты солнце.",
+              "example": "Gracias, eres un sol."
+            },
+            {
+              "id": "es-a2-lo-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "title": "Спереди или сзади",
+              "explanation": "При двух глаголах короткое слово можно поставить и перед первым, и приклеить к второму: lo voy a llamar = voy a llamarlo. Оба варианта верны и звучат одинаково естественно."
+            },
+            {
+              "id": "es-a2-lo-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Voy a ___ esta tarde.",
+              "options": [
+                "llamarlo",
+                "lo llamar",
+                "llamar lo"
+              ],
+              "correctOption": "llamarlo"
+            },
+            {
+              "id": "es-a2-lo-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "No se te ___.",
+              "options": [
+                "olvide",
+                "olvida",
+                "olvidar"
+              ],
+              "correctOption": "olvide"
+            },
+            {
+              "id": "es-a2-lo-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "«Прямо сейчас» — это:",
+              "options": [
+                "ahora mismo",
+                "mismo ahora",
+                "ya mismo hoy"
+              ],
+              "correctOption": "ahora mismo"
+            },
+            {
+              "id": "es-a2-lo-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-articulos",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Ты солнце.",
+              "canonicalAnswer": "Eres un sol.",
+              "tokens": [
+                "un",
+                "sol",
+                "Eres"
+              ]
+            },
+            {
+              "id": "es-a2-lo-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Я ему позвоню.",
+              "canonicalAnswer": "Voy a llamarlo."
+            },
+            {
+              "id": "es-a2-lo-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Не забудь.",
+              "canonicalAnswer": "No se te olvide."
+            },
+            {
+              "id": "es-a2-lo-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Прямо сейчас запишу.",
+              "canonicalAnswer": "Lo apunto ahora mismo."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-lo-04",
+          "title": "No la encuentro",
+          "summary": "Ищу и не нахожу.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-lo-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "title": "Поиски",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "No encuentro la tarjeta.",
+                  "translation": "Не могу найти карточку."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿La has buscado en la cartera?",
+                  "translation": "Ты искал её в кошельке?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "La he buscado por todas partes.",
+                  "translation": "Я искал её везде."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Mira en el abrigo, a veces está ahí.",
+                  "translation": "Посмотри в пальто, иногда она там."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Pues sí, aquí estaba.",
+                  "translation": "И правда, вот она."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-lo-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "No la encuentro.",
+              "translation": "Не могу её найти.",
+              "example": "No la encuentro por ninguna parte."
+            },
+            {
+              "id": "es-a2-lo-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "la tarjeta",
+              "translation": "карточка",
+              "example": "No encuentro la tarjeta."
+            },
+            {
+              "id": "es-a2-lo-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "la cartera",
+              "translation": "кошелёк",
+              "example": "¿La has buscado en la cartera?"
+            },
+            {
+              "id": "es-a2-lo-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "por todas partes",
+              "translation": "везде",
+              "example": "La he buscado por todas partes."
+            },
+            {
+              "id": "es-a2-lo-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "el abrigo",
+              "translation": "пальто",
+              "example": "Mira en el abrigo."
+            },
+            {
+              "id": "es-a2-lo-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "title": "Искал и не нашёл",
+              "explanation": "Три формы подряд, все с коротким словом: no la encuentro (сейчас), la he buscado (сегодня), la busqué (вчера). Слово стоит перед глаголом, а перед ним — no."
+            },
+            {
+              "id": "es-a2-lo-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "No ___ encuentro.",
+              "options": [
+                "la",
+                "lo",
+                "le"
+              ],
+              "correctOption": "la"
+            },
+            {
+              "id": "es-a2-lo-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "___ he buscado por todas partes.",
+              "options": [
+                "La",
+                "Le",
+                "Las"
+              ],
+              "correctOption": "La"
+            },
+            {
+              "id": "es-a2-lo-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "«Везде» — это:",
+              "options": [
+                "por todas partes",
+                "para todas partes",
+                "en toda parte"
+              ],
+              "correctOption": "por todas partes"
+            },
+            {
+              "id": "es-a2-lo-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Не могу её найти.",
+              "canonicalAnswer": "No la encuentro.",
+              "tokens": [
+                "la",
+                "encuentro",
+                "No"
+              ]
+            },
+            {
+              "id": "es-a2-lo-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Я искал её везде.",
+              "canonicalAnswer": "La he buscado por todas partes."
+            },
+            {
+              "id": "es-a2-lo-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Посмотри в пальто.",
+              "canonicalAnswer": "Mira en el abrigo."
+            },
+            {
+              "id": "es-a2-lo-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "И правда, вот она.",
+              "canonicalAnswer": "Pues sí, aquí estaba."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-lo-05",
+          "title": "Los vi ayer",
+          "summary": "Про людей тоже коротко.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-lo-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "title": "Общие знакомые",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Sabes algo de Ana y Pedro?",
+                  "translation": "Знаешь что-нибудь про Ану и Педро?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Los vi ayer en el mercado.",
+                  "translation": "Я видела их вчера на рынке."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¿Y qué tal están?",
+                  "translation": "И как они?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Bien, los noté contentos.",
+                  "translation": "Хорошо, показались мне довольными."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Me alegro un montón.",
+                  "translation": "Очень рада."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-lo-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Los vi ayer.",
+              "translation": "Я видел их вчера.",
+              "example": "Los vi ayer en el mercado."
+            },
+            {
+              "id": "es-a2-lo-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "¿Sabes algo de…?",
+              "translation": "Знаешь что-нибудь про…?",
+              "example": "¿Sabes algo de Ana y Pedro?"
+            },
+            {
+              "id": "es-a2-lo-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Los noté contentos.",
+              "translation": "Они показались мне довольными.",
+              "example": "Bien, los noté contentos."
+            },
+            {
+              "id": "es-a2-lo-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "el mercado",
+              "translation": "рынок",
+              "example": "Los vi ayer en el mercado."
+            },
+            {
+              "id": "es-a2-lo-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Me alegro.",
+              "translation": "Я рад.",
+              "example": "Me alegro un montón."
+            },
+            {
+              "id": "es-a2-lo-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "title": "Про людей тем же словом",
+              "explanation": "lo, la, los, las заменяют не только вещи, но и людей: lo vi (его видел), la llamé (ей позвонил), los noté contentos (они показались довольными). Род и число берутся у людей так же."
+            },
+            {
+              "id": "es-a2-lo-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "___ vi ayer en el mercado.",
+              "options": [
+                "Los",
+                "Les",
+                "Las"
+              ],
+              "correctOption": "Los"
+            },
+            {
+              "id": "es-a2-lo-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "¿___ algo de Ana?",
+              "options": [
+                "Sabes",
+                "Sabas",
+                "Saber"
+              ],
+              "correctOption": "Sabes"
+            },
+            {
+              "id": "es-a2-lo-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "«Очень рада» — это:",
+              "options": [
+                "Me alegro un montón.",
+                "Estoy alegro mucho.",
+                "Alegrarme mucho."
+              ],
+              "correctOption": "Me alegro un montón."
+            },
+            {
+              "id": "es-a2-lo-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Я видел их вчера.",
+              "canonicalAnswer": "Los vi ayer.",
+              "tokens": [
+                "vi",
+                "ayer",
+                "Los"
+              ]
+            },
+            {
+              "id": "es-a2-lo-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Знаешь что-нибудь про Ану?",
+              "canonicalAnswer": "¿Sabes algo de Ana?"
+            },
+            {
+              "id": "es-a2-lo-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Они показались мне довольными.",
+              "canonicalAnswer": "Los noté contentos."
+            },
+            {
+              "id": "es-a2-lo-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Очень рада.",
+              "canonicalAnswer": "Me alegro un montón."
+            }
+          ]
+        },
+        {
           "id": "es-a2-lo-check",
           "title": "Проверка: не повторять дважды",
           "summary": "Весь блок целиком, без подсказок.",
@@ -6843,6 +8066,624 @@
               ],
               "prompt": "Для того и друзья.",
               "canonicalAnswer": "Para eso estamos."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-te-lo-03",
+          "title": "¿Me lo dejas?",
+          "summary": "Попросить одолжить.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-te-lo-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Одолжить",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Me dejas el cargador un momento?",
+                  "translation": "Одолжишь зарядку на минутку?"
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Claro, te lo dejo.",
+                  "translation": "Конечно, дам."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Te lo devuelvo enseguida.",
+                  "translation": "Верну сразу же."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Sin prisa, tengo otro.",
+                  "translation": "Не спеши, у меня есть другой."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Eres la mejor.",
+                  "translation": "Ты лучшая."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-te-lo-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Me lo dejas?",
+              "translation": "Одолжишь мне это?",
+              "example": "¿Me dejas el cargador un momento?"
+            },
+            {
+              "id": "es-a2-te-lo-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Te lo dejo.",
+              "translation": "Дам тебе это.",
+              "example": "Claro, te lo dejo."
+            },
+            {
+              "id": "es-a2-te-lo-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Te lo devuelvo.",
+              "translation": "Верну тебе это.",
+              "example": "Te lo devuelvo enseguida."
+            },
+            {
+              "id": "es-a2-te-lo-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "enseguida",
+              "translation": "сразу же",
+              "example": "Te lo devuelvo enseguida."
+            },
+            {
+              "id": "es-a2-te-lo-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-superlativos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Eres la mejor.",
+              "translation": "Ты лучшая.",
+              "example": "Gracias, eres la mejor."
+            },
+            {
+              "id": "es-a2-te-lo-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Одолжить и вернуть",
+              "explanation": "dejar — дать на время, devolver — вернуть: ¿me lo dejas? — te lo dejo — te lo devuelvo. Порядок слов один и тот же: сначала кому, потом что, потом глагол."
+            },
+            {
+              "id": "es-a2-te-lo-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿___ lo dejas un momento?",
+              "options": [
+                "Me",
+                "Te",
+                "Se"
+              ],
+              "correctOption": "Me"
+            },
+            {
+              "id": "es-a2-te-lo-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Te lo ___ enseguida.",
+              "options": [
+                "devuelvo",
+                "devuelve",
+                "devolver"
+              ],
+              "correctOption": "devuelvo"
+            },
+            {
+              "id": "es-a2-te-lo-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "«Сразу же» — это:",
+              "options": [
+                "enseguida",
+                "en seguido",
+                "a seguida"
+              ],
+              "correctOption": "enseguida"
+            },
+            {
+              "id": "es-a2-te-lo-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Не спеши, у меня есть другой.",
+              "canonicalAnswer": "Sin prisa, tengo otro.",
+              "tokens": [
+                "prisa",
+                "tengo",
+                "otro",
+                "Sin"
+              ]
+            },
+            {
+              "id": "es-a2-te-lo-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Одолжишь мне это?",
+              "canonicalAnswer": "¿Me lo dejas?"
+            },
+            {
+              "id": "es-a2-te-lo-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Конечно, дам.",
+              "canonicalAnswer": "Claro, te lo dejo."
+            },
+            {
+              "id": "es-a2-te-lo-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Верну сразу же.",
+              "canonicalAnswer": "Te lo devuelvo enseguida."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-te-lo-04",
+          "title": "Se lo digo yo",
+          "summary": "Передать третьему.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-te-lo-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Кто скажет",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Alguien tiene que avisar a Marta.",
+                  "translation": "Кто-то должен предупредить Марту."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Se lo digo yo, no te preocupes.",
+                  "translation": "Я ей скажу, не переживай."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Seguro? Es un poco delicado.",
+                  "translation": "Точно? Это немного деликатно."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Tranquila, se lo cuento con calma.",
+                  "translation": "Спокойно, расскажу ей спокойно."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Gracias, me quitas un peso.",
+                  "translation": "Спасибо, снимаешь с меня груз."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-te-lo-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Se lo digo yo.",
+              "translation": "Я ей скажу.",
+              "example": "Se lo digo yo, no te preocupes."
+            },
+            {
+              "id": "es-a2-te-lo-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "avisar a Marta",
+              "translation": "предупредить Марту",
+              "example": "Alguien tiene que avisar a Marta."
+            },
+            {
+              "id": "es-a2-te-lo-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-articulos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "delicado",
+              "translation": "деликатный",
+              "example": "Es un poco delicado."
+            },
+            {
+              "id": "es-a2-te-lo-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Se lo cuento con calma.",
+              "translation": "Расскажу ей спокойно.",
+              "example": "Tranquila, se lo cuento con calma."
+            },
+            {
+              "id": "es-a2-te-lo-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-articulos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Me quitas un peso.",
+              "translation": "Снимаешь с меня груз.",
+              "example": "Gracias, me quitas un peso de encima."
+            },
+            {
+              "id": "es-a2-te-lo-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Ему и ей — это se",
+              "explanation": "Когда «кому» — третье лицо и рядом стоит «что», le превращается в se: se lo digo, se lo cuento, se lo mando. Само le остаётся только без второго слова: le digo la verdad."
+            },
+            {
+              "id": "es-a2-te-lo-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "___ lo digo yo a Marta.",
+              "options": [
+                "Se",
+                "Le",
+                "La"
+              ],
+              "correctOption": "Se"
+            },
+            {
+              "id": "es-a2-te-lo-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "___ digo la verdad a Marta.",
+              "options": [
+                "Le",
+                "Se",
+                "Lo"
+              ],
+              "correctOption": "Le"
+            },
+            {
+              "id": "es-a2-te-lo-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "«Не переживай» — это:",
+              "options": [
+                "No te preocupes.",
+                "No te preocupas.",
+                "No preocuparte."
+              ],
+              "correctOption": "No te preocupes."
+            },
+            {
+              "id": "es-a2-te-lo-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Расскажу ей спокойно.",
+              "canonicalAnswer": "Se lo cuento con calma.",
+              "tokens": [
+                "lo",
+                "cuento",
+                "con",
+                "calma",
+                "Se"
+              ]
+            },
+            {
+              "id": "es-a2-te-lo-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Я ей скажу.",
+              "canonicalAnswer": "Se lo digo yo."
+            },
+            {
+              "id": "es-a2-te-lo-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-articulos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Это немного деликатно.",
+              "canonicalAnswer": "Es un poco delicado."
+            },
+            {
+              "id": "es-a2-te-lo-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-articulos",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Снимаешь с меня груз.",
+              "canonicalAnswer": "Me quitas un peso."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-te-lo-05",
+          "title": "Me han dado cita",
+          "summary": "Мне дали, мне сказали.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-te-lo-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Записали",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Me han dado cita para el martes.",
+                  "translation": "Мне дали запись на вторник."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Tan pronto? Qué suerte.",
+                  "translation": "Так скоро? Повезло."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Sí, me la han cambiado dos veces.",
+                  "translation": "Да, мне её два раза переносили."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Bueno, al final ha salido bien.",
+                  "translation": "Ну, в итоге вышло хорошо."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Eso es lo que cuenta.",
+                  "translation": "Это и важно."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-te-lo-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-por-para",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Me han dado cita.",
+              "translation": "Мне дали запись.",
+              "example": "Me han dado cita para el martes."
+            },
+            {
+              "id": "es-a2-te-lo-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Me la han cambiado.",
+              "translation": "Мне её поменяли.",
+              "example": "Me la han cambiado dos veces."
+            },
+            {
+              "id": "es-a2-te-lo-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Qué suerte.",
+              "translation": "Повезло.",
+              "example": "¿Tan pronto? Qué suerte."
+            },
+            {
+              "id": "es-a2-te-lo-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Ha salido bien.",
+              "translation": "Вышло хорошо.",
+              "example": "Al final ha salido bien."
+            },
+            {
+              "id": "es-a2-te-lo-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Eso es lo que cuenta.",
+              "translation": "Это и важно.",
+              "example": "Eso es lo que cuenta, al final."
+            },
+            {
+              "id": "es-a2-te-lo-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Мне дали, мне сказали",
+              "explanation": "Когда неважно кто, говорят «мне дали»: me han dado, me han dicho, me han cambiado. Глагол во множественном, а исполнителя нет — по-русски это «мне дали» без подлежащего."
+            },
+            {
+              "id": "es-a2-te-lo-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-por-para",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Me ___ dado cita para el martes.",
+              "options": [
+                "han",
+                "ha",
+                "he"
+              ],
+              "correctOption": "han"
+            },
+            {
+              "id": "es-a2-te-lo-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Me ___ han cambiado dos veces.",
+              "options": [
+                "la",
+                "lo",
+                "le"
+              ],
+              "correctOption": "la"
+            },
+            {
+              "id": "es-a2-te-lo-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "«Это и важно» — это:",
+              "options": [
+                "Eso es lo que cuenta.",
+                "Eso es que cuenta.",
+                "Eso lo cuenta."
+              ],
+              "correctOption": "Eso es lo que cuenta."
+            },
+            {
+              "id": "es-a2-te-lo-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Повезло.",
+              "canonicalAnswer": "Qué suerte.",
+              "tokens": [
+                "suerte",
+                "Qué"
+              ]
+            },
+            {
+              "id": "es-a2-te-lo-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-por-para",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Мне дали запись на вторник.",
+              "canonicalAnswer": "Me han dado cita para el martes."
+            },
+            {
+              "id": "es-a2-te-lo-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Мне её два раза переносили.",
+              "canonicalAnswer": "Me la han cambiado dos veces."
+            },
+            {
+              "id": "es-a2-te-lo-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "В итоге вышло хорошо.",
+              "canonicalAnswer": "Al final ha salido bien."
             }
           ]
         },
