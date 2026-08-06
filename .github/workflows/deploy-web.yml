@@ -54,3 +54,7 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Pages has been sitting in `deployment_queued` for longer than the ten-minute
+          # default, failing runs whose build was fine. Twenty minutes rides that out.
+          timeout: 1200000
