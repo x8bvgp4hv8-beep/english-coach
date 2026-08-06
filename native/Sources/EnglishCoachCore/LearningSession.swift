@@ -148,7 +148,7 @@ public struct LearningSession: Sendable {
     public mutating func completeCurrentCorrectlyForTesting(now: Date) {
         guard let exercise = currentExercise else { return }
         switch exercise.type {
-        case .info, .flashcard:
+        case .info, .flashcard, .dialogue:
             completePassiveExercise(now: now)
         case .multipleChoice:
             _ = submitChoice(exercise.correctOption ?? "", now: now); advance()

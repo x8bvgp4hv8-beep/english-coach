@@ -108,7 +108,7 @@ export const PRACTICE_KINDS: Array<{ id: string; title: string; subtitle: string
 export const PracticeEngine = {
   /**
    * Everything the learner may be asked, up to and including the current level.
-   * Rule cards are excluded: reading a rule is not practice.
+   * Rule cards and dialogues are excluded: reading and listening are not practice.
    */
   pool(courses: CoursePack[], level: CEFRLevel, types?: ExerciseType[], topics?: string[]): Exercise[] {
     const ceiling = LEVELS.indexOf(level)
@@ -118,7 +118,7 @@ export const PracticeEngine = {
       .flatMap((course) => course.chapters)
       .flatMap((chapter) => chapter.lessons)
       .flatMap((lesson) => lesson.exercises)
-      .filter((exercise) => exercise.type !== 'info')
+      .filter((exercise) => exercise.type !== 'info' && exercise.type !== 'dialogue')
       .filter((exercise) => !types || types.includes(exercise.type))
       .filter((exercise) => !topics || (exercise.topics ?? []).some((topic) => topics.includes(topic)))
   },

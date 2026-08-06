@@ -425,6 +425,27 @@ final class AppModel {
         state.practiceSeconds = PracticeLog.adding(seconds: Int(now.timeIntervalSince(started)), to: state.practiceSeconds, on: now)
     }
 
+    /// What the learner can already do, and what the unit in progress will add.
+    ///
+    /// A percentage tells you how much of a list you have ticked off; it does not tell
+    /// you what you can say. Every course that works states progress as ability, so this
+    /// is the one the map leads with. A unit's abilities are earned when its lessons are
+    /// done — lessons unlock in order, so that is a real claim, not a participation badge.
+    var abilities: (earned: [String], next: [String]) {
+        var earned: [String] = []
+        var next: [String] = []
+        for chapter in selectedCourse?.chapters ?? [] {
+            let canDo = chapter.canDo ?? []
+            guard !canDo.isEmpty else { continue }
+            if chapter.lessons.allSatisfy({ state.completedLessonIDs.contains($0.id) }) {
+                earned.append(contentsOf: canDo)
+            } else if next.isEmpty {
+                next = canDo
+            }
+        }
+        return (earned, next)
+    }
+
     func streak(calendar: Calendar = .current) -> Int {
         let days = Set(state.attempts.map { calendar.startOfDay(for: $0.date) })
         var day = calendar.startOfDay(for: .now)

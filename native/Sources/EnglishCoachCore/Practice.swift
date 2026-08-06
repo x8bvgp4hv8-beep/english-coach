@@ -52,7 +52,7 @@ public enum PracticeEngine {
             let chapters = course.chapters.compactMap { chapter -> Chapter? in
                 let lessons = chapter.lessons.filter { completed.contains($0.id) }
                 guard !lessons.isEmpty else { return nil }
-                return Chapter(id: chapter.id, title: chapter.title, subtitle: chapter.subtitle, lessons: lessons)
+                return Chapter(id: chapter.id, title: chapter.title, subtitle: chapter.subtitle, lessons: lessons, canDo: chapter.canDo)
             }
             guard !chapters.isEmpty else { return nil }
             return CoursePack(schemaVersion: course.schemaVersion, level: course.level, chapters: chapters)
@@ -60,14 +60,14 @@ public enum PracticeEngine {
     }
 
     /// Everything the learner may be asked, up to and including the current level.
-    /// Rule cards are excluded: reading a rule is not practice.
+    /// Rule cards and dialogues are excluded: reading and listening are not practice.
     public static func pool(courses: [CoursePack], level: CEFRLevel, types: [ExerciseType]? = nil, topics: [String]? = nil) -> [Exercise] {
         let ceiling = LevelOrder.all.firstIndex(of: level) ?? 0
         return courses
             .filter { (LevelOrder.all.firstIndex(of: $0.level) ?? 0) <= ceiling }
             .sorted { (LevelOrder.all.firstIndex(of: $0.level) ?? 0) < (LevelOrder.all.firstIndex(of: $1.level) ?? 0) }
             .flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises)
-            .filter { $0.type != .info }
+            .filter { $0.type != .info && $0.type != .dialogue }
             .filter { types == nil || types!.contains($0.type) }
             .filter { exercise in
                 guard let topics else { return true }

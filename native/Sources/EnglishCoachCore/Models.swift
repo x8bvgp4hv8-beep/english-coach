@@ -10,9 +10,62 @@ public enum CEFRLevel: String, Codable, CaseIterable, Identifiable, Sendable {
 }
 
 public enum ExerciseType: String, Codable, CaseIterable, Sendable {
-    case info, flashcard, translate
+    case info, flashcard, translate, dialogue
     case wordOrder = "word_order"
     case multipleChoice = "multiple_choice"
+
+    /// The step of the lesson this kind of exercise belongs to.
+    public var step: LessonStep {
+        switch self {
+        case .dialogue: .listen
+        case .flashcard: .words
+        case .info: .rule
+        case .multipleChoice, .wordOrder: .recognise
+        case .translate: .produce
+        }
+    }
+}
+
+/// The five steps of a lesson, always in this order. Mirrors web/src/core/types.ts.
+///
+/// Every serious course teaches by climbing: hear the language whole, meet the words,
+/// get the rule that explains what was just heard, recognise it with the answer in front
+/// of you, and only then produce it from nothing. Duolingo calls it scaffolding — "tap
+/// the ending" before "type the ending".
+///
+/// Ours was not climbing at all. The order inside a lesson was whatever order the JSON
+/// happened to be written in: the second Spanish lesson asked for a free translation
+/// fifth, between two flashcards. So the step is derived from the exercise type and the
+/// decoder refuses a v2 pack whose lesson goes back down a step.
+public enum LessonStep: Int, CaseIterable, Sendable {
+    case listen, words, rule, recognise, produce
+
+    /// What the learner sees above each step, so the shape of a lesson is never a surprise.
+    public var title: String {
+        switch self {
+        case .listen: "ПОСЛУШАЙ"
+        case .words: "НОВОЕ СЛОВО"
+        case .rule: "КОРОТКОЕ ПРАВИЛО"
+        case .recognise: "УЗНАЙ"
+        case .produce: "СКАЖИ САМ"
+        }
+    }
+}
+
+/// One turn of a dialogue: who says it, what they say, what it means.
+public struct DialogueLine: Codable, Equatable, Sendable {
+    public let speaker: String
+    public let text: String
+    public let translation: String
+
+    public init(speaker: String, text: String, translation: String) {
+        self.speaker = speaker; self.text = text; self.translation = translation
+    }
+}
+
+/// A checkpoint closes a unit: the same situation end to end, no hints, production only.
+public enum LessonKind: String, Codable, Sendable {
+    case lesson, checkpoint
 }
 
 public struct CoursePack: Codable, Identifiable, Equatable, Sendable {
@@ -27,6 +80,18 @@ public struct Chapter: Codable, Identifiable, Equatable, Sendable {
     public let title: String
     public let subtitle: String?
     public let lessons: [Lesson]
+    /// What the learner will be able to do when the unit is done, in their own language:
+    /// «заказать кофе», «спросить, где что находится».
+    ///
+    /// A course named after grammar is a table of contents, not a path. Every course that
+    /// works — Duolingo, Babbel, Busuu — states the unit as an ability and lets the grammar
+    /// live inside it. This is that statement, and the progress screen is built from it.
+    public let canDo: [String]?
+
+    public init(id: String, title: String, subtitle: String?, lessons: [Lesson], canDo: [String]? = nil) {
+        self.id = id; self.title = title; self.subtitle = subtitle
+        self.lessons = lessons; self.canDo = canDo
+    }
 }
 
 public struct Lesson: Codable, Identifiable, Equatable, Sendable {
@@ -35,10 +100,13 @@ public struct Lesson: Codable, Identifiable, Equatable, Sendable {
     public let summary: String
     public let estimatedMinutes: Int
     public let exercises: [Exercise]
+    /// A checkpoint closes a unit: production only, no hints. Passing it is what turns
+    /// "прошёл уроки" into "умею".
+    public let kind: LessonKind?
 
-    public init(id: String, title: String, summary: String, estimatedMinutes: Int, exercises: [Exercise]) {
+    public init(id: String, title: String, summary: String, estimatedMinutes: Int, exercises: [Exercise], kind: LessonKind? = nil) {
         self.id = id; self.title = title; self.summary = summary
-        self.estimatedMinutes = estimatedMinutes; self.exercises = exercises
+        self.estimatedMinutes = estimatedMinutes; self.exercises = exercises; self.kind = kind
     }
 }
 
@@ -60,6 +128,8 @@ public struct Exercise: Codable, Identifiable, Equatable, Sendable {
     /// Grammar topics from `Syllabus/syllabus.json` that this exercise drills. Optional
     /// for older packs; the syllabus test refuses ids that are not in the manifest.
     public let topics: [String]?
+    /// The exchange to listen through, for a `dialogue`. Nothing to answer.
+    public let lines: [DialogueLine]?
 }
 
 public struct PlacementQuestion: Codable, Identifiable, Equatable, Sendable {

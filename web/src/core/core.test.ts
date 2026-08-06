@@ -41,6 +41,7 @@ const courses: CoursePack[] = readLanguage('en').courses
 const placement: PlacementBank = readLanguage('en').placement
 const bank = placement.questions
 const now = new Date(1_000_000)
+const DRILLED_TYPES = EXERCISE_TYPES.filter((type) => type !== 'dialogue')
 
 const allExercises = (course: CoursePack): Exercise[] =>
   course.chapters.flatMap((chapter) => chapter.lessons).flatMap((lesson) => lesson.exercises)
@@ -101,7 +102,7 @@ describe('content decoding', () => {
   })
 
   it('rejects an unsupported schema version', () => {
-    expect(() => decodeCourse({ schemaVersion: 2, level: 'A1', chapters: [] })).toThrowError(/unsupportedSchema/)
+    expect(() => decodeCourse({ schemaVersion: 3, level: 'A1', chapters: [] })).toThrowError(/unsupportedSchema/)
   })
 })
 
@@ -279,7 +280,9 @@ describe('bundled content', () => {
     const course = courses.find((c) => c.level === level)!
     const exercises = allExercises(course)
     const types = new Set(exercises.map((e) => e.type))
-    for (const type of EXERCISE_TYPES) expect(types).toContain(type)
+    // Dialogues belong to the v2 unit packs; every level must still carry the five kinds
+    // a learner is actually asked to work through.
+    for (const type of DRILLED_TYPES) expect(types).toContain(type)
     expect(exercises.length).toBeGreaterThanOrEqual(10)
     expect(course.chapters.flatMap((c) => c.lessons).length).toBeGreaterThanOrEqual(3)
   })

@@ -8,15 +8,24 @@ public enum ContentError: Error, Equatable {
 }
 
 public enum ContentRepository {
+    static let schemaVersions: Set<Int> = [1, 2]
+
     public static func decode(_ data: Data) throws -> CoursePack {
         let course = try JSONDecoder().decode(CoursePack.self, from: data)
-        guard course.schemaVersion == 1 else { throw ContentError.unsupportedSchema(course.schemaVersion) }
+        guard Self.schemaVersions.contains(course.schemaVersion) else { throw ContentError.unsupportedSchema(course.schemaVersion) }
         guard !course.chapters.isEmpty else { throw ContentError.emptyCourse }
+        // v1 packs are grammar chapters; v2 packs are can-do units with the five-step ladder.
+        let isUnit = course.schemaVersion >= 2
         var ids = Set<String>()
         for chapter in course.chapters {
             guard ids.insert(chapter.id).inserted else { throw ContentError.duplicateID(chapter.id) }
+            // A unit exists to make someone able to do something. If it cannot say what, it
+            // is a grammar chapter with a new name, and the progress screen has nothing to show.
+            if isUnit && chapter.canDo?.isEmpty != false { throw ContentError.invalidExercise(chapter.id) }
+
             for lesson in chapter.lessons {
                 guard ids.insert(lesson.id).inserted else { throw ContentError.duplicateID(lesson.id) }
+                var climbed = -1
                 for exercise in lesson.exercises {
                     guard ids.insert(exercise.id).inserted else { throw ContentError.duplicateID(exercise.id) }
                     if exercise.type == .translate && exercise.canonicalAnswer?.isEmpty != false {
@@ -25,6 +34,20 @@ public enum ContentRepository {
                     if exercise.type == .multipleChoice && (exercise.options?.contains(exercise.correctOption ?? "") != true) {
                         throw ContentError.invalidExercise(exercise.id)
                     }
+                    if exercise.type == .dialogue && (exercise.lines?.count ?? 0) < 2 {
+                        throw ContentError.invalidExercise(exercise.id)
+                    }
+                    if isUnit {
+                        // The ladder: a lesson may stay on a step or move up, never back down.
+                        let step = exercise.type.step.rawValue
+                        if step < climbed { throw ContentError.invalidExercise(exercise.id) }
+                        climbed = step
+                    }
+                }
+                // A checkpoint is the unit's exam: producing the language, nothing to lean on.
+                if isUnit, lesson.kind == .checkpoint,
+                   let soft = lesson.exercises.first(where: { $0.type.step != .produce || $0.hint != nil }) {
+                    throw ContentError.invalidExercise(soft.id)
                 }
             }
         }

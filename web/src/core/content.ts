@@ -1,6 +1,6 @@
 import { DEFAULT_LANGUAGE } from './language'
 import { decodeSyllabus } from './syllabus'
-import { ContentError } from './types'
+import { ContentError, LESSON_STEPS, SCHEMA_VERSIONS, stepOf } from './types'
 import type { LanguageCode } from './language'
 import type { CoursePack, PlacementBank, Syllabus } from './types'
 
@@ -8,8 +8,11 @@ import type { CoursePack, PlacementBank, Syllabus } from './types'
 
 export function decodeCourse(raw: unknown): CoursePack {
   const course = raw as CoursePack
-  if (course?.schemaVersion !== 1) throw new ContentError('unsupportedSchema', String(course?.schemaVersion))
+  if (!SCHEMA_VERSIONS.includes(course?.schemaVersion)) {
+    throw new ContentError('unsupportedSchema', String(course?.schemaVersion))
+  }
   if (!course.chapters?.length) throw new ContentError('emptyCourse')
+  const isUnit = course.schemaVersion >= 2
 
   const ids = new Set<string>()
   const claim = (id: string) => {
@@ -19,8 +22,13 @@ export function decodeCourse(raw: unknown): CoursePack {
 
   for (const chapter of course.chapters) {
     claim(chapter.id)
+    // A unit exists to make someone able to do something. If it cannot say what, it is
+    // a grammar chapter with a new name, and the progress screen has nothing to show.
+    if (isUnit && !chapter.canDo?.length) throw new ContentError('invalidExercise', chapter.id)
+
     for (const lesson of chapter.lessons) {
       claim(lesson.id)
+      let climbed = -1
       for (const exercise of lesson.exercises) {
         claim(exercise.id)
         if (exercise.type === 'translate' && !exercise.canonicalAnswer) {
@@ -29,6 +37,20 @@ export function decodeCourse(raw: unknown): CoursePack {
         if (exercise.type === 'multiple_choice' && !(exercise.options ?? []).includes(exercise.correctOption ?? '')) {
           throw new ContentError('invalidExercise', exercise.id)
         }
+        if (exercise.type === 'dialogue' && (exercise.lines?.length ?? 0) < 2) {
+          throw new ContentError('invalidExercise', exercise.id)
+        }
+        if (isUnit) {
+          // The ladder: a lesson may stay on a step or move up, never back down.
+          const step = LESSON_STEPS.indexOf(stepOf(exercise.type))
+          if (step < climbed) throw new ContentError('invalidExercise', exercise.id)
+          climbed = step
+        }
+      }
+      // A checkpoint is the unit's exam: producing the language, with nothing to lean on.
+      if (isUnit && lesson.kind === 'checkpoint') {
+        const soft = lesson.exercises.find((e) => stepOf(e.type) !== 'produce' || e.hint)
+        if (soft) throw new ContentError('invalidExercise', soft.id)
       }
     }
   }

@@ -46,7 +46,9 @@ public enum ShadowingEngine {
         case .flashcard: return make(exercise.prompt, gloss: exercise.translation)
         case .translate, .wordOrder: return make(exercise.canonicalAnswer, gloss: exercise.prompt)
         case .multipleChoice: return make(filledGap(exercise))
-        case .info: return nil // a rule card has nothing to say out loud
+        // A rule card has nothing to say out loud; a dialogue is several lines at once,
+        // and shadowing works one phrase at a time.
+        case .info, .dialogue: return nil
         }
     }
 

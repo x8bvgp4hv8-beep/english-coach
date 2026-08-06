@@ -78,7 +78,10 @@ do {
     expect(Set(courses.map(\.level)) == Set(CEFRLevel.allCases), "bundled content covers A1-C1")
     for course in courses {
         let exercises = course.chapters.flatMap(\.lessons).flatMap(\.exercises)
-        expect(Set(exercises.map(\.type)).isSuperset(of: Set(ExerciseType.allCases)), "\(course.level.rawValue) covers every exercise type")
+        // Dialogues belong to the v2 unit packs; every level must still carry the five
+        // kinds a learner is actually asked to work through.
+        let required: Set<ExerciseType> = [.info, .flashcard, .translate, .wordOrder, .multipleChoice]
+        expect(Set(exercises.map(\.type)).isSuperset(of: required), "\(course.level.rawValue) covers every exercise type")
         expect(exercises.count >= 10, "\(course.level.rawValue) has at least ten exercises")
     }
 } catch { failures += 1; print("✗ bundled course validation: \(error)") }
@@ -213,6 +216,11 @@ do {
                 expect(ok, "\(exercise.id): multiple_choice correctOption is valid")
             case .translate:
                 expect(!(exercise.canonicalAnswer ?? "").isEmpty, "\(exercise.id): translate has an answer")
+            case .dialogue:
+                let lines = exercise.lines ?? []
+                expect(lines.count >= 2, "\(exercise.id): a dialogue is an exchange, not one line")
+                expect(lines.allSatisfy { !$0.text.isEmpty && !$0.translation.isEmpty && !$0.speaker.isEmpty },
+                       "\(exercise.id): every line has a speaker, a text and a translation")
             case .info, .flashcard:
                 break
             }

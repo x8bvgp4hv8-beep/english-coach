@@ -37,7 +37,7 @@ public enum SyllabusEngine {
     /// Rule cards are excluded: reading a rule is not practising it.
     public static func counts(in courses: [CoursePack]) -> [String: Int] {
         var counts: [String: Int] = [:]
-        for exercise in courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises) where exercise.type != .info {
+        for exercise in courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises) where exercise.type != .info && exercise.type != .dialogue {
             for topic in exercise.topics ?? [] { counts[topic, default: 0] += 1 }
         }
         return counts
@@ -101,7 +101,7 @@ public enum TopicProgressEngine {
         let inScope = syllabus.topics.filter { (LevelOrder.all.firstIndex(of: $0.level) ?? 0) <= ceiling }
 
         var topicsOf: [String: [String]] = [:]
-        for exercise in courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises) where exercise.type != .info {
+        for exercise in courses.flatMap(\.chapters).flatMap(\.lessons).flatMap(\.exercises) where exercise.type != .info && exercise.type != .dialogue {
             topicsOf[exercise.id] = exercise.topics ?? []
         }
         let available = SyllabusEngine.counts(in: taught ?? courses)
@@ -195,6 +195,8 @@ public enum VocabularyOrder {
         case .multipleChoice: parts = [exercise.prompt, (exercise.options ?? []).joined(separator: " ")]
         // Checking a translation reveals its answer, so from then on it is taught too.
         case .translate: parts = [exercise.canonicalAnswer, exercise.hint]
+        // A dialogue is where a unit's language is first heard whole: everything counts.
+        case .dialogue: parts = (exercise.lines ?? []).map(\.text)
         }
         return parts.reduce(into: Set<String>()) { $0.formUnion(vocabulary($1)) }
     }

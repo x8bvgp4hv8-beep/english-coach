@@ -56,6 +56,8 @@ export function MapScreen() {
           />
         )}
 
+        <Abilities model={model} />
+
         {model.weakTopics.length > 0 && (
           <>
             <SectionTitle hint="Считается по твоим ответам, а не по пройденным урокам">Что проседает</SectionTitle>
@@ -131,6 +133,34 @@ export function MapScreen() {
           <ChapterSection key={chapter.id} model={model} chapter={chapter} number={index + 1} />
         ))}
       </div>
+    </>
+  )
+}
+
+/**
+ * Progress as ability, not as a percentage.
+ *
+ * "Уровень A1 — 9%" says nothing a learner can act on. This says what they can already
+ * say out loud, and what the unit they are inside will add to that list.
+ */
+function Abilities({ model }: { model: AppStore }) {
+  const { earned, next } = model.abilities
+  if (earned.length === 0 && next.length === 0) return null
+
+  return (
+    <>
+      <SectionTitle hint={earned.length === 0 ? 'Появится, когда закроешь первый блок' : undefined}>
+        Что ты умеешь
+      </SectionTitle>
+      <div className="abilities">
+        {earned.map((item) => (
+          <span className="ability done" key={item}>✓ {item}</span>
+        ))}
+        {next.map((item) => (
+          <span className="ability next" key={item}>{item}</span>
+        ))}
+      </div>
+      {next.length > 0 && <p className="abilities-note">Серым — то, чему учит блок, который ты сейчас проходишь.</p>}
     </>
   )
 }
@@ -227,6 +257,12 @@ function ChapterSection({ model, chapter, number }: { model: AppStore; chapter: 
         <span className={`chapter-count${done === chapter.lessons.length ? ' done' : ''}`}>{done} / {chapter.lessons.length}</span>
       </div>
       {chapter.subtitle && <p className="chapter-subtitle">{chapter.subtitle}</p>}
+      {/* The unit says what it is for before it lists its lessons. */}
+      {(chapter.canDo ?? []).length > 0 && (
+        <ul className="chapter-cando">
+          {chapter.canDo!.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+      )}
       <div className="chapter-rule" />
       {chapter.lessons.map((lesson, index) => (
         <LessonRow

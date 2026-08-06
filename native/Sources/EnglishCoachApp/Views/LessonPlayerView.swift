@@ -69,6 +69,27 @@ struct LessonPlayerView: View {
 
     @ViewBuilder private func content(for exercise: Exercise) -> some View {
         switch exercise.type {
+        case .dialogue:
+            // The first step of a unit: hear the language whole before touching a word of it.
+            VStack(alignment: .leading, spacing: 14) {
+                ForEach(Array((exercise.lines ?? []).enumerated()), id: \.offset) { _, line in
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(line.speaker.uppercased())
+                            .font(.system(size: 10, weight: .black)).tracking(0.8)
+                            .foregroundStyle(CoachTheme.accentColor.opacity(0.8))
+                        HStack(alignment: .firstTextBaseline, spacing: 8) {
+                            Text(line.text).font(.system(size: 17, weight: .semibold))
+                                .fixedSize(horizontal: false, vertical: true)
+                            Button { speech.speak(line.text) } label: { Image(systemName: "speaker.wave.2.fill") }
+                                .buttonStyle(.plain).foregroundStyle(CoachTheme.blue)
+                        }
+                        Text(line.translation).font(.system(size: 14)).foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+            Button("Прочитать вслух целиком") { speakDialogue(exercise) }.buttonStyle(.bordered)
+            Button("Дальше") { withAnimation { model.completePassive() } }.buttonStyle(PrimaryButtonStyle())
         case .info:
             Text(exercise.explanation ?? "").font(.title3).lineSpacing(6).multilineTextAlignment(.center)
             Button("Понятно") { withAnimation { model.completePassive() } }.buttonStyle(PrimaryButtonStyle())
@@ -222,10 +243,22 @@ struct LessonPlayerView: View {
         return parts.isEmpty ? nil : parts.joined(separator: "  ·  ")
     }
 
+    /// Plays the whole exchange back to back, which is what makes it a conversation
+    /// rather than a list of sentences.
+    private func speakDialogue(_ exercise: Exercise) {
+        Task { @MainActor in
+            for line in exercise.lines ?? [] {
+                speech.speak(line.text)
+                await speech.waitUntilSilent()
+            }
+        }
+    }
+
     private func submitText() { guard !answer.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }; model.submitText(answer) }
     private func label(for type: ExerciseType) -> String {
         if type == .flashcard, model.currentIsRecall { return "ВСПОМНИ ФРАЗУ" }
         switch type {
+        case .dialogue: return "ПОСЛУШАЙ"
         case .info: return "КОРОТКОЕ ПРАВИЛО"
         case .flashcard: return "НОВАЯ ФРАЗА"
         case .translate: return "ПЕРЕВЕДИ НА \(model.currentLanguage.title.uppercased())"

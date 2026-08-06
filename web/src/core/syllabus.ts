@@ -24,12 +24,13 @@ export function decodeSyllabus(raw: unknown): Syllabus {
 }
 
 export const SyllabusEngine = {
-  /** Rule cards are excluded: reading a rule is not practising it. */
+  /** Rule cards and dialogues are excluded: exposure is not practice. */
   counts(courses: CoursePack[]): Record<string, number> {
     const counts: Record<string, number> = {}
     const exercises = courses.flatMap((c) => c.chapters).flatMap((c) => c.lessons).flatMap((l) => l.exercises)
     for (const exercise of exercises) {
-      if (exercise.type === 'info') continue
+      // Reading a rule or listening to a dialogue is exposure, not practice.
+      if (exercise.type === 'info' || exercise.type === 'dialogue') continue
       for (const topic of exercise.topics ?? []) counts[topic] = (counts[topic] ?? 0) + 1
     }
     return counts
@@ -166,6 +167,8 @@ function shown(exercise: Exercise): Set<string> {
     case 'multiple_choice': parts.push(exercise.prompt, (exercise.options ?? []).join(' ')); break
     // Checking a translation reveals its answer, so from then on it is taught too.
     case 'translate': parts.push(exercise.canonicalAnswer, exercise.hint); break
+    // A dialogue is where a unit's language is first heard whole: everything in it counts.
+    case 'dialogue': parts.push(...(exercise.lines ?? []).map((line) => line.text)); break
   }
   const found = new Set<string>()
   for (const part of parts) for (const word of vocabulary(part)) found.add(word)

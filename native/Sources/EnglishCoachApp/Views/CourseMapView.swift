@@ -13,6 +13,7 @@ struct CourseMapView: View {
                     sectionTitle("Сегодня")
                     continueCard
                     if model.dueCount > 0 { reviewCard }
+                    abilitiesSection
                     if !model.weakTopics.isEmpty {
                         sectionTitle("Что проседает", hint: "Считается по твоим ответам, а не по пройденным урокам")
                         ForEach(model.weakTopics.prefix(3)) { item in
@@ -52,6 +53,32 @@ struct CourseMapView: View {
     }
 
     private var chapters: [Chapter] { model.selectedCourse?.chapters ?? [] }
+
+    /// Progress as ability, not as a percentage. "Уровень A1 — 9%" says nothing a learner
+    /// can act on; this says what they can already say out loud.
+    @ViewBuilder private var abilitiesSection: some View {
+        let abilities = model.abilities
+        if !abilities.earned.isEmpty || !abilities.next.isEmpty {
+            sectionTitle("Что ты умеешь", hint: abilities.earned.isEmpty ? "Появится, когда закроешь первый блок" : nil)
+            FlowLayout(spacing: 7) {
+                ForEach(abilities.earned, id: \.self) { item in abilityChip("✓ " + item, earned: true) }
+                ForEach(abilities.next, id: \.self) { item in abilityChip(item, earned: false) }
+            }.padding(.top, 10)
+            if !abilities.next.isEmpty {
+                Text("Серым — то, чему учит блок, который ты сейчас проходишь.")
+                    .font(.system(size: 11)).foregroundStyle(.secondary).padding(.top, 8)
+            }
+        }
+    }
+
+    private func abilityChip(_ text: String, earned: Bool) -> some View {
+        Text(text)
+            .font(.system(size: 12))
+            .foregroundStyle(earned ? CoachTheme.ink : .secondary)
+            .padding(.horizontal, 11).padding(.vertical, 7)
+            .background(CoachTheme.surface, in: Capsule())
+            .overlay(Capsule().stroke(earned ? CoachTheme.mint.opacity(0.45) : CoachTheme.borderColor, lineWidth: 1))
+    }
 
     // MARK: - Header
 
@@ -260,6 +287,15 @@ struct CourseMapView: View {
             }
             if let subtitle = chapter.subtitle {
                 Text(subtitle).font(.caption).foregroundStyle(.secondary).padding(.top, 3).fixedSize(horizontal: false, vertical: true)
+            }
+            // The unit says what it is for before it lists its lessons.
+            if let canDo = chapter.canDo, !canDo.isEmpty {
+                VStack(alignment: .leading, spacing: 2) {
+                    ForEach(canDo, id: \.self) { item in
+                        Text("• " + item).font(.system(size: 12)).foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }.padding(.top, 5)
             }
             Rectangle().fill(CoachTheme.hairline).frame(height: 1).padding(.top, 10)
             ForEach(Array(chapter.lessons.enumerated()), id: \.element.id) { position, lesson in

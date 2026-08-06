@@ -216,6 +216,26 @@ export class AppStore {
     return count
   }
 
+  /**
+   * What the learner can already do, and what the unit in progress will add.
+   *
+   * A percentage tells you how much of a list you have ticked off; it does not tell you
+   * what you can say. Every course that works states progress as ability, so this is the
+   * one the map leads with. A unit's abilities are earned when its lessons are done —
+   * lessons unlock in order, so that is a real claim, not a participation badge.
+   */
+  get abilities(): { earned: string[]; next: string[] } {
+    const earned: string[] = []
+    let next: string[] = []
+    for (const chapter of this.selectedCourse?.chapters ?? []) {
+      const canDo = chapter.canDo ?? []
+      if (canDo.length === 0) continue
+      if (chapter.lessons.every((lesson) => this.completed.has(lesson.id))) earned.push(...canDo)
+      else if (next.length === 0) next = canDo
+    }
+    return { earned, next }
+  }
+
   chapterTitle(lesson: Lesson): string | undefined {
     return this.selectedCourse?.chapters.find((c) => c.lessons.some((l) => l.id === lesson.id))?.title
   }

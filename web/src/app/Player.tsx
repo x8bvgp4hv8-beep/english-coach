@@ -3,18 +3,59 @@ import { useEffect, useState } from 'react'
 import { useStore } from './App'
 import { speak } from './speech'
 import { diffSummary } from '../core'
-import type { ExerciseType, LearningLanguage, WordDiff } from '../core'
+import type { DialogueLine, ExerciseType, LearningLanguage, WordDiff } from '../core'
 
 /** The translate label names the target language, so it is built per language. */
 const kindLabel = (type: ExerciseType, language: LearningLanguage, recall: boolean): string => {
   if (type === 'flashcard' && recall) return 'ВСПОМНИ ФРАЗУ'
   return {
+    dialogue: 'ПОСЛУШАЙ',
     info: 'КОРОТКОЕ ПРАВИЛО',
     flashcard: 'НОВАЯ ФРАЗА',
     translate: `ПЕРЕВЕДИ НА ${language.title.toUpperCase()}`,
     word_order: 'СОБЕРИ ПРЕДЛОЖЕНИЕ',
     multiple_choice: 'ВЫБЕРИ ОТВЕТ',
   }[type]
+}
+
+/**
+ * The first step of a unit: hear the language whole before touching a word of it.
+ *
+ * Every exercise in the course used to be a standalone sentence — the app never showed
+ * two people talking to each other, which is the only place language actually lives.
+ * Babbel builds its whole method on the dialogue; this is ours.
+ */
+function Dialogue({ lines }: { lines: DialogueLine[] }) {
+  const [playing, setPlaying] = useState(false)
+
+  const playAll = () => {
+    setPlaying(true)
+    const next = (index: number) => {
+      if (index >= lines.length) { setPlaying(false); return }
+      speak(lines[index].text, () => next(index + 1))
+    }
+    next(0)
+  }
+
+  return (
+    <>
+      <div className="dialogue">
+        {lines.map((line, index) => (
+          <div className="dialogue-line" key={index}>
+            <span className="dialogue-speaker">{line.speaker}</span>
+            <div className="dialogue-text">
+              {line.text}
+              <button className="speak small" onClick={() => speak(line.text)} aria-label="Произнести">🔊</button>
+            </div>
+            <div className="dialogue-translation">{line.translation}</div>
+          </div>
+        ))}
+      </div>
+      <button className="secondary" disabled={playing} onClick={playAll} style={{ marginTop: 14 }}>
+        {playing ? 'Читаю…' : 'Прочитать вслух целиком'}
+      </button>
+    </>
+  )
 }
 
 export function Player() {
@@ -81,6 +122,8 @@ export function Player() {
               )}
             </div>
           )}
+
+          {exercise.type === 'dialogue' && <Dialogue lines={exercise.lines ?? []} />}
 
           {exercise.type === 'info' && <p className="exercise-explanation">{exercise.explanation}</p>}
 
@@ -185,6 +228,9 @@ export function Player() {
       </div>
 
       <div className="player-actions">
+        {!feedback && exercise.type === 'dialogue' && (
+          <button className="primary" onClick={() => model.completePassive()}>Дальше</button>
+        )}
         {!feedback && exercise.type === 'info' && (
           <button className="primary" onClick={() => model.completePassive()}>Понятно</button>
         )}
