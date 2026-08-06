@@ -104,6 +104,53 @@ describe('content decoding', () => {
   it('rejects an unsupported schema version', () => {
     expect(() => decodeCourse({ schemaVersion: 3, level: 'A1', chapters: [] })).toThrowError(/unsupportedSchema/)
   })
+
+  // The v2 rules: a unit says what it is for, a lesson climbs, a checkpoint is an exam.
+  describe('unit packs', () => {
+    const pack = (chapters: unknown[]) => ({ schemaVersion: 2, level: 'A1', chapters })
+    const unit = (lessons: unknown[], canDo: string[] = ['заказать кофе']) =>
+      ({ id: 'u', title: 'U', canDo, lessons })
+    const lesson = (exercises: unknown[], kind?: string) =>
+      ({ id: 'l', title: 'L', summary: 'S', estimatedMinutes: 5, exercises, ...(kind ? { kind } : {}) })
+
+    const talk = { id: 'd', type: 'dialogue', lines: [
+      { speaker: 'A', text: 'Hola.', translation: 'Привет.' },
+      { speaker: 'B', text: 'Hola.', translation: 'Привет.' },
+    ] }
+    const word = { id: 'f', type: 'flashcard', prompt: 'Hola.', translation: 'Привет.' }
+    const produce = { id: 't', type: 'translate', prompt: 'Привет.', canonicalAnswer: 'Hola.' }
+
+    it('accepts a unit that climbs the ladder', () => {
+      const course = decodeCourse(pack([unit([lesson([talk, word, produce])])]))
+      expect(course.chapters[0].canDo).toEqual(['заказать кофе'])
+    })
+
+    it('refuses a unit that cannot say what it is for', () => {
+      expect(() => decodeCourse(pack([unit([lesson([talk, word, produce])], [])]))).toThrowError(/invalidExercise/)
+    })
+
+    it('refuses a lesson that goes back down a step', () => {
+      // Production before the words that make it possible: the old order, now rejected.
+      expect(() => decodeCourse(pack([unit([lesson([talk, produce, word])])]))).toThrowError(/invalidExercise/)
+    })
+
+    it('refuses a checkpoint with anything to lean on', () => {
+      const hinted = { ...produce, hint: 'начинается на H' }
+      expect(() => decodeCourse(pack([unit([lesson([hinted], 'checkpoint')])]))).toThrowError(/invalidExercise/)
+      expect(() => decodeCourse(pack([unit([lesson([word, produce], 'checkpoint')])]))).toThrowError(/invalidExercise/)
+      expect(decodeCourse(pack([unit([lesson([produce], 'checkpoint')])]))).toBeTruthy()
+    })
+
+    it('refuses a dialogue that is not an exchange', () => {
+      const alone = { id: 'd', type: 'dialogue', lines: [{ speaker: 'A', text: 'Hola.', translation: 'Привет.' }] }
+      expect(() => decodeCourse(pack([unit([lesson([alone, produce])])]))).toThrowError(/invalidExercise/)
+    })
+
+    it('keeps v1 packs working exactly as before', () => {
+      const old = { schemaVersion: 1, level: 'A1', chapters: [{ id: 'c', title: 'C', lessons: [lesson([produce, word])] }] }
+      expect(decodeCourse(old).chapters[0].canDo).toBeUndefined()
+    })
+  })
 })
 
 describe('answer checking', () => {

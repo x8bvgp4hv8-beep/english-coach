@@ -20,6 +20,51 @@ do { _ = try ContentRepository.decode(Data(duplicate.utf8)); failures += 1; prin
 catch ContentError.duplicateID("same") { print("✓ reject duplicate IDs") }
 catch { failures += 1; print("✗ reject duplicate IDs: \(error)") }
 
+// The v2 rules: a unit says what it is for, a lesson climbs, a checkpoint is an exam.
+// Mirrors web/src/core/core.test.ts.
+func unitPack(_ lessons: String, canDo: String = #"["заказать кофе"]"#) -> Data {
+    let head = #"{"schemaVersion":2,"level":"A1","chapters":[{"id":"u","title":"U","canDo":"#
+    let middle = #","lessons":"#
+    let json: String = head + canDo + middle + lessons + "}]}"
+    return Data(json.utf8)
+}
+let talkJSON = #"{"id":"d","type":"dialogue","lines":[{"speaker":"A","text":"Hola.","translation":"Привет."},{"speaker":"B","text":"Hola.","translation":"Привет."}]}"#
+let wordJSON = #"{"id":"f","type":"flashcard","prompt":"Hola.","translation":"Привет."}"#
+let produceJSON = #"{"id":"t","type":"translate","prompt":"Привет.","canonicalAnswer":"Hola."}"#
+func lessonJSON(_ exercises: [String], kind: String? = nil) -> String {
+    let extra = kind.map { #","kind":"\#($0)""# } ?? ""
+    return #"[{"id":"l","title":"L","summary":"S","estimatedMinutes":5\#(extra),"exercises":[\#(exercises.joined(separator: ","))]}]"#
+}
+
+do {
+    let course = try ContentRepository.decode(unitPack(lessonJSON([talkJSON, wordJSON, produceJSON])))
+    expect(course.chapters[0].canDo == ["заказать кофе"], "a unit that climbs the ladder is accepted")
+} catch { failures += 1; print("✗ a unit that climbs the ladder is accepted: \(error)") }
+
+func rejects(_ data: Data, _ name: String) {
+    do { _ = try ContentRepository.decode(data); failures += 1; print("✗ \(name)") }
+    catch { print("✓ \(name)") }
+}
+
+rejects(unitPack(lessonJSON([talkJSON, wordJSON, produceJSON]), canDo: "[]"),
+        "a unit that cannot say what it is for is refused")
+// Production before the words that make it possible: the old order, now rejected.
+rejects(unitPack(lessonJSON([talkJSON, produceJSON, wordJSON])),
+        "a lesson that goes back down a step is refused")
+rejects(unitPack(lessonJSON([#"{"id":"t","type":"translate","prompt":"Привет.","canonicalAnswer":"Hola.","hint":"на H"}"#], kind: "checkpoint")),
+        "a checkpoint with a hint is refused")
+rejects(unitPack(lessonJSON([wordJSON, produceJSON], kind: "checkpoint")),
+        "a checkpoint with anything but production is refused")
+rejects(unitPack(lessonJSON([#"{"id":"d","type":"dialogue","lines":[{"speaker":"A","text":"Hola.","translation":"Привет."}]}"#, produceJSON])),
+        "a dialogue that is not an exchange is refused")
+
+do {
+    let head = #"{"schemaVersion":1,"level":"A1","chapters":[{"id":"c","title":"C","lessons":"#
+    let json: String = head + lessonJSON([produceJSON, wordJSON]) + "}]}"
+    let course = try ContentRepository.decode(Data(json.utf8))
+    expect(course.chapters[0].canDo == nil, "v1 packs keep working exactly as before")
+} catch { failures += 1; print("✗ v1 packs keep working exactly as before: \(error)") }
+
 expect(AnswerChecker.check("  I DON’T   know! ", canonical: "I don't know", accepted: []).isCorrect, "normalize answer")
 expect(AnswerChecker.check("I have not seen it", canonical: "I haven't seen it", accepted: ["I have not seen it"]).isCorrect, "accept explicit alternative")
 expect(!AnswerChecker.check("Never saw it", canonical: "I haven't seen it", accepted: []).isCorrect, "reject unknown alternative")

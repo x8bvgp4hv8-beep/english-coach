@@ -2122,6 +2122,1768 @@
         "рассказать о планах на выходные",
         "сказать, что нужно сделать"
       ]
+    },
+    {
+      "id": "es-a1-numeros-tel",
+      "title": "Числа и цены",
+      "subtitle": "Посчитать, назвать номер, спросить цену",
+      "canDo": [
+        "считать до ста",
+        "назвать свой номер телефона",
+        "сказать, сколько тебе лет",
+        "спросить, сколько стоит"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-num-01",
+          "title": "Del uno al veinte",
+          "summary": "Числа до двадцати, возраст и номер телефона.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-num-01-e1",
+              "type": "dialogue",
+              "title": "Мой номер",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Cuál es tu número de teléfono?",
+                  "translation": "Какой у тебя номер телефона?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Es el seis, cuatro, tres, uno, nueve.",
+                  "translation": "Шесть, четыре, три, один, девять."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "No entiendo, ¿puedes repetir?",
+                  "translation": "Не понимаю, можешь повторить?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Seis, cuatro, tres, uno, nueve.",
+                  "translation": "Шесть, четыре, три, один, девять."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Gracias. Ahora tengo tu número.",
+                  "translation": "Спасибо. Теперь у меня есть твой номер."
+                }
+              ],
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e2",
+              "type": "flashcard",
+              "prompt": "uno, dos, tres, cuatro, cinco",
+              "translation": "один, два, три, четыре, пять",
+              "example": "Tengo cinco libros en casa.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e3",
+              "type": "flashcard",
+              "prompt": "seis, siete, ocho, nueve, diez",
+              "translation": "шесть, семь, восемь, девять, десять",
+              "example": "En la mesa hay diez libros.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e4",
+              "type": "flashcard",
+              "prompt": "once, doce, trece",
+              "translation": "одиннадцать, двенадцать, тринадцать",
+              "example": "Mi hermana tiene doce años.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e5",
+              "type": "flashcard",
+              "prompt": "catorce, quince, dieciséis",
+              "translation": "четырнадцать, пятнадцать, шестнадцать",
+              "example": "Aquí hay quince mesas.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e6",
+              "type": "flashcard",
+              "prompt": "diecisiete, dieciocho, diecinueve, veinte",
+              "translation": "семнадцать, восемнадцать, девятнадцать, двадцать",
+              "example": "Tengo veinte euros.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e7",
+              "type": "info",
+              "title": "Числа до двадцати",
+              "explanation": "До пятнадцати каждое число — своё слово: uno, dos, tres… quince. Дальше до двадцати они склеиваются из десятка и единицы: dieciséis — это diez y seis.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e8",
+              "type": "multiple_choice",
+              "prompt": "«Двенадцать» по-испански:",
+              "options": [
+                "doce",
+                "diez",
+                "dos"
+              ],
+              "correctOption": "doce",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e9",
+              "type": "multiple_choice",
+              "prompt": "«Восемнадцать» — это:",
+              "options": [
+                "dieciocho",
+                "diecisiete",
+                "ocho"
+              ],
+              "correctOption": "dieciocho",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e10",
+              "type": "multiple_choice",
+              "prompt": "¿Cuál es tu ___ de teléfono?",
+              "options": [
+                "número",
+                "teléfono",
+                "año"
+              ],
+              "correctOption": "número",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e11",
+              "type": "word_order",
+              "prompt": "У меня двадцать евро.",
+              "canonicalAnswer": "Tengo veinte euros.",
+              "tokens": [
+                "veinte",
+                "euros",
+                "Tengo"
+              ],
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e12",
+              "type": "translate",
+              "prompt": "Мне пятнадцать лет.",
+              "canonicalAnswer": "Tengo quince años.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e13",
+              "type": "translate",
+              "prompt": "Какой у тебя номер телефона?",
+              "canonicalAnswer": "¿Cuál es tu número de teléfono?",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-01-e14",
+              "type": "translate",
+              "prompt": "Здесь десять столов.",
+              "canonicalAnswer": "Aquí hay diez mesas.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-a1-num-02",
+          "title": "Veinte, treinta, cien",
+          "summary": "Десятки, составные числа и разговор о цене.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-num-02-e1",
+              "type": "dialogue",
+              "title": "В магазине",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Cuánto cuesta este libro?",
+                  "translation": "Сколько стоит эта книга?"
+                },
+                {
+                  "speaker": "Vendedor",
+                  "text": "Cuesta veintidós euros.",
+                  "translation": "Двадцать два евро."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Y estos dos?",
+                  "translation": "А эти два?"
+                },
+                {
+                  "speaker": "Vendedor",
+                  "text": "Cuarenta euros los dos.",
+                  "translation": "Сорок евро за оба."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Vale, gracias.",
+                  "translation": "Хорошо, спасибо."
+                }
+              ],
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e2",
+              "type": "flashcard",
+              "prompt": "veinte, treinta, cuarenta, cincuenta",
+              "translation": "двадцать, тридцать, сорок, пятьдесят",
+              "example": "Mi padre tiene cuarenta años.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e3",
+              "type": "flashcard",
+              "prompt": "sesenta, setenta, ochenta, noventa, cien",
+              "translation": "шестьдесят, семьдесят, восемьдесят, девяносто, сто",
+              "example": "Cien euros es mucho dinero.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e4",
+              "type": "flashcard",
+              "prompt": "veintiuno, veintidós, treinta y uno",
+              "translation": "двадцать один, двадцать два, тридцать один",
+              "example": "En la clase hay treinta y un estudiantes.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e5",
+              "type": "flashcard",
+              "prompt": "Es muy barato.",
+              "translation": "Это очень дёшево.",
+              "example": "Aquí todo es barato.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e6",
+              "type": "flashcard",
+              "prompt": "Es demasiado caro.",
+              "translation": "Это слишком дорого.",
+              "example": "Cien euros es muy caro.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e7",
+              "type": "info",
+              "title": "После двадцати",
+              "explanation": "Двадцать с чем-то пишется одним словом: veintiuno, veintidós. От тридцати и дальше — через y: treinta y uno, cuarenta y dos.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e8",
+              "type": "multiple_choice",
+              "prompt": "«Сорок» по-испански:",
+              "options": [
+                "cuarenta",
+                "catorce",
+                "cuatro"
+              ],
+              "correctOption": "cuarenta",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e9",
+              "type": "multiple_choice",
+              "prompt": "Este libro ___ veinte euros.",
+              "options": [
+                "cuesta",
+                "cuestas",
+                "cuesto"
+              ],
+              "correctOption": "cuesta",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e10",
+              "type": "multiple_choice",
+              "prompt": "«Тридцать один» — это:",
+              "options": [
+                "treinta y uno",
+                "treintiuno",
+                "treinta uno"
+              ],
+              "correctOption": "treinta y uno",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e11",
+              "type": "word_order",
+              "prompt": "Это слишком дорого.",
+              "canonicalAnswer": "Es demasiado caro.",
+              "tokens": [
+                "demasiado",
+                "caro",
+                "Es"
+              ],
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e12",
+              "type": "translate",
+              "prompt": "Сколько стоит эта книга?",
+              "canonicalAnswer": "¿Cuánto cuesta este libro?",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e13",
+              "type": "translate",
+              "prompt": "Это очень дёшево.",
+              "canonicalAnswer": "Es muy barato.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-02-e14",
+              "type": "translate",
+              "prompt": "Мне сорок лет.",
+              "canonicalAnswer": "Tengo cuarenta años.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-a1-num-check",
+          "title": "Проверка: числа и цены",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-num-check-e1",
+              "type": "translate",
+              "prompt": "Мне двадцать два года.",
+              "canonicalAnswer": "Tengo veintidós años.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-check-e2",
+              "type": "translate",
+              "prompt": "Какой у тебя номер телефона?",
+              "canonicalAnswer": "¿Cuál es tu número de teléfono?",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-check-e3",
+              "type": "translate",
+              "prompt": "Сколько стоит эта книга?",
+              "canonicalAnswer": "¿Cuánto cuesta este libro?",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-check-e4",
+              "type": "translate",
+              "prompt": "Это слишком дорого.",
+              "canonicalAnswer": "Es demasiado caro.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            },
+            {
+              "id": "es-a1-num-check-e5",
+              "type": "translate",
+              "prompt": "Здесь пятнадцать столов.",
+              "canonicalAnswer": "Aquí hay quince mesas.",
+              "topics": [
+                "es-a1-numeros"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-familia",
+      "title": "Семья",
+      "subtitle": "Рассказать, кто есть в семье и какие они",
+      "canDo": [
+        "рассказать о семье",
+        "сказать, сколько кому лет",
+        "описать внешность человека",
+        "спросить, какой человек"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-fam-01",
+          "title": "Mi madre y mi padre",
+          "summary": "Кто есть в семье и чей это кто.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-fam-01-e1",
+              "type": "dialogue",
+              "title": "Фотография семьи",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Esta es mi familia.",
+                  "translation": "Это моя семья."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Quién es esta mujer?",
+                  "translation": "Кто эта женщина?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Es mi madre. Se llama Elena.",
+                  "translation": "Это моя мама. Её зовут Елена."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y este hombre?",
+                  "translation": "А этот мужчина?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Es mi padre. Tiene sesenta años.",
+                  "translation": "Это мой папа. Ему шестьдесят."
+                }
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e2",
+              "type": "flashcard",
+              "prompt": "mi madre, mi padre",
+              "translation": "моя мама, мой папа",
+              "example": "Mi madre trabaja en Madrid.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e3",
+              "type": "flashcard",
+              "prompt": "mi hermano, mi hermana",
+              "translation": "мой брат, моя сестра",
+              "example": "Mi hermano tiene diez años.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e4",
+              "type": "flashcard",
+              "prompt": "mi hijo, mi hija",
+              "translation": "мой сын, моя дочь",
+              "example": "Tengo dos hijos y una hija.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e5",
+              "type": "flashcard",
+              "prompt": "mi marido, mi mujer",
+              "translation": "мой муж, моя жена",
+              "example": "Mi marido es médico.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e6",
+              "type": "flashcard",
+              "prompt": "¿Tienes hermanos?",
+              "translation": "У тебя есть братья или сёстры?",
+              "example": "Sí, tengo dos hermanos.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e7",
+              "type": "info",
+              "title": "mi, tu, su",
+              "explanation": "mi — и «мой», и «моя», форма одна: mi padre, mi madre. Во множественном добавляется -s: mis hermanos. «Твой» — tu и tus, «его» и «её» — su и sus.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e8",
+              "type": "multiple_choice",
+              "prompt": "___ hermanas son altas.",
+              "options": [
+                "Mis",
+                "Mi",
+                "Mío"
+              ],
+              "correctOption": "Mis",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e9",
+              "type": "multiple_choice",
+              "prompt": "«Моя дочь» — это:",
+              "options": [
+                "mi hija",
+                "mi hijo",
+                "mis hija"
+              ],
+              "correctOption": "mi hija",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e10",
+              "type": "multiple_choice",
+              "prompt": "¿___ hermanos?",
+              "options": [
+                "Tienes",
+                "Tiene",
+                "Tengo"
+              ],
+              "correctOption": "Tienes",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e11",
+              "type": "word_order",
+              "prompt": "Мой брат — врач.",
+              "canonicalAnswer": "Mi hermano es médico.",
+              "tokens": [
+                "hermano",
+                "es",
+                "médico",
+                "Mi"
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e12",
+              "type": "translate",
+              "prompt": "Мою маму зовут Елена.",
+              "canonicalAnswer": "Mi madre se llama Elena.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e13",
+              "type": "translate",
+              "prompt": "У меня двое братьев.",
+              "canonicalAnswer": "Tengo dos hermanos.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-01-e14",
+              "type": "translate",
+              "prompt": "Мой папа работает в Мадриде.",
+              "canonicalAnswer": "Mi padre trabaja en Madrid.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-a1-fam-02",
+          "title": "¿Cómo es tu hermano?",
+          "summary": "Внешность и характер, и как прилагательное меняется по роду.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-fam-02-e1",
+              "type": "dialogue",
+              "title": "Какой он",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Cómo es tu hermano?",
+                  "translation": "Какой твой брат?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Es alto y muy simpático.",
+                  "translation": "Высокий и очень приятный."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y tu hermana?",
+                  "translation": "А сестра?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Es baja y morena. Tiene el pelo largo.",
+                  "translation": "Невысокая и темноволосая. У неё длинные волосы."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Mi hermana también es morena.",
+                  "translation": "Моя сестра тоже темноволосая."
+                }
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e2",
+              "type": "flashcard",
+              "prompt": "Es alto y delgado.",
+              "translation": "Он высокий и худой.",
+              "example": "Mi padre es alto.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e3",
+              "type": "flashcard",
+              "prompt": "Es baja y morena.",
+              "translation": "Она невысокая и темноволосая.",
+              "example": "Mi madre es morena.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e4",
+              "type": "flashcard",
+              "prompt": "Tiene el pelo largo.",
+              "translation": "У неё длинные волосы.",
+              "example": "Mi hermana tiene el pelo corto.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e5",
+              "type": "flashcard",
+              "prompt": "Tiene los ojos azules.",
+              "translation": "У него голубые глаза.",
+              "example": "Mi hijo tiene los ojos verdes.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e6",
+              "type": "flashcard",
+              "prompt": "¿Cómo es tu hermano?",
+              "translation": "Какой твой брат?",
+              "example": "¿Cómo es tu madre?",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e7",
+              "type": "info",
+              "title": "Прилагательное меняется по роду",
+              "explanation": "alto — про мужчину, alta — про женщину: mi padre es alto, mi madre es alta. Слова на -e и на согласный не меняются: alegre, joven.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e8",
+              "type": "multiple_choice",
+              "prompt": "Mi hermana es ___.",
+              "options": [
+                "alta",
+                "alto",
+                "altos"
+              ],
+              "correctOption": "alta",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e9",
+              "type": "multiple_choice",
+              "prompt": "«У него голубые глаза» — это:",
+              "options": [
+                "Tiene los ojos azules",
+                "Tiene el pelo azul",
+                "Es azul"
+              ],
+              "correctOption": "Tiene los ojos azules",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e10",
+              "type": "multiple_choice",
+              "prompt": "Mi padre es ___ y delgado.",
+              "options": [
+                "alto",
+                "alta",
+                "altas"
+              ],
+              "correctOption": "alto",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e11",
+              "type": "word_order",
+              "prompt": "У моей сестры длинные волосы.",
+              "canonicalAnswer": "Mi hermana tiene el pelo largo.",
+              "tokens": [
+                "hermana",
+                "tiene",
+                "el",
+                "pelo",
+                "largo",
+                "Mi"
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e12",
+              "type": "translate",
+              "prompt": "Какая твоя мама?",
+              "canonicalAnswer": "¿Cómo es tu madre?",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e13",
+              "type": "translate",
+              "prompt": "Он очень приятный.",
+              "canonicalAnswer": "Es muy simpático.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-02-e14",
+              "type": "translate",
+              "prompt": "У неё короткие волосы.",
+              "canonicalAnswer": "Tiene el pelo corto.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-a1-fam-check",
+          "title": "Проверка: семья",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-fam-check-e1",
+              "type": "translate",
+              "prompt": "Мою сестру зовут Ана.",
+              "canonicalAnswer": "Mi hermana se llama Ana.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-check-e2",
+              "type": "translate",
+              "prompt": "У меня двое сыновей.",
+              "canonicalAnswer": "Tengo dos hijos.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-check-e3",
+              "type": "translate",
+              "prompt": "Мой брат высокий и худой.",
+              "canonicalAnswer": "Mi hermano es alto y delgado.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-check-e4",
+              "type": "translate",
+              "prompt": "Какой твой папа?",
+              "canonicalAnswer": "¿Cómo es tu padre?",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-fam-check-e5",
+              "type": "translate",
+              "prompt": "У неё голубые глаза.",
+              "canonicalAnswer": "Tiene los ojos azules.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-hora",
+      "title": "Время и день",
+      "subtitle": "Назвать час, день недели и договориться о встрече",
+      "canDo": [
+        "спросить и назвать время",
+        "сказать, в какой день",
+        "сказать, во сколько что-то происходит"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-hora-01",
+          "title": "¿Qué hora es?",
+          "summary": "Который час и во сколько что начинается.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-hora-01-e1",
+              "type": "dialogue",
+              "title": "Опаздываю",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Qué hora es?",
+                  "translation": "Который час?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Son las nueve y media.",
+                  "translation": "Половина десятого."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Ya? Tengo clase a las diez.",
+                  "translation": "Уже? У меня занятие в десять."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Entonces tienes media hora.",
+                  "translation": "Тогда у тебя полчаса."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí. Hasta luego.",
+                  "translation": "Да. До скорого."
+                }
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e2",
+              "type": "flashcard",
+              "prompt": "¿Qué hora es?",
+              "translation": "Который час?",
+              "example": "Perdona, ¿qué hora es?",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e3",
+              "type": "flashcard",
+              "prompt": "Es la una.",
+              "translation": "Час дня.",
+              "example": "Es la una en punto.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e4",
+              "type": "flashcard",
+              "prompt": "Son las tres y cuarto.",
+              "translation": "Четверть четвёртого.",
+              "example": "Son las cinco y cuarto.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e5",
+              "type": "flashcard",
+              "prompt": "Son las seis y media.",
+              "translation": "Половина седьмого.",
+              "example": "Son las nueve y media.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e6",
+              "type": "flashcard",
+              "prompt": "Son las ocho menos diez.",
+              "translation": "Без десяти восемь.",
+              "example": "Son las dos menos cinco.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e7",
+              "type": "info",
+              "title": "Час — la, остальные — las",
+              "explanation": "Один час: es la una. Все остальные: son las dos, son las tres. После целого часа — y cuarto, y media. Ближе к следующему — menos: las ocho menos diez.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e8",
+              "type": "multiple_choice",
+              "prompt": "___ las cuatro.",
+              "options": [
+                "Son",
+                "Es",
+                "Está"
+              ],
+              "correctOption": "Son",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e9",
+              "type": "multiple_choice",
+              "prompt": "«Половина седьмого» — это:",
+              "options": [
+                "Son las seis y media",
+                "Son las siete y media",
+                "Es la seis y media"
+              ],
+              "correctOption": "Son las seis y media",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e10",
+              "type": "multiple_choice",
+              "prompt": "Es ___ una.",
+              "options": [
+                "la",
+                "las",
+                "el"
+              ],
+              "correctOption": "la",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e11",
+              "type": "word_order",
+              "prompt": "Который час?",
+              "canonicalAnswer": "¿Qué hora es?",
+              "tokens": [
+                "hora",
+                "es",
+                "Qué"
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e12",
+              "type": "translate",
+              "prompt": "Сейчас четверть четвёртого.",
+              "canonicalAnswer": "Son las tres y cuarto.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e13",
+              "type": "translate",
+              "prompt": "У меня занятие в десять.",
+              "canonicalAnswer": "Tengo clase a las diez.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-01-e14",
+              "type": "translate",
+              "prompt": "Без десяти восемь.",
+              "canonicalAnswer": "Son las ocho menos diez.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-a1-hora-02",
+          "title": "Los días de la semana",
+          "summary": "Дни недели, части дня и разница между el lunes и los lunes.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-hora-02-e1",
+              "type": "dialogue",
+              "title": "Какой сегодня день",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Qué día es hoy?",
+                  "translation": "Какой сегодня день?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Hoy es jueves.",
+                  "translation": "Сегодня четверг."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El viernes tengo clase por la mañana.",
+                  "translation": "В пятницу у меня занятие утром."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y el fin de semana?",
+                  "translation": "А в выходные?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El domingo no hago nada.",
+                  "translation": "В воскресенье ничего не делаю."
+                }
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e2",
+              "type": "flashcard",
+              "prompt": "lunes, martes, miércoles",
+              "translation": "понедельник, вторник, среда",
+              "example": "El lunes trabajo en casa.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e3",
+              "type": "flashcard",
+              "prompt": "jueves, viernes, sábado, domingo",
+              "translation": "четверг, пятница, суббота, воскресенье",
+              "example": "El viernes salgo temprano.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e4",
+              "type": "flashcard",
+              "prompt": "por la mañana, por la tarde, por la noche",
+              "translation": "утром, днём, вечером",
+              "example": "Estudio por la tarde.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e5",
+              "type": "flashcard",
+              "prompt": "¿Qué día es hoy?",
+              "translation": "Какой сегодня день?",
+              "example": "Hoy es martes.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e6",
+              "type": "flashcard",
+              "prompt": "todos los días",
+              "translation": "каждый день",
+              "example": "Trabajo todos los días.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e7",
+              "type": "info",
+              "title": "el lunes и los lunes",
+              "explanation": "El lunes — в этот понедельник, один раз. Los lunes — по понедельникам, каждую неделю. Предлог не нужен: не «en lunes», а просто el lunes.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e8",
+              "type": "multiple_choice",
+              "prompt": "«По понедельникам» — это:",
+              "options": [
+                "los lunes",
+                "el lunes",
+                "un lunes"
+              ],
+              "correctOption": "los lunes",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e9",
+              "type": "multiple_choice",
+              "prompt": "Estudio por la ___.",
+              "options": [
+                "tarde",
+                "tardes",
+                "tardo"
+              ],
+              "correctOption": "tarde",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e10",
+              "type": "multiple_choice",
+              "prompt": "¿Qué ___ es hoy?",
+              "options": [
+                "día",
+                "hora",
+                "año"
+              ],
+              "correctOption": "día",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e11",
+              "type": "word_order",
+              "prompt": "Сегодня четверг.",
+              "canonicalAnswer": "Hoy es jueves.",
+              "tokens": [
+                "es",
+                "jueves",
+                "Hoy"
+              ],
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e12",
+              "type": "translate",
+              "prompt": "Какой сегодня день?",
+              "canonicalAnswer": "¿Qué día es hoy?",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e13",
+              "type": "translate",
+              "prompt": "В пятницу я выхожу рано.",
+              "canonicalAnswer": "El viernes salgo temprano.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-02-e14",
+              "type": "translate",
+              "prompt": "Я работаю каждый день.",
+              "canonicalAnswer": "Trabajo todos los días.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-a1-hora-check",
+          "title": "Проверка: время и день",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-hora-check-e1",
+              "type": "translate",
+              "prompt": "Который час?",
+              "canonicalAnswer": "¿Qué hora es?",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-check-e2",
+              "type": "translate",
+              "prompt": "Половина седьмого.",
+              "canonicalAnswer": "Son las seis y media.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-check-e3",
+              "type": "translate",
+              "prompt": "Сегодня вторник.",
+              "canonicalAnswer": "Hoy es martes.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-check-e4",
+              "type": "translate",
+              "prompt": "Я учусь днём.",
+              "canonicalAnswer": "Estudio por la tarde.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            },
+            {
+              "id": "es-a1-hora-check-e5",
+              "type": "translate",
+              "prompt": "У меня занятие в десять.",
+              "canonicalAnswer": "Tengo clase a las diez.",
+              "topics": [
+                "es-a1-ser"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "es-a1-casa",
+      "title": "Дом",
+      "subtitle": "Описать квартиру и сказать, где что стоит",
+      "canDo": [
+        "назвать комнаты в доме",
+        "сказать, что в комнате есть",
+        "сказать, где что стоит",
+        "спросить, где вещь"
+      ],
+      "lessons": [
+        {
+          "id": "es-a1-casa-01",
+          "title": "Mi casa",
+          "summary": "Комнаты, что в них есть, и разница между hay и está.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-casa-01-e1",
+              "type": "dialogue",
+              "title": "Какая у тебя квартира",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Cómo es tu casa?",
+                  "translation": "Какая у тебя квартира?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Es pequeña, pero muy tranquila.",
+                  "translation": "Маленькая, но очень тихая."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Cuántas habitaciones tiene?",
+                  "translation": "Сколько в ней комнат?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Tiene dos habitaciones y una cocina grande.",
+                  "translation": "Две комнаты и большая кухня."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y el baño?",
+                  "translation": "А ванная?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Está al lado de la cocina.",
+                  "translation": "Рядом с кухней."
+                }
+              ],
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e2",
+              "type": "flashcard",
+              "prompt": "la cocina, el baño, el salón",
+              "translation": "кухня, ванная, гостиная",
+              "example": "El salón es muy grande.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e3",
+              "type": "flashcard",
+              "prompt": "el dormitorio, la habitación",
+              "translation": "спальня, комната",
+              "example": "Mi dormitorio es pequeño.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e4",
+              "type": "flashcard",
+              "prompt": "Vivo en un piso pequeño.",
+              "translation": "Я живу в маленькой квартире.",
+              "example": "El piso está en el centro.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e5",
+              "type": "flashcard",
+              "prompt": "Hay una ventana grande.",
+              "translation": "Есть большое окно.",
+              "example": "En el salón hay dos ventanas.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e6",
+              "type": "flashcard",
+              "prompt": "La silla está al lado de la mesa.",
+              "translation": "Стул рядом со столом.",
+              "example": "La mesa está en la cocina.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e7",
+              "type": "info",
+              "title": "hay или está",
+              "explanation": "Hay — когда говоришь, что что-то есть, без адреса: en el salón hay una mesa. Está — когда говоришь, где именно оно стоит: la mesa está en la cocina.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e8",
+              "type": "multiple_choice",
+              "prompt": "En el salón ___ dos ventanas.",
+              "options": [
+                "hay",
+                "está",
+                "es"
+              ],
+              "correctOption": "hay",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e9",
+              "type": "multiple_choice",
+              "prompt": "La mesa ___ en la cocina.",
+              "options": [
+                "está",
+                "hay",
+                "es"
+              ],
+              "correctOption": "está",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e10",
+              "type": "multiple_choice",
+              "prompt": "«Спальня» — это:",
+              "options": [
+                "el dormitorio",
+                "la cocina",
+                "el salón"
+              ],
+              "correctOption": "el dormitorio",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e11",
+              "type": "word_order",
+              "prompt": "Я живу в маленькой квартире.",
+              "canonicalAnswer": "Vivo en un piso pequeño.",
+              "tokens": [
+                "en",
+                "un",
+                "piso",
+                "pequeño",
+                "Vivo"
+              ],
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e12",
+              "type": "translate",
+              "prompt": "Кухня большая.",
+              "canonicalAnswer": "La cocina es grande.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e13",
+              "type": "translate",
+              "prompt": "В гостиной есть два окна.",
+              "canonicalAnswer": "En el salón hay dos ventanas.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-01-e14",
+              "type": "translate",
+              "prompt": "Ванная рядом с кухней.",
+              "canonicalAnswer": "El baño está al lado de la cocina.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-a1-casa-02",
+          "title": "¿Dónde está?",
+          "summary": "Предлоги места и слияние de + el.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a1-casa-02-e1",
+              "type": "dialogue",
+              "title": "Где моя книга",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Dónde está mi libro?",
+                  "translation": "Где моя книга?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Está encima de la mesa.",
+                  "translation": "На столе."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "No, ahí no está.",
+                  "translation": "Нет, там его нет."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Entonces está debajo de la silla.",
+                  "translation": "Тогда под стулом."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí, aquí está. Gracias.",
+                  "translation": "Да, вот он. Спасибо."
+                }
+              ],
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e2",
+              "type": "flashcard",
+              "prompt": "encima de la mesa",
+              "translation": "на столе",
+              "example": "El libro está encima de la mesa.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e3",
+              "type": "flashcard",
+              "prompt": "debajo de la silla",
+              "translation": "под стулом",
+              "example": "El perro está debajo de la silla.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e4",
+              "type": "flashcard",
+              "prompt": "detrás de la casa",
+              "translation": "за домом",
+              "example": "El parque está detrás de la casa.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e5",
+              "type": "flashcard",
+              "prompt": "entre la mesa y la ventana",
+              "translation": "между столом и окном",
+              "example": "El salón está entre la cocina y el dormitorio.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e6",
+              "type": "flashcard",
+              "prompt": "¿Dónde está mi libro?",
+              "translation": "Где моя книга?",
+              "example": "¿Dónde están mis libros?",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e7",
+              "type": "info",
+              "title": "de + el = del",
+              "explanation": "После предлога места всегда идёт de: encima de, debajo de, delante de. А de и el сливаются в одно слово: delante del baño, detrás del salón.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e8",
+              "type": "multiple_choice",
+              "prompt": "El libro está ___ de la mesa.",
+              "options": [
+                "encima",
+                "encima de",
+                "en"
+              ],
+              "correctOption": "encima",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e9",
+              "type": "multiple_choice",
+              "prompt": "«Под стулом» — это:",
+              "options": [
+                "debajo de la silla",
+                "encima de la silla",
+                "detrás de la silla"
+              ],
+              "correctOption": "debajo de la silla",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e10",
+              "type": "multiple_choice",
+              "prompt": "La silla está delante ___ ventana.",
+              "options": [
+                "de la",
+                "del",
+                "de"
+              ],
+              "correctOption": "de la",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e11",
+              "type": "word_order",
+              "prompt": "Парк за домом.",
+              "canonicalAnswer": "El parque está detrás de la casa.",
+              "tokens": [
+                "parque",
+                "está",
+                "detrás",
+                "de",
+                "la",
+                "casa",
+                "El"
+              ],
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e12",
+              "type": "translate",
+              "prompt": "Книга на столе.",
+              "canonicalAnswer": "El libro está encima de la mesa.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e13",
+              "type": "translate",
+              "prompt": "Где мои книги?",
+              "canonicalAnswer": "¿Dónde están mis libros?",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-02-e14",
+              "type": "translate",
+              "prompt": "Собака под стулом.",
+              "canonicalAnswer": "El perro está debajo de la silla.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "es-a1-casa-check",
+          "title": "Проверка: дом",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-casa-check-e1",
+              "type": "translate",
+              "prompt": "Где моя книга?",
+              "canonicalAnswer": "¿Dónde está mi libro?",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-check-e2",
+              "type": "translate",
+              "prompt": "Стол на кухне.",
+              "canonicalAnswer": "La mesa está en la cocina.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-check-e3",
+              "type": "translate",
+              "prompt": "В гостиной есть большое окно.",
+              "canonicalAnswer": "En el salón hay una ventana grande.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-check-e4",
+              "type": "translate",
+              "prompt": "Я живу в маленькой квартире.",
+              "canonicalAnswer": "Vivo en un piso pequeño.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            },
+            {
+              "id": "es-a1-casa-check-e5",
+              "type": "translate",
+              "prompt": "Собака под стулом.",
+              "canonicalAnswer": "El perro está debajo de la silla.",
+              "topics": [
+                "es-a1-estar"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
+        }
+      ]
     }
   ]
 }
