@@ -1327,15 +1327,12 @@
             },
             {
               "id": "es-a1-primeras-07-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-saludos"
               ],
               "prompt": "Слушаю вас.",
-              "canonicalAnswer": "Dígame.",
-              "tokens": [
-                "Dígame"
-              ]
+              "canonicalAnswer": "Dígame."
             },
             {
               "id": "es-a1-primeras-07-e12",
@@ -2107,15 +2104,12 @@
             },
             {
               "id": "es-a1-primeras-11-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-saludos"
               ],
               "prompt": "Записала.",
-              "canonicalAnswer": "Anotado.",
-              "tokens": [
-                "Anotado"
-              ]
+              "canonicalAnswer": "Anotado."
             },
             {
               "id": "es-a1-primeras-11-e12",
@@ -2503,14 +2497,14 @@
             },
             {
               "id": "es-a1-primeras-13-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-saludos"
               ],
               "prompt": "Проходите.",
               "canonicalAnswer": "Adelante.",
-              "tokens": [
-                "Adelante"
+              "acceptedAnswers": [
+                "Pasad, pasad."
               ]
             },
             {
@@ -5180,15 +5174,12 @@
             },
             {
               "id": "es-a1-hola-10-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-saludos"
               ],
               "prompt": "Записывай.",
-              "canonicalAnswer": "Apunta.",
-              "tokens": [
-                "Apunta"
-              ]
+              "canonicalAnswer": "Apunta."
             },
             {
               "id": "es-a1-hola-10-e12",
@@ -8027,7 +8018,10 @@
                 "es-a1-tema-comida"
               ],
               "prompt": "Я тороплюсь.",
-              "canonicalAnswer": "Tengo prisa."
+              "canonicalAnswer": "Tengo prisa.",
+              "acceptedAnswers": [
+                "Voy con prisa."
+              ]
             },
             {
               "id": "es-a1-cosas-08-e13",
@@ -12499,15 +12493,12 @@
             },
             {
               "id": "es-a1-cada-dia-14-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-rutina"
               ],
               "prompt": "Наслаждайся.",
-              "canonicalAnswer": "Disfrútala.",
-              "tokens": [
-                "Disfrútala"
-              ]
+              "canonicalAnswer": "Disfrútala."
             },
             {
               "id": "es-a1-cada-dia-14-e12",
@@ -15730,8 +15721,7 @@
                 "es-a1-tema-descripcion"
               ],
               "prompt": "Se aprende en cinco minutos.",
-              "translation": "Осваивается за пять минут.",
-              "example": "Se aprende en cinco minutos."
+              "translation": "Осваивается за пять минут."
             },
             {
               "id": "es-a1-ser-estar-14-e7",
@@ -16384,14 +16374,14 @@
             },
             {
               "id": "es-a1-ser-estar-17-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-descripcion"
               ],
               "prompt": "Верно.",
               "canonicalAnswer": "Cierto.",
-              "tokens": [
-                "Cierto"
+              "acceptedAnswers": [
+                "Correcto."
               ]
             },
             {
@@ -17971,8 +17961,7 @@
                 "es-a1-tema-ocio"
               ],
               "prompt": "No pasa nada, de verdad.",
-              "translation": "Ничего страшного, правда.",
-              "example": "No pasa nada, de verdad."
+              "translation": "Ничего страшного, правда."
             },
             {
               "id": "es-a1-planes-08-e7",
@@ -19292,8 +19281,7 @@
                 "es-a1-tema-ocio"
               ],
               "prompt": "Al final salió todo bien.",
-              "translation": "В итоге всё вышло хорошо.",
-              "example": "Al final salió todo bien."
+              "translation": "В итоге всё вышло хорошо."
             },
             {
               "id": "es-a1-planes-15-e3",
@@ -19390,15 +19378,12 @@
             },
             {
               "id": "es-a1-planes-15-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-ocio"
               ],
               "prompt": "Договорились.",
-              "canonicalAnswer": "Hecho.",
-              "tokens": [
-                "Hecho"
-              ]
+              "canonicalAnswer": "Hecho."
             },
             {
               "id": "es-a1-planes-15-e12",
@@ -22271,15 +22256,12 @@
             },
             {
               "id": "es-a1-num-13-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-compras"
               ],
               "prompt": "Немало.",
-              "canonicalAnswer": "Bastantes.",
-              "tokens": [
-                "Bastantes"
-              ]
+              "canonicalAnswer": "Bastantes."
             },
             {
               "id": "es-a1-num-13-e12",
@@ -24294,8 +24276,7 @@
                 "es-a1-tema-familia"
               ],
               "prompt": "Nos conocemos de siempre.",
-              "translation": "Мы знакомы сто лет.",
-              "example": "Nos conocemos de siempre."
+              "translation": "Мы знакомы сто лет."
             },
             {
               "id": "es-a1-fam-07-e7",
@@ -25051,8 +25032,7 @@
                 "es-a1-tema-familia"
               ],
               "prompt": "¿Qué tal todos por casa?",
-              "translation": "Как там все дома?",
-              "example": "¿Qué tal todos por casa?"
+              "translation": "Как там все дома?"
             },
             {
               "id": "es-a1-fam-11-e3",
@@ -25933,15 +25913,12 @@
             },
             {
               "id": "es-a1-fam-15-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-familia"
               ],
               "prompt": "Взаимно.",
-              "canonicalAnswer": "Igualmente.",
-              "tokens": [
-                "Igualmente"
-              ]
+              "canonicalAnswer": "Igualmente."
             },
             {
               "id": "es-a1-fam-15-e12",
@@ -28353,8 +28330,7 @@
                 "es-a1-tema-rutina"
               ],
               "prompt": "No he visto pasar el tiempo.",
-              "translation": "Не заметил, как время прошло.",
-              "example": "No he visto pasar el tiempo."
+              "translation": "Не заметил, как время прошло."
             },
             {
               "id": "es-a1-hora-11-e7",
@@ -32913,8 +32889,7 @@
                 "es-a1-tema-ciudad"
               ],
               "prompt": "Está muy cerca, a dos minutos.",
-              "translation": "Совсем рядом, в двух минутах.",
-              "example": "Está muy cerca, a dos minutos."
+              "translation": "Совсем рядом, в двух минутах."
             },
             {
               "id": "es-a1-ciudad-03-e7",
@@ -34592,15 +34567,12 @@
             },
             {
               "id": "es-a1-ciudad-11-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-ciudad"
               ],
               "prompt": "Понятно.",
-              "canonicalAnswer": "Entendido.",
-              "tokens": [
-                "Entendido"
-              ]
+              "canonicalAnswer": "Entendido."
             },
             {
               "id": "es-a1-ciudad-11-e12",
@@ -35127,8 +35099,7 @@
                 "es-a1-tema-ciudad"
               ],
               "prompt": "Lo tengo al lado y nunca voy.",
-              "translation": "Оно рядом, а я не хожу.",
-              "example": "Lo tengo al lado y nunca voy."
+              "translation": "Оно рядом, а я не хожу."
             },
             {
               "id": "es-a1-ciudad-14-e7",
@@ -36828,8 +36799,7 @@
                 "es-a1-tema-compras"
               ],
               "prompt": "¿Hasta cuándo puedo devolverlo?",
-              "translation": "До какого числа можно вернуть?",
-              "example": "¿Hasta cuándo puedo devolverlo?"
+              "translation": "До какого числа можно вернуть?"
             },
             {
               "id": "es-a1-tienda-06-e7",
@@ -39428,7 +39398,10 @@
                 "es-a1-tema-comida"
               ],
               "prompt": "Очень вкусно.",
-              "canonicalAnswer": "Está muy rico."
+              "canonicalAnswer": "Está muy rico.",
+              "acceptedAnswers": [
+                "Está riquísimo."
+              ]
             }
           ]
         },
@@ -39712,8 +39685,7 @@
                 "es-a1-tema-comida"
               ],
               "prompt": "Ahora mismo se lo traigo.",
-              "translation": "Сейчас принесу.",
-              "example": "Ahora mismo se lo traigo."
+              "translation": "Сейчас принесу."
             },
             {
               "id": "es-a1-comida-04-e6",
@@ -39916,8 +39888,7 @@
                 "es-a1-tema-comida"
               ],
               "prompt": "Se hace en veinte minutos.",
-              "translation": "Готовится за двадцать минут.",
-              "example": "Se hace en veinte minutos."
+              "translation": "Готовится за двадцать минут."
             },
             {
               "id": "es-a1-comida-05-e6",
@@ -41386,15 +41357,12 @@
             },
             {
               "id": "es-a1-comida-12-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-comida"
               ],
               "prompt": "Договорились.",
-              "canonicalAnswer": "Hecho.",
-              "tokens": [
-                "Hecho"
-              ]
+              "canonicalAnswer": "Hecho."
             },
             {
               "id": "es-a1-comida-12-e12",
@@ -41982,15 +41950,12 @@
             },
             {
               "id": "es-a1-comida-15-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-comida"
               ],
               "prompt": "Договорились.",
-              "canonicalAnswer": "Hecho.",
-              "tokens": [
-                "Hecho"
-              ]
+              "canonicalAnswer": "Hecho."
             },
             {
               "id": "es-a1-comida-15-e12",
@@ -42314,8 +42279,7 @@
                 "es-a1-tema-comida"
               ],
               "prompt": "Repito, si puede ser.",
-              "translation": "Добавки, если можно.",
-              "example": "Repito, si puede ser."
+              "translation": "Добавки, если можно."
             },
             {
               "id": "es-a1-comida-17-e7",
@@ -45512,8 +45476,7 @@
                 "es-a1-tema-tiempo"
               ],
               "prompt": "A mí el otoño me encanta.",
-              "translation": "Я обожаю осень.",
-              "example": "A mí el otoño me encanta."
+              "translation": "Я обожаю осень."
             },
             {
               "id": "es-a1-clima-15-e3",
@@ -45555,8 +45518,7 @@
                 "es-a1-tema-tiempo"
               ],
               "prompt": "Las hojas cambian de color.",
-              "translation": "Листья меняют цвет.",
-              "example": "Las hojas cambian de color."
+              "translation": "Листья меняют цвет."
             },
             {
               "id": "es-a1-clima-15-e7",
@@ -48627,8 +48589,7 @@
                 "es-a1-tema-salud"
               ],
               "prompt": "Vuelvo el lunes al trabajo.",
-              "translation": "В понедельник выхожу на работу.",
-              "example": "Vuelvo el lunes al trabajo."
+              "translation": "В понедельник выхожу на работу."
             },
             {
               "id": "es-a1-salud-14-e7",
@@ -49407,7 +49368,10 @@
                 "es-a1-tema-citas"
               ],
               "prompt": "Сегодня я угощаю.",
-              "canonicalAnswer": "Hoy te invito yo."
+              "canonicalAnswer": "Hoy te invito yo.",
+              "acceptedAnswers": [
+                "Hoy invito yo."
+              ]
             }
           ]
         },
@@ -50968,15 +50932,12 @@
             },
             {
               "id": "es-a1-quedar-09-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-citas"
               ],
               "prompt": "Выздоравливай.",
-              "canonicalAnswer": "Cuídate.",
-              "tokens": [
-                "Cuídate"
-              ]
+              "canonicalAnswer": "Cuídate."
             },
             {
               "id": "es-a1-quedar-09-e12",
@@ -51756,15 +51717,12 @@
             },
             {
               "id": "es-a1-quedar-13-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-citas"
               ],
               "prompt": "Именно.",
-              "canonicalAnswer": "Exacto.",
-              "tokens": [
-                "Exacto"
-              ]
+              "canonicalAnswer": "Exacto."
             },
             {
               "id": "es-a1-quedar-13-e12",
@@ -52288,8 +52246,7 @@
                 "es-a1-tema-citas"
               ],
               "prompt": "La vida da muchas vueltas.",
-              "translation": "Жизнь непредсказуема.",
-              "example": "La vida da muchas vueltas."
+              "translation": "Жизнь непредсказуема."
             },
             {
               "id": "es-a1-quedar-16-e7",
@@ -53939,8 +53896,7 @@
                 "es-a1-tema-viaje"
               ],
               "prompt": "La habitación está muy fría.",
-              "translation": "В номере очень холодно.",
-              "example": "La habitación está muy fría."
+              "translation": "В номере очень холодно."
             },
             {
               "id": "es-a1-hotel-08-e3",
@@ -55201,8 +55157,7 @@
                 "es-a1-tema-viaje"
               ],
               "prompt": "Por ese precio, está genial.",
-              "translation": "За такую цену — отлично.",
-              "example": "Por ese precio, está genial."
+              "translation": "За такую цену — отлично."
             },
             {
               "id": "es-a1-hotel-14-e7",
@@ -55594,8 +55549,7 @@
                 "es-a1-tema-viaje"
               ],
               "prompt": "Aquí me siento como en casa.",
-              "translation": "Тут я как дома.",
-              "example": "Aquí me siento como en casa."
+              "translation": "Тут я как дома."
             },
             {
               "id": "es-a1-hotel-16-e7",
@@ -57879,8 +57833,7 @@
                 "es-a1-tema-ciudad"
               ],
               "prompt": "¿Le importa cambiarme el sitio?",
-              "translation": "Не поменяетесь местами?",
-              "example": "¿Le importa cambiarme el sitio?"
+              "translation": "Не поменяетесь местами?"
             },
             {
               "id": "es-a1-transp-11-e6",
@@ -58295,8 +58248,7 @@
                 "es-a1-tema-ciudad"
               ],
               "prompt": "¿Hay descuento para niños?",
-              "translation": "Есть детская скидка?",
-              "example": "¿Hay descuento para niños?"
+              "translation": "Есть детская скидка?"
             },
             {
               "id": "es-a1-transp-13-e7",
@@ -60840,15 +60792,12 @@
             },
             {
               "id": "es-a1-trabajo-09-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-trabajo"
               ],
               "prompt": "Слушаю.",
-              "canonicalAnswer": "Dime.",
-              "tokens": [
-                "Dime"
-              ]
+              "canonicalAnswer": "Dime."
             },
             {
               "id": "es-a1-trabajo-09-e12",
@@ -60974,8 +60923,7 @@
                 "es-a1-tema-trabajo"
               ],
               "prompt": "Gracias por confiar en mí.",
-              "translation": "Спасибо за доверие.",
-              "example": "Gracias por confiar en mí."
+              "translation": "Спасибо за доверие."
             },
             {
               "id": "es-a1-trabajo-10-e7",
@@ -62497,8 +62445,7 @@
                 "es-a1-tema-trabajo"
               ],
               "prompt": "Estoy pensando en cambiar de trabajo.",
-              "translation": "Думаю сменить работу.",
-              "example": "Estoy pensando en cambiar de trabajo."
+              "translation": "Думаю сменить работу."
             },
             {
               "id": "es-a1-trabajo-18-e3",
@@ -62541,8 +62488,7 @@
                 "es-a1-tema-trabajo"
               ],
               "prompt": "De momento solo lo pienso.",
-              "translation": "Пока только думаю.",
-              "example": "De momento solo lo pienso."
+              "translation": "Пока только думаю."
             },
             {
               "id": "es-a1-trabajo-18-e7",
@@ -65293,14 +65239,14 @@
             },
             {
               "id": "es-a1-tel-13-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-contacto"
               ],
               "prompt": "Верно.",
               "canonicalAnswer": "Correcto.",
-              "tokens": [
-                "Correcto"
+              "acceptedAnswers": [
+                "Cierto."
               ]
             },
             {
@@ -65883,14 +65829,14 @@
             },
             {
               "id": "es-a1-tel-16-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-contacto"
               ],
               "prompt": "Готово.",
               "canonicalAnswer": "Hecho.",
-              "tokens": [
-                "Hecho"
+              "acceptedAnswers": [
+                "Ya está."
               ]
             },
             {
@@ -67509,8 +67455,7 @@
                 "es-a1-tema-rutina"
               ],
               "prompt": "Viene gente de todos lados.",
-              "translation": "Люди съезжаются отовсюду.",
-              "example": "Viene gente de todos lados."
+              "translation": "Люди съезжаются отовсюду."
             },
             {
               "id": "es-a1-fecha-08-e7",
@@ -72172,8 +72117,7 @@
                 "es-a1-tema-ocio"
               ],
               "prompt": "Volvemos por el mismo sitio.",
-              "translation": "Возвращаемся тем же путём.",
-              "example": "Volvemos por el mismo sitio."
+              "translation": "Возвращаемся тем же путём."
             },
             {
               "id": "es-a1-ocio-15-e7",
@@ -72830,16 +72774,13 @@
             },
             {
               "id": "es-a1-ocio-18-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-preguntas",
                 "es-a1-tema-ocio"
               ],
               "prompt": "Сможешь?",
-              "canonicalAnswer": "¿Podrás?",
-              "tokens": [
-                "Podrás"
-              ]
+              "canonicalAnswer": "¿Podrás?"
             },
             {
               "id": "es-a1-ocio-18-e12",
@@ -76273,16 +76214,13 @@
             },
             {
               "id": "es-a1-idiomas-17-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-preguntas",
                 "es-a1-tema-trabajo"
               ],
               "prompt": "Нормально?",
-              "canonicalAnswer": "¿Bien?",
-              "tokens": [
-                "Bien"
-              ]
+              "canonicalAnswer": "¿Bien?"
             },
             {
               "id": "es-a1-idiomas-17-e12",
@@ -78569,15 +78507,12 @@
             },
             {
               "id": "es-a1-dinero-10-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-compras"
               ],
               "prompt": "Практически.",
-              "canonicalAnswer": "Prácticamente.",
-              "tokens": [
-                "Prácticamente"
-              ]
+              "canonicalAnswer": "Prácticamente."
             },
             {
               "id": "es-a1-dinero-10-e12",
@@ -80678,7 +80613,10 @@
                 "es-a1-tema-casa"
               ],
               "prompt": "Кофе закончился.",
-              "canonicalAnswer": "Se ha terminado el café."
+              "canonicalAnswer": "Se ha terminado el café.",
+              "acceptedAnswers": [
+                "Se ha acabado el café."
+              ]
             }
           ]
         },
@@ -81664,7 +81602,10 @@
                 "es-a1-tema-casa"
               ],
               "prompt": "Кофе закончился.",
-              "canonicalAnswer": "Se ha acabado el café."
+              "canonicalAnswer": "Se ha acabado el café.",
+              "acceptedAnswers": [
+                "Se ha terminado el café."
+              ]
             }
           ]
         },
@@ -82727,8 +82668,7 @@
                 "es-a1-tema-casa"
               ],
               "prompt": "Si has ido hace nada.",
-              "translation": "Ты же только что ходила.",
-              "example": "Si has ido hace nada."
+              "translation": "Ты же только что ходила."
             },
             {
               "id": "es-a1-tareas-13-e4",
@@ -84464,15 +84404,15 @@
             },
             {
               "id": "es-a1-visita-05-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-presente-ar",
                 "es-a1-tema-citas"
               ],
               "prompt": "Держи.",
               "canonicalAnswer": "Toma.",
-              "tokens": [
-                "Toma"
+              "acceptedAnswers": [
+                "Aquí tienes."
               ]
             },
             {
@@ -85384,8 +85324,7 @@
                 "es-a1-tema-citas"
               ],
               "prompt": "Cualquier cosa, me llamas.",
-              "translation": "Что угодно — звони.",
-              "example": "Cualquier cosa, me llamas."
+              "translation": "Что угодно — звони."
             },
             {
               "id": "es-a1-visita-10-e6",
@@ -85395,8 +85334,7 @@
                 "es-a1-tema-citas"
               ],
               "prompt": "Te lo agradezco un montón.",
-              "translation": "Огромное спасибо.",
-              "example": "Te lo agradezco un montón."
+              "translation": "Огромное спасибо."
             },
             {
               "id": "es-a1-visita-10-e7",
@@ -86046,15 +85984,12 @@
             },
             {
               "id": "es-a1-visita-13-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-citas"
               ],
               "prompt": "Абсолютно.",
-              "canonicalAnswer": "Totalmente.",
-              "tokens": [
-                "Totalmente"
-              ]
+              "canonicalAnswer": "Totalmente."
             },
             {
               "id": "es-a1-visita-13-e12",
@@ -86638,14 +86573,14 @@
             },
             {
               "id": "es-a1-visita-16-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-citas"
               ],
               "prompt": "Сейчас сделаю.",
               "canonicalAnswer": "Marchando.",
-              "tokens": [
-                "Marchando"
+              "acceptedAnswers": [
+                "Ahora mismo lo hago."
               ]
             },
             {
@@ -86732,7 +86667,10 @@
                 "es-a1-tema-citas"
               ],
               "prompt": "До скорого.",
-              "canonicalAnswer": "Hasta pronto."
+              "canonicalAnswer": "Hasta pronto.",
+              "acceptedAnswers": [
+                "Hasta ahora."
+              ]
             }
           ],
           "kind": "checkpoint"
@@ -87246,8 +87184,7 @@
                 "es-a1-tema-viaje"
               ],
               "prompt": "Lo más difícil es el idioma.",
-              "translation": "Самое трудное — язык.",
-              "example": "Lo más difícil es el idioma."
+              "translation": "Самое трудное — язык."
             },
             {
               "id": "es-a1-paises-03-e6",
@@ -88317,14 +88254,14 @@
             },
             {
               "id": "es-a1-paises-08-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-viaje"
               ],
               "prompt": "Записал.",
               "canonicalAnswer": "Apuntado.",
-              "tokens": [
-                "Apuntado"
+              "acceptedAnswers": [
+                "Ya lo tengo."
               ]
             },
             {
@@ -88854,8 +88791,7 @@
                 "es-a1-tema-viaje"
               ],
               "prompt": "Cada país tiene sus costumbres.",
-              "translation": "У каждой страны свои обычаи.",
-              "example": "Cada país tiene sus costumbres."
+              "translation": "У каждой страны свои обычаи."
             },
             {
               "id": "es-a1-paises-11-e7",
@@ -91550,8 +91486,7 @@
                 "es-a1-tema-ciudad"
               ],
               "prompt": "La primera media hora es gratis.",
-              "translation": "Первые полчаса бесплатно.",
-              "example": "La primera media hora es gratis."
+              "translation": "Первые полчаса бесплатно."
             },
             {
               "id": "es-a1-metro-08-e7",
@@ -96461,15 +96396,12 @@
             },
             {
               "id": "es-a1-tecno-16-e11",
-              "type": "word_order",
+              "type": "translate",
               "topics": [
                 "es-a1-tema-contacto"
               ],
               "prompt": "Впечатляет.",
-              "canonicalAnswer": "Impresionante.",
-              "tokens": [
-                "Impresionante"
-              ]
+              "canonicalAnswer": "Impresionante."
             },
             {
               "id": "es-a1-tecno-16-e12",
@@ -97688,8 +97620,7 @@
                 "es-a1-tema-problemas"
               ],
               "prompt": "Menos mal que no era importante.",
-              "translation": "Хорошо, что это было неважно.",
-              "example": "Menos mal que no era importante."
+              "translation": "Хорошо, что это было неважно."
             },
             {
               "id": "es-a1-ayuda-06-e7",
@@ -98887,8 +98818,7 @@
                 "es-a1-tema-problemas"
               ],
               "prompt": "Ha sido más fácil de lo que pensaba.",
-              "translation": "Оказалось проще, чем я думала.",
-              "example": "Ha sido más fácil de lo que pensaba."
+              "translation": "Оказалось проще, чем я думала."
             },
             {
               "id": "es-a1-ayuda-12-e7",
@@ -99274,8 +99204,7 @@
                 "es-a1-tema-problemas"
               ],
               "prompt": "No sé cómo agradecértelo.",
-              "translation": "Не знаю, как тебя благодарить.",
-              "example": "No sé cómo agradecértelo."
+              "translation": "Не знаю, как тебя благодарить."
             },
             {
               "id": "es-a1-ayuda-14-e7",
@@ -99675,8 +99604,7 @@
                 "es-a1-tema-problemas"
               ],
               "prompt": "Ahora me toca ayudar a mí.",
-              "translation": "Теперь помогать моя очередь.",
-              "example": "Ahora me toca ayudar a mí."
+              "translation": "Теперь помогать моя очередь."
             },
             {
               "id": "es-a1-ayuda-16-e7",

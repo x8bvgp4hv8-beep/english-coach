@@ -646,6 +646,9 @@ for language in shipped {
             let answer = AnswerChecker.normalize(exercise.canonicalAnswer ?? "", language: language).split(separator: " ").sorted()
             return tray == answer
         }, "\(name): every word tray can build its answer")
+        // A one-word tray is one button that is always right: it asks nothing.
+        let oneWord = exercises.filter { $0.type == .wordOrder && ($0.tokens ?? []).count < 2 }
+        expect(oneWord.isEmpty, "\(name): трей из одного слова" + (oneWord.isEmpty ? "" : ": \(oneWord.prefix(3).map(\.id))"))
 
         // Юнит — это тема «что ты умеешь», а не одно правило: в нём и вопросы, и глаголы,
         // и числа. Пакетный скрипт когда-то пометил весь блок «Работа» темой «Глагол ser»,

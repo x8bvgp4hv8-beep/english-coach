@@ -990,6 +990,8 @@ describe.each(LANGUAGE_CODES)('each shipped language: %s', (language) => {
           // The tray must be able to build the answer, or the exercise cannot be solved.
           const tray = normalize((exercise.tokens ?? []).join(' '), language).split(' ').sort()
           expect(tray, exercise.id).toEqual(normalize(exercise.canonicalAnswer ?? '', language).split(' ').sort())
+          // A one-word tray is one button that is always right: it asks nothing.
+          expect((exercise.tokens ?? []).length, `${exercise.id}: трей из одного слова`).toBeGreaterThan(1)
         }
       }
     }
