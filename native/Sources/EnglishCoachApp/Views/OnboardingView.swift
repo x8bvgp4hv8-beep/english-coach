@@ -92,6 +92,8 @@ struct OnboardingView: View {
                     Button(item.rawValue) { level = item }.buttonStyle(LevelButtonStyle(selected: item == level))
                 }
             }
+            // Что за этой кнопкой, до выбора, а не после.
+            Text(model.levelSize(level)).font(.caption).foregroundStyle(.secondary)
             Button("Продолжить") { withAnimation(.snappy) { stage = .goal } }.buttonStyle(PrimaryButtonStyle()).frame(maxWidth: 340)
         }
     }

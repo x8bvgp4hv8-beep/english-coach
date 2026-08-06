@@ -388,6 +388,30 @@ final class AppModel {
     }
     var currentLevelProgress: Double { levelProgress(selectedLevel) }
 
+    /// Что за уровнем стоит на самом деле — в том же выборе, где его выбирают.
+    ///
+    /// Испанский A1 — 92 часа, испанский A2 — один: выбрать A2 сегодня значит закончить
+    /// курс за вечер. Это надо видеть до выбора, а не после.
+    func levelSize(_ level: CEFRLevel) -> String {
+        let hours = ProgressionEngine.hours(for: level, in: courses)
+        if hours < 1 { return "\(level.rawValue) — меньше часа, уровень ещё не наполнен" }
+        let rounded = Int(hours.rounded())
+        let word = Self.hoursWord(rounded)
+        if !ProgressionEngine.isReady(level, in: courses) {
+            return "\(level.rawValue) — пока \(rounded) \(word), уровень ещё не наполнен"
+        }
+        return "\(level.rawValue) — \(rounded) \(word) занятий"
+    }
+
+    /// 1 час, 2 часа, 5 часов.
+    private static func hoursWord(_ count: Int) -> String {
+        let mod100 = count % 100, mod10 = count % 10
+        if (11...14).contains(mod100) { return "часов" }
+        if mod10 == 1 { return "час" }
+        if (2...4).contains(mod10) { return "часа" }
+        return "часов"
+    }
+
     /// Прогресс по блоку, в котором человек сейчас, а не по уровню.
     ///
     /// В A1 тридцать блоков и 513 уроков: «Уровень A1 — 0%» — это то, что показывал

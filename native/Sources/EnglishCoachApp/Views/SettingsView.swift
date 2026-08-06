@@ -51,6 +51,7 @@ struct SettingsView: View {
                     .padding(.vertical, 4)
                 }
                 Picker("Уровень", selection: Binding(get: { model.selectedLevel }, set: { value in model.selectLevel(value) })) { ForEach(CEFRLevel.allCases) { Text($0.rawValue).tag($0) } }
+                Text(model.levelSize(model.selectedLevel)).font(.caption).foregroundStyle(.secondary)
                 if model.hasPlacementTest {
                     LabeledContent("Тест на уровень") {
                         Button("Пройти заново") { model.startPlacement(); showPlacement = true }
