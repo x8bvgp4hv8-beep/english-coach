@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { ReactNode } from 'react'
 
 import { useStore } from './App'
@@ -247,32 +248,54 @@ function LevelUp({ model }: { model: AppStore }) {
   )
 }
 
+/**
+ * A unit on the route, open only when it is the one being walked.
+ *
+ * With thirty units of seventeen lessons the map became forty screens of mostly locked
+ * rows — on a phone that is a wall, not a route. Collapsed units keep the whole level
+ * visible at a glance and let the eye land on the one that is actually next.
+ */
 function ChapterSection({ model, chapter, number }: { model: AppStore; chapter: Chapter; number: number }) {
   const done = chapter.lessons.filter((lesson) => model.completed.has(lesson.id)).length
+  const isCurrent = chapter.lessons.some((lesson) => model.recommendedLesson?.id === lesson.id)
+  /* Open follows the learner by default; a tap overrides it until they tap again. */
+  const [override, setOverride] = useState<boolean | null>(null)
+  const open = override ?? isCurrent
+
   return (
-    <section className="chapter">
-      <div className="chapter-head">
-        <span className="chapter-number">ГЛАВА {number}</span>
-        <h2 className="chapter-title">{chapter.title}</h2>
-        <span className={`chapter-count${done === chapter.lessons.length ? ' done' : ''}`}>{done} / {chapter.lessons.length}</span>
-      </div>
-      {chapter.subtitle && <p className="chapter-subtitle">{chapter.subtitle}</p>}
-      {/* The unit says what it is for before it lists its lessons. */}
-      {(chapter.canDo ?? []).length > 0 && (
-        <ul className="chapter-cando">
-          {chapter.canDo!.map((item) => <li key={item}>{item}</li>)}
-        </ul>
+    <section className={`chapter${open ? '' : ' collapsed'}`}>
+      <h2 className="chapter-heading">
+        <button className="chapter-head" onClick={() => setOverride(!open)} aria-expanded={open}>
+          <span className="chapter-number">БЛОК {number}</span>
+          <span className="chapter-title">{chapter.title}</span>
+          <span className={`chapter-count${done === chapter.lessons.length ? ' done' : ''}`}>
+            {done} / {chapter.lessons.length}
+          </span>
+          <span className="chapter-caret">{open ? '⌃' : '⌄'}</span>
+        </button>
+      </h2>
+
+      {open && (
+        <>
+          {chapter.subtitle && <p className="chapter-subtitle">{chapter.subtitle}</p>}
+          {/* The unit says what it is for before it lists its lessons. */}
+          {(chapter.canDo ?? []).length > 0 && (
+            <ul className="chapter-cando">
+              {chapter.canDo!.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          )}
+          <div className="chapter-rule" />
+          {chapter.lessons.map((lesson, index) => (
+            <LessonRow
+              key={lesson.id}
+              model={model}
+              lesson={lesson}
+              first={index === 0}
+              last={index === chapter.lessons.length - 1}
+            />
+          ))}
+        </>
       )}
-      <div className="chapter-rule" />
-      {chapter.lessons.map((lesson, index) => (
-        <LessonRow
-          key={lesson.id}
-          model={model}
-          lesson={lesson}
-          first={index === 0}
-          last={index === chapter.lessons.length - 1}
-        />
-      ))}
     </section>
   )
 }

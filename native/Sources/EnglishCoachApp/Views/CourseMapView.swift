@@ -3,6 +3,8 @@ import EnglishCoachCore
 
 struct CourseMapView: View {
     @Environment(AppModel.self) private var model
+    /// Открытость блока: по умолчанию раскрыт только текущий, тап переопределяет.
+    @State private var openedUnits: [String: Bool] = [:]
 
     var body: some View {
         VStack(spacing: 0) {
@@ -275,41 +277,64 @@ struct CourseMapView: View {
 
     // MARK: - Chapters
 
+    /// Раскрыт ли блок: по умолчанию тот, в котором лежит следующий урок. Иначе тридцать
+    /// блоков A1 превращают карту в сорок экранов замков.
+    private func unitIsOpen(_ chapter: Chapter) -> Bool {
+        if let choice = openedUnits[chapter.id] { return choice }
+        return chapter.lessons.contains { $0.id == model.recommendedLesson?.id }
+    }
+
     private func chapterSection(number: Int, chapter: Chapter) -> some View {
         let done = chapter.lessons.filter { model.state.completedLessonIDs.contains($0.id) }.count
+        let open = unitIsOpen(chapter)
         return VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .firstTextBaseline, spacing: 8) {
-                Text("ГЛАВА \(number)").font(.system(size: 10, weight: .black)).tracking(1.2).foregroundStyle(CoachTheme.accentColor.opacity(0.7))
-                Text(chapter.title).font(.system(size: 16, weight: .heavy, design: .rounded))
-                Spacer(minLength: 8)
-                Text("\(done) / \(chapter.lessons.count)").font(.system(size: 11, weight: .bold)).monospacedDigit()
-                    .foregroundStyle(done == chapter.lessons.count ? CoachTheme.mint : .secondary)
+            Button { openedUnits[chapter.id] = !open } label: {
+                HStack(alignment: .firstTextBaseline, spacing: 8) {
+                    Text("БЛОК \(number)").font(.system(size: 10, weight: .black)).tracking(1.2)
+                        .foregroundStyle(open ? CoachTheme.accentColor.opacity(0.7) : .secondary)
+                    Text(chapter.title)
+                        .font(.system(size: open ? 16 : 14, weight: open ? .heavy : .semibold, design: .rounded))
+                        .multilineTextAlignment(.leading)
+                    Spacer(minLength: 8)
+                    Text("\(done) / \(chapter.lessons.count)").font(.system(size: 11, weight: .bold)).monospacedDigit()
+                        .foregroundStyle(done == chapter.lessons.count ? CoachTheme.mint : .secondary)
+                    Image(systemName: open ? "chevron.up" : "chevron.down")
+                        .font(.system(size: 10, weight: .bold)).foregroundStyle(.secondary)
+                }
+                .contentShape(Rectangle())
             }
-            if let subtitle = chapter.subtitle {
-                Text(subtitle).font(.caption).foregroundStyle(.secondary).padding(.top, 3).fixedSize(horizontal: false, vertical: true)
-            }
-            // The unit says what it is for before it lists its lessons.
-            if let canDo = chapter.canDo, !canDo.isEmpty {
-                VStack(alignment: .leading, spacing: 2) {
-                    ForEach(canDo, id: \.self) { item in
-                        Text("• " + item).font(.system(size: 12)).foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }.padding(.top, 5)
-            }
-            Rectangle().fill(CoachTheme.hairline).frame(height: 1).padding(.top, 10)
-            ForEach(Array(chapter.lessons.enumerated()), id: \.element.id) { position, lesson in
-                let index = globalIndex(of: lesson)
-                LessonRow(
-                    lesson: lesson,
-                    state: nodeState(index, lesson),
-                    isFirst: position == 0,
-                    isLast: position == chapter.lessons.count - 1,
-                    action: { if model.nodeIsUnlocked(index) { model.startLesson(lesson) } }
-                )
+            .buttonStyle(.plain)
+            .padding(.vertical, open ? 0 : 11)
+
+            if open {
+                if let subtitle = chapter.subtitle {
+                    Text(subtitle).font(.caption).foregroundStyle(.secondary).padding(.top, 3).fixedSize(horizontal: false, vertical: true)
+                }
+                // The unit says what it is for before it lists its lessons.
+                if let canDo = chapter.canDo, !canDo.isEmpty {
+                    VStack(alignment: .leading, spacing: 2) {
+                        ForEach(canDo, id: \.self) { item in
+                            Text("• " + item).font(.system(size: 12)).foregroundStyle(.secondary)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }.padding(.top, 5)
+                }
+                Rectangle().fill(CoachTheme.hairline).frame(height: 1).padding(.top, 10)
+                ForEach(Array(chapter.lessons.enumerated()), id: \.element.id) { position, lesson in
+                    let index = globalIndex(of: lesson)
+                    LessonRow(
+                        lesson: lesson,
+                        state: nodeState(index, lesson),
+                        isFirst: position == 0,
+                        isLast: position == chapter.lessons.count - 1,
+                        action: { if model.nodeIsUnlocked(index) { model.startLesson(lesson) } }
+                    )
+                }
+            } else {
+                Rectangle().fill(CoachTheme.hairline).frame(height: 1)
             }
         }
-        .padding(.top, 26)
+        .padding(.top, open ? 26 : 0)
     }
 
     private var grammarLink: some View {
