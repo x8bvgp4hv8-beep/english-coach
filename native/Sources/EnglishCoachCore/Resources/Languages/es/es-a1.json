@@ -3143,6 +3143,74 @@
               "canonicalAnswer": "Cada día un poco, y se llega."
             }
           ]
+        },
+        {
+          "id": "es-a1-primeras-check",
+          "title": "Проверка: первые слова",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 5,
+          "exercises": [
+            {
+              "id": "es-a1-primeras-check-e1",
+              "type": "translate",
+              "prompt": "Добрый день!",
+              "canonicalAnswer": "¡Buenas tardes!",
+              "topics": [
+                "es-a1-tema-saludos"
+              ]
+            },
+            {
+              "id": "es-a1-primeras-check-e2",
+              "type": "translate",
+              "prompt": "Спасибо, и тебе того же.",
+              "canonicalAnswer": "Gracias, igualmente.",
+              "topics": [
+                "es-a1-tema-saludos"
+              ]
+            },
+            {
+              "id": "es-a1-primeras-check-e3",
+              "type": "translate",
+              "prompt": "Меня зовут Ана.",
+              "canonicalAnswer": "Me llamo Ana.",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-tema-saludos"
+              ]
+            },
+            {
+              "id": "es-a1-primeras-check-e4",
+              "type": "translate",
+              "prompt": "Я из Литвы.",
+              "canonicalAnswer": "Soy de Lituania.",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-tema-saludos"
+              ]
+            },
+            {
+              "id": "es-a1-primeras-check-e5",
+              "type": "translate",
+              "prompt": "Как тебя зовут?",
+              "canonicalAnswer": "¿Cómo te llamas?",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a1-tema-saludos"
+              ]
+            },
+            {
+              "id": "es-a1-primeras-check-e6",
+              "type": "translate",
+              "prompt": "Увидимся, до четверга.",
+              "canonicalAnswer": "Nos vemos, hasta el jueves.",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-tema-saludos"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
         }
       ],
       "canDo": [
@@ -6331,6 +6399,68 @@
               "canonicalAnswer": "Quedamos en el bar de la esquina."
             }
           ]
+        },
+        {
+          "id": "es-a1-hola-check",
+          "title": "Проверка: знакомство",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-hola-check-e1",
+              "type": "translate",
+              "prompt": "Это мой друг Томас.",
+              "canonicalAnswer": "Éste es mi amigo Tomas.",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-tema-saludos"
+              ]
+            },
+            {
+              "id": "es-a1-hola-check-e2",
+              "type": "translate",
+              "prompt": "Мы из Вильнюса.",
+              "canonicalAnswer": "Somos de Vilna.",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-tema-saludos"
+              ]
+            },
+            {
+              "id": "es-a1-hola-check-e3",
+              "type": "translate",
+              "prompt": "Где ты живёшь?",
+              "canonicalAnswer": "¿Dónde vives?",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a1-tema-saludos"
+              ]
+            },
+            {
+              "id": "es-a1-hola-check-e4",
+              "type": "translate",
+              "prompt": "Мне тридцать лет.",
+              "canonicalAnswer": "Tengo treinta años.",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-numeros",
+                "es-a1-tema-saludos"
+              ]
+            },
+            {
+              "id": "es-a1-hola-check-e5",
+              "type": "translate",
+              "prompt": "Можете повторить ещё раз, пожалуйста?",
+              "canonicalAnswer": "¿Puede repetirlo otra vez, por favor?",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a1-tema-saludos"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
         }
       ],
       "canDo": [
@@ -9512,6 +9642,66 @@
               "canonicalAnswer": "Está siempre lleno, hay que reservar."
             }
           ]
+        },
+        {
+          "id": "es-a1-cosas-check",
+          "title": "Проверка: в кафе",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-cosas-check-e1",
+              "type": "translate",
+              "prompt": "Кортадо, пожалуйста.",
+              "canonicalAnswer": "Un cortado, por favor.",
+              "topics": [
+                "es-a1-articulos",
+                "es-a1-tema-comida"
+              ]
+            },
+            {
+              "id": "es-a1-cosas-check-e2",
+              "type": "translate",
+              "prompt": "Мне кофе с молоком.",
+              "canonicalAnswer": "Para mí un café con leche.",
+              "topics": [
+                "es-a1-articulos",
+                "es-a1-tema-comida"
+              ]
+            },
+            {
+              "id": "es-a1-cosas-check-e3",
+              "type": "translate",
+              "prompt": "Два тоста, пожалуйста.",
+              "canonicalAnswer": "Dos tostadas, por favor.",
+              "topics": [
+                "es-a1-numeros",
+                "es-a1-tema-comida"
+              ]
+            },
+            {
+              "id": "es-a1-cosas-check-e4",
+              "type": "translate",
+              "prompt": "Извините, принесёте счёт?",
+              "canonicalAnswer": "Perdone, ¿nos trae la cuenta?",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a1-tema-comida"
+              ]
+            },
+            {
+              "id": "es-a1-cosas-check-e5",
+              "type": "translate",
+              "prompt": "Заплатим пополам, ладно?",
+              "canonicalAnswer": "Pagamos a medias, ¿vale?",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a1-tema-comida"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
         }
       ],
       "canDo": [
@@ -12756,6 +12946,66 @@
               "canonicalAnswer": "Por las mañanas me viene muy bien."
             }
           ]
+        },
+        {
+          "id": "es-a1-cada-dia-check",
+          "title": "Проверка: каждый день",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-cada-dia-check-e1",
+              "type": "translate",
+              "prompt": "Я работаю дома.",
+              "canonicalAnswer": "Trabajo en casa.",
+              "topics": [
+                "es-a1-tema-rutina"
+              ]
+            },
+            {
+              "id": "es-a1-cada-dia-check-e2",
+              "type": "translate",
+              "prompt": "Во сколько ты встаёшь?",
+              "canonicalAnswer": "¿A qué hora te levantas?",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a1-tema-rutina"
+              ]
+            },
+            {
+              "id": "es-a1-cada-dia-check-e3",
+              "type": "translate",
+              "prompt": "Мы едим в восемь.",
+              "canonicalAnswer": "Comemos a las ocho.",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros",
+                "es-a1-tema-rutina"
+              ]
+            },
+            {
+              "id": "es-a1-cada-dia-check-e4",
+              "type": "translate",
+              "prompt": "Как ты добираешься на работу?",
+              "canonicalAnswer": "¿Cómo vas al trabajo?",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a1-tema-rutina"
+              ]
+            },
+            {
+              "id": "es-a1-cada-dia-check-e5",
+              "type": "translate",
+              "prompt": "Что ты делаешь по выходным?",
+              "canonicalAnswer": "¿Qué haces los fines de semana?",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a1-tema-rutina"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
         }
       ],
       "canDo": [
@@ -16176,6 +16426,66 @@
               "canonicalAnswer": "Pues tortilla y ya está."
             }
           ]
+        },
+        {
+          "id": "es-a1-ser-estar-check",
+          "title": "Проверка: какой и где",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-ser-estar-check-e1",
+              "type": "translate",
+              "prompt": "Я спокойная и работящая.",
+              "canonicalAnswer": "Soy tranquila y trabajadora.",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-tema-descripcion"
+              ]
+            },
+            {
+              "id": "es-a1-ser-estar-check-e2",
+              "type": "translate",
+              "prompt": "Сегодня я очень доволен.",
+              "canonicalAnswer": "Hoy estoy muy contento.",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-tema-descripcion"
+              ]
+            },
+            {
+              "id": "es-a1-ser-estar-check-e3",
+              "type": "translate",
+              "prompt": "Стол деревянный.",
+              "canonicalAnswer": "La mesa es de madera.",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-tema-descripcion"
+              ]
+            },
+            {
+              "id": "es-a1-ser-estar-check-e4",
+              "type": "translate",
+              "prompt": "Лифт сломан.",
+              "canonicalAnswer": "El ascensor está roto.",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-tema-descripcion"
+              ]
+            },
+            {
+              "id": "es-a1-ser-estar-check-e5",
+              "type": "translate",
+              "prompt": "Где туалет?",
+              "canonicalAnswer": "¿Dónde está el baño?",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a1-tema-descripcion"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
         }
       ],
       "canDo": [
@@ -19310,6 +19620,66 @@
               "canonicalAnswer": "Eso nos pasa a todos."
             }
           ]
+        },
+        {
+          "id": "es-a1-planes-check",
+          "title": "Проверка: вкусы и планы",
+          "summary": "Весь блок целиком, без подсказок.",
+          "estimatedMinutes": 4,
+          "exercises": [
+            {
+              "id": "es-a1-planes-check-e1",
+              "type": "translate",
+              "prompt": "Мне нравится испанская музыка.",
+              "canonicalAnswer": "Me gusta la música española.",
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-tema-ocio"
+              ]
+            },
+            {
+              "id": "es-a1-planes-check-e2",
+              "type": "translate",
+              "prompt": "Ему не нравится вставать рано.",
+              "canonicalAnswer": "No le gusta levantarse temprano.",
+              "topics": [
+                "es-a1-gustar",
+                "es-a1-tema-ocio"
+              ]
+            },
+            {
+              "id": "es-a1-planes-check-e3",
+              "type": "translate",
+              "prompt": "Завтра я собираюсь работать дома.",
+              "canonicalAnswer": "Mañana voy a trabajar en casa.",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-tema-ocio"
+              ]
+            },
+            {
+              "id": "es-a1-planes-check-e4",
+              "type": "translate",
+              "prompt": "Что ты будешь делать в выходные?",
+              "canonicalAnswer": "¿Qué vas a hacer el fin de semana?",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas",
+                "es-a1-tema-ocio"
+              ]
+            },
+            {
+              "id": "es-a1-planes-check-e5",
+              "type": "translate",
+              "prompt": "Мне надо знать до пятницы.",
+              "canonicalAnswer": "Necesito saberlo antes del viernes.",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-tema-ocio"
+              ]
+            }
+          ],
+          "kind": "checkpoint"
         }
       ],
       "canDo": [
