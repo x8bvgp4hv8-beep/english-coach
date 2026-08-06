@@ -1036,6 +1036,619 @@
           ]
         },
         {
+          "id": "es-a2-ayer-06",
+          "title": "Hace dos días",
+          "summary": "Сколько времени назад.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-ayer-06-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-comparativos",
+                "es-a2-tema-relato"
+              ],
+              "title": "Когда это было",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Cuándo hablaste con ella?",
+                  "translation": "Когда ты с ней говорил?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Hace dos días, por teléfono.",
+                  "translation": "Два дня назад, по телефону."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¿Y no te dijo nada del viaje?",
+                  "translation": "И она ничего не сказала про поездку?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Ni una palabra, qué raro.",
+                  "translation": "Ни слова, странно."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "A lo mejor no estaba segura.",
+                  "translation": "Может, она не была уверена."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-ayer-06-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "hace dos días",
+              "translation": "два дня назад",
+              "example": "Hablé con ella hace dos días."
+            },
+            {
+              "id": "es-a2-ayer-06-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "por teléfono",
+              "translation": "по телефону",
+              "example": "Hace dos días, por teléfono."
+            },
+            {
+              "id": "es-a2-ayer-06-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Ni una palabra.",
+              "translation": "Ни слова.",
+              "example": "Ni una palabra, qué raro."
+            },
+            {
+              "id": "es-a2-ayer-06-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "A lo mejor",
+              "translation": "Может быть",
+              "example": "A lo mejor no estaba segura."
+            },
+            {
+              "id": "es-a2-ayer-06-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "No estaba segura.",
+              "translation": "Она не была уверена.",
+              "example": "A lo mejor no estaba segura."
+            },
+            {
+              "id": "es-a2-ayer-06-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Сколько времени назад",
+              "explanation": "Прошедшее расстояние во времени — hace: hace dos días, hace un mes, hace mucho. Глагол при этом в indefinido: hablé con ella hace dos días. Порядок свободный: hace dos días hablé con ella — тоже верно."
+            },
+            {
+              "id": "es-a2-ayer-06-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Hablé con ella ___ dos días.",
+              "options": [
+                "hace",
+                "desde",
+                "por"
+              ],
+              "correctOption": "hace"
+            },
+            {
+              "id": "es-a2-ayer-06-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "A lo mejor no ___ segura.",
+              "options": [
+                "estaba",
+                "estuvo",
+                "está"
+              ],
+              "correctOption": "estaba"
+            },
+            {
+              "id": "es-a2-ayer-06-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Ни слова» — это:",
+              "options": [
+                "Ni una palabra.",
+                "No una palabra.",
+                "Ninguna palabra no."
+              ],
+              "correctOption": "Ni una palabra."
+            },
+            {
+              "id": "es-a2-ayer-06-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Два дня назад, по телефону.",
+              "canonicalAnswer": "Hace dos días, por teléfono.",
+              "tokens": [
+                "dos",
+                "días",
+                "por",
+                "teléfono",
+                "Hace"
+              ]
+            },
+            {
+              "id": "es-a2-ayer-06-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Когда ты с ней говорил?",
+              "canonicalAnswer": "¿Cuándo hablaste con ella?"
+            },
+            {
+              "id": "es-a2-ayer-06-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Два дня назад.",
+              "canonicalAnswer": "Hace dos días."
+            },
+            {
+              "id": "es-a2-ayer-06-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Может, она не была уверена.",
+              "canonicalAnswer": "A lo mejor no estaba segura."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-ayer-07",
+          "title": "Se me hizo tarde",
+          "summary": "Задержался и опоздал.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-ayer-07-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "title": "Почему поздно",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Ayer se me hizo tarde en la oficina.",
+                  "translation": "Вчера я задержалась в офисе."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Otra vez con el informe?",
+                  "translation": "Опять с отчётом?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí, y encima perdí el autobús.",
+                  "translation": "Да, и вдобавок опоздала на автобус."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Vaya día, entonces.",
+                  "translation": "Ну и денёк."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Llegué a casa a las once.",
+                  "translation": "Пришла домой в одиннадцать."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-ayer-07-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Se me hizo tarde.",
+              "translation": "Я задержался.",
+              "example": "Ayer se me hizo tarde en la oficina."
+            },
+            {
+              "id": "es-a2-ayer-07-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "encima",
+              "translation": "вдобавок",
+              "example": "Y encima perdí el autobús."
+            },
+            {
+              "id": "es-a2-ayer-07-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Perdí el autobús.",
+              "translation": "Я опоздал на автобус.",
+              "example": "Y encima perdí el autobús."
+            },
+            {
+              "id": "es-a2-ayer-07-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Vaya día.",
+              "translation": "Ну и денёк.",
+              "example": "Vaya día, entonces."
+            },
+            {
+              "id": "es-a2-ayer-07-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Llegué a casa a las once.",
+              "translation": "Я пришёл домой в одиннадцать.",
+              "example": "Llegué a casa a las once de la noche."
+            },
+            {
+              "id": "es-a2-ayer-07-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Вдобавок",
+              "explanation": "Когда неприятности складываются, между ними ставят encima: y encima perdí el autobús, y encima llovía. Это «и ещё вдобавок», всегда с оттенком «мало мне было»."
+            },
+            {
+              "id": "es-a2-ayer-07-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Ayer ___ me hizo tarde.",
+              "options": [
+                "se",
+                "me",
+                "lo"
+              ],
+              "correctOption": "se"
+            },
+            {
+              "id": "es-a2-ayer-07-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Y ___ perdí el autobús.",
+              "options": [
+                "encima",
+                "arriba",
+                "sobre"
+              ],
+              "correctOption": "encima"
+            },
+            {
+              "id": "es-a2-ayer-07-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Ну и денёк» — это:",
+              "options": [
+                "Vaya día.",
+                "Vaya un día ayer.",
+                "Qué va día."
+              ],
+              "correctOption": "Vaya día."
+            },
+            {
+              "id": "es-a2-ayer-07-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Пришла домой в одиннадцать.",
+              "canonicalAnswer": "Llegué a casa a las once.",
+              "tokens": [
+                "a",
+                "casa",
+                "a",
+                "las",
+                "once",
+                "Llegué"
+              ]
+            },
+            {
+              "id": "es-a2-ayer-07-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Вчера я задержался.",
+              "canonicalAnswer": "Ayer se me hizo tarde."
+            },
+            {
+              "id": "es-a2-ayer-07-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "И вдобавок опоздал на автобус.",
+              "canonicalAnswer": "Y encima perdí el autobús."
+            },
+            {
+              "id": "es-a2-ayer-07-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Опять с отчётом?",
+              "canonicalAnswer": "¿Otra vez con el informe?"
+            }
+          ]
+        },
+        {
+          "id": "es-a2-ayer-08",
+          "title": "¿Qué tal te fue?",
+          "summary": "Как всё прошло.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-ayer-08-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "title": "После собеседования",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Qué tal te fue la entrevista?",
+                  "translation": "Как прошло собеседование?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Me fue bastante bien, creo.",
+                  "translation": "По-моему, довольно хорошо."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¿Te preguntaron mucho?",
+                  "translation": "Много спрашивали?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Lo normal, y hablamos media hora.",
+                  "translation": "Как обычно, поговорили полчаса."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Ya me contarás qué dicen.",
+                  "translation": "Расскажешь потом, что скажут."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-ayer-08-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "¿Qué tal te fue?",
+              "translation": "Как всё прошло?",
+              "example": "¿Qué tal te fue la entrevista?"
+            },
+            {
+              "id": "es-a2-ayer-08-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Me fue bien.",
+              "translation": "У меня прошло хорошо.",
+              "example": "Me fue bastante bien, creo."
+            },
+            {
+              "id": "es-a2-ayer-08-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "la entrevista",
+              "translation": "собеседование",
+              "example": "¿Qué tal te fue la entrevista?"
+            },
+            {
+              "id": "es-a2-ayer-08-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Lo normal.",
+              "translation": "Как обычно.",
+              "example": "Lo normal, nada raro."
+            },
+            {
+              "id": "es-a2-ayer-08-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Ya me contarás.",
+              "translation": "Расскажешь потом.",
+              "example": "Ya me contarás qué dicen."
+            },
+            {
+              "id": "es-a2-ayer-08-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Как у тебя прошло",
+              "explanation": "Про исход события спрашивают ir: ¿qué tal te fue? — me fue bien, me fue fatal. Глагол стоит в третьем лице, а человек — коротким словом впереди: me, te, le."
+            },
+            {
+              "id": "es-a2-ayer-08-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "¿Qué tal ___ fue la entrevista?",
+              "options": [
+                "te",
+                "tú",
+                "se"
+              ],
+              "correctOption": "te"
+            },
+            {
+              "id": "es-a2-ayer-08-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Me ___ bastante bien.",
+              "options": [
+                "fue",
+                "fui",
+                "iba"
+              ],
+              "correctOption": "fue"
+            },
+            {
+              "id": "es-a2-ayer-08-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Как обычно» — это:",
+              "options": [
+                "Lo normal.",
+                "El normal.",
+                "La normal."
+              ],
+              "correctOption": "Lo normal."
+            },
+            {
+              "id": "es-a2-ayer-08-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Много спрашивали?",
+              "canonicalAnswer": "¿Te preguntaron mucho?",
+              "tokens": [
+                "preguntaron",
+                "mucho",
+                "Te"
+              ]
+            },
+            {
+              "id": "es-a2-ayer-08-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Как прошло собеседование?",
+              "canonicalAnswer": "¿Qué tal te fue la entrevista?"
+            },
+            {
+              "id": "es-a2-ayer-08-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "По-моему, довольно хорошо.",
+              "canonicalAnswer": "Me fue bastante bien."
+            },
+            {
+              "id": "es-a2-ayer-08-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Расскажешь потом.",
+              "canonicalAnswer": "Ya me contarás."
+            }
+          ]
+        },
+        {
           "id": "es-a2-ayer-check",
           "title": "Проверка: вчера",
           "summary": "Весь блок целиком, без подсказок.",
@@ -2133,6 +2746,615 @@
           ]
         },
         {
+          "id": "es-a2-fui-06",
+          "title": "No quiso venir",
+          "summary": "Отказался и не смог.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-fui-06-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "title": "Не пришёл",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Al final Pedro no quiso venir.",
+                  "translation": "В итоге Педро не захотел приходить."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¿Y eso? ¿Le pasó algo?",
+                  "translation": "Как так? Что-то случилось?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Dijo que estaba cansado.",
+                  "translation": "Сказал, что устал."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Pues se lo perdió.",
+                  "translation": "Ну он много потерял."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Eso mismo le dije yo.",
+                  "translation": "Ровно это я ему и сказала."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-fui-06-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "No quiso venir.",
+              "translation": "Он не захотел прийти.",
+              "example": "Al final Pedro no quiso venir."
+            },
+            {
+              "id": "es-a2-fui-06-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Dijo que estaba cansado.",
+              "translation": "Сказал, что устал.",
+              "example": "Dijo que estaba cansado y se quedó."
+            },
+            {
+              "id": "es-a2-fui-06-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Se lo perdió.",
+              "translation": "Он много потерял.",
+              "example": "Pues se lo perdió, la verdad."
+            },
+            {
+              "id": "es-a2-fui-06-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Eso mismo le dije.",
+              "translation": "Ровно это я ему и сказал.",
+              "example": "Eso mismo le dije yo ayer."
+            },
+            {
+              "id": "es-a2-fui-06-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "¿Le pasó algo?",
+              "translation": "С ним что-то случилось?",
+              "example": "¿Y eso? ¿Le pasó algo?"
+            },
+            {
+              "id": "es-a2-fui-06-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Хотел, но передумал",
+              "explanation": "querer в прошедшем меняет смысл: quise — «попытался», no quiso — «отказался, не захотел». А чужие слова передают парой dijo que + imperfecto: dijo que estaba cansado."
+            },
+            {
+              "id": "es-a2-fui-06-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Al final no ___ venir.",
+              "options": [
+                "quiso",
+                "quería siempre",
+                "querer"
+              ],
+              "correctOption": "quiso"
+            },
+            {
+              "id": "es-a2-fui-06-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Dijo que ___ cansado.",
+              "options": [
+                "estaba",
+                "estuvo",
+                "está"
+              ],
+              "correctOption": "estaba"
+            },
+            {
+              "id": "es-a2-fui-06-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Он много потерял» — это:",
+              "options": [
+                "Se lo perdió.",
+                "Lo se perdió.",
+                "Le perdió lo."
+              ],
+              "correctOption": "Se lo perdió."
+            },
+            {
+              "id": "es-a2-fui-06-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-indefinido",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "С ним что-то случилось?",
+              "canonicalAnswer": "¿Le pasó algo?",
+              "tokens": [
+                "pasó",
+                "algo",
+                "Le"
+              ]
+            },
+            {
+              "id": "es-a2-fui-06-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Он не захотел прийти.",
+              "canonicalAnswer": "No quiso venir."
+            },
+            {
+              "id": "es-a2-fui-06-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Сказал, что устал.",
+              "canonicalAnswer": "Dijo que estaba cansado."
+            },
+            {
+              "id": "es-a2-fui-06-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Ровно это я ему и сказала.",
+              "canonicalAnswer": "Eso mismo le dije yo."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-fui-07",
+          "title": "Supe que",
+          "summary": "Узнал и понял.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-fui-07-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-contraste-pasados",
+                "es-a2-objeto-directo",
+                "es-a2-tema-relato"
+              ],
+              "title": "Как узнал",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Cómo supiste lo del cambio?",
+                  "translation": "Как ты узнал про перемены?"
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Lo supe por Ana, ayer mismo.",
+                  "translation": "Узнала от Аны, прямо вчера."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Yo no sabía nada hasta hoy.",
+                  "translation": "А я до сегодня ничего не знал."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Nadie dijo nada oficialmente.",
+                  "translation": "Официально никто ничего не говорил."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Como siempre, vaya.",
+                  "translation": "Как всегда, надо же."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-fui-07-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Lo supe por Ana.",
+              "translation": "Я узнал от Аны.",
+              "example": "Lo supe por Ana, ayer mismo."
+            },
+            {
+              "id": "es-a2-fui-07-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "No sabía nada.",
+              "translation": "Я ничего не знал.",
+              "example": "Yo no sabía nada hasta hoy."
+            },
+            {
+              "id": "es-a2-fui-07-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "oficialmente",
+              "translation": "официально",
+              "example": "Nadie dijo nada oficialmente."
+            },
+            {
+              "id": "es-a2-fui-07-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "ayer mismo",
+              "translation": "прямо вчера",
+              "example": "Lo supe por Ana, ayer mismo."
+            },
+            {
+              "id": "es-a2-fui-07-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Como siempre.",
+              "translation": "Как всегда.",
+              "example": "Como siempre, vaya."
+            },
+            {
+              "id": "es-a2-fui-07-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Знал и узнал",
+              "explanation": "saber тоже меняется от времени: sabía — «знал» (состояние), supe — «узнал» (момент). Отсюда пара: no sabía nada hasta que lo supe por Ana."
+            },
+            {
+              "id": "es-a2-fui-07-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Lo ___ por Ana, ayer mismo.",
+              "options": [
+                "supe",
+                "sabía",
+                "saber"
+              ],
+              "correctOption": "supe"
+            },
+            {
+              "id": "es-a2-fui-07-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Yo no ___ nada hasta hoy.",
+              "options": [
+                "sabía",
+                "supe",
+                "sé"
+              ],
+              "correctOption": "sabía"
+            },
+            {
+              "id": "es-a2-fui-07-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Прямо вчера» — это:",
+              "options": [
+                "ayer mismo",
+                "mismo ayer",
+                "ayer propio"
+              ],
+              "correctOption": "ayer mismo"
+            },
+            {
+              "id": "es-a2-fui-07-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Как всегда, надо же.",
+              "canonicalAnswer": "Como siempre, vaya.",
+              "tokens": [
+                "siempre",
+                "vaya",
+                "Como"
+              ]
+            },
+            {
+              "id": "es-a2-fui-07-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Как ты узнал?",
+              "canonicalAnswer": "¿Cómo supiste?"
+            },
+            {
+              "id": "es-a2-fui-07-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-objeto-directo",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Я узнал от Аны.",
+              "canonicalAnswer": "Lo supe por Ana."
+            },
+            {
+              "id": "es-a2-fui-07-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Я ничего не знал.",
+              "canonicalAnswer": "No sabía nada."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-fui-08",
+          "title": "Hicimos muchas cosas",
+          "summary": "Насыщенный день.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-fui-08-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-superlativos",
+                "es-a2-tema-relato"
+              ],
+              "title": "Полный день",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Ayer hicimos muchísimas cosas.",
+                  "translation": "Вчера мы кучу всего сделали."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Como qué?",
+                  "translation": "Например?"
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Fuimos al mercado, vimos una expo.",
+                  "translation": "Сходили на рынок, посмотрели выставку."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Y todo en un día.",
+                  "translation": "И всё за один день."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Acabamos rendidos, pero contentos.",
+                  "translation": "Свалились без сил, но довольные."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-fui-08-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-superlativos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Hicimos muchas cosas.",
+              "translation": "Мы много всего сделали.",
+              "example": "Ayer hicimos muchísimas cosas."
+            },
+            {
+              "id": "es-a2-fui-08-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "¿Como qué?",
+              "translation": "Например?",
+              "example": "¿Como qué? Cuéntame."
+            },
+            {
+              "id": "es-a2-fui-08-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Vimos una expo.",
+              "translation": "Мы посмотрели выставку.",
+              "example": "Fuimos al mercado, vimos una expo."
+            },
+            {
+              "id": "es-a2-fui-08-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Acabamos rendidos.",
+              "translation": "Мы свалились без сил.",
+              "example": "Acabamos rendidos, pero contentos."
+            },
+            {
+              "id": "es-a2-fui-08-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "rendido",
+              "translation": "без сил",
+              "example": "Acabamos rendidos."
+            },
+            {
+              "id": "es-a2-fui-08-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Перечислить сделанное",
+              "explanation": "Список дел в прошедшем идёт без союзов, через запятую: fuimos al mercado, vimos una expo, comimos fuera. Союз y ставят только перед последним пунктом."
+            },
+            {
+              "id": "es-a2-fui-08-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-superlativos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Ayer ___ muchísimas cosas.",
+              "options": [
+                "hicimos",
+                "hacíamos siempre",
+                "hacer"
+              ],
+              "correctOption": "hicimos"
+            },
+            {
+              "id": "es-a2-fui-08-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "___ una expo por la tarde.",
+              "options": [
+                "Vimos",
+                "Veíamos siempre",
+                "Ver"
+              ],
+              "correctOption": "Vimos"
+            },
+            {
+              "id": "es-a2-fui-08-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Без сил» — это:",
+              "options": [
+                "rendidos",
+                "rendir",
+                "rendido mucho"
+              ],
+              "correctOption": "rendidos"
+            },
+            {
+              "id": "es-a2-fui-08-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "И всё за один день.",
+              "canonicalAnswer": "Y todo en un día.",
+              "tokens": [
+                "todo",
+                "en",
+                "un",
+                "día",
+                "Y"
+              ]
+            },
+            {
+              "id": "es-a2-fui-08-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Мы много всего сделали.",
+              "canonicalAnswer": "Hicimos muchas cosas."
+            },
+            {
+              "id": "es-a2-fui-08-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Например?",
+              "canonicalAnswer": "¿Como qué?"
+            },
+            {
+              "id": "es-a2-fui-08-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Свалились без сил, но довольные.",
+              "canonicalAnswer": "Acabamos rendidos, pero contentos."
+            }
+          ]
+        },
+        {
           "id": "es-a2-fui-check",
           "title": "Проверка: пошёл и сделал",
           "summary": "Весь блок целиком, без подсказок.",
@@ -3215,6 +4437,615 @@
               ],
               "prompt": "По тебе совсем не скажешь.",
               "canonicalAnswer": "No lo pareces para nada."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-pequeno-06",
+          "title": "Teníamos un perro",
+          "summary": "Что было в доме.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-pequeno-06-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "title": "Собака",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "De pequeños teníamos un perro.",
+                  "translation": "В детстве у нас была собака."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Cómo se llamaba?",
+                  "translation": "Как её звали?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Lola, y dormía en mi cama.",
+                  "translation": "Лола, и спала в моей кровати."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Qué suerte, yo quería uno.",
+                  "translation": "Повезло, а я хотел собаку."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Mis padres decían que daba trabajo.",
+                  "translation": "Мои родители говорили, что с ней хлопотно."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-pequeno-06-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-genero",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Teníamos un perro.",
+              "translation": "У нас была собака.",
+              "example": "De pequeños teníamos un perro."
+            },
+            {
+              "id": "es-a2-pequeno-06-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "¿Cómo se llamaba?",
+              "translation": "Как её звали?",
+              "example": "¿Cómo se llamaba el perro?"
+            },
+            {
+              "id": "es-a2-pequeno-06-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Dormía en mi cama.",
+              "translation": "Она спала в моей кровати.",
+              "example": "Lola, y dormía en mi cama."
+            },
+            {
+              "id": "es-a2-pequeno-06-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Yo quería uno.",
+              "translation": "Я хотел такую.",
+              "example": "Qué suerte, yo quería uno."
+            },
+            {
+              "id": "es-a2-pequeno-06-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Daba trabajo.",
+              "translation": "С ней было хлопотно.",
+              "example": "Mis padres decían que daba trabajo."
+            },
+            {
+              "id": "es-a2-pequeno-06-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Как звали",
+              "explanation": "Имя в прошлом — se llamaba: ¿cómo se llamaba? se llamaba Lola. Это то же llamarse, что и в настоящем, только в imperfecto: раньше так было всегда."
+            },
+            {
+              "id": "es-a2-pequeno-06-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-genero",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "De pequeños ___ un perro.",
+              "options": [
+                "teníamos",
+                "tuvimos",
+                "tener"
+              ],
+              "correctOption": "teníamos"
+            },
+            {
+              "id": "es-a2-pequeno-06-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "¿Cómo ___ llamaba?",
+              "options": [
+                "se",
+                "te",
+                "me"
+              ],
+              "correctOption": "se"
+            },
+            {
+              "id": "es-a2-pequeno-06-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«С ней было хлопотно» — это:",
+              "options": [
+                "Daba trabajo.",
+                "Hacía trabajo.",
+                "Tenía trabajo."
+              ],
+              "correctOption": "Daba trabajo."
+            },
+            {
+              "id": "es-a2-pequeno-06-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Она спала в моей кровати.",
+              "canonicalAnswer": "Dormía en mi cama.",
+              "tokens": [
+                "en",
+                "mi",
+                "cama",
+                "Dormía"
+              ]
+            },
+            {
+              "id": "es-a2-pequeno-06-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "У нас была собака.",
+              "canonicalAnswer": "Teníamos un perro."
+            },
+            {
+              "id": "es-a2-pequeno-06-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Как её звали?",
+              "canonicalAnswer": "¿Cómo se llamaba?"
+            },
+            {
+              "id": "es-a2-pequeno-06-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "А я хотел такую.",
+              "canonicalAnswer": "Yo quería uno."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-pequeno-07",
+          "title": "Íbamos andando al colegio",
+          "summary": "Дорога в школу.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-pequeno-07-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "title": "В школу",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Íbamos andando al colegio, los dos solos.",
+                  "translation": "Мы ходили в школу пешком, вдвоём."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¿Y era muy lejos?",
+                  "translation": "И далеко было?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Veinte minutos, con lluvia o sol.",
+                  "translation": "Двадцать минут, в дождь и в солнце."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Hoy nadie deja a los niños solos.",
+                  "translation": "Сегодня никто не отпускает детей одних."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Han cambiado mucho las cosas.",
+                  "translation": "Многое поменялось."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-pequeno-07-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Íbamos andando.",
+              "translation": "Мы ходили пешком.",
+              "example": "Íbamos andando al colegio."
+            },
+            {
+              "id": "es-a2-pequeno-07-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "los dos solos",
+              "translation": "вдвоём одни",
+              "example": "Íbamos andando, los dos solos."
+            },
+            {
+              "id": "es-a2-pequeno-07-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "con lluvia o sol",
+              "translation": "в дождь и в солнце",
+              "example": "Veinte minutos, con lluvia o sol."
+            },
+            {
+              "id": "es-a2-pequeno-07-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-plural",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Nadie deja a los niños solos.",
+              "translation": "Никто не отпускает детей одних.",
+              "example": "Hoy nadie deja a los niños solos."
+            },
+            {
+              "id": "es-a2-pequeno-07-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-plural",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Han cambiado las cosas.",
+              "translation": "Многое поменялось.",
+              "example": "Han cambiado mucho las cosas."
+            },
+            {
+              "id": "es-a2-pequeno-07-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Как добирались",
+              "explanation": "Способ передвижения ставят формой на -ando после ir: íbamos andando, iba corriendo. А транспорт — через en: en metro, en coche, en bici. Пешком — только andando или a pie."
+            },
+            {
+              "id": "es-a2-pequeno-07-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "___ andando al colegio.",
+              "options": [
+                "Íbamos",
+                "Fuimos ayer",
+                "Ir"
+              ],
+              "correctOption": "Íbamos"
+            },
+            {
+              "id": "es-a2-pequeno-07-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-plural",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Hoy nadie ___ a los niños solos.",
+              "options": [
+                "deja",
+                "dejan",
+                "dejar"
+              ],
+              "correctOption": "deja"
+            },
+            {
+              "id": "es-a2-pequeno-07-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«В дождь и в солнце» — это:",
+              "options": [
+                "con lluvia o sol",
+                "por lluvia o sol",
+                "en lluvia o sol"
+              ],
+              "correctOption": "con lluvia o sol"
+            },
+            {
+              "id": "es-a2-pequeno-07-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-plural",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Многое поменялось.",
+              "canonicalAnswer": "Han cambiado las cosas.",
+              "tokens": [
+                "cambiado",
+                "las",
+                "cosas",
+                "Han"
+              ]
+            },
+            {
+              "id": "es-a2-pequeno-07-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Мы ходили пешком.",
+              "canonicalAnswer": "Íbamos andando."
+            },
+            {
+              "id": "es-a2-pequeno-07-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "И далеко было?",
+              "canonicalAnswer": "¿Y era muy lejos?"
+            },
+            {
+              "id": "es-a2-pequeno-07-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Двадцать минут.",
+              "canonicalAnswer": "Veinte minutos."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-pequeno-08",
+          "title": "Me acuerdo perfectamente",
+          "summary": "Помню как сейчас.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-pequeno-08-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "title": "Воспоминание",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Me acuerdo perfectamente de aquel verano.",
+                  "translation": "Я прекрасно помню то лето."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿El del pueblo?",
+                  "translation": "То, в деревне?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Sí, hacía un calor horrible.",
+                  "translation": "Да, была жуткая жара."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Y no había ni ventilador.",
+                  "translation": "И даже вентилятора не было."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Dormíamos con la ventana abierta.",
+                  "translation": "Мы спали с открытым окном."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-pequeno-08-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Me acuerdo perfectamente.",
+              "translation": "Я прекрасно помню.",
+              "example": "Me acuerdo perfectamente de aquel verano."
+            },
+            {
+              "id": "es-a2-pequeno-08-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "aquel verano",
+              "translation": "то лето",
+              "example": "Me acuerdo de aquel verano."
+            },
+            {
+              "id": "es-a2-pequeno-08-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "un calor horrible",
+              "translation": "жуткая жара",
+              "example": "Hacía un calor horrible."
+            },
+            {
+              "id": "es-a2-pequeno-08-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "el ventilador",
+              "translation": "вентилятор",
+              "example": "Y no había ni ventilador."
+            },
+            {
+              "id": "es-a2-pequeno-08-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-genero",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "con la ventana abierta",
+              "translation": "с открытым окном",
+              "example": "Dormíamos con la ventana abierta."
+            },
+            {
+              "id": "es-a2-pequeno-08-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "title": "Помнить о чём-то",
+              "explanation": "acordarse требует предлога de: me acuerdo de aquel verano, ¿te acuerdas de mí? Без de оно не работает — это одна из самых частых ошибок."
+            },
+            {
+              "id": "es-a2-pequeno-08-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Me acuerdo ___ aquel verano.",
+              "options": [
+                "de",
+                "a",
+                "en"
+              ],
+              "correctOption": "de"
+            },
+            {
+              "id": "es-a2-pequeno-08-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "___ un calor horrible.",
+              "options": [
+                "Hacía",
+                "Hizo una vez",
+                "Hacer"
+              ],
+              "correctOption": "Hacía"
+            },
+            {
+              "id": "es-a2-pequeno-08-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "«Даже вентилятора не было» — это:",
+              "options": [
+                "No había ni ventilador.",
+                "No hubo ni ventilador ayer.",
+                "No hay ni ventilador."
+              ],
+              "correctOption": "No había ni ventilador."
+            },
+            {
+              "id": "es-a2-pequeno-08-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-genero",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Мы спали с открытым окном.",
+              "canonicalAnswer": "Dormíamos con la ventana abierta.",
+              "tokens": [
+                "con",
+                "la",
+                "ventana",
+                "abierta",
+                "Dormíamos"
+              ]
+            },
+            {
+              "id": "es-a2-pequeno-08-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Я прекрасно помню.",
+              "canonicalAnswer": "Me acuerdo perfectamente."
+            },
+            {
+              "id": "es-a2-pequeno-08-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-articulos",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "Была жуткая жара.",
+              "canonicalAnswer": "Hacía un calor horrible."
+            },
+            {
+              "id": "es-a2-pequeno-08-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-relato"
+              ],
+              "prompt": "То, в деревне?",
+              "canonicalAnswer": "¿El del pueblo?"
             }
           ]
         },
