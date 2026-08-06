@@ -9175,6 +9175,601 @@
           ]
         },
         {
+          "id": "es-a2-mas-que-03",
+          "title": "Tanto como antes",
+          "summary": "Столько же, сколько.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-mas-que-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-comparativos",
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Сравнить количество",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Ya no leo tanto como antes.",
+                  "translation": "Я уже не читаю столько, сколько раньше."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Yo tampoco, y eso que quiero.",
+                  "translation": "Я тоже нет, хотя и хочу."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Trabajo más horas que el año pasado.",
+                  "translation": "Работаю больше часов, чем в прошлом году."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Se nota en todo, no solo en eso.",
+                  "translation": "Это на всём сказывается, не только на этом."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Habrá que cambiar algo.",
+                  "translation": "Придётся что-то менять."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-mas-que-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "No leo tanto como antes.",
+              "translation": "Я читаю не столько, сколько раньше.",
+              "example": "Ya no leo tanto como antes."
+            },
+            {
+              "id": "es-a2-mas-que-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "más horas que",
+              "translation": "больше часов, чем",
+              "example": "Trabajo más horas que el año pasado."
+            },
+            {
+              "id": "es-a2-mas-que-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "y eso que",
+              "translation": "хотя и",
+              "example": "Yo tampoco, y eso que quiero."
+            },
+            {
+              "id": "es-a2-mas-que-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Se nota en todo.",
+              "translation": "Это на всём сказывается.",
+              "example": "Se nota en todo, no solo en eso."
+            },
+            {
+              "id": "es-a2-mas-que-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Habrá que cambiar algo.",
+              "translation": "Придётся что-то менять.",
+              "example": "Habrá que cambiar algo pronto."
+            },
+            {
+              "id": "es-a2-mas-que-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Столько же, сколько",
+              "explanation": "Про количество говорят tanto como: no leo tanto como antes, no trabajo tanto como tú. Если рядом существительное, tanto подстраивается: tantas horas como, tantos libros como."
+            },
+            {
+              "id": "es-a2-mas-que-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Ya no leo ___ como antes.",
+              "options": [
+                "tanto",
+                "tan",
+                "más"
+              ],
+              "correctOption": "tanto"
+            },
+            {
+              "id": "es-a2-mas-que-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Trabajo más horas ___ el año pasado.",
+              "options": [
+                "que",
+                "como",
+                "de"
+              ],
+              "correctOption": "que"
+            },
+            {
+              "id": "es-a2-mas-que-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "«Хотя и» — это:",
+              "options": [
+                "y eso que",
+                "y ese que",
+                "y esto que"
+              ],
+              "correctOption": "y eso que"
+            },
+            {
+              "id": "es-a2-mas-que-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Придётся что-то менять.",
+              "canonicalAnswer": "Habrá que cambiar algo.",
+              "tokens": [
+                "que",
+                "cambiar",
+                "algo",
+                "Habrá"
+              ]
+            },
+            {
+              "id": "es-a2-mas-que-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Я читаю не столько, сколько раньше.",
+              "canonicalAnswer": "No leo tanto como antes."
+            },
+            {
+              "id": "es-a2-mas-que-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Работаю больше часов, чем в прошлом году.",
+              "canonicalAnswer": "Trabajo más horas que el año pasado."
+            },
+            {
+              "id": "es-a2-mas-que-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Это на всём сказывается.",
+              "canonicalAnswer": "Se nota en todo."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-mas-que-04",
+          "title": "Cada vez más",
+          "summary": "Всё больше и всё меньше.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-mas-que-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Тенденция",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Cada vez hay más gente en el barrio.",
+                  "translation": "В районе с каждым разом всё больше народу."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Y cada vez menos sitio para aparcar.",
+                  "translation": "И всё меньше места для парковки."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Antes aparcabas en la puerta.",
+                  "translation": "Раньше парковался прямо у двери."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Ahora doy vueltas media hora.",
+                  "translation": "Теперь кружу полчаса."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Por eso yo voy en bici.",
+                  "translation": "Поэтому я езжу на велосипеде."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-mas-que-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "cada vez más",
+              "translation": "всё больше",
+              "example": "Cada vez hay más gente en el barrio."
+            },
+            {
+              "id": "es-a2-mas-que-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "cada vez menos",
+              "translation": "всё меньше",
+              "example": "Y cada vez menos sitio para aparcar."
+            },
+            {
+              "id": "es-a2-mas-que-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "aparcar",
+              "translation": "парковаться",
+              "example": "No hay sitio para aparcar."
+            },
+            {
+              "id": "es-a2-mas-que-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Doy vueltas.",
+              "translation": "Я кружу.",
+              "example": "Ahora doy vueltas media hora."
+            },
+            {
+              "id": "es-a2-mas-que-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "en bici",
+              "translation": "на велосипеде",
+              "example": "Por eso yo voy en bici."
+            },
+            {
+              "id": "es-a2-mas-que-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Всё больше и всё меньше",
+              "explanation": "Изменение во времени — cada vez más и cada vez menos: cada vez más gente, cada vez menos sitio, cada vez mejor, cada vez peor. Ставится перед тем словом, которое растёт или падает."
+            },
+            {
+              "id": "es-a2-mas-que-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "___ hay más gente.",
+              "options": [
+                "Cada vez",
+                "Todas veces",
+                "Una vez"
+              ],
+              "correctOption": "Cada vez"
+            },
+            {
+              "id": "es-a2-mas-que-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Y cada vez ___ sitio para aparcar.",
+              "options": [
+                "menos",
+                "menor",
+                "poco"
+              ],
+              "correctOption": "menos"
+            },
+            {
+              "id": "es-a2-mas-que-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "«Я кружу» — это:",
+              "options": [
+                "Doy vueltas.",
+                "Hago vueltas.",
+                "Tengo vueltas."
+              ],
+              "correctOption": "Doy vueltas."
+            },
+            {
+              "id": "es-a2-mas-que-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Поэтому я езжу на велосипеде.",
+              "canonicalAnswer": "Por eso yo voy en bici.",
+              "tokens": [
+                "eso",
+                "yo",
+                "voy",
+                "en",
+                "bici",
+                "Por"
+              ]
+            },
+            {
+              "id": "es-a2-mas-que-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Всё больше народу.",
+              "canonicalAnswer": "Cada vez hay más gente."
+            },
+            {
+              "id": "es-a2-mas-que-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "И всё меньше места.",
+              "canonicalAnswer": "Y cada vez menos sitio."
+            },
+            {
+              "id": "es-a2-mas-que-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Теперь кружу полчаса.",
+              "canonicalAnswer": "Ahora doy vueltas media hora."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-mas-que-05",
+          "title": "Prefiero este a aquel",
+          "summary": "Выбор и предпочтение.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-mas-que-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-participios",
+                "es-a2-tema-vivienda"
+              ],
+              "title": "В магазине",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Cuál prefieres, este o aquel?",
+                  "translation": "Какой предпочитаешь, этот или тот?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Prefiero este, es más cómodo.",
+                  "translation": "Предпочитаю этот, он удобнее."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Pero aquel es bastante más barato.",
+                  "translation": "Но тот заметно дешевле."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Ya, aunque dura menos.",
+                  "translation": "Да, только служит меньше."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Visto así, llévate este.",
+                  "translation": "Если так, бери этот."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-mas-que-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "¿Cuál prefieres?",
+              "translation": "Какой предпочитаешь?",
+              "example": "¿Cuál prefieres, este o aquel?"
+            },
+            {
+              "id": "es-a2-mas-que-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Prefiero este.",
+              "translation": "Предпочитаю этот.",
+              "example": "Prefiero este, es más cómodo."
+            },
+            {
+              "id": "es-a2-mas-que-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "bastante más barato",
+              "translation": "заметно дешевле",
+              "example": "Aquel es bastante más barato."
+            },
+            {
+              "id": "es-a2-mas-que-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Dura menos.",
+              "translation": "Служит меньше.",
+              "example": "Ya, aunque dura menos."
+            },
+            {
+              "id": "es-a2-mas-que-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-participios",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Visto así",
+              "translation": "Если так посмотреть",
+              "example": "Visto así, llévate este."
+            },
+            {
+              "id": "es-a2-mas-que-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Этот, тот и вон тот",
+              "explanation": "Три степени дальности: este (этот, у меня), ese (тот, у тебя), aquel (вон тот, далеко). Сравнивают их обычной парой: este es más cómodo que aquel."
+            },
+            {
+              "id": "es-a2-mas-que-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "¿Cuál ___, este o aquel?",
+              "options": [
+                "prefieres",
+                "prefieras",
+                "preferir"
+              ],
+              "correctOption": "prefieres"
+            },
+            {
+              "id": "es-a2-mas-que-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Aquel es ___ más barato.",
+              "options": [
+                "bastante",
+                "bastantes",
+                "bien"
+              ],
+              "correctOption": "bastante"
+            },
+            {
+              "id": "es-a2-mas-que-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "«Служит меньше» — это:",
+              "options": [
+                "Dura menos.",
+                "Dure menos.",
+                "Durar menos."
+              ],
+              "correctOption": "Dura menos."
+            },
+            {
+              "id": "es-a2-mas-que-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-participios",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Если так, бери этот.",
+              "canonicalAnswer": "Visto así, llévate este.",
+              "tokens": [
+                "así",
+                "llévate",
+                "este",
+                "Visto"
+              ]
+            },
+            {
+              "id": "es-a2-mas-que-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Какой предпочитаешь?",
+              "canonicalAnswer": "¿Cuál prefieres?"
+            },
+            {
+              "id": "es-a2-mas-que-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Предпочитаю этот, он удобнее.",
+              "canonicalAnswer": "Prefiero este, es más cómodo."
+            },
+            {
+              "id": "es-a2-mas-que-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Но тот заметно дешевле.",
+              "canonicalAnswer": "Pero aquel es bastante más barato."
+            }
+          ]
+        },
+        {
           "id": "es-a2-mas-que-check",
           "title": "Проверка: больше, чем",
           "summary": "Весь блок целиком, без подсказок.",
@@ -9666,6 +10261,610 @@
           ]
         },
         {
+          "id": "es-a2-el-mejor-03",
+          "title": "Lo más importante",
+          "summary": "Самое главное вообще.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-el-mejor-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ser-estar",
+                "es-a2-comparativos",
+                "es-a2-tema-ocio"
+              ],
+              "title": "Что важнее",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Para mí lo más importante es dormir.",
+                  "translation": "Для меня самое главное — спать."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Pues yo diría que comer bien.",
+                  "translation": "А я бы сказала — хорошо есть."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Las dos cosas van juntas.",
+                  "translation": "Одно с другим связано."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Lo peor es dejarlo todo para luego.",
+                  "translation": "Хуже всего — всё откладывать."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "En eso estamos de acuerdo.",
+                  "translation": "Вот тут согласен."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-el-mejor-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-por-para",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "lo más importante",
+              "translation": "самое главное",
+              "example": "Para mí lo más importante es dormir."
+            },
+            {
+              "id": "es-a2-el-mejor-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Yo diría que…",
+              "translation": "Я бы сказал, что…",
+              "example": "Pues yo diría que comer bien."
+            },
+            {
+              "id": "es-a2-el-mejor-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Van juntas.",
+              "translation": "Они идут вместе.",
+              "example": "Las dos cosas van juntas."
+            },
+            {
+              "id": "es-a2-el-mejor-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-comparativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "dejarlo todo para luego",
+              "translation": "всё откладывать",
+              "example": "Lo peor es dejarlo todo para luego."
+            },
+            {
+              "id": "es-a2-el-mejor-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Estamos de acuerdo.",
+              "translation": "Мы согласны.",
+              "example": "En eso estamos de acuerdo."
+            },
+            {
+              "id": "es-a2-el-mejor-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-ocio"
+              ],
+              "title": "Самое главное без предмета",
+              "explanation": "Когда «самое» относится не к предмету, а вообще, ставят lo: lo más importante, lo mejor, lo peor, lo más difícil. После него обычно идёт es: lo más importante es dormir."
+            },
+            {
+              "id": "es-a2-el-mejor-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-por-para",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Para mí ___ más importante es dormir.",
+              "options": [
+                "lo",
+                "el",
+                "la"
+              ],
+              "correctOption": "lo"
+            },
+            {
+              "id": "es-a2-el-mejor-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Yo ___ que comer bien.",
+              "options": [
+                "diría",
+                "digo que sí",
+                "decir"
+              ],
+              "correctOption": "diría"
+            },
+            {
+              "id": "es-a2-el-mejor-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "«Мы согласны» — это:",
+              "options": [
+                "Estamos de acuerdo.",
+                "Somos de acuerdo.",
+                "Tenemos acuerdo."
+              ],
+              "correctOption": "Estamos de acuerdo."
+            },
+            {
+              "id": "es-a2-el-mejor-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Они идут вместе.",
+              "canonicalAnswer": "Van juntas.",
+              "tokens": [
+                "juntas",
+                "Van"
+              ]
+            },
+            {
+              "id": "es-a2-el-mejor-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Самое главное — спать.",
+              "canonicalAnswer": "Lo más importante es dormir."
+            },
+            {
+              "id": "es-a2-el-mejor-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-comparativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Хуже всего — всё откладывать.",
+              "canonicalAnswer": "Lo peor es dejarlo todo para luego."
+            },
+            {
+              "id": "es-a2-el-mejor-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Вот тут согласен.",
+              "canonicalAnswer": "En eso estamos de acuerdo."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-el-mejor-04",
+          "title": "El que más me gusta",
+          "summary": "Тот, который нравится больше.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-el-mejor-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-gustar",
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "title": "Выбор кафе",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Cuál es el que más te gusta?",
+                  "translation": "Какое тебе нравится больше всех?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "El que está al lado del parque.",
+                  "translation": "То, что рядом с парком."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¿El pequeño con terraza?",
+                  "translation": "Маленькое с террасой?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Ese mismo, es el más tranquilo.",
+                  "translation": "Оно самое, самое спокойное."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Pues quedamos allí mañana.",
+                  "translation": "Тогда встречаемся там завтра."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-el-mejor-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar",
+                "es-a2-comparativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "el que más me gusta",
+              "translation": "тот, который мне нравится больше",
+              "example": "¿Cuál es el que más te gusta?"
+            },
+            {
+              "id": "es-a2-el-mejor-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "el que está al lado",
+              "translation": "тот, что рядом",
+              "example": "El que está al lado del parque."
+            },
+            {
+              "id": "es-a2-el-mejor-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Ese mismo.",
+              "translation": "Оно самое.",
+              "example": "Ese mismo, es el más tranquilo."
+            },
+            {
+              "id": "es-a2-el-mejor-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "con terraza",
+              "translation": "с террасой",
+              "example": "¿El pequeño con terraza?"
+            },
+            {
+              "id": "es-a2-el-mejor-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "el parque",
+              "translation": "парк",
+              "example": "El que está al lado del parque."
+            },
+            {
+              "id": "es-a2-el-mejor-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-ocio"
+              ],
+              "title": "Тот, который",
+              "explanation": "Оборот el que значит «тот, который»: el que más me gusta, la que está al lado, los que abren los domingos. Род и число берутся у предмета, о котором речь."
+            },
+            {
+              "id": "es-a2-el-mejor-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-gustar",
+                "es-a2-comparativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "¿Cuál es ___ que más te gusta?",
+              "options": [
+                "el",
+                "lo",
+                "la"
+              ],
+              "correctOption": "el"
+            },
+            {
+              "id": "es-a2-el-mejor-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "___ está al lado del parque.",
+              "options": [
+                "El que",
+                "Lo que",
+                "Que"
+              ],
+              "correctOption": "El que"
+            },
+            {
+              "id": "es-a2-el-mejor-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "«Оно самое» — это:",
+              "options": [
+                "Ese mismo.",
+                "Eso mismo lugar.",
+                "Este mismo ayer."
+              ],
+              "correctOption": "Ese mismo."
+            },
+            {
+              "id": "es-a2-el-mejor-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Самое спокойное.",
+              "canonicalAnswer": "Es el más tranquilo.",
+              "tokens": [
+                "el",
+                "más",
+                "tranquilo",
+                "Es"
+              ]
+            },
+            {
+              "id": "es-a2-el-mejor-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-gustar",
+                "es-a2-comparativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Какое тебе нравится больше всех?",
+              "canonicalAnswer": "¿Cuál es el que más te gusta?"
+            },
+            {
+              "id": "es-a2-el-mejor-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "То, что рядом с парком.",
+              "canonicalAnswer": "El que está al lado del parque."
+            },
+            {
+              "id": "es-a2-el-mejor-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Тогда встречаемся там завтра.",
+              "canonicalAnswer": "Pues quedamos allí mañana."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-el-mejor-05",
+          "title": "Malísimo",
+          "summary": "Усиление в минус.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-el-mejor-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "title": "Неудачный ужин",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "El servicio fue malísimo.",
+                  "translation": "Обслуживание было ужасным."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Tanto? ¿Y la comida?",
+                  "translation": "Настолько? А еда?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "La comida bien, pero lentísimos.",
+                  "translation": "Еда нормально, но жутко медленные."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Vaya, con lo caro que es.",
+                  "translation": "Ну вот, при таких-то ценах."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "No volvemos, y punto.",
+                  "translation": "Больше не пойдём, и точка."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-el-mejor-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "malísimo",
+              "translation": "ужасный",
+              "example": "El servicio fue malísimo."
+            },
+            {
+              "id": "es-a2-el-mejor-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "lentísimos",
+              "translation": "жутко медленные",
+              "example": "La comida bien, pero lentísimos."
+            },
+            {
+              "id": "es-a2-el-mejor-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "con lo caro que es",
+              "translation": "при таких-то ценах",
+              "example": "Vaya, con lo caro que es."
+            },
+            {
+              "id": "es-a2-el-mejor-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "el servicio",
+              "translation": "обслуживание",
+              "example": "El servicio fue malísimo."
+            },
+            {
+              "id": "es-a2-el-mejor-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "y punto",
+              "translation": "и точка",
+              "example": "No volvemos, y punto."
+            },
+            {
+              "id": "es-a2-el-mejor-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-ocio"
+              ],
+              "title": "Усиление работает в обе стороны",
+              "explanation": "Суффикс -ísimo усиливает не только хорошее: malísimo, carísimo, lentísimo, aburridísimo. Если слово кончается на -co или -go, перед суффиксом меняется буква: rico → riquísimo, largo → larguísimo."
+            },
+            {
+              "id": "es-a2-el-mejor-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "El servicio fue ___.",
+              "options": [
+                "malísimo",
+                "muy malísimo",
+                "más malo"
+              ],
+              "correctOption": "malísimo"
+            },
+            {
+              "id": "es-a2-el-mejor-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "La comida bien, pero ___.",
+              "options": [
+                "lentísimos",
+                "lentos más",
+                "muy lentísimos"
+              ],
+              "correctOption": "lentísimos"
+            },
+            {
+              "id": "es-a2-el-mejor-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "«И точка» — это:",
+              "options": [
+                "y punto",
+                "y punta",
+                "y final"
+              ],
+              "correctOption": "y punto"
+            },
+            {
+              "id": "es-a2-el-mejor-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Больше не пойдём.",
+              "canonicalAnswer": "No volvemos.",
+              "tokens": [
+                "volvemos",
+                "No"
+              ]
+            },
+            {
+              "id": "es-a2-el-mejor-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-indefinido-irregular",
+                "es-a2-superlativos",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Обслуживание было ужасным.",
+              "canonicalAnswer": "El servicio fue malísimo."
+            },
+            {
+              "id": "es-a2-el-mejor-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "При таких-то ценах.",
+              "canonicalAnswer": "Con lo caro que es."
+            },
+            {
+              "id": "es-a2-el-mejor-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-ocio"
+              ],
+              "prompt": "Больше не пойдём, и точка.",
+              "canonicalAnswer": "No volvemos, y punto."
+            }
+          ]
+        },
+        {
           "id": "es-a2-el-mejor-check",
           "title": "Проверка: самый лучший",
           "summary": "Весь блок целиком, без подсказок.",
@@ -10148,6 +11347,598 @@
               ],
               "prompt": "Перейди мост.",
               "canonicalAnswer": "Cruza el puente."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-ven-03",
+          "title": "Dame un segundo",
+          "summary": "Короткие просьбы с прилипшим словом.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-ven-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "title": "На бегу",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Dame un segundo, que acabo.",
+                  "translation": "Дай секунду, я заканчиваю."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Tranquila, no corras.",
+                  "translation": "Спокойно, не беги."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Pásame el abrigo, por favor.",
+                  "translation": "Подай мне пальто, пожалуйста."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Toma. ¿Llevas las llaves?",
+                  "translation": "Держи. Ключи взяла?"
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Sí, vámonos ya.",
+                  "translation": "Да, пошли уже."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-ven-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Dame un segundo.",
+              "translation": "Дай секунду.",
+              "example": "Dame un segundo, que acabo."
+            },
+            {
+              "id": "es-a2-ven-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "No corras.",
+              "translation": "Не беги.",
+              "example": "Tranquila, no corras."
+            },
+            {
+              "id": "es-a2-ven-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Pásame el abrigo.",
+              "translation": "Подай мне пальто.",
+              "example": "Pásame el abrigo, por favor."
+            },
+            {
+              "id": "es-a2-ven-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "¿Llevas las llaves?",
+              "translation": "Ключи взяла?",
+              "example": "Toma. ¿Llevas las llaves?"
+            },
+            {
+              "id": "es-a2-ven-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Vámonos ya.",
+              "translation": "Пошли уже.",
+              "example": "Sí, vámonos ya."
+            },
+            {
+              "id": "es-a2-ven-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "title": "Слово прилипает к просьбе",
+              "explanation": "В просьбе короткое слово приклеивается сзади: dame, pásame, dímelo, llévatelo. В запрете — наоборот, отходит вперёд: no me lo digas, no te lo lleves."
+            },
+            {
+              "id": "es-a2-ven-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "___ un segundo, que acabo.",
+              "options": [
+                "Dame",
+                "Me da",
+                "Dar me"
+              ],
+              "correctOption": "Dame"
+            },
+            {
+              "id": "es-a2-ven-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Tranquila, no ___.",
+              "options": [
+                "corras",
+                "corres",
+                "correr"
+              ],
+              "correctOption": "corras"
+            },
+            {
+              "id": "es-a2-ven-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "«Пошли уже» — это:",
+              "options": [
+                "Vámonos ya.",
+                "Nos vamos ya el lunes.",
+                "Irnos ya."
+              ],
+              "correctOption": "Vámonos ya."
+            },
+            {
+              "id": "es-a2-ven-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Подай мне пальто.",
+              "canonicalAnswer": "Pásame el abrigo.",
+              "tokens": [
+                "el",
+                "abrigo",
+                "Pásame"
+              ]
+            },
+            {
+              "id": "es-a2-ven-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Дай секунду.",
+              "canonicalAnswer": "Dame un segundo."
+            },
+            {
+              "id": "es-a2-ven-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Не беги.",
+              "canonicalAnswer": "No corras."
+            },
+            {
+              "id": "es-a2-ven-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Ключи взяла?",
+              "canonicalAnswer": "¿Llevas las llaves?"
+            }
+          ]
+        },
+        {
+          "id": "es-a2-ven-04",
+          "title": "Oye, mira",
+          "summary": "Привлечь внимание.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-ven-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "title": "Слушай",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Oye, mira lo que he encontrado.",
+                  "translation": "Слушай, смотри, что я нашёл."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¡Anda! ¿Dónde estaba?",
+                  "translation": "Ого! Где оно было?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Debajo del sofá, como siempre.",
+                  "translation": "Под диваном, как всегда."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Pues guárdalo bien esta vez.",
+                  "translation": "Тогда убери его как следует в этот раз."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Prometido.",
+                  "translation": "Обещаю."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-ven-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Oye, mira.",
+              "translation": "Слушай, смотри.",
+              "example": "Oye, mira lo que he encontrado."
+            },
+            {
+              "id": "es-a2-ven-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "¡Anda!",
+              "translation": "Ого!",
+              "example": "¡Anda! ¿Dónde estaba?"
+            },
+            {
+              "id": "es-a2-ven-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "debajo del sofá",
+              "translation": "под диваном",
+              "example": "Debajo del sofá, como siempre."
+            },
+            {
+              "id": "es-a2-ven-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Guárdalo bien.",
+              "translation": "Убери его как следует.",
+              "example": "Pues guárdalo bien esta vez."
+            },
+            {
+              "id": "es-a2-ven-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Prometido.",
+              "translation": "Обещаю.",
+              "example": "Prometido, no se pierde más."
+            },
+            {
+              "id": "es-a2-ven-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "title": "Слова, которые открывают речь",
+              "explanation": "Разговор часто начинают короткой командой: oye (слушай), mira (смотри), venga (давай), anda (ого, надо же). Они почти потеряли прямое значение и работают как «слушай-ка»."
+            },
+            {
+              "id": "es-a2-ven-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "___, mira lo que he encontrado.",
+              "options": [
+                "Oye",
+                "Oyes",
+                "Oír"
+              ],
+              "correctOption": "Oye"
+            },
+            {
+              "id": "es-a2-ven-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Pues ___ bien esta vez.",
+              "options": [
+                "guárdalo",
+                "lo guarda",
+                "guardar lo"
+              ],
+              "correctOption": "guárdalo"
+            },
+            {
+              "id": "es-a2-ven-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "«Под диваном» — это:",
+              "options": [
+                "debajo del sofá",
+                "debajo el sofá",
+                "bajo de sofá"
+              ],
+              "correctOption": "debajo del sofá"
+            },
+            {
+              "id": "es-a2-ven-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Убери его как следует.",
+              "canonicalAnswer": "Guárdalo bien.",
+              "tokens": [
+                "bien",
+                "Guárdalo"
+              ]
+            },
+            {
+              "id": "es-a2-ven-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Слушай, смотри.",
+              "canonicalAnswer": "Oye, mira."
+            },
+            {
+              "id": "es-a2-ven-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Где оно было?",
+              "canonicalAnswer": "¿Dónde estaba?"
+            },
+            {
+              "id": "es-a2-ven-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Под диваном, как всегда.",
+              "canonicalAnswer": "Debajo del sofá, como siempre."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-ven-05",
+          "title": "Vamos a hacerlo así",
+          "summary": "Предложить всем вместе.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-ven-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-participios",
+                "es-a2-tema-cocina"
+              ],
+              "title": "Как делим",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Vamos a hacerlo así: tú compras y yo cocino.",
+                  "translation": "Давай так: ты покупаешь, я готовлю."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Me parece justo.",
+                  "translation": "По-моему, справедливо."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Y limpiamos entre los dos.",
+                  "translation": "А убираем вдвоём."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Vale, pero pon tú la música.",
+                  "translation": "Ладно, только музыку ставь ты."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Trato hecho.",
+                  "translation": "Договорились."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-ven-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Vamos a hacerlo así.",
+              "translation": "Давай сделаем так.",
+              "example": "Vamos a hacerlo así, es más fácil."
+            },
+            {
+              "id": "es-a2-ven-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Me parece justo.",
+              "translation": "По-моему, справедливо.",
+              "example": "Me parece justo, sí."
+            },
+            {
+              "id": "es-a2-ven-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "entre los dos",
+              "translation": "вдвоём",
+              "example": "Y limpiamos entre los dos."
+            },
+            {
+              "id": "es-a2-ven-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Pon tú la música.",
+              "translation": "Музыку ставь ты.",
+              "example": "Vale, pero pon tú la música."
+            },
+            {
+              "id": "es-a2-ven-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-participios",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Trato hecho.",
+              "translation": "Договорились.",
+              "example": "Trato hecho, entonces."
+            },
+            {
+              "id": "es-a2-ven-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "title": "Давай вместе",
+              "explanation": "Предложение «давай» — это vamos a + глагол: vamos a hacerlo, vamos a empezar, vamos a verlo. Согласие короткое: me parece bien, me parece justo, trato hecho."
+            },
+            {
+              "id": "es-a2-ven-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "___ a hacerlo así.",
+              "options": [
+                "Vamos",
+                "Vayamos ayer",
+                "Ir"
+              ],
+              "correctOption": "Vamos"
+            },
+            {
+              "id": "es-a2-ven-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Y limpiamos ___ los dos.",
+              "options": [
+                "entre",
+                "con",
+                "por"
+              ],
+              "correctOption": "entre"
+            },
+            {
+              "id": "es-a2-ven-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-participios",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "«Договорились» — это:",
+              "options": [
+                "Trato hecho.",
+                "Trato hacer.",
+                "Hecho trato."
+              ],
+              "correctOption": "Trato hecho."
+            },
+            {
+              "id": "es-a2-ven-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "По-моему, справедливо.",
+              "canonicalAnswer": "Me parece justo.",
+              "tokens": [
+                "parece",
+                "justo",
+                "Me"
+              ]
+            },
+            {
+              "id": "es-a2-ven-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Давай сделаем так.",
+              "canonicalAnswer": "Vamos a hacerlo así."
+            },
+            {
+              "id": "es-a2-ven-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "А убираем вдвоём.",
+              "canonicalAnswer": "Y limpiamos entre los dos."
+            },
+            {
+              "id": "es-a2-ven-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Музыку ставь ты.",
+              "canonicalAnswer": "Pon tú la música."
             }
           ]
         },
