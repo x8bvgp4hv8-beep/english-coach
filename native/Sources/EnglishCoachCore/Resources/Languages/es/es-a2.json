@@ -15693,6 +15693,619 @@
           ]
         },
         {
+          "id": "es-a2-piso-03",
+          "title": "La visita",
+          "summary": "На просмотре квартиры.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-piso-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Просмотр",
+              "lines": [
+                {
+                  "speaker": "Dueño",
+                  "text": "Pase, pase. Este es el salón.",
+                  "translation": "Проходите, проходите. Это гостиная."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Es más grande de lo que parecía.",
+                  "translation": "Она больше, чем казалось."
+                },
+                {
+                  "speaker": "Dueño",
+                  "text": "Y da al patio, así que no hay ruido.",
+                  "translation": "И выходит во двор, так что шума нет."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿La calefacción está incluida?",
+                  "translation": "Отопление входит?"
+                },
+                {
+                  "speaker": "Dueño",
+                  "text": "No, esa va con la comunidad.",
+                  "translation": "Нет, она идёт с коммунальными."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-piso-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Este es el salón.",
+              "translation": "Это гостиная.",
+              "example": "Pase, pase. Este es el salón."
+            },
+            {
+              "id": "es-a2-piso-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "más grande de lo que parecía",
+              "translation": "больше, чем казалось",
+              "example": "Es más grande de lo que parecía."
+            },
+            {
+              "id": "es-a2-piso-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Da al patio.",
+              "translation": "Выходит во двор.",
+              "example": "Da al patio, así que no hay ruido."
+            },
+            {
+              "id": "es-a2-piso-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "la calefacción",
+              "translation": "отопление",
+              "example": "¿La calefacción está incluida?"
+            },
+            {
+              "id": "es-a2-piso-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "la comunidad",
+              "translation": "коммунальные платежи",
+              "example": "Esa va con la comunidad."
+            },
+            {
+              "id": "es-a2-piso-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Куда выходят окна",
+              "explanation": "Про окна говорят dar a: da al patio, da a la calle, da al norte. А сравнение с ожиданием — más … de lo que: más grande de lo que parecía, más caro de lo que pensaba."
+            },
+            {
+              "id": "es-a2-piso-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "El salón ___ al patio.",
+              "options": [
+                "da",
+                "va",
+                "sale"
+              ],
+              "correctOption": "da"
+            },
+            {
+              "id": "es-a2-piso-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Es más grande ___ lo que parecía.",
+              "options": [
+                "de",
+                "que",
+                "como"
+              ],
+              "correctOption": "de"
+            },
+            {
+              "id": "es-a2-piso-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "«Отопление» — это:",
+              "options": [
+                "la calefacción",
+                "el calor",
+                "la caliente"
+              ],
+              "correctOption": "la calefacción"
+            },
+            {
+              "id": "es-a2-piso-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Так что шума нет.",
+              "canonicalAnswer": "Así que no hay ruido.",
+              "tokens": [
+                "que",
+                "no",
+                "hay",
+                "ruido",
+                "Así"
+              ]
+            },
+            {
+              "id": "es-a2-piso-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Это гостиная.",
+              "canonicalAnswer": "Este es el salón."
+            },
+            {
+              "id": "es-a2-piso-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Она больше, чем казалось.",
+              "canonicalAnswer": "Es más grande de lo que parecía."
+            },
+            {
+              "id": "es-a2-piso-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Отопление входит?",
+              "canonicalAnswer": "¿La calefacción está incluida?"
+            }
+          ]
+        },
+        {
+          "id": "es-a2-piso-04",
+          "title": "La fianza",
+          "summary": "Залог и договор.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-piso-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Условия",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Cuánto es la fianza?",
+                  "translation": "Сколько залог?"
+                },
+                {
+                  "speaker": "Dueño",
+                  "text": "Un mes, y se devuelve al final.",
+                  "translation": "Месяц, и возвращается в конце."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿El contrato es de un año?",
+                  "translation": "Договор на год?"
+                },
+                {
+                  "speaker": "Dueño",
+                  "text": "Sí, y luego se puede renovar.",
+                  "translation": "Да, потом можно продлить."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Me lo pienso y le digo mañana.",
+                  "translation": "Подумаю и скажу вам завтра."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-piso-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "la fianza",
+              "translation": "залог",
+              "example": "¿Cuánto es la fianza?"
+            },
+            {
+              "id": "es-a2-piso-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Se devuelve al final.",
+              "translation": "Возвращается в конце.",
+              "example": "Un mes, y se devuelve al final."
+            },
+            {
+              "id": "es-a2-piso-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "el contrato",
+              "translation": "договор",
+              "example": "¿El contrato es de un año?"
+            },
+            {
+              "id": "es-a2-piso-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Se puede renovar.",
+              "translation": "Можно продлить.",
+              "example": "Sí, y luego se puede renovar."
+            },
+            {
+              "id": "es-a2-piso-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Me lo pienso.",
+              "translation": "Я подумаю.",
+              "example": "Me lo pienso y le digo mañana."
+            },
+            {
+              "id": "es-a2-piso-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Когда исполнителя нет",
+              "explanation": "В договорах и правилах испанский обходится без действующего лица: se devuelve, se puede renovar, se paga a principios de mes. Это то же se, что в «se habla español»."
+            },
+            {
+              "id": "es-a2-piso-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "La fianza ___ devuelve al final.",
+              "options": [
+                "se",
+                "lo",
+                "le"
+              ],
+              "correctOption": "se"
+            },
+            {
+              "id": "es-a2-piso-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Luego ___ puede renovar.",
+              "options": [
+                "se",
+                "lo",
+                "te"
+              ],
+              "correctOption": "se"
+            },
+            {
+              "id": "es-a2-piso-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "«Я подумаю» — это:",
+              "options": [
+                "Me lo pienso.",
+                "Lo me pienso.",
+                "Me pienso lo."
+              ],
+              "correctOption": "Me lo pienso."
+            },
+            {
+              "id": "es-a2-piso-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Договор на год?",
+              "canonicalAnswer": "¿El contrato es de un año?",
+              "tokens": [
+                "contrato",
+                "es",
+                "de",
+                "un",
+                "año",
+                "El"
+              ]
+            },
+            {
+              "id": "es-a2-piso-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Сколько залог?",
+              "canonicalAnswer": "¿Cuánto es la fianza?"
+            },
+            {
+              "id": "es-a2-piso-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Возвращается в конце.",
+              "canonicalAnswer": "Se devuelve al final."
+            },
+            {
+              "id": "es-a2-piso-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Подумаю и скажу вам завтра.",
+              "canonicalAnswer": "Me lo pienso y le digo mañana."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-piso-05",
+          "title": "La mudanza",
+          "summary": "Переезд.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-piso-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Переезд",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Cuándo es la mudanza?",
+                  "translation": "Когда переезд?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El sábado, si me ayudas.",
+                  "translation": "В субботу, если поможешь."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Cuenta conmigo. ¿Tienes cajas?",
+                  "translation": "Рассчитывай на меня. Коробки есть?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Unas cuantas, pero faltan.",
+                  "translation": "Несколько, но не хватает."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Te llevo las mías el viernes.",
+                  "translation": "Привезу тебе свои в пятницу."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-piso-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "la mudanza",
+              "translation": "переезд",
+              "example": "¿Cuándo es la mudanza?"
+            },
+            {
+              "id": "es-a2-piso-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Cuenta conmigo.",
+              "translation": "Рассчитывай на меня.",
+              "example": "Cuenta conmigo, el sábado estoy."
+            },
+            {
+              "id": "es-a2-piso-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "unas cuantas",
+              "translation": "несколько",
+              "example": "Unas cuantas, pero faltan."
+            },
+            {
+              "id": "es-a2-piso-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-por-para",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "las cajas",
+              "translation": "коробки",
+              "example": "¿Tienes cajas para la mudanza?"
+            },
+            {
+              "id": "es-a2-piso-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Te llevo las mías.",
+              "translation": "Привезу тебе свои.",
+              "example": "Te llevo las mías el viernes."
+            },
+            {
+              "id": "es-a2-piso-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Мой, твой — без существительного",
+              "explanation": "Когда предмет уже назван, вместо него ставят las mías, el mío, los tuyos: ¿Tienes cajas? — Te llevo las mías. Форма берётся у предмета, а не у хозяина."
+            },
+            {
+              "id": "es-a2-piso-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Te llevo ___ el viernes.",
+              "options": [
+                "las mías",
+                "las mí",
+                "mis"
+              ],
+              "correctOption": "las mías"
+            },
+            {
+              "id": "es-a2-piso-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "___ conmigo el sábado.",
+              "options": [
+                "Cuenta",
+                "Cuentas",
+                "Contar"
+              ],
+              "correctOption": "Cuenta"
+            },
+            {
+              "id": "es-a2-piso-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "«Несколько» — это:",
+              "options": [
+                "unas cuantas",
+                "unos cuanto",
+                "una cuenta"
+              ],
+              "correctOption": "unas cuantas"
+            },
+            {
+              "id": "es-a2-piso-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Когда переезд?",
+              "canonicalAnswer": "¿Cuándo es la mudanza?",
+              "tokens": [
+                "es",
+                "la",
+                "mudanza",
+                "Cuándo"
+              ]
+            },
+            {
+              "id": "es-a2-piso-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "В субботу, если поможешь.",
+              "canonicalAnswer": "El sábado, si me ayudas."
+            },
+            {
+              "id": "es-a2-piso-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Рассчитывай на меня.",
+              "canonicalAnswer": "Cuenta conmigo."
+            },
+            {
+              "id": "es-a2-piso-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Привезу тебе свои в пятницу.",
+              "canonicalAnswer": "Te llevo las mías el viernes."
+            }
+          ]
+        },
+        {
           "id": "es-a2-piso-check",
           "title": "Проверка: искать жильё",
           "summary": "Весь блок целиком, без подсказок.",
@@ -16176,6 +16789,617 @@
           ]
         },
         {
+          "id": "es-a2-curro-03",
+          "title": "¿Me das más tiempo?",
+          "summary": "Попросить отсрочку.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-curro-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-directo",
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Срок",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "¿Me das dos días más?",
+                  "translation": "Дашь мне ещё два дня?"
+                },
+                {
+                  "speaker": "Jefe",
+                  "text": "¿Qué te falta exactamente?",
+                  "translation": "Что именно осталось?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "La parte de los datos.",
+                  "translation": "Часть с данными."
+                },
+                {
+                  "speaker": "Jefe",
+                  "text": "Vale, pero el jueves lo quiero.",
+                  "translation": "Ладно, но в четверг он мне нужен."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El jueves lo tienes, seguro.",
+                  "translation": "В четверг он у тебя будет, точно."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-curro-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Me das dos días más?",
+              "translation": "Дашь мне ещё два дня?",
+              "example": "¿Me das dos días más para terminar?"
+            },
+            {
+              "id": "es-a2-curro-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Qué te falta?",
+              "translation": "Что тебе осталось?",
+              "example": "¿Qué te falta exactamente?"
+            },
+            {
+              "id": "es-a2-curro-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "la parte de los datos",
+              "translation": "часть с данными",
+              "example": "Me falta la parte de los datos."
+            },
+            {
+              "id": "es-a2-curro-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "El jueves lo quiero.",
+              "translation": "В четверг он мне нужен.",
+              "example": "Vale, pero el jueves lo quiero."
+            },
+            {
+              "id": "es-a2-curro-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "los datos",
+              "translation": "данные",
+              "example": "La parte de los datos."
+            },
+            {
+              "id": "es-a2-curro-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Попросить отсрочку",
+              "explanation": "Просьба про срок — короткий вопрос: ¿me das dos días más? ¿puedo entregarlo el jueves? И честный ответ, чего не хватает: me falta la parte de los datos, me faltan dos páginas."
+            },
+            {
+              "id": "es-a2-curro-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿___ das dos días más?",
+              "options": [
+                "Me",
+                "Te",
+                "Se"
+              ],
+              "correctOption": "Me"
+            },
+            {
+              "id": "es-a2-curro-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Qué te ___ exactamente?",
+              "options": [
+                "falta",
+                "faltas",
+                "faltar"
+              ],
+              "correctOption": "falta"
+            },
+            {
+              "id": "es-a2-curro-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-directo",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "«В четверг он у тебя будет» — это:",
+              "options": [
+                "El jueves lo tienes.",
+                "El jueves te tiene.",
+                "El jueves lo tenías."
+              ],
+              "correctOption": "El jueves lo tienes."
+            },
+            {
+              "id": "es-a2-curro-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Часть с данными.",
+              "canonicalAnswer": "La parte de los datos.",
+              "tokens": [
+                "parte",
+                "de",
+                "los",
+                "datos",
+                "La"
+              ]
+            },
+            {
+              "id": "es-a2-curro-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Дашь мне ещё два дня?",
+              "canonicalAnswer": "¿Me das dos días más?"
+            },
+            {
+              "id": "es-a2-curro-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Что именно осталось?",
+              "canonicalAnswer": "¿Qué te falta exactamente?"
+            },
+            {
+              "id": "es-a2-curro-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-directo",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "В четверг он у тебя будет.",
+              "canonicalAnswer": "El jueves lo tienes."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-curro-04",
+          "title": "Estoy hasta arriba",
+          "summary": "Завал и помощь.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-curro-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-participios",
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Завал",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Estoy hasta arriba esta semana.",
+                  "translation": "На этой неделе я по горло в делах."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¿Te echo una mano con algo?",
+                  "translation": "Помочь тебе с чем-нибудь?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Si puedes, mira los correos.",
+                  "translation": "Если можешь, посмотри почту."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Hecho. ¿Algo más?",
+                  "translation": "Сделано. Ещё что-нибудь?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Con eso ya me salvas.",
+                  "translation": "Этим ты меня уже спасаешь."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-curro-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Estoy hasta arriba.",
+              "translation": "Я по горло в делах.",
+              "example": "Estoy hasta arriba esta semana."
+            },
+            {
+              "id": "es-a2-curro-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Te echo una mano?",
+              "translation": "Помочь тебе?",
+              "example": "¿Te echo una mano con algo?"
+            },
+            {
+              "id": "es-a2-curro-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a1-plural",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Mira los correos.",
+              "translation": "Посмотри почту.",
+              "example": "Si puedes, mira los correos."
+            },
+            {
+              "id": "es-a2-curro-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Me salvas.",
+              "translation": "Ты меня спасаешь.",
+              "example": "Con eso ya me salvas."
+            },
+            {
+              "id": "es-a2-curro-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-participios",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Hecho.",
+              "translation": "Сделано.",
+              "example": "Hecho. ¿Algo más?"
+            },
+            {
+              "id": "es-a2-curro-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Помощь на работе",
+              "explanation": "Предложить руку — echar una mano: ¿te echo una mano? te echo una mano con los correos. А «завален» — estar hasta arriba, самая частая жалоба в испанском офисе."
+            },
+            {
+              "id": "es-a2-curro-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Estoy hasta ___ esta semana.",
+              "options": [
+                "arriba",
+                "abajo",
+                "aquí"
+              ],
+              "correctOption": "arriba"
+            },
+            {
+              "id": "es-a2-curro-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Te ___ una mano?",
+              "options": [
+                "echo",
+                "echa",
+                "echar"
+              ],
+              "correctOption": "echo"
+            },
+            {
+              "id": "es-a2-curro-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "«Ты меня спасаешь» — это:",
+              "options": [
+                "Me salvas.",
+                "Me salvo.",
+                "Te salvas."
+              ],
+              "correctOption": "Me salvas."
+            },
+            {
+              "id": "es-a2-curro-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a1-plural",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Посмотри почту.",
+              "canonicalAnswer": "Mira los correos.",
+              "tokens": [
+                "los",
+                "correos",
+                "Mira"
+              ]
+            },
+            {
+              "id": "es-a2-curro-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Я по горло в делах.",
+              "canonicalAnswer": "Estoy hasta arriba."
+            },
+            {
+              "id": "es-a2-curro-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Помочь тебе с чем-нибудь?",
+              "canonicalAnswer": "¿Te echo una mano con algo?"
+            },
+            {
+              "id": "es-a2-curro-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Этим ты меня уже спасаешь.",
+              "canonicalAnswer": "Con eso ya me salvas."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-curro-05",
+          "title": "La reunión",
+          "summary": "Встреча и повестка.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-curro-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Совещание",
+              "lines": [
+                {
+                  "speaker": "Jefe",
+                  "text": "La reunión es a las once.",
+                  "translation": "Совещание в одиннадцать."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Cuánto va a durar?",
+                  "translation": "Сколько продлится?"
+                },
+                {
+                  "speaker": "Jefe",
+                  "text": "Media hora como mucho.",
+                  "translation": "Максимум полчаса."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Vale, así llego a la otra.",
+                  "translation": "Хорошо, тогда успею на другую."
+                },
+                {
+                  "speaker": "Jefe",
+                  "text": "Trae los números, por favor.",
+                  "translation": "Принеси цифры, пожалуйста."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-curro-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-numeros",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "la reunión",
+              "translation": "совещание",
+              "example": "La reunión es a las once."
+            },
+            {
+              "id": "es-a2-curro-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Cuánto va a durar?",
+              "translation": "Сколько продлится?",
+              "example": "¿Cuánto va a durar la reunión?"
+            },
+            {
+              "id": "es-a2-curro-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "como mucho",
+              "translation": "максимум",
+              "example": "Media hora como mucho."
+            },
+            {
+              "id": "es-a2-curro-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Así llego a la otra.",
+              "translation": "Тогда успею на другую.",
+              "example": "Vale, así llego a la otra."
+            },
+            {
+              "id": "es-a2-curro-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a1-plural",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Trae los números.",
+              "translation": "Принеси цифры.",
+              "example": "Trae los números, por favor."
+            },
+            {
+              "id": "es-a2-curro-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "title": "Максимум и минимум",
+              "explanation": "Границы называют парой como mucho и como poco: media hora como mucho, dos días como poco. А про длительность спрашивают durar: ¿cuánto dura? ¿cuánto va a durar?"
+            },
+            {
+              "id": "es-a2-curro-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "¿Cuánto va a ___ la reunión?",
+              "options": [
+                "durar",
+                "dura",
+                "durado"
+              ],
+              "correctOption": "durar"
+            },
+            {
+              "id": "es-a2-curro-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Media hora ___ mucho.",
+              "options": [
+                "como",
+                "que",
+                "de"
+              ],
+              "correctOption": "como"
+            },
+            {
+              "id": "es-a2-curro-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a1-plural",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "«Принеси цифры» — это:",
+              "options": [
+                "Trae los números.",
+                "Traes los números.",
+                "Traer los números."
+              ],
+              "correctOption": "Trae los números."
+            },
+            {
+              "id": "es-a2-curro-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-numeros",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Совещание в одиннадцать.",
+              "canonicalAnswer": "La reunión es a las once.",
+              "tokens": [
+                "reunión",
+                "es",
+                "a",
+                "las",
+                "once",
+                "La"
+              ]
+            },
+            {
+              "id": "es-a2-curro-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-preguntas",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Сколько продлится?",
+              "canonicalAnswer": "¿Cuánto va a durar?"
+            },
+            {
+              "id": "es-a2-curro-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Максимум полчаса.",
+              "canonicalAnswer": "Media hora como mucho."
+            },
+            {
+              "id": "es-a2-curro-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-trabajo"
+              ],
+              "prompt": "Тогда успею на другую.",
+              "canonicalAnswer": "Así llego a la otra."
+            }
+          ]
+        },
+        {
           "id": "es-a2-curro-check",
           "title": "Проверка: на работе",
           "summary": "Весь блок целиком, без подсказок.",
@@ -16653,6 +17877,615 @@
               ],
               "prompt": "Отлично, большое спасибо.",
               "canonicalAnswer": "Perfecto, muchas gracias."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-queja-03",
+          "title": "Me han cobrado de más",
+          "summary": "Ошибка в счёте.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-queja-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "title": "Счёт",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Creo que me han cobrado de más.",
+                  "translation": "Кажется, с меня взяли лишнее."
+                },
+                {
+                  "speaker": "Camarero",
+                  "text": "A ver, déjeme mirar.",
+                  "translation": "Сейчас, дайте посмотреть."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Aquí pone dos cafés y tomé uno.",
+                  "translation": "Здесь два кофе, а я взяла один."
+                },
+                {
+                  "speaker": "Camarero",
+                  "text": "Tiene razón, lo siento mucho.",
+                  "translation": "Вы правы, извините."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "No pasa nada, gracias.",
+                  "translation": "Ничего страшного, спасибо."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-queja-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-comparativos",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Me han cobrado de más.",
+              "translation": "С меня взяли лишнее.",
+              "example": "Creo que me han cobrado de más."
+            },
+            {
+              "id": "es-a2-queja-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Déjeme mirar.",
+              "translation": "Дайте посмотреть.",
+              "example": "A ver, déjeme mirar la cuenta."
+            },
+            {
+              "id": "es-a2-queja-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Aquí pone…",
+              "translation": "Здесь написано…",
+              "example": "Aquí pone dos cafés."
+            },
+            {
+              "id": "es-a2-queja-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Tiene razón.",
+              "translation": "Вы правы.",
+              "example": "Tiene razón, lo siento mucho."
+            },
+            {
+              "id": "es-a2-queja-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "de más",
+              "translation": "лишнее",
+              "example": "Me han cobrado de más."
+            },
+            {
+              "id": "es-a2-queja-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "title": "Здесь написано",
+              "explanation": "Про написанное говорят poner: aquí pone dos cafés, ¿qué pone en el cartel? Это самое частое значение poner после «класть», и в чеках оно всегда такое."
+            },
+            {
+              "id": "es-a2-queja-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Me han cobrado ___ más.",
+              "options": [
+                "de",
+                "por",
+                "a"
+              ],
+              "correctOption": "de"
+            },
+            {
+              "id": "es-a2-queja-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Aquí ___ dos cafés.",
+              "options": [
+                "pone",
+                "ponen",
+                "poner"
+              ],
+              "correctOption": "pone"
+            },
+            {
+              "id": "es-a2-queja-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "«Вы правы» — это:",
+              "options": [
+                "Tiene razón.",
+                "Es razón.",
+                "Está razón."
+              ],
+              "correctOption": "Tiene razón."
+            },
+            {
+              "id": "es-a2-queja-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Дайте посмотреть.",
+              "canonicalAnswer": "Déjeme mirar.",
+              "tokens": [
+                "mirar",
+                "Déjeme"
+              ]
+            },
+            {
+              "id": "es-a2-queja-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "С меня взяли лишнее.",
+              "canonicalAnswer": "Me han cobrado de más."
+            },
+            {
+              "id": "es-a2-queja-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-numeros",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Здесь два кофе.",
+              "canonicalAnswer": "Aquí pone dos cafés."
+            },
+            {
+              "id": "es-a2-queja-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Ничего страшного, спасибо.",
+              "canonicalAnswer": "No pasa nada, gracias."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-queja-04",
+          "title": "El pedido no ha llegado",
+          "summary": "Заказ не пришёл.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-queja-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "title": "Доставка",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Mi pedido no ha llegado todavía.",
+                  "translation": "Мой заказ ещё не пришёл."
+                },
+                {
+                  "speaker": "Empleada",
+                  "text": "¿Me dice el número, por favor?",
+                  "translation": "Скажете номер, пожалуйста?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Sí, lo tengo en el correo.",
+                  "translation": "Да, он у меня в почте."
+                },
+                {
+                  "speaker": "Empleada",
+                  "text": "Sale como entregado ayer.",
+                  "translation": "Значится как доставленный вчера."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Pues aquí no ha llegado nada.",
+                  "translation": "А сюда ничего не приходило."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-queja-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "No ha llegado todavía.",
+              "translation": "Ещё не пришёл.",
+              "example": "Mi pedido no ha llegado todavía."
+            },
+            {
+              "id": "es-a2-queja-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "¿Me dice el número?",
+              "translation": "Скажете номер?",
+              "example": "¿Me dice el número del pedido?"
+            },
+            {
+              "id": "es-a2-queja-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Sale como entregado.",
+              "translation": "Значится как доставленный.",
+              "example": "Sale como entregado ayer."
+            },
+            {
+              "id": "es-a2-queja-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "el pedido",
+              "translation": "заказ",
+              "example": "Mi pedido no ha llegado."
+            },
+            {
+              "id": "es-a2-queja-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "No ha llegado nada.",
+              "translation": "Ничего не приходило.",
+              "example": "Pues aquí no ha llegado nada."
+            },
+            {
+              "id": "es-a2-queja-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "title": "Что значится в системе",
+              "explanation": "Про запись в системе говорят salir como: sale como entregado, sale como pagado, sale como pendiente. Отрицание с todavía ставится так: no ha llegado todavía."
+            },
+            {
+              "id": "es-a2-queja-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Mi pedido no ___ llegado.",
+              "options": [
+                "ha",
+                "he",
+                "han"
+              ],
+              "correctOption": "ha"
+            },
+            {
+              "id": "es-a2-queja-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "___ como entregado ayer.",
+              "options": [
+                "Sale",
+                "Salen",
+                "Salir"
+              ],
+              "correctOption": "Sale"
+            },
+            {
+              "id": "es-a2-queja-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "«Ничего не приходило» — это:",
+              "options": [
+                "No ha llegado nada.",
+                "Ha llegado nada.",
+                "No llegó nada mañana."
+              ],
+              "correctOption": "No ha llegado nada."
+            },
+            {
+              "id": "es-a2-queja-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Скажете номер, пожалуйста?",
+              "canonicalAnswer": "¿Me dice el número, por favor?",
+              "tokens": [
+                "dice",
+                "el",
+                "número",
+                "por",
+                "favor",
+                "Me"
+              ]
+            },
+            {
+              "id": "es-a2-queja-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Мой заказ ещё не пришёл.",
+              "canonicalAnswer": "Mi pedido no ha llegado todavía."
+            },
+            {
+              "id": "es-a2-queja-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Он у меня в почте.",
+              "canonicalAnswer": "Lo tengo en el correo."
+            },
+            {
+              "id": "es-a2-queja-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Значится как доставленный вчера.",
+              "canonicalAnswer": "Sale como entregado ayer."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-queja-05",
+          "title": "Quiero hablar con el encargado",
+          "summary": "Настоять вежливо.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-queja-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "title": "Настойчиво",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Perdone, ¿puedo hablar con el encargado?",
+                  "translation": "Извините, можно поговорить со старшим?"
+                },
+                {
+                  "speaker": "Empleado",
+                  "text": "Ahora mismo lo aviso.",
+                  "translation": "Сейчас его позову."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Gracias, es que llevo media hora.",
+                  "translation": "Спасибо, я уже полчаса жду."
+                },
+                {
+                  "speaker": "Empleado",
+                  "text": "Lo entiendo, disculpe la espera.",
+                  "translation": "Понимаю, извините за ожидание."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Solo quiero una solución.",
+                  "translation": "Мне просто нужно решение."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-queja-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "el encargado",
+              "translation": "менеджер, старший",
+              "example": "¿Puedo hablar con el encargado?"
+            },
+            {
+              "id": "es-a2-queja-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Ahora mismo lo aviso.",
+              "translation": "Сейчас его позову.",
+              "example": "Ahora mismo lo aviso, un momento."
+            },
+            {
+              "id": "es-a2-queja-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Llevo media hora.",
+              "translation": "Я уже полчаса жду.",
+              "example": "Es que llevo media hora esperando."
+            },
+            {
+              "id": "es-a2-queja-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Disculpe la espera.",
+              "translation": "Извините за ожидание.",
+              "example": "Lo entiendo, disculpe la espera."
+            },
+            {
+              "id": "es-a2-queja-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-articulos",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "una solución",
+              "translation": "решение",
+              "example": "Solo quiero una solución."
+            },
+            {
+              "id": "es-a2-queja-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "title": "Настоять, не повышая голоса",
+              "explanation": "Вежливая настойчивость держится на трёх фразах: ¿puedo hablar con el encargado?, es que llevo media hora, solo quiero una solución. Слово es que вводит причину мягко."
+            },
+            {
+              "id": "es-a2-queja-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "¿Puedo hablar con el ___?",
+              "options": [
+                "encargado",
+                "encargo",
+                "encargar"
+              ],
+              "correctOption": "encargado"
+            },
+            {
+              "id": "es-a2-queja-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Es que ___ media hora.",
+              "options": [
+                "llevo",
+                "llevé",
+                "llevar"
+              ],
+              "correctOption": "llevo"
+            },
+            {
+              "id": "es-a2-queja-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "«Извините за ожидание» — это:",
+              "options": [
+                "Disculpe la espera.",
+                "Disculpe el esperar.",
+                "Disculpa la espero."
+              ],
+              "correctOption": "Disculpe la espera."
+            },
+            {
+              "id": "es-a2-queja-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Сейчас его позову.",
+              "canonicalAnswer": "Ahora mismo lo aviso.",
+              "tokens": [
+                "mismo",
+                "lo",
+                "aviso",
+                "Ahora"
+              ]
+            },
+            {
+              "id": "es-a2-queja-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Можно поговорить со старшим?",
+              "canonicalAnswer": "¿Puedo hablar con el encargado?"
+            },
+            {
+              "id": "es-a2-queja-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Я уже полчаса жду.",
+              "canonicalAnswer": "Llevo media hora."
+            },
+            {
+              "id": "es-a2-queja-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-articulos",
+                "es-a2-tema-compras"
+              ],
+              "prompt": "Мне просто нужно решение.",
+              "canonicalAnswer": "Solo quiero una solución."
             }
           ]
         },
