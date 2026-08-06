@@ -50,10 +50,15 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url }}
     steps:
+      # Pages regularly leaves a deployment in `deployment_queued` past the action's
+      # ten-minute cap — a longer `timeout` is clamped back down with a warning, so the
+      # only cure is another attempt. Three builds in a row failed that way with nothing
+      # wrong in them, and re-running by hand always worked. This is that re-run.
       - id: deployment
-        # Ten minutes is the action's hard cap on waiting for Pages — a longer `timeout`
-        # is clamped back down with a warning, so a stuck queue has to be re-run, not
-        # waited out.
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - id: retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
