@@ -30871,6 +30871,613 @@
           ]
         },
         {
+          "id": "es-a2-urgencia-03",
+          "title": "Me han robado",
+          "summary": "Кража и заявление.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-urgencia-03-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "title": "В участке",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Me han robado el bolso en el metro.",
+                  "translation": "У меня украли сумку в метро."
+                },
+                {
+                  "speaker": "Agente",
+                  "text": "¿Dónde y a qué hora?",
+                  "translation": "Где и во сколько?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "En la línea uno, sobre las ocho.",
+                  "translation": "На первой линии, около восьми."
+                },
+                {
+                  "speaker": "Agente",
+                  "text": "¿Qué llevaba dentro?",
+                  "translation": "Что было внутри?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El móvil, las llaves y la cartera.",
+                  "translation": "Телефон, ключи и кошелёк."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-urgencia-03-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Me han robado el bolso.",
+              "translation": "У меня украли сумку.",
+              "example": "Me han robado el bolso en el metro."
+            },
+            {
+              "id": "es-a2-urgencia-03-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "¿Dónde y a qué hora?",
+              "translation": "Где и во сколько?",
+              "example": "¿Dónde y a qué hora ocurrió?"
+            },
+            {
+              "id": "es-a2-urgencia-03-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "en la línea uno",
+              "translation": "на первой линии",
+              "example": "En la línea uno, sobre las ocho."
+            },
+            {
+              "id": "es-a2-urgencia-03-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "las llaves",
+              "translation": "ключи",
+              "example": "El móvil, las llaves y la cartera."
+            },
+            {
+              "id": "es-a2-urgencia-03-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-articulos",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "poner una denuncia",
+              "translation": "подать заявление",
+              "example": "Vengo a poner una denuncia."
+            },
+            {
+              "id": "es-a2-urgencia-03-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-urgencia"
+              ],
+              "title": "Заявление о краже",
+              "explanation": "Три вопроса и три ответа: qué (me han robado el bolso), dónde y cuándo (en el metro, sobre las ocho), qué llevaba dentro (el móvil, las llaves). Больше от вас ничего не нужно."
+            },
+            {
+              "id": "es-a2-urgencia-03-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Me ___ robado el bolso.",
+              "options": [
+                "han",
+                "ha",
+                "he"
+              ],
+              "correctOption": "han"
+            },
+            {
+              "id": "es-a2-urgencia-03-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "¿Qué ___ dentro?",
+              "options": [
+                "llevaba",
+                "llevó",
+                "lleva"
+              ],
+              "correctOption": "llevaba"
+            },
+            {
+              "id": "es-a2-urgencia-03-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "«Подать заявление» — это:",
+              "options": [
+                "poner una denuncia",
+                "poner un denuncio",
+                "hacer una denuncia hoy"
+              ],
+              "correctOption": "poner una denuncia"
+            },
+            {
+              "id": "es-a2-urgencia-03-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Где и во сколько?",
+              "canonicalAnswer": "¿Dónde y a qué hora?",
+              "tokens": [
+                "y",
+                "a",
+                "qué",
+                "hora",
+                "Dónde"
+              ]
+            },
+            {
+              "id": "es-a2-urgencia-03-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "У меня украли сумку.",
+              "canonicalAnswer": "Me han robado el bolso."
+            },
+            {
+              "id": "es-a2-urgencia-03-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "На первой линии, около восьми.",
+              "canonicalAnswer": "En la línea uno, sobre las ocho."
+            },
+            {
+              "id": "es-a2-urgencia-03-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Телефон, ключи и кошелёк.",
+              "canonicalAnswer": "El móvil, las llaves y la cartera."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-urgencia-04",
+          "title": "Se ha ido el agua",
+          "summary": "Авария дома.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-urgencia-04-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "title": "Течёт",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Hay una fuga en el baño.",
+                  "translation": "В ванной течёт."
+                },
+                {
+                  "speaker": "Vecina",
+                  "text": "¿Has cerrado la llave de paso?",
+                  "translation": "Ты перекрыл общий кран?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Sí, pero sigue saliendo agua.",
+                  "translation": "Да, но вода всё равно идёт."
+                },
+                {
+                  "speaker": "Vecina",
+                  "text": "Llama al fontanero ya mismo.",
+                  "translation": "Звони сантехнику прямо сейчас."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Voy, y aviso a la comunidad.",
+                  "translation": "Иду, и предупрежу управление."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-urgencia-04-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Hay una fuga.",
+              "translation": "Течёт, есть протечка.",
+              "example": "Hay una fuga en el baño."
+            },
+            {
+              "id": "es-a2-urgencia-04-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "la llave de paso",
+              "translation": "общий кран",
+              "example": "¿Has cerrado la llave de paso?"
+            },
+            {
+              "id": "es-a2-urgencia-04-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Sigue saliendo agua.",
+              "translation": "Вода всё равно идёт.",
+              "example": "Sí, pero sigue saliendo agua."
+            },
+            {
+              "id": "es-a2-urgencia-04-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "ya mismo",
+              "translation": "прямо сейчас",
+              "example": "Llama al fontanero ya mismo."
+            },
+            {
+              "id": "es-a2-urgencia-04-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Aviso a la comunidad.",
+              "translation": "Предупрежу управление.",
+              "example": "Voy, y aviso a la comunidad."
+            },
+            {
+              "id": "es-a2-urgencia-04-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-urgencia"
+              ],
+              "title": "Продолжает делать",
+              "explanation": "Продолжение действия — seguir + форма на -ando/-iendo: sigue saliendo agua, sigo esperando, seguimos buscando. По-русски это «всё ещё» или «всё равно»."
+            },
+            {
+              "id": "es-a2-urgencia-04-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Sigue ___ agua.",
+              "options": [
+                "saliendo",
+                "salir",
+                "sale"
+              ],
+              "correctOption": "saliendo"
+            },
+            {
+              "id": "es-a2-urgencia-04-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "¿Has ___ la llave de paso?",
+              "options": [
+                "cerrado",
+                "cerrada",
+                "cerrar"
+              ],
+              "correctOption": "cerrado"
+            },
+            {
+              "id": "es-a2-urgencia-04-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "«Прямо сейчас» — это:",
+              "options": [
+                "ya mismo",
+                "mismo ya",
+                "ahora mismo tarde"
+              ],
+              "correctOption": "ya mismo"
+            },
+            {
+              "id": "es-a2-urgencia-04-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "В ванной течёт.",
+              "canonicalAnswer": "Hay una fuga en el baño.",
+              "tokens": [
+                "una",
+                "fuga",
+                "en",
+                "el",
+                "baño",
+                "Hay"
+              ]
+            },
+            {
+              "id": "es-a2-urgencia-04-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Ты перекрыл общий кран?",
+              "canonicalAnswer": "¿Has cerrado la llave de paso?"
+            },
+            {
+              "id": "es-a2-urgencia-04-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Вода всё равно идёт.",
+              "canonicalAnswer": "Sigue saliendo agua."
+            },
+            {
+              "id": "es-a2-urgencia-04-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Звони сантехнику прямо сейчас.",
+              "canonicalAnswer": "Llama al fontanero ya mismo."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-urgencia-05",
+          "title": "Me he quedado fuera",
+          "summary": "Захлопнул дверь.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-urgencia-05-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "title": "Без ключей",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Me he quedado fuera de casa.",
+                  "translation": "Я осталась за дверью."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Se te han quedado dentro las llaves?",
+                  "translation": "Ключи внутри остались?"
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Sí, y el móvil casi sin batería.",
+                  "translation": "Да, и телефон почти разряжен."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Espera en el bar, voy con la copia.",
+                  "translation": "Подожди в баре, приеду с копией."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Eres un salvavidas.",
+                  "translation": "Ты спасение."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-urgencia-05-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Me he quedado fuera.",
+              "translation": "Я остался за дверью.",
+              "example": "Me he quedado fuera de casa."
+            },
+            {
+              "id": "es-a2-urgencia-05-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Se te han quedado dentro.",
+              "translation": "Они остались внутри.",
+              "example": "¿Se te han quedado dentro las llaves?"
+            },
+            {
+              "id": "es-a2-urgencia-05-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "casi sin batería",
+              "translation": "почти разряжен",
+              "example": "El móvil casi sin batería."
+            },
+            {
+              "id": "es-a2-urgencia-05-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Voy con la copia.",
+              "translation": "Приеду с копией.",
+              "example": "Espera en el bar, voy con la copia."
+            },
+            {
+              "id": "es-a2-urgencia-05-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-articulos",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Eres un salvavidas.",
+              "translation": "Ты спасение.",
+              "example": "Gracias, eres un salvavidas."
+            },
+            {
+              "id": "es-a2-urgencia-05-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-urgencia"
+              ],
+              "title": "Оно осталось у меня",
+              "explanation": "Та же конструкция «оно само»: se me han quedado las llaves dentro, se te ha olvidado, se nos ha hecho tarde. Между se и глаголом — тот, с кем это случилось."
+            },
+            {
+              "id": "es-a2-urgencia-05-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Me he quedado ___ de casa.",
+              "options": [
+                "fuera",
+                "afuera de",
+                "fuero"
+              ],
+              "correctOption": "fuera"
+            },
+            {
+              "id": "es-a2-urgencia-05-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "¿___ te han quedado dentro las llaves?",
+              "options": [
+                "Se",
+                "Me",
+                "Lo"
+              ],
+              "correctOption": "Se"
+            },
+            {
+              "id": "es-a2-urgencia-05-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "«Приеду с копией» — это:",
+              "options": [
+                "Voy con la copia.",
+                "Voy con copia mío.",
+                "Vengo la copia."
+              ],
+              "correctOption": "Voy con la copia."
+            },
+            {
+              "id": "es-a2-urgencia-05-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Подожди в баре.",
+              "canonicalAnswer": "Espera en el bar.",
+              "tokens": [
+                "en",
+                "el",
+                "bar",
+                "Espera"
+              ]
+            },
+            {
+              "id": "es-a2-urgencia-05-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Я остался за дверью.",
+              "canonicalAnswer": "Me he quedado fuera."
+            },
+            {
+              "id": "es-a2-urgencia-05-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "И телефон почти разряжен.",
+              "canonicalAnswer": "Y el móvil casi sin batería."
+            },
+            {
+              "id": "es-a2-urgencia-05-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a1-articulos",
+                "es-a2-tema-urgencia"
+              ],
+              "prompt": "Ты спасение.",
+              "canonicalAnswer": "Eres un salvavidas."
+            }
+          ]
+        },
+        {
           "id": "es-a2-urgencia-check",
           "title": "Проверка: срочно",
           "summary": "Весь блок целиком, без подсказок.",
