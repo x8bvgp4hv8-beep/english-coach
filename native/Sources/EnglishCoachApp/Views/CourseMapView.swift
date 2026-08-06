@@ -407,20 +407,25 @@ private struct LessonRow: View {
         case .locked: CoachTheme.ink.opacity(0.28)
         }
     }
+    /// A checkpoint is production only and gives no hints. Meeting it unannounced feels
+    /// like a bug in the app rather than the point of the unit.
+    private var isCheckpoint: Bool { lesson.kind == .checkpoint }
     private var icon: String {
+        if isCheckpoint, state != .completed, state != .locked { return "target" }
         switch state {
-        case .completed: "checkmark"
-        case .current: "play.fill"
-        case .available: "book.fill"
-        case .locked: "lock.fill"
+        case .completed: return "checkmark"
+        case .current: return "play.fill"
+        case .available: return "book.fill"
+        case .locked: return "lock.fill"
         }
     }
     private var statusText: String {
+        if isCheckpoint, state != .locked { return "проверка блока, без подсказок" }
         switch state {
-        case .completed: "пройден"
-        case .current: "продолжить"
-        case .available: "доступен"
-        case .locked: "откроется после предыдущего"
+        case .completed: return "пройден"
+        case .current: return "продолжить"
+        case .available: return "доступен"
+        case .locked: return "откроется после предыдущего"
         }
     }
     private var lineColor: Color { state == .completed ? CoachTheme.accentColor.opacity(0.35) : CoachTheme.ink.opacity(0.12) }
@@ -430,9 +435,10 @@ private struct LessonRow: View {
             HStack(spacing: 13) {
                 rail
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(lesson.title).font(.system(size: 15, weight: .semibold))
+                    Text(lesson.title).font(.system(size: 15, weight: isCheckpoint ? .bold : .semibold))
                         .foregroundStyle(state == .locked ? AnyShapeStyle(Color.secondary) : AnyShapeStyle(CoachTheme.ink))
-                    Text("\(lesson.estimatedMinutes) мин · \(statusText)").font(.system(size: 11)).foregroundStyle(.secondary)
+                    Text("\(lesson.estimatedMinutes) мин · \(statusText)").font(.system(size: 11))
+                        .foregroundStyle(isCheckpoint && state != .locked ? AnyShapeStyle(CoachTheme.accentColor) : AnyShapeStyle(Color.secondary))
                 }.padding(.vertical, 11)
                 Spacer(minLength: 8)
                 trailing.padding(.vertical, 11)

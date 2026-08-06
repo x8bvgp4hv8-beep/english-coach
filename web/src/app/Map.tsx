@@ -311,21 +311,26 @@ function LessonRow({ model, lesson, first, last }: { model: AppStore; lesson: Le
   const status: Record<LessonState, string> = {
     completed: 'пройден', current: 'продолжить', available: 'доступен', locked: 'откроется после предыдущего',
   }
+  // A checkpoint is production only and gives no hints. Meeting it unannounced feels
+  // like a bug in the app rather than the point of the unit.
+  const isCheckpoint = lesson.kind === 'checkpoint'
+  const icon = isCheckpoint && state !== 'completed' && state !== 'locked' ? '🎯' : icons[state]
+  const meta = isCheckpoint && !locked ? 'проверка блока, без подсказок' : status[state]
 
   return (
     <button
-      className="lesson"
+      className={`lesson${isCheckpoint ? ' checkpoint' : ''}`}
       disabled={locked}
       onClick={() => model.startLesson(lesson)}
     >
       <span className={`rail${first ? ' first' : ''}${last ? ' last' : ''}${state === 'completed' ? ' done' : ''}`}>
         <span className={`node${state === 'current' ? ' current' : ''}`} style={{ background: colors[state] }}>
-          {icons[state]}
+          {icon}
         </span>
       </span>
       <span className="lesson-body">
         <div className="lesson-title">{lesson.title}</div>
-        <div className="lesson-meta">{lesson.estimatedMinutes} мин · {status[state]}</div>
+        <div className="lesson-meta">{lesson.estimatedMinutes} мин · {meta}</div>
       </span>
       {state === 'current' && <span className="badge-now">СЕЙЧАС</span>}
     </button>

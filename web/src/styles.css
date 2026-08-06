@@ -594,6 +594,10 @@ button { cursor: pointer; border: none; background: none; }
   border-bottom: 1px solid var(--hairline);
 }
 
+/* The checkpoint that closes a unit reads as a different kind of thing. */
+.lesson.checkpoint .lesson-title { font-weight: 750; }
+.lesson.checkpoint .lesson-meta { color: var(--accent); }
+
 /* What a level actually contains, under the picker that chooses it. */
 .level-size { font-size: 12px; color: var(--ink-soft); margin: 10px 0 0; }
 
