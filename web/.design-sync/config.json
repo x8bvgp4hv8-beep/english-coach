@@ -1,30 +1,71 @@
 {
   "pkg": "english-coach-web",
   "globalName": "CoachKit",
+  "projectId": "810d9e9e-d385-4dcb-b860-458350b4fa67",
   "shape": "package",
   "buildCmd": "npm run build:kit",
   "srcDir": "src/kit",
   "tsconfig": "tsconfig.json",
   "cssEntry": "src/kit/kit.css",
-  "runtimeFontPrefixes": ["SF Pro", "Segoe UI"],
+  "runtimeFontPrefixes": [
+    "SF Pro",
+    "Segoe UI"
+  ],
   "overrides": {
-    "AbilityChip": { "cardMode": "column" },
-    "ActionCard": { "cardMode": "column" },
-    "AlertBar": { "cardMode": "column" },
-    "AnswerField": { "cardMode": "column" },
-    "ChapterSection": { "cardMode": "column" },
-    "Choice": { "cardMode": "column" },
-    "ChoiceList": { "cardMode": "column" },
-    "Dialogue": { "cardMode": "column" },
-    "EmptyNote": { "cardMode": "column" },
-    "KindButton": { "cardMode": "column" },
-    "KindList": { "cardMode": "column" },
-    "LanguageCard": { "cardMode": "column" },
-    "LessonRow": { "cardMode": "column" },
-    "Pill": { "cardMode": "column" },
-    "SecondaryButton": { "cardMode": "column" },
-    "SectionTitle": { "cardMode": "column" },
-    "TopicRow": { "cardMode": "column" },
-    "WordOrderTray": { "cardMode": "column" }
-  }
+    "AbilityChip": {
+      "cardMode": "column"
+    },
+    "ActionCard": {
+      "cardMode": "column"
+    },
+    "AlertBar": {
+      "cardMode": "column"
+    },
+    "AnswerField": {
+      "cardMode": "column"
+    },
+    "ChapterSection": {
+      "cardMode": "column"
+    },
+    "Choice": {
+      "cardMode": "column"
+    },
+    "ChoiceList": {
+      "cardMode": "column"
+    },
+    "Dialogue": {
+      "cardMode": "column"
+    },
+    "EmptyNote": {
+      "cardMode": "column"
+    },
+    "KindButton": {
+      "cardMode": "column"
+    },
+    "KindList": {
+      "cardMode": "column"
+    },
+    "LanguageCard": {
+      "cardMode": "column"
+    },
+    "LessonRow": {
+      "cardMode": "column"
+    },
+    "Pill": {
+      "cardMode": "column"
+    },
+    "SecondaryButton": {
+      "cardMode": "column"
+    },
+    "SectionTitle": {
+      "cardMode": "column"
+    },
+    "TopicRow": {
+      "cardMode": "column"
+    },
+    "WordOrderTray": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
 }
