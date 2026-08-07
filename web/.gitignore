@@ -14,3 +14,7 @@ ds-bundle/
 .design-sync/.cache/
 .design-sync/learnings/
 .design-sync/node_modules
+# The repo root ignores a bare `config.json` (left over from the Python coach), which
+# silently swallowed this one. Without it a fresh clone re-syncs with no globalName,
+# no card modes and no font config.
+!.design-sync/config.json
