@@ -3,7 +3,18 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "comment:kit": "The component kit is built separately from the app: `npm run build:kit` emits dist-kit/, which is what design tooling imports. The app itself is never installed as a package.",
+  "module": "./dist-kit/index.es.js",
+  "types": "./dist-kit/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist-kit/index.d.ts",
+      "import": "./dist-kit/index.es.js"
+    },
+    "./kit.css": "./src/kit/kit.css"
+  },
   "scripts": {
+    "build:kit": "rm -rf dist-kit && tsc -p tsconfig.kit.json && vite build -c vite.config.kit.ts",
     "sync-content": "node scripts/sync-content.mjs",
     "dev": "npm run sync-content && vite",
     "build": "npm run sync-content && tsc --noEmit && vite build",

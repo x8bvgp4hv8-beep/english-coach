@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react'
 
-/**
- * Types a line out, holds it, deletes it, moves to the next one.
- *
- * Written by hand rather than pulled in as a dependency: the effect is a timer and
- * a substring, and this client stays small enough to precache for offline use.
- */
-
-interface TypewriterProps {
+export interface TypewriterProps {
+  /** Cycled forever, in order. */
   lines: string[]
   /** Milliseconds per typed character. */
   speed?: number
@@ -19,6 +13,13 @@ interface TypewriterProps {
 const prefersReducedMotion = (): boolean =>
   typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
 
+/**
+ * Types a line out, holds it, deletes it, moves to the next one.
+ *
+ * Written by hand rather than pulled in as a dependency: the effect is a timer and
+ * a substring, and this client stays small enough to precache for offline use.
+ * With reduced motion the first line is simply shown — it still has to be readable.
+ */
 export function Typewriter({ lines, speed = 55, deleteSpeed = 28, hold = 1500 }: TypewriterProps) {
   const [index, setIndex] = useState(0)
   const [length, setLength] = useState(0)
@@ -42,7 +43,6 @@ export function Typewriter({ lines, speed = 55, deleteSpeed = 28, hold = 1500 }:
     return () => clearTimeout(timer)
   }, [lines, index, length, deleting, speed, deleteSpeed, hold, still])
 
-  // Without motion the line still has to be readable, so the first one is simply shown.
   if (still) return <span className="typewriter">{lines[0] ?? ''}</span>
 
   return (

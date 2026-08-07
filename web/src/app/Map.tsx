@@ -1,13 +1,15 @@
 import { useState } from 'react'
-import type { ReactNode } from 'react'
 
 import { useStore } from './App'
 import { plural } from './plural'
 import { PRACTICE_KINDS } from '../core'
+import {
+  AbilityChip, ActionCard, ChapterSection, EmptyNote, KindButton, KindList, LessonRow,
+  Meter, PrimaryButton, SecondaryButton, SectionTitle,
+} from '../kit'
+import type { LessonState } from '../kit'
 import type { AppStore } from './store'
 import type { Chapter, Lesson } from '../core'
-
-type LessonState = 'completed' | 'current' | 'available' | 'locked'
 
 const KIND_ICON: Record<string, string> = {
   mixed: '⚡', flashcard: '🗂', translate: '✍️', word_order: '🧩', multiple_choice: '☑️',
@@ -15,16 +17,6 @@ const KIND_ICON: Record<string, string> = {
 const KIND_COLOR: Record<string, string> = {
   mixed: 'var(--violet)', flashcard: 'var(--blue)', translate: 'var(--amber)',
   word_order: 'var(--mint)', multiple_choice: '#c17ce0',
-}
-
-/** Named groups, so the screen answers "что тут вообще можно делать". */
-function SectionTitle({ children, hint }: { children: ReactNode; hint?: string }) {
-  return (
-    <div className="section-title">
-      <h2>{children}</h2>
-      {hint && <p>{hint}</p>}
-    </div>
-  )
 }
 
 export function MapScreen() {
@@ -82,46 +74,43 @@ export function MapScreen() {
         {/* Nothing has been taught yet, so there is nothing to drill — say so instead of
             showing seven disabled rows of zeros. */}
         {!model.practiceIsAvailable ? (
-          <p className="empty-note">
+          <EmptyNote>
             Тренировки собираются из пройденного. Пройди первый урок — и здесь появятся
             карточки, перевод, аудирование и речь вслух.
-          </p>
+          </EmptyNote>
         ) : (
-        <div className="kinds">
+        <KindList>
           {/* Speaking comes first: it is the only exercise that gets the mouth moving. */}
-          <button className="kind" disabled={model.shadowingCount === 0} onClick={() => model.startShadowing()}>
-            <span className="kind-icon" style={{ background: 'var(--coral)' }}>🎙</span>
-            <span className="kind-body">
-              <span className="kind-title">Вслух за диктором</span>
-              <span className="kind-subtitle">Слушай, повторяй, сравнивай себя с эталоном</span>
-            </span>
-            <span className="kind-count">{model.shadowingCount}</span>
-          </button>
+          <KindButton
+            icon="🎙" color="var(--coral)"
+            title="Вслух за диктором"
+            subtitle="Слушай, повторяй, сравнивай себя с эталоном"
+            count={model.shadowingCount}
+            disabled={model.shadowingCount === 0}
+            onClick={() => model.startShadowing()}
+          />
           {/* And listening second: it is the only one where the English is not on screen. */}
-          <button className="kind" disabled={model.listeningCount === 0} onClick={() => model.startListening()}>
-            <span className="kind-icon" style={{ background: 'var(--blue)' }}>👂</span>
-            <span className="kind-body">
-              <span className="kind-title">На слух</span>
-              <span className="kind-subtitle">Фразу говорят, текста нет — запиши, что услышал</span>
-            </span>
-            <span className="kind-count">{model.listeningCount}</span>
-          </button>
+          <KindButton
+            icon="👂" color="var(--blue)"
+            title="На слух"
+            subtitle="Фразу говорят, текста нет — запиши, что услышал"
+            count={model.listeningCount}
+            disabled={model.listeningCount === 0}
+            onClick={() => model.startListening()}
+          />
           {PRACTICE_KINDS.map((kind) => (
-            <button
+            <KindButton
               key={kind.id}
-              className="kind"
+              icon={KIND_ICON[kind.id]}
+              color={KIND_COLOR[kind.id]}
+              title={kind.title}
+              subtitle={kind.subtitle}
+              count={model.practiceCounts[kind.id] ?? 0}
               disabled={(model.practiceCounts[kind.id] ?? 0) === 0}
               onClick={() => model.startPractice(kind.id)}
-            >
-              <span className="kind-icon" style={{ background: KIND_COLOR[kind.id] }}>{KIND_ICON[kind.id]}</span>
-              <span className="kind-body">
-                <span className="kind-title">{kind.title}</span>
-                <span className="kind-subtitle">{kind.subtitle}</span>
-              </span>
-              <span className="kind-count">{model.practiceCounts[kind.id] ?? 0}</span>
-            </button>
+            />
           ))}
-        </div>
+        </KindList>
         )}
 
         <button className="link-button" onClick={() => model.setScreen('topics')} style={{ marginTop: 14 }}>
@@ -132,7 +121,7 @@ export function MapScreen() {
           Маршрут {model.selectedLevel}
         </SectionTitle>
         {chapters.map((chapter, index) => (
-          <ChapterSection key={chapter.id} model={model} chapter={chapter} number={index + 1} />
+          <ChapterBlock key={chapter.id} model={model} chapter={chapter} number={index + 1} />
         ))}
       </div>
     </>
@@ -155,12 +144,8 @@ function Abilities({ model }: { model: AppStore }) {
         Что ты умеешь
       </SectionTitle>
       <div className="abilities">
-        {earned.map((item) => (
-          <span className="ability done" key={item}>✓ {item}</span>
-        ))}
-        {next.map((item) => (
-          <span className="ability next" key={item}>{item}</span>
-        ))}
+        {earned.map((item) => <AbilityChip key={item} state="earned">{item}</AbilityChip>)}
+        {next.map((item) => <AbilityChip key={item} state="next">{item}</AbilityChip>)}
       </div>
       {next.length > 0 && <p className="abilities-note">Серым — то, чему учит блок, который ты сейчас проходишь.</p>}
     </>
@@ -205,34 +190,6 @@ function Header({ model }: { model: AppStore }) {
   )
 }
 
-function Meter({ title, value, caption, color }: { title: string; value: number; caption: string; color: string }) {
-  return (
-    <div className="meter">
-      <div className="meter-row">
-        <span>{title}</span>
-        <span className="meter-value" style={{ color }}>{caption}</span>
-      </div>
-      <div className="bar"><span style={{ width: `${Math.min(1, value) * 100}%`, background: color }} /></div>
-    </div>
-  )
-}
-
-function ActionCard({ icon, color, kicker, title, subtitle, onClick }: {
-  icon: string; color: string; kicker: string; title: string; subtitle: string; onClick: () => void
-}) {
-  return (
-    <button className="action" onClick={onClick} style={{ borderColor: `color-mix(in srgb, ${color} 22%, transparent)` }}>
-      <span className="action-icon" style={{ background: color }}>{icon}</span>
-      <span className="action-body">
-        <span className="action-kicker" style={{ color }}>{kicker}</span>
-        <div className="action-title">{title}</div>
-        <div className="action-subtitle">{subtitle}</div>
-      </span>
-      <span className="action-chevron" style={{ color }}>›</span>
-    </button>
-  )
-}
-
 function LevelUp({ model }: { model: AppStore }) {
   const next = model.suggestedNextLevel!
   return (
@@ -242,98 +199,44 @@ function LevelUp({ model }: { model: AppStore }) {
         Дальше — {next}. Пройденное останется отмеченным.
       </p>
       <div className="stack" style={{ marginTop: 12 }}>
-        <button className="primary mint" onClick={() => model.advanceToSuggestedLevel()}>Перейти на {next}</button>
-        <button className="secondary" onClick={() => model.dismissLevelUp()}>Позже</button>
+        <PrimaryButton tone="mint" onClick={() => model.advanceToSuggestedLevel()}>Перейти на {next}</PrimaryButton>
+        <SecondaryButton onClick={() => model.dismissLevelUp()}>Позже</SecondaryButton>
       </div>
     </div>
   )
 }
 
-/**
- * A unit on the route, open only when it is the one being walked.
- *
- * With thirty units of seventeen lessons the map became forty screens of mostly locked
- * rows — on a phone that is a wall, not a route. Collapsed units keep the whole level
- * visible at a glance and let the eye land on the one that is actually next.
- */
-function ChapterSection({ model, chapter, number }: { model: AppStore; chapter: Chapter; number: number }) {
+/** Open follows the learner by default; a tap overrides it until they tap again. */
+function ChapterBlock({ model, chapter, number }: { model: AppStore; chapter: Chapter; number: number }) {
   const done = chapter.lessons.filter((lesson) => model.completed.has(lesson.id)).length
   const isCurrent = chapter.lessons.some((lesson) => model.recommendedLesson?.id === lesson.id)
-  /* Open follows the learner by default; a tap overrides it until they tap again. */
   const [override, setOverride] = useState<boolean | null>(null)
   const open = override ?? isCurrent
 
   return (
-    <section className={`chapter${open ? '' : ' collapsed'}`}>
-      <h2 className="chapter-heading">
-        <button className="chapter-head" onClick={() => setOverride(!open)} aria-expanded={open}>
-          <span className="chapter-number">БЛОК {number}</span>
-          <span className="chapter-title">{chapter.title}</span>
-          <span className={`chapter-count${done === chapter.lessons.length ? ' done' : ''}`}>
-            {done} / {chapter.lessons.length}
-          </span>
-          <span className="chapter-caret">{open ? '⌃' : '⌄'}</span>
-        </button>
-      </h2>
-
-      {open && (
-        <>
-          {chapter.subtitle && <p className="chapter-subtitle">{chapter.subtitle}</p>}
-          {/* The unit says what it is for before it lists its lessons. */}
-          {(chapter.canDo ?? []).length > 0 && (
-            <ul className="chapter-cando">
-              {chapter.canDo!.map((item) => <li key={item}>{item}</li>)}
-            </ul>
-          )}
-          <div className="chapter-rule" />
-          {chapter.lessons.map((lesson, index) => (
-            <LessonRow
-              key={lesson.id}
-              model={model}
-              lesson={lesson}
-              first={index === 0}
-              last={index === chapter.lessons.length - 1}
-            />
-          ))}
-        </>
-      )}
-    </section>
-  )
-}
-
-function LessonRow({ model, lesson, first, last }: { model: AppStore; lesson: Lesson; first: boolean; last: boolean }) {
-  const state = lessonState(model, lesson)
-  const locked = state === 'locked'
-  const colors: Record<LessonState, string> = {
-    completed: 'var(--violet)', current: 'var(--amber)', available: 'var(--blue)', locked: 'rgba(31,28,64,0.28)',
-  }
-  const icons: Record<LessonState, string> = { completed: '✓', current: '▶', available: '📖', locked: '🔒' }
-  const status: Record<LessonState, string> = {
-    completed: 'пройден', current: 'продолжить', available: 'доступен', locked: 'откроется после предыдущего',
-  }
-  // A checkpoint is production only and gives no hints. Meeting it unannounced feels
-  // like a bug in the app rather than the point of the unit.
-  const isCheckpoint = lesson.kind === 'checkpoint'
-  const icon = isCheckpoint && state !== 'completed' && state !== 'locked' ? '🎯' : icons[state]
-  const meta = isCheckpoint && !locked ? 'проверка блока, без подсказок' : status[state]
-
-  return (
-    <button
-      className={`lesson${isCheckpoint ? ' checkpoint' : ''}`}
-      disabled={locked}
-      onClick={() => model.startLesson(lesson)}
+    <ChapterSection
+      number={number}
+      title={chapter.title}
+      subtitle={chapter.subtitle}
+      canDo={chapter.canDo}
+      done={done}
+      total={chapter.lessons.length}
+      open={open}
+      onToggle={() => setOverride(!open)}
     >
-      <span className={`rail${first ? ' first' : ''}${last ? ' last' : ''}${state === 'completed' ? ' done' : ''}`}>
-        <span className={`node${state === 'current' ? ' current' : ''}`} style={{ background: colors[state] }}>
-          {icon}
-        </span>
-      </span>
-      <span className="lesson-body">
-        <div className="lesson-title">{lesson.title}</div>
-        <div className="lesson-meta">{lesson.estimatedMinutes} мин · {meta}</div>
-      </span>
-      {state === 'current' && <span className="badge-now">СЕЙЧАС</span>}
-    </button>
+      {chapter.lessons.map((lesson, index) => (
+        <LessonRow
+          key={lesson.id}
+          title={lesson.title}
+          minutes={lesson.estimatedMinutes}
+          state={lessonState(model, lesson)}
+          checkpoint={lesson.kind === 'checkpoint'}
+          first={index === 0}
+          last={index === chapter.lessons.length - 1}
+          onStart={() => model.startLesson(lesson)}
+        />
+      ))}
+    </ChapterSection>
   )
 }
 
@@ -342,4 +245,3 @@ function lessonState(model: AppStore, lesson: Lesson): LessonState {
   if (model.recommendedLesson?.id === lesson.id) return 'current'
   return model.lessonIsUnlocked(lesson) ? 'available' : 'locked'
 }
-

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Typewriter } from './Typewriter'
+import { Typewriter } from '../kit'
 
 /**
  * The only real wait in this app is the first launch on a phone, before the service

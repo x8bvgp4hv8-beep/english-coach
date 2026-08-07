@@ -1,8 +1,17 @@
 /**
- * Three themes, one token contract. Everything below this block is written against the
- * tokens, so a theme is a set of values rather than a second stylesheet — and the two
- * that differ structurally (a cartoon needs weight, a minimal needs none) say so through
- * border width, radius and shadow, not through extra rules.
+ * The app's own stylesheet: screen layout, screens that are not part of the kit, and
+ * the two alternative themes.
+ *
+ * The design system itself — the token contract and every component rule — lives in
+ * `src/kit/kit.css` and is imported first. Anything added here should be a screen, not
+ * a component: a rule that belongs to a reusable part belongs in the kit.
+ */
+@import './kit/kit.css';
+
+/**
+ * Two more themes over the same token contract. A theme is a set of values rather than
+ * a second stylesheet, and the one that differs structurally (a cartoon needs weight)
+ * says so through border width, radius and shadow, not through extra rules.
  *
  * `--tap` and the spacing scale never change: the layout is the same app in every skin.
  */
@@ -33,39 +42,6 @@
   --shadow-btn: 0 5px 0 var(--border-col);
   --shadow-btn-active: 0 1px 0 var(--border-col);
   --press-y: 4px;
-  --display-w: 800;
-  --tap: 48px;
-}
-
-/* The default: chosen for daily use, the other two are a tap away in settings. */
-:root,
-:root[data-theme='minimal'] {
-  color-scheme: light;
-  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
-  --bg: #fbfbfd;
-  --ink: #14121f;
-  --ink-soft: #86839a;
-  --accent: #14121f;
-  --accent-soft: rgba(20, 18, 31, 0.06);
-  --accent-fg: #ffffff;
-  --btn-fill: #14121f;
-  --violet: #6f6ae0;
-  --blue: #3f96d0;
-  --amber: #e59a2b;
-  --mint: #46b184;
-  --coral: #e2705b;
-  --surface: rgba(251, 251, 253, 0.86);
-  --surface-solid: #ffffff;
-  --hairline: rgba(20, 18, 31, 0.1);
-  --track: rgba(20, 18, 31, 0.08);
-  --radius: 14px;
-  --radius-btn: 13px;
-  --border-w: 1px;
-  --border-col: rgba(20, 18, 31, 0.12);
-  --shadow-card: none;
-  --shadow-btn: none;
-  --shadow-btn-active: none;
-  --press-y: 0px;
   --display-w: 800;
   --tap: 48px;
 }
@@ -140,22 +116,9 @@
   --shadow-btn-active: 0 6px 16px rgba(226, 96, 58, 0.38);
 }
 
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
+/* The app shell. The reset and the base type live in the kit. */
 html, body, #root { height: 100%; }
-
-body {
-  margin: 0;
-  font-family: var(--font);
-  color: var(--ink);
-  background: var(--bg);
-  background-attachment: fixed;
-  -webkit-font-smoothing: antialiased;
-  overscroll-behavior-y: none;
-}
-
-button, input { font: inherit; color: inherit; }
-button { cursor: pointer; border: none; background: none; }
+body { background-attachment: fixed; overscroll-behavior-y: none; }
 
 .app {
   display: flex;
@@ -182,104 +145,9 @@ button { cursor: pointer; border: none; background: none; }
 .icon-button { min-width: var(--tap); min-height: var(--tap); display: grid; place-items: center; font-size: 20px; color: var(--ink-soft); }
 
 .meters { display: flex; gap: 16px; margin-top: 12px; }
-.meter { flex: 1; }
-.meter-row { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--ink-soft); margin-bottom: 5px; }
-.meter-value { font-variant-numeric: tabular-nums; }
-.bar { height: 6px; border-radius: 999px; background: var(--track); overflow: hidden; }
-.bar > span { display: block; height: 100%; border-radius: 999px; transition: width 220ms cubic-bezier(0.22, 1, 0.36, 1); }
-
-/* Action cards */
-.action {
-  display: flex; align-items: center; gap: 13px; width: 100%; text-align: left;
-  padding: 14px; margin-top: 12px; border-radius: var(--radius);
-  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
-  box-shadow: var(--shadow-card);
-  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
-}
-.action:active { transform: translateY(var(--press-y)) scale(0.995); box-shadow: var(--shadow-btn-active); }
-.action-icon { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; font-size: 20px; color: #fff; flex: none; }
-.action-body { min-width: 0; flex: 1; }
-.action-kicker { font-size: 9px; font-weight: 800; letter-spacing: 1.1px; }
-.action-title { font-size: 16px; font-weight: 700; margin: 2px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.action-subtitle { font-size: 11px; color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.action-chevron { color: var(--ink-soft); font-size: 18px; }
-
-/* Named sections of the main screen */
-.section-title { margin: 26px 0 2px; }
-.section-title h2 { font-size: 13px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; margin: 0; color: var(--ink); }
-.section-title p { font-size: 12px; color: var(--ink-soft); margin: 3px 0 0; line-height: 1.35; }
-
-/* A section that has nothing in it yet, explaining why rather than showing zeros. */
-.empty-note {
-  margin-top: 10px; padding: 14px 16px; border-radius: var(--radius);
-  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
-  font-size: 13px; line-height: 1.45; color: var(--ink-soft);
-}
-
-/* A dialogue: the first step of a unit, heard whole before it is taken apart. */
-.dialogue { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; text-align: left; }
-.dialogue-line { padding-left: 10px; border-left: 2px solid var(--accent-soft); }
-.dialogue-speaker { display: block; font-size: 10px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: var(--accent); }
-.dialogue-text { font-size: 17px; font-weight: 600; line-height: 1.35; margin-top: 2px; }
-.dialogue-translation { font-size: 13px; color: var(--ink-soft); line-height: 1.35; margin-top: 3px; }
-.speak.small { min-width: 28px; min-height: 28px; font-size: 13px; margin-left: 6px; vertical-align: middle; }
-
-/* Kinds of practice */
-.kinds {
-  margin-top: 10px; background: var(--surface-solid); border-radius: var(--radius); overflow: hidden;
-  border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
-}
-.kind { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; min-height: 60px; padding: 10px 14px; border-bottom: 1px solid var(--hairline); }
-.kind:last-child { border-bottom: none; }
-.kind:active:not(:disabled) { background: var(--accent-soft); }
-.kind:disabled { opacity: 0.4; }
-.kind-icon { width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; font-size: 17px; flex: none; }
-.kind-body { flex: 1; min-width: 0; }
-.kind-title { display: block; font-size: 15px; font-weight: 650; }
-.kind-subtitle { display: block; font-size: 11px; color: var(--ink-soft); }
-.kind-count { font-size: 13px; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-
-/* Chapters and lessons */
-.chapter { margin-top: 26px; }
-/* Collapsed units are a scannable list, so 30 of them read as a table of contents
-   rather than as forty screens of padlocks. */
-.chapter.collapsed { margin-top: 0; border-bottom: 1px solid var(--hairline); }
-.chapter-heading { margin: 0; font: inherit; }
-.chapter-head {
-  display: flex; align-items: baseline; gap: 8px;
-  width: 100%; text-align: left; background: none; border: 0; padding: 0; font: inherit; color: inherit;
-}
-.chapter.collapsed .chapter-head { padding: 13px 0; }
-.chapter.collapsed .chapter-head:active { background: var(--accent-soft); }
-.chapter-number { font-size: 10px; font-weight: 800; letter-spacing: 1.2px; color: var(--accent); }
-.chapter.collapsed .chapter-number { color: var(--ink-soft); }
-.chapter-title { font-size: 16px; font-weight: var(--display-w); margin: 0; }
-.chapter.collapsed .chapter-title { font-size: 14px; font-weight: 600; }
-.chapter-count { margin-left: auto; font-size: 11px; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-.chapter-count.done { color: var(--mint); }
-.chapter-caret { font-size: 12px; color: var(--ink-soft); width: 10px; text-align: center; }
-.chapter-subtitle { font-size: 12px; color: var(--ink-soft); margin: 3px 0 0; }
-.chapter-rule { height: 1px; background: var(--hairline); margin-top: 10px; }
-
-.lesson { display: flex; align-items: stretch; gap: 12px; width: 100%; text-align: left; border-radius: 12px; }
-.lesson:active:not(:disabled) { background: var(--accent-soft); }
-.lesson:disabled { opacity: 0.55; }
-.rail { position: relative; width: 30px; flex: none; display: grid; place-items: center; }
-.rail::before, .rail::after { content: ''; position: absolute; left: 50%; width: 2px; transform: translateX(-50%); background: var(--track); }
-.rail::before { top: 0; height: 50%; }
-.rail::after { bottom: 0; height: 50%; }
-.rail.first::before, .rail.last::after { background: transparent; }
-.rail.done::before, .rail.done::after { background: color-mix(in srgb, var(--accent) 45%, transparent); }
-.node { position: relative; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; color: #fff; }
-.node.current { width: 30px; height: 30px; box-shadow: 0 3px 10px rgba(255, 171, 56, 0.5); }
-.lesson-body { flex: 1; min-width: 0; padding: 11px 0; }
-.lesson-title { font-size: 15px; font-weight: 650; margin: 0; }
-.lesson-meta { font-size: 11px; color: var(--ink-soft); margin: 2px 0 0; }
-.badge-now { align-self: center; font-size: 9px; font-weight: 800; letter-spacing: 0.8px; color: #fff; background: var(--amber); padding: 4px 8px; border-radius: 999px; }
 
 .link-button { display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap); color: var(--accent); font-weight: 650; font-size: 14px; }
 
-/* Buttons */
 /* Loading */
 /* Its own height: `.app` only sets a min-height, so `flex: 1` alone leaves the
    splash hanging at the top of the screen. */
@@ -296,50 +164,7 @@ button { cursor: pointer; border: none; background: none; }
 }
 .loading-title { font-size: 17px; font-weight: var(--display-w); letter-spacing: -0.01em; }
 .loading-line { min-height: 22px; font-size: 14px; color: var(--ink-soft); text-align: center; }
-.typewriter { display: inline-flex; align-items: baseline; }
-.caret {
-  display: inline-block; width: 2px; height: 1em; margin-left: 3px; border-radius: 1px;
-  background: var(--accent); animation: caret-blink 1s steps(2, start) infinite;
-}
-@keyframes caret-blink { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
 
-/**
- * The main action carries a gradient and a sheen that sweeps once on press.
- * The reference put pastels behind dark text on a black page; on this light page the
- * same pastels would sink into the background, so the gradient is saturated and the
- * label is white. Verdict buttons keep their flat semantic colour: green means
- * "counted", and a rainbow would stop meaning anything.
- */
-.primary {
-  position: relative; overflow: hidden;
-  width: 100%; min-height: var(--tap); border-radius: var(--radius-btn);
-  color: var(--accent-fg); font-weight: 700; font-size: 16px;
-  background: var(--btn-fill); border: var(--border-w) solid var(--border-col);
-  box-shadow: var(--shadow-btn);
-  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
-}
-.primary::after {
-  content: ''; position: absolute; top: 0; bottom: 0; width: 45%; left: -60%;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.38), transparent);
-  transform: skewX(-18deg);
-}
-/* The press is physical where the theme is physical: the cartoon button sinks onto its
-   own bottom edge, the flat themes only settle. */
-.primary:active { transform: translateY(var(--press-y)) scale(0.99); box-shadow: var(--shadow-btn-active); }
-.primary:active::after { animation: sheen 620ms cubic-bezier(0.22, 1, 0.36, 1); }
-.primary:disabled { opacity: 0.45; box-shadow: none; }
-.primary:disabled::after { content: none; }
-.primary.mint { background: var(--mint); }
-@keyframes sheen { from { left: -60%; } to { left: 115%; } }
-@media (prefers-reduced-motion: reduce) { .primary::after { content: none; } }
-.secondary {
-  width: 100%; min-height: var(--tap); border-radius: var(--radius-btn); font-weight: 650;
-  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
-  box-shadow: var(--shadow-card);
-  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
-}
-.secondary:active { transform: translateY(var(--press-y)); box-shadow: var(--shadow-btn-active); }
 .quiet { min-height: var(--tap); color: var(--ink-soft); font-size: 14px; }
 
 /* Onboarding and generic centred screens */
@@ -352,30 +177,6 @@ button { cursor: pointer; border: none; background: none; }
   border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
 }
 .stack { display: flex; flex-direction: column; gap: 10px; }
-.choices { display: flex; flex-direction: column; gap: 10px; }
-/**
- * A picked answer is a state, not a second action. Filling it with the accent made it
- * weigh the same as the button below it, and the eye could not tell which one to press.
- * Selection is marked with a tint, a firm border and a tick; solid accent is reserved
- * for the one thing that submits.
- */
-.choice {
-  position: relative;
-  width: 100%; min-height: var(--tap); padding: 0 40px; border-radius: var(--radius-btn); font-weight: 650; font-size: 16px;
-  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
-  transition: border-color 160ms ease-out, background-color 160ms ease-out;
-}
-.choice.selected { background: var(--accent-soft); border-color: var(--accent); font-weight: 700; }
-.choice.selected::after {
-  content: '✓'; position: absolute; right: 15px; top: 50%; transform: translateY(-50%);
-  font-size: 15px; font-weight: 800; color: var(--accent);
-}
-.pills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-.pill {
-  min-width: 60px; min-height: var(--tap); padding: 0 14px; border-radius: var(--radius-btn); font-weight: 800;
-  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
-}
-.pill.selected { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 .big-level { font-size: 54px; font-weight: var(--display-w); color: var(--accent); line-height: 1; }
 
 /* Lesson player */
@@ -388,48 +189,16 @@ button { cursor: pointer; border: none; background: none; }
   border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
 }
 
-/* Motion carries state: the next exercise arrives from the side, the verdict rises
-   under it, a chosen word snaps into the tray. Nothing animates for decoration. */
+/* The next exercise arrives from the side. Nothing animates for decoration. */
 .card { animation: card-in 280ms cubic-bezier(0.22, 1, 0.36, 1) both; }
 @keyframes card-in { from { opacity: 0; transform: translate3d(30px, 0, 0); } to { opacity: 1; transform: none; } }
-.feedback { animation: rise-in 240ms cubic-bezier(0.22, 1, 0.36, 1) both; }
-@keyframes rise-in { from { opacity: 0; transform: translate3d(0, 12px, 0); } to { opacity: 1; transform: none; } }
-.token.picked { animation: token-pop 200ms cubic-bezier(0.22, 1, 0.36, 1); }
-@keyframes token-pop { from { transform: scale(0.84); } to { transform: none; } }
-@media (prefers-reduced-motion: reduce) {
-  .card, .feedback, .token.picked { animation: none; }
-}
+@media (prefers-reduced-motion: reduce) { .card { animation: none; } }
+
 .exercise-kind { font-size: 10px; font-weight: 800; letter-spacing: 1.2px; color: var(--accent); text-align: center; }
 .exercise-title { font-size: 22px; font-weight: var(--display-w); text-align: center; margin: 10px 0 0; letter-spacing: -0.02em; }
 .exercise-prompt { font-size: 24px; font-weight: var(--display-w); text-align: center; margin: 10px 0 0; letter-spacing: -0.02em; line-height: 1.22; }
 .exercise-explanation { font-size: 16px; line-height: 1.5; margin: 12px 0 0; }
 .exercise-hint { font-size: 13px; color: var(--ink-soft); margin: 12px 0 0; text-align: center; }
-.answer-field {
-  width: 100%; min-height: var(--tap); margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-btn);
-  border: var(--border-w) solid var(--border-col); background: var(--surface-solid); font-size: 17px;
-}
-.answer-field:focus { outline: none; border-color: var(--accent); }
-.tokens { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.token {
-  min-height: 40px; padding: 0 13px; border-radius: 999px; font-weight: 650;
-  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
-}
-.token.picked { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
-.token.used { opacity: 0.25; }
-.token-tray {
-  min-height: 54px; border-radius: var(--radius-btn); background: var(--accent-soft); padding: 8px; margin-top: 12px;
-  display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start;
-}
-.token-tray .placeholder { color: var(--ink-soft); font-size: 13px; padding: 8px 4px; }
-.speak { min-width: 40px; min-height: 40px; border-radius: 50%; background: color-mix(in srgb, var(--blue) 18%, transparent); color: var(--blue); font-size: 17px; }
-
-.feedback { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--hairline); text-align: center; }
-.feedback-title { font-size: 17px; font-weight: 800; }
-.feedback.correct .feedback-title { color: var(--mint); }
-.feedback.wrong .feedback-title { color: var(--amber); }
-.feedback-note { font-size: 14px; color: var(--ink-soft); margin-top: 6px; line-height: 1.4; }
-.feedback-answer { font-size: 15px; margin-top: 6px; font-weight: 650; }
-.feedback-diff { font-size: 13px; margin-top: 6px; color: var(--amber); }
 
 /* Shadowing */
 .listen-row { display: flex; gap: 8px; margin-top: 18px; }
@@ -509,38 +278,7 @@ button { cursor: pointer; border: none; background: none; }
 .theme-name { display: block; font-size: 13px; font-weight: 700; }
 .theme-note { display: block; font-size: 10px; color: var(--ink-soft); line-height: 1.3; margin-top: 2px; }
 
-/* Progress as ability: what the learner can already say, not a percentage. */
-.abilities { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
-.ability {
-  font-size: 12.5px; line-height: 1.25; padding: 7px 11px; border-radius: 999px;
-  border: var(--border-w) solid var(--border-col); background: var(--surface-solid);
-}
-.ability.done { color: var(--ink); border-color: color-mix(in srgb, var(--mint) 45%, transparent); }
-.ability.next { color: var(--ink-soft); opacity: 0.75; }
-.abilities-note { font-size: 11.5px; color: var(--ink-soft); margin: 8px 0 0; line-height: 1.35; }
-.chapter-cando { margin: 6px 0 0; padding-left: 18px; }
-.chapter-cando li { font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; }
-
-/* Grammar topics */
-.topic {
-  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; margin-top: 10px;
-  padding: 13px 14px; border-radius: var(--radius);
-  background: var(--surface-solid); border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
-  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
-}
-.topic:active:not(:disabled) { transform: translateY(var(--press-y)); box-shadow: var(--shadow-btn-active); }
-/* Not yet reached by the lessons: a statement, not a button. */
-.topic:disabled { opacity: 0.45; box-shadow: none; }
-.topic-body { flex: 1; min-width: 0; }
-.topic-head { display: flex; align-items: baseline; gap: 8px; }
-.topic-title { font-size: 15px; font-weight: 700; }
-.topic-score { margin-left: auto; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
-.topic-summary { display: block; font-size: 12px; color: var(--ink-soft); line-height: 1.35; margin-top: 2px; }
-.topic-bar { margin-top: 8px; }
-.topic-meta { display: block; font-size: 11px; color: var(--ink-soft); margin-top: 6px; }
-.topic-go { color: var(--ink-soft); font-size: 12px; }
-
-/* Language picker and the chip that opens it */
+/* The chip in the header that opens the language picker */
 .lang-chip {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 10px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
@@ -552,6 +290,7 @@ button { cursor: pointer; border: none; background: none; }
 }
 .lang-chip-caret { font-size: 12px; letter-spacing: 0; opacity: 0.7; }
 
+/* The language picker screen. The cards themselves are in the kit. */
 .lang-screen { padding-top: 8px; }
 .lang-intro { text-align: center; padding: 26px 6px 10px; display: grid; gap: 10px; justify-items: center; }
 .lang-intro h1 { font-size: 26px; font-weight: var(--display-w); margin: 0; }
@@ -559,32 +298,6 @@ button { cursor: pointer; border: none; background: none; }
 
 .lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0 14px; }
 @media (max-width: 340px) { .lang-grid { grid-template-columns: 1fr; } }
-
-.lang-card {
-  --card: var(--accent);
-  display: grid; gap: 2px; justify-items: start; text-align: left;
-  padding: 16px 14px 14px; border-radius: var(--radius);
-  background: var(--surface-solid); border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
-  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
-}
-.lang-card:active { transform: translateY(var(--press-y)); box-shadow: var(--shadow-btn-active); }
-.lang-card.current { border-color: var(--card); background: color-mix(in srgb, var(--card) 8%, var(--surface-solid)); }
-/* Fixed, not themed: each card wears its own language's colour whichever one is active. */
-.lang-card.en { --card: #6f6ae0; }
-.lang-card.es { --card: #c9502c; }
-
-.lang-short {
-  font-size: 10px; font-weight: 800; letter-spacing: 1px;
-  padding: 3px 7px; border-radius: 6px; color: #fff; background: var(--card);
-}
-.lang-greeting { font-size: 22px; font-weight: var(--display-w); color: var(--card); margin-top: 10px; line-height: 1.1; }
-.lang-name { font-size: 16px; font-weight: 700; margin-top: 6px; }
-.lang-native { font-size: 12px; color: var(--ink-soft); }
-.lang-note { font-size: 11px; color: var(--ink-soft); line-height: 1.35; margin-top: 8px; }
-.lang-state {
-  margin-top: 10px; font-size: 10px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase;
-  color: var(--card);
-}
 
 /* A waiting version, seen only mid-exercise: everywhere else it applies itself. */
 .update-bar {
@@ -594,22 +307,5 @@ button { cursor: pointer; border: none; background: none; }
   border-bottom: 1px solid var(--hairline);
 }
 
-/* The checkpoint that closes a unit reads as a different kind of thing. */
-.lesson.checkpoint .lesson-title { font-weight: 750; }
-.lesson.checkpoint .lesson-meta { color: var(--accent); }
-
 /* What a level actually contains, under the picker that chooses it. */
 .level-size { font-size: 12px; color: var(--ink-soft); margin: 10px 0 0; }
-
-/* Progress is no longer being written. Loud on purpose. */
-.alert-bar {
-  display: flex; align-items: center; gap: 10px;
-  width: 100%; padding: 10px 18px;
-  font-size: 12px; font-weight: 650; line-height: 1.35;
-  color: #fff; background: var(--coral);
-}
-.alert-bar button {
-  margin-left: auto; flex: none;
-  font: inherit; color: var(--coral); background: #fff;
-  border: 0; border-radius: 999px; padding: 5px 12px;
-}

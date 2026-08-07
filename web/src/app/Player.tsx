@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react'
 import { useStore } from './App'
 import { speak } from './speech'
 import { diffSummary } from '../core'
+import {
+  AnswerField, Choice, ChoiceList, Dialogue, Feedback, Pill, PrimaryButton, SecondaryButton, WordOrderTray,
+} from '../kit'
 import type { DialogueLine, ExerciseType, LearningLanguage, WordDiff } from '../core'
 
 /** The translate label names the target language, so it is built per language. */
@@ -18,14 +21,8 @@ const kindLabel = (type: ExerciseType, language: LearningLanguage, recall: boole
   }[type]
 }
 
-/**
- * The first step of a unit: hear the language whole before touching a word of it.
- *
- * Every exercise in the course used to be a standalone sentence — the app never showed
- * two people talking to each other, which is the only place language actually lives.
- * Babbel builds its whole method on the dialogue; this is ours.
- */
-function Dialogue({ lines }: { lines: DialogueLine[] }) {
+/** Reads the exchange line by line, waiting for each one to finish before the next. */
+function DialoguePlayer({ lines }: { lines: DialogueLine[] }) {
   const [playing, setPlaying] = useState(false)
 
   const playAll = () => {
@@ -37,25 +34,7 @@ function Dialogue({ lines }: { lines: DialogueLine[] }) {
     next(0)
   }
 
-  return (
-    <>
-      <div className="dialogue">
-        {lines.map((line, index) => (
-          <div className="dialogue-line" key={index}>
-            <span className="dialogue-speaker">{line.speaker}</span>
-            <div className="dialogue-text">
-              {line.text}
-              <button className="speak small" onClick={() => speak(line.text)} aria-label="Произнести">🔊</button>
-            </div>
-            <div className="dialogue-translation">{line.translation}</div>
-          </div>
-        ))}
-      </div>
-      <button className="secondary" disabled={playing} onClick={playAll} style={{ marginTop: 14 }}>
-        {playing ? 'Читаю…' : 'Прочитать вслух целиком'}
-      </button>
-    </>
-  )
+  return <Dialogue lines={lines} onSpeak={(text) => speak(text)} onPlayAll={playAll} playing={playing} />
 }
 
 export function Player() {
@@ -81,10 +60,10 @@ export function Player() {
         <h1>Готово!</h1>
         <p>Ещё один реальный шаг в {model.currentLanguage.locative}.</p>
         <div className="pills">
-          <span className="pill">✦ {model.totalPoints}</span>
-          <span className="pill">🔥 {model.streak()}</span>
+          <Pill>✦ {model.totalPoints}</Pill>
+          <Pill>🔥 {model.streak()}</Pill>
         </div>
-        <button className="primary" onClick={() => model.closeLesson()}>Вернуться на маршрут</button>
+        <PrimaryButton onClick={() => model.closeLesson()}>Вернуться на маршрут</PrimaryButton>
       </div>
     )
   }
@@ -123,7 +102,7 @@ export function Player() {
             </div>
           )}
 
-          {exercise.type === 'dialogue' && <Dialogue lines={exercise.lines ?? []} />}
+          {exercise.type === 'dialogue' && <DialoguePlayer lines={exercise.lines ?? []} />}
 
           {exercise.type === 'info' && <p className="exercise-explanation">{exercise.explanation}</p>}
 
@@ -144,139 +123,106 @@ export function Player() {
           )}
 
           {exercise.type === 'translate' && (
-            <input
-              className="answer-field"
+            <AnswerField
               value={answer}
               placeholder="Напиши перевод…"
-              autoCapitalize="off"
-              autoCorrect="off"
-              spellCheck={false}
               disabled={feedback !== null}
-              onChange={(event) => setAnswer(event.target.value)}
-              onKeyDown={(event) => { if (event.key === 'Enter' && answer.trim()) model.submitText(answer) }}
+              onChange={setAnswer}
+              onSubmit={(value) => model.submitText(value)}
             />
           )}
 
           {exercise.type === 'word_order' && (
-            <>
-              <div className="token-tray">
-                {picked.length === 0 && <span className="placeholder">Нажимай на слова, чтобы собрать фразу</span>}
-                {picked.map((index, position) => (
-                  <button
-                    key={`${index}-${position}`}
-                    className="token picked"
-                    disabled={feedback !== null}
-                    onClick={() => setPicked(picked.filter((_, i) => i !== position))}
-                  >
-                    {tokens[index]}
-                  </button>
-                ))}
-              </div>
-              <div className="tokens">
-                {tokens.map((token, index) => (
-                  <button
-                    key={`${token}-${index}`}
-                    className={`token${picked.includes(index) ? ' used' : ''}`}
-                    disabled={picked.includes(index) || feedback !== null}
-                    onClick={() => setPicked([...picked, index])}
-                  >
-                    {token}
-                  </button>
-                ))}
-              </div>
-            </>
+            <WordOrderTray
+              tokens={tokens}
+              picked={picked}
+              disabled={feedback !== null}
+              onPick={(index) => setPicked([...picked, index])}
+              onUnpick={(position) => setPicked(picked.filter((_, i) => i !== position))}
+            />
           )}
 
           {exercise.type === 'multiple_choice' && (
-            <div className="choices" style={{ marginTop: 14 }}>
-              {(exercise.options ?? []).map((value) => (
-                <button
-                  key={value}
-                  className={`choice${option === value ? ' selected' : ''}`}
-                  disabled={feedback !== null}
-                  onClick={() => setOption(value)}
-                >
-                  {value}
-                </button>
-              ))}
+            <div style={{ marginTop: 14 }}>
+              <ChoiceList>
+                {(exercise.options ?? []).map((value) => (
+                  <Choice
+                    key={value}
+                    selected={option === value}
+                    disabled={feedback !== null}
+                    onSelect={() => setOption(value)}
+                  >
+                    {value}
+                  </Choice>
+                ))}
+              </ChoiceList>
             </div>
           )}
 
           {exercise.hint && !feedback && <p className="exercise-hint">💡 {exercise.hint}</p>}
 
           {feedback && (
-            <div className={`feedback ${feedback.isCorrect ? 'correct' : 'wrong'}`}>
-              <div className="feedback-title">
-                {feedback.verdict === 'correct' ? 'Отлично!' : feedback.verdict === 'typo' ? 'Почти! Засчитано' : 'Пока не так'}
-              </div>
-              {feedback.verdict === 'typo' && feedback.typo && (
-                <div className="feedback-note">
-                  {feedback.typo === feedback.canonical
-                    ? `Не хватает ударений: правильно «${feedback.typo}»`
-                    : `Опечатка: правильно пишется «${feedback.typo}»`}
-                </div>
-              )}
-              {feedback.verdict === 'wrong' && (
-                <>
-                  <div className="feedback-answer">{feedback.canonical}</div>
-                  {mistakeHint(feedback.diff) && <div className="feedback-diff">{mistakeHint(feedback.diff)}</div>}
-                </>
-              )}
-            </div>
+            <Feedback
+              verdict={feedback.verdict}
+              note={feedback.verdict === 'typo' && feedback.typo
+                ? feedback.typo === feedback.canonical
+                  ? `Не хватает ударений: правильно «${feedback.typo}»`
+                  : `Опечатка: правильно пишется «${feedback.typo}»`
+                : undefined}
+              answer={feedback.canonical}
+              diff={mistakeHint(feedback.diff) ?? undefined}
+            />
           )}
         </div>
       </div>
 
       <div className="player-actions">
         {!feedback && exercise.type === 'dialogue' && (
-          <button className="primary" onClick={() => model.completePassive()}>Дальше</button>
+          <PrimaryButton onClick={() => model.completePassive()}>Дальше</PrimaryButton>
         )}
         {!feedback && exercise.type === 'info' && (
-          <button className="primary" onClick={() => model.completePassive()}>Понятно</button>
+          <PrimaryButton onClick={() => model.completePassive()}>Понятно</PrimaryButton>
         )}
         {!feedback && exercise.type === 'flashcard' && !recall && (
-          <button className="primary" onClick={() => model.completePassive()}>Запомнил</button>
+          <PrimaryButton onClick={() => model.completePassive()}>Запомнил</PrimaryButton>
         )}
         {!feedback && exercise.type === 'flashcard' && recall && !revealed && (
-          <button
-            className="primary"
-            onClick={() => { setRevealed(true); if (exercise.prompt) speak(exercise.prompt) }}
-          >
+          <PrimaryButton onClick={() => { setRevealed(true); if (exercise.prompt) speak(exercise.prompt) }}>
             Показать
-          </button>
+          </PrimaryButton>
         )}
         {/* Nobody but the learner knows whether the word actually came to mind, and an
             honest "нет" is what puts the card back into tomorrow's queue. */}
         {!feedback && exercise.type === 'flashcard' && recall && revealed && (
           <div className="row">
-            <button className="secondary" onClick={() => model.selfAssess(false)}>Не вспомнил</button>
-            <button className="primary mint" onClick={() => model.selfAssess(true)}>Вспомнил</button>
+            <SecondaryButton onClick={() => model.selfAssess(false)}>Не вспомнил</SecondaryButton>
+            <PrimaryButton tone="mint" onClick={() => model.selfAssess(true)}>Вспомнил</PrimaryButton>
           </div>
         )}
         {!feedback && exercise.type === 'translate' && (
-          <button className="primary" disabled={!answer.trim()} onClick={() => model.submitText(answer)}>Проверить</button>
+          <PrimaryButton disabled={!answer.trim()} onClick={() => model.submitText(answer)}>Проверить</PrimaryButton>
         )}
         {!feedback && exercise.type === 'word_order' && (
           <div className="row">
-            <button className="secondary" disabled={picked.length === 0} onClick={() => setPicked([])}>Очистить</button>
-            <button className="primary" disabled={picked.length === 0} onClick={() => model.submitText(picked.map((i) => tokens[i]).join(' '))}>
+            <SecondaryButton disabled={picked.length === 0} onClick={() => setPicked([])}>Очистить</SecondaryButton>
+            <PrimaryButton disabled={picked.length === 0} onClick={() => model.submitText(picked.map((i) => tokens[i]).join(' '))}>
               Проверить
-            </button>
+            </PrimaryButton>
           </div>
         )}
         {!feedback && exercise.type === 'multiple_choice' && (
-          <button className="primary" disabled={option === null} onClick={() => model.submitChoice(option!)}>Проверить</button>
+          <PrimaryButton disabled={option === null} onClick={() => model.submitChoice(option!)}>Проверить</PrimaryButton>
         )}
 
         {feedback && (
           <>
             <div className="row">
               {!feedback.isCorrect && !model.session.retryUsed && (
-                <button className="secondary" onClick={() => { setAnswer(''); setPicked([]); setOption(null); model.retry() }}>
+                <SecondaryButton onClick={() => { setAnswer(''); setPicked([]); setOption(null); model.retry() }}>
                   Ещё раз
-                </button>
+                </SecondaryButton>
               )}
-              <button className={`primary${feedback.isCorrect ? ' mint' : ''}`} onClick={() => model.advance()}>Дальше</button>
+              <PrimaryButton tone={feedback.isCorrect ? 'mint' : 'accent'} onClick={() => model.advance()}>Дальше</PrimaryButton>
             </div>
             {feedback.verdict === 'wrong' && canOverrule && (
               <button className="quiet" onClick={() => model.markLastAnswerCorrect()}>Мой ответ тоже верный</button>

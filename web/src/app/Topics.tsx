@@ -1,5 +1,6 @@
 import { useStore } from './App'
 import { ENOUGH_ATTEMPTS } from '../core'
+import { SectionTitle, TopicRow } from '../kit'
 import type { TopicProgress } from '../core'
 
 /**
@@ -18,6 +19,20 @@ export function Topics() {
   const early = all.filter((item) => item.attempts > 0 && item.attempts < ENOUGH_ATTEMPTS)
   const known = all.filter((item) => item.attempts >= ENOUGH_ATTEMPTS && !weakIDs.has(item.topic.id))
 
+  const row = (item: TopicProgress) => (
+    <TopicRow
+      key={item.topic.id}
+      title={item.topic.title}
+      summary={item.topic.summary}
+      level={item.topic.level}
+      attempts={item.attempts}
+      correct={item.correct}
+      accuracy={item.accuracy}
+      exercises={item.exercises}
+      onClick={() => model.startTopicPractice(item.topic.id)}
+    />
+  )
+
   return (
     <>
       <header className="header">
@@ -31,71 +46,38 @@ export function Topics() {
       <div className="scroll">
         {weak.length > 0 && (
           <>
-            <div className="section-title" style={{ marginTop: 18 }}>
-              <h2>Проседает</h2>
-              <p>Считается по твоим ответам: тема попадает сюда после {ENOUGH_ATTEMPTS} попыток.</p>
-            </div>
-            {weak.map((item) => <TopicRow key={item.topic.id} item={item} />)}
+            <SectionTitle hint={`Считается по твоим ответам: тема попадает сюда после ${ENOUGH_ATTEMPTS} попыток.`}>
+              Проседает
+            </SectionTitle>
+            {weak.map(row)}
           </>
         )}
 
         {known.length > 0 && (
           <>
-            <div className="section-title"><h2>Держится</h2></div>
-            {known.map((item) => <TopicRow key={item.topic.id} item={item} />)}
+            <SectionTitle>Держится</SectionTitle>
+            {known.map(row)}
           </>
         )}
 
         {early.length > 0 && (
           <>
-            <div className="section-title">
-              <h2>Мало попыток</h2>
-              <p>Пара ответов ещё ничего не доказывает, вывода по ним нет.</p>
-            </div>
-            {early.map((item) => <TopicRow key={item.topic.id} item={item} />)}
+            <SectionTitle hint="Пара ответов ещё ничего не доказывает, вывода по ним нет.">
+              Мало попыток
+            </SectionTitle>
+            {early.map(row)}
           </>
         )}
 
         {untouched.length > 0 && (
           <>
-            <div className="section-title">
-              <h2>Ещё не трогал</h2>
-              <p>{untouched.length} тем ждут первого захода.</p>
-            </div>
-            {untouched.map((item) => <TopicRow key={item.topic.id} item={item} />)}
+            <SectionTitle hint={`${untouched.length} тем ждут первого захода.`}>
+              Ещё не трогал
+            </SectionTitle>
+            {untouched.map(row)}
           </>
         )}
       </div>
     </>
-  )
-}
-
-function TopicRow({ item }: { item: TopicProgress }) {
-  const model = useStore()
-  const seen = item.attempts > 0
-  const percent = Math.round(item.accuracy * 100)
-  const tone = !seen ? 'var(--ink-soft)' : percent < 60 ? 'var(--coral)' : percent < 75 ? 'var(--amber)' : 'var(--mint)'
-  // A topic the course has not reached yet has nothing to drill: the row states that
-  // instead of being a button that does nothing when tapped.
-  const locked = item.exercises === 0
-
-  return (
-    <button className="topic" disabled={locked} onClick={() => model.startTopicPractice(item.topic.id)}>
-      <span className="topic-body">
-        <span className="topic-head">
-          <span className="topic-title">{item.topic.title}</span>
-          <span className="topic-score" style={{ color: tone }}>
-            {seen ? `${percent}%` : locked ? 'дальше' : `${item.exercises} упр.`}
-          </span>
-        </span>
-        <span className="topic-summary">{item.topic.summary}</span>
-        <span className="bar topic-bar">
-          <span style={{ width: `${seen ? Math.max(4, percent) : 0}%`, background: tone }} />
-        </span>
-        {seen && <span className="topic-meta">{item.correct} из {item.attempts} верно · {item.topic.level}</span>}
-        {!seen && locked && <span className="topic-meta">откроется, когда до неё дойдут уроки</span>}
-      </span>
-      <span className="topic-go">{locked ? '·' : '▶'}</span>
-    </button>
   )
 }

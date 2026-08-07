@@ -1,6 +1,7 @@
 import { useStore } from './App'
 import { LANGUAGES, localProgressStore } from '../core'
-import type { LanguageCode, LearningLanguage } from '../core'
+import { LanguageCard } from '../kit'
+import type { LanguageCode } from '../core'
 
 /**
  * The first screen, and the only place the two halves of the app meet.
@@ -34,15 +35,28 @@ export function LanguagePicker({ onBack }: { onBack?: () => void }) {
         )}
 
         <div className="lang-grid">
-          {LANGUAGES.map((language) => (
-            <LanguageCard
-              key={language.code}
-              language={language}
-              current={model.language === language.code}
-              started={startedAt(language.code)}
-              onChoose={() => model.selectLanguage(language.code)}
-            />
-          ))}
+          {LANGUAGES.map((language) => {
+            const started = startedAt(language.code)
+            const current = model.language === language.code
+            return (
+              <LanguageCard
+                key={language.code}
+                code={language.code}
+                short={language.short}
+                greeting={language.greeting}
+                greetingLocale={language.speechLocale}
+                title={language.title}
+                nativeTitle={language.nativeTitle}
+                current={current}
+                // A course already begun says so with its own numbers: on the very first
+                // screen after an update, "продолжить · B1 · 320 ✦" is the answer to
+                // "а где мой прогресс".
+                note={started ? `Уровень ${started.level} · ${started.points} ✦` : language.note}
+                state={current ? 'сейчас здесь' : started ? 'продолжить' : 'начать'}
+                onChoose={() => model.selectLanguage(language.code)}
+              />
+            )
+          })}
         </div>
 
         <p className="settings-note" style={{ textAlign: 'center' }}>
@@ -51,25 +65,6 @@ export function LanguagePicker({ onBack }: { onBack?: () => void }) {
         </p>
       </div>
     </>
-  )
-}
-
-function LanguageCard({ language, current, started, onChoose }: {
-  language: LearningLanguage; current: boolean; started: Started | null; onChoose: () => void
-}) {
-  return (
-    <button className={`lang-card ${language.code}${current ? ' current' : ''}`} onClick={onChoose}>
-      <span className="lang-short">{language.short}</span>
-      <span className="lang-greeting" lang={language.speechLocale}>{language.greeting}</span>
-      <span className="lang-name">{language.title}</span>
-      <span className="lang-native">{language.nativeTitle}</span>
-      {/* A course already begun says so with its own numbers: on the very first screen
-          after an update, "продолжить · B1 · 320 ✦" is the answer to "а где мой прогресс". */}
-      <span className="lang-note">
-        {started ? `Уровень ${started.level} · ${started.points} ✦` : language.note}
-      </span>
-      <span className="lang-state">{current ? 'сейчас здесь' : started ? 'продолжить' : 'начать'}</span>
-    </button>
   )
 }
 

@@ -11,6 +11,7 @@ import { Settings } from './Settings'
 import { Shadowing } from './Shadowing'
 import { Topics } from './Topics'
 import { store } from './store'
+import { AlertBar } from '../kit'
 import type { AppStore } from './store'
 
 export function useStore(): AppStore {
@@ -49,10 +50,9 @@ export function App() {
       {/* Saving has stopped working. Silence here costs the learner everything they do
           next, so it is said plainly and the way out is one tap away. */}
       {model.storageFailed && (
-        <div className="alert-bar">
-          <span>Браузер больше не сохраняет прогресс — кончилось место.</span>
-          <button onClick={() => downloadBackup(model.state, model.language)}>Сохранить файл</button>
-        </div>
+        <AlertBar actionLabel="Сохранить файл" onAction={() => downloadBackup(model.state, model.language)}>
+          Браузер больше не сохраняет прогресс — кончилось место.
+        </AlertBar>
       )}
       {/* The picker outranks everything: it is reachable from onboarding too. */}
       {model.screen === 'language' ? <LanguagePicker onBack={() => model.closeLanguages()} />
