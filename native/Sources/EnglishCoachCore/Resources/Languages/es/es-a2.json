@@ -31276,6 +31276,603 @@
           ]
         },
         {
+          "id": "es-a2-ven-12",
+          "title": "Échame una mano",
+          "summary": "Попросить помочь физически.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-ven-12-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-cocina"
+              ],
+              "title": "Помоги поднять",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Échame una mano con la mesa.",
+                  "translation": "Помоги мне со столом."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Voy. ¿La subimos entre los dos?",
+                  "translation": "Иду. Поднимем вдвоём?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Sí, tú por ese lado.",
+                  "translation": "Да, ты с той стороны."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "A la de tres, ¿vale?",
+                  "translation": "На счёт три, ладно?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Una, dos y tres.",
+                  "translation": "Раз, два, три."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-ven-12-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Échame una mano.",
+              "translation": "Помоги мне.",
+              "example": "Échame una mano con la mesa."
+            },
+            {
+              "id": "es-a2-ven-12-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "entre los dos",
+              "translation": "вдвоём",
+              "example": "¿La subimos entre los dos?"
+            },
+            {
+              "id": "es-a2-ven-12-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "por ese lado",
+              "translation": "с той стороны",
+              "example": "Sí, tú por ese lado."
+            },
+            {
+              "id": "es-a2-ven-12-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "A la de tres.",
+              "translation": "На счёт три.",
+              "example": "A la de tres, ¿vale?"
+            },
+            {
+              "id": "es-a2-ven-12-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "subir la mesa",
+              "translation": "поднять стол",
+              "example": "¿La subimos entre los dos?"
+            },
+            {
+              "id": "es-a2-ven-12-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "title": "Вдвоём, втроём",
+              "explanation": "Совместное действие — entre + число или люди: entre los dos, entre todos, entre tú y yo. Предлог entre здесь не «между», а «вместе, силами нескольких»."
+            },
+            {
+              "id": "es-a2-ven-12-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "___ una mano con la mesa.",
+              "options": [
+                "Échame",
+                "Echa me",
+                "Me echa"
+              ],
+              "correctOption": "Échame"
+            },
+            {
+              "id": "es-a2-ven-12-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "¿La subimos ___ los dos?",
+              "options": [
+                "entre",
+                "con",
+                "por"
+              ],
+              "correctOption": "entre"
+            },
+            {
+              "id": "es-a2-ven-12-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "«На счёт три» — это:",
+              "options": [
+                "A la de tres.",
+                "A las tres de.",
+                "En la de tres."
+              ],
+              "correctOption": "A la de tres."
+            },
+            {
+              "id": "es-a2-ven-12-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Раз, два, три.",
+              "canonicalAnswer": "Una, dos y tres.",
+              "tokens": [
+                "dos",
+                "y",
+                "tres",
+                "Una"
+              ]
+            },
+            {
+              "id": "es-a2-ven-12-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Помоги мне со столом.",
+              "canonicalAnswer": "Échame una mano con la mesa."
+            },
+            {
+              "id": "es-a2-ven-12-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Поднимем вдвоём?",
+              "canonicalAnswer": "¿La subimos entre los dos?"
+            },
+            {
+              "id": "es-a2-ven-12-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Ты с той стороны.",
+              "canonicalAnswer": "Tú por ese lado."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-ven-13",
+          "title": "No te preocupes por eso",
+          "summary": "Снять с человека тревогу.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-ven-13-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-comparativos",
+                "es-a2-tema-cocina"
+              ],
+              "title": "Не переживай",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Perdona por el retraso, de verdad.",
+                  "translation": "Прости за опоздание, правда."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "No te preocupes por eso.",
+                  "translation": "Не переживай из-за этого."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Es que me da mucha rabia.",
+                  "translation": "Просто меня это очень бесит."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Acabamos de llegar nosotros también.",
+                  "translation": "Мы тоже только что пришли."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Menos mal, respiro.",
+                  "translation": "Слава богу, выдохнула."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-ven-13-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "No te preocupes por eso.",
+              "translation": "Не переживай из-за этого.",
+              "example": "No te preocupes por eso, en serio."
+            },
+            {
+              "id": "es-a2-ven-13-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Me da mucha rabia.",
+              "translation": "Меня это очень бесит.",
+              "example": "Es que me da mucha rabia."
+            },
+            {
+              "id": "es-a2-ven-13-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Acabamos de llegar.",
+              "translation": "Мы только что пришли.",
+              "example": "Acabamos de llegar nosotros también."
+            },
+            {
+              "id": "es-a2-ven-13-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Respiro.",
+              "translation": "Выдохнула.",
+              "example": "Menos mal, respiro."
+            },
+            {
+              "id": "es-a2-ven-13-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "el retraso",
+              "translation": "опоздание",
+              "example": "Perdona por el retraso."
+            },
+            {
+              "id": "es-a2-ven-13-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "title": "Только что",
+              "explanation": "Недавнее действие — acabar de + глагол: acabo de llegar, acaba de salir, acabamos de comer. Это «только что», и никакого прошедшего времени тут не нужно."
+            },
+            {
+              "id": "es-a2-ven-13-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "No te ___ por eso.",
+              "options": [
+                "preocupes",
+                "preocupas",
+                "preocupar"
+              ],
+              "correctOption": "preocupes"
+            },
+            {
+              "id": "es-a2-ven-13-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "___ de llegar nosotros también.",
+              "options": [
+                "Acabamos",
+                "Acabábamos",
+                "Acabar"
+              ],
+              "correctOption": "Acabamos"
+            },
+            {
+              "id": "es-a2-ven-13-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "«Меня это бесит» — это:",
+              "options": [
+                "Me da mucha rabia.",
+                "Me doy mucha rabia.",
+                "Tengo mucha rabia me."
+              ],
+              "correctOption": "Me da mucha rabia."
+            },
+            {
+              "id": "es-a2-ven-13-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-por-para",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Прости за опоздание.",
+              "canonicalAnswer": "Perdona por el retraso.",
+              "tokens": [
+                "por",
+                "el",
+                "retraso",
+                "Perdona"
+              ]
+            },
+            {
+              "id": "es-a2-ven-13-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Не переживай из-за этого.",
+              "canonicalAnswer": "No te preocupes por eso."
+            },
+            {
+              "id": "es-a2-ven-13-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Мы только что пришли.",
+              "canonicalAnswer": "Acabamos de llegar."
+            },
+            {
+              "id": "es-a2-ven-13-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Слава богу, выдохнула.",
+              "canonicalAnswer": "Menos mal, respiro."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-ven-14",
+          "title": "Cuéntamelo todo",
+          "summary": "Требовать подробностей.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-ven-14-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-genero",
+                "es-a2-tema-cocina"
+              ],
+              "title": "Рассказывай",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Cuéntamelo todo, sin saltarte nada.",
+                  "translation": "Рассказывай всё, ничего не пропуская."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Es largo, avisada quedas.",
+                  "translation": "Долго будет, я предупредил."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Tengo toda la tarde.",
+                  "translation": "У меня весь вечер."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Pues ponte cómoda.",
+                  "translation": "Тогда устраивайся поудобнее."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Ya lo estoy, empieza.",
+                  "translation": "Уже, начинай."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-ven-14-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Cuéntamelo todo.",
+              "translation": "Рассказывай мне всё.",
+              "example": "Cuéntamelo todo, sin saltarte nada."
+            },
+            {
+              "id": "es-a2-ven-14-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "sin saltarte nada",
+              "translation": "ничего не пропуская",
+              "example": "Cuéntamelo todo, sin saltarte nada."
+            },
+            {
+              "id": "es-a2-ven-14-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "avisada quedas",
+              "translation": "я предупредил",
+              "example": "Es largo, avisada quedas."
+            },
+            {
+              "id": "es-a2-ven-14-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a1-genero",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Tengo toda la tarde.",
+              "translation": "У меня весь вечер.",
+              "example": "Tengo toda la tarde, tranquilo."
+            },
+            {
+              "id": "es-a2-ven-14-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Ponte cómoda.",
+              "translation": "Устраивайся поудобнее.",
+              "example": "Pues ponte cómoda."
+            },
+            {
+              "id": "es-a2-ven-14-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "title": "Три слова подряд",
+              "explanation": "В команде подряд идут глагол, кому и что: cuéntamelo, dímelo, mándamelo, tráemelo. Ударение уезжает на третий слог с конца и над ним ставят знак."
+            },
+            {
+              "id": "es-a2-ven-14-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "___ todo, sin saltarte nada.",
+              "options": [
+                "Cuéntamelo",
+                "Cuenta me lo",
+                "Me lo cuenta"
+              ],
+              "correctOption": "Cuéntamelo"
+            },
+            {
+              "id": "es-a2-ven-14-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Pues ___ cómoda.",
+              "options": [
+                "ponte",
+                "pon te",
+                "te pon"
+              ],
+              "correctOption": "ponte"
+            },
+            {
+              "id": "es-a2-ven-14-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "«У меня весь вечер» — это:",
+              "options": [
+                "Tengo toda la tarde.",
+                "Tengo todo la tarde.",
+                "Hay toda la tarde."
+              ],
+              "correctOption": "Tengo toda la tarde."
+            },
+            {
+              "id": "es-a2-ven-14-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Уже, начинай.",
+              "canonicalAnswer": "Ya lo estoy, empieza.",
+              "tokens": [
+                "lo",
+                "estoy",
+                "empieza",
+                "Ya"
+              ]
+            },
+            {
+              "id": "es-a2-ven-14-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Рассказывай мне всё.",
+              "canonicalAnswer": "Cuéntamelo todo."
+            },
+            {
+              "id": "es-a2-ven-14-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Долго будет, я предупредил.",
+              "canonicalAnswer": "Es largo, avisada quedas."
+            },
+            {
+              "id": "es-a2-ven-14-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-cocina"
+              ],
+              "prompt": "Устраивайся поудобнее.",
+              "canonicalAnswer": "Ponte cómoda."
+            }
+          ]
+        },
+        {
           "id": "es-a2-ven-check",
           "title": "Проверка: иди сюда",
           "summary": "Весь блок целиком, без подсказок.",
@@ -33573,6 +34170,609 @@
           ]
         },
         {
+          "id": "es-a2-por-para-12",
+          "title": "Por lo visto",
+          "summary": "Судя по всему.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-por-para-12-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-planes"
+              ],
+              "title": "Судя по всему",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Por lo visto, cambian de local.",
+                  "translation": "Судя по всему, они меняют помещение."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Quién te lo ha dicho?",
+                  "translation": "Кто тебе сказал?"
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Lo he leído en el cartel.",
+                  "translation": "Прочитала на объявлении."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Pues a ver dónde acaban.",
+                  "translation": "Посмотрим, где они окажутся."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Espero que cerca.",
+                  "translation": "Надеюсь, рядом."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-por-para-12-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-participios",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Por lo visto",
+              "translation": "Судя по всему",
+              "example": "Por lo visto, cambian de local."
+            },
+            {
+              "id": "es-a2-por-para-12-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-participios",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "cambiar de local",
+              "translation": "сменить помещение",
+              "example": "Por lo visto, cambian de local."
+            },
+            {
+              "id": "es-a2-por-para-12-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-objeto-directo",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Lo he leído en el cartel.",
+              "translation": "Прочитала на объявлении.",
+              "example": "Lo he leído en el cartel de la puerta."
+            },
+            {
+              "id": "es-a2-por-para-12-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "A ver dónde acaban.",
+              "translation": "Посмотрим, где они окажутся.",
+              "example": "Pues a ver dónde acaban."
+            },
+            {
+              "id": "es-a2-por-para-12-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Espero que cerca.",
+              "translation": "Надеюсь, рядом.",
+              "example": "Espero que cerca, la verdad."
+            },
+            {
+              "id": "es-a2-por-para-12-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "title": "Судя по всему",
+              "explanation": "Вывод по косвенным признакам — por lo visto: por lo visto cambian de local. Это мягче, чем dicen que: вы не ссылаетесь на людей, а делаете вывод сами."
+            },
+            {
+              "id": "es-a2-por-para-12-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-participios",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "___ lo visto, cambian de local.",
+              "options": [
+                "Por",
+                "Para",
+                "De"
+              ],
+              "correctOption": "Por"
+            },
+            {
+              "id": "es-a2-por-para-12-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-objeto-directo",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Lo ___ leído en el cartel.",
+              "options": [
+                "he",
+                "ha",
+                "había"
+              ],
+              "correctOption": "he"
+            },
+            {
+              "id": "es-a2-por-para-12-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "«Посмотрим, где они окажутся» — это:",
+              "options": [
+                "A ver dónde acaban.",
+                "A ver dónde acabar.",
+                "Ver dónde acaban ellos."
+              ],
+              "correctOption": "A ver dónde acaban."
+            },
+            {
+              "id": "es-a2-por-para-12-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Надеюсь, рядом.",
+              "canonicalAnswer": "Espero que cerca.",
+              "tokens": [
+                "que",
+                "cerca",
+                "Espero"
+              ]
+            },
+            {
+              "id": "es-a2-por-para-12-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-participios",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Судя по всему, они меняют помещение.",
+              "canonicalAnswer": "Por lo visto, cambian de local."
+            },
+            {
+              "id": "es-a2-por-para-12-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Кто тебе сказал?",
+              "canonicalAnswer": "¿Quién te lo ha dicho?"
+            },
+            {
+              "id": "es-a2-por-para-12-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-objeto-directo",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Прочитала на объявлении.",
+              "canonicalAnswer": "Lo he leído en el cartel."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-por-para-13",
+          "title": "Para que lo sepas",
+          "summary": "Чтобы ты знал.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-por-para-13-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-planes"
+              ],
+              "title": "Чтобы ты знал",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "Para que lo sepas, yo también voy.",
+                  "translation": "Чтобы ты знал, я тоже иду."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Anda, no me lo habías dicho.",
+                  "translation": "Надо же, ты мне не говорил."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Lo decidí esta mañana.",
+                  "translation": "Решил сегодня утром."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Pues mejor, vamos juntos.",
+                  "translation": "Тем лучше, пойдём вместе."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Eso pensaba yo.",
+                  "translation": "Я так и думал."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-por-para-13-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Para que lo sepas",
+              "translation": "Чтобы ты знал",
+              "example": "Para que lo sepas, yo también voy."
+            },
+            {
+              "id": "es-a2-por-para-13-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "No me lo habías dicho.",
+              "translation": "Ты мне не говорил.",
+              "example": "Anda, no me lo habías dicho."
+            },
+            {
+              "id": "es-a2-por-para-13-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Lo decidí esta mañana.",
+              "translation": "Решил сегодня утром.",
+              "example": "Lo decidí esta mañana, sin más."
+            },
+            {
+              "id": "es-a2-por-para-13-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Pues mejor.",
+              "translation": "Тем лучше.",
+              "example": "Pues mejor, vamos juntos."
+            },
+            {
+              "id": "es-a2-por-para-13-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Eso pensaba yo.",
+              "translation": "Я так и думал.",
+              "example": "Eso pensaba yo, sí."
+            },
+            {
+              "id": "es-a2-por-para-13-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "title": "Чтобы",
+              "explanation": "Цель с двумя разными лицами — para que + особая форма: para que lo sepas, para que no se olvide. Если лицо одно, хватает para + глагол: para saberlo."
+            },
+            {
+              "id": "es-a2-por-para-13-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Para que lo ___, yo también voy.",
+              "options": [
+                "sepas",
+                "sabes",
+                "saber"
+              ],
+              "correctOption": "sepas"
+            },
+            {
+              "id": "es-a2-por-para-13-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "No me lo ___ dicho.",
+              "options": [
+                "habías",
+                "has",
+                "había"
+              ],
+              "correctOption": "habías"
+            },
+            {
+              "id": "es-a2-por-para-13-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "«Тем лучше» — это:",
+              "options": [
+                "Pues mejor.",
+                "Pues más mejor.",
+                "Pues el mejor."
+              ],
+              "correctOption": "Pues mejor."
+            },
+            {
+              "id": "es-a2-por-para-13-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Решил сегодня утром.",
+              "canonicalAnswer": "Lo decidí esta mañana.",
+              "tokens": [
+                "decidí",
+                "esta",
+                "mañana",
+                "Lo"
+              ]
+            },
+            {
+              "id": "es-a2-por-para-13-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Чтобы ты знал, я тоже иду.",
+              "canonicalAnswer": "Para que lo sepas, yo también voy."
+            },
+            {
+              "id": "es-a2-por-para-13-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Ты мне не говорил.",
+              "canonicalAnswer": "No me lo habías dicho."
+            },
+            {
+              "id": "es-a2-por-para-13-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Я так и думал.",
+              "canonicalAnswer": "Eso pensaba yo."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-por-para-14",
+          "title": "Por mucho que",
+          "summary": "Сколько бы ни.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-por-para-14-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "title": "Не помогает",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Por mucho que estudio, no me sale.",
+                  "translation": "Сколько бы я ни училась, не выходит."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y si cambias de método?",
+                  "translation": "А если сменить подход?"
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Llevo tres, y ninguno.",
+                  "translation": "Сменила три, и ни один."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Igual necesitas descansar.",
+                  "translation": "Может, тебе нужен отдых."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Puede que sea eso, sí.",
+                  "translation": "Может, дело в этом."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-por-para-14-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Por mucho que estudio",
+              "translation": "Сколько бы я ни училась",
+              "example": "Por mucho que estudio, no me sale."
+            },
+            {
+              "id": "es-a2-por-para-14-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "cambiar de método",
+              "translation": "сменить подход",
+              "example": "¿Y si cambias de método?"
+            },
+            {
+              "id": "es-a2-por-para-14-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "y ninguno",
+              "translation": "и ни один",
+              "example": "Llevo tres, y ninguno."
+            },
+            {
+              "id": "es-a2-por-para-14-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Igual necesitas descansar.",
+              "translation": "Может, тебе нужен отдых.",
+              "example": "Igual necesitas descansar, en serio."
+            },
+            {
+              "id": "es-a2-por-para-14-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Puede que sea eso.",
+              "translation": "Может, дело в этом.",
+              "example": "Puede que sea eso, sí."
+            },
+            {
+              "id": "es-a2-por-para-14-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "title": "Сколько бы ни",
+              "explanation": "Уступка — por mucho que: por mucho que estudio, por mucho que insistas. С настоящим это факт, с особой формой — предположение: разница тонкая, обе встречаются."
+            },
+            {
+              "id": "es-a2-por-para-14-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "___ mucho que estudio, no me sale.",
+              "options": [
+                "Por",
+                "Para",
+                "Con"
+              ],
+              "correctOption": "Por"
+            },
+            {
+              "id": "es-a2-por-para-14-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Puede que ___ eso.",
+              "options": [
+                "sea",
+                "es",
+                "ser"
+              ],
+              "correctOption": "sea"
+            },
+            {
+              "id": "es-a2-por-para-14-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-planes"
+              ],
+              "prompt": "«И ни один» — это:",
+              "options": [
+                "y ninguno",
+                "y ningún",
+                "y nadie"
+              ],
+              "correctOption": "y ninguno"
+            },
+            {
+              "id": "es-a2-por-para-14-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "А если сменить подход?",
+              "canonicalAnswer": "¿Y si cambias de método?",
+              "tokens": [
+                "si",
+                "cambias",
+                "de",
+                "método",
+                "Y"
+              ]
+            },
+            {
+              "id": "es-a2-por-para-14-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Сколько бы я ни училась, не выходит.",
+              "canonicalAnswer": "Por mucho que estudio, no me sale."
+            },
+            {
+              "id": "es-a2-por-para-14-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Может, тебе нужен отдых.",
+              "canonicalAnswer": "Igual necesitas descansar."
+            },
+            {
+              "id": "es-a2-por-para-14-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-planes"
+              ],
+              "prompt": "Может, дело в этом.",
+              "canonicalAnswer": "Puede que sea eso."
+            }
+          ]
+        },
+        {
           "id": "es-a2-por-para-check",
           "title": "Проверка: из-за и для",
           "summary": "Весь блок целиком, без подсказок.",
@@ -35853,6 +37053,608 @@
               ],
               "prompt": "Лучше осенью, с меньшим количеством народу.",
               "canonicalAnswer": "Mejor en otoño, con menos gente."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-viaje-12",
+          "title": "Reservamos con tiempo",
+          "summary": "Подготовка к поездке.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-viaje-12-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-participios",
+                "es-a2-tema-viaje"
+              ],
+              "title": "Бронь",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Esta vez reservamos con tiempo.",
+                  "translation": "В этот раз бронируем заранее."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Aprendimos la lección.",
+                  "translation": "Урок усвоили."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "¿Miro vuelos esta noche?",
+                  "translation": "Посмотрю рейсы сегодня вечером?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Mira y me pasas dos o tres.",
+                  "translation": "Посмотри и скинь мне два-три."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Hecho, en un rato te digo.",
+                  "translation": "Сделано, скоро скажу."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-viaje-12-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Reservamos con tiempo.",
+              "translation": "Бронируем заранее.",
+              "example": "Esta vez reservamos con tiempo."
+            },
+            {
+              "id": "es-a2-viaje-12-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Aprendimos la lección.",
+              "translation": "Урок усвоили.",
+              "example": "Aprendimos la lección, por fin."
+            },
+            {
+              "id": "es-a2-viaje-12-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "¿Miro vuelos?",
+              "translation": "Посмотрю рейсы?",
+              "example": "¿Miro vuelos esta noche?"
+            },
+            {
+              "id": "es-a2-viaje-12-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-numeros",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Me pasas dos o tres.",
+              "translation": "Скинь мне два-три.",
+              "example": "Mira y me pasas dos o tres."
+            },
+            {
+              "id": "es-a2-viaje-12-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-articulos",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "en un rato",
+              "translation": "скоро, через некоторое время",
+              "example": "En un rato te digo."
+            },
+            {
+              "id": "es-a2-viaje-12-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-viaje"
+              ],
+              "title": "Через некоторое время",
+              "explanation": "Пара un rato и en un rato: un rato — «некоторое время» (me quedé un rato), en un rato — «скоро» (en un rato te digo). Предлог меняет смысл целиком."
+            },
+            {
+              "id": "es-a2-viaje-12-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Esta vez reservamos ___ tiempo.",
+              "options": [
+                "con",
+                "de",
+                "por"
+              ],
+              "correctOption": "con"
+            },
+            {
+              "id": "es-a2-viaje-12-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "___ vuelos esta noche?",
+              "options": [
+                "¿Miro",
+                "¿Miras yo",
+                "¿Mirar"
+              ],
+              "correctOption": "¿Miro"
+            },
+            {
+              "id": "es-a2-viaje-12-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-articulos",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "«Скоро скажу» — это:",
+              "options": [
+                "En un rato te digo.",
+                "Un rato te digo.",
+                "Por un rato te digo."
+              ],
+              "correctOption": "En un rato te digo."
+            },
+            {
+              "id": "es-a2-viaje-12-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Урок усвоили.",
+              "canonicalAnswer": "Aprendimos la lección.",
+              "tokens": [
+                "la",
+                "lección",
+                "Aprendimos"
+              ]
+            },
+            {
+              "id": "es-a2-viaje-12-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "В этот раз бронируем заранее.",
+              "canonicalAnswer": "Esta vez reservamos con tiempo."
+            },
+            {
+              "id": "es-a2-viaje-12-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a1-numeros",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Посмотри и скинь мне два-три.",
+              "canonicalAnswer": "Mira y me pasas dos o tres."
+            },
+            {
+              "id": "es-a2-viaje-12-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-participios",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Сделано.",
+              "canonicalAnswer": "Hecho."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-viaje-13",
+          "title": "Nos alojamos en casa de amigos",
+          "summary": "Жить у знакомых.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-viaje-13-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-preguntas",
+                "es-a2-tema-viaje"
+              ],
+              "title": "У друзей",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Hotel o casa de amigos?",
+                  "translation": "Отель или у друзей?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "En casa de unos amigos, más cómodo.",
+                  "translation": "У друзей, удобнее."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "¿Y no molestáis?",
+                  "translation": "И вы не мешаете?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Ellos insistieron, en serio.",
+                  "translation": "Они сами настояли, серьёзно."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Pues qué bien, así ahorráis.",
+                  "translation": "Здорово, так сэкономите."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-viaje-13-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "en casa de unos amigos",
+              "translation": "у друзей",
+              "example": "Nos alojamos en casa de unos amigos."
+            },
+            {
+              "id": "es-a2-viaje-13-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "más cómodo",
+              "translation": "удобнее",
+              "example": "En casa de unos amigos, más cómodo."
+            },
+            {
+              "id": "es-a2-viaje-13-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "¿No molestáis?",
+              "translation": "Вы не мешаете?",
+              "example": "¿Y no molestáis a nadie?"
+            },
+            {
+              "id": "es-a2-viaje-13-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Ellos insistieron.",
+              "translation": "Они сами настояли.",
+              "example": "Ellos insistieron, en serio."
+            },
+            {
+              "id": "es-a2-viaje-13-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Así ahorráis.",
+              "translation": "Так сэкономите.",
+              "example": "Pues qué bien, así ahorráis."
+            },
+            {
+              "id": "es-a2-viaje-13-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-viaje"
+              ],
+              "title": "Настоять",
+              "explanation": "Глагол insistir значит «настаивать»: ellos insistieron, no insistas, insistió mucho. С темой он идёт через en: insistió en pagar él."
+            },
+            {
+              "id": "es-a2-viaje-13-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Nos alojamos ___ casa de unos amigos.",
+              "options": [
+                "en",
+                "a",
+                "por"
+              ],
+              "correctOption": "en"
+            },
+            {
+              "id": "es-a2-viaje-13-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Ellos ___, en serio.",
+              "options": [
+                "insistieron",
+                "insistían siempre",
+                "insistir"
+              ],
+              "correctOption": "insistieron"
+            },
+            {
+              "id": "es-a2-viaje-13-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "«Так сэкономите» — это:",
+              "options": [
+                "Así ahorráis.",
+                "Así ahorrar.",
+                "Así ahorréis ayer."
+              ],
+              "correctOption": "Así ahorráis."
+            },
+            {
+              "id": "es-a2-viaje-13-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Отель или у друзей?",
+              "canonicalAnswer": "¿Hotel o casa de amigos?",
+              "tokens": [
+                "o",
+                "casa",
+                "de",
+                "amigos",
+                "Hotel"
+              ]
+            },
+            {
+              "id": "es-a2-viaje-13-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "У друзей, удобнее.",
+              "canonicalAnswer": "En casa de unos amigos, más cómodo."
+            },
+            {
+              "id": "es-a2-viaje-13-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "И вы не мешаете?",
+              "canonicalAnswer": "¿Y no molestáis?"
+            },
+            {
+              "id": "es-a2-viaje-13-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Они сами настояли.",
+              "canonicalAnswer": "Ellos insistieron."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-viaje-14",
+          "title": "Nos quedamos con ganas",
+          "summary": "Не хватило времени.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-viaje-14-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-por-para",
+                "es-a2-tema-viaje"
+              ],
+              "title": "Не успели",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Nos quedamos con ganas de más.",
+                  "translation": "Нам хотелось ещё."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Qué os faltó por ver?",
+                  "translation": "Что вы не успели посмотреть?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El norte entero, prácticamente.",
+                  "translation": "Практически весь север."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Pues ya tenéis excusa para volver.",
+                  "translation": "Значит, есть повод вернуться."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Esa es la idea, sí.",
+                  "translation": "Такая и мысль."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-viaje-14-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Nos quedamos con ganas.",
+              "translation": "Нам хотелось ещё.",
+              "example": "Nos quedamos con ganas de más."
+            },
+            {
+              "id": "es-a2-viaje-14-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "¿Qué os faltó por ver?",
+              "translation": "Что вы не успели посмотреть?",
+              "example": "¿Qué os faltó por ver allí?"
+            },
+            {
+              "id": "es-a2-viaje-14-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "prácticamente",
+              "translation": "практически",
+              "example": "El norte entero, prácticamente."
+            },
+            {
+              "id": "es-a2-viaje-14-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-por-para",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "una excusa para volver",
+              "translation": "повод вернуться",
+              "example": "Ya tenéis excusa para volver."
+            },
+            {
+              "id": "es-a2-viaje-14-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "el norte entero",
+              "translation": "весь север",
+              "example": "El norte entero, prácticamente."
+            },
+            {
+              "id": "es-a2-viaje-14-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-viaje"
+              ],
+              "title": "Осталось хотеть",
+              "explanation": "Оборот quedarse con ganas значит «остаться с желанием, не насытиться»: nos quedamos con ganas de más. Часто идёт с de + существительное или глагол."
+            },
+            {
+              "id": "es-a2-viaje-14-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Nos quedamos ___ ganas de más.",
+              "options": [
+                "con",
+                "de",
+                "por"
+              ],
+              "correctOption": "con"
+            },
+            {
+              "id": "es-a2-viaje-14-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "¿Qué os ___ por ver?",
+              "options": [
+                "faltó",
+                "faltaba siempre",
+                "faltar"
+              ],
+              "correctOption": "faltó"
+            },
+            {
+              "id": "es-a2-viaje-14-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-por-para",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "«Повод вернуться» — это:",
+              "options": [
+                "excusa para volver",
+                "excusa por volver",
+                "excusa de volver ya"
+              ],
+              "correctOption": "excusa para volver"
+            },
+            {
+              "id": "es-a2-viaje-14-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-ser",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Такая и мысль.",
+              "canonicalAnswer": "Esa es la idea.",
+              "tokens": [
+                "es",
+                "la",
+                "idea",
+                "Esa"
+              ]
+            },
+            {
+              "id": "es-a2-viaje-14-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Нам хотелось ещё.",
+              "canonicalAnswer": "Nos quedamos con ganas."
+            },
+            {
+              "id": "es-a2-viaje-14-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Практически весь север.",
+              "canonicalAnswer": "El norte entero, prácticamente."
+            },
+            {
+              "id": "es-a2-viaje-14-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-ir-tener",
+                "es-a2-por-para",
+                "es-a2-tema-viaje"
+              ],
+              "prompt": "Значит, есть повод вернуться.",
+              "canonicalAnswer": "Ya tenéis excusa para volver."
             }
           ]
         },
@@ -38159,6 +39961,601 @@
           ]
         },
         {
+          "id": "es-a2-medico-12",
+          "title": "Me han puesto una vacuna",
+          "summary": "Прививка.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-medico-12-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-participios",
+                "es-a2-tema-salud"
+              ],
+              "title": "Прививка",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Me han puesto la vacuna esta mañana.",
+                  "translation": "Мне утром поставили прививку."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y te ha dolido?",
+                  "translation": "И было больно?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Nada, ni me enteré.",
+                  "translation": "Нисколько, даже не заметила."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Efectos secundarios?",
+                  "translation": "Побочные эффекты?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "El brazo un poco, poca cosa.",
+                  "translation": "Рука немного, мелочь."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-medico-12-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-participios",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Me han puesto la vacuna.",
+              "translation": "Мне поставили прививку.",
+              "example": "Me han puesto la vacuna esta mañana."
+            },
+            {
+              "id": "es-a2-medico-12-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "¿Te ha dolido?",
+              "translation": "Было больно?",
+              "example": "¿Y te ha dolido mucho?"
+            },
+            {
+              "id": "es-a2-medico-12-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Ni me enteré.",
+              "translation": "Даже не заметила.",
+              "example": "Nada, ni me enteré."
+            },
+            {
+              "id": "es-a2-medico-12-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "los efectos secundarios",
+              "translation": "побочные эффекты",
+              "example": "¿Efectos secundarios?"
+            },
+            {
+              "id": "es-a2-medico-12-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-articulos",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "poca cosa",
+              "translation": "мелочь",
+              "example": "El brazo un poco, poca cosa."
+            },
+            {
+              "id": "es-a2-medico-12-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "title": "Мне поставили",
+              "explanation": "Медицинские процедуры описывают безлично: me han puesto una vacuna, me han hecho un análisis, me van a operar. Кто именно — не называют, важен только результат."
+            },
+            {
+              "id": "es-a2-medico-12-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-participios",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Me ___ puesto la vacuna.",
+              "options": [
+                "han",
+                "ha",
+                "he"
+              ],
+              "correctOption": "han"
+            },
+            {
+              "id": "es-a2-medico-12-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Nada, ni me ___.",
+              "options": [
+                "enteré",
+                "entero",
+                "enterar"
+              ],
+              "correctOption": "enteré"
+            },
+            {
+              "id": "es-a2-medico-12-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "prompt": "«Мелочь» — это:",
+              "options": [
+                "poca cosa",
+                "poco cosa",
+                "pocas cosa"
+              ],
+              "correctOption": "poca cosa"
+            },
+            {
+              "id": "es-a2-medico-12-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Побочные эффекты?",
+              "canonicalAnswer": "¿Efectos secundarios?",
+              "tokens": [
+                "secundarios",
+                "Efectos"
+              ]
+            },
+            {
+              "id": "es-a2-medico-12-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-participios",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Мне поставили прививку.",
+              "canonicalAnswer": "Me han puesto la vacuna."
+            },
+            {
+              "id": "es-a2-medico-12-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a1-preguntas",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "И было больно?",
+              "canonicalAnswer": "¿Y te ha dolido?"
+            },
+            {
+              "id": "es-a2-medico-12-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Даже не заметила.",
+              "canonicalAnswer": "Ni me enteré."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-medico-13",
+          "title": "Estoy en tratamiento",
+          "summary": "Лечение и контроль.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-medico-13-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-salud"
+              ],
+              "title": "Лечение",
+              "lines": [
+                {
+                  "speaker": "Doctora",
+                  "text": "¿Está tomando alguna medicación?",
+                  "translation": "Вы принимаете какие-нибудь лекарства?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Sí, estoy en tratamiento desde marzo.",
+                  "translation": "Да, я на лечении с марта."
+                },
+                {
+                  "speaker": "Doctora",
+                  "text": "¿Y qué tal le va?",
+                  "translation": "И как оно вам?"
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Bien, mucho mejor que antes.",
+                  "translation": "Хорошо, гораздо лучше, чем раньше."
+                },
+                {
+                  "speaker": "Doctora",
+                  "text": "Seguimos igual entonces.",
+                  "translation": "Тогда продолжаем так же."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-medico-13-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Estoy en tratamiento.",
+              "translation": "Я на лечении.",
+              "example": "Estoy en tratamiento desde marzo."
+            },
+            {
+              "id": "es-a2-medico-13-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a1-preguntas",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "¿Toma alguna medicación?",
+              "translation": "Вы принимаете лекарства?",
+              "example": "¿Está tomando alguna medicación?"
+            },
+            {
+              "id": "es-a2-medico-13-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "¿Qué tal le va?",
+              "translation": "Как оно вам?",
+              "example": "¿Y qué tal le va el tratamiento?"
+            },
+            {
+              "id": "es-a2-medico-13-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Seguimos igual.",
+              "translation": "Продолжаем так же.",
+              "example": "Seguimos igual entonces."
+            },
+            {
+              "id": "es-a2-medico-13-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "la medicación",
+              "translation": "лекарства, приём",
+              "example": "¿Está tomando alguna medicación?"
+            },
+            {
+              "id": "es-a2-medico-13-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "title": "Сейчас принимаю",
+              "explanation": "Действие в процессе — estar + герундий: está tomando, estoy haciendo, estamos esperando. В вопросе врача это важно: не «принимаете вообще», а «принимаете сейчас»."
+            },
+            {
+              "id": "es-a2-medico-13-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "¿Está ___ alguna medicación?",
+              "options": [
+                "tomando",
+                "toma",
+                "tomar"
+              ],
+              "correctOption": "tomando"
+            },
+            {
+              "id": "es-a2-medico-13-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Estoy ___ tratamiento desde marzo.",
+              "options": [
+                "en",
+                "a",
+                "con"
+              ],
+              "correctOption": "en"
+            },
+            {
+              "id": "es-a2-medico-13-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "«Продолжаем так же» — это:",
+              "options": [
+                "Seguimos igual.",
+                "Seguimos iguales.",
+                "Sigamos igual ayer."
+              ],
+              "correctOption": "Seguimos igual."
+            },
+            {
+              "id": "es-a2-medico-13-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a2-comparativos",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Гораздо лучше, чем раньше.",
+              "canonicalAnswer": "Mucho mejor que antes.",
+              "tokens": [
+                "mejor",
+                "que",
+                "antes",
+                "Mucho"
+              ]
+            },
+            {
+              "id": "es-a2-medico-13-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Я на лечении с марта.",
+              "canonicalAnswer": "Estoy en tratamiento desde marzo."
+            },
+            {
+              "id": "es-a2-medico-13-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Как оно вам?",
+              "canonicalAnswer": "¿Qué tal le va?"
+            },
+            {
+              "id": "es-a2-medico-13-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Продолжаем так же.",
+              "canonicalAnswer": "Seguimos igual."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-medico-14",
+          "title": "Cuídate mucho",
+          "summary": "Пожелать поправиться.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-medico-14-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-salud"
+              ],
+              "title": "Выздоравливай",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "Que te mejores pronto.",
+                  "translation": "Поправляйся скорее."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Gracias, ya voy notando la mejora.",
+                  "translation": "Спасибо, уже чувствую улучшение."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Cuídate mucho, no salgas hoy.",
+                  "translation": "Береги себя, не выходи сегодня."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Descuida, me quedo en el sofá.",
+                  "translation": "Не переживай, остаюсь на диване."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Así me gusta.",
+                  "translation": "Вот так мне нравится."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-medico-14-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Que te mejores.",
+              "translation": "Поправляйся.",
+              "example": "Que te mejores pronto."
+            },
+            {
+              "id": "es-a2-medico-14-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Voy notando la mejora.",
+              "translation": "Уже чувствую улучшение.",
+              "example": "Gracias, ya voy notando la mejora."
+            },
+            {
+              "id": "es-a2-medico-14-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Cuídate mucho.",
+              "translation": "Береги себя.",
+              "example": "Cuídate mucho, no salgas hoy."
+            },
+            {
+              "id": "es-a2-medico-14-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Descuida.",
+              "translation": "Не переживай.",
+              "example": "Descuida, me quedo en el sofá."
+            },
+            {
+              "id": "es-a2-medico-14-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-gustar",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Así me gusta.",
+              "translation": "Вот так мне нравится.",
+              "example": "Así me gusta, hombre."
+            },
+            {
+              "id": "es-a2-medico-14-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "title": "Пожелания здоровья",
+              "explanation": "Готовые формулы: que te mejores, que te vaya bien, cuídate. Первые две начинаются с que и требуют особой формы, cuídate — обычная команда."
+            },
+            {
+              "id": "es-a2-medico-14-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Que te ___ pronto.",
+              "options": [
+                "mejores",
+                "mejoras",
+                "mejorar"
+              ],
+              "correctOption": "mejores"
+            },
+            {
+              "id": "es-a2-medico-14-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-imperativo",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "___ mucho, no salgas hoy.",
+              "options": [
+                "Cuídate",
+                "Cuida te",
+                "Te cuida"
+              ],
+              "correctOption": "Cuídate"
+            },
+            {
+              "id": "es-a2-medico-14-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "prompt": "«Не переживай» одним словом:",
+              "options": [
+                "Descuida.",
+                "Descuidas.",
+                "Descuidar."
+              ],
+              "correctOption": "Descuida."
+            },
+            {
+              "id": "es-a2-medico-14-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-gustar",
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Вот так мне нравится.",
+              "canonicalAnswer": "Así me gusta.",
+              "tokens": [
+                "me",
+                "gusta",
+                "Así"
+              ]
+            },
+            {
+              "id": "es-a2-medico-14-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Поправляйся скорее.",
+              "canonicalAnswer": "Que te mejores pronto."
+            },
+            {
+              "id": "es-a2-medico-14-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Уже чувствую улучшение.",
+              "canonicalAnswer": "Ya voy notando la mejora."
+            },
+            {
+              "id": "es-a2-medico-14-e14",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-salud"
+              ],
+              "prompt": "Береги себя.",
+              "canonicalAnswer": "Cuídate mucho."
+            }
+          ]
+        },
+        {
           "id": "es-a2-medico-check",
           "title": "Проверка: у врача",
           "summary": "Весь блок целиком, без подсказок.",
@@ -40452,6 +42849,611 @@
               ],
               "prompt": "Придём не с пустыми руками.",
               "canonicalAnswer": "Venimos con algo."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-piso-12",
+          "title": "Se ha estropeado la caldera",
+          "summary": "Сломалось в квартире.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-piso-12-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-objeto-indirecto",
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Нет горячей воды",
+              "lines": [
+                {
+                  "speaker": "Ana",
+                  "text": "Se ha estropeado la caldera.",
+                  "translation": "Котёл сломался."
+                },
+                {
+                  "speaker": "Casero",
+                  "text": "¿Desde cuándo, hoy mismo?",
+                  "translation": "С каких пор, прямо сегодня?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Desde anoche, no hay agua caliente.",
+                  "translation": "Со вчерашнего вечера, нет горячей воды."
+                },
+                {
+                  "speaker": "Casero",
+                  "text": "Mando al técnico mañana temprano.",
+                  "translation": "Пришлю мастера завтра с утра."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Se lo agradezco mucho.",
+                  "translation": "Очень вам благодарна."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-piso-12-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Se ha estropeado la caldera.",
+              "translation": "Котёл сломался.",
+              "example": "Se ha estropeado la caldera esta noche."
+            },
+            {
+              "id": "es-a2-piso-12-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "la caldera",
+              "translation": "котёл",
+              "example": "Se ha estropeado la caldera."
+            },
+            {
+              "id": "es-a2-piso-12-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "No hay agua caliente.",
+              "translation": "Нет горячей воды.",
+              "example": "Desde anoche, no hay agua caliente."
+            },
+            {
+              "id": "es-a2-piso-12-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Mando al técnico.",
+              "translation": "Пришлю мастера.",
+              "example": "Mando al técnico mañana temprano."
+            },
+            {
+              "id": "es-a2-piso-12-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "mañana temprano",
+              "translation": "завтра с утра",
+              "example": "Mando al técnico mañana temprano."
+            },
+            {
+              "id": "es-a2-piso-12-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Сломалось само",
+              "explanation": "Поломки описывают возвратным глаголом: se ha estropeado, se ha roto, se ha atascado. Виноватого нет — вещь сломалась сама, и это стандартная вежливая форма."
+            },
+            {
+              "id": "es-a2-piso-12-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "___ ha estropeado la caldera.",
+              "options": [
+                "Se",
+                "Le",
+                "Lo"
+              ],
+              "correctOption": "Se"
+            },
+            {
+              "id": "es-a2-piso-12-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Mando ___ técnico mañana.",
+              "options": [
+                "al",
+                "el",
+                "a el"
+              ],
+              "correctOption": "al"
+            },
+            {
+              "id": "es-a2-piso-12-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "«Нет горячей воды» — это:",
+              "options": [
+                "No hay agua caliente.",
+                "No está agua caliente.",
+                "No es agua caliente."
+              ],
+              "correctOption": "No hay agua caliente."
+            },
+            {
+              "id": "es-a2-piso-12-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "С каких пор, прямо сегодня?",
+              "canonicalAnswer": "¿Desde cuándo, hoy mismo?",
+              "tokens": [
+                "cuándo",
+                "hoy",
+                "mismo",
+                "Desde"
+              ]
+            },
+            {
+              "id": "es-a2-piso-12-e12",
+              "type": "translate",
+              "topics": [
+                "es-a2-perfecto",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Котёл сломался.",
+              "canonicalAnswer": "Se ha estropeado la caldera."
+            },
+            {
+              "id": "es-a2-piso-12-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Со вчерашнего вечера.",
+              "canonicalAnswer": "Desde anoche."
+            },
+            {
+              "id": "es-a2-piso-12-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Пришлю мастера завтра с утра.",
+              "canonicalAnswer": "Mando al técnico mañana temprano."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-piso-13",
+          "title": "Los gastos aparte",
+          "summary": "Что входит и что нет.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-piso-13-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Расходы",
+              "lines": [
+                {
+                  "speaker": "Pedro",
+                  "text": "¿El alquiler incluye los gastos?",
+                  "translation": "В аренду входят коммунальные?"
+                },
+                {
+                  "speaker": "Casero",
+                  "text": "No, los gastos van aparte.",
+                  "translation": "Нет, коммунальные отдельно."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "¿Y cuánto suele salir?",
+                  "translation": "И сколько обычно выходит?"
+                },
+                {
+                  "speaker": "Casero",
+                  "text": "Unos sesenta al mes, de media.",
+                  "translation": "Около шестидесяти в месяц, в среднем."
+                },
+                {
+                  "speaker": "Pedro",
+                  "text": "Vale, ya me hago una idea.",
+                  "translation": "Ясно, представление есть."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-piso-13-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "¿Incluye los gastos?",
+              "translation": "Коммунальные входят?",
+              "example": "¿El alquiler incluye los gastos?"
+            },
+            {
+              "id": "es-a2-piso-13-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Los gastos van aparte.",
+              "translation": "Коммунальные отдельно.",
+              "example": "No, los gastos van aparte."
+            },
+            {
+              "id": "es-a2-piso-13-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "¿Cuánto suele salir?",
+              "translation": "Сколько обычно выходит?",
+              "example": "¿Y cuánto suele salir al mes?"
+            },
+            {
+              "id": "es-a2-piso-13-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "de media",
+              "translation": "в среднем",
+              "example": "Unos sesenta al mes, de media."
+            },
+            {
+              "id": "es-a2-piso-13-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-articulos",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Ya me hago una idea.",
+              "translation": "Представление есть.",
+              "example": "Vale, ya me hago una idea."
+            },
+            {
+              "id": "es-a2-piso-13-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Обычно бывает",
+              "explanation": "Обыкновение — soler + глагол: suele salir sesenta, suelo levantarme pronto, solía ir. Это «обычно» одним глаголом, и по-русски его переводят наречием."
+            },
+            {
+              "id": "es-a2-piso-13-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "¿Cuánto ___ salir al mes?",
+              "options": [
+                "suele",
+                "sueles",
+                "soler"
+              ],
+              "correctOption": "suele"
+            },
+            {
+              "id": "es-a2-piso-13-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Unos sesenta al mes, ___ media.",
+              "options": [
+                "de",
+                "en",
+                "por"
+              ],
+              "correctOption": "de"
+            },
+            {
+              "id": "es-a2-piso-13-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a1-articulos",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "«Представление есть» — это:",
+              "options": [
+                "Ya me hago una idea.",
+                "Ya hago me una idea.",
+                "Ya tengo hecho idea."
+              ],
+              "correctOption": "Ya me hago una idea."
+            },
+            {
+              "id": "es-a2-piso-13-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-plural",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Коммунальные отдельно.",
+              "canonicalAnswer": "Los gastos van aparte.",
+              "tokens": [
+                "gastos",
+                "van",
+                "aparte",
+                "Los"
+              ]
+            },
+            {
+              "id": "es-a2-piso-13-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "В аренду входят коммунальные?",
+              "canonicalAnswer": "¿El alquiler incluye los gastos?"
+            },
+            {
+              "id": "es-a2-piso-13-e13",
+              "type": "translate",
+              "topics": [
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Сколько обычно выходит?",
+              "canonicalAnswer": "¿Cuánto suele salir?"
+            },
+            {
+              "id": "es-a2-piso-13-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-numeros",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Около шестидесяти в месяц.",
+              "canonicalAnswer": "Unos sesenta al mes."
+            }
+          ]
+        },
+        {
+          "id": "es-a2-piso-14",
+          "title": "Ya estoy instalada",
+          "summary": "Обустроилась.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "es-a2-piso-14-e1",
+              "type": "dialogue",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-objeto-directo",
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Обустроилась",
+              "lines": [
+                {
+                  "speaker": "Marta",
+                  "text": "¿Ya estás instalada del todo?",
+                  "translation": "Уже полностью обустроилась?"
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Casi, me falta colgar cuadros.",
+                  "translation": "Почти, осталось повесить картины."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Eso lo dejas para siempre.",
+                  "translation": "Это откладывается навсегда."
+                },
+                {
+                  "speaker": "Ana",
+                  "text": "Ya lo sé, me conozco.",
+                  "translation": "Знаю, я себя знаю."
+                },
+                {
+                  "speaker": "Marta",
+                  "text": "Te ayudo el sábado y listo.",
+                  "translation": "Помогу в субботу, и готово."
+                }
+              ]
+            },
+            {
+              "id": "es-a2-piso-14-e2",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Ya estoy instalada.",
+              "translation": "Я уже обустроилась.",
+              "example": "¿Ya estás instalada del todo?"
+            },
+            {
+              "id": "es-a2-piso-14-e3",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "del todo",
+              "translation": "полностью",
+              "example": "¿Ya estás instalada del todo?"
+            },
+            {
+              "id": "es-a2-piso-14-e4",
+              "type": "flashcard",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "colgar cuadros",
+              "translation": "вешать картины",
+              "example": "Me falta colgar cuadros."
+            },
+            {
+              "id": "es-a2-piso-14-e5",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Me conozco.",
+              "translation": "Я себя знаю.",
+              "example": "Ya lo sé, me conozco."
+            },
+            {
+              "id": "es-a2-piso-14-e6",
+              "type": "flashcard",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-genero",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "y listo",
+              "translation": "и готово",
+              "example": "Te ayudo el sábado y listo."
+            },
+            {
+              "id": "es-a2-piso-14-e7",
+              "type": "info",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "title": "Полностью",
+              "explanation": "Усиление del todo значит «полностью, совсем»: instalada del todo, no del todo, ha merecido la pena del todo. Ставится после того, что усиливает."
+            },
+            {
+              "id": "es-a2-piso-14-e8",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a1-estar",
+                "es-a1-preguntas",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "¿Ya estás instalada ___ todo?",
+              "options": [
+                "del",
+                "de",
+                "por"
+              ],
+              "correctOption": "del"
+            },
+            {
+              "id": "es-a2-piso-14-e9",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Me falta ___ cuadros.",
+              "options": [
+                "colgar",
+                "colgando",
+                "colgado"
+              ],
+              "correctOption": "colgar"
+            },
+            {
+              "id": "es-a2-piso-14-e10",
+              "type": "multiple_choice",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "«И готово» — это:",
+              "options": [
+                "y listo",
+                "y listos",
+                "y la lista"
+              ],
+              "correctOption": "y listo"
+            },
+            {
+              "id": "es-a2-piso-14-e11",
+              "type": "word_order",
+              "topics": [
+                "es-a1-presente-er-ir",
+                "es-a2-objeto-directo",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Знаю, я себя знаю.",
+              "canonicalAnswer": "Ya lo sé, me conozco.",
+              "tokens": [
+                "lo",
+                "sé",
+                "me",
+                "conozco",
+                "Ya"
+              ]
+            },
+            {
+              "id": "es-a2-piso-14-e12",
+              "type": "translate",
+              "topics": [
+                "es-a1-estar",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Я уже обустроилась.",
+              "canonicalAnswer": "Ya estoy instalada."
+            },
+            {
+              "id": "es-a2-piso-14-e13",
+              "type": "translate",
+              "topics": [
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Осталось повесить картины.",
+              "canonicalAnswer": "Me falta colgar cuadros."
+            },
+            {
+              "id": "es-a2-piso-14-e14",
+              "type": "translate",
+              "topics": [
+                "es-a1-presente-ar",
+                "es-a1-genero",
+                "es-a2-tema-vivienda"
+              ],
+              "prompt": "Помогу в субботу, и готово.",
+              "canonicalAnswer": "Te ayudo el sábado y listo."
             }
           ]
         },
