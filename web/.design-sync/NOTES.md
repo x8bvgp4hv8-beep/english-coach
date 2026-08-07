@@ -42,30 +42,21 @@ These are triaged and expected — a warn NOT on this list is new and worth look
   multi-column card cell. Column mode is the right answer here, not narrower previews:
   shrinking them would show the components at a width the app never uses.
 
-## Open finding: no disabled state for form controls
+## Closed finding: disabled state for form controls
 
-`:disabled` styling exists for `.kind`, `.lesson`, `.primary` and `.topic`, and is
-**missing** for `.choice`, `.answer-field`, `.secondary` and `.token`. A locked answer,
-a checked translation field, a dead secondary button and a submitted word tray all render
-pixel-identical to their live versions — in the app as well as in the previews.
+The render check caught that `.choice`, `.answer-field`, `.secondary` and `.token` had no
+`:disabled` rule while `.kind`, `.lesson`, `.primary` and `.topic` did — so a locked
+answer, a checked translation field, a dead secondary button and a submitted word tray
+all rendered pixel-identical to their live versions, in the app as well as in the cards.
+Inherited verbatim from `styles.css`, not introduced by the kit extraction.
 
-This predates the kit extraction; it was inherited verbatim from `styles.css`. It is
-reported to the owner and **deliberately not fixed**, because it changes how the app
-looks and that call is his. Four preview cells that would have advertised the state
-(`Choice/Answered`, `AnswerField/Checked`, `SecondaryButton/Disabled`,
-`WordOrderTray/Locked`) were replaced with honest ones rather than shipping cards that
-promise a state the design system does not render.
+Fixed with the owner's approval; the four rules are in `kit.css` next to their component.
+`.token:disabled:not(.used)` is deliberately narrow — a word already in the tray keeps its
+`used` opacity of 0.25 instead of being lifted to 0.5.
 
-The fix, if it is ever wanted, is four lines in `src/kit/kit.css`:
-
-```css
-.choice:disabled       { opacity: 0.5; }
-.answer-field:disabled { opacity: 0.6; }
-.secondary:disabled    { opacity: 0.45; box-shadow: none; }
-.token:disabled        { opacity: 0.5; }
-```
-
-After that, restore the four cells and re-grade them.
+Worth knowing for the future: **this is what the preview pass is for.** The gap had been
+in the app for months and was invisible until every state was rendered side by side on
+one sheet.
 
 ## Re-sync risks
 

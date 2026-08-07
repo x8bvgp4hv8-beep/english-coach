@@ -29,13 +29,20 @@ export function Untouched() {
   )
 }
 
-/**
- * A gap-fill, where the options are the two words being told apart.
- *
- * There is deliberately no `disabled` cell: `.choice` carries no disabled styling today,
- * so a locked answer renders identically to a live one and a card claiming otherwise
- * would be lying. See NOTES.md.
- */
+/** Locked after the answer was checked — the whole set dims and stops inviting a tap. */
+export function Answered() {
+  return (
+    <div style={{ width: 340 }}>
+      <ChoiceList>
+        <Choice disabled>Hola</Choice>
+        <Choice selected disabled>Gracias</Choice>
+        <Choice disabled>Adiós</Choice>
+      </ChoiceList>
+    </div>
+  )
+}
+
+/** A gap-fill, where the options are the forms being told apart. */
 export function GapFill() {
   return (
     <div style={{ width: 340 }}>

@@ -29,12 +29,16 @@ export function Complete() {
   )
 }
 
-/**
- * A longer sentence: the pool wraps onto a second line and the tray grows with it.
- *
- * There is deliberately no `disabled` cell: `.token` carries no disabled styling today,
- * so a checked tray renders identically to a live one. See NOTES.md.
- */
+/** After the answer is checked nothing moves any more, and the tray says so. */
+export function Locked() {
+  return (
+    <div style={{ width: 340 }}>
+      <WordOrderTray tokens={TOKENS} picked={[1, 0, 2, 3]} disabled />
+    </div>
+  )
+}
+
+/** A longer sentence: the pool wraps onto a second line and the tray grows with it. */
 export function LongSentence() {
   const tokens = ['una', 'Me', 'reservar', 'gustaría', 'para', 'mesa', 'dos']
   return (

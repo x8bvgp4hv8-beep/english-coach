@@ -210,6 +210,7 @@ button { cursor: pointer; border: none; background: none; }
   transition: transform 140ms ease-out, box-shadow 140ms ease-out;
 }
 .secondary:active { transform: translateY(var(--press-y)); box-shadow: var(--shadow-btn-active); }
+.secondary:disabled { opacity: 0.45; box-shadow: none; }
 
 /* ── ChoiceList / Choice ──────────────────────────────────────────────────── */
 
@@ -231,6 +232,9 @@ button { cursor: pointer; border: none; background: none; }
   content: '✓'; position: absolute; right: 15px; top: 50%; transform: translateY(-50%);
   font-size: 15px; font-weight: 800; color: var(--accent);
 }
+/* Checked and locked. Every other row in the app dims when it stops accepting taps;
+   without this an answered question looked exactly like a live one. */
+.choice:disabled { opacity: 0.5; }
 
 /* ── Pill ─────────────────────────────────────────────────────────────────── */
 
@@ -248,6 +252,7 @@ button { cursor: pointer; border: none; background: none; }
   border: var(--border-w) solid var(--border-col); background: var(--surface-solid); font-size: 17px;
 }
 .answer-field:focus { outline: none; border-color: var(--accent); }
+.answer-field:disabled { opacity: 0.6; }
 
 /* ── WordOrderTray ────────────────────────────────────────────────────────── */
 
@@ -258,6 +263,9 @@ button { cursor: pointer; border: none; background: none; }
 }
 .token.picked { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
 .token.used { opacity: 0.25; }
+/* A submitted tray stops being touchable, so it stops looking touchable. `used` wins:
+   a word already in the tray stays at 0.25, not 0.5. */
+.token:disabled:not(.used) { opacity: 0.5; }
 .token-tray {
   min-height: 54px; border-radius: var(--radius-btn); background: var(--accent-soft); padding: 8px; margin-top: 12px;
   display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start;

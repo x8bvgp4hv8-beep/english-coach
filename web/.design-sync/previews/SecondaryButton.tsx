@@ -21,12 +21,16 @@ export function Alone() {
   )
 }
 
-/**
- * The two-button row of the word-order exercise.
- *
- * There is deliberately no `disabled` cell: `.secondary` carries no disabled styling
- * today, so a locked button renders identically to a live one. See NOTES.md.
- */
+/** Nothing to clear yet. */
+export function Disabled() {
+  return (
+    <div style={{ width: 340 }}>
+      <SecondaryButton disabled>Очистить</SecondaryButton>
+    </div>
+  )
+}
+
+/** The two-button row of the word-order exercise. */
 export function ClearAndCheck() {
   return (
     <div style={{ display: 'flex', gap: 10, width: 340 }}>

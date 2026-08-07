@@ -17,12 +17,16 @@ export function Typed() {
   )
 }
 
-/**
- * A long answer stays on one line and scrolls inside the field rather than growing it.
- *
- * There is deliberately no `disabled` cell: `.answer-field` carries no disabled styling
- * today, so a locked field renders identically to a live one. See NOTES.md.
- */
+/** Locked once the answer has been checked. */
+export function Checked() {
+  return (
+    <div style={{ width: 340 }}>
+      <AnswerField value="Muchas gracias" placeholder="Напиши перевод…" disabled />
+    </div>
+  )
+}
+
+/** A long answer stays on one line and scrolls inside the field rather than growing it. */
 export function LongAnswer() {
   return (
     <div style={{ width: 340 }}>
