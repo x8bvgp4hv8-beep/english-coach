@@ -27,8 +27,8 @@ export function Loading({ after = 250 }: { after?: number }) {
 
   return (
     <div className="loading" role="status" aria-live="polite">
-      <div className="loading-mark">EC</div>
-      <div className="loading-title">English Coach</div>
+      <div className="loading-mark">C</div>
+      <div className="loading-title">Coachirinho</div>
       <div className="loading-line"><Typewriter lines={LINES} /></div>
     </div>
   )

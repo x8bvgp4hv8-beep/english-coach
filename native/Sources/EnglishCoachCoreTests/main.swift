@@ -7,7 +7,7 @@ private func expect(_ condition: @autoclosure () -> Bool, _ name: String) {
     else { failures += 1; print("✗ \(name)") }
 }
 
-expect(ProductInfo.name == "English Coach", "product identity")
+expect(ProductInfo.name == "Coachirinho", "product identity")
 
 let valid = #"{"schemaVersion":1,"level":"A1","chapters":[{"id":"c","title":"Chapter","lessons":[{"id":"l","title":"Lesson","summary":"Summary","estimatedMinutes":5,"exercises":[{"id":"e1","type":"info","title":"One"},{"id":"e2","type":"translate","prompt":"Я Алекс.","canonicalAnswer":"I am Alex."}]}]}]}"#
 do {

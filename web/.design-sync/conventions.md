@@ -1,5 +1,7 @@
 # How this design system is meant to be used
 
+This is the design system of **Coachirinho**.
+
 A language trainer for one learner: short daily sessions, a route of units, spaced
 repetition. Every component below comes from that app and carries its assumptions.
 

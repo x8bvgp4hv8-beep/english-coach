@@ -78,6 +78,6 @@ export function exportBackup(state: UserState): Blob {
 
 export function importBackup(raw: string): UserState {
   const state = deserialize(raw)
-  if (!Array.isArray(state.completedLessonIDs)) throw new Error('Это не файл прогресса English Coach')
+  if (!Array.isArray(state.completedLessonIDs)) throw new Error('Это не файл прогресса Coachirinho')
   return state
 }

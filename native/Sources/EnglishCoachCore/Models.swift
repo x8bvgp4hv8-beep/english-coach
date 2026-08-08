@@ -1,7 +1,7 @@
 import Foundation
 
 public enum ProductInfo {
-    public static let name = "English Coach"
+    public static let name = "Coachirinho"
 }
 
 public enum CEFRLevel: String, Codable, CaseIterable, Identifiable, Sendable {

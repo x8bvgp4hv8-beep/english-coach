@@ -1,5 +1,5 @@
 /**
- * The English Coach component kit.
+ * The Coachirinho component kit.
  *
  * Every component here is presentational: props in, markup out, no store, no speech
  * synthesis, no knowledge of a course. The screens in `src/app/` hold the state and
