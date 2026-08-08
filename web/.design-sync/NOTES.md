@@ -60,14 +60,16 @@ one sheet.
 
 ## Re-sync risks
 
-- **The app is being renamed.** `cfg.globalName` is `CoachKit`, chosen to survive that
-  rename; `cfg.pkg` is `english-coach-web` and stays, because the npm package name is
-  internal and renaming it buys nothing. If the brand should reach the design agent's
-  code (`window.CoachKit.ActionCard`), change `globalName` and re-run the full build —
-  uploads are idempotent, so it costs one rebuild and one re-upload, nothing else.
-- **`projectId` is not yet recorded.** No Claude Design project exists for this repo yet;
-  the target was deferred until the app's new name is settled. The first run to create one
-  must write its id into `config.json` immediately, before uploading anything.
+- **The app is now called Coachirinho.** `cfg.globalName` is still `CoachKit` and
+  `cfg.pkg` is still `english-coach-web` — both internal, both deliberately left alone.
+  If the brand should reach the design agent's code (`window.Coachirinho.ActionCard`),
+  change `globalName` and re-run the full build; uploads are idempotent, so it costs one
+  rebuild and one re-upload and nothing else.
+- **There are two Claude Design projects.** `810d9e9e-…` was created under the old name
+  ("English Coach — UI Kit") and fully uploaded before the rename; `faa49f04-…`
+  ("Coachirinho") is the live one and the only one `config.json` points at. The old one is
+  a duplicate and should be deleted by hand in the UI — the tool has no delete-project
+  method. Do not re-sync into it.
 - **Previews are hand-authored, all 22.** They live in `.design-sync/previews/` and are
   committed. They hard-code realistic Spanish/Russian course content that mirrors — but is
   not read from — `native/Sources/EnglishCoachCore/Resources/Languages/es/`. If the course
