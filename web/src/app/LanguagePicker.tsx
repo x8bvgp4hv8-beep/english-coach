@@ -1,4 +1,5 @@
 import { useStore } from './App'
+import { hatFor } from '../mascot/Rhino'
 import { LANGUAGES, localProgressStore } from '../core'
 import { LanguageCard } from '../kit'
 import type { LanguageCode } from '../core'
@@ -48,6 +49,12 @@ export function LanguagePicker({ onBack }: { onBack?: () => void }) {
                 title={language.title}
                 nativeTitle={language.nativeTitle}
                 current={current}
+                // One rhino per course, in that course's hat, waving from the card.
+                mascot={
+                  <span className="lang-rhino" aria-hidden="true">
+                    <rhino-mascot state="wave" hat={hatFor(language.code)} />
+                  </span>
+                }
                 // A course already begun says so with its own numbers: on the very first
                 // screen after an update, "продолжить · B1 · 320 ✦" is the answer to
                 // "а где мой прогресс".

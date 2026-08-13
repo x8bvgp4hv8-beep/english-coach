@@ -452,3 +452,48 @@ body { background-attachment: fixed; overscroll-behavior-y: none; }
     linear-gradient(color-mix(in srgb, var(--surface-solid) 66%, transparent), color-mix(in srgb, var(--surface-solid) 66%, transparent)),
     url('./bg/course-es.svg');
 }
+
+/* ── The mascot ────────────────────────────────────────────────────────────── */
+
+/*
+ * The palette the custom element reads. Left unset it draws itself in its own greys;
+ * naming them here ties him to the app's ink and accent instead, so he belongs to
+ * whichever theme is on rather than sitting on top of it.
+ */
+:root {
+  --rhino-eye: var(--ink);
+  --rhino-line: var(--ink);
+  --rhino-accent: var(--accent);
+}
+
+.rhino { flex: none; }
+.rhino rhino-mascot { display: block; width: 100%; height: 100%; }
+
+/*
+ * He rises from under the buttons, says one line and goes. Nothing waits on him: the
+ * answer is already on screen, and he never covers the way forward.
+ */
+.rhino-pop {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 18px; padding: 8px 12px 8px 8px;
+  border-radius: var(--radius);
+  background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col);
+  box-shadow: var(--shadow-card);
+  animation: rhino-in 420ms cubic-bezier(0.34, 1.4, 0.5, 1) both;
+}
+.rhino-pop-figure { width: 52px; height: 52px; flex: none; }
+.rhino-pop-figure rhino-mascot { display: block; width: 100%; height: 100%; }
+.rhino-pop-line { font-size: 15px; font-weight: 700; }
+
+@keyframes rhino-in {
+  from { opacity: 0; transform: translateY(26px) rotate(4deg); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rhino-pop { animation: none; }
+}
+
+/* On the language cards he is the course: a hat each, waving. */
+.lang-rhino { width: 74px; height: 74px; margin: 0 auto 2px; }
+.lang-rhino rhino-mascot { display: block; width: 100%; height: 100%; }

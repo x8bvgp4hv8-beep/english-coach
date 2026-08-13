@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 
 import { useStore } from './App'
 import { speak } from './speech'
+import { hatFor, lineForVerdict, RhinoPop } from '../mascot/Rhino'
 import { diffSummary } from '../core'
+import type { RhinoLine } from '../mascot/Rhino'
 import {
   AnswerField, Choice, ChoiceList, Dialogue, Feedback, Pill, PrimaryButton, SecondaryButton, WordOrderTray,
 } from '../kit'
@@ -48,8 +50,22 @@ export function Player() {
   const [option, setOption] = useState<string | null>(null)
   /** A card being recalled keeps its answer hidden until the learner has tried. */
   const [revealed, setRevealed] = useState(false)
+  const [rhino, setRhino] = useState<RhinoLine | null>(null)
 
   useEffect(() => { setAnswer(''); setPicked([]); setOption(null); setRevealed(false) }, [exercise?.id])
+
+  /**
+   * The mascot answers the verdict, not the tap: it is driven off the feedback the
+   * session produced, so every route into an answer — typing, tapping an option,
+   * assembling the words — gets the same reaction without being wired one by one.
+   */
+  const step = model.session.exerciseIndex
+  const verdict = feedback?.verdict
+  useEffect(() => {
+    if (!verdict) return
+    const line = lineForVerdict(verdict, step)
+    if (line) setRhino({ ...line, id: Date.now() })
+  }, [verdict, step])
 
   if (!lesson) return null
 
@@ -178,6 +194,10 @@ export function Player() {
         </div>
       </div>
 
+      {/* Between the card and the buttons on purpose: in the prototype he stood over
+          "Дальше" and blocked the very tap he had just congratulated. */}
+      <RhinoPop line={rhino} hat={hatFor(model.currentLanguage.code)} />
+
       <div className="player-actions">
         {!feedback && exercise.type === 'dialogue' && (
           <PrimaryButton onClick={() => model.completePassive()}>Дальше</PrimaryButton>
@@ -196,9 +216,19 @@ export function Player() {
         {/* Nobody but the learner knows whether the word actually came to mind, and an
             honest "нет" is what puts the card back into tomorrow's queue. */}
         {!feedback && exercise.type === 'flashcard' && recall && revealed && (
+          /* Self-assessment advances the session on the spot, which clears the feedback
+             the mascot normally listens to — so this one calls him by hand. */
           <div className="row">
             <SecondaryButton onClick={() => model.selfAssess(false)}>Не вспомнил</SecondaryButton>
-            <PrimaryButton tone="mint" onClick={() => model.selfAssess(true)}>Вспомнил</PrimaryButton>
+            <PrimaryButton
+              tone="mint"
+              onClick={() => {
+                model.selfAssess(true)
+                setRhino({ state: 'celebrate', text: 'Помнишь!', id: Date.now() })
+              }}
+            >
+              Вспомнил
+            </PrimaryButton>
           </div>
         )}
         {!feedback && exercise.type === 'translate' && (

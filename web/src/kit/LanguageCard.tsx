@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 export interface LanguageCardProps {
   /** Two-letter code. Also picks the card's fixed colour: `en` indigo, `es` terracotta. */
   code: string
@@ -17,6 +19,12 @@ export interface LanguageCardProps {
   state: string
   /** The course currently open. Tints the card in its own colour. */
   current?: boolean
+  /**
+   * Anything to stand at the top of the card — the app puts the mascot in its hat here.
+   * A slot rather than a prop for the mascot itself: the kit stays presentational and
+   * knows nothing about custom elements.
+   */
+  mascot?: ReactNode
   onChoose?: () => void
 }
 
@@ -28,11 +36,12 @@ export interface LanguageCardProps {
  * choosing a voice, a syllabus and a separate record of progress.
  */
 export function LanguageCard({
-  code, short, greeting, greetingLocale, title, nativeTitle, note, state, current, onChoose,
+  code, short, greeting, greetingLocale, title, nativeTitle, note, state, current, mascot, onChoose,
 }: LanguageCardProps) {
   return (
     <button className={`lang-card ${code}${current ? ' current' : ''}`} onClick={onChoose}>
       <span className="lang-short">{short}</span>
+      {mascot}
       <span className="lang-greeting" lang={greetingLocale}>{greeting}</span>
       <span className="lang-name">{title}</span>
       <span className="lang-native">{nativeTitle}</span>
