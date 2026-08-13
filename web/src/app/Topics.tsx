@@ -37,7 +37,7 @@ export function Topics() {
     <>
       <header className="header">
         <div className="header-top">
-          <button className="icon-button" onClick={() => model.setScreen('map')} aria-label="Назад">‹</button>
+          <button className="icon-button" onClick={() => model.goBack()} aria-label="Назад">‹</button>
           <h1 className="brand-title" style={{ flex: 1, textAlign: 'center' }}>Темы</h1>
           <span style={{ width: 48 }} />
         </div>

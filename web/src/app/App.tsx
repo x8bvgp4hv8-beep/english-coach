@@ -1,16 +1,20 @@
 import { useEffect, useSyncExternalStore } from 'react'
 
 import { downloadBackup } from './backup'
+import { Course } from './Course'
 import { LanguagePicker } from './LanguagePicker'
 import { Listening } from './Listening'
 import { Loading } from './Loading'
-import { MapScreen } from './Map'
 import { Onboarding } from './Onboarding'
 import { Player } from './Player'
+import { Practice } from './Practice'
+import { Progress } from './Progress'
 import { Settings } from './Settings'
 import { Shadowing } from './Shadowing'
+import { TabBar } from './TabBar'
+import { Today } from './Today'
 import { Topics } from './Topics'
-import { store } from './store'
+import { isTab, store } from './store'
 import { AlertBar } from '../kit'
 import type { AppStore } from './store'
 
@@ -62,7 +66,14 @@ export function App() {
         : model.activeLesson ? <Player />
         : model.screen === 'settings' ? <Settings />
         : model.screen === 'topics' ? <Topics />
-        : <MapScreen />}
+        : model.screen === 'course' ? <Course />
+        : model.screen === 'practice' ? <Practice />
+        : model.screen === 'progress' ? <Progress />
+        : <Today />}
+
+      {/* Only over the four peers. A lesson keeps the screen to itself so that leaving
+          one is a decision rather than a mis-tap near the bottom edge. */}
+      {isTab(model.screen) && !model.isOnboarding && !model.isBusy && <TabBar model={model} />}
     </div>
   )
 }

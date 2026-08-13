@@ -316,3 +316,89 @@ body { background-attachment: fixed; overscroll-behavior-y: none; }
 
 /* What a level actually contains, under the picker that chooses it. */
 .level-size { font-size: 12px; color: var(--ink-soft); margin: 10px 0 0; }
+
+/* ── The four tabs ─────────────────────────────────────────────────────────── */
+
+/*
+ * The bar sits at the bottom of the shell, above the home indicator. `.scroll` gets the
+ * bar's height back as padding so the last row of a list is never parked underneath it.
+ */
+.tabbar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--surface);
+  border-top: 1px solid var(--hairline);
+  backdrop-filter: blur(12px);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.tabbar-item {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-height: var(--tap); padding: 8px 4px 10px;
+  font-size: 11px; font-weight: 650; color: var(--ink-soft);
+}
+/* Desaturating them turned every icon into the same grey smudge — emoji carry their
+   meaning in colour, and the app speaks in them everywhere else. Only the weight of
+   the label separates the current tab. */
+.tabbar-icon { font-size: 19px; line-height: 1; opacity: 0.5; }
+/* The current tab is named by weight and colour, and the label is always present —
+   an icon alone leaves the answer to whoever recognises the pictogram. */
+.tabbar-item.current { color: var(--accent); font-weight: 700; }
+.tabbar-item.current .tabbar-icon { opacity: 1; }
+.tabbar-item:active { background: var(--accent-soft); }
+
+/* ── Progress ──────────────────────────────────────────────────────────────── */
+
+.streak-hero {
+  display: grid; justify-items: center; gap: 4px;
+  padding: 22px 0 6px; text-align: center;
+}
+.streak-figure { font-size: 40px; font-weight: var(--display-w); line-height: 1; font-variant-numeric: tabular-nums; }
+.streak-caption { font-size: 13px; color: var(--ink-soft); }
+
+.level-bar { margin-top: 10px; }
+
+/*
+ * Seven days of minutes. One series, so no legend; the goal is a line rather than a
+ * colour so the chart still answers "did I hit it" in grayscale.
+ */
+.week { margin-top: 10px; }
+.week-plot {
+  position: relative;
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+  align-items: end;
+  height: 132px;
+  padding: 0 2px;
+}
+.week-goal {
+  position: absolute; left: 0; right: 0; height: 0;
+  border-top: 2px dashed color-mix(in srgb, var(--ink-soft) 55%, transparent);
+  pointer-events: none;
+}
+.week-col { height: 100%; display: flex; align-items: flex-end; }
+.week-bar {
+  position: relative; width: 100%; min-height: 3px;
+  border-radius: 4px 4px 0 0;
+  background: var(--track);
+  transition: height 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.week-bar.reached { background: var(--mint); }
+.week-value {
+  position: absolute; left: 0; right: 0; bottom: calc(100% + 4px);
+  text-align: center; font-size: 11px; font-weight: 700; color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.week-axis {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+  margin-top: 7px; padding: 0 2px;
+  font-size: 11px; color: var(--ink-soft); text-align: center;
+}
+.week-axis .today { color: var(--accent); font-weight: 700; }
+
+.totals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+.total {
+  display: grid; justify-items: center; gap: 3px; padding: 14px 8px;
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
+  border-radius: var(--radius); box-shadow: var(--shadow-card); text-align: center;
+}
+.total-value { font-size: 19px; font-weight: var(--display-w); font-variant-numeric: tabular-nums; }
+.total-caption { font-size: 11px; color: var(--ink-soft); line-height: 1.3; }

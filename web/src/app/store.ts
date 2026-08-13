@@ -25,7 +25,24 @@ import type {
   PlacementQuestion, ShadowingItem, Syllabus, TopicProgress, UserState,
 } from '../core'
 
-export type Screen = 'map' | 'settings' | 'topics' | 'language'
+/**
+ * The four tabs the prototype settled on, plus the screens that open over them.
+ *
+ * `today`, `course`, `practice` and `progress` are peers reachable from the bar at the
+ * bottom; `settings`, `topics` and `language` are pushed on top of whichever tab was
+ * open and hide the bar while they are up, so a tap on ‹ always lands back where the
+ * learner was rather than on a fixed home.
+ */
+export const TABS = ['today', 'course', 'practice', 'progress'] as const
+export type Tab = (typeof TABS)[number]
+export type Screen = Tab | 'settings' | 'topics' | 'language'
+
+export function isTab(screen: Screen): screen is Tab {
+  return (TABS as readonly string[]).includes(screen)
+}
+
+/** Indexed by `Date.getDay()`, so Sunday leads. */
+const WEEKDAYS = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
 
 /**
  * The web counterpart of AppModel.swift: one object owning content, profile and the
@@ -43,7 +60,7 @@ export class AppStore {
   syllabus: Syllabus | null = null
   state: UserState = freshState()
   session = new LearningSession(freshState())
-  screen: Screen = 'map'
+  screen: Screen = 'today'
   startupError: string | null = null
   loading = true
   /**
@@ -130,11 +147,11 @@ export class AppStore {
 
   /** Picking a language on the first screen, or switching to the other one later. */
   async selectLanguage(language: LanguageCode): Promise<void> {
-    if (language === this.language) { this.screen = 'map'; this.changed(); return }
+    if (language === this.language) { this.screen = 'today'; this.changed(); return }
     saveLanguage(language)
     applyLanguage(language)
     this.loading = true
-    this.screen = 'map'
+    this.screen = 'today'
     this.closeAllModes()
     this.changed()
     await this.open(language)
@@ -250,6 +267,40 @@ export class AppStore {
     return `${level} — ${rounded} ${plural(rounded, 'час', 'часа', 'часов')} занятий`
   }
 
+  /**
+   * How far through the level, counted in units rather than lessons.
+   *
+   * This is what replaced the chips of abilities: "18 из 30 блоков" is a sentence about
+   * the whole level, where a chip only ever spoke about the unit it came from.
+   */
+  get levelProgress(): { done: number; total: number; value: number } {
+    const chapters = this.selectedCourse?.chapters ?? []
+    const done = chapters.filter((chapter) => chapter.lessons.every((lesson) => this.completed.has(lesson.id))).length
+    return { done, total: chapters.length, value: chapters.length === 0 ? 0 : done / chapters.length }
+  }
+
+  /**
+   * The last `count` days of practice, oldest first, for the chart on the progress tab.
+   *
+   * Days with nothing in them are part of the answer, so the range is walked by date
+   * rather than read off the keys the log happens to have.
+   */
+  recentDays(count = 7): { key: string; weekday: string; minutes: number; goalReached: boolean }[] {
+    const days = []
+    for (let back = count - 1; back >= 0; back -= 1) {
+      const date = new Date()
+      date.setDate(date.getDate() - back)
+      const minutes = PracticeLog.minutes(this.state.practiceSeconds, date)
+      days.push({
+        key: PracticeLog.dayKey(date),
+        weekday: WEEKDAYS[date.getDay()],
+        minutes,
+        goalReached: minutes >= this.dailyGoalMinutes,
+      })
+    }
+    return days
+  }
+
   streak(): number {
     const days = new Set(this.state.attempts.map((a) => PracticeLog.dayKey(a.date)))
     const cursor = new Date()
@@ -303,7 +354,7 @@ export class AppStore {
   selectLevel(level: CEFRLevel): void {
     if (!this.state.profile) return
     this.state.profile = { ...this.state.profile, selectedLevel: level }
-    this.screen = 'map'
+    this.screen = 'today'
     this.persist()
   }
 
@@ -325,16 +376,24 @@ export class AppStore {
     this.persist()
   }
 
-  setScreen(screen: Screen): void { this.screen = screen; this.changed() }
+  /**
+   * The last tab the learner was on, so anything pushed over the bar knows where ‹ goes.
+   * Only tabs are remembered: settings opened from the picker must not send ‹ back into
+   * the picker it just came from.
+   */
+  private lastTab: Tab = 'today'
 
-  /** The picker can be opened from the map or from settings; back goes where it came from. */
-  private returnScreen: Screen = 'map'
-  openLanguages(): void {
-    if (this.screen !== 'language') this.returnScreen = this.screen
-    this.screen = 'language'
+  setScreen(screen: Screen): void {
+    if (isTab(screen)) this.lastTab = screen
+    this.screen = screen
     this.changed()
   }
-  closeLanguages(): void { this.screen = this.returnScreen; this.changed() }
+
+  /** Where ‹ leads out of settings, topics and the language picker. */
+  goBack(): void { this.setScreen(this.lastTab) }
+
+  openLanguages(): void { this.setScreen('language') }
+  closeLanguages(): void { this.goBack() }
 
   replaceState(state: UserState): void {
     this.state = state
