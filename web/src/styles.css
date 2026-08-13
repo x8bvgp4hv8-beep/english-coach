@@ -402,3 +402,53 @@ body { background-attachment: fixed; overscroll-behavior-y: none; }
 }
 .total-value { font-size: 19px; font-weight: var(--display-w); font-variant-numeric: tabular-nums; }
 .total-caption { font-size: 11px; color: var(--ink-soft); line-height: 1.3; }
+
+/* ── The sky behind each tab ───────────────────────────────────────────────── */
+
+/*
+ * One landscape, lived through a day: the same horizon on every tab, moved only by the
+ * light. English gets the cold chalk of a London morning, Spanish the dry warm of a
+ * Madrid one — see design/tab-backgrounds/PHILOSOPHY.md.
+ *
+ * Only the minimal theme wears them. Cartoon and night each chose their own ground on
+ * purpose, and a light photographic sky under the night palette would simply be a bug.
+ *
+ * Drawn on the shell rather than on the scroller, so the air stays still while the
+ * content moves over it. The course is the exception below.
+ */
+:root[data-theme='minimal'] .app[data-tab] {
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+}
+:root[data-theme='minimal'] .app[data-tab='today'] { background-image: url('./bg/today-en.svg'); }
+:root[data-theme='minimal'] .app[data-tab='practice'] { background-image: url('./bg/practice-en.svg'); }
+:root[data-theme='minimal'] .app[data-tab='progress'] { background-image: url('./bg/progress-en.svg'); }
+:root[data-theme='minimal'][data-learning='es'] .app[data-tab='today'] { background-image: url('./bg/today-es.svg'); }
+:root[data-theme='minimal'][data-learning='es'] .app[data-tab='practice'] { background-image: url('./bg/practice-es.svg'); }
+:root[data-theme='minimal'][data-learning='es'] .app[data-tab='progress'] { background-image: url('./bg/progress-es.svg'); }
+
+/*
+ * The course is terrain, not weather: it belongs to the route and therefore scrolls with
+ * it, tiling down the whole level. The tile is drawn to meet itself top to bottom, so a
+ * level of any length has no seam in it.
+ */
+/*
+ * A wash of the canvas colour sits between the terrain and the list. In the prototype
+ * the route was a path of nodes drawn over the map, with nothing to read; here it is a
+ * dense list of units, and a ferris wheel behind "0 / 2" is exactly the dirt the
+ * background philosophy warns about. The veil keeps the place and drops the noise.
+ */
+:root[data-theme='minimal'] .course-scroll {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--surface-solid) 66%, transparent), color-mix(in srgb, var(--surface-solid) 66%, transparent)),
+    url('./bg/course-en.svg');
+  background-repeat: repeat, repeat-y;
+  background-position: top center, top center;
+  background-size: auto, 100% auto;
+}
+:root[data-theme='minimal'][data-learning='es'] .course-scroll {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--surface-solid) 66%, transparent), color-mix(in srgb, var(--surface-solid) 66%, transparent)),
+    url('./bg/course-es.svg');
+}

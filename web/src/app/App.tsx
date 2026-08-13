@@ -44,7 +44,8 @@ export function App() {
   }
 
   return (
-    <div className="app">
+    /* The tab is on the shell so the stylesheet can put that tab's sky behind it. */
+    <div className="app" data-tab={isTab(model.screen) ? model.screen : undefined}>
       {/* Only ever seen mid-exercise: anywhere else the update has already applied itself. */}
       {model.updateReady && (
         <button className="update-bar" onClick={() => model.applyUpdateNow()}>
