@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Приложение Coachirinho" description="Кликабельный прототип приложения по английскому: выбор курса, онбординг, главная, карта курса, урок из шести типов упражнений, прогресс." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<script src="./image-slot.js"></script>
+<script src="./rhino.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.15.0/dist/motion.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"></link>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Comic+Neue:wght@300;400;700&display=swap"></link>
+<style>body{margin:0;background:#d9dfe6}:root{--font:'Comic Neue','Balsamiq Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}</style>
+</helmet>
+<div ref="{{ rootRef }}" style="--font:'Comic Neue','Balsamiq Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:34px 20px 44px;background:radial-gradient(130% 78% at 50% -12%,#eaeef2 0%,#dae0e8 56%,#c7d0da 100%);font-family:var(--font);color:var(--ink)">
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<symbol id="ic-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.4 12 4l8 6.4"></path><path d="M6 9.8V19a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9.8"></path><path d="M9.8 20v-5.4h4.4V20"></path></symbol>
+<symbol id="ic-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 20c0-3.2 11-3.4 11-7.2 0-3-11-2.6-11-6.2"></path><circle cx="6.5" cy="4.4" r="2.2"></circle><circle cx="17.5" cy="19.6" r="2.2"></circle></symbol>
+<symbol id="ic-practice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.4v5.2"></path><path d="M20 9.4v5.2"></path><path d="M7.4 6.8v10.4"></path><path d="M16.6 6.8v10.4"></path><path d="M7.4 12h9.2"></path></symbol>
+<symbol id="ic-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19V11"></path><path d="M12 19V5"></path><path d="M19 19v-5.4"></path></symbol>
+<symbol id="ic-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6.5 17.5 12 9 17.5z"></path></symbol>
+<symbol id="ic-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"></path><path d="M20 4v4.2h-4.2"></path></symbol>
+<symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.6 9.6 17.2 19 6.8"></path></symbol>
+<symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.8" y="10.4" width="14.4" height="9.2" rx="2.6"></rect><path d="M8.4 10.4V8a3.6 3.6 0 0 1 7.2 0v2.4"></path><path d="M12 14.2v2"></path></symbol>
+<symbol id="ic-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 5.5 16 12l-6.5 6.5"></path></symbol>
+<symbol id="ic-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="M11.5 6.5 6 12l5.5 5.5"></path></symbol>
+<symbol id="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5 17.5 17.5"></path><path d="M17.5 6.5 6.5 17.5"></path></symbol>
+<symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.2V12l3.2 2"></path></symbol>
+<symbol id="ic-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="4.2"></circle><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"></circle></symbol>
+<symbol id="ic-write" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19.5l1.1-4.3L15 5.8a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8l-9.4 9.4z"></path><path d="M13.8 7 17 10.2"></path></symbol>
+<symbol id="ic-choice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 20.8 12 12 20.8 3.2 12z"></path><path d="M9 12l2.2 2.2L15.2 10"></path></symbol>
+<symbol id="ic-order" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7.5h11"></path><path d="M5 12h14"></path><path d="M5 16.5h7.5"></path></symbol>
+<symbol id="ic-dialogue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.3A2.3 2.3 0 0 1 5.8 5h7.4A2.3 2.3 0 0 1 15.5 7.3v3.4a2.3 2.3 0 0 1-2.3 2.3H8L4.8 15.4v-2.6a2.3 2.3 0 0 1-1.3-2.1z"></path><path d="M18.5 10.6A2 2 0 0 1 20.5 12.6v3.3a2 2 0 0 1-2 2h-.6l-2.6 2v-2h-2.4"></path></symbol>
+<symbol id="ic-audio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.2v3.6"></path><path d="M8.2 7.4v9.2"></path><path d="M12 5.2v13.6"></path><path d="M15.8 8.4v7.2"></path><path d="M19.5 10.8v2.4"></path></symbol>
+<symbol id="ic-cards" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7.5" width="12" height="12" rx="2.5"></rect><path d="M7.6 7.5V6a2 2 0 0 1 2-2h8.9a2 2 0 0 1 2 2v8.9a2 2 0 0 1-2 2h-1.6"></path></symbol>
+<symbol id="ic-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 17.6a8.6 8.6 0 1 1 16.4 0"></path><path d="M12 17.6l4.4-4.8"></path><path d="M5.6 12.6h1.2"></path><path d="M12 6.6v1.2"></path><path d="M18.4 12.6h-1.2"></path></symbol>
+<symbol id="ic-flame" viewBox="0 0 24 24"><path d="M12.6 2.4c.5 3.1 2.2 4.4 3.7 6a7 7 0 0 1 2 4.9 6.3 6.3 0 1 1-12.6 0c0-1.8.7-3.3 1.7-4.4.1 1.1.7 2 1.6 2.4.4-3.6 1.6-6.5 3.6-8.9z" fill="currentColor"></path><path d="M12.2 12.2c.9 1.2 2.3 2 2.3 3.6a2.6 2.6 0 0 1-5.2 0c0-1.2 1.4-2.1 2.9-3.6z" fill="#fff" opacity=".5"></path></symbol>
+</svg>
+<div style="width:390px;height:824px;display:flex;flex-direction:column;background:var(--bg);border-radius:40px;border:1px solid var(--border-col);box-shadow:0 34px 70px -26px rgba(26,35,48,.46);overflow:hidden;position:relative">
+
+<sc-if value="{{ atLesson }}">
+<div style="display:flex;align-items:center;gap:12px;padding:18px 18px 12px;flex:none">
+<button onClick="{{ exitLesson }}" style="width:32px;height:32px;flex:none;border:none;border-radius:10px;background:var(--accent-soft);color:var(--ink);cursor:pointer;display:grid;place-items:center"><svg width="17" height="17"><use href="#ic-close"></use></svg></button>
+<button ref="{{ backRef }}" onClick="{{ stepBack }}" style="width:32px;height:32px;flex:none;border:none;border-radius:10px;background:var(--accent-soft);color:var(--ink);cursor:pointer;display:grid;place-items:center"><svg width="17" height="17"><use href="#ic-arrow-left"></use></svg></button>
+<div style="flex:1;min-width:0">
+<x-import component-from-global-scope="CoachKit.Meter" title="{{ sessionTitle }}" value="{{ lessonValue }}" caption="{{ lessonCaption }}" color="var(--accent)" hint-size="100%,32px"></x-import>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ showChrome }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;align-items:center;gap:10px;padding:18px 18px 10px;flex:none">
+<svg viewBox="0 0 512 512" style="width:30px;height:30px;flex:none;display:block" role="img" aria-label="Coachirinho"><defs><linearGradient id="sandg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EFE3CA"></stop><stop offset="1" stop-color="#DCC9A4"></stop></linearGradient><clipPath id="sandc"><rect width="512" height="512" rx="112"></rect></clipPath></defs><g clip-path="url(#sandc)"><rect width="512" height="512" fill="url(#sandg)"></rect><circle cx="256" cy="300" r="212" fill="#F7EFDF" opacity=".35"></circle><g transform="translate(256,274) scale(1.98) translate(-200,-166)"><g transform="rotate(-20 140 122)"><ellipse cx="140" cy="112" rx="21" ry="28" fill="#818EA2"></ellipse><ellipse cx="140" cy="114" rx="11" ry="17" fill="#D98C9D"></ellipse></g><g transform="rotate(20 260 122)"><ellipse cx="260" cy="112" rx="21" ry="28" fill="#818EA2"></ellipse><ellipse cx="260" cy="114" rx="11" ry="17" fill="#D98C9D"></ellipse></g><ellipse cx="200" cy="170" rx="87" ry="74" fill="#68778D"></ellipse><ellipse cx="200" cy="204" rx="57" ry="39" fill="#BAC0C9"></ellipse><path d="M177 200 C181 156 189 128 200 108 C211 128 219 156 223 200 Z" fill="#F2E3C4"></path><path d="M200 108 C211 128 219 156 223 200 L209 200 C207 160 204 132 200 108 Z" fill="#D9C49B" opacity=".7"></path><ellipse cx="157" cy="159" rx="19" ry="19.5" fill="#F6F8FB"></ellipse><ellipse cx="243" cy="159" rx="19" ry="19.5" fill="#F6F8FB"></ellipse><circle cx="159" cy="162" r="12.5" fill="#242A36"></circle><circle cx="241" cy="162" r="12.5" fill="#242A36"></circle><circle cx="154" cy="157" r="4.8" fill="#fff"></circle><circle cx="236" cy="157" r="4.8" fill="#fff"></circle><circle cx="164" cy="168" r="2.4" fill="#fff"></circle><circle cx="246" cy="168" r="2.4" fill="#fff"></circle><path d="M143 134 q14 -9 27 -3" stroke="#CDD0D5" stroke-width="5.5" stroke-linecap="round" fill="none"></path><path d="M257 134 q-14 -9 -27 -3" stroke="#CDD0D5" stroke-width="5.5" stroke-linecap="round" fill="none"></path><ellipse cx="136" cy="196" rx="14" ry="10" fill="#E0899A" opacity=".5"></ellipse><ellipse cx="264" cy="196" rx="14" ry="10" fill="#E0899A" opacity=".5"></ellipse><ellipse cx="184" cy="210" rx="4.6" ry="3.4" fill="#95A1B1"></ellipse><ellipse cx="216" cy="210" rx="4.6" ry="3.4" fill="#95A1B1"></ellipse><path d="M184 220 q16 16 32 0" stroke="#2B3242" stroke-width="6" stroke-linecap="round" fill="none"></path></g></g></svg>
+<button onClick="{{ goSettings }}" style="border:none;background:none;padding:0;cursor:pointer;display:flex;align-items:baseline;gap:8px" style-hover="opacity:.7"><span style="font:800 17px/1 var(--font);letter-spacing:-.035em;color:var(--ink)">Coachirinho</span><span style="font:700 11px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">{{ courseShort }}</span></button>
+
+</div>
+</sc-if>
+
+<div ref="{{ viewRef }}" style="flex: 1; min-height: 0; overflow-y: auto; padding: 4px 18px 22px">
+
+<sc-if value="{{ atLang }}">
+<div style="padding-top:4px;min-height:100%;display:flex;flex-direction:column;position:relative">
+<div aria-hidden="true" style="position:absolute;left:-18px;right:-18px;top:-4px;bottom:-22px;overflow:hidden;pointer-events:none">
+<sc-if value="{{ isEn }}">
+<img data-bg="1" src="./bg-london.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;transform-origin:50% 100%">
+</sc-if>
+<sc-if value="{{ isEs }}">
+<img data-bg="1" src="./bg-madrid.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;transform-origin:50% 100%">
+</sc-if>
+</div>
+<p style="position:relative;font:700 11px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 14px;text-align:center">Выбор языка</p>
+<div ref="{{ langRef }}" style="flex:1;display:flex;flex-direction:column;position:relative">
+<sc-if value="{{ isEn }}">
+<div style="flex:1;display:flex;flex-direction:column">
+<div style="display:flex;align-items:flex-start;gap:2px">
+<button onClick="{{ otherLang }}" style="width:44px;height:44px;flex:none;margin-top:96px;border:none;border-radius:50%;background:var(--accent-soft);color:var(--ink);font:400 19px/1 var(--font);cursor:pointer">←</button>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px">
+<h1 style="font:800 36px/1 var(--font);letter-spacing:-.035em;margin:0;color:var(--ink)">English</h1>
+<div style="width:112px;height:56px;border-radius:7px;overflow:hidden;border:1px solid var(--border-col);background-color:#012169;background-image:linear-gradient(to bottom,transparent calc(50% - 6px),#c8102e calc(50% - 6px) calc(50% + 6px),transparent calc(50% + 6px)),linear-gradient(to right,transparent calc(50% - 6px),#c8102e calc(50% - 6px) calc(50% + 6px),transparent calc(50% + 6px)),linear-gradient(to bottom,transparent calc(50% - 11px),#fff calc(50% - 11px) calc(50% + 11px),transparent calc(50% + 11px)),linear-gradient(to right,transparent calc(50% - 11px),#fff calc(50% - 11px) calc(50% + 11px),transparent calc(50% + 11px)),linear-gradient(to bottom right,transparent calc(50% - 3px),#c8102e calc(50% - 3px) calc(50% + 3px),transparent calc(50% + 3px)),linear-gradient(to top right,transparent calc(50% - 3px),#c8102e calc(50% - 3px) calc(50% + 3px),transparent calc(50% + 3px)),linear-gradient(to bottom right,transparent calc(50% - 8px),#fff calc(50% - 8px) calc(50% + 8px),transparent calc(50% + 8px)),linear-gradient(to top right,transparent calc(50% - 8px),#fff calc(50% - 8px) calc(50% + 8px),transparent calc(50% + 8px))"></div>
+
+<div data-cloudbox="1" style="position:relative;width:186px;height:163px;margin:2px 0 0 40px;flex:none;z-index:2;transform-origin:34% 96%">
+<svg viewBox="0 0 320 280" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+<path data-cloud="1" d="M30 118A30 30 0 0 1 62 68A36 36 0 0 1 122 40A34 34 0 0 1 186 34A32 32 0 0 1 244 56A30 30 0 0 1 290 96A28 28 0 0 1 292 150A30 30 0 0 1 244 184A30 30 0 0 1 186 196A28 28 0 0 1 172 194L166 200L144 272L128 190A26 26 0 0 1 86 186A30 30 0 0 1 52 168A30 30 0 0 1 30 118Z" transform="translate(8,9)" fill="var(--accent)"></path>
+<path data-cloud="1" d="M30 118A30 30 0 0 1 62 68A36 36 0 0 1 122 40A34 34 0 0 1 186 34A32 32 0 0 1 244 56A30 30 0 0 1 290 96A28 28 0 0 1 292 150A30 30 0 0 1 244 184A30 30 0 0 1 186 196A28 28 0 0 1 172 194L166 200L144 272L128 190A26 26 0 0 1 86 186A30 30 0 0 1 52 168A30 30 0 0 1 30 118Z" fill="var(--surface-solid)" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round"></path>
+</svg>
+<div style="position:absolute;left:10%;right:10%;top:4%;height:62%;display:flex;align-items:center;justify-content:center">
+<span data-cloudword="1" style="display:inline-block;transform-origin:50% 50%;font:800 26px/1 var(--font);letter-spacing:-.02em;color:var(--accent)">Hello!</span>
+</div>
+</div>
+<div style="width:400px;max-width:none;flex:none;height:452px;margin-top:-96px;position:relative"><rhino-mascot state="wave" hat="uk" style="height:100%"></rhino-mascot></div>
+</div>
+<button onClick="{{ otherLang }}" style="width:44px;flex:none;margin-top:96px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px">
+<span style="width:44px;height:44px;border-radius:50%;background:var(--accent-soft);color:var(--ink);font:400 19px/44px var(--font);text-align:center">→</span>
+<span style="font:700 9px/1.2 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">Español</span>
+</button>
+</div>
+<div style="margin-top:auto;padding-top:18px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;gap:8px;justify-content:center;margin-top:2px">
+<div style="display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 15px;border-radius:999px;background:var(--accent);color:var(--accent-fg)">
+<span style="font:700 9px/1 var(--font);letter-spacing:.15em;text-transform:uppercase;opacity:.6">Уровень</span>
+<span style="font:800 15px/1 var(--font);letter-spacing:-.01em">A2</span>
+</div>
+<div style="display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 15px;border-radius:999px;background:#EFE3CA;color:#5B4A2C">
+<span style="display:flex;align-items:center;justify-content:center;width:15px;height:15px;font-size:13px;line-height:1">🔥</span>
+<span style="font:800 15px/1 var(--font);letter-spacing:-.01em">{{ streakN }}</span>
+<span style="font:700 9px/1 var(--font);letter-spacing:.15em;text-transform:uppercase;opacity:.62">{{ streakWord }}</span>
+</div>
+</div>
+<x-import component-from-global-scope="CoachKit.PrimaryButton" tone="mint" on-click="{{ goHome }}" hint-size="100%,52px">Продолжить английский</x-import></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isEs }}">
+<div style="flex:1;display:flex;flex-direction:column">
+<div style="display:flex;align-items:flex-start;gap:2px">
+<button onClick="{{ otherLang }}" style="width:44px;flex:none;margin-top:96px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px">
+<span style="width:44px;height:44px;border-radius:50%;background:var(--accent-soft);color:var(--ink);font:400 19px/44px var(--font);text-align:center">←</span>
+<span style="font:700 9px/1.2 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)">English</span>
+</button>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px">
+<h1 style="font:800 36px/1 var(--font);letter-spacing:-.035em;margin:0;color:var(--ink)">Español</h1>
+<div style="width:112px;height:56px;border-radius:7px;overflow:hidden;border:1px solid var(--border-col);background:linear-gradient(#aa151b 0 25%,#f1bf00 25% 75%,#aa151b 75% 100%)"></div>
+<div data-cloudbox="1" style="position:relative;width:186px;height:163px;margin:2px 0 0 40px;flex:none;z-index:2;transform-origin:34% 96%">
+<svg viewBox="0 0 320 280" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+<path data-cloud="1" d="M30 118A30 30 0 0 1 62 68A36 36 0 0 1 122 40A34 34 0 0 1 186 34A32 32 0 0 1 244 56A30 30 0 0 1 290 96A28 28 0 0 1 292 150A30 30 0 0 1 244 184A30 30 0 0 1 186 196A28 28 0 0 1 172 194L166 200L144 272L128 190A26 26 0 0 1 86 186A30 30 0 0 1 52 168A30 30 0 0 1 30 118Z" transform="translate(8,9)" fill="var(--accent)"></path>
+<path data-cloud="1" d="M30 118A30 30 0 0 1 62 68A36 36 0 0 1 122 40A34 34 0 0 1 186 34A32 32 0 0 1 244 56A30 30 0 0 1 290 96A28 28 0 0 1 292 150A30 30 0 0 1 244 184A30 30 0 0 1 186 196A28 28 0 0 1 172 194L166 200L144 272L128 190A26 26 0 0 1 86 186A30 30 0 0 1 52 168A30 30 0 0 1 30 118Z" fill="var(--surface-solid)" stroke="var(--accent)" stroke-width="4" stroke-linejoin="round"></path>
+</svg>
+<div style="position:absolute;left:10%;right:10%;top:4%;height:62%;display:flex;align-items:center;justify-content:center">
+<span data-cloudword="1" style="display:inline-block;transform-origin:50% 50%;font:800 26px/1 var(--font);letter-spacing:-.02em;color:var(--accent)">¡Hola!</span>
+</div>
+</div>
+<div style="width:400px;max-width:none;flex:none;height:452px;margin-top:-96px;position:relative"><rhino-mascot state="wave" hat="es" style="height:100%"></rhino-mascot></div>
+</div>
+<button onClick="{{ otherLang }}" style="width:44px;height:44px;flex:none;margin-top:96px;border:none;border-radius:50%;background:var(--accent-soft);color:var(--ink);font:400 19px/1 var(--font);cursor:pointer">→</button>
+</div>
+<div style="margin-top:auto;padding-top:18px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;gap:8px;justify-content:center;margin-top:2px">
+<div style="display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 15px;border-radius:999px;background:var(--accent);color:var(--accent-fg)">
+<span style="font:700 9px/1 var(--font);letter-spacing:.15em;text-transform:uppercase;opacity:.6">Уровень</span>
+<span style="font:800 15px/1 var(--font);letter-spacing:-.01em">A0</span>
+</div>
+<div style="display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 15px;border-radius:999px;background:#EFE3CA;color:#5B4A2C">
+<span style="display:flex;align-items:center;justify-content:center;width:15px;height:15px;font-size:13px;line-height:1">🔥</span>
+<span style="font:800 15px/1 var(--font);letter-spacing:-.01em">{{ streakN }}</span>
+<span style="font:700 9px/1 var(--font);letter-spacing:.15em;text-transform:uppercase;opacity:.62">{{ streakWord }}</span>
+</div>
+</div>
+<x-import component-from-global-scope="CoachKit.PrimaryButton" tone="mint" on-click="{{ goLevelChoice }}" hint-size="100%,52px">Начать испанский</x-import></div>
+</div>
+</sc-if>
+</div>
+
+</div>
+</sc-if>
+
+<sc-if value="{{ atLevelChoice }}">
+<div style="padding-top:10px">
+<h1 style="font:800 28px/1.16 var(--font);letter-spacing:-.025em;margin:8px 0 8px;color:var(--ink);text-wrap:pretty">Начнём с уровня</h1>
+<p style="font:400 15px/1.5 var(--font);color:var(--ink-soft);margin:0 0 20px;text-wrap:pretty">От него зависит первый месяц занятий. Можно проверить за пять минут — или выбрать самому, если и так знаешь.</p>
+<div style="height:150px;margin:0 0 14px"><rhino-mascot state="think" hat="{{ popHat }}" style="height:100%"></rhino-mascot></div>
+<x-import component-from-global-scope="CoachKit.ActionCard" icon="◎" color="var(--violet)" kicker="5 МИНУТ · 12 ВОПРОСОВ" title="Проверить уровень" subtitle="Короткий тест: чтение, грамматика, на слух" on-click="{{ startLevelTest }}" hint-size="100%,76px"></x-import>
+<x-import component-from-global-scope="CoachKit.ActionCard" icon="✎" color="var(--amber)" kicker="БЫСТРО" title="Выбрать самому" subtitle="От A0 до B2 — поправим после первого урока" on-click="{{ goOnboarding }}" hint-size="100%,76px"></x-import>
+<div style="height:18px"></div>
+<x-import component-from-global-scope="CoachKit.SecondaryButton" on-click="{{ goLang }}" hint-size="100%,52px">Назад к курсам</x-import>
+</div>
+</sc-if>
+
+<sc-if value="{{ atOnboarding }}">
+<div style="padding-top:10px">
+<h1 style="font:800 28px/1.16 var(--font);letter-spacing:-.025em;margin:8px 0 8px;color:var(--ink);text-wrap:pretty">С чего начнём?</h1>
+<p style="font:400 15px/1.5 var(--font);color:var(--ink-soft);margin:0 0 22px;text-wrap:pretty">Два ответа — и я соберу маршрут. Ошибёшься с уровнем — поправим после первого урока.</p>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Честно, а не как хотелось бы" hint-size="100%,46px">Уровень</x-import>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 26px">
+<sc-for list="{{ levels }}" as="lv" hint-placeholder-count="5">
+<button onClick="{{ lv.pick }}" style="border:none;background:none;padding:0;cursor:pointer;font:inherit;line-height:46px;text-align:center"><x-import component-from-global-scope="CoachKit.Pill" selected="{{ lv.on }}" hint-size="86px,32px">{{ lv.label }}</x-import></button>
+</sc-for>
+</div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Столько времени в день ты правда найдёшь" hint-size="100%,46px">Цель</x-import>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 26px">
+<sc-for list="{{ goals }}" as="g" hint-placeholder-count="3">
+<button onClick="{{ g.pick }}" style="border:none;background:none;padding:0;cursor:pointer;font:inherit;line-height:46px;text-align:center"><x-import component-from-global-scope="CoachKit.Pill" selected="{{ g.on }}" hint-size="96px,32px">{{ g.label }}</x-import></button>
+</sc-for>
+</div>
+<div ref="{{ planRef }}" style="padding:16px 18px;border-radius:var(--radius);background:var(--surface-solid);border:var(--border-w) solid var(--border-col);box-shadow:var(--shadow-card);margin:0 0 18px">
+<p style="font:700 10px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px">Что получится</p>
+<div style="display:flex;gap:14px">
+<div style="flex:1;min-width:0">
+<p style="font:800 20px/1 var(--font);letter-spacing:-.02em;color:var(--ink);margin:0 0 5px">{{ planPerDay }}</p>
+<p style="font:400 12px/1.35 var(--font);color:var(--ink-soft);margin:0">упражнений в день</p>
+</div>
+<div style="width:1px;background:var(--hairline);flex:none"></div>
+<div style="flex:1;min-width:0">
+<p style="font:800 20px/1 var(--font);letter-spacing:-.02em;color:var(--ink);margin:0 0 5px">{{ planWeeks }}</p>
+<p style="font:400 12px/1.35 var(--font);color:var(--ink-soft);margin:0">до конца уровня</p>
+</div>
+</div>
+<p style="font:400 13px/1.45 var(--font);color:var(--ink-soft);margin:12px 0 0;text-wrap:pretty">{{ planNote }}</p>
+</div>
+<x-import component-from-global-scope="CoachKit.PrimaryButton" on-click="{{ buildRoute }}" hint-size="100%,52px">Собрать маршрут</x-import>
+<div style="height:10px"></div>
+<x-import component-from-global-scope="CoachKit.SecondaryButton" on-click="{{ goLang }}" hint-size="100%,52px">Назад к курсам</x-import>
+</div>
+</sc-if>
+
+<sc-if value="{{ atHome }}">
+<div>
+<div style="display:flex;align-items:center;gap:8px;margin:8px 0 14px">
+<div style="display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;background:#EFE3CA;color:#8A5A1E"><svg width="15" height="15" style="color:#E23A22"><use href="#ic-flame"></use></svg><span style="font:700 14px/1 var(--font)">{{ streakN }}</span><span style="font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;opacity:.7">{{ streakWord }}</span></div>
+<div style="display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;background:var(--accent-soft);color:var(--ink)"><svg width="15" height="15"><use href="#ic-clock"></use></svg><span style="font:700 14px/1 var(--font)">6 / 10 мин</span></div>
+</div>
+<h1 style="font:700 26px/1.18 var(--font);letter-spacing:-.025em;margin:0 0 4px;color:var(--ink)">Сегодня</h1>
+<p style="font:400 14px/1.5 var(--font);color:var(--ink-soft);margin:0 0 16px;text-wrap:pretty">Четыре минуты до дневной цели — это один урок.</p>
+<button onClick="{{ startLesson }}" style="width:100%;text-align:left;border:1px solid var(--border-col);border-radius:20px;background:var(--surface-solid);box-shadow:var(--shadow-card);padding:16px;cursor:pointer;display:block">
+<span style="display:flex;align-items:center;gap:13px">
+<span style="width:52px;height:52px;border-radius:16px;flex:none;display:grid;place-items:center;background:var(--amber);color:#fff"><svg width="24" height="24"><use href="#ic-play"></use></svg></span>
+<span style="flex:1;min-width:0">
+<span style="display:block;font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:6px">{{ nextKicker }}</span>
+<span style="display:block;font:700 19px/1.2 var(--font);letter-spacing:-.02em;color:var(--ink)">{{ nextTitle }}</span>
+<span style="display:block;font:400 13px/1.35 var(--font);color:var(--ink-soft);margin-top:3px">{{ nextBlock }}</span>
+</span>
+</span>
+<span style="display:block;height:6px;border-radius:999px;background:var(--track);margin:14px 0 8px"><span style="display:block;width:41%;height:6px;border-radius:999px;background:var(--amber)"></span></span>
+<span style="display:block;font:400 12px/1 var(--font);color:var(--ink-soft)">{{ nextInBlock }}</span>
+</button>
+<div style="height:12px"></div>
+<button onClick="{{ startReview }}" style="width:100%;display:flex;align-items:center;gap:13px;text-align:left;padding:14px;border-radius:var(--radius);background:var(--surface-solid);border:1px solid var(--border-col);box-shadow:var(--shadow-card);cursor:pointer">
+<span style="width:44px;height:44px;border-radius:13px;flex:none;display:grid;place-items:center;background:var(--blue);color:#fff"><svg width="21" height="21"><use href="#ic-repeat"></use></svg></span>
+<span style="flex:1;min-width:0"><span style="display:block;font:700 15px/1.2 var(--font);color:var(--ink)">Повторить пройденное</span><span style="display:block;font:400 12px/1.35 var(--font);color:var(--ink-soft);margin-top:3px">Пять минут, начиная с самых давних</span></span>
+<span style="flex:none;color:var(--blue);display:flex"><svg width="18" height="18"><use href="#ic-chevron"></use></svg></span>
+</button>
+<div style="height:22px"></div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="День засчитан, если в нём есть хотя бы один урок" hint-size="100%,46px">Эта неделя</x-import>
+<div style="display:flex;gap:6px;margin-top:12px"><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">ПН</span><span style="width:100%;max-width:40px;aspect-ratio:1;border-radius:13px;display:grid;place-items:center;background:var(--mint);color:#fff"><svg width="17" height="17"><use href="#ic-check"></use></svg></span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">ВТ</span><span style="width:100%;max-width:40px;aspect-ratio:1;border-radius:13px;display:grid;place-items:center;background:var(--mint);color:#fff"><svg width="17" height="17"><use href="#ic-check"></use></svg></span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">СР</span><span style="width:100%;max-width:40px;aspect-ratio:1;border-radius:13px;display:grid;place-items:center;background:var(--mint);color:#fff"><svg width="17" height="17"><use href="#ic-check"></use></svg></span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">ЧТ</span><span style="width:100%;max-width:40px;aspect-ratio:1;border-radius:13px;display:grid;place-items:center;background:var(--mint);color:#fff"><svg width="17" height="17"><use href="#ic-check"></use></svg></span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="font:700 10px/1 var(--font);color:var(--amber)">ПТ</span><span style="width:100%;max-width:40px;aspect-ratio:1;border-radius:13px;display:grid;place-items:center;background:var(--surface-solid);border:2px solid var(--amber)"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber)"></span></span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">СБ</span><span style="width:100%;max-width:40px;aspect-ratio:1;border-radius:13px;background:var(--track)"></span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">ВС</span><span style="width:100%;max-width:40px;aspect-ratio:1;border-radius:13px;background:var(--track)"></span></div></div>
+<p style="font:400 13px/1.5 var(--font);color:var(--ink-soft);margin:14px 0 0;text-wrap:pretty">Четыре дня закрыты, сегодня осталось четыре минуты. Пропуск обнулит серию — один урок её спасает.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{ atPractice }}">
+<div>
+<h1 style="font:700 26px/1.18 var(--font);letter-spacing:-.025em;margin:10px 0 4px;color:var(--ink)">Тренировка</h1>
+<p style="font:400 14px/1.5 var(--font);color:var(--ink-soft);margin:0 0 18px;text-wrap:pretty">Одно и то же, разными руками — так оно и остаётся в голове.</p>
+<div style="border-radius:var(--radius);overflow:hidden;background:var(--surface-solid);border:1px solid var(--border-col);box-shadow:var(--shadow-card)">
+<button onClick="{{ drillTranslate }}" style="width:100%;display:flex;align-items:center;gap:12px;text-align:left;min-height:70px;padding:10px 14px;border:none;background:none;cursor:pointer;border-bottom:1px solid var(--hairline)"><span style="width:36px;height:36px;border-radius:11px;flex:none;display:grid;place-items:center;background:var(--amber);color:#fff"><svg width="19" height="19"><use href="#ic-write"></use></svg></span><span style="flex:1;min-width:0"><span style="display:block;font:700 15px/1.2 var(--font);color:var(--ink)">Перевод текстом</span><span style="display:block;font:400 12px/1.35 var(--font);color:var(--ink-soft);margin-top:3px">Напиши фразу целиком, без подсказок</span></span><span style="flex:none;color:var(--ink-soft);display:flex"><svg width="17" height="17"><use href="#ic-chevron"></use></svg></span></button>
+<button onClick="{{ drillChoice }}" style="width:100%;display:flex;align-items:center;gap:12px;text-align:left;min-height:70px;padding:10px 14px;border:none;background:none;cursor:pointer;border-bottom:1px solid var(--hairline)"><span style="width:36px;height:36px;border-radius:11px;flex:none;display:grid;place-items:center;background:var(--violet);color:#fff"><svg width="19" height="19"><use href="#ic-choice"></use></svg></span><span style="flex:1;min-width:0"><span style="display:block;font:700 15px/1.2 var(--font);color:var(--ink)">Выбор варианта</span><span style="display:block;font:400 12px/1.35 var(--font);color:var(--ink-soft);margin-top:3px">Четыре похожих, верный один</span></span><span style="flex:none;color:var(--ink-soft);display:flex"><svg width="17" height="17"><use href="#ic-chevron"></use></svg></span></button>
+<button onClick="{{ drillOrder }}" style="width:100%;display:flex;align-items:center;gap:12px;text-align:left;min-height:70px;padding:10px 14px;border:none;background:none;cursor:pointer;border-bottom:1px solid var(--hairline)"><span style="width:36px;height:36px;border-radius:11px;flex:none;display:grid;place-items:center;background:var(--mint);color:#fff"><svg width="19" height="19"><use href="#ic-order"></use></svg></span><span style="flex:1;min-width:0"><span style="display:block;font:700 15px/1.2 var(--font);color:var(--ink)">Порядок слов</span><span style="display:block;font:400 12px/1.35 var(--font);color:var(--ink-soft);margin-top:3px">Слова даны, порядок — нет</span></span><span style="flex:none;color:var(--ink-soft);display:flex"><svg width="17" height="17"><use href="#ic-chevron"></use></svg></span></button>
+<button disabled="{{ true }}" style="width:100%;display:flex;align-items:center;gap:12px;text-align:left;min-height:70px;padding:10px 14px;border:none;background:none;cursor:default;opacity:.45;border-bottom:1px solid var(--hairline)"><span style="width:36px;height:36px;border-radius:11px;flex:none;display:grid;place-items:center;background:var(--blue);color:#fff"><svg width="19" height="19"><use href="#ic-dialogue"></use></svg></span><span style="flex:1;min-width:0"><span style="display:block;font:700 15px/1.2 var(--font);color:var(--ink)">Диалог</span><span style="display:block;font:400 12px/1.35 var(--font);color:var(--ink-soft);margin-top:3px">Сначала целиком, потом по репликам</span></span><span style="flex:none;font:400 11px/1 var(--font);color:var(--ink-soft)">пока нечего</span></button>
+<button onClick="{{ drillListen }}" style="width:100%;display:flex;align-items:center;gap:12px;text-align:left;min-height:70px;padding:10px 14px;border:none;background:none;cursor:pointer;border-bottom:1px solid var(--hairline)"><span style="width:36px;height:36px;border-radius:11px;flex:none;display:grid;place-items:center;background:var(--coral);color:#fff"><svg width="19" height="19"><use href="#ic-audio"></use></svg></span><span style="flex:1;min-width:0"><span style="display:block;font:700 15px/1.2 var(--font);color:var(--ink)">Аудирование</span><span style="display:block;font:400 12px/1.35 var(--font);color:var(--ink-soft);margin-top:3px">Слушай и записывай, текста на экране нет</span></span><span style="flex:none;color:var(--ink-soft);display:flex"><svg width="17" height="17"><use href="#ic-chevron"></use></svg></span></button>
+<button onClick="{{ drillCard }}" style="width:100%;display:flex;align-items:center;gap:12px;text-align:left;min-height:70px;padding:10px 14px;border:none;background:none;cursor:pointer;border-bottom:none"><span style="width:36px;height:36px;border-radius:11px;flex:none;display:grid;place-items:center;background:var(--accent);color:#fff"><svg width="19" height="19"><use href="#ic-cards"></use></svg></span><span style="flex:1;min-width:0"><span style="display:block;font:700 15px/1.2 var(--font);color:var(--ink)">Карточки</span><span style="display:block;font:400 12px/1.35 var(--font);color:var(--ink-soft);margin-top:3px">Фраза и перевод, проверяешь себя сам</span></span><span style="flex:none;color:var(--ink-soft);display:flex"><svg width="17" height="17"><use href="#ic-chevron"></use></svg></span></button>
+</div>
+<div style="height:24px"></div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Начни отсюда — здесь ошибок больше всего" hint-size="100%,46px">Слабые темы</x-import>
+<div style="height:8px"></div>
+<x-import component-from-global-scope="CoachKit.TopicRow" title="Present Perfect" summary="Что уже случилось, но всё ещё важно сейчас" level="A2" attempts="25" correct="13" accuracy="0.52" exercises="34" on-click="{{ topicPerfect }}" hint-size="100%,96px"></x-import>
+<x-import component-from-global-scope="CoachKit.TopicRow" title="Предлоги времени" summary="at, on, in — и когда не нужен ни один" level="A1" attempts="40" correct="28" accuracy="0.7" exercises="26" on-click="{{ topicPrep }}" hint-size="100%,96px"></x-import>
+<x-import component-from-global-scope="CoachKit.TopicRow" title="Артикли" summary="a, the и пустое место перед словом" level="A2" attempts="62" correct="51" accuracy="0.82" exercises="18" on-click="{{ topicArticles }}" hint-size="100%,96px"></x-import>
+</div>
+</sc-if>
+
+<sc-if value="{{ atRoute }}">
+<div>
+<div style="margin:8px 0 6px;padding:15px;border-radius:20px;background:var(--surface-solid);border:1px solid var(--border-col);box-shadow:var(--shadow-card)">
+<p style="font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:0 0 8px">Сейчас здесь</p>
+<p style="font:700 19px/1.2 var(--font);letter-spacing:-.02em;color:var(--ink);margin:0 0 3px">{{ nextTitle }}</p>
+<p style="font:400 13px/1.35 var(--font);color:var(--ink-soft);margin:0 0 13px">{{ nextWhere }}</p>
+<x-import component-from-global-scope="CoachKit.PrimaryButton" on-click="{{ startLesson }}" hint-size="100%,52px">Продолжить</x-import>
+</div>
+<p style="font:400 12px/1.4 var(--font);color:var(--ink-soft);margin:14px 0 0;text-align:center">{{ routeCaption }}</p>
+<div ref="{{ mapRef }}" style="display:flex;flex-direction:column;align-items:center;gap:20px;margin:0 -18px;padding:14px 18px 24px;background-repeat:repeat-y;background-size:100% auto;background-position:top center">
+<div style="width:100%;display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:16px;background:var(--accent);color:var(--accent-fg);margin:6px 0 4px">
+<div style="flex:1;min-width:0">
+<p style="font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin:0 0 6px">Блок 3</p>
+<p style="font:700 16px/1.2 var(--font);letter-spacing:-.02em;margin:0">Про себя и других</p>
+<p style="font:400 11px/1.35 var(--font);opacity:.7;margin:4px 0 0;text-wrap:pretty">Рассказать, кто ты и чем занят</p>
+</div>
+<span style="flex:none;font:700 13px/1 var(--font);opacity:.9">6 / 6</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(0px)">
+<button onClick="{{ startLesson }}" style="width:62px;height:62px;border-radius:50%;border:none;background:var(--mint);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 5px 0 rgba(27,32,41,.22);padding:0">
+<svg width="25" height="25"><use href="#ic-check"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink);text-align:center;max-width:124px;text-wrap:pretty">Как тебя зовут</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">4 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(52px)">
+<button onClick="{{ startLesson }}" style="width:62px;height:62px;border-radius:50%;border:none;background:var(--mint);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 5px 0 rgba(27,32,41,.22);padding:0">
+<svg width="25" height="25"><use href="#ic-check"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink);text-align:center;max-width:124px;text-wrap:pretty">Чем ты занимаешься</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">5 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(74px)">
+<button onClick="{{ startLesson }}" style="width:62px;height:62px;border-radius:50%;border:none;background:var(--mint);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 5px 0 rgba(27,32,41,.22);padding:0">
+<svg width="25" height="25"><use href="#ic-check"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink);text-align:center;max-width:124px;text-wrap:pretty">Семья и близкие</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">6 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(52px)">
+<button onClick="{{ startLesson }}" style="width:62px;height:62px;border-radius:50%;border:none;background:var(--mint);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 5px 0 rgba(27,32,41,.22);padding:0">
+<svg width="25" height="25"><use href="#ic-target"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink);text-align:center;max-width:124px;text-wrap:pretty">Блок без подсказок</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">8 мин</span>
+</div>
+<div style="width:100%;display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:16px;background:var(--accent);color:var(--accent-fg);margin:6px 0 4px">
+<div style="flex:1;min-width:0">
+<p style="font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin:0 0 6px">Блок 4</p>
+<p style="font:700 16px/1.2 var(--font);letter-spacing:-.02em;margin:0">Планы и время</p>
+<p style="font:400 11px/1.35 var(--font);opacity:.7;margin:4px 0 0;text-wrap:pretty">Договориться, перенести, отказаться — не обидев</p>
+</div>
+<span style="flex:none;font:700 13px/1 var(--font);opacity:.9">3 / 5</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(0px)">
+<button onClick="{{ startLesson }}" style="width:62px;height:62px;border-radius:50%;border:none;background:var(--mint);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 5px 0 rgba(27,32,41,.22);padding:0">
+<svg width="25" height="25"><use href="#ic-check"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink);text-align:center;max-width:124px;text-wrap:pretty">Дни недели и время</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">5 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(-52px)">
+<button onClick="{{ startLesson }}" style="width:62px;height:62px;border-radius:50%;border:none;background:var(--mint);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 5px 0 rgba(27,32,41,.22);padding:0">
+<svg width="25" height="25"><use href="#ic-check"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink);text-align:center;max-width:124px;text-wrap:pretty">Свободен или занят</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">6 мин</span>
+</div>
+<div data-current="1" style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(-74px)">
+<span style="display:block;font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--amber);padding:6px 11px;border-radius:999px;box-shadow:0 3px 0 rgba(27,32,41,.18);margin-bottom:2px">Старт</span><button onClick="{{ startLesson }}" style="width:74px;height:74px;border-radius:50%;border:none;background:var(--amber);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 5px 0 rgba(27,32,41,.22);padding:0">
+<svg width="30" height="30"><use href="#ic-play"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink);text-align:center;max-width:124px;text-wrap:pretty">Договориться о встрече</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">7 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(-52px)">
+<button onClick="{{ startLesson }}" style="width:62px;height:62px;border-radius:50%;border:2px solid var(--border-col);background:var(--surface-solid);color:var(--accent);cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 0 rgba(27,32,41,.1);padding:0">
+<svg width="25" height="25"><use href="#ic-play"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink);text-align:center;max-width:124px;text-wrap:pretty">Перенести и отменить</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">6 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(0px)">
+<button style="width:62px;height:62px;border-radius:50%;border:none;background:var(--track);color:var(--ink-soft);cursor:default;display:grid;place-items:center;box-shadow:none;padding:0">
+<svg width="25" height="25"><use href="#ic-target"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink-soft);text-align:center;max-width:124px;text-wrap:pretty">Блок без подсказок</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">9 мин</span>
+</div>
+<div style="width:100%;display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:16px;background:var(--track);color:var(--ink-soft);margin:6px 0 4px">
+<div style="flex:1;min-width:0">
+<p style="font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin:0 0 6px">Блок 5</p>
+<p style="font:700 16px/1.2 var(--font);letter-spacing:-.02em;margin:0">Дом и быт</p>
+<p style="font:400 11px/1.35 var(--font);opacity:.7;margin:4px 0 0;text-wrap:pretty">Снять жильё и объяснить, что сломалось</p>
+</div>
+<span style="flex:none;display:flex"><svg width="18" height="18"><use href="#ic-lock"></use></svg></span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(0px)">
+<button style="width:62px;height:62px;border-radius:50%;border:none;background:var(--track);color:var(--ink-soft);cursor:default;display:grid;place-items:center;box-shadow:none;padding:0">
+<svg width="25" height="25"><use href="#ic-lock"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink-soft);text-align:center;max-width:124px;text-wrap:pretty">Комнаты и вещи</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">5 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(52px)">
+<button style="width:62px;height:62px;border-radius:50%;border:none;background:var(--track);color:var(--ink-soft);cursor:default;display:grid;place-items:center;box-shadow:none;padding:0">
+<svg width="25" height="25"><use href="#ic-lock"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink-soft);text-align:center;max-width:124px;text-wrap:pretty">Что сломалось</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">6 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(74px)">
+<button style="width:62px;height:62px;border-radius:50%;border:none;background:var(--track);color:var(--ink-soft);cursor:default;display:grid;place-items:center;box-shadow:none;padding:0">
+<svg width="25" height="25"><use href="#ic-lock"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink-soft);text-align:center;max-width:124px;text-wrap:pretty">Разговор с хозяином</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">7 мин</span>
+</div>
+<div style="width:100%;display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:16px;background:var(--track);color:var(--ink-soft);margin:6px 0 4px">
+<div style="flex:1;min-width:0">
+<p style="font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin:0 0 6px">Блок 6</p>
+<p style="font:700 16px/1.2 var(--font);letter-spacing:-.02em;margin:0">Работа и письма</p>
+<p style="font:400 11px/1.35 var(--font);opacity:.7;margin:4px 0 0;text-wrap:pretty">Написать коллеге так, чтобы поняли с первого раза</p>
+</div>
+<span style="flex:none;display:flex"><svg width="18" height="18"><use href="#ic-lock"></use></svg></span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(0px)">
+<button style="width:62px;height:62px;border-radius:50%;border:none;background:var(--track);color:var(--ink-soft);cursor:default;display:grid;place-items:center;box-shadow:none;padding:0">
+<svg width="25" height="25"><use href="#ic-lock"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink-soft);text-align:center;max-width:124px;text-wrap:pretty">Короткое письмо</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">6 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(-52px)">
+<button style="width:62px;height:62px;border-radius:50%;border:none;background:var(--track);color:var(--ink-soft);cursor:default;display:grid;place-items:center;box-shadow:none;padding:0">
+<svg width="25" height="25"><use href="#ic-lock"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink-soft);text-align:center;max-width:124px;text-wrap:pretty">Попросить об услуге</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">6 мин</span>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px;transform:translateX(-74px)">
+<button style="width:62px;height:62px;border-radius:50%;border:none;background:var(--track);color:var(--ink-soft);cursor:default;display:grid;place-items:center;box-shadow:none;padding:0">
+<svg width="25" height="25"><use href="#ic-lock"></use></svg>
+</button>
+<span style="font:700 11px/1.3 var(--font);color:var(--ink-soft);text-align:center;max-width:124px;text-wrap:pretty">Сообщить плохую новость</span>
+<span style="font:400 10px/1 var(--font);color:var(--ink-soft);margin-top:-3px">7 мин</span>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ atLesson }}">
+<div style="min-height:100%;display:flex;flex-direction:column">
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:14px 0 4px">
+<p style="font:700 11px/1 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px">{{ stepKicker }}</p>
+<h2 style="font:800 21px/1.26 var(--font);letter-spacing:-.02em;margin:0 0 18px;color:var(--ink);text-wrap:pretty">{{ stepPrompt }}</h2>
+
+<sc-if value="{{ isChoice }}">
+<x-import component-from-global-scope="CoachKit.ChoiceList" hint-size="100%,200px">
+<sc-for list="{{ options }}" as="op" hint-placeholder-count="3">
+<x-import component-from-global-scope="CoachKit.Choice" selected="{{ op.on }}" disabled="{{ op.locked }}" on-select="{{ op.pick }}" hint-size="100%,58px">{{ op.label }}</x-import>
+</sc-for>
+</x-import>
+</sc-if>
+
+<sc-if value="{{ isTranslate }}">
+<div style="padding:16px 18px;border-radius:var(--radius);background:var(--surface-solid);border:var(--border-w) solid var(--border-col);margin-bottom:16px">
+<p style="font:600 19px/1.4 var(--font);color:var(--ink);margin:0">{{ srcPhrase }}</p>
+</div>
+<sc-if value="{{ notChecked }}">
+<x-import component-from-global-scope="CoachKit.AnswerField" value="{{ typed }}" placeholder="Напиши по-английски" on-change="{{ onType }}" on-submit="{{ check }}" hint-size="100%,54px"></x-import>
+</sc-if>
+<sc-if value="{{ checked }}">
+<div style="width:100%;margin-top:14px;padding:12px 15px;border-radius:var(--radius-btn);border:var(--border-w) solid var(--border-col);background:var(--surface-solid)">
+<p style="font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 7px">Твой ответ</p>
+<p style="font:600 17px/1.35 var(--font);color:var(--ink);margin:0;text-wrap:pretty">{{ typedShown }}</p>
+</div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ isOrder }}">
+<div style="padding:14px 18px;border-radius:var(--radius);background:var(--accent-soft);margin-bottom:16px">
+<p style="font:600 17px/1.4 var(--font);color:var(--ink);margin:0">{{ srcPhrase }}</p>
+</div>
+<div style="min-height:60px;border-radius:var(--radius-btn);background:var(--accent-soft);padding:8px;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start">
+<sc-if value="{{ noPicked }}">
+<span style="font:400 13px/1.6 var(--font);color:var(--ink-soft);padding:8px 4px">Нажимай слова по порядку</span>
+</sc-if>
+<sc-for list="{{ pickedWords }}" as="w" hint-placeholder-count="2">
+<button onClick="{{ w.unpick }}" style="min-height:40px;padding:0 14px;border:1px solid var(--accent);border-radius:999px;background:var(--accent);color:var(--accent-fg);font:700 15px/1 var(--font);cursor:pointer">{{ w.label }}</button>
+</sc-for>
+</div>
+<div ref="{{ trayRef }}" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+<sc-for list="{{ trayWords }}" as="w" hint-placeholder-count="5">
+<button onClick="{{ w.pick }}" disabled="{{ w.used }}" style="min-height:40px;padding:0 14px;border:1px solid var(--border-col);border-radius:999px;background:var(--surface-solid);color:var(--ink);font:700 15px/1 var(--font);cursor:pointer">{{ w.label }}</button>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ isDialogue }}">
+<x-import component-from-global-scope="CoachKit.Dialogue" lines="{{ lines }}" on-speak="{{ speak }}" hint-size="100%,240px"></x-import>
+<div style="display:flex;margin:16px 0 24px">
+<button onClick="{{ speakAll }}" style="display:inline-flex;align-items:center;gap:9px;min-height:40px;padding:0 15px;border:1px solid var(--border-col);border-radius:999px;background:none;color:var(--ink-soft);font:700 13px/1 var(--font);cursor:pointer" style-hover="background:var(--accent-soft);color:var(--ink)"><svg width="16" height="16"><use href="#ic-audio"></use></svg><span>Прочитать вслух целиком</span></button>
+</div>
+<x-import component-from-global-scope="CoachKit.ChoiceList" hint-size="100%,180px">
+<sc-for list="{{ options }}" as="op" hint-placeholder-count="3">
+<x-import component-from-global-scope="CoachKit.Choice" selected="{{ op.on }}" disabled="{{ op.locked }}" on-select="{{ op.pick }}" hint-size="100%,58px">{{ op.label }}</x-import>
+</sc-for>
+</x-import>
+</sc-if>
+
+<sc-if value="{{ isListen }}">
+<div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:26px 18px;border-radius:var(--radius);background:var(--surface-solid);border:var(--border-w) solid var(--border-col);margin-bottom:16px">
+<button onClick="{{ speakAll }}" style="width:64px;height:64px;border:none;border-radius:22px;background:var(--coral);color:#fff;font:400 22px/1 var(--font);cursor:pointer">▶</button>
+<p style="font:400 13px/1.4 var(--font);color:var(--ink-soft);margin:0;text-align:center">Одна фраза. Слушай сколько нужно — это не экзамен.</p>
+</div>
+<sc-if value="{{ notChecked }}">
+<x-import component-from-global-scope="CoachKit.AnswerField" value="{{ typed }}" placeholder="Что ты услышал?" on-change="{{ onType }}" on-submit="{{ check }}" hint-size="100%,54px"></x-import>
+</sc-if>
+<sc-if value="{{ checked }}">
+<div style="width:100%;margin-top:14px;padding:12px 15px;border-radius:var(--radius-btn);border:var(--border-w) solid var(--border-col);background:var(--surface-solid)">
+<p style="font:700 9px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 7px">Ты записал</p>
+<p style="font:600 17px/1.35 var(--font);color:var(--ink);margin:0;text-wrap:pretty">{{ typedShown }}</p>
+</div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ isCard }}">
+<button onClick="{{ reveal }}" style="width:100%;text-align:left;border:var(--border-w) solid var(--border-col);border-radius:var(--radius);background:var(--surface-solid);padding:28px 22px;cursor:pointer;font:inherit;margin-bottom:16px">
+<p style="font:800 26px/1.24 var(--font);letter-spacing:-.02em;color:var(--ink);margin:0">{{ cardWord }}</p>
+<sc-if value="{{ revealed }}">
+<p style="font:400 16px/1.45 var(--font);color:var(--ink);margin:14px 0 0">{{ cardMeaning }}</p>
+<p style="font:400 14px/1.45 var(--font);color:var(--ink-soft);margin:8px 0 0">{{ cardExample }}</p>
+</sc-if>
+<sc-if value="{{ notRevealed }}">
+<p style="font:400 14px/1.45 var(--font);color:var(--ink-soft);margin:14px 0 0">Нажми, чтобы проверить себя</p>
+</sc-if>
+</button>
+</sc-if>
+
+<sc-if value="{{ checked }}">
+<div ref="{{ fbRef }}" style="margin-top:18px">
+<x-import component-from-global-scope="CoachKit.Feedback" verdict="{{ verdict }}" note="{{ note }}" answer="{{ rightAnswer }}" hint-size="100%,90px"></x-import>
+</div>
+</sc-if>
+
+</div>
+<div style="height:14px"></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ atProgress }}">
+<div>
+<h1 style="font:700 26px/1.18 var(--font);letter-spacing:-.025em;margin:10px 0 16px;color:var(--ink)">Как идут дела</h1>
+<div style="display:flex;gap:14px;margin-bottom:20px">
+<x-import component-from-global-scope="CoachKit.Meter" title="Эта неделя" value="0.71" caption="5 / 7 дней" color="var(--mint)" hint-size="100%,32px"></x-import>
+<x-import component-from-global-scope="CoachKit.Meter" title="Слов в активе" value="0.34" caption="412 / 1200" color="var(--accent)" hint-size="100%,32px"></x-import>
+</div>
+<div style="display:flex;gap:14px;margin-bottom:24px">
+<x-import component-from-global-scope="CoachKit.Meter" title="Блок 4 из 30" value="0.41" caption="7 / 17" color="var(--amber)" hint-size="100%,32px"></x-import>
+<x-import component-from-global-scope="CoachKit.Meter" title="Верных ответов" value="0.78" caption="78 из 100" color="var(--blue)" hint-size="100%,32px"></x-import>
+</div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Не слова, а то, что ты можешь ими сделать" hint-size="100%,46px">Умения</x-import>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 24px">
+<x-import component-from-global-scope="CoachKit.AbilityChip" state="earned" hint-size="150px,32px">заказать кофе</x-import>
+<x-import component-from-global-scope="CoachKit.AbilityChip" state="earned" hint-size="160px,32px">спросить дорогу</x-import>
+<x-import component-from-global-scope="CoachKit.AbilityChip" state="earned" hint-size="190px,32px">рассказать о выходных</x-import>
+<x-import component-from-global-scope="CoachKit.AbilityChip" state="next" hint-size="200px,32px">перенести встречу</x-import>
+</div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Пока нечего показать" hint-size="100%,46px">Произношение</x-import>
+<div style="height:8px"></div>
+<x-import component-from-global-scope="CoachKit.EmptyNote" hint-size="100%,60px">Здесь появятся звуки, которые тебе даются тяжелее других. Нужно записать хотя бы десять фраз вслух — пока их три.</x-import>
+<div style="height:24px"></div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Цель — 10 минут в день" hint-size="100%,46px">Минуты по дням</x-import>
+<div style="display:flex;align-items:flex-end;gap:8px;height:132px;margin-top:14px"><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;height:100%"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">12</span><span style="flex:1;width:100%;display:flex;align-items:flex-end"><span style="width:100%;height:60%;border-radius:8px 8px 5px 5px;background:var(--accent)"></span></span><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">ПН</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;height:100%"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">9</span><span style="flex:1;width:100%;display:flex;align-items:flex-end"><span style="width:100%;height:45%;border-radius:8px 8px 5px 5px;background:var(--track)"></span></span><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">ВТ</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;height:100%"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">14</span><span style="flex:1;width:100%;display:flex;align-items:flex-end"><span style="width:100%;height:70%;border-radius:8px 8px 5px 5px;background:var(--accent)"></span></span><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">СР</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;height:100%"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">10</span><span style="flex:1;width:100%;display:flex;align-items:flex-end"><span style="width:100%;height:50%;border-radius:8px 8px 5px 5px;background:var(--accent)"></span></span><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">ЧТ</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;height:100%"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">6</span><span style="flex:1;width:100%;display:flex;align-items:flex-end"><span style="width:100%;height:30%;border-radius:8px 8px 5px 5px;background:var(--track)"></span></span><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">ПТ</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;height:100%"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)"></span><span style="flex:1;width:100%;display:flex;align-items:flex-end"><span style="width:100%;height:3%;border-radius:8px 8px 5px 5px;background:var(--track)"></span></span><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">СБ</span></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;height:100%"><span style="font:700 10px/1 var(--font);color:var(--ink-soft)"></span><span style="flex:1;width:100%;display:flex;align-items:flex-end"><span style="width:100%;height:3%;border-radius:8px 8px 5px 5px;background:var(--track)"></span></span><span style="font:700 10px/1 var(--font);color:var(--ink-soft)">ВС</span></div></div>
+<p style="font:400 13px/1.5 var(--font);color:var(--ink-soft);margin:14px 0 0;text-wrap:pretty">51 минута за неделю. Цель взята в трёх днях из пяти — в пятницу не хватило четырёх минут.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{ atDone }}">
+<sc-if value="{{ isDrillDone }}">
+<div style="min-height:100%;display:flex;flex-direction:column;padding-top:18px">
+<p style="font:700 11px/1 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px">{{ doneKicker }}</p>
+<h1 style="font:800 30px/1.14 var(--font);letter-spacing:-.025em;margin:0 0 8px;color:var(--ink);text-wrap:pretty">{{ doneTitle }}</h1>
+<p style="font:400 15px/1.5 var(--font);color:var(--ink-soft);margin:0 0 22px;text-wrap:pretty">Сессия закрыта. Это не урок из курса — прогресс по блокам не двигался, но ошибки учтены.</p>
+<div style="display:flex;gap:14px;margin-bottom:20px">
+<x-import component-from-global-scope="CoachKit.Meter" title="Верных ответов" value="{{ doneValue }}" caption="{{ doneCaption }}" color="var(--mint)" hint-size="100%,32px"></x-import>
+<x-import component-from-global-scope="CoachKit.Meter" title="Минуты сегодня" value="0.9" caption="9 / 10 мин" color="var(--accent)" hint-size="100%,32px"></x-import>
+</div>
+<div style="display:flex;gap:10px;margin-bottom:20px">
+<div style="flex:1;padding:14px;border-radius:var(--radius);background:var(--surface-solid);border:1px solid var(--border-col)"><p style="font:800 26px/1 var(--font);color:var(--mint);margin:0 0 6px">{{ doneRight }}</p><p style="font:400 12px/1.35 var(--font);color:var(--ink-soft);margin:0">верно с первого раза</p></div>
+<div style="flex:1;padding:14px;border-radius:var(--radius);background:var(--surface-solid);border:1px solid var(--border-col)"><p style="font:800 26px/1 var(--font);color:var(--coral);margin:0 0 6px">{{ doneWrong }}</p><p style="font:400 12px/1.35 var(--font);color:var(--ink-soft);margin:0">вернётся на повтор</p></div>
+</div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Интервалы считаются от сегодняшнего дня" hint-size="100%,46px">Что дальше</x-import>
+<div style="height:8px"></div>
+<x-import component-from-global-scope="CoachKit.EmptyNote" hint-size="100%,60px">{{ doneRepeatNote }}</x-import>
+<div style="flex:1;min-height:22px"></div>
+<x-import component-from-global-scope="CoachKit.PrimaryButton" tone="mint" on-click="{{ repeatSession }}" hint-size="100%,52px">Ещё раз</x-import>
+<div style="height:10px"></div>
+<sc-if value="{{ isKindDone }}">
+<x-import component-from-global-scope="CoachKit.SecondaryButton" on-click="{{ goPractice }}" hint-size="100%,52px">К тренировке</x-import>
+</sc-if>
+<sc-if value="{{ isReviewDone }}">
+<x-import component-from-global-scope="CoachKit.SecondaryButton" on-click="{{ goHome }}" hint-size="100%,52px">На главную</x-import>
+</sc-if>
+<div style="height:14px"></div>
+</div>
+</sc-if>
+<sc-if value="{{ isLessonDone }}">
+<div style="padding-top:18px">
+<p style="font:700 11px/1 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px">БЛОК 4 · УРОК 3 ИЗ 5</p>
+<h1 style="font:800 30px/1.14 var(--font);letter-spacing:-.025em;margin:0 0 8px;color:var(--ink)">Урок пройден</h1>
+<p style="font:400 15px/1.5 var(--font);color:var(--ink-soft);margin:0 0 22px;text-wrap:pretty">Носорог доволен. Десять минут на сегодня закрыты — серия продолжается.</p>
+<div style="height:168px;margin:0 0 18px"><rhino-mascot state="celebrate" style="height:100%"></rhino-mascot></div>
+<div style="display:flex;gap:14px;margin-bottom:24px">
+<x-import component-from-global-scope="CoachKit.Meter" title="Верных ответов" value="{{ doneValue }}" caption="{{ doneCaption }}" color="var(--mint)" hint-size="100%,32px"></x-import>
+<x-import component-from-global-scope="CoachKit.Meter" title="Блок 4 из 30" value="0.47" caption="8 / 17" color="var(--accent)" hint-size="100%,32px"></x-import>
+</div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Проверено сегодня, не просто прочитано" hint-size="100%,46px">Новое умение</x-import>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 24px">
+<x-import component-from-global-scope="CoachKit.AbilityChip" state="earned" hint-size="200px,32px">перенести встречу</x-import>
+<x-import component-from-global-scope="CoachKit.AbilityChip" state="next" hint-size="180px,32px">вежливо отказаться</x-import>
+</div>
+<sc-if value="{{ hasMistakes }}">
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Здесь ты сегодня споткнулся" hint-size="100%,46px">Над чем поработать</x-import>
+<div style="height:8px"></div>
+<x-import component-from-global-scope="CoachKit.TopicRow" title="Предлоги времени" summary="at, on, in — и когда не нужен ни один" level="A1" attempts="41" correct="28" accuracy="0.68" exercises="26" on-click="{{ topicPrep }}" hint-size="100%,96px"></x-import>
+</sc-if>
+<sc-if value="{{ noMistakes }}">
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Чисто" hint-size="100%,46px">Над чем поработать</x-import>
+<div style="height:8px"></div>
+<x-import component-from-global-scope="CoachKit.EmptyNote" hint-size="100%,60px">Ни одной ошибки — разбирать нечего. Эти фразы вернутся через три дня, чтобы проверить, что они правда остались.</x-import>
+</sc-if>
+<div style="height:24px"></div>
+<x-import component-from-global-scope="CoachKit.ActionCard" icon="▶" color="var(--amber)" kicker="СЛЕДУЮЩИЙ УРОК" title="Перенести и отменить" subtitle="Планы и время · 6 мин" on-click="{{ startLesson }}" hint-size="100%,76px"></x-import>
+<div style="height:22px"></div>
+<x-import component-from-global-scope="CoachKit.PrimaryButton" tone="mint" on-click="{{ goHome }}" hint-size="100%,52px">На главную</x-import>
+<div style="height:10px"></div>
+<x-import component-from-global-scope="CoachKit.SecondaryButton" on-click="{{ startLesson }}" hint-size="100%,52px">Пройти урок заново</x-import>
+</div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ atSettings }}">
+<div style="min-height:100%;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:12px;margin:14px 0 18px">
+<h1 style="flex:1;font:700 26px/1.18 var(--font);letter-spacing:-.025em;margin:0;color:var(--ink)">Настройки</h1>
+<button onClick="{{ closeSettings }}" style="width:34px;height:34px;flex:none;border:none;border-radius:11px;background:var(--accent-soft);color:var(--ink);cursor:pointer;display:grid;place-items:center"><svg width="17" height="17"><use href="#ic-close"></use></svg></button>
+</div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="У каждого курса свой прогресс и своя серия" hint-size="100%,46px">Язык курса</x-import>
+<div ref="{{ courseRef }}" style="display:flex;flex-direction:column;gap:10px;margin:12px 0 24px">
+<button onClick="{{ pickEn }}" style="width:100%;display:flex;align-items:center;gap:13px;text-align:left;padding:14px;border-radius:var(--radius);background:var(--surface-solid);border:2px solid var(--border-col);cursor:pointer">
+<span style="width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font:700 14px/1 var(--font);letter-spacing:.04em">EN</span>
+<span style="flex:1;min-width:0"><span style="display:block;font:700 16px/1.2 var(--font);color:var(--ink)">Английский A2</span><span style="display:block;font:400 12px/1.35 var(--font);color:var(--ink-soft);margin-top:4px">Блок 4 из 30 · серия 12 дней · 412 слов</span></span>
+<span style="flex:none;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--accent-fg)"><svg width="13" height="13"><use href="#ic-check"></use></svg></span>
+</button>
+<button onClick="{{ pickEs }}" style="width:100%;display:flex;align-items:center;gap:13px;text-align:left;padding:14px;border-radius:var(--radius);background:var(--surface-solid);border:2px solid var(--border-col);cursor:pointer">
+<span style="width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;background:#F6E7C8;color:#8A5A1E;font:700 14px/1 var(--font);letter-spacing:.04em">ES</span>
+<span style="flex:1;min-width:0"><span style="display:block;font:700 16px/1.2 var(--font);color:var(--ink)">Испанский A1</span><span style="display:block;font:400 12px/1.35 var(--font);color:var(--ink-soft);margin-top:4px">Блок 2 из 30 · серия 3 дня · 96 слов</span></span>
+<span style="flex:none;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--accent-fg)"><svg width="13" height="13"><use href="#ic-check"></use></svg></span>
+</button>
+</div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Влияет на сложность новых уроков" hint-size="100%,46px">Уровень</x-import>
+<div ref="{{ lvRef }}" style="display:flex;padding:3px;border-radius:12px;background:var(--track);margin:12px 0 24px">
+<button onClick="{{ lv0 }}" style="flex:1;height:38px;border:none;border-radius:9px;font:700 13px/1 var(--font);cursor:pointer;background:transparent;color:var(--ink-soft)">A1</button>
+<button onClick="{{ lv1 }}" style="flex:1;height:38px;border:none;border-radius:9px;font:700 13px/1 var(--font);cursor:pointer;background:transparent;color:var(--ink-soft)">A2</button>
+<button onClick="{{ lv2 }}" style="flex:1;height:38px;border:none;border-radius:9px;font:700 13px/1 var(--font);cursor:pointer;background:transparent;color:var(--ink-soft)">B1</button>
+<button onClick="{{ lv3 }}" style="flex:1;height:38px;border:none;border-radius:9px;font:700 13px/1 var(--font);cursor:pointer;background:transparent;color:var(--ink-soft)">B2</button>
+</div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Ниже пяти минут серия не засчитывается" hint-size="100%,46px">Цель дня</x-import>
+<div style="margin:14px 0 24px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px"><span style="font:700 15px/1 var(--font);color:var(--ink)">{{ goalLabel }}</span><span style="font:400 12px/1 var(--font);color:var(--ink-soft)">{{ goalHint }}</span></div>
+<input ref="{{ goalRef }}" type="range" min="5" max="30" step="5" onInput="{{ setGoal }}" style="width:100%;height:34px;cursor:pointer;accent-color:var(--accent)"></input>
+</div>
+<x-import component-from-global-scope="CoachKit.SectionTitle" hint="Всё выключается по отдельности" hint-size="100%,46px">Занятие</x-import>
+<div style="display:flex;flex-direction:column;gap:16px;margin:14px 0 24px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px"><div style="flex:1;min-width:0"><p style="font:700 14px/1.2 var(--font);margin:0 0 3px;color:var(--ink)">Напоминание</p><p style="font:400 12px/1.35 var(--font);color:var(--ink-soft);margin:0">{{ remindText }}</p></div><button ref="{{ remindRef }}" onClick="{{ toggleRemind }}" role="switch" style="flex:none;width:52px;height:31px;border:none;border-radius:999px;padding:3px;cursor:pointer;transition:background .18s;background:var(--track)"><span style="display:block;width:25px;height:25px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(27,32,41,.3);transition:transform .18s"></span></button></div>
+<div ref="{{ timeRow }}" style="display:flex;gap:8px">
+<button onClick="{{ t0 }}" style="flex:1;height:38px;border:1px solid var(--border-col);border-radius:11px;background:var(--surface-solid);color:var(--ink-soft);font:700 13px/1 var(--font);cursor:pointer">09:00</button>
+<button onClick="{{ t1 }}" style="flex:1;height:38px;border:1px solid var(--border-col);border-radius:11px;background:var(--surface-solid);color:var(--ink-soft);font:700 13px/1 var(--font);cursor:pointer">13:00</button>
+<button onClick="{{ t2 }}" style="flex:1;height:38px;border:1px solid var(--border-col);border-radius:11px;background:var(--surface-solid);color:var(--ink-soft);font:700 13px/1 var(--font);cursor:pointer">20:00</button>
+<button onClick="{{ t3 }}" style="flex:1;height:38px;border:1px solid var(--border-col);border-radius:11px;background:var(--surface-solid);color:var(--ink-soft);font:700 13px/1 var(--font);cursor:pointer">22:00</button>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px"><div style="flex:1;min-width:0"><p style="font:700 14px/1.2 var(--font);margin:0 0 3px;color:var(--ink)">Озвучка фраз</p><p style="font:400 12px/1.35 var(--font);color:var(--ink-soft);margin:0">Читать вслух новые примеры</p></div><button ref="{{ voiceRef }}" onClick="{{ toggleVoice }}" role="switch" style="flex:none;width:52px;height:31px;border:none;border-radius:999px;padding:3px;cursor:pointer;transition:background .18s;background:var(--track)"><span style="display:block;width:25px;height:25px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(27,32,41,.3);transition:transform .18s"></span></button></div>
+<div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px"><span style="font:700 14px/1 var(--font);color:var(--ink)">Скорость речи</span><span style="font:400 12px/1 var(--font);color:var(--ink-soft)">{{ speedLabel }}</span></div>
+<input ref="{{ speedRef }}" type="range" min="60" max="120" step="10" onInput="{{ setSpeed }}" style="width:100%;height:34px;cursor:pointer;accent-color:var(--accent)"></input>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px"><div style="flex:1;min-width:0"><p style="font:700 14px/1.2 var(--font);margin:0 0 3px;color:var(--ink)">Перевод под репликами</p><p style="font:400 12px/1.35 var(--font);color:var(--ink-soft);margin:0">В диалогах и примерах</p></div><button ref="{{ transRef }}" onClick="{{ toggleTrans }}" role="switch" style="flex:none;width:52px;height:31px;border:none;border-radius:999px;padding:3px;cursor:pointer;transition:background .18s;background:var(--track)"><span style="display:block;width:25px;height:25px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(27,32,41,.3);transition:transform .18s"></span></button></div>
+</div>
+<div style="flex:1;min-height:14px"></div>
+<div style="padding:15px;border-radius:var(--radius);border:1px solid var(--coral);background:var(--surface-solid);margin-bottom:16px">
+<p style="font:700 14px/1.2 var(--font);color:var(--coral);margin:0 0 6px">Сбросить прогресс</p>
+<p style="font:400 12px/1.45 var(--font);color:var(--ink-soft);margin:0 0 12px;text-wrap:pretty">{{ resetNote }}</p>
+<button style="width:100%;min-height:44px;border:none;border-radius:14px;background:var(--coral);color:#fff;font:700 14px/1 var(--font);cursor:pointer">Сбросить {{ courseName }}</button>
+</div>
+</div>
+</sc-if>
+</div>
+
+<sc-if value="{{ atLesson }}">
+<div style="flex:none;padding:12px 18px 20px;border-top:1px solid var(--hairline);background:var(--surface)">
+<sc-if value="{{ showCheck }}">
+<x-import component-from-global-scope="CoachKit.PrimaryButton" disabled="{{ cantCheck }}" on-click="{{ check }}" hint-size="100%,52px">Проверить</x-import>
+</sc-if>
+<sc-if value="{{ showReveal }}">
+<x-import component-from-global-scope="CoachKit.PrimaryButton" on-click="{{ reveal }}" hint-size="100%,52px">Показать ответ</x-import>
+</sc-if>
+<sc-if value="{{ showRecall }}">
+<div style="display:flex;gap:10px">
+<div style="flex:1"><x-import component-from-global-scope="CoachKit.SecondaryButton" on-click="{{ recallNo }}" hint-size="100%,52px">Не вспомнил</x-import></div>
+<div style="flex:1"><x-import component-from-global-scope="CoachKit.PrimaryButton" tone="mint" on-click="{{ recallYes }}" hint-size="100%,52px">Вспомнил</x-import></div>
+</div>
+</sc-if>
+<sc-if value="{{ showNextBtn }}">
+<x-import component-from-global-scope="CoachKit.PrimaryButton" tone="{{ nextTone }}" on-click="{{ next }}" hint-size="100%,52px">Дальше</x-import>
+</sc-if>
+<sc-if value="{{ showForwardBtn }}">
+<x-import component-from-global-scope="CoachKit.PrimaryButton" tone="accent" on-click="{{ stepForward }}" hint-size="100%,52px">Вперёд</x-import>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ showNav }}">
+<div ref="{{ navRef }}" style="flex:none;display:flex;border-top:1px solid var(--hairline);background:var(--surface);padding:8px 6px 14px">
+<button onClick="{{ goHome }}" style="flex:1;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 0;font:700 11px/1 var(--font);color:var(--ink-soft);min-height:48px"><svg width="21" height="21"><use href="#ic-home"></use></svg><span>Сегодня</span><span style="width:4px;height:4px;border-radius:50%;background:currentColor;opacity:0"></span></button>
+<button onClick="{{ goRoute }}" style="flex:1;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 0;font:700 11px/1 var(--font);color:var(--ink-soft);min-height:48px"><svg width="21" height="21"><use href="#ic-route"></use></svg><span>Курс</span><span style="width:4px;height:4px;border-radius:50%;background:currentColor;opacity:0"></span></button>
+<button onClick="{{ goPractice }}" style="flex:1;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 0;font:700 11px/1 var(--font);color:var(--ink-soft);min-height:48px"><svg width="21" height="21"><use href="#ic-practice"></use></svg><span>Тренировка</span><span style="width:4px;height:4px;border-radius:50%;background:currentColor;opacity:0"></span></button>
+<button onClick="{{ goProgress }}" style="flex:1;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 0;font:700 11px/1 var(--font);color:var(--ink-soft);min-height:48px"><svg width="21" height="21"><use href="#ic-chart"></use></svg><span>Прогресс</span><span style="width:4px;height:4px;border-radius:50%;background:currentColor;opacity:0"></span></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ popOn }}">
+<div ref="{{ popRef }}" aria-live="polite" style="position:absolute;right:10px;bottom:96px;width:196px;height:140px;pointer-events:none;z-index:9;display:flex;align-items:flex-end;justify-content:flex-end">
+<div style="position:absolute;left:0;bottom:104px;max-width:118px;padding:9px 12px;border-radius:14px 14px 4px 14px;background:var(--surface-solid);border:1px solid var(--border-col);box-shadow:0 10px 24px -12px rgba(26,35,48,.5);font:700 13px/1.3 var(--font);color:var(--ink);text-wrap:pretty">{{ popText }}</div>
+<div style="width:132px;height:132px"><rhino-mascot state="{{ popState }}" hat="{{ popHat }}" style="height:100%"></rhino-mascot></div>
+</div>
+</sc-if>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:440,&quot;height&quot;:920},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Носорог&quot;,&quot;Тёмная&quot;,&quot;Диван&quot;,&quot;Как в ките&quot;],&quot;default&quot;:&quot;Носорог&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Оформление&quot;},&quot;showTranslations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Урок&quot;}}">
+const KEYS=['--bg','--ink','--ink-soft','--accent','--btn-fill','--accent-fg','--accent-soft','--violet','--blue','--mint','--amber','--coral','--surface-solid','--surface','--hairline','--border-col','--track','--radius','--radius-btn','--shadow-card'];
+const SOFA={'--bg':'#f5f0e9','--ink':'#26212a','--ink-soft':'#8b8391','--accent':'#5b3a52','--btn-fill':'#5b3a52','--accent-fg':'#fdf8f4','--accent-soft':'rgba(91,58,82,.08)','--violet':'#7a5aa8','--blue':'#3d7d7a','--surface-solid':'#fffdfa','--surface':'rgba(255,253,250,.92)','--hairline':'rgba(38,33,42,.1)','--border-col':'rgba(38,33,42,.13)','--track':'rgba(38,33,42,.08)','--radius':'16px','--radius-btn':'14px','--shadow-card':'0 1px 2px rgba(38,33,42,.05)'};
+const RHINO={'--bg':'#eff1f4','--ink':'#1b2029','--ink-soft':'#7a828f','--accent':'#3d4653','--btn-fill':'#3d4653','--accent-fg':'#f6f8fa','--accent-soft':'rgba(61,70,83,.08)','--violet':'#5b6a8c','--blue':'#3a7b93','--surface-solid':'#ffffff','--surface':'rgba(255,255,255,.92)','--hairline':'rgba(27,32,41,.1)','--border-col':'rgba(27,32,41,.13)','--track':'rgba(27,32,41,.08)','--radius':'14px','--radius-btn':'12px','--shadow-card':'0 1px 2px rgba(27,32,41,.05)'};
+const NIGHT={'--bg':'#20262e','--ink':'#eceff4','--ink-soft':'#939da9','--accent':'#8ba1bd','--btn-fill':'#8ba1bd','--accent-fg':'#161b22','--accent-soft':'rgba(139,161,189,.15)','--violet':'#9aa8cc','--blue':'#5fb0c4','--mint':'#5fc79a','--amber':'#f0b054','--coral':'#f08874','--surface-solid':'#2a323c','--surface':'rgba(42,50,60,.94)','--hairline':'rgba(236,239,244,.11)','--border-col':'rgba(236,239,244,.15)','--track':'rgba(236,239,244,.1)','--radius':'14px','--radius-btn':'12px','--shadow-card':'none'};
+const ROOM={'Тёмная':'radial-gradient(130% 78% at 50% -12%,#2c343e 0%,#1d232b 56%,#13181e 100%)','Носорог':'radial-gradient(130% 78% at 50% -12%,#eaeef2 0%,#dae0e8 56%,#c7d0da 100%)','Диван':'radial-gradient(130% 78% at 50% -12%,#f4ede2 0%,#e8dccc 56%,#ded0bd 100%)','Как в ките':'radial-gradient(130% 78% at 50% -12%,#f3f3f6 0%,#e7e7ec 56%,#d9d9e0 100%)'};
+const RKEYS=['--rhino-skin','--rhino-skin-dark','--rhino-belly','--rhino-horn','--rhino-horn-shade','--rhino-ear-in','--rhino-cheek','--rhino-brow','--rhino-nostril'];
+const RTONE={'Тёмная':{'--rhino-skin':'#5a6674','--rhino-skin-dark':'#6e7b8b','--rhino-belly':'#93a0af','--rhino-brow':'#aeb8c4','--rhino-nostril':'#7c8896'},'Диван':{'--rhino-skin':'#3D4653','--rhino-skin-dark':'#4C5765','--rhino-belly':'#B9A88E','--rhino-horn':'#F5E9D2','--rhino-horn-shade':'#DFCCA9','--rhino-ear-in':'#D9967F','--rhino-cheek':'#DE8E78','--rhino-brow':'#A9A08E','--rhino-nostril':'#7A6F5E'}};
+const STEPS=[
+ {kind:'choice',kicker:'ВЫБОР ВАРИАНТА',prompt:'Как предложить встретиться в пятницу?',options:['Are you free on Friday?','Do you free at Friday?','Are you free at Friday?'],answer:0,note:'«Свободен» — free, без do. День недели идёт с on: on Friday.'},
+ {kind:'translate',kicker:'ПЕРЕВОД ТЕКСТОМ',prompt:'Переведи на английский',answer:"let's move it to wednesday",shown:"Let's move it to Wednesday",note:'Move it — перенести уже назначенное. Move to Wednesday без it звучит как переезд.'},
+ {kind:'order',kicker:'ПОРЯДОК СЛОВ',prompt:'Собери фразу из этих слов',tokens:['make',"can't",'I','tomorrow','it'],answer:"I can't make it tomorrow",note:'Make it — «смочь прийти». Время в конце.'},
+ {kind:'dialogue',kicker:'ДИАЛОГ',prompt:'О чём в итоге договорились?',lines:[{speaker:'Ann',text:'Are you free on Friday?',translation:'Ты свободна в пятницу?'},{speaker:'Sam',text:"Friday's tight. Could we do Thursday instead?",translation:'В пятницу плотно. Может, вместо неё четверг?'},{speaker:'Ann',text:'Thursday works. Same time?',translation:'Четверг подходит. В то же время?'},{speaker:'Sam',text:'Same time. See you then.',translation:'В то же время. До встречи.'}],options:['Встретятся в четверг в то же время','Встретятся в пятницу пораньше','Решили пока не встречаться'],answer:0,note:'Thursday works — «четверг подходит», обычный способ согласиться.'},
+ {kind:'listen',kicker:'АУДИРОВАНИЕ',prompt:'Запиши, что услышал',answer:'can we push it to next week',shown:'Can we push it to next week?',note:'Push it to — сдвинуть на попозже, разговорный вариант reschedule.'},
+ {kind:'card',kicker:'КАРТОЧКА НА ПОВТОРЕНИЕ',prompt:'Помнишь это слово?',answer:'to reschedule — перенести встречу на другое время',note:'Ничего страшного. Слово вернётся завтра, потом через три дня — так оно и закрепляется.'}
+];
+const KMETA={choice:{kicker:'ВЫБОР ВАРИАНТА',name:'Выбор варианта'},translate:{kicker:'ПЕРЕВОД ТЕКСТОМ',name:'Перевод текстом',prompt:'Переведи на английский'},order:{kicker:'ПОРЯДОК СЛОВ',name:'Порядок слов',prompt:'Собери фразу из этих слов'},dialogue:{kicker:'ДИАЛОГ',name:'Диалог'},listen:{kicker:'АУДИРОВАНИЕ',name:'Аудирование',prompt:'Запиши, что услышал'},card:{kicker:'КАРТОЧКА НА ПОВТОРЕНИЕ',name:'Карточки',prompt:'Помнишь это слово?'}};
+const TOPICS={perfect:'Present Perfect',prep:'Предлоги времени',articles:'Артикли'};
+const BANK=[
+ {kind:'choice',from:'Блок 1 · Знакомство',topic:'articles',prompt:'Как сказать «я учитель»?',options:['I am a teacher','I am teacher','I teacher'],answer:0,note:'Перед профессией по-английски всегда стоит a.'},
+ {kind:'choice',from:'Блок 2 · Кафе и заказы',topic:'prep',prompt:'Кофе в восемь утра — как сказать?',options:['at eight in the morning','on eight at the morning','in eight on the morning'],answer:0,note:'Точное время — at, часть суток — in the morning.'},
+ {kind:'choice',from:'Блок 3 · Про себя',topic:'perfect',prompt:'Ты уже обедал?',options:['Have you had lunch yet?','Did you have lunch yet?','Are you had lunch yet?'],answer:0,note:'Слово yet тянет за собой Present Perfect.'},
+ {kind:'choice',from:'Блок 4 · Планы и время',topic:'prep',prompt:'Встреча в понедельник — какой предлог?',options:['on Monday','at Monday','in Monday'],answer:0,note:'Дни недели — только on, без исключений.'},
+ {kind:'choice',from:'Блок 2 · Кафе и заказы',topic:'articles',prompt:'Просишь счёт в кафе',options:['Could I have the bill, please?','Could I have a bill, please?','Could I have bill, please?'],answer:0,note:'Счёт у вас один и понятен обоим — значит the.'},
+ {kind:'translate',from:'Блок 1 · Знакомство',topic:'articles',src:'Я из Москвы',answer:'i am from moscow',shown:"I'm from Moscow",note:'Названия городов идут без артикля.'},
+ {kind:'translate',from:'Блок 2 · Кафе и заказы',topic:'prep',src:'Столик на двоих на семь',answer:'a table for two at seven',shown:'A table for two at seven',note:'for — для кого, at — во сколько.'},
+ {kind:'translate',from:'Блок 3 · Про себя',topic:'perfect',src:'Я никогда не был в Испании',answer:'i have never been to spain',shown:"I've never been to Spain",note:'Опыт всей жизни — Present Perfect, и been to, а не been in.'},
+ {kind:'translate',from:'Блок 4 · Планы и время',topic:'prep',src:'Я освобожусь после шести',answer:'i am free after six',shown:"I'm free after six",note:'After само по себе предлог — второй перед ним не нужен.'},
+ {kind:'order',from:'Блок 2 · Кафе и заказы',topic:'articles',src:'Можно мне ещё воды?',tokens:['Could','I','have','some','more','water'],answer:'Could I have some more water',note:'Some more — «ещё немного», обычная просьба за столом.'},
+ {kind:'order',from:'Блок 3 · Про себя',topic:'perfect',src:'Я живу здесь с 2019 года',tokens:['I','have','lived','here','since','2019'],answer:'I have lived here since 2019',note:'Since — точка отсчёта, с ней идёт Present Perfect.'},
+ {kind:'order',from:'Блок 4 · Планы и время',topic:'prep',src:'Встреча в пятницу',tokens:['The','meeting','is','on','Friday'],answer:'The meeting is on Friday',note:'Конкретная встреча — the, день недели — on.'},
+ {kind:'dialogue',from:'Блок 2 · Кафе и заказы',prompt:'Что в итоге заказал гость?',lines:[{speaker:'Гость',text:"Could I get a flat white, please?",translation:'Можно флэт уайт?'},{speaker:'Бариста',text:"Sure. To have here or take away?",translation:'Конечно. Здесь или с собой?'},{speaker:'Гость',text:"To have here. And a glass of water.",translation:'Здесь. И стакан воды.'},{speaker:'Бариста',text:"Coming right up.",translation:'Сейчас сделаю.'}],options:['Кофе и воду, остаётся в кафе','Кофе с собой','Только воду'],answer:0,note:'To have here — «здесь», take away — «с собой».'},
+ {kind:'dialogue',from:'Блок 3 · Про себя',prompt:'Чем занимается Мария?',lines:[{speaker:'Tom',text:'So what do you do?',translation:'Чем занимаешься?'},{speaker:'Maria',text:"I'm a nurse, but I'm training to be a midwife.",translation:'Я медсестра, но учусь на акушерку.'},{speaker:'Tom',text:'How long have you been doing that?',translation:'И давно?'},{speaker:'Maria',text:'Almost two years now.',translation:'Уже почти два года.'}],options:['Медсестра, учится на акушерку','Акушерка уже два года','Учится на медсестру'],answer:0,note:"I'm training to be — «учусь на», процесс ещё идёт."},
+ {kind:'listen',from:'Блок 2 · Кафе и заказы',topic:'prep',answer:'could we sit outside',shown:'Could we sit outside?',note:'Sit outside — сесть на улице, без предлога перед outside.'},
+ {kind:'listen',from:'Блок 3 · Про себя',topic:'perfect',answer:'how long have you been here',shown:'How long have you been here?',note:'How long — про длительность, дальше Present Perfect.'},
+ {kind:'listen',from:'Блок 4 · Планы и время',topic:'prep',answer:'are you around on tuesday',shown:'Are you around on Tuesday?',note:'Are you around — «ты на месте», мягче чем are you free.'},
+ {kind:'card',from:'Блок 2 · Кафе и заказы',word:'the bill',meaning:'счёт в кафе или ресторане',example:'Could we have the bill, please?',note:'В Британии bill, в Америке — check. Слово вернётся завтра.'},
+ {kind:'card',from:'Блок 3 · Про себя',word:'to get on well',meaning:'ладить с кем-то',example:'We get on well with the neighbours.',note:'Get on well with somebody — про людей, не про дела.'},
+ {kind:'card',from:'Блок 4 · Планы и время',word:'to put off',meaning:'отложить на потом',example:"Let's put it off until Monday.",note:'Put off — отложить дело, reschedule — перенести встречу.'}
+];
+const LESSON={title:'Договориться о встрече',sub:'Блок 4 · урок 3 из 5',steps:STEPS};
+const COURSES={en:{name:'Английский',lvl:'A2',short:'EN · A2',streak:12,block:4,blockName:'Планы и время',lesson:'Договориться о встрече',idx:3,of:5,min:7,progress:'3½',pct:41},es:{name:'Испанский',lvl:'A1',short:'ES · A1',streak:3,block:2,blockName:'Еда и заказы',lesson:'Заказать в баре',idx:2,of:6,min:5,progress:'1½',pct:28}};
+function plural(n,one,few,many){const a=Math.abs(n)%100,b=a%10;if(a>10&&a<20)return many;if(b>1&&b<5)return few;if(b===1)return one;return many}
+function goalHintOf(g){const n=Math.max(1,Math.floor(g/5));return 'примерно '+n+' '+plural(n,'урок','урока','уроков')}
+function pickKind(k){return BANK.filter(b=>b.kind===k)}
+function pickTopic(t){return BANK.filter(b=>b.topic===t)}
+function reviewSteps(){const out=[],pool=BANK.slice();let i=0;while(out.length<20){out.push(pool[i%pool.length]);i++}return out}
+const PLAN={'5 минут':{perDay:'4',weeks:'14 недель',note:'Коротко, но каждый день — этого хватает, чтобы не откатываться назад.'},'10 минут':{perDay:'8',weeks:'7 недель',note:'Один урок в день плюс повторение старого — рабочий темп.'},'20 минут':{perDay:'16',weeks:'4 недели',note:'Быстро, но требует режима. Если пропустишь два дня — темп сползёт.'}};
+const MAP_EN='PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTc5IiBoZWlnaHQ9IjQ3MjAiIHZpZXdCb3g9IjAgMCAxMTc5IDQ3MjAiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwLjAiIHN0b3AtY29sb3I9IiNmOGZhZmYiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjAuNDIiIHN0b3AtY29sb3I9IiNmMWY1ZmUiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjAuNyIgc3RvcC1jb2xvcj0iI2VhZWVmYiI+PC9zdG9wPjxzdG9wIG9mZnNldD0iMS4wIiBzdG9wLWNvbG9yPSIjZWRmMGY4Ij48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9ImhhbG8iIGN4PSI1MCUiIGN5PSI1MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmRmYmUiIHN0b3Atb3BhY2l0eT0iMC41NSI+PC9zdG9wPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZGZiZSIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+PC9yYWRpYWxHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImhhemUiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZWRmMGY4IiBzdG9wLW9wYWNpdHk9IjAiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGYwZjgiIHN0b3Atb3BhY2l0eT0iMC45Ij48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxhbmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIwIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZWRmMGY4IiBzdG9wLW9wYWNpdHk9IjAiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjIwJSIgc3RvcC1jb2xvcj0iI2VkZjBmOCIgc3RvcC1vcGFjaXR5PSIwLjMwIj48L3N0b3A+PHN0b3Agb2Zmc2V0PSIzOCUiIHN0b3AtY29sb3I9IiNlZGYwZjgiIHN0b3Atb3BhY2l0eT0iMC43MiI+PC9zdG9wPjxzdG9wIG9mZnNldD0iNjIlIiBzdG9wLWNvbG9yPSIjZWRmMGY4IiBzdG9wLW9wYWNpdHk9IjAuNzIiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjgwJSIgc3RvcC1jb2xvcj0iI2VkZjBmOCIgc3RvcC1vcGFjaXR5PSIwLjMwIj48L3N0b3A+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWRmMGY4IiBzdG9wLW9wYWNpdHk9IjAiPjwvc3RvcD48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ic2hlbGYtbCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjAiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM5YWExZDIiIHN0b3Atb3BhY2l0eT0iMC4zNCI+PC9zdG9wPjxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjOWFhMWQyIiBzdG9wLW9wYWNpdHk9IjAuMTUiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5YWExZDIiIHN0b3Atb3BhY2l0eT0iMCI+PC9zdG9wPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJzaGVsZi1yIiB4MT0iMSIgeTE9IjAiIHgyPSIwIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzlhYTFkMiIgc3RvcC1vcGFjaXR5PSIwLjM0Ij48L3N0b3A+PHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiM5YWExZDIiIHN0b3Atb3BhY2l0eT0iMC4xNSI+PC9zdG9wPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzlhYTFkMiIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9InNlYW0iIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZWRmMGY4IiBzdG9wLW9wYWNpdHk9IjEiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjQlIiBzdG9wLWNvbG9yPSIjZWRmMGY4IiBzdG9wLW9wYWNpdHk9IjAiPjwvc3RvcD48c3RvcCBvZmZzZXQ9Ijk2JSIgc3RvcC1jb2xvcj0iI2VkZjBmOCIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWRmMGY4IiBzdG9wLW9wYWNpdHk9IjEiPjwvc3RvcD48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTE3OSIgaGVpZ2h0PSI0NzIwIiBmaWxsPSIjZWRmMGY4Ij48L3JlY3Q+PHJlY3QgeD0iNjM3IiB5PSI0MTMiIHdpZHRoPSI1NDIiIGhlaWdodD0iNyIgZmlsbD0idXJsKCNzaGVsZi1yKSI+PC9yZWN0PjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9IjYzNyIgeT0iNDIwIiB3aWR0aD0iNTQyIiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjAiIHk9Ijg3MyIgd2lkdGg9IjQ5NSIgaGVpZ2h0PSI3IiBmaWxsPSJ1cmwoI3NoZWxmLWwpIj48L3JlY3Q+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iMCIgeT0iODgwIiB3aWR0aD0iNDk1IiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLWwpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjczMSIgeT0iMTMzMyIgd2lkdGg9IjQ0OCIgaGVpZ2h0PSI3IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iNzMxIiB5PSIxMzQwIiB3aWR0aD0iNDQ4IiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjAiIHk9IjE3OTMiIHdpZHRoPSI1MTkiIGhlaWdodD0iNyIgZmlsbD0idXJsKCNzaGVsZi1sKSI+PC9yZWN0PjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9IjAiIHk9IjE4MDAiIHdpZHRoPSI1MTkiIGhlaWdodD0iNjQiIGZpbGw9InVybCgjc2hlbGYtbCkiPjwvcmVjdD48L2c+PHJlY3QgeD0iNzA3IiB5PSIyMjUzIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjciIGZpbGw9InVybCgjc2hlbGYtcikiPjwvcmVjdD48ZyBvcGFjaXR5PSIwLjU1Ij48cmVjdCB4PSI3MDciIHk9IjIyNjAiIHdpZHRoPSI0NzIiIGhlaWdodD0iNjQiIGZpbGw9InVybCgjc2hlbGYtcikiPjwvcmVjdD48L2c+PHJlY3QgeD0iMCIgeT0iMjcxMyIgd2lkdGg9IjQyNCIgaGVpZ2h0PSI3IiBmaWxsPSJ1cmwoI3NoZWxmLWwpIj48L3JlY3Q+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iMCIgeT0iMjcyMCIgd2lkdGg9IjQyNCIgaGVpZ2h0PSI2NCIgZmlsbD0idXJsKCNzaGVsZi1sKSI+PC9yZWN0PjwvZz48cmVjdCB4PSI2NDgiIHk9IjMxNzMiIHdpZHRoPSI1MzEiIGhlaWdodD0iNyIgZmlsbD0idXJsKCNzaGVsZi1yKSI+PC9yZWN0PjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9IjY0OCIgeT0iMzE4MCIgd2lkdGg9IjUzMSIgaGVpZ2h0PSI2NCIgZmlsbD0idXJsKCNzaGVsZi1yKSI+PC9yZWN0PjwvZz48cmVjdCB4PSIwIiB5PSIzNjMzIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjciIGZpbGw9InVybCgjc2hlbGYtbCkiPjwvcmVjdD48ZyBvcGFjaXR5PSIwLjU1Ij48cmVjdCB4PSIwIiB5PSIzNjQwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLWwpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjY3MiIgeT0iNDA5MyIgd2lkdGg9IjUwNyIgaGVpZ2h0PSI3IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iNjcyIiB5PSI0MTAwIiB3aWR0aD0iNTA3IiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjAiIHk9IjQ1NTMiIHdpZHRoPSI0NDgiIGhlaWdodD0iNyIgZmlsbD0idXJsKCNzaGVsZi1sKSI+PC9yZWN0PjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9IjAiIHk9IjQ1NjAiIHdpZHRoPSI0NDgiIGhlaWdodD0iNjQiIGZpbGw9InVybCgjc2hlbGYtbCkiPjwvcmVjdD48L2c+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iNzA3IiB5PSIyODkiIHdpZHRoPSI4NiIgaGVpZ2h0PSIxMzAiIGZpbGw9IiNiNmJkZTMiPjwvcmVjdD48cmVjdCB4PSI3MjgiIHk9IjI0NiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjQyIiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iNzIxIiB5PSIzNzUiIHdpZHRoPSIxNyIgaGVpZ2h0PSIyMyIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40NSI+PC9yZWN0PjxyZWN0IHg9Ijc2MiIgeT0iMzc1IiB3aWR0aD0iMTciIGhlaWdodD0iMjMiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNTIiPjwvcmVjdD48cmVjdCB4PSI4MTEiIHk9IjI5NCIgd2lkdGg9Ijg4IiBoZWlnaHQ9IjEyNSIgZmlsbD0iI2I2YmRlMyI+PC9yZWN0PjxyZWN0IHg9Ijg3MyIgeT0iMzY1IiB3aWR0aD0iMTMiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzgiPjwvcmVjdD48cmVjdCB4PSI4NzMiIHk9IjM4NSIgd2lkdGg9IjEzIiBoZWlnaHQ9IjE1IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc0Ij48L3JlY3Q+PHJlY3QgeD0iOTE3IiB5PSIyOTgiIHdpZHRoPSI5MSIgaGVpZ2h0PSIxMjEiIGZpbGw9IiNiNmJkZTMiPjwvcmVjdD48cmVjdCB4PSI5NTEiIHk9IjI2OCIgd2lkdGg9IjEzIiBoZWlnaHQ9IjI5IiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iOTMyIiB5PSIzNzciIHdpZHRoPSIxOCIgaGVpZ2h0PSIyMiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC4zNyI+PC9yZWN0PjxyZWN0IHg9Ijk3NiIgeT0iMzQ5IiB3aWR0aD0iMTgiIGhlaWdodD0iMjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNDMiPjwvcmVjdD48cmVjdCB4PSIxMDEzIiB5PSIyOTQiIHdpZHRoPSIxMjciIGhlaWdodD0iMTI1IiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iMTA2NCIgeT0iMzY1IiB3aWR0aD0iMjYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMzkiPjwvcmVjdD48cmVjdCB4PSIxMTM5IiB5PSIyMDYiIHdpZHRoPSIxMzciIGhlaWdodD0iMjE0IiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iMTE2MSIgeT0iMzAyIiB3aWR0aD0iMjgiIGhlaWdodD0iMjYiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNTEiPjwvcmVjdD48cmVjdCB4PSIxMjI3IiB5PSIzMDIiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyNiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC42OSI+PC9yZWN0PjwvZz48ZyBvcGFjaXR5PSIwLjUiPjxwYXRoIGQ9Ik04NjIsNDIwIEw4ODIsNDIwIEw4NzYsNDA1IEw4NjgsNDA1IFoiIGZpbGw9IiM5YWExZDIiPjwvcGF0aD48cmVjdCB4PSI4NjkiIHk9IjI3NCIgd2lkdGg9IjUuMyIgaGVpZ2h0PSIxMzIiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI4NjMiIHk9IjI3MyIgd2lkdGg9IjE3IiBoZWlnaHQ9IjQuMCIgcng9IjEuOCIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxjaXJjbGUgY3g9Ijg3MiIgY3k9IjI2MSIgcj0iOS43IiBmaWxsPSIjOWFhMWQyIj48L2NpcmNsZT48cGF0aCBkPSJNODY3LDI1MyBMODcyLDI0NSBMODc3LDI1MyBaIiBmaWxsPSIjOWFhMWQyIj48L3BhdGg+PC9nPjxnIG9wYWNpdHk9IjAuNiI+PHJlY3QgeD0iODYiIHk9IjcyOCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE1MiIgcng9IjQuMCIgZmlsbD0iI2FkYjVkYSI+PC9yZWN0PjxwYXRoIGQ9Ik05NCw3NjggbC0zNiwtNDAgTTk0LDc1MCBsMzIsLTM2IiBzdHJva2U9IiNhZGI1ZGEiIHN0cm9rZS13aWR0aD0iOS4wIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjwvcGF0aD48Y2lyY2xlIGN4PSI5NCIgY3k9IjY4MCIgcj0iNzYiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjQwIiBjeT0iNzEyIiByPSI1NCIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUwIiBjeT0iNzA4IiByPSI1OCIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNzQiIGN5PSI2NDIiIHI9IjUwIiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMjIiIGN5PSI2NDgiIHI9IjQ2IiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48cmVjdCB4PSIyNTIiIHk9Ijc1NSIgd2lkdGg9IjEzIiBoZWlnaHQ9IjEyNCIgcng9IjMuMyIgZmlsbD0iI2FkYjVkYSI+PC9yZWN0PjxwYXRoIGQ9Ik0yNTksNzg4IGwtMjksLTMyIE0yNTksNzczIGwyNiwtMjkiIHN0cm9rZT0iI2FkYjVkYSIgc3Ryb2tlLXdpZHRoPSI3LjQiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PC9wYXRoPjxjaXJjbGUgY3g9IjI1OSIgY3k9IjcxNiIgcj0iNjIiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjIxNSIgY3k9Ijc0MiIgcj0iNDQiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMwNSIgY3k9IjczOSIgcj0iNDciIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjI0MyIgY3k9IjY4NCIgcj0iNDEiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjI4MiIgY3k9IjY4OSIgcj0iMzciIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjxyZWN0IHg9IjM3MiIgeT0iNzg4IiB3aWR0aD0iOS42IiBoZWlnaHQ9IjkxIiByeD0iMi40IiBmaWxsPSIjYWRiNWRhIj48L3JlY3Q+PHBhdGggZD0iTTM3Nyw4MTIgbC0yMSwtMjQgTTM3Nyw4MDIgbDE5LC0yMSIgc3Ryb2tlPSIjYWRiNWRhIiBzdHJva2Utd2lkdGg9IjUuNCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48L3BhdGg+PGNpcmNsZSBjeD0iMzc3IiBjeT0iNzYwIiByPSI0NSIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMzQ0IiBjeT0iNzc5IiByPSIzMiIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNDEwIiBjeT0iNzc2IiByPSIzNCIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMzY1IiBjeT0iNzM3IiByPSIzMCIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMzk0IiBjeT0iNzQwIiByPSIyNyIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PC9nPjxnIG9wYWNpdHk9IjAuNSI+PHJlY3QgeD0iMTQ4IiB5PSI4NDYiIHdpZHRoPSIxMDQiIGhlaWdodD0iOC4wIiByeD0iNC4wIiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTQ4IiB5PSI4MTkiIHdpZHRoPSIxMDQiIGhlaWdodD0iNy4yIiByeD0iMy4yIiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTQ4IiB5PSI4MDQiIHdpZHRoPSIxMDQiIGhlaWdodD0iNy4yIiByeD0iMy4yIiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTUyIiB5PSI4MDMiIHdpZHRoPSI4LjAiIGhlaWdodD0iNzYiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSIyNDAiIHk9IjgwMyIgd2lkdGg9IjguMCIgaGVpZ2h0PSI3NiIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjwvZz48ZyBvcGFjaXR5PSIwLjQiPjxjaXJjbGUgY3g9IjExMjAiIGN5PSIxMTUwIiByPSIxNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2EzYWFkYiIgc3Ryb2tlLXdpZHRoPSI2Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMTIwIiBjeT0iMTE1MCIgcj0iOS4wIiBmaWxsPSIjYTNhYWRiIj48L2NpcmNsZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMjcwIiB5Mj0iMTE1MCIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTI3MCIgY3k9IjExNTAiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMjY2IiB5Mj0iMTE4MyIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTI2NiIgY3k9IjExODMiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMjU1IiB5Mj0iMTIxNSIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTI1NSIgY3k9IjEyMTUiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMjM3IiB5Mj0iMTI0MyIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTIzNyIgY3k9IjEyNDMiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMjEzIiB5Mj0iMTI2NyIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTIxMyIgY3k9IjEyNjciIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMTg1IiB5Mj0iMTI4NSIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTE4NSIgY3k9IjEyODUiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMTUzIiB5Mj0iMTI5NiIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTE1MyIgY3k9IjEyOTYiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMTIwIiB5Mj0iMTMwMCIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTEyMCIgY3k9IjEzMDAiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMDg2IiB5Mj0iMTI5NiIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTA4NiIgY3k9IjEyOTYiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMDU1IiB5Mj0iMTI4NSIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTA1NSIgY3k9IjEyODUiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMDI2IiB5Mj0iMTI2NyIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTAyNiIgY3k9IjEyNjciIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSIxMDAyIiB5Mj0iMTI0MyIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iMTAwMiIgY3k9IjEyNDMiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSI5ODQiIHkyPSIxMjE1IiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSI5ODQiIGN5PSIxMjE1IiByeD0iNi44IiByeT0iNC44IiBmaWxsPSIjYTNhYWRiIj48L2VsbGlwc2U+PGxpbmUgeDE9IjExMjAiIHkxPSIxMTUwIiB4Mj0iOTczIiB5Mj0iMTE4MyIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iOTczIiBjeT0iMTE4MyIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9Ijk3MCIgeTI9IjExNTAiIHN0cm9rZT0iI2EzYWFkYiIgc3Ryb2tlLXdpZHRoPSIyIj48L2xpbmU+PGVsbGlwc2UgY3g9Ijk3MCIgY3k9IjExNTAiIHJ4PSI2LjgiIHJ5PSI0LjgiIGZpbGw9IiNhM2FhZGIiPjwvZWxsaXBzZT48bGluZSB4MT0iMTEyMCIgeTE9IjExNTAiIHgyPSI5NzMiIHkyPSIxMTE2IiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSI5NzMiIGN5PSIxMTE2IiByeD0iNi44IiByeT0iNC44IiBmaWxsPSIjYTNhYWRiIj48L2VsbGlwc2U+PGxpbmUgeDE9IjExMjAiIHkxPSIxMTUwIiB4Mj0iOTg0IiB5Mj0iMTA4NCIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjIiPjwvbGluZT48ZWxsaXBzZSBjeD0iOTg0IiBjeT0iMTA4NCIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjEwMDIiIHkyPSIxMDU2IiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMDAyIiBjeT0iMTA1NiIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjEwMjYiIHkyPSIxMDMyIiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMDI2IiBjeT0iMTAzMiIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjEwNTUiIHkyPSIxMDE0IiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMDU1IiBjeT0iMTAxNCIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjEwODYiIHkyPSIxMDAzIiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMDg2IiBjeT0iMTAwMyIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjExMjAiIHkyPSIxMDAwIiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMTIwIiBjeT0iMTAwMCIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjExNTMiIHkyPSIxMDAzIiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMTUzIiBjeT0iMTAwMyIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjExODUiIHkyPSIxMDE0IiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMTg1IiBjeT0iMTAxNCIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjEyMTMiIHkyPSIxMDMyIiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMjEzIiBjeT0iMTAzMiIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjEyMzciIHkyPSIxMDU2IiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMjM3IiBjeT0iMTA1NiIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjEyNTUiIHkyPSIxMDg0IiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMjU1IiBjeT0iMTA4NCIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxsaW5lIHgxPSIxMTIwIiB5MT0iMTE1MCIgeDI9IjEyNjYiIHkyPSIxMTE2IiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iMiI+PC9saW5lPjxlbGxpcHNlIGN4PSIxMjY2IiBjeT0iMTExNiIgcng9IjYuOCIgcnk9IjQuOCIgZmlsbD0iI2EzYWFkYiI+PC9lbGxpcHNlPjxwYXRoIGQ9Ik0xMTE1LDExNTAgTDEwOTYsMTM0OCIgc3Ryb2tlPSIjYTNhYWRiIiBzdHJva2Utd2lkdGg9IjguMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48L3BhdGg+PHBhdGggZD0iTTExMjQsMTE1MCBMMTE0NCwxMzQ4IiBzdHJva2U9IiNhM2FhZGIiIHN0cm9rZS13aWR0aD0iOC4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjwvcGF0aD48cGF0aCBkPSJNMTEyMCwxMTUwIEwxMjEzLDEzNDgiIHN0cm9rZT0iI2EzYWFkYiIgc3Ryb2tlLXdpZHRoPSI0LjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PC9wYXRoPjxyZWN0IHg9IjEwODEiIHk9IjEzMzkiIHdpZHRoPSI3OCIgaGVpZ2h0PSIxMiIgcng9IjQuNSIgZmlsbD0iI2EzYWFkYiI+PC9yZWN0PjwvZz48ZyBvcGFjaXR5PSIwLjUiPjxyZWN0IHg9Ijc3OCIgeT0iMTI5NCIgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI2LjgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI3NzgiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI3OTkiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI4MjAiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI4NDEiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI4NjIiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI4ODMiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI5MDQiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI5MjUiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI5NDYiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI5NjciIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI5ODgiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSIxMDEwIiB5PSIxMzAxIiB3aWR0aD0iNS42IiBoZWlnaHQ9IjM4IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTAzMSIgeT0iMTMwMSIgd2lkdGg9IjUuNiIgaGVpZ2h0PSIzOCIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjEwNTIiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSIxMDczIiB5PSIxMzAxIiB3aWR0aD0iNS42IiBoZWlnaHQ9IjM4IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTA5NCIgeT0iMTMwMSIgd2lkdGg9IjUuNiIgaGVpZ2h0PSIzOCIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjExMTUiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSIxMTM2IiB5PSIxMzAxIiB3aWR0aD0iNS42IiBoZWlnaHQ9IjM4IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTE1NyIgeT0iMTMwMSIgd2lkdGg9IjUuNiIgaGVpZ2h0PSIzOCIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjExNzgiIHk9IjEzMDEiIHdpZHRoPSI1LjYiIGhlaWdodD0iMzgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSIxMTk5IiB5PSIxMzAxIiB3aWR0aD0iNS42IiBoZWlnaHQ9IjM4IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9Ii03MCIgeT0iMTY1MyIgd2lkdGg9IjEwNyIgaGVpZ2h0PSIxNDYiIGZpbGw9IiNiNmJkZTMiPjwvcmVjdD48cmVjdCB4PSItMTUiIHk9IjE2MjQiIHdpZHRoPSIxNCIgaGVpZ2h0PSIyOSIgZmlsbD0iI2I2YmRlMyI+PC9yZWN0PjxyZWN0IHg9Ii01MyIgeT0iMTczOCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjE4IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjgyIj48L3JlY3Q+PHJlY3QgeD0iLTI3IiB5PSIxNzE1IiB3aWR0aD0iMjIiIGhlaWdodD0iMTgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNTEiPjwvcmVjdD48cmVjdCB4PSItMjciIHk9IjE3NjIiIHdpZHRoPSIyMiIgaGVpZ2h0PSIxOCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43OSI+PC9yZWN0PjxyZWN0IHg9Ii0xLjEiIHk9IjE3MTUiIHdpZHRoPSIyMiIgaGVpZ2h0PSIxOCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC41MCI+PC9yZWN0PjxyZWN0IHg9Ii0xLjEiIHk9IjE3NjIiIHdpZHRoPSIyMiIgaGVpZ2h0PSIxOCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC44OCI+PC9yZWN0PjxyZWN0IHg9IjU0IiB5PSIxNjA5IiB3aWR0aD0iODYiIGhlaWdodD0iMTkwIiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iMTA2IiB5PSIxNTcwIiB3aWR0aD0iMTIiIGhlaWdodD0iMzkiIGZpbGw9IiNiNmJkZTMiPjwvcmVjdD48cmVjdCB4PSI2NyIgeT0iMTY5NCIgd2lkdGg9IjEzIiBoZWlnaHQ9IjIzIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjU4Ij48L3JlY3Q+PHJlY3QgeD0iODMiIHk9IjE3MjQiIHdpZHRoPSIxMyIgaGVpZ2h0PSIyMyIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43OSI+PC9yZWN0PjxyZWN0IHg9IjExNCIgeT0iMTY5NCIgd2lkdGg9IjEzIiBoZWlnaHQ9IjIzIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjU0Ij48L3JlY3Q+PHJlY3QgeD0iMTE0IiB5PSIxNzU1IiB3aWR0aD0iMTMiIGhlaWdodD0iMjMiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNjIiPjwvcmVjdD48cmVjdCB4PSIxNDAiIHk9IjE2NTIiIHdpZHRoPSIxMTciIGhlaWdodD0iMTQ3IiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iMTU5IiB5PSIxNzE0IiB3aWR0aD0iMjQiIGhlaWdodD0iMTgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOTUiPjwvcmVjdD48cmVjdCB4PSIxODciIHk9IjE3MTQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIxOCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC41NiI+PC9yZWN0PjxyZWN0IHg9IjI2NiIgeT0iMTYyNSIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxNzQiIGZpbGw9IiNiNmJkZTMiPjwvcmVjdD48cmVjdCB4PSIyODUiIHk9IjE3MDQiIHdpZHRoPSIyNCIgaGVpZ2h0PSIzMSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43MiI+PC9yZWN0PjxyZWN0IHg9IjMxNCIgeT0iMTc0NSIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMxIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc0Ij48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuOCI+PHJlY3QgeD0iMzIyIiB5PSIxNjU5IiB3aWR0aD0iNjIiIGhlaWdodD0iMTQwIiByeD0iNi40IiBmaWxsPSIjZDI1OTZhIj48L3JlY3Q+PHJlY3QgeD0iMzM0IiB5PSIxNjg4IiB3aWR0aD0iMTEiIGhlaWdodD0iMTQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNDQiPjwvcmVjdD48cmVjdCB4PSIzMzQiIHk9IjE3MDYiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxNCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC4zOSI+PC9yZWN0PjxyZWN0IHg9IjMzNCIgeT0iMTcyNCIgd2lkdGg9IjExIiBoZWlnaHQ9IjE0IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjU3Ij48L3JlY3Q+PHJlY3QgeD0iMzM0IiB5PSIxNzQyIiB3aWR0aD0iMTEiIGhlaWdodD0iMTQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNjUiPjwvcmVjdD48cmVjdCB4PSIzNDgiIHk9IjE2ODgiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxNCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC42MSI+PC9yZWN0PjxyZWN0IHg9IjM0OCIgeT0iMTcwNiIgd2lkdGg9IjExIiBoZWlnaHQ9IjE0IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjQwIj48L3JlY3Q+PHJlY3QgeD0iMzQ4IiB5PSIxNzI0IiB3aWR0aD0iMTEiIGhlaWdodD0iMTQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuODUiPjwvcmVjdD48cmVjdCB4PSIzNDgiIHk9IjE3NDIiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxNCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40OCI+PC9yZWN0PjxyZWN0IHg9IjM2MSIgeT0iMTY4OCIgd2lkdGg9IjExIiBoZWlnaHQ9IjE0IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjkyIj48L3JlY3Q+PHJlY3QgeD0iMzYxIiB5PSIxNzA2IiB3aWR0aD0iMTEiIGhlaWdodD0iMTQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNTkiPjwvcmVjdD48cmVjdCB4PSIzNjEiIHk9IjE3MjQiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxNCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC4zOCI+PC9yZWN0PjxyZWN0IHg9IjM2MSIgeT0iMTc0MiIgd2lkdGg9IjExIiBoZWlnaHQ9IjE0IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjUyIj48L3JlY3Q+PHJlY3QgeD0iMzE2IiB5PSIxNjQ2IiB3aWR0aD0iNzQiIGhlaWdodD0iMTQiIHJ4PSI0LjgiIGZpbGw9IiNkMjU5NmEiPjwvcmVjdD48cGF0aCBkPSJNMzM1LDE2NDYgcTE4LC0yNCAzNywwIFoiIGZpbGw9IiNkMjU5NmEiPjwvcGF0aD48L2c+PGcgb3BhY2l0eT0iMC41Ij48cGF0aCBkPSJNMTIwLDE4MDAgTDEzOSwxODAwIEwxMzQsMTc4NSBMMTI1LDE3ODUgWiIgZmlsbD0iIzlhYTFkMiI+PC9wYXRoPjxyZWN0IHg9IjEyNyIgeT0iMTY1NCIgd2lkdGg9IjUuMyIgaGVpZ2h0PSIxMzIiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSIxMjAiIHk9IjE2NTMiIHdpZHRoPSIxNyIgaGVpZ2h0PSI0LjAiIHJ4PSIxLjgiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48Y2lyY2xlIGN4PSIxMjkiIGN5PSIxNjQxIiByPSI5LjciIGZpbGw9IiM5YWExZDIiPjwvY2lyY2xlPjxwYXRoIGQ9Ik0xMjQsMTYzMyBMMTI5LDE2MjUgTDEzNSwxNjMzIFoiIGZpbGw9IiM5YWExZDIiPjwvcGF0aD48L2c+PGcgb3BhY2l0eT0iMC42Ij48cmVjdCB4PSIxMTAwIiB5PSIyMTE1IiB3aWR0aD0iMTUiIGhlaWdodD0iMTQ0IiByeD0iMy44IiBmaWxsPSIjYWRiNWRhIj48L3JlY3Q+PHBhdGggZD0iTTExMDgsMjE1MyBsLTM0LC0zOCBNMTEwOCwyMTM2IGwzMCwtMzQiIHN0cm9rZT0iI2FkYjVkYSIgc3Ryb2tlLXdpZHRoPSI4LjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PC9wYXRoPjxjaXJjbGUgY3g9IjExMDgiIGN5PSIyMDcwIiByPSI3MiIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTA1NyIgY3k9IjIxMDAiIHI9IjUxIiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMTYxIiBjeT0iMjA5NiIgcj0iNTUiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEwODkiIGN5PSIyMDMzIiByPSI0NyIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTEzNCIgY3k9IjIwMzkiIHI9IjQzIiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48cmVjdCB4PSI5NjEiIHk9IjIxNTYiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMDMiIHJ4PSIyLjciIGZpbGw9IiNhZGI1ZGEiPjwvcmVjdD48cGF0aCBkPSJNOTY2LDIxODMgbC0yNCwtMjcgTTk2NiwyMTcxIGwyMSwtMjQiIHN0cm9rZT0iI2FkYjVkYSIgc3Ryb2tlLXdpZHRoPSI2LjEiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PC9wYXRoPjxjaXJjbGUgY3g9Ijk2NiIgY3k9IjIxMjQiIHI9IjUxIiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI5MzAiIGN5PSIyMTQ1IiByPSIzNiIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTAwNCIgY3k9IjIxNDMiIHI9IjM5IiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI5NTMiIGN5PSIyMDk4IiByPSIzNCIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOTg1IiBjeT0iMjEwMiIgcj0iMzEiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjwvZz48ZyBvcGFjaXR5PSIwLjgiPjxyZWN0IHg9Ijc2NiIgeT0iMjIxMCIgd2lkdGg9IjkzIiBoZWlnaHQ9IjQ5IiByeD0iNi4yIiBmaWxsPSIjZDI1OTZhIj48L3JlY3Q+PHJlY3QgeD0iNzc0IiB5PSIyMjIwIiB3aWR0aD0iMTYiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOTIiPjwvcmVjdD48cmVjdCB4PSI3OTQiIHk9IjIyMjAiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40MCI+PC9yZWN0PjxyZWN0IHg9IjgxNCIgeT0iMjIyMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc5Ij48L3JlY3Q+PHJlY3QgeD0iODM0IiB5PSIyMjIwIiB3aWR0aD0iMTYiIGhlaWdodD0iMTAiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNTMiPjwvcmVjdD48cmVjdCB4PSI3NzQiIHk9IjIyNDMiIHdpZHRoPSIxNiIgaGVpZ2h0PSI5LjQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNjgiPjwvcmVjdD48cmVjdCB4PSI3OTQiIHk9IjIyNDMiIHdpZHRoPSIxNiIgaGVpZ2h0PSI5LjQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzEiPjwvcmVjdD48cmVjdCB4PSI4MTQiIHk9IjIyNDMiIHdpZHRoPSIxNiIgaGVpZ2h0PSI5LjQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMzkiPjwvcmVjdD48cmVjdCB4PSI4MzQiIHk9IjIyNDMiIHdpZHRoPSIxNiIgaGVpZ2h0PSI5LjQiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuODUiPjwvcmVjdD48Y2lyY2xlIGN4PSI3ODgiIGN5PSIyMjYwIiByPSI1LjYiIGZpbGw9IiNkMjU5NmEiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjgzOCIgY3k9IjIyNjAiIHI9IjUuNiIgZmlsbD0iI2QyNTk2YSI+PC9jaXJjbGU+PC9nPjxnIG9wYWNpdHk9IjAuNSI+PHJlY3QgeD0iLTQwIiB5PSIyNjc2IiB3aWR0aD0iMzkzIiBoZWlnaHQ9IjYuNiIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9Ii00MCIgeT0iMjY4MiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9Ii0xOSIgeT0iMjY4MiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjAuOCIgeT0iMjY4MiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjIxIiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iNDEiIHk9IjI2ODIiIHdpZHRoPSI1LjQiIGhlaWdodD0iMzciIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSI2MiIgeT0iMjY4MiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjgyIiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTAyIiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTIzIiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTQzIiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTY0IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMTg0IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMjA0IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMjI1IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMjQ1IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMjY2IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMjg2IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMzA2IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMzI3IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PHJlY3QgeD0iMzQ3IiB5PSIyNjgyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjOWFhMWQyIj48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuNiI+PHJlY3QgeD0iNzYiIHk9IjI2MTAiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMDkiIHJ4PSIyLjkiIGZpbGw9IiNhZGI1ZGEiPjwvcmVjdD48cGF0aCBkPSJNODIsMjYzOSBsLTI1LC0yOCBNODIsMjYyNiBsMjMsLTI1IiBzdHJva2U9IiNhZGI1ZGEiIHN0cm9rZS13aWR0aD0iNi41IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjwvcGF0aD48Y2lyY2xlIGN4PSI4MiIgY3k9IjI1NzYiIHI9IjU0IiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI0MyIgY3k9IjI1OTkiIHI9IjM4IiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMjIiIGN5PSIyNTk2IiByPSI0MSIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNjgiIGN5PSIyNTQ4IiByPSIzNiIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTAyIiBjeT0iMjU1MyIgcj0iMzMiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjwvZz48ZyBvcGFjaXR5PSIwLjciPjxwYXRoIGQ9Ik0yNjIsMjcyMCBMMjYyLDI2NjMgQTIxLDIxIDAgMCAxIDMwNCwyNjYzIEwzMDQsMjcyMCBaIiBmaWxsPSIjZDI1OTZhIj48L3BhdGg+PHJlY3QgeD0iMjcxIiB5PSIyNjczIiB3aWR0aD0iMjMiIGhlaWdodD0iNi4wIiByeD0iMy4wIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjU1Ij48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuMzIiPjxwYXRoIGQ9Ik0xMDM4LDMxODAgQzEwMzQsMzEwMSAxMDQ1LDMwNDggMTA2MSwzMDM3IEMxMDc2LDMwNDggMTA4OCwzMTAxIDEwODMsMzE4MCBaIiBmaWxsPSIjYTNhYWRiIj48L3BhdGg+PGNpcmNsZSBjeD0iMTA2MSIgY3k9IjMwMzQiIHI9IjQuMSIgZmlsbD0iI2EzYWFkYiI+PC9jaXJjbGU+PC9nPjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9Ijc1NCIgeT0iMzA1NyIgd2lkdGg9IjExMyIgaGVpZ2h0PSIxMjIiIGZpbGw9IiNiNmJkZTMiPjwvcmVjdD48cmVjdCB4PSI4MDYiIHk9IjMwMTkiIHdpZHRoPSIxMiIgaGVpZ2h0PSIzOCIgZmlsbD0iI2I2YmRlMyI+PC9yZWN0PjxyZWN0IHg9Ijc5OSIgeT0iMzEwOCIgd2lkdGg9IjIzIiBoZWlnaHQ9IjIyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjY0Ij48L3JlY3Q+PHJlY3QgeD0iODI3IiB5PSIzMTM3IiB3aWR0aD0iMjMiIGhlaWdodD0iMjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNTYiPjwvcmVjdD48cmVjdCB4PSI4NjMiIHk9IjMwMTYiIHdpZHRoPSIxMjQiIGhlaWdodD0iMTYzIiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iODg3IiB5PSIyOTc0IiB3aWR0aD0iMTgiIGhlaWdodD0iNDIiIGZpbGw9IiNiNmJkZTMiPjwvcmVjdD48cmVjdCB4PSI4OTIiIHk9IjI5ODIiIHdpZHRoPSIxNCIgaGVpZ2h0PSIzNCIgZmlsbD0iI2I2YmRlMyI+PC9yZWN0PjxyZWN0IHg9IjEwMDAiIHk9IjMwMzQiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTQ2IiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iMTA0MiIgeT0iMjk5NyIgd2lkdGg9IjE1IiBoZWlnaHQ9IjM2IiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iMTExOCIgeT0iMzAyMyIgd2lkdGg9IjEyNCIgaGVpZ2h0PSIxNTYiIGZpbGw9IiNiNmJkZTMiPjwvcmVjdD48cmVjdCB4PSIxMTY3IiB5PSIzMDkyIiB3aWR0aD0iMjUiIGhlaWdodD0iMjgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNTciPjwvcmVjdD48cmVjdCB4PSIxMTY3IiB5PSIzMTI5IiB3aWR0aD0iMjUiIGhlaWdodD0iMjgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNTAiPjwvcmVjdD48L2c+PGcgb3BhY2l0eT0iMC41Ij48cGF0aCBkPSJNMTA1MSwzMTgwIEwxMDcwLDMxODAgTDEwNjUsMzE2NSBMMTA1NiwzMTY1IFoiIGZpbGw9IiM5YWExZDIiPjwvcGF0aD48cmVjdCB4PSIxMDU4IiB5PSIzMDQxIiB3aWR0aD0iNS4wIiBoZWlnaHQ9IjEyNiIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjEwNTIiIHk9IjMwMzkiIHdpZHRoPSIxNiIgaGVpZ2h0PSIzLjgiIHJ4PSIxLjciIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48Y2lyY2xlIGN4PSIxMDYxIiBjeT0iMzAyOCIgcj0iOS4yIiBmaWxsPSIjOWFhMWQyIj48L2NpcmNsZT48cGF0aCBkPSJNMTA1NiwzMDIxIEwxMDYxLDMwMTMgTDEwNjYsMzAyMSBaIiBmaWxsPSIjOWFhMWQyIj48L3BhdGg+PC9nPjxnIG9wYWNpdHk9IjAuNiI+PHJlY3QgeD0iMTQ2IiB5PSIzNTAzIiB3aWR0aD0iMTQiIGhlaWdodD0iMTM2IiByeD0iMy42IiBmaWxsPSIjYWRiNWRhIj48L3JlY3Q+PHBhdGggZD0iTTE1MywzNTM5IGwtMzIsLTM2IE0xNTMsMzUyMyBsMjgsLTMyIiBzdHJva2U9IiNhZGI1ZGEiIHN0cm9rZS13aWR0aD0iOC4xIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjwvcGF0aD48Y2lyY2xlIGN4PSIxNTMiIGN5PSIzNDYwIiByPSI2OCIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTA0IiBjeT0iMzQ4OCIgcj0iNDgiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjIwMyIgY3k9IjM0ODUiIHI9IjUyIiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMzUiIGN5PSIzNDI1IiByPSI0NSIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTc4IiBjeT0iMzQzMSIgcj0iNDEiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjwvZz48ZyBvcGFjaXR5PSIwLjUiPjxyZWN0IHg9IjI4MyIgeT0iMzYwOSIgd2lkdGg9IjkzIiBoZWlnaHQ9IjcuMiIgcng9IjMuNiIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjI4MyIgeT0iMzU4NSIgd2lkdGg9IjkzIiBoZWlnaHQ9IjYuNSIgcng9IjIuOSIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjI4MyIgeT0iMzU3MiIgd2lkdGg9IjkzIiBoZWlnaHQ9IjYuNSIgcng9IjIuOSIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjI4NyIgeT0iMzU3MCIgd2lkdGg9IjcuMiIgaGVpZ2h0PSI2OSIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjM2NSIgeT0iMzU3MCIgd2lkdGg9IjcuMiIgaGVpZ2h0PSI2OSIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjwvZz48ZyBvcGFjaXR5PSIwLjUiPjxwYXRoIGQ9Ik0yNiwzNjQwIEw0NCwzNjQwIEwzOSwzNjI2IEwzMSwzNjI2IFoiIGZpbGw9IiM5YWExZDIiPjwvcGF0aD48cmVjdCB4PSIzMyIgeT0iMzUwOCIgd2lkdGg9IjQuOCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiM5YWExZDIiPjwvcmVjdD48cmVjdCB4PSIyNyIgeT0iMzUwNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMuNiIgcng9IjEuNiIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxjaXJjbGUgY3g9IjM1IiBjeT0iMzQ5NiIgcj0iOC44IiBmaWxsPSIjOWFhMWQyIj48L2NpcmNsZT48cGF0aCBkPSJNMzAsMzQ4OCBMMzUsMzQ4MSBMNDAsMzQ4OCBaIiBmaWxsPSIjOWFhMWQyIj48L3BhdGg+PC9nPjxnIG9wYWNpdHk9IjAuMzIiPjxwYXRoIGQ9Ik05OTEsNDEwMCBMMTAxMSwzODkwIEwxMDE0LDM4OTYgTDEwMTgsMzkwNCBMMTAzNiw0MTAwIFoiIGZpbGw9IiNhM2FhZGIiPjwvcGF0aD48L2c+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iNzc4IiB5PSIzOTY2IiB3aWR0aD0iMTA2IiBoZWlnaHQ9IjEzMyIgZmlsbD0iI2I2YmRlMyI+PC9yZWN0PjxyZWN0IHg9Ijc5MyIgeT0iNDA1NCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjI0IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjM3Ij48L3JlY3Q+PHJlY3QgeD0iODg0IiB5PSI0MDA2IiB3aWR0aD0iOTgiIGhlaWdodD0iOTMiIGZpbGw9IiNiNmJkZTMiPjwvcmVjdD48cmVjdCB4PSI5MDAiIHk9IjQwNzAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIxMSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43MiI+PC9yZWN0PjxyZWN0IHg9IjkyMyIgeT0iNDA0MCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjExIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjYwIj48L3JlY3Q+PHJlY3QgeD0iOTQ3IiB5PSI0MDcwIiB3aWR0aD0iMjAiIGhlaWdodD0iMTEiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzAiPjwvcmVjdD48cmVjdCB4PSI5OTUiIHk9IjM5OTgiIHdpZHRoPSIxMDciIGhlaWdodD0iMTAxIiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iMTA1MiIgeT0iMzk2NCIgd2lkdGg9IjE1IiBoZWlnaHQ9IjM0IiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iMTAxMiIgeT0iNDA1MyIgd2lkdGg9IjIyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjY4Ij48L3JlY3Q+PHJlY3QgeD0iMTEwNyIgeT0iMzk0NSIgd2lkdGg9IjkyIiBoZWlnaHQ9IjE1NCIgZmlsbD0iI2I2YmRlMyI+PC9yZWN0PjxyZWN0IHg9IjExNDQiIHk9IjQwMTMiIHdpZHRoPSIxOCIgaGVpZ2h0PSIyOCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45MCI+PC9yZWN0PjxyZWN0IHg9IjExNjYiIHk9IjQwMTMiIHdpZHRoPSIxOCIgaGVpZ2h0PSIyOCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40NSI+PC9yZWN0PjxyZWN0IHg9IjExOTkiIHk9IjM5NzQiIHdpZHRoPSIxMzEiIGhlaWdodD0iMTI1IiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PHJlY3QgeD0iMTI2NyIgeT0iMzk0OSIgd2lkdGg9IjE0IiBoZWlnaHQ9IjI1IiBmaWxsPSIjYjZiZGUzIj48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuNiI+PHJlY3QgeD0iNjMiIHk9IjQ0MjYiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMzMiIHJ4PSIzLjUiIGZpbGw9IiNhZGI1ZGEiPjwvcmVjdD48cGF0aCBkPSJNNzAsNDQ2MSBsLTMxLC0zNSBNNzAsNDQ0NSBsMjgsLTMxIiBzdHJva2U9IiNhZGI1ZGEiIHN0cm9rZS13aWR0aD0iNy45IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjwvcGF0aD48Y2lyY2xlIGN4PSI3MCIgY3k9IjQzODQiIHI9IjY2IiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIyMyIgY3k9IjQ0MTIiIHI9IjQ3IiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMjAiIGN5PSI0NDA4IiByPSI1MSIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNTMiIGN5PSI0MzUwIiByPSI0NCIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOTUiIGN5PSI0MzU1IiByPSI0MCIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PHJlY3QgeD0iMjMwIiB5PSI0NDU5IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAwIiByeD0iMi42IiBmaWxsPSIjYWRiNWRhIj48L3JlY3Q+PHBhdGggZD0iTTIzNSw0NDg2IGwtMjMsLTI2IE0yMzUsNDQ3NCBsMjEsLTIzIiBzdHJva2U9IiNhZGI1ZGEiIHN0cm9rZS13aWR0aD0iNS45IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjwvcGF0aD48Y2lyY2xlIGN4PSIyMzUiIGN5PSI0NDI4IiByPSI1MCIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAwIiBjeT0iNDQ0OSIgcj0iMzUiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjI3MiIgY3k9IjQ0NDYiIHI9IjM4IiBmaWxsPSIjYzNjYmU4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIyMjIiIGN5PSI0NDAyIiByPSIzMyIgZmlsbD0iI2MzY2JlOCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjU0IiBjeT0iNDQwNiIgcj0iMzAiIGZpbGw9IiNjM2NiZTgiPjwvY2lyY2xlPjwvZz48ZyBvcGFjaXR5PSIwLjUiPjxwYXRoIGQ9Ik0zNTYsNDU2MCBMMzc0LDQ1NjAgTDM2OSw0NTQ1IEwzNjEsNDU0NSBaIiBmaWxsPSIjOWFhMWQyIj48L3BhdGg+PHJlY3QgeD0iMzYzIiB5PSI0NDIxIiB3aWR0aD0iNS4wIiBoZWlnaHQ9IjEyNiIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxyZWN0IHg9IjM1NyIgeT0iNDQxOSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMuOCIgcng9IjEuNyIgZmlsbD0iIzlhYTFkMiI+PC9yZWN0PjxjaXJjbGUgY3g9IjM2NSIgY3k9IjQ0MDgiIHI9IjkuMiIgZmlsbD0iIzlhYTFkMiI+PC9jaXJjbGU+PHBhdGggZD0iTTM2MCw0NDAxIEwzNjUsNDM5MyBMMzcwLDQ0MDEgWiIgZmlsbD0iIzlhYTFkMiI+PC9wYXRoPjwvZz48cmVjdCB3aWR0aD0iMTE3OSIgaGVpZ2h0PSI0NzIwIiBmaWxsPSJ1cmwoI2xhbmUpIj48L3JlY3Q+PHJlY3Qgd2lkdGg9IjExNzkiIGhlaWdodD0iNDcyMCIgZmlsbD0idXJsKCNzZWFtKSI+PC9yZWN0PjxyZWN0IHdpZHRoPSIxMTc5IiBoZWlnaHQ9IjMiIGZpbGw9IiNlZGYwZjgiPjwvcmVjdD48cmVjdCB5PSI0NzE3IiB3aWR0aD0iMTE3OSIgaGVpZ2h0PSIzIiBmaWxsPSIjZWRmMGY4Ij48L3JlY3Q+PC9zdmc+';
+const MAP_ES='PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTc5IiBoZWlnaHQ9IjQ3MjAiIHZpZXdCb3g9IjAgMCAxMTc5IDQ3MjAiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwLjAiIHN0b3AtY29sb3I9IiNmZmZhZjIiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjAuNDIiIHN0b3AtY29sb3I9IiNmZmYyZTIiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjAuNyIgc3RvcC1jb2xvcj0iI2ZkZWFkYSI+PC9zdG9wPjxzdG9wIG9mZnNldD0iMS4wIiBzdG9wLWNvbG9yPSIjZmJmMmU5Ij48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9ImhhbG8iIGN4PSI1MCUiIGN5PSI1MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmNmOWEiIHN0b3Atb3BhY2l0eT0iMC41NSI+PC9zdG9wPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmY2Y5YSIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+PC9yYWRpYWxHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImhhemUiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmJmMmU5IiBzdG9wLW9wYWNpdHk9IjAiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmYmYyZTkiIHN0b3Atb3BhY2l0eT0iMC45Ij48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxhbmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIwIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmJmMmU5IiBzdG9wLW9wYWNpdHk9IjAiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjIwJSIgc3RvcC1jb2xvcj0iI2ZiZjJlOSIgc3RvcC1vcGFjaXR5PSIwLjMwIj48L3N0b3A+PHN0b3Agb2Zmc2V0PSIzOCUiIHN0b3AtY29sb3I9IiNmYmYyZTkiIHN0b3Atb3BhY2l0eT0iMC43MiI+PC9zdG9wPjxzdG9wIG9mZnNldD0iNjIlIiBzdG9wLWNvbG9yPSIjZmJmMmU5IiBzdG9wLW9wYWNpdHk9IjAuNzIiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjgwJSIgc3RvcC1jb2xvcj0iI2ZiZjJlOSIgc3RvcC1vcGFjaXR5PSIwLjMwIj48L3N0b3A+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmJmMmU5IiBzdG9wLW9wYWNpdHk9IjAiPjwvc3RvcD48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ic2hlbGYtbCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjAiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNjZjlhNzQiIHN0b3Atb3BhY2l0eT0iMC4zNCI+PC9zdG9wPjxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjY2Y5YTc0IiBzdG9wLW9wYWNpdHk9IjAuMTUiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjZjlhNzQiIHN0b3Atb3BhY2l0eT0iMCI+PC9zdG9wPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJzaGVsZi1yIiB4MT0iMSIgeTE9IjAiIHgyPSIwIiB5Mj0iMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NmOWE3NCIgc3RvcC1vcGFjaXR5PSIwLjM0Ij48L3N0b3A+PHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNjZjlhNzQiIHN0b3Atb3BhY2l0eT0iMC4xNSI+PC9zdG9wPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2NmOWE3NCIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9InNlYW0iIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmJmMmU5IiBzdG9wLW9wYWNpdHk9IjEiPjwvc3RvcD48c3RvcCBvZmZzZXQ9IjQlIiBzdG9wLWNvbG9yPSIjZmJmMmU5IiBzdG9wLW9wYWNpdHk9IjAiPjwvc3RvcD48c3RvcCBvZmZzZXQ9Ijk2JSIgc3RvcC1jb2xvcj0iI2ZiZjJlOSIgc3RvcC1vcGFjaXR5PSIwIj48L3N0b3A+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmJmMmU5IiBzdG9wLW9wYWNpdHk9IjEiPjwvc3RvcD48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTE3OSIgaGVpZ2h0PSI0NzIwIiBmaWxsPSIjZmJmMmU5Ij48L3JlY3Q+PHJlY3QgeD0iNjYwIiB5PSI0MTMiIHdpZHRoPSI1MTkiIGhlaWdodD0iNyIgZmlsbD0idXJsKCNzaGVsZi1yKSI+PC9yZWN0PjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9IjY2MCIgeT0iNDIwIiB3aWR0aD0iNTE5IiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjAiIHk9Ijg3MyIgd2lkdGg9IjQ3MiIgaGVpZ2h0PSI3IiBmaWxsPSJ1cmwoI3NoZWxmLWwpIj48L3JlY3Q+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iMCIgeT0iODgwIiB3aWR0aD0iNDcyIiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLWwpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjYzNyIgeT0iMTMzMyIgd2lkdGg9IjU0MiIgaGVpZ2h0PSI3IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iNjM3IiB5PSIxMzQwIiB3aWR0aD0iNTQyIiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjAiIHk9IjE3OTMiIHdpZHRoPSI0NDgiIGhlaWdodD0iNyIgZmlsbD0idXJsKCNzaGVsZi1sKSI+PC9yZWN0PjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9IjAiIHk9IjE4MDAiIHdpZHRoPSI0NDgiIGhlaWdodD0iNjQiIGZpbGw9InVybCgjc2hlbGYtbCkiPjwvcmVjdD48L2c+PHJlY3QgeD0iNjg0IiB5PSIyMjUzIiB3aWR0aD0iNDk1IiBoZWlnaHQ9IjciIGZpbGw9InVybCgjc2hlbGYtcikiPjwvcmVjdD48ZyBvcGFjaXR5PSIwLjU1Ij48cmVjdCB4PSI2ODQiIHk9IjIyNjAiIHdpZHRoPSI0OTUiIGhlaWdodD0iNjQiIGZpbGw9InVybCgjc2hlbGYtcikiPjwvcmVjdD48L2c+PHJlY3QgeD0iMCIgeT0iMjcxMyIgd2lkdGg9IjQyNCIgaGVpZ2h0PSI3IiBmaWxsPSJ1cmwoI3NoZWxmLWwpIj48L3JlY3Q+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iMCIgeT0iMjcyMCIgd2lkdGg9IjQyNCIgaGVpZ2h0PSI2NCIgZmlsbD0idXJsKCNzaGVsZi1sKSI+PC9yZWN0PjwvZz48cmVjdCB4PSI2NjAiIHk9IjMxNzMiIHdpZHRoPSI1MTkiIGhlaWdodD0iNyIgZmlsbD0idXJsKCNzaGVsZi1yKSI+PC9yZWN0PjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9IjY2MCIgeT0iMzE4MCIgd2lkdGg9IjUxOSIgaGVpZ2h0PSI2NCIgZmlsbD0idXJsKCNzaGVsZi1yKSI+PC9yZWN0PjwvZz48cmVjdCB4PSIwIiB5PSIzNjMzIiB3aWR0aD0iNDgzIiBoZWlnaHQ9IjciIGZpbGw9InVybCgjc2hlbGYtbCkiPjwvcmVjdD48ZyBvcGFjaXR5PSIwLjU1Ij48cmVjdCB4PSIwIiB5PSIzNjQwIiB3aWR0aD0iNDgzIiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLWwpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjczMSIgeT0iNDA5MyIgd2lkdGg9IjQ0OCIgaGVpZ2h0PSI3IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iNzMxIiB5PSI0MTAwIiB3aWR0aD0iNDQ4IiBoZWlnaHQ9IjY0IiBmaWxsPSJ1cmwoI3NoZWxmLXIpIj48L3JlY3Q+PC9nPjxyZWN0IHg9IjAiIHk9IjQ1NTMiIHdpZHRoPSI1MDciIGhlaWdodD0iNyIgZmlsbD0idXJsKCNzaGVsZi1sKSI+PC9yZWN0PjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9IjAiIHk9IjQ1NjAiIHdpZHRoPSI1MDciIGhlaWdodD0iNjQiIGZpbGw9InVybCgjc2hlbGYtbCkiPjwvcmVjdD48L2c+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iNzMxIiB5PSIyNTYiIHdpZHRoPSIxMjEiIGhlaWdodD0iMTYzIiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iNzg1IiB5PSIyMTMiIHdpZHRoPSIxOSIgaGVpZ2h0PSIzMiIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9Ijc1MCIgeT0iMzUzIiB3aWR0aD0iMjQiIGhlaWdodD0iMjAiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuOTEiPjwvcmVjdD48cmVjdCB4PSI3NzkiIHk9IjM1MyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjIwIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjM5Ij48L3JlY3Q+PHJlY3QgeD0iNzc5IiB5PSIzNzkiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyMCIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC40OSI+PC9yZWN0PjxyZWN0IHg9IjgwOCIgeT0iMzc5IiB3aWR0aD0iMjQiIGhlaWdodD0iMjAiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNjIiPjwvcmVjdD48cmVjdCB4PSI4NTciIHk9IjI1MiIgd2lkdGg9IjEwMyIgaGVpZ2h0PSIxNjciIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cGF0aCBkPSJNODUzLDI1MiBMOTA5LDIxNyBMOTY1LDI1MiBaIiBmaWxsPSIjZTNiNTkzIj48L3BhdGg+PHJlY3QgeD0iOTA1IiB5PSIyMDgiIHdpZHRoPSIxMiIgaGVpZ2h0PSIzNCIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjkyMSIgeT0iMjAyIiB3aWR0aD0iMTUiIGhlaWdodD0iNDAiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cmVjdCB4PSI4NzMiIHk9IjM2NiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjQ1Ij48L3JlY3Q+PHJlY3QgeD0iOTExIiB5PSIzMjciIHdpZHRoPSIxNiIgaGVpZ2h0PSIzMCIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC4zOCI+PC9yZWN0PjxyZWN0IHg9IjkxMSIgeT0iMzY2IiB3aWR0aD0iMTYiIGhlaWdodD0iMzAiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuMzgiPjwvcmVjdD48cmVjdCB4PSI5NzYiIHk9IjIzNCIgd2lkdGg9IjEwNSIgaGVpZ2h0PSIxODUiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cmVjdCB4PSI5OTEiIHk9IjM2MiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjUwIj48L3JlY3Q+PHJlY3QgeD0iMTAxMSIgeT0iMzE5IiB3aWR0aD0iMTYiIGhlaWdodD0iMzMiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNjEiPjwvcmVjdD48cmVjdCB4PSIxMDMwIiB5PSIzNjIiIHdpZHRoPSIxNiIgaGVpZ2h0PSIzMyIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC40NiI+PC9yZWN0PjxyZWN0IHg9IjEwOTQiIHk9IjI4MiIgd2lkdGg9IjExNyIgaGVpZ2h0PSIxMzciIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cGF0aCBkPSJNMTA4OSwyODIgTDExNTMsMjQyIEwxMjE2LDI4MiBaIiBmaWxsPSIjZTNiNTkzIj48L3BhdGg+PHJlY3QgeD0iMTE0MSIgeT0iMjUwIiB3aWR0aD0iMTMiIGhlaWdodD0iMjIiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cmVjdCB4PSIxMTE0IiB5PSIyMzQiIHdpZHRoPSIxOSIgaGVpZ2h0PSIzNyIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjExNjkiIHk9IjM3MyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjgwIj48L3JlY3Q+PHJlY3QgeD0iMTIwOCIgeT0iMzA5IiB3aWR0aD0iMTM2IiBoZWlnaHQ9IjExMCIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxwYXRoIGQ9Ik0xMjAzLDMwOSBMMTI3NiwyNzYgTDEzNTAsMzA5IFoiIGZpbGw9IiNlM2I1OTMiPjwvcGF0aD48cmVjdCB4PSIxMjI4IiB5PSIzNTIiIHdpZHRoPSIyMSIgaGVpZ2h0PSIxMyIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC42OCI+PC9yZWN0PjxyZWN0IHg9IjEyNTMiIHk9IjM1MiIgd2lkdGg9IjIxIiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjY0Ij48L3JlY3Q+PHJlY3QgeD0iMTI1MyIgeT0iMzg4IiB3aWR0aD0iMjEiIGhlaWdodD0iMTMiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNzgiPjwvcmVjdD48cmVjdCB4PSIxMjc4IiB5PSIzNTIiIHdpZHRoPSIyMSIgaGVpZ2h0PSIxMyIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC43MiI+PC9yZWN0PjxyZWN0IHg9IjEyNzgiIHk9IjM3MCIgd2lkdGg9IjIxIiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjYzIj48L3JlY3Q+PHJlY3QgeD0iMTI3OCIgeT0iMzg4IiB3aWR0aD0iMjEiIGhlaWdodD0iMTMiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuODUiPjwvcmVjdD48cmVjdCB4PSIxMzAzIiB5PSIzNzAiIHdpZHRoPSIyMSIgaGVpZ2h0PSIxMyIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC41NiI+PC9yZWN0PjwvZz48ZyBvcGFjaXR5PSIwLjUiPjxwYXRoIGQ9Ik04MzksNDIwIEw4NTgsNDIwIEw4NTMsNDA1IEw4NDQsNDA1IFoiIGZpbGw9IiNjZjlhNzQiPjwvcGF0aD48cmVjdCB4PSI4NDYiIHk9IjI3NCIgd2lkdGg9IjUuMyIgaGVpZ2h0PSIxMzIiIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48cmVjdCB4PSI4NDAiIHk9IjI3MyIgd2lkdGg9IjE3IiBoZWlnaHQ9IjQuMCIgcng9IjEuOCIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxjaXJjbGUgY3g9Ijg0OCIgY3k9IjI2MSIgcj0iOS43IiBmaWxsPSIjY2Y5YTc0Ij48L2NpcmNsZT48cGF0aCBkPSJNODQzLDI1MyBMODQ4LDI0NSBMODU0LDI1MyBaIiBmaWxsPSIjY2Y5YTc0Ij48L3BhdGg+PC9nPjxnIG9wYWNpdHk9IjAuNiI+PHBhdGggZD0iTTU5LDg4MCBxNC4wLC0xMTIgMjgsLTE5NiBsMTQsNC4wIHEtMjIsODYgLTI3LDE5MiBaIiBmaWxsPSIjZDNhYjg2Ij48L3BhdGg+PHBhdGggZD0iTTEwNCw2ODQgUTQyLDY0NSAtNi4zLDY2OCBRNDIsNjk3IDEwNCw2ODQgWiIgZmlsbD0iI2NmYmU5NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMDQsNjg0IFE1NCw2MDUgMTUsNTk3IFE1NCw2NTcgMTA0LDY4NCBaIiBmaWxsPSIjY2ZiZTk0Ij48L3BhdGg+PHBhdGggZD0iTTEwNCw2ODQgUTkxLDU5OSA4MCw1ODYgUTkxLDY1MSAxMDQsNjg0IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTA0LDY4NCBRMTM1LDU5MSAxNTksNTcyIFExMzUsNjQzIDEwNCw2ODQgWiIgZmlsbD0iI2NmYmU5NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMDQsNjg0IFExNjIsNjI4IDIwNyw2MzggUTE2Miw2ODAgMTA0LDY4NCBaIiBmaWxsPSIjY2ZiZTk0Ij48L3BhdGg+PHBhdGggZD0iTTEwNCw2ODQgUTE1Niw2NjUgMTk3LDcwMyBRMTU2LDcxNyAxMDQsNjg0IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48Y2lyY2xlIGN4PSIxMDQiIGN5PSI2ODQiIHI9IjExIiBmaWxsPSIjZDNhYjg2Ij48L2NpcmNsZT48cGF0aCBkPSJNMjM5LDg4MCBxMy4xLC04NyAyMSwtMTUyIGwxMCwzLjEgcS0xNyw2NyAtMjEsMTQ5IFoiIGZpbGw9IiNkM2FiODYiPjwvcGF0aD48cGF0aCBkPSJNMjc0LDcyNyBRMjI1LDY5NiAxODcsNzE1IFEyMjUsNzM3IDI3NCw3MjcgWiIgZmlsbD0iI2NmYmU5NCI+PC9wYXRoPjxwYXRoIGQ9Ik0yNzQsNzI3IFEyMzUsNjY2IDIwNCw2NjAgUTIzNSw3MDYgMjc0LDcyNyBaIiBmaWxsPSIjY2ZiZTk0Ij48L3BhdGg+PHBhdGggZD0iTTI3NCw3MjcgUTI2Myw2NjEgMjU1LDY1MSBRMjYzLDcwMSAyNzQsNzI3IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMjc0LDcyNyBRMjk3LDY1NSAzMTYsNjQwIFEyOTcsNjk1IDI3NCw3MjcgWiIgZmlsbD0iI2NmYmU5NCI+PC9wYXRoPjxwYXRoIGQ9Ik0yNzQsNzI3IFEzMTgsNjgzIDM1NCw2OTEgUTMxOCw3MjQgMjc0LDcyNyBaIiBmaWxsPSIjY2ZiZTk0Ij48L3BhdGg+PHBhdGggZD0iTTI3NCw3MjcgUTMxNCw3MTIgMzQ2LDc0MiBRMzE0LDc1MiAyNzQsNzI3IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48Y2lyY2xlIGN4PSIyNzQiIGN5PSI3MjciIHI9IjguNiIgZmlsbD0iI2QzYWI4NiI+PC9jaXJjbGU+PC9nPjxnIG9wYWNpdHk9IjAuNSI+PGVsbGlwc2UgY3g9IjI5NCIgY3k9Ijg4MCIgcng9IjgwIiByeT0iMTgiIGZpbGw9IiNjZjlhNzQiPjwvZWxsaXBzZT48ZWxsaXBzZSBjeD0iMjk0IiBjeT0iODc1IiByeD0iNjkiIHJ5PSIxMyIgZmlsbD0iI2YwY2RiMCI+PC9lbGxpcHNlPjxyZWN0IHg9IjI4NSIgeT0iODE2IiB3aWR0aD0iMTgiIGhlaWdodD0iNTYiIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48ZWxsaXBzZSBjeD0iMjk0IiBjeT0iODE2IiByeD0iMzgiIHJ5PSIxMCIgZmlsbD0iI2NmOWE3NCI+PC9lbGxpcHNlPjxyZWN0IHg9IjI4OSIgeT0iNzg2IiB3aWR0aD0iMTAiIGhlaWdodD0iMjQiIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48cGF0aCBkPSJNMjk0LDc4NiBxLTMzLC0yMSAtNDQsMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwY2RiMCIgc3Ryb2tlLXdpZHRoPSI1LjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC44Ij48L3BhdGg+PHBhdGggZD0iTTI5NCw3ODYgcTAuMCwtMjEgMC4wLDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmMGNkYjAiIHN0cm9rZS13aWR0aD0iNS4wIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuOCI+PC9wYXRoPjxwYXRoIGQ9Ik0yOTQsNzg2IHEzMywtMjEgNDQsMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwY2RiMCIgc3Ryb2tlLXdpZHRoPSI1LjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC44Ij48L3BhdGg+PC9nPjxnIG9wYWNpdHk9IjAuMzIiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTk1OSwxMzQwIEw5NTksMTIzMCBMMTE2MiwxMjMwIEwxMTYyLDEzNDAgWiBNMTAzOCwxMzQwIEwxMDM4LDEyNzQgQTIyLDIyIDAgMCAxIDEwODQsMTI3NCBMMTA4NCwxMzQwIFogTTEwMDAsMTM0MCBMMTAwMCwxMjg2IEExOCwxOCAwIDAgMSAxMDM2LDEyODYgTDEwMzYsMTM0MCBaIE0xMDg1LDEzNDAgTDEwODUsMTI4NiBBMTgsMTggMCAwIDEgMTEyMSwxMjg2IEwxMTIxLDEzNDAgWiBNOTY3LDEzNDAgbDAsLTQ5IGwyMiwwIGwwLDQ5IFogTTExMzMsMTM0MCBsMCwtNDkgbDIyLDAgbDAsNDkgWiIgZmlsbD0iI2Q5YTg4MyI+PC9wYXRoPjxyZWN0IHg9Ijk1MSIgeT0iMTIxOCIgd2lkdGg9IjIxOCIgaGVpZ2h0PSIxMSIgZmlsbD0iI2Q5YTg4MyI+PC9yZWN0PjxyZWN0IHg9IjEwMTIiIHk9IjExOTUiIHdpZHRoPSI5NyIgaGVpZ2h0PSIyMiIgZmlsbD0iI2Q5YTg4MyI+PC9yZWN0PjxjaXJjbGUgY3g9IjEwNjEiIGN5PSIxMTg3IiByPSI2LjYiIGZpbGw9IiNkOWE4ODMiPjwvY2lyY2xlPjxjaXJjbGUgY3g9Ijk5MiIgY3k9IjEyMTAiIHI9IjQuOCIgZmlsbD0iI2Q5YTg4MyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTEyOSIgY3k9IjEyMTAiIHI9IjQuOCIgZmlsbD0iI2Q5YTg4MyI+PC9jaXJjbGU+PC9nPjxnIG9wYWNpdHk9IjAuNSI+PHJlY3QgeD0iNzMxIiB5PSIxMjk2IiB3aWR0aD0iNDg4IiBoZWlnaHQ9IjYuNiIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjczMSIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijc1MSIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijc3MSIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijc5MiIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjgxMiIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjgzMyIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijg1MyIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijg3MyIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijg5NCIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjkxNCIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjkzNSIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijk1NSIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijk3NSIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijk5NiIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjEwMTYiIHk9IjEzMDIiIHdpZHRoPSI1LjQiIGhlaWdodD0iMzciIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48cmVjdCB4PSIxMDM3IiB5PSIxMzAyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMTA1NyIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjEwNzciIHk9IjEzMDIiIHdpZHRoPSI1LjQiIGhlaWdodD0iMzciIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48cmVjdCB4PSIxMDk4IiB5PSIxMzAyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMTExOCIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjExMzkiIHk9IjEzMDIiIHdpZHRoPSI1LjQiIGhlaWdodD0iMzciIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48cmVjdCB4PSIxMTU5IiB5PSIxMzAyIiB3aWR0aD0iNS40IiBoZWlnaHQ9IjM3IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMTE3OSIgeT0iMTMwMiIgd2lkdGg9IjUuNCIgaGVpZ2h0PSIzNyIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjEyMDAiIHk9IjEzMDIiIHdpZHRoPSI1LjQiIGhlaWdodD0iMzciIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48L2c+PGcgb3BhY2l0eT0iMC41NSI+PHJlY3QgeD0iLTE2IiB5PSIxNjQ0IiB3aWR0aD0iMjQ2IiBoZWlnaHQ9IjE1NSIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjE3IiB5PSIxNjk5IiB3aWR0aD0iNTIiIGhlaWdodD0iMzAiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNzYiPjwvcmVjdD48cmVjdCB4PSI3OSIgeT0iMTY5OSIgd2lkdGg9IjUyIiBoZWlnaHQ9IjMwIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjQ4Ij48L3JlY3Q+PHBhdGggZD0iTS0zMSwxNjM5IEwyNDMsMTYzOSBMMjI5LDE2ODMgTC0xNiwxNjgzIFoiIGZpbGw9IiNjZjZhNDUiPjwvcGF0aD48Y2lyY2xlIGN4PSIwLjciIGN5PSIxNjgzIiByPSIxNyIgZmlsbD0iI2NmNmE0NSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMzUiIGN5PSIxNjgzIiByPSIxNyIgZmlsbD0iI2NmNmE0NSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNzEiIGN5PSIxNjgzIiByPSIxNyIgZmlsbD0iI2NmNmE0NSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTA2IiBjeT0iMTY4MyIgcj0iMTciIGZpbGw9IiNjZjZhNDUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE0MSIgY3k9IjE2ODMiIHI9IjE3IiBmaWxsPSIjY2Y2YTQ1Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxNzYiIGN5PSIxNjgzIiByPSIxNyIgZmlsbD0iI2NmNmE0NSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjExIiBjeT0iMTY4MyIgcj0iMTciIGZpbGw9IiNjZjZhNDUiPjwvY2lyY2xlPjxyZWN0IHg9Ii03LjAiIHk9IjE2ODMiIHdpZHRoPSI1LjciIGhlaWdodD0iMTE2IiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iMjE5IiB5PSIxNjgzIiB3aWR0aD0iNS43IiBoZWlnaHQ9IjExNiIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxlbGxpcHNlIGN4PSIxMzAiIGN5PSIxNzM5IiByeD0iMzIiIHJ5PSI3LjQiIGZpbGw9IiNlM2I1OTMiPjwvZWxsaXBzZT48cmVjdCB4PSIxMjciIHk9IjE3MzkiIHdpZHRoPSI2LjYiIGhlaWdodD0iNjAiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cmVjdCB4PSI1MyIgeT0iMTc1MCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjYuNiIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjUzIiB5PSIxNjg1IiB3aWR0aD0iNi42IiBoZWlnaHQ9IjM2IiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iNTUiIHk9IjE3NTciIHdpZHRoPSI0LjkiIGhlaWdodD0iNDIiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cmVjdCB4PSI4MyIgeT0iMTc1NyIgd2lkdGg9IjQuOSIgaGVpZ2h0PSI0MiIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjE3MyIgeT0iMTc1MCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjYuNiIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjE3MyIgeT0iMTY4NSIgd2lkdGg9IjYuNiIgaGVpZ2h0PSIzNiIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjE3NSIgeT0iMTc1NyIgd2lkdGg9IjQuOSIgaGVpZ2h0PSI0MiIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjIwMiIgeT0iMTc1NyIgd2lkdGg9IjQuOSIgaGVpZ2h0PSI0MiIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjwvZz48ZyBvcGFjaXR5PSIwLjc1Ij48cGF0aCBkPSJNMjkwLDE3NzAgTDMyMywxNzcwIEwzMTgsMTgwMCBMMjk0LDE4MDAgWiIgZmlsbD0iI2NmOWE3NCI+PC9wYXRoPjxjaXJjbGUgY3g9IjI5NiIgY3k9IjE3NTkiIHI9IjkuOCIgZmlsbD0iI2NmNmE0NSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMzE0IiBjeT0iMTc1NiIgcj0iMTAiIGZpbGw9IiNjZjZhNDUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMwNSIgY3k9IjE3NDciIHI9IjkuMCIgZmlsbD0iI2NmNmE0NSI+PC9jaXJjbGU+PHBhdGggZD0iTTMyNywxNzc2IEwzNTQsMTc3NiBMMzUwLDE4MDAgTDMzMSwxODAwIFoiIGZpbGw9IiNjZjlhNzQiPjwvcGF0aD48Y2lyY2xlIGN4PSIzMzIiIGN5PSIxNzY3IiByPSI3LjgiIGZpbGw9IiNjZjZhNDUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjM0NyIgY3k9IjE3NjUiIHI9IjguNCIgZmlsbD0iI2NmNmE0NSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMzM5IiBjeT0iMTc1OCIgcj0iNy4yIiBmaWxsPSIjY2Y2YTQ1Ij48L2NpcmNsZT48L2c+PGcgb3BhY2l0eT0iMC42Ij48cGF0aCBkPSJNMTA4NiwyMjYwIHEzLjcsLTEwMyAyNSwtMTgwIGwxMiwzLjcgcS0yMCw3OSAtMjQsMTc2IFoiIGZpbGw9IiNkM2FiODYiPjwvcGF0aD48cGF0aCBkPSJNMTEyNywyMDc5IFExMDcwLDIwNDQgMTAyNSwyMDY1IFExMDcwLDIwOTEgMTEyNywyMDc5IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTEyNywyMDc5IFExMDgxLDIwMDcgMTA0NSwyMDAwIFExMDgxLDIwNTUgMTEyNywyMDc5IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTEyNywyMDc5IFExMTE1LDIwMDIgMTEwNSwxOTkwIFExMTE1LDIwNDkgMTEyNywyMDc5IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTEyNywyMDc5IFExMTU1LDE5OTQgMTE3NywxOTc3IFExMTU1LDIwNDIgMTEyNywyMDc5IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTEyNywyMDc5IFExMTgwLDIwMjggMTIyMiwyMDM3IFExMTgwLDIwNzYgMTEyNywyMDc5IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTEyNywyMDc5IFExMTc1LDIwNjIgMTIxMiwyMDk3IFExMTc1LDIxMTAgMTEyNywyMDc5IFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48Y2lyY2xlIGN4PSIxMTI3IiBjeT0iMjA3OSIgcj0iMTAiIGZpbGw9IiNkM2FiODYiPjwvY2lyY2xlPjwvZz48ZyBvcGFjaXR5PSIwLjU1Ij48cmVjdCB4PSI4MDEiIHk9IjIxNDYiIHdpZHRoPSI5OSIgaGVpZ2h0PSIxMTMiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cGF0aCBkPSJNNzk3LDIxNDYgTDg1MSwyMTEyIEw5MDQsMjE0NiBaIiBmaWxsPSIjZTNiNTkzIj48L3BhdGg+PHJlY3QgeD0iODE2IiB5PSIyMTAwIiB3aWR0aD0iMTkiIGhlaWdodD0iMzYiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cmVjdCB4PSI4NjAiIHk9IjIxMTYiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjgxNyIgeT0iMjIwOSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE0IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjgyIj48L3JlY3Q+PHJlY3QgeD0iODE3IiB5PSIyMjI3IiB3aWR0aD0iMjAiIGhlaWdodD0iMTQiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNzciPjwvcmVjdD48cmVjdCB4PSI4NDEiIHk9IjIxOTEiIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNCIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC41MSI+PC9yZWN0PjxyZWN0IHg9Ijg2NSIgeT0iMjIyNyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE0IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjU2Ij48L3JlY3Q+PHJlY3QgeD0iODk3IiB5PSIyMTIyIiB3aWR0aD0iMTA3IiBoZWlnaHQ9IjEzNyIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxwYXRoIGQ9Ik04OTMsMjEyMiBMOTUxLDIwODggTDEwMDksMjEyMiBaIiBmaWxsPSIjZTNiNTkzIj48L3BhdGg+PHJlY3QgeD0iOTMzIiB5PSIyMDgxIiB3aWR0aD0iMTgiIGhlaWdodD0iMzEiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cmVjdCB4PSI5MzAiIHk9IjIwOTIiIHdpZHRoPSIxNCIgaGVpZ2h0PSIyMCIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9Ijk0MCIgeT0iMjIxMyIgd2lkdGg9IjIyIiBoZWlnaHQ9IjI0IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjcyIj48L3JlY3Q+PHJlY3QgeD0iOTY2IiB5PSIyMjEzIiB3aWR0aD0iMjIiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNjgiPjwvcmVjdD48cmVjdCB4PSIxMDEzIiB5PSIyMTIxIiB3aWR0aD0iMTI1IiBoZWlnaHQ9IjEzOCIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjEwNjMiIHk9IjIwODgiIHdpZHRoPSIxNSIgaGVpZ2h0PSIyMyIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjEwMzIiIHk9IjIxODEiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNSIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC42NCI+PC9yZWN0PjxyZWN0IHg9IjEwNzgiIHk9IjIyMTMiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNSIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC41NyI+PC9yZWN0PjxyZWN0IHg9IjExMDEiIHk9IjIyMTMiIHdpZHRoPSIxOSIgaGVpZ2h0PSIyNSIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC42OSI+PC9yZWN0PjxyZWN0IHg9IjExNDAiIHk9IjIxNTIiIHdpZHRoPSIxMjgiIGhlaWdodD0iMTA3IiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iMTIxNSIgeT0iMjEwMyIgd2lkdGg9IjEyIiBoZWlnaHQ9IjM5IiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iMTIxOCIgeT0iMjEwMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjQyIiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iMTE2MCIgeT0iMjIxMSIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjU3Ij48L3JlY3Q+PHJlY3QgeD0iMTE2MCIgeT0iMjIyOCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjg4Ij48L3JlY3Q+PHJlY3QgeD0iMTE5MSIgeT0iMjE5NCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjUxIj48L3JlY3Q+PHJlY3QgeD0iMTE5MSIgeT0iMjIxMSIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjg3Ij48L3JlY3Q+PHJlY3QgeD0iMTE5MSIgeT0iMjIyOCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjg3Ij48L3JlY3Q+PHJlY3QgeD0iMTIyMiIgeT0iMjE5NCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjc2Ij48L3JlY3Q+PHJlY3QgeD0iMTIyMiIgeT0iMjIxMSIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjcwIj48L3JlY3Q+PHJlY3QgeD0iMTIyMiIgeT0iMjIyOCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEzIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjQ3Ij48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuNSI+PHJlY3QgeD0iODQ3IiB5PSIyMjI4IiB3aWR0aD0iOTYiIGhlaWdodD0iNy40IiByeD0iMy43IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iODQ3IiB5PSIyMjAzIiB3aWR0aD0iOTYiIGhlaWdodD0iNi43IiByeD0iMy4wIiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iODQ3IiB5PSIyMTkwIiB3aWR0aD0iOTYiIGhlaWdodD0iNi43IiByeD0iMy4wIiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iODUxIiB5PSIyMTg5IiB3aWR0aD0iNy40IiBoZWlnaHQ9IjcxIiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iOTMyIiB5PSIyMTg5IiB3aWR0aD0iNy40IiBoZWlnaHQ9IjcxIiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuNSI+PHJlY3QgeD0iLTQwIiB5PSIyNjc3IiB3aWR0aD0iMzcwIiBoZWlnaHQ9IjYuNCIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ii00MCIgeT0iMjY4NCIgd2lkdGg9IjUuMiIgaGVpZ2h0PSIzNiIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ii0yMCIgeT0iMjY4NCIgd2lkdGg9IjUuMiIgaGVpZ2h0PSIzNiIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ii0wLjYiIHk9IjI2ODQiIHdpZHRoPSI1LjIiIGhlaWdodD0iMzYiIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48cmVjdCB4PSIxOSIgeT0iMjY4NCIgd2lkdGg9IjUuMiIgaGVpZ2h0PSIzNiIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjM4IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iNTgiIHk9IjI2ODQiIHdpZHRoPSI1LjIiIGhlaWdodD0iMzYiIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48cmVjdCB4PSI3OCIgeT0iMjY4NCIgd2lkdGg9IjUuMiIgaGVpZ2h0PSIzNiIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9Ijk4IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMTE3IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMTM3IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMTU3IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMTc2IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMTk2IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMjE2IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMjM2IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMjU1IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMjc1IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMjk1IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMzE1IiB5PSIyNjg0IiB3aWR0aD0iNS4yIiBoZWlnaHQ9IjM2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuNiI+PHBhdGggZD0iTTUxLDI3MjAgcTIuOCwtNzggMTksLTEzNyBsOS44LDIuOCBxLTE1LDYwIC0xOCwxMzQgWiIgZmlsbD0iI2QzYWI4NiI+PC9wYXRoPjxwYXRoIGQ9Ik04MiwyNTgyIFEzOSwyNTU1IDUuMCwyNTcxIFEzOSwyNTkyIDgyLDI1ODIgWiIgZmlsbD0iI2NmYmU5NCI+PC9wYXRoPjxwYXRoIGQ9Ik04MiwyNTgyIFE0NywyNTI4IDIwLDI1MjIgUTQ3LDI1NjQgODIsMjU4MiBaIiBmaWxsPSIjY2ZiZTk0Ij48L3BhdGg+PHBhdGggZD0iTTgyLDI1ODIgUTczLDI1MjMgNjUsMjUxNCBRNzMsMjU2MCA4MiwyNTgyIFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNODIsMjU4MiBRMTA0LDI1MTggMTIwLDI1MDQgUTEwNCwyNTU0IDgyLDI1ODIgWiIgZmlsbD0iI2NmYmU5NCI+PC9wYXRoPjxwYXRoIGQ9Ik04MiwyNTgyIFExMjIsMjU0MyAxNTQsMjU1MCBRMTIyLDI1ODAgODIsMjU4MiBaIiBmaWxsPSIjY2ZiZTk0Ij48L3BhdGg+PHBhdGggZD0iTTgyLDI1ODIgUTExOCwyNTY5IDE0NywyNTk2IFExMTgsMjYwNSA4MiwyNTgyIFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48Y2lyY2xlIGN4PSI4MiIgY3k9IjI1ODIiIHI9IjcuNyIgZmlsbD0iI2QzYWI4NiI+PC9jaXJjbGU+PC9nPjxnIG9wYWNpdHk9IjAuMzIiPjxwYXRoIGQ9Ik05OTMsMzE4MCBMOTkzLDMwOTkgUTk5OSwzMDQ1IDEwNjEsMzA0NSBRMTEyMiwzMDQ1IDExMjgsMzA5OSBMMTEyOCwzMTgwIFoiIGZpbGw9IiNkOWE4ODMiPjwvcGF0aD48cmVjdCB4PSIxMDA0IiB5PSIzMTE3IiB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNzQiPjwvcmVjdD48cmVjdCB4PSIxMDA0IiB5PSIzMTU3IiB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuMzYiPjwvcmVjdD48cmVjdCB4PSIxMDI0IiB5PSIzMTE3IiB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNTEiPjwvcmVjdD48cmVjdCB4PSIxMDYyIiB5PSIzMTE3IiB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNjEiPjwvcmVjdD48cmVjdCB4PSIxMDYyIiB5PSIzMTM3IiB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuODkiPjwvcmVjdD48cmVjdCB4PSIxMDYyIiB5PSIzMTU3IiB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuODQiPjwvcmVjdD48cmVjdCB4PSIxMDgxIiB5PSIzMTE3IiB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNzYiPjwvcmVjdD48cmVjdCB4PSIxMDgxIiB5PSIzMTM3IiB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNTkiPjwvcmVjdD48cmVjdCB4PSIxMTAxIiB5PSIzMTE3IiB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuMzkiPjwvcmVjdD48cmVjdCB4PSI5OTEiIHk9IjMwOTEiIHdpZHRoPSIxMzkiIGhlaWdodD0iNS41IiBmaWxsPSIjZDlhODgzIj48L3JlY3Q+PHJlY3QgeD0iMTAwNyIgeT0iMzA2OSIgd2lkdGg9IjQuNiIgaGVpZ2h0PSIyNCIgZmlsbD0iI2Q5YTg4MyI+PC9yZWN0PjxyZWN0IHg9IjEwMjAiIHk9IjMwNjkiIHdpZHRoPSI0LjYiIGhlaWdodD0iMjQiIGZpbGw9IiNkOWE4ODMiPjwvcmVjdD48cmVjdCB4PSIxMDM0IiB5PSIzMDY5IiB3aWR0aD0iNC42IiBoZWlnaHQ9IjI0IiBmaWxsPSIjZDlhODgzIj48L3JlY3Q+PHJlY3QgeD0iMTA0NyIgeT0iMzA2OSIgd2lkdGg9IjQuNiIgaGVpZ2h0PSIyNCIgZmlsbD0iI2Q5YTg4MyI+PC9yZWN0PjxyZWN0IHg9IjEwNjEiIHk9IjMwNjkiIHdpZHRoPSI0LjYiIGhlaWdodD0iMjQiIGZpbGw9IiNkOWE4ODMiPjwvcmVjdD48cmVjdCB4PSIxMDc0IiB5PSIzMDY5IiB3aWR0aD0iNC42IiBoZWlnaHQ9IjI0IiBmaWxsPSIjZDlhODgzIj48L3JlY3Q+PHJlY3QgeD0iMTA4OCIgeT0iMzA2OSIgd2lkdGg9IjQuNiIgaGVpZ2h0PSIyNCIgZmlsbD0iI2Q5YTg4MyI+PC9yZWN0PjxyZWN0IHg9IjExMDEiIHk9IjMwNjkiIHdpZHRoPSI0LjYiIGhlaWdodD0iMjQiIGZpbGw9IiNkOWE4ODMiPjwvcmVjdD48cmVjdCB4PSIxMTE0IiB5PSIzMDY5IiB3aWR0aD0iNC42IiBoZWlnaHQ9IjI0IiBmaWxsPSIjZDlhODgzIj48L3JlY3Q+PHJlY3QgeD0iMTAwMiIgeT0iMzA1NSIgd2lkdGg9IjExOCIgaGVpZ2h0PSI1LjkiIGZpbGw9IiNkOWE4ODMiPjwvcmVjdD48cmVjdCB4PSIxMDM1IiB5PSIzMDM3IiB3aWR0aD0iNTEiIGhlaWdodD0iMTgiIGZpbGw9IiNkOWE4ODMiPjwvcmVjdD48cGF0aCBkPSJNMTAzNSwzMDM3IEEyNSwyMyAwIDAgMSAxMDg2LDMwMzcgWiIgZmlsbD0iI2Q5YTg4MyI+PC9wYXRoPjxyZWN0IHg9IjEwNTUiIHk9IjMwMDMiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMCIgZmlsbD0iI2Q5YTg4MyI+PC9yZWN0PjxjaXJjbGUgY3g9IjEwNjEiIGN5PSIyOTkyIiByPSIyLjkiIGZpbGw9IiNkOWE4ODMiPjwvY2lyY2xlPjxwYXRoIGQ9Ik0xMDU4LDMwMDMgTDEwNTksMjk5NCBMMTA2MiwyOTk0IEwxMDY0LDMwMDMgWiIgZmlsbD0iI2Q5YTg4MyI+PC9wYXRoPjxwYXRoIGQ9Ik0xMDYyLDI5OTUgcTcuNiwtMy40IDEwLC0xMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDlhODgzIiBzdHJva2Utd2lkdGg9IjIuMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48L3BhdGg+PHBhdGggZD0iTTEwNTksMjk5NiBxLTguNCwtNi4zIC02LjcsLTE2IHE2LjcsNi43IDcuNiwxNCBaIiBmaWxsPSIjZDlhODgzIj48L3BhdGg+PC9nPjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9Ijc3OCIgeT0iMzAzOCIgd2lkdGg9Ijg4IiBoZWlnaHQ9IjE0MSIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxwYXRoIGQ9Ik03NzQsMzAzOCBMODIyLDMwMDEgTDg3MCwzMDM4IFoiIGZpbGw9IiNlM2I1OTMiPjwvcGF0aD48cmVjdCB4PSI4MDciIHk9IjI5OTMiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzNSIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9Ijc5MSIgeT0iMzEzMyIgd2lkdGg9IjEzIiBoZWlnaHQ9IjI1IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjU2Ij48L3JlY3Q+PHJlY3QgeD0iODczIiB5PSIzMDUzIiB3aWR0aD0iMTIzIiBoZWlnaHQ9IjEyNiIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9Ijk2MCIgeT0iMzAxMSIgd2lkdGg9IjE3IiBoZWlnaHQ9IjMxIiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iOTExIiB5PSIzMDIwIiB3aWR0aD0iMTciIGhlaWdodD0iMjMiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cmVjdCB4PSI5MjIiIHk9IjMxMzYiIHdpZHRoPSIyNSIgaGVpZ2h0PSIyMyIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC42NyI+PC9yZWN0PjxyZWN0IHg9IjEwMDQiIHk9IjMwMzkiIHdpZHRoPSI5NSIgaGVpZ2h0PSIxNDEiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cGF0aCBkPSJNMTAwMCwzMDM5IEwxMDUxLDI5OTYgTDExMDMsMzAzOSBaIiBmaWxsPSIjZTNiNTkzIj48L3BhdGg+PHJlY3QgeD0iMTA0NCIgeT0iMjk5NiIgd2lkdGg9IjE3IiBoZWlnaHQ9IjMyIiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iMTAzMiIgeT0iMzAwMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI2IiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iMTAxOSIgeT0iMzA5NyIgd2lkdGg9IjE5IiBoZWlnaHQ9IjE3IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjU4Ij48L3JlY3Q+PHJlY3QgeD0iMTAxOSIgeT0iMzEyMCIgd2lkdGg9IjE5IiBoZWlnaHQ9IjE3IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjcyIj48L3JlY3Q+PHJlY3QgeD0iMTA5MyIgeT0iMzA3OCIgd2lkdGg9IjExNCIgaGVpZ2h0PSIxMDEiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cGF0aCBkPSJNMTA4OSwzMDc4IEwxMTUxLDMwMzkgTDEyMTIsMzA3OCBaIiBmaWxsPSIjZTNiNTkzIj48L3BhdGg+PHJlY3QgeD0iMTE0OCIgeT0iMzAzNyIgd2lkdGg9IjEyIiBoZWlnaHQ9IjMxIiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iMTEzOSIgeT0iMzExNiIgd2lkdGg9IjIzIiBoZWlnaHQ9IjEyIiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjM1Ij48L3JlY3Q+PHJlY3QgeD0iMTIyNiIgeT0iMzA1NCIgd2lkdGg9IjEwNyIgaGVpZ2h0PSIxMjUiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cGF0aCBkPSJNMTIyMSwzMDU0IEwxMjc5LDMwMjIgTDEzMzgsMzA1NCBaIiBmaWxsPSIjZTNiNTkzIj48L3BhdGg+PHJlY3QgeD0iMTI4OCIgeT0iMzAwOCIgd2lkdGg9IjEzIiBoZWlnaHQ9IjM2IiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iMTI0MiIgeT0iMzE0NSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE1IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjQyIj48L3JlY3Q+PHJlY3QgeD0iMTI2MSIgeT0iMzEyNSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE1IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjc1Ij48L3JlY3Q+PHJlY3QgeD0iMTMwMSIgeT0iMzEwNSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE1IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjY1Ij48L3JlY3Q+PHJlY3QgeD0iMTMwMSIgeT0iMzEyNSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE1IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjQ2Ij48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuNSI+PHBhdGggZD0iTTgyNywzMTgwIEw4NDYsMzE4MCBMODQxLDMxNjUgTDgzMiwzMTY1IFoiIGZpbGw9IiNjZjlhNzQiPjwvcGF0aD48cmVjdCB4PSI4MzQiIHk9IjMwNDEiIHdpZHRoPSI1LjAiIGhlaWdodD0iMTI2IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iODI4IiB5PSIzMDM5IiB3aWR0aD0iMTYiIGhlaWdodD0iMy44IiByeD0iMS43IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PGNpcmNsZSBjeD0iODM3IiBjeT0iMzAyOCIgcj0iOS4yIiBmaWxsPSIjY2Y5YTc0Ij48L2NpcmNsZT48cGF0aCBkPSJNODMyLDMwMjEgTDgzNywzMDEzIEw4NDIsMzAyMSBaIiBmaWxsPSIjY2Y5YTc0Ij48L3BhdGg+PC9nPjxnIG9wYWNpdHk9IjAuNTUiPjxyZWN0IHg9Ii03MCIgeT0iMzUwMiIgd2lkdGg9IjEwMSIgaGVpZ2h0PSIxMzciIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cGF0aCBkPSJNLTc0LDM1MDIgTC0xOSwzNDU4IEwzNSwzNTAyIFoiIGZpbGw9IiNlM2I1OTMiPjwvcGF0aD48cmVjdCB4PSItMTgiIHk9IjM2MDMiIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNyIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC44OSI+PC9yZWN0PjxyZWN0IHg9IjAuNSIgeT0iMzYwMyIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE3IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjY3Ij48L3JlY3Q+PHJlY3QgeD0iNDgiIHk9IjM0OTgiIHdpZHRoPSIxMzEiIGhlaWdodD0iMTQxIiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHBhdGggZD0iTTQzLDM0OTggTDExNCwzNDYwIEwxODQsMzQ5OCBaIiBmaWxsPSIjZTNiNTkzIj48L3BhdGg+PHJlY3QgeD0iMTAwIiB5PSIzNDUyIiB3aWR0aD0iMTQiIGhlaWdodD0iMzYiIGZpbGw9IiNlM2I1OTMiPjwvcmVjdD48cmVjdCB4PSI2OCIgeT0iMzU2MCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjI1IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjY4Ij48L3JlY3Q+PHJlY3QgeD0iMTAwIiB5PSIzNTYwIiB3aWR0aD0iMjYiIGhlaWdodD0iMjUiIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNTIiPjwvcmVjdD48cmVjdCB4PSIxMDAiIHk9IjM1OTMiIHdpZHRoPSIyNiIgaGVpZ2h0PSIyNSIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC41NiI+PC9yZWN0PjxyZWN0IHg9IjE4NiIgeT0iMzQ4OSIgd2lkdGg9Ijg4IiBoZWlnaHQ9IjE1MCIgZmlsbD0iI2UzYjU5MyI+PC9yZWN0PjxyZWN0IHg9IjIzNCIgeT0iMzQ0MCIgd2lkdGg9IjE1IiBoZWlnaHQ9IjM4IiBmaWxsPSIjZTNiNTkzIj48L3JlY3Q+PHJlY3QgeD0iMjAwIiB5PSIzNTkwIiB3aWR0aD0iMTgiIGhlaWdodD0iMjciIGZpbGw9IiNmZmZhZjAiIG9wYWNpdHk9IjAuNjgiPjwvcmVjdD48cmVjdCB4PSIyMjEiIHk9IjM1NTUiIHdpZHRoPSIxOCIgaGVpZ2h0PSIyNyIgZmlsbD0iI2ZmZmFmMCIgb3BhY2l0eT0iMC4zNyI+PC9yZWN0PjxyZWN0IHg9IjIyMSIgeT0iMzU5MCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjI3IiBmaWxsPSIjZmZmYWYwIiBvcGFjaXR5PSIwLjk1Ij48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuNzUiPjxwYXRoIGQ9Ik0zMTQsMzYxMiBMMzQ1LDM2MTIgTDM0MSwzNjQwIEwzMTgsMzY0MCBaIiBmaWxsPSIjY2Y5YTc0Ij48L3BhdGg+PGNpcmNsZSBjeD0iMzIwIiBjeT0iMzYwMiIgcj0iOS4xIiBmaWxsPSIjY2Y2YTQ1Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIzMzciIGN5PSIzNTk5IiByPSI5LjgiIGZpbGw9IiNjZjZhNDUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMyOCIgY3k9IjM1OTEiIHI9IjguNCIgZmlsbD0iI2NmNmE0NSI+PC9jaXJjbGU+PHBhdGggZD0iTTM1MCwzNjE3IEwzNzQsMzYxNyBMMzcxLDM2NDAgTDM1MywzNjQwIFoiIGZpbGw9IiNjZjlhNzQiPjwvcGF0aD48Y2lyY2xlIGN4PSIzNTQiIGN5PSIzNjA5IiByPSI3LjMiIGZpbGw9IiNjZjZhNDUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjM2NyIgY3k9IjM2MDciIHI9IjcuOCIgZmlsbD0iI2NmNmE0NSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMzYxIiBjeT0iMzYwMCIgcj0iNi43IiBmaWxsPSIjY2Y2YTQ1Ij48L2NpcmNsZT48L2c+PGcgb3BhY2l0eT0iMC42Ij48cGF0aCBkPSJNMTAyOCw0MTAwIHEzLjQsLTk1IDIzLC0xNjYgbDExLDMuNCBxLTE4LDczIC0yMiwxNjMgWiIgZmlsbD0iI2QzYWI4NiI+PC9wYXRoPjxwYXRoIGQ9Ik0xMDY2LDM5MzMgUTEwMTMsMzkwMCA5NzIsMzkyMCBRMTAxMywzOTQ0IDEwNjYsMzkzMyBaIiBmaWxsPSIjY2ZiZTk0Ij48L3BhdGg+PHBhdGggZD0iTTEwNjYsMzkzMyBRMTAyNCwzODY3IDk5MCwzODYwIFExMDI0LDM5MTEgMTA2NiwzOTMzIFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTA2NiwzOTMzIFExMDU0LDM4NjEgMTA0NSwzODUwIFExMDU0LDM5MDUgMTA2NiwzOTMzIFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTA2NiwzOTMzIFExMDkyLDM4NTUgMTExMiwzODM4IFExMDkyLDM4OTkgMTA2NiwzOTMzIFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTA2NiwzOTMzIFExMTE1LDM4ODYgMTE1MywzODk0IFExMTE1LDM5MzAgMTA2NiwzOTMzIFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTA2NiwzOTMzIFExMTEwLDM5MTcgMTE0NCwzOTUwIFExMTEwLDM5NjEgMTA2NiwzOTMzIFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48Y2lyY2xlIGN4PSIxMDY2IiBjeT0iMzkzMyIgcj0iOS4zIiBmaWxsPSIjZDNhYjg2Ij48L2NpcmNsZT48L2c+PGcgb3BhY2l0eT0iMC41Ij48ZWxsaXBzZSBjeD0iODQ4IiBjeT0iNDEwMCIgcng9IjY5IiByeT0iMTYiIGZpbGw9IiNjZjlhNzQiPjwvZWxsaXBzZT48ZWxsaXBzZSBjeD0iODQ4IiBjeT0iNDA5NiIgcng9IjU5IiByeT0iMTEiIGZpbGw9IiNmMGNkYjAiPjwvZWxsaXBzZT48cmVjdCB4PSI4NDAiIHk9IjQwNDUiIHdpZHRoPSIxNiIgaGVpZ2h0PSI0OCIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxlbGxpcHNlIGN4PSI4NDgiIGN5PSI0MDQ1IiByeD0iMzMiIHJ5PSI4LjciIGZpbGw9IiNjZjlhNzQiPjwvZWxsaXBzZT48cmVjdCB4PSI4NDQiIHk9IjQwMTkiIHdpZHRoPSI4LjciIGhlaWdodD0iMjEiIGZpbGw9IiNjZjlhNzQiPjwvcmVjdD48cGF0aCBkPSJNODQ4LDQwMTkgcS0yOCwtMTggLTM4LDIxIiBmaWxsPSJub25lIiBzdHJva2U9IiNmMGNkYjAiIHN0cm9rZS13aWR0aD0iNC4zIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuOCI+PC9wYXRoPjxwYXRoIGQ9Ik04NDgsNDAxOSBxMC4wLC0xOCAwLjAsMjEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwY2RiMCIgc3Ryb2tlLXdpZHRoPSI0LjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC44Ij48L3BhdGg+PHBhdGggZD0iTTg0OCw0MDE5IHEyOCwtMTggMzgsMjEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwY2RiMCIgc3Ryb2tlLXdpZHRoPSI0LjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC44Ij48L3BhdGg+PC9nPjxnIG9wYWNpdHk9IjAuNiI+PHBhdGggZD0iTTg0LDQ1NjAgcTMuNiwtMTAwIDI1LC0xNzYgbDEyLDMuNiBxLTE5LDc3IC0yNCwxNzIgWiIgZmlsbD0iI2QzYWI4NiI+PC9wYXRoPjxwYXRoIGQ9Ik0xMjQsNDM4MyBRNjksNDM0OCAyNSw0MzY5IFE2OSw0Mzk1IDEyNCw0MzgzIFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTI0LDQzODMgUTgwLDQzMTMgNDQsNDMwNiBRODAsNDM2MCAxMjQsNDM4MyBaIiBmaWxsPSIjY2ZiZTk0Ij48L3BhdGg+PHBhdGggZD0iTTEyNCw0MzgzIFExMTIsNDMwNyAxMDMsNDI5NiBRMTEyLDQzNTQgMTI0LDQzODMgWiIgZmlsbD0iI2NmYmU5NCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMjQsNDM4MyBRMTUyLDQzMDAgMTczLDQyODMgUTE1Miw0MzQ3IDEyNCw0MzgzIFoiIGZpbGw9IiNjZmJlOTQiPjwvcGF0aD48cGF0aCBkPSJNMTI0LDQzODMgUTE3Niw0MzMzIDIxNyw0MzQyIFExNzYsNDM4MCAxMjQsNDM4MyBaIiBmaWxsPSIjY2ZiZTk0Ij48L3BhdGg+PHBhdGggZD0iTTEyNCw0MzgzIFExNzEsNDM2NiAyMDgsNDQwMSBRMTcxLDQ0MTMgMTI0LDQzODMgWiIgZmlsbD0iI2NmYmU5NCI+PC9wYXRoPjxjaXJjbGUgY3g9IjEyNCIgY3k9IjQzODMiIHI9IjkuOSIgZmlsbD0iI2QzYWI4NiI+PC9jaXJjbGU+PC9nPjxnIG9wYWNpdHk9IjAuNSI+PHJlY3QgeD0iMjQ2IiB5PSI0NTI4IiB3aWR0aD0iOTYiIGhlaWdodD0iNy40IiByeD0iMy43IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMjQ2IiB5PSI0NTAzIiB3aWR0aD0iOTYiIGhlaWdodD0iNi43IiByeD0iMy4wIiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMjQ2IiB5PSI0NDkwIiB3aWR0aD0iOTYiIGhlaWdodD0iNi43IiByeD0iMy4wIiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMjUwIiB5PSI0NDg5IiB3aWR0aD0iNy40IiBoZWlnaHQ9IjcxIiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PHJlY3QgeD0iMzMxIiB5PSI0NDg5IiB3aWR0aD0iNy40IiBoZWlnaHQ9IjcxIiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PC9nPjxnIG9wYWNpdHk9IjAuNSI+PHBhdGggZD0iTTE0LDQ1NjAgTDMyLDQ1NjAgTDI3LDQ1NDUgTDE5LDQ1NDUgWiIgZmlsbD0iI2NmOWE3NCI+PC9wYXRoPjxyZWN0IHg9IjIxIiB5PSI0NDIxIiB3aWR0aD0iNS4wIiBoZWlnaHQ9IjEyNiIgZmlsbD0iI2NmOWE3NCI+PC9yZWN0PjxyZWN0IHg9IjE1IiB5PSI0NDE5IiB3aWR0aD0iMTYiIGhlaWdodD0iMy44IiByeD0iMS43IiBmaWxsPSIjY2Y5YTc0Ij48L3JlY3Q+PGNpcmNsZSBjeD0iMjMiIGN5PSI0NDA4IiByPSI5LjIiIGZpbGw9IiNjZjlhNzQiPjwvY2lyY2xlPjxwYXRoIGQ9Ik0xOCw0NDAxIEwyMyw0MzkzIEwyOCw0NDAxIFoiIGZpbGw9IiNjZjlhNzQiPjwvcGF0aD48L2c+PHJlY3Qgd2lkdGg9IjExNzkiIGhlaWdodD0iNDcyMCIgZmlsbD0idXJsKCNsYW5lKSI+PC9yZWN0PjxyZWN0IHdpZHRoPSIxMTc5IiBoZWlnaHQ9IjQ3MjAiIGZpbGw9InVybCgjc2VhbSkiPjwvcmVjdD48cmVjdCB3aWR0aD0iMTE3OSIgaGVpZ2h0PSIzIiBmaWxsPSIjZmJmMmU5Ij48L3JlY3Q+PHJlY3QgeT0iNDcxNyIgd2lkdGg9IjExNzkiIGhlaWdodD0iMyIgZmlsbD0iI2ZiZjJlOSI+PC9yZWN0Pjwvc3ZnPg==';
+function norm(s){return String(s||'').toLowerCase().replace(/[^a-z' ]/g,'').replace(/\s+/g,' ').trim()}
+function dist(a,b){const m=a.length,n=b.length;let p=Array.from({length:n+1},(_,i)=>i);for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+class Component extends DCLogic{
+  rootRef=React.createRef();
+  navRef=React.createRef();
+  trayRef=React.createRef();
+  mapRef=React.createRef();
+  backRef=React.createRef();
+  courseRef=React.createRef();
+  lvRef=React.createRef();
+  timeRow=React.createRef();
+  goalRef=React.createRef();
+  speedRef=React.createRef();
+  remindRef=React.createRef();
+  voiceRef=React.createRef();
+  transRef=React.createRef();
+  langRef=React.createRef();
+  viewRef=React.createRef();
+  fbRef=React.createRef();
+  M(){const m=window.Motion;return m&&m.animate?m:null}
+  EASE=[.22,1,.36,1];
+  SPRING=[.34,1.4,.5,1];
+  animateLang(dir){
+    const el=this.langRef.current,M=this.M();
+    if(!el||!M)return;
+    M.animate(el,{opacity:[0,1],x:[dir*46,0]},{duration:.42,ease:this.EASE});
+    Array.from(el.children).forEach(k=>{
+      const t=k.querySelector('h1'),f=t&&t.nextElementSibling;
+      if(t)M.animate(t,{opacity:[0,1],y:[14,0]},{duration:.44,delay:.06,ease:this.EASE});
+      if(f)M.animate(f,{opacity:[0,1],scale:[.86,1]},{duration:.5,delay:.1,ease:this.SPRING});
+    });
+    this.animateCloud();
+  }
+  animateCloud(){
+    const root=this.rootRef.current,M=this.M();
+    if(!root||!M)return;
+    const box=root.querySelector('[data-cloudbox]'),word=box&&box.querySelector('[data-cloudword]');
+    if(!box)return;
+    const bg=root.querySelector('[data-bg]');
+    if(bg){
+      M.animate(bg,{opacity:[0,1],scale:[1.06,1.005]},{duration:1.1,ease:this.EASE});
+      M.animate(bg,{scale:[1.005,1.03,1.005]},{duration:34,delay:1.1,repeat:Infinity,ease:'easeInOut'});
+    }
+    if(this.bob&&this.bob.stop)this.bob.stop();
+    if(this.bobT)clearTimeout(this.bobT);
+    if(word){
+      M.animate(word,{rotate:[-540,0]},{duration:.8,delay:.12,ease:[.3,.72,.52,1]});
+      M.animate(word,{opacity:[0,1],scale:[.42,1],filter:['blur(5px)','blur(0px)']},{duration:.42,delay:.12,ease:'easeOut'});
+    }
+    M.animate(box,{opacity:[0,1,1],scale:[.06,1.06,1],rotate:[-9,1.5,0]},{duration:.72,ease:this.SPRING});
+    this.bobT=setTimeout(()=>{
+      if(!box.isConnected)return;
+      this.bob=M.animate(box,{y:[0,-7,0,5,0],rotate:[0,-1.6,0,1.6,0]},{duration:7.2,repeat:Infinity,ease:'easeInOut'});
+    },740);
+  }
+  animateView(dir){
+    const host=this.viewRef.current,M=this.M();
+    if(!host||!M)return;
+    const pane=host.firstElementChild;if(!pane)return;
+    M.animate(pane,{opacity:[0,1],x:[dir*34,0]},{duration:.4,ease:this.EASE});
+    const rows=Array.from(pane.children).slice(0,9);
+    if(rows.length>1)rows.forEach((r,i)=>M.animate(r,{opacity:[0,1],y:[16,0]},{duration:.42,delay:.05+i*.045,ease:this.EASE}));
+    if(this.state.screen==='lang')this.animateCloud();
+  }
+  animateStep(){
+    const host=this.viewRef.current,M=this.M();
+    if(!host||!M)return;
+    const pane=host.firstElementChild;if(!pane)return;
+    M.animate(pane,{opacity:[0,1],x:[30,0]},{duration:.38,ease:this.EASE});
+    Array.from(pane.children).slice(0,6).forEach((r,i)=>M.animate(r,{opacity:[0,1],y:[14,0]},{duration:.4,delay:.04+i*.05,ease:this.EASE}));
+  }
+  popRef=React.createRef();
+  planRef=React.createRef();
+  popRhino(state,text){
+    if(this.popT)clearTimeout(this.popT);
+    if(this.popHideT)clearTimeout(this.popHideT);
+    this.setState({pop:{state,text}},()=>{
+      const el=this.popRef.current,M=this.M();
+      if(el&&M)try{M.animate(el,{opacity:[0,1],y:[46,0],rotate:[6,0]},{duration:.5,ease:this.SPRING})}catch(err){}
+    });
+    this.popT=setTimeout(()=>{
+      const el=this.popRef.current,M=this.M();
+      if(el&&M)try{M.animate(el,{opacity:[1,0],y:[0,40]},{duration:.3,ease:'easeIn'})}catch(err){}
+      this.popHideT=setTimeout(()=>this.setState({pop:null}),300);
+    },2200);
+  }
+  animateFeedback(v){
+    const el=this.fbRef.current,M=this.M();
+    if(!el||!M)return;
+    M.animate(el,{opacity:[0,1],y:[18,0],scale:[.95,1]},{duration:.44,ease:this.SPRING});
+    if(v==='wrong')M.animate(el,{x:[0,-7,6,-4,2,0]},{duration:.42,delay:.1,ease:'easeOut'});
+  }
+  after(patch,fn){this.setState(patch,()=>requestAnimationFrame(fn))}
+  cloudPath(t){
+    const cx=160,cy=112,rx=112,ry=56,K=11,c=[],r=[];
+    for(let k=0;k<K;k++){
+      const a=-Math.PI/2+2*Math.PI*k/K;
+      const w=1+.10*Math.sin(t*.8+k*1.7)+.06*Math.sin(t*.47+k*3.1);
+      c.push([cx+rx*Math.cos(a)+2.5*Math.sin(t*.6+k),cy+ry*Math.sin(a)+2.5*Math.cos(t*.52+k*1.3)]);
+      r.push((k%2?31:38)*w);
+    }
+    const p=[];
+    for(let k=0;k<K;k++){
+      const n=(k+1)%K,m=[(c[k][0]+c[n][0])/2,(c[k][1]+c[n][1])/2];
+      let dx=m[0]-cx,dy=(m[1]-cy)*1.6,L=Math.hypot(dx,dy)||1;
+      const push=(r[k]+r[n])/2*.42;
+      p.push([m[0]+dx/L*push,m[1]+dy/L*push]);
+    }
+    let tailAt=0,best=1e9;
+    for(let k=0;k<K;k++){const y=(p[k][1]+p[(k+1)%K][1])/2,x=(p[k][0]+p[(k+1)%K][0])/2;const s=Math.abs(x-150)+Math.max(0,200-y)*3;if(s<best){best=s;tailAt=k}}
+    const f=n=>n.toFixed(1);
+    let d='M'+f(p[K-1][0])+' '+f(p[K-1][1]);
+    for(let k=0;k<K;k++){
+      const a=p[(k+K-1)%K],b=p[k];
+      if(k===tailAt){
+        const sway=5*Math.sin(t*.75);
+        const mx=(a[0]+b[0])/2,tip=[mx-3+sway,246];
+        const a2=[a[0]*.5+mx*.5,a[1]+8],b2=[b[0]*.5+mx*.5,b[1]+8];
+        const ca=[a2[0]+(tip[0]-a2[0])*.92,a2[1]+(tip[1]-a2[1])*.92],cb=[b2[0]+(tip[0]-b2[0])*.92,b2[1]+(tip[1]-b2[1])*.92];
+        d+='L'+f(a2[0])+' '+f(a2[1])+'Q'+f(ca[0])+' '+f(ca[1])+','+f(tip[0])+' '+f(tip[1])+'Q'+f(cb[0])+' '+f(cb[1])+','+f(b2[0])+' '+f(b2[1])+'L'+f(b[0])+' '+f(b[1]);
+      } else d+='A'+f(r[k])+' '+f(r[k]*.92)+' 0 0 1 '+f(b[0])+' '+f(b[1]);
+    }
+    return d+'Z';
+  }
+  startCloud(){
+    const tick=now=>{
+      this.raf=requestAnimationFrame(tick);
+      const root=this.rootRef.current;if(!root)return;
+      const nodes=root.querySelectorAll('[data-cloud]');if(!nodes.length)return;
+      const d=this.cloudPath(now/1000);
+      nodes.forEach(n=>n.setAttribute('d',d));
+    };
+    this.raf=requestAnimationFrame(tick);
+  }
+  componentWillUnmount(){if(this.routeT)clearTimeout(this.routeT);if(this.popHideT)clearTimeout(this.popHideT);if(this.popT)clearTimeout(this.popT);if(this.raf)cancelAnimationFrame(this.raf);if(this.bobT)clearTimeout(this.bobT);if(this.waitT)clearTimeout(this.waitT);if(this.bob&&this.bob.stop)this.bob.stop()}
+  state={course:'en',lvIdx:1,dayGoal:10,speed:90,remind:true,rtime:2,voice:true,trans:true,session:LESSON,screen:'home',level:'A2 — читаю, но говорю с трудом',goal:'10 минут',step:0,checked:false,sel:null,typed:'',picked:[],revealed:false,recall:null,ch3:false,ch4:true,ch5:false,ch6:false,wrong:0,lang:'en',pop:null};
+  componentDidMount(){
+    this.applyTheme();this.syncNav();this.syncTray();this.syncMap();this.syncSettings();this.syncBack();this.startCloud();
+    let n=0;const wait=()=>{if(this.M())this.animateCloud();else if(n++<80)this.waitT=setTimeout(wait,60)};
+    this.waitT=setTimeout(wait,0);
+  }
+  componentDidUpdate(p){try{if(p&&p.theme!==this.props.theme)this.applyTheme();this.syncNav();this.syncTray();this.syncMap();this.syncSettings();this.syncBack()}catch(e){}}
+  syncSettings(){const st=this.state;
+    const c=this.courseRef.current;
+    if(c)Array.from(c.children).forEach((b,i)=>{const on=i===(st.course==='en'?0:1);b.style.borderColor=on?'var(--accent)':'var(--border-col)';const m=b.lastElementChild;if(m)m.style.opacity=on?'1':'0'});
+    const l=this.lvRef.current;
+    if(l)Array.from(l.children).forEach((b,i)=>{const on=i===st.lvIdx;b.style.background=on?'var(--surface-solid)':'transparent';b.style.color=on?'var(--ink)':'var(--ink-soft)';b.style.boxShadow=on?'0 1px 3px rgba(27,32,41,.16)':'none'});
+    const t=this.timeRow.current;
+    if(t){t.style.opacity=st.remind?'1':'.4';t.style.pointerEvents=st.remind?'auto':'none';Array.from(t.children).forEach((b,i)=>{const on=i===st.rtime&&st.remind;b.style.borderColor=on?'var(--accent)':'var(--border-col)';b.style.color=on?'var(--accent)':'var(--ink-soft)';b.style.background=on?'var(--accent-soft)':'var(--surface-solid)'})}
+    const g=this.goalRef.current;if(g&&+g.value!==st.dayGoal)g.value=st.dayGoal;
+    const sp=this.speedRef.current;if(sp&&+sp.value!==st.speed)sp.value=st.speed;
+    const sw=(ref,on)=>{const b=ref.current;if(!b)return;b.style.background=on?'var(--mint)':'var(--track)';b.setAttribute('aria-checked',on?'true':'false');const k=b.firstElementChild;if(k)k.style.transform=on?'translateX(21px)':'translateX(0)'};
+    sw(this.remindRef,st.remind);sw(this.voiceRef,st.voice);sw(this.transRef,st.trans)}
+  syncBack(){const b=this.backRef.current;if(!b)return;const st=this.state;const off=st.step<=0||!st.hist||!st.hist[st.step-1];b.style.opacity=off?'.35':'1';b.style.pointerEvents=off?'none':'auto';b.disabled=off}
+  syncMap(){try{const m=this.mapRef.current;if(!m)return;const key=this.state.course==='es'?'es':'en';if(m.dataset.map===key)return;m.dataset.map=key;m.style.backgroundImage='url("data:image/svg+xml;base64,'+(key==='es'?MAP_ES:MAP_EN)+'")'}catch(e){}}
+  syncTray(){const t=this.trayRef.current;if(!t)return;const st=this.state;Array.from(t.children).forEach((b,i)=>{b.style.opacity=st.picked.includes(i)?'.25':(st.checked?'.5':'1')})}
+  syncNav(){const n=this.navRef.current;if(!n)return;const order=['home','route','practice','progress'];const at=order.indexOf(this.state.screen);Array.from(n.children).forEach((b,i)=>{const on=i===at;b.style.color=on?'var(--accent)':'var(--ink-soft)';const dot=b.lastElementChild;if(dot)dot.style.opacity=on?'1':'0'})}
+  applyTheme(){const el=this.rootRef.current;if(!el)return;const n=this.props.theme||'Носорог';const t=n==='Диван'?SOFA:n==='Тёмная'?NIGHT:n==='Как в ките'?null:RHINO;for(const k of KEYS){if(t&&t[k])el.style.setProperty(k,t[k]);else el.style.removeProperty(k)}const rt=RTONE[n];for(const k of RKEYS){if(rt&&rt[k])el.style.setProperty(k,rt[k]);else el.style.removeProperty(k)}el.style.background=ROOM[n]||ROOM['Носорог']}
+  go(screen){
+    const ORDER=['lang','levelchoice','onboarding','home','route','practice','progress','lesson','done','settings'];
+    const dir=ORDER.indexOf(screen)<ORDER.indexOf(this.state.screen)?-1:1;
+    this.after({screen},()=>{this.animateView(dir);if(screen==='route')requestAnimationFrame(()=>this.scrollToCurrent())});
+  }
+  scrollToCurrent(){const v=this.viewRef.current;if(!v)return;const n=v.querySelector('[data-current]');if(!n)return;v.scrollTop+=n.getBoundingClientRect().top-v.getBoundingClientRect().top-250}
+  S(){return (this.state.session||LESSON).steps}
+  drill(k){return ()=>this.openSession({mode:'drill',title:KMETA[k].name,sub:'Только этот вид упражнений',doneKicker:'ТРЕНИРОВКА',steps:pickKind(k)})}
+  topic(t){return ()=>this.openSession({mode:'topic',title:TOPICS[t],sub:'Разбор слабой темы',doneKicker:'СЛАБАЯ ТЕМА',steps:pickTopic(t)})}
+  openSession(session){this.after({session,step:0,checked:false,sel:null,typed:'',picked:[],revealed:false,recall:null,wrong:0,hist:[],peek:null,screen:'lesson'},()=>this.animateView(1))}
+  snapshot(){const st=this.state;return {step:st.step,checked:st.checked,sel:st.sel,typed:st.typed,picked:st.picked,revealed:st.revealed,recall:st.recall}}
+  goBackStep(){const st=this.state;const live=(st.peek===null||st.peek===undefined)?this.snapshot():st.peek;const prev=st.hist&&st.hist[st.step-1];if(!prev)return;this.after(Object.assign({},prev,{peek:live}),()=>this.animateStep())}
+  goForwardStep(){const st=this.state;if(st.peek===null||st.peek===undefined)return;this.after(Object.assign({},st.peek,{peek:null}),()=>this.animateStep())}
+  finish(vv){this.after({checked:true,wrong:this.state.wrong+(vv==='wrong'?1:0)},()=>this.animateFeedback(vv))}
+  reset(step){this.after({step,checked:false,sel:null,typed:'',picked:[],revealed:false,recall:null},()=>this.animateStep())}
+  verdictOf(){const s=this.S()[this.state.step];if(s.kind==='choice'||s.kind==='dialogue')return this.state.sel===s.answer?'correct':'wrong';
+    if(s.kind==='order')return this.state.picked.map(i=>s.tokens[i]).join(' ')===s.answer?'correct':'wrong';
+    if(s.kind==='card')return this.state.recall?'correct':'wrong';
+    const g=norm(this.state.typed),a=norm(s.answer);if(g===a)return 'correct';return dist(g,a)<=2?'typo':'wrong'}
+  renderVals(){
+    const st=this.state,SS=this.S(),s=SS[st.step]||SS[0],k=s.kind,checked=st.checked,sess=st.session||LESSON,C=COURSES[st.course]||COURSES.en,peeking=st.peek!==null&&st.peek!==undefined;
+    const v=checked?this.verdictOf():null;
+    const levels=['A0 — с нуля','A1 — отдельные фразы','A2 — читаю, но говорю с трудом','B1 — держусь в разговоре','B2 — хочу шлифовать'].map(l=>({label:l,on:st.level===l,pick:()=>this.setState({level:l})}));
+    const goals=['5 минут','10 минут','20 минут'].map(g=>({label:g,on:st.goal===g,pick:()=>this.setState({goal:g},()=>{const el=this.planRef.current,M=this.M();if(el&&M)M.animate(el,{opacity:[.35,1],y:[8,0]},{duration:.34,ease:this.EASE})})}));
+    const options=(s.options||[]).map((label,i)=>({label,on:st.sel===i,locked:checked,pick:()=>{if(!checked)this.setState({sel:i})}}));
+    const canCheck=k==='card'?st.revealed:k==='choice'||k==='dialogue'?st.sel!==null:k==='order'?st.picked.length===(s.tokens||[]).length:norm(st.typed).length>0;
+    return{
+      rootRef:this.rootRef,navRef:this.navRef,trayRef:this.trayRef,mapRef:this.mapRef,courseRef:this.courseRef,lvRef:this.lvRef,timeRow:this.timeRow,goalRef:this.goalRef,speedRef:this.speedRef,remindRef:this.remindRef,voiceRef:this.voiceRef,transRef:this.transRef,
+      atSettings:st.screen==='settings',
+      courseShort:C.short,courseName:st.course==='en'?'английский':'испанский',
+      streakN:C.streak,streakWord:plural(C.streak,'день','дня','дней'),
+      nextKicker:'Следующий урок · '+C.min+' мин',nextTitle:C.lesson,nextBlock:'Блок '+C.block+' · '+C.blockName,
+      nextInBlock:'Урок '+C.idx+' из '+C.of+' в блоке',nextWhere:'Блок '+C.block+' · урок '+C.idx+' из '+C.of+' · '+C.min+' мин',
+      routeCaption:C.name+' '+C.lvl+' · 30 блоков · пройдено '+C.progress,
+      goalLabel:st.dayGoal+' '+plural(st.dayGoal,'минута','минуты','минут')+' в день',goalHint:goalHintOf(st.dayGoal),
+      speedLabel:st.speed===100?'обычная':st.speed<100?'медленнее на '+(100-st.speed)+'%':'быстрее на '+(st.speed-100)+'%',
+      remindText:st.remind?('Каждый день в '+['09:00','13:00','20:00','22:00'][st.rtime]):'Выключено',
+      resetNote:'Сбросится только '+(st.course==='en'?'английский':'испанский')+': блоки, серия и слова. Второй курс не тронется.',
+      goSettings:()=>this.go('settings'),closeSettings:()=>this.go('home'),
+      pickEn:()=>this.setState({course:'en',lvIdx:1}),pickEs:()=>this.setState({course:'es',lvIdx:0}),
+      lv0:()=>this.setState({lvIdx:0}),lv1:()=>this.setState({lvIdx:1}),lv2:()=>this.setState({lvIdx:2}),lv3:()=>this.setState({lvIdx:3}),
+      t0:()=>this.setState({rtime:0,remind:true}),t1:()=>this.setState({rtime:1,remind:true}),t2:()=>this.setState({rtime:2,remind:true}),t3:()=>this.setState({rtime:3,remind:true}),
+      setGoal:e=>this.setState({dayGoal:+e.target.value}),setSpeed:e=>this.setState({speed:+e.target.value}),
+      toggleRemind:()=>this.setState({remind:!st.remind}),toggleVoice:()=>this.setState({voice:!st.voice}),toggleTrans:()=>this.setState({trans:!st.trans}),langRef:this.langRef,viewRef:this.viewRef,fbRef:this.fbRef,
+      atLang:st.screen==='lang',atLevelChoice:st.screen==='levelchoice',atOnboarding:st.screen==='onboarding',atHome:st.screen==='home',atRoute:st.screen==='route',atLesson:st.screen==='lesson',atPractice:st.screen==='practice',atProgress:st.screen==='progress',atDone:st.screen==='done',
+      doneValue:(SS.length-st.wrong)/SS.length,doneCaption:(SS.length-st.wrong)+' / '+SS.length,hasMistakes:st.wrong>0,noMistakes:st.wrong===0,
+      isLessonDone:sess.mode==='lesson',isDrillDone:sess.mode!=='lesson',isReviewDone:sess.mode==='review',isKindDone:sess.mode==='drill'||sess.mode==='topic',doneTitle:sess.title,doneKicker:sess.doneKicker||'',doneWrong:st.wrong,doneRight:SS.length-st.wrong,
+      doneRepeatNote:st.wrong>0?('На повтор вернутся '+st.wrong+(st.wrong===1?' упражнение':st.wrong<5?' упражнения':' упражнений')+' — завтра, потом через три дня.'):'Ошибок нет — ничего не возвращается на завтра. Эти фразы всплывут через три дня, для проверки.',
+      isEn:st.lang==='en',isEs:st.lang==='es',otherLang:()=>{const next=st.lang==='en'?'es':'en';this.setState({lang:next},()=>requestAnimationFrame(()=>this.animateLang(next==='es'?1:-1)))},
+      showChrome:!['lesson','lang','settings'].includes(st.screen),showNav:['home','route','practice','progress'].includes(st.screen),
+      goLang:()=>this.go('lang'),goLevelChoice:()=>this.go('levelchoice'),startLevelTest:()=>{this.popRhino('think','Погнали, 12 вопросов');this.go('onboarding')},goOnboarding:()=>this.go('onboarding'),goHome:()=>this.go('home'),goRoute:()=>this.go('route'),goPractice:()=>this.go('practice'),goProgress:()=>this.go('progress'),
+      startLesson:()=>this.openSession(Object.assign({mode:'lesson'},LESSON)),
+      startReview:()=>this.openSession({mode:'review',title:'Повторение',sub:'Из разных блоков',doneKicker:'ПОВТОРЕНИЕ',steps:reviewSteps()}),
+      drillChoice:this.drill('choice'),drillTranslate:this.drill('translate'),drillOrder:this.drill('order'),drillDialogue:this.drill('dialogue'),drillListen:this.drill('listen'),drillCard:this.drill('card'),
+      repeatSession:()=>this.openSession(sess),
+      topicPerfect:this.topic('perfect'),topicPrep:this.topic('prep'),topicArticles:this.topic('articles'),
+      exitLesson:()=>this.go(sess.mode==='drill'||sess.mode==='topic'?'practice':'home'),
+      levels,goals,planRef:this.planRef,
+      planPerDay:PLAN[st.goal].perDay,planWeeks:PLAN[st.goal].weeks,
+      planNote:'Уровень '+st.level.split(' ')[0]+' · '+PLAN[st.goal].note,
+      buildRoute:()=>{this.popRhino('celebrate','Маршрут готов');this.routeT=setTimeout(()=>this.go('home'),680)},
+      ch3Open:st.ch3,ch4Open:st.ch4,ch5Open:st.ch5,ch6Open:st.ch6,
+      toggleCh3:()=>this.setState({ch3:!st.ch3}),toggleCh4:()=>this.setState({ch4:!st.ch4}),toggleCh5:()=>this.setState({ch5:!st.ch5}),toggleCh6:()=>this.setState({ch6:!st.ch6}),
+      popRef:this.popRef,popOn:!!st.pop,popState:st.pop?st.pop.state:'idle',popText:st.pop?st.pop.text:'',popHat:st.lang==='es'?'es':'uk',
+      notAtHome:st.screen!=='home',notAtRoute:st.screen!=='route',notAtProgress:st.screen!=='progress',
+      ch4CanDo:['предложить встретиться','перенести или отказаться','назвать точное время'],
+      stepKicker:s.kicker||KMETA[k].kicker,stepPrompt:s.prompt||KMETA[k].prompt,srcPhrase:s.src||'',cardWord:s.word||'',cardMeaning:s.meaning||'',cardExample:s.example||'',stepFrom:s.from||sess.sub||'',
+      sessionTitle:sess.title,
+      isChoice:k==='choice',isTranslate:k==='translate',isOrder:k==='order',isDialogue:k==='dialogue',isListen:k==='listen',isCard:k==='card',
+      options,tokens:s.tokens||[],picked:st.picked,lines:this.props.showTranslations===false?(s.lines||[]).map(l=>({speaker:l.speaker,text:l.text})):(s.lines||[]),
+      typed:st.typed,onType:t=>this.setState({typed:t}),
+      onPick:i=>{if(!checked)this.setState({picked:st.picked.concat(i)})},
+      onUnpick:p=>{if(!checked)this.setState({picked:st.picked.filter((_,i)=>i!==p)})},
+      revealed:st.revealed,notRevealed:!st.revealed,reveal:()=>this.setState({revealed:true}),
+      noPicked:st.picked.length===0,typedShown:st.typed.trim()||'—',
+      pickedWords:st.picked.map((ti,pos)=>({label:(s.tokens||[])[ti],unpick:()=>{if(!checked&&!peeking)this.setState({picked:st.picked.filter((_,i)=>i!==pos)})}})),
+      trayWords:(s.tokens||[]).map((w,i)=>({label:w,used:st.picked.includes(i)||checked||peeking,pick:()=>{if(!checked&&!peeking&&!st.picked.includes(i))this.setState({picked:st.picked.concat(i)})}})),
+      peeking,showCheck:peeking?false:!checked&&k!=='card',showReveal:!peeking&&!checked&&k==='card'&&!st.revealed,showRecall:!peeking&&!checked&&k==='card'&&st.revealed,
+      recallYes:()=>this.setState({recall:true},()=>{this.finish('correct');this.popRhino('celebrate','Помнишь!')}),
+      recallNo:()=>this.setState({recall:false},()=>this.finish('wrong')),
+      speak:t=>{try{const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';speechSynthesis.speak(u)}catch(e){}},
+      speakAll:()=>{try{const t=k==='listen'?s.shown:(s.lines||[]).map(l=>l.text).join('. ');const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';speechSynthesis.speak(u)}catch(e){}},
+      checked,notChecked:!checked&&!peeking,cantCheck:!canCheck,
+      backRef:this.backRef,stepBack:()=>this.goBackStep(),stepForward:()=>this.goForwardStep(),
+      showNextBtn:checked&&!peeking,showForwardBtn:peeking,
+      check:()=>{if(canCheck){const vv=this.verdictOf();this.after({checked:true,wrong:st.wrong+(vv==='wrong'?1:0)},()=>this.animateFeedback(vv));const P={correct:['celebrate','Вот так!'],typo:['talk','Почти — опечатка'],wrong:['think','Бывает. Разберём.']}[vv];if(P&&(vv!=='correct'||st.step%2===0))setTimeout(()=>this.popRhino(P[0],P[1]),120)}},
+      next:()=>{const hist=st.hist?st.hist.slice():[];hist[st.step]=this.snapshot();this.setState({hist});if(st.step+1<SS.length)this.reset(st.step+1);else this.go('done')},
+      verdict:v,note:v==='wrong'||v==='typo'?s.note:undefined,rightAnswer:v==='wrong'?(s.options?s.options[s.answer]:(s.shown||s.answer)):undefined,
+      nextTone:v==='wrong'?'accent':'mint',
+      lessonValue:(st.step+(checked?1:0))/SS.length,lessonCaption:(st.step+1)+' / '+SS.length
+    }
+  }
+}
+</script>
+</body>
+</html>
