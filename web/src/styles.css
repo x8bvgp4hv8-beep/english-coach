@@ -118,20 +118,59 @@
   --shadow-btn-active: 0 6px 16px rgba(226, 96, 58, 0.38);
 }
 
-/* The app shell. The reset and the base type live in the kit. */
+/*
+ * The app shell — one screenful, and only the middle of it moves.
+ *
+ * The page itself must never scroll. It used to: `.app` was `min-height`, so a long
+ * course grew the document, the document scrolled, and the bar at the bottom went with
+ * it — the thing you were reaching for slid away as you reached. The window is now a
+ * fixed box with `overflow: hidden`, and the only scrollable thing in it is the content
+ * between the header and the bar. That is what makes it feel like an app rather than a
+ * page: the chrome stays put and the paper moves under it.
+ *
+ * `dvh` before `vh` matters on a phone. In a browser tab the address bar grows and
+ * shrinks as you scroll, and `100vh` is the *tall* measurement — the bar would sit below
+ * the fold until the chrome collapsed. `100dvh` follows the visible window, so the bar
+ * is on the screen at every moment. The `vh` line stays underneath as the fallback for
+ * anything too old to know `dvh`.
+ *
+ * `overscroll-behavior: none` kills the rubber band, so a flick at the top of a list no
+ * longer drags the whole app down and reveals the page behind it.
+ */
 html, body, #root { height: 100%; }
-body { background-attachment: fixed; overscroll-behavior-y: none; }
+body {
+  background-attachment: fixed;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
 
 .app {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   max-width: 560px;
   margin: 0 auto;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left);
 }
 
-.scroll { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 0 18px 32px; }
+/*
+ * `min-height: 0` is what actually lets this scroll. A flex child defaults to a minimum
+ * of its content, so without it the list pushes the column taller than the window
+ * instead of scrolling inside it — and the bar is pushed out of view again.
+ *
+ * `overscroll-behavior: contain` stops the scroll from chaining outward once the list
+ * hits its end.
+ */
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 18px calc(28px + env(safe-area-inset-bottom));
+}
 
 /* Header */
 .header { padding: 14px 18px 12px; background: var(--surface); border-bottom: 1px solid var(--hairline); backdrop-filter: blur(12px); }
@@ -170,7 +209,14 @@ body { background-attachment: fixed; overscroll-behavior-y: none; }
 .quiet { min-height: var(--tap); color: var(--ink-soft); font-size: 14px; }
 
 /* Onboarding and generic centred screens */
-.center { display: flex; flex-direction: column; justify-content: center; gap: 18px; flex: 1; padding: 24px 22px 32px; text-align: center; }
+/* Onboarding and the placement test: centred, but still scrollable when a small phone
+   cannot hold the whole thing, and clear of the home indicator at the bottom. */
+.center {
+  display: flex; flex-direction: column; justify-content: center; gap: 18px;
+  flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: 24px 22px calc(32px + env(safe-area-inset-bottom));
+  text-align: center;
+}
 .center h1 { font-size: 26px; font-weight: var(--display-w); margin: 0; }
 .center p { color: var(--ink-soft); margin: 0; line-height: 1.45; }
 .hero-mark {
@@ -182,7 +228,7 @@ body { background-attachment: fixed; overscroll-behavior-y: none; }
 .big-level { font-size: 54px; font-weight: var(--display-w); color: var(--accent); line-height: 1; }
 
 /* Lesson player */
-.player { display: flex; flex-direction: column; flex: 1; }
+.player { display: flex; flex-direction: column; flex: 1; min-height: 0; }
 .player-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--surface); border-bottom: 1px solid var(--hairline); }
 .player-title { flex: 1; text-align: center; font-weight: 700; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .player-count { font-size: 13px; color: var(--ink-soft); font-variant-numeric: tabular-nums; min-width: 44px; text-align: right; }
