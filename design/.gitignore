@@ -1,0 +1,28 @@
+# Everything in here that is a raster is output, not source: each folder has a
+# python script that regenerates it from the SVG next to it. Keeping 28 MB of
+# renders in git would bury the thing that actually matters — the generators.
+#
+#   wallpapers/cities.py        london.png, madrid.png
+#   savanna/generate.py         savanna-*.png
+#   scenes/build.py             en.png/mp4, es.png/mp4
+#   mascot-hats/assets.py       rhino-*.png/apng/webm
+#   course-map/atlas.py         downs.png, meseta.png
+#   course-map/route.py         london-*, madrid-* (the rejected first cut)
+#   tab-backgrounds/skies.py    today-*, practice-*, progress-*
+#   tab-backgrounds/preview.py  mock-*
+#
+# Run the script in a folder and its images come back byte for byte.
+
+*.png
+*.apng
+*.webm
+*.mp4
+
+# Previews are scaffolding for looking at the art, not the art.
+mock-*.html
+*-preview.html
+
+# The root .gitignore has a bare `generate.py`, meant for the legacy script at the
+# repository root — but a pattern without a slash matches at every depth, and it
+# was silently swallowing the savanna generator. Take that one back.
+!generate.py

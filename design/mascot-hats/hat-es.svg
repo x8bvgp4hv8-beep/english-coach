@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Кордобес — испанский. Та же система координат, та же точка вставки. -->
+  <defs><clipPath id="es-crown"><path d="M154 86 L159 44 Q200 33 241 44 L246 86 Z"/></clipPath></defs>
+  <g class="hat hat-es">
+    <g transform="rotate(5 200 90) translate(0 6)">
+      <ellipse cx="200" cy="98" rx="66" ry="11" fill="#1B2028" opacity=".16"/>
+      <path d="M154 86 L159 44 Q200 33 241 44 L246 86 Z" fill="#26221F"/>
+      <g clip-path="url(#es-crown)">
+        <rect x="148" y="51" width="108" height="17" fill="#C60B1E"/>
+        <rect x="148" y="56" width="108" height="8" fill="#FFC400"/>
+        <ellipse cx="178" cy="48" rx="12" ry="14" fill="#fff" opacity=".13" transform="rotate(-14 178 48)"/>
+      </g>
+      <ellipse cx="200" cy="86" rx="98" ry="15" fill="#26221F"/>
+      <ellipse cx="200" cy="91" rx="98" ry="10" fill="#1A1714"/>
+      <ellipse cx="200" cy="84" rx="98" ry="14" fill="#26221F"/>
+    </g>
+  </g>
+</svg>
