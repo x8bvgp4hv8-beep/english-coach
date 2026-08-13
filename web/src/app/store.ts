@@ -41,8 +41,21 @@ export function isTab(screen: Screen): screen is Tab {
   return (TABS as readonly string[]).includes(screen)
 }
 
-/** Indexed by `Date.getDay()`, so Sunday leads. */
-const WEEKDAYS = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
+const WEEKDAYS_SHORT = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
+
+/** This week, Monday first, as seven dates. */
+function calendarWeek(): Date[] {
+  const monday = new Date()
+  // getDay() puts Sunday at 0; the week here starts on Monday, so Sunday is the seventh.
+  const offset = (monday.getDay() + 6) % 7
+  monday.setDate(monday.getDate() - offset)
+  return Array.from({ length: 7 }, (_, index) => {
+    const date = new Date(monday)
+    date.setDate(monday.getDate() + index)
+    return date
+  })
+}
+
 
 /**
  * The web counterpart of AppModel.swift: one object owning content, profile and the
@@ -268,6 +281,83 @@ export class AppStore {
   }
 
   /**
+   * Speaking, as far as the app can honestly report on it.
+   *
+   * The prototype promised a breakdown by sound; nothing here listens to a voice, so
+   * there are no sounds to break down. What there is: which phrases were said out loud
+   * and which of them the learner marked as not having come out. That is the same
+   * question — "что даётся тяжелее" — answered with something the app actually knows.
+   */
+  get spoken(): { count: number; hard: string[] } {
+    const pool = new Map(
+      ShadowingEngine.pool(this.practiceCourses, this.selectedLevel).map((exercise) => [exercise.id, exercise]),
+    )
+    const said = this.state.attempts.filter((attempt) => pool.has(attempt.exerciseID))
+    const hard = [...new Set(
+      said.filter((attempt) => !attempt.correct)
+        .map((attempt) => pool.get(attempt.exerciseID)?.canonicalAnswer ?? pool.get(attempt.exerciseID)?.prompt ?? '')
+        .filter(Boolean),
+    )]
+    return { count: said.length, hard: hard.slice(0, 5) }
+  }
+
+  /**
+   * How the last hundred answers went — the second bar on the progress tab.
+   *
+   * A hundred rather than all of them: an accuracy computed over every answer since
+   * install stops moving after a few weeks, and a number that cannot move says nothing
+   * about how you are doing now.
+   */
+  get recentAccuracy(): { correct: number; total: number; share: number } {
+    const recent = this.state.attempts.slice(-100)
+    const correct = recent.filter((attempt) => attempt.correct).length
+    return { correct, total: recent.length, share: recent.length === 0 ? 0 : correct / recent.length }
+  }
+
+  /**
+   * Where the next lesson sits in its unit — "Урок 3 из 5 в блоке" and the bar above it.
+   *
+   * The unit meter answers the same question in the abstract; this answers it in the
+   * words the card uses, so the two never drift apart.
+   */
+  get nextPlace(): { chapter: string; number: number; position: number; total: number } | null {
+    const chapters = this.selectedCourse?.chapters ?? []
+    const next = this.recommendedLesson
+    if (!next) return null
+    const index = chapters.findIndex((chapter) => chapter.lessons.some((lesson) => lesson.id === next.id))
+    if (index < 0) return null
+    const chapter = chapters[index]
+    return {
+      chapter: chapter.title,
+      number: index + 1,
+      position: chapter.lessons.findIndex((lesson) => lesson.id === next.id) + 1,
+      total: chapter.lessons.length,
+    }
+  }
+
+  /**
+   * Which days of this week — Monday to Sunday — had any practice in them.
+   *
+   * The rule is the one the app has always used and the prototype prints under the
+   * strip: a day counts if it holds at least one lesson. Minutes decide the goal pill,
+   * not the streak.
+   */
+  recentDaysDone(): { key: string; weekday: string; done: boolean; today: boolean; future: boolean }[] {
+    const attempted = new Set(this.state.attempts.map((a) => PracticeLog.dayKey(a.date)))
+    return calendarWeek().map((date, index) => {
+      const key = PracticeLog.dayKey(date)
+      const todayKey = PracticeLog.dayKey(new Date())
+      return {
+        key,
+        weekday: WEEKDAYS_SHORT[index],
+        done: attempted.has(key),
+        today: key === todayKey,
+        future: date.getTime() > new Date().setHours(23, 59, 59, 999),
+      }
+    })
+  }
+
+  /**
    * How far through the level, counted in units rather than lessons.
    *
    * This is what replaced the chips of abilities: "18 из 30 блоков" is a sentence about
@@ -280,25 +370,25 @@ export class AppStore {
   }
 
   /**
-   * The last `count` days of practice, oldest first, for the chart on the progress tab.
+   * The current week, Monday to Sunday, for the chart on the progress tab.
    *
-   * Days with nothing in them are part of the answer, so the range is walked by date
-   * rather than read off the keys the log happens to have.
+   * A calendar week rather than a rolling seven days: "как прошла неделя" is a question
+   * about this week, and a window that slides makes Monday move every day. Days with
+   * nothing in them are part of the answer, so the week is walked by date rather than
+   * read off the keys the log happens to have.
    */
-  recentDays(count = 7): { key: string; weekday: string; minutes: number; goalReached: boolean }[] {
-    const days = []
-    for (let back = count - 1; back >= 0; back -= 1) {
-      const date = new Date()
-      date.setDate(date.getDate() - back)
+  recentDays(): { key: string; weekday: string; minutes: number; goalReached: boolean; today: boolean }[] {
+    const todayKey = PracticeLog.dayKey(new Date())
+    return calendarWeek().map((date, index) => {
       const minutes = PracticeLog.minutes(this.state.practiceSeconds, date)
-      days.push({
+      return {
         key: PracticeLog.dayKey(date),
-        weekday: WEEKDAYS[date.getDay()],
+        weekday: WEEKDAYS_SHORT[index],
         minutes,
         goalReached: minutes >= this.dailyGoalMinutes,
-      })
-    }
-    return days
+        today: PracticeLog.dayKey(date) === todayKey,
+      }
+    })
   }
 
   streak(): number {

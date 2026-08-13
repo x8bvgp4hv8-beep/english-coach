@@ -1,48 +1,25 @@
-import { Meter } from '../kit'
+import { BrandMark } from '../kit/Icons'
 import type { AppStore } from './store'
 
 /**
- * The strip every tab wears.
+ * The strip every tab wears — the prototype's, which is almost nothing.
  *
- * It used to live inside the map, because the map was the whole app. Now that four tabs
- * share it, the only thing that changes between them is the title — the language, the
- * streak, the level and the way into settings stay put, so switching tabs never moves
- * the controls out from under a thumb.
+ * A mark, the name, and the course in six characters. What used to live here — the
+ * language chip, the streak, the points, two progress meters — is not gone but moved to
+ * where each belongs: the streak and the daily goal are pills on Сегодня, the meters are
+ * the top of Прогресс. The header stopped being a dashboard.
+ *
+ * Tapping the name opens settings, which is also where the language is changed; the
+ * course label beside it says which one is open.
  */
-export function Header({ model, title }: { model: AppStore; title: string }) {
+export function Header({ model }: { model: AppStore }) {
   return (
-    <header className="header">
-      <div className="header-top">
-        <div>
-          {/* The language is the first thing on screen and one tap from being changed. */}
-          <button className="lang-chip" onClick={() => model.openLanguages()}>
-            <span className="lang-chip-code">{model.currentLanguage.short}</span>
-            {model.currentLanguage.title}
-            <span className="lang-chip-caret">⌄</span>
-          </button>
-          <h1 className="brand-title">{title}</h1>
-        </div>
-        <div className="header-stats">
-          <span className="stat" title="дней подряд">🔥 {model.streak()}</span>
-          <span className="stat" title="очков всего">✦ {model.totalPoints}</span>
-          <button className="level-chip" onClick={() => model.setScreen('settings')}>{model.selectedLevel}</button>
-          <button className="icon-button" onClick={() => model.setScreen('settings')} aria-label="Настройки">⚙︎</button>
-        </div>
-      </div>
-      <div className="meters">
-        <Meter
-          title={model.unitProgress.title}
-          value={model.unitProgress.value}
-          caption={model.unitProgress.caption}
-          color="var(--violet)"
-        />
-        <Meter
-          title="Цель дня"
-          value={model.dailyGoalProgress}
-          caption={model.dailyGoalReached ? 'выполнена' : `${model.todayPracticeMinutes} / ${model.dailyGoalMinutes} мин`}
-          color={model.dailyGoalReached ? 'var(--mint)' : 'var(--amber)'}
-        />
-      </div>
+    <header className="brandbar">
+      <BrandMark />
+      <button className="brandbar-name" onClick={() => model.setScreen('settings')}>
+        <span className="brandbar-word">Coachirinho</span>
+        <span className="brandbar-course">{model.currentLanguage.short} · {model.selectedLevel}</span>
+      </button>
     </header>
   )
 }

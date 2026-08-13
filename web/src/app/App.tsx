@@ -16,6 +16,7 @@ import { Today } from './Today'
 import { Topics } from './Topics'
 import { isTab, store } from './store'
 import { AlertBar } from '../kit'
+import { IconSprite } from '../kit/Icons'
 import type { AppStore } from './store'
 
 export function useStore(): AppStore {
@@ -46,6 +47,8 @@ export function App() {
   return (
     /* The tab is on the shell so the stylesheet can put that tab's sky behind it. */
     <div className="app" data-tab={isTab(model.screen) ? model.screen : undefined}>
+      {/* Twenty-one line icons, defined once and referenced by everything below. */}
+      <IconSprite />
       {/* Only ever seen mid-exercise: anywhere else the update has already applied itself. */}
       {model.updateReady && (
         <button className="update-bar" onClick={() => model.applyUpdateNow()}>

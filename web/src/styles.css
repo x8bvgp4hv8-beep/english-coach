@@ -320,88 +320,265 @@ body { background-attachment: fixed; overscroll-behavior-y: none; }
 /* ── The four tabs ─────────────────────────────────────────────────────────── */
 
 /*
- * The bar sits at the bottom of the shell, above the home indicator. `.scroll` gets the
- * bar's height back as padding so the last row of a list is never parked underneath it.
+ * The prototype's bar, value for value: a line icon, the label, and a dot under the
+ * current one. `.scroll` keeps its own bottom padding, so the last row of a list never
+ * parks under the bar.
  */
 .tabbar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: var(--surface);
+  flex: none;
+  display: flex;
   border-top: 1px solid var(--hairline);
+  background: var(--surface);
+  padding: 8px 6px 14px;
+  padding-bottom: calc(14px + env(safe-area-inset-bottom));
   backdrop-filter: blur(12px);
-  padding-bottom: env(safe-area-inset-bottom);
 }
 .tabbar-item {
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
-  min-height: var(--tap); padding: 8px 4px 10px;
-  font-size: 11px; font-weight: 650; color: var(--ink-soft);
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  padding: 6px 0; min-height: var(--tap);
+  font: 700 11px/1 var(--font);
+  color: var(--ink-soft);
 }
-/* Desaturating them turned every icon into the same grey smudge — emoji carry their
-   meaning in colour, and the app speaks in them everywhere else. Only the weight of
-   the label separates the current tab. */
-.tabbar-icon { font-size: 19px; line-height: 1; opacity: 0.5; }
-/* The current tab is named by weight and colour, and the label is always present —
-   an icon alone leaves the answer to whoever recognises the pictogram. */
-.tabbar-item.current { color: var(--accent); font-weight: 700; }
-.tabbar-item.current .tabbar-icon { opacity: 1; }
-.tabbar-item:active { background: var(--accent-soft); }
+/* The dot is the entire indicator — it holds its space when hidden so nothing shifts. */
+.tabbar-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: 0; }
+.tabbar-item.current { color: var(--accent); }
+.tabbar-item.current .tabbar-dot { opacity: 1; }
+
+/* ── The brand bar ─────────────────────────────────────────────────────────── */
+
+.brandbar { flex: none; display: flex; align-items: center; gap: 10px; padding: 18px 18px 10px; }
+.brand-mark { width: 30px; height: 30px; flex: none; display: block; }
+.brandbar-name { display: flex; align-items: baseline; gap: 8px; padding: 0; }
+.brandbar-word { font: 800 17px/1 var(--font); letter-spacing: -0.035em; color: var(--ink); }
+.brandbar-course {
+  font: 700 11px/1 var(--font); letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+
+/* ── Today ─────────────────────────────────────────────────────────────────── */
+
+/* The two numbers worth carrying at the top of the day, and nothing else up there. */
+.pills-row { display: flex; align-items: center; gap: 8px; margin: 8px 0 14px; }
+.pill-streak, .pill-goal {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 32px; padding: 0 12px; border-radius: 999px;
+}
+.pill-streak { background: #efe3ca; color: #8a5a1e; }
+.pill-streak svg { color: #e23a22; }
+.pill-goal { background: var(--accent-soft); color: var(--ink); }
+.pill-streak b, .pill-goal b { font: 700 14px/1 var(--font); font-variant-numeric: tabular-nums; }
+.pill-streak span:last-child {
+  font: 700 9px/1 var(--font); letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7;
+}
+
+.day-title { font: 700 26px/1.18 var(--font); letter-spacing: -0.025em; margin: 0 0 4px; color: var(--ink); }
+.day-line { font: 400 14px/1.5 var(--font); color: var(--ink-soft); margin: 0 0 16px; text-wrap: pretty; }
+
+/* The one lesson the screen exists for, with its place in the unit under it. */
+.next-card {
+  width: 100%; text-align: left; display: block; padding: 16px;
+  border: var(--border-w) solid var(--border-col); border-radius: 20px;
+  background: var(--surface-solid); box-shadow: var(--shadow-card);
+  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
+}
+.next-card:active { transform: translateY(var(--press-y)) scale(0.995); box-shadow: var(--shadow-btn-active); }
+.next-head { display: flex; align-items: center; gap: 13px; }
+.next-play {
+  width: 52px; height: 52px; border-radius: 16px; flex: none;
+  display: grid; place-items: center; background: var(--amber); color: #fff;
+}
+.next-body { flex: 1; min-width: 0; }
+.next-kicker {
+  display: block; font: 700 9px/1 var(--font); letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--amber); margin-bottom: 6px;
+}
+.next-title { display: block; font: 700 19px/1.2 var(--font); letter-spacing: -0.02em; color: var(--ink); }
+.next-block { display: block; font: 400 13px/1.35 var(--font); color: var(--ink-soft); margin-top: 3px; }
+.next-bar { display: block; height: 6px; border-radius: 999px; background: var(--track); margin: 14px 0 8px; }
+.next-bar > span { display: block; height: 6px; border-radius: 999px; background: var(--amber); }
+.next-in-block { display: block; font: 400 12px/1 var(--font); color: var(--ink-soft); }
+
+.review-card {
+  width: 100%; display: flex; align-items: center; gap: 13px; text-align: left;
+  margin-top: 12px; padding: 14px; border-radius: var(--radius);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
+  box-shadow: var(--shadow-card);
+}
+.review-icon {
+  width: 44px; height: 44px; border-radius: 13px; flex: none;
+  display: grid; place-items: center; background: var(--blue); color: #fff;
+}
+.review-body { flex: 1; min-width: 0; }
+.review-title { display: block; font: 700 15px/1.2 var(--font); color: var(--ink); }
+.review-note { display: block; font: 400 12px/1.35 var(--font); color: var(--ink-soft); margin-top: 3px; }
+.review-chevron { flex: none; color: var(--blue); display: flex; }
+
+.gap-22 { height: 22px; }
+
+/* Seven days: a tick for done, a ring for today, an empty tile for the rest. */
+.week-strip { display: flex; gap: 6px; margin-top: 12px; }
+.week-day { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.week-label { font: 700 10px/1 var(--font); color: var(--ink-soft); }
+.week-label.today { color: var(--amber); }
+.week-cell {
+  width: 100%; max-width: 40px; aspect-ratio: 1; border-radius: 13px;
+  display: grid; place-items: center; background: var(--track);
+}
+.week-cell.done { background: var(--mint); color: #fff; }
+.week-cell.now { background: var(--surface-solid); border: 2px solid var(--amber); }
+.week-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--amber); }
+.week-line { font: 400 13px/1.45 var(--font); color: var(--ink-soft); margin: 14px 0 0; text-wrap: pretty; }
+
+.levelup {
+  padding: 14px; border-radius: var(--radius); margin-bottom: 14px;
+  background: rgba(84, 199, 151, 0.13); border: 1px solid rgba(84, 199, 151, 0.4);
+}
+.levelup-title { font-weight: 700; }
+.levelup-note { font: 400 13px/1.4 var(--font); color: var(--ink-soft); margin: 4px 0 12px; }
+
+/* ── Practice ──────────────────────────────────────────────────────────────── */
+
+.kind-card {
+  margin-top: 4px; background: var(--surface-solid); border-radius: var(--radius);
+  overflow: hidden; border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
+}
+.kind-row {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+  min-height: 66px; padding: 12px 14px; border-bottom: 1px solid var(--hairline);
+}
+.kind-row:last-child { border-bottom: none; }
+.kind-row:active:not(:disabled) { background: var(--accent-soft); }
+.kind-row:disabled { opacity: 0.45; }
+.kind-tile {
+  width: 38px; height: 38px; border-radius: 12px; flex: none;
+  display: grid; place-items: center; color: #fff;
+}
+.kind-body { flex: 1; min-width: 0; }
+.kind-name { display: block; font: 700 15px/1.2 var(--font); color: var(--ink); }
+.kind-note { display: block; font: 400 12px/1.35 var(--font); color: var(--ink-soft); margin-top: 2px; }
+.kind-chevron { flex: none; color: var(--ink-soft); display: flex; }
+.kind-empty { flex: none; font: 400 11px/1 var(--font); color: var(--ink-soft); }
+
+.topic-card {
+  display: block; width: 100%; text-align: left; margin-top: 10px; padding: 14px;
+  border-radius: var(--radius); background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
+}
+.topic-head { display: flex; align-items: baseline; gap: 10px; }
+.topic-title { flex: 1; font: 700 15px/1.2 var(--font); color: var(--ink); }
+.topic-score { font: 700 13px/1 var(--font); font-variant-numeric: tabular-nums; }
+.topic-note { display: block; font: 400 12px/1.4 var(--font); color: var(--ink-soft); margin-top: 5px; }
+.topic-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px;
+  font: 400 11px/1 var(--font); color: var(--ink-soft);
+}
 
 /* ── Progress ──────────────────────────────────────────────────────────────── */
 
-.streak-hero {
-  display: grid; justify-items: center; gap: 4px;
-  padding: 22px 0 6px; text-align: center;
-}
-.streak-figure { font-size: 40px; font-weight: var(--display-w); line-height: 1; font-variant-numeric: tabular-nums; }
-.streak-caption { font-size: 13px; color: var(--ink-soft); }
+.twin-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 6px 0 4px; }
+.twin { display: block; }
+.twin-track { display: block; height: 6px; border-radius: 999px; background: var(--track); overflow: hidden; }
+.twin-track > span { display: block; height: 6px; border-radius: 999px; }
+.twin-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 7px; }
+.twin-label { font: 400 11px/1.2 var(--font); color: var(--ink-soft); }
+.twin-value { font: 700 11px/1.2 var(--font); font-variant-numeric: tabular-nums; }
 
-.level-bar { margin-top: 10px; }
+.spoken {
+  list-style: none; margin: 10px 0 0; padding: 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.spoken li {
+  padding: 11px 14px; border-radius: var(--radius);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
+  box-shadow: var(--shadow-card); font: 400 15px/1.3 var(--font);
+}
+
+.chart-goal { font: 400 12px/1.4 var(--font); color: var(--ink-soft); margin: 3px 0 0; }
 
 /*
- * Seven days of minutes. One series, so no legend; the goal is a line rather than a
- * colour so the chart still answers "did I hit it" in grayscale.
+ * Minutes per day. One series, so no legend; every bar carries its own number, which is
+ * what the prototype chose and what seven bars can hold without turning into a table.
  */
-.week { margin-top: 10px; }
-.week-plot {
-  position: relative;
-  display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
-  align-items: end;
-  height: 132px;
-  padding: 0 2px;
-}
-.week-goal {
-  position: absolute; left: 0; right: 0; height: 0;
-  border-top: 2px dashed color-mix(in srgb, var(--ink-soft) 55%, transparent);
-  pointer-events: none;
-}
-.week-col { height: 100%; display: flex; align-items: flex-end; }
-.week-bar {
-  position: relative; width: 100%; min-height: 3px;
-  border-radius: 4px 4px 0 0;
-  background: var(--track);
+.chart { margin-top: 16px; }
+.chart-values,
+.chart-axis { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; }
+.chart-values { font: 400 11px/1 var(--font); color: var(--ink-soft); font-variant-numeric: tabular-nums; margin-bottom: 8px; }
+.chart-plot { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; align-items: end; height: 74px; }
+.chart-col { height: 100%; display: flex; align-items: flex-end; }
+.chart-bar {
+  width: 100%; min-height: 3px; border-radius: 8px 8px 0 0; background: var(--track);
   transition: height 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.week-bar.reached { background: var(--mint); }
-.week-value {
-  position: absolute; left: 0; right: 0; bottom: calc(100% + 4px);
-  text-align: center; font-size: 11px; font-weight: 700; color: var(--ink-soft);
-  font-variant-numeric: tabular-nums;
-}
-.week-axis {
-  display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
-  margin-top: 7px; padding: 0 2px;
-  font-size: 11px; color: var(--ink-soft); text-align: center;
-}
-.week-axis .today { color: var(--accent); font-weight: 700; }
+.chart-bar.reached { background: var(--ink); }
+.chart-axis { margin-top: 8px; font: 700 10px/1 var(--font); color: var(--ink-soft); }
+.chart-axis .today { color: var(--amber); }
+.chart-line { font: 400 13px/1.45 var(--font); color: var(--ink-soft); margin: 14px 0 0; text-wrap: pretty; }
 
-.totals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
-.total {
-  display: grid; justify-items: center; gap: 3px; padding: 14px 8px;
+
+/* ── The road ──────────────────────────────────────────────────────────────── */
+
+.here-card {
+  margin: 8px 0 6px; padding: 15px; border-radius: 20px;
   background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
-  border-radius: var(--radius); box-shadow: var(--shadow-card); text-align: center;
+  box-shadow: var(--shadow-card);
 }
-.total-value { font-size: 19px; font-weight: var(--display-w); font-variant-numeric: tabular-nums; }
-.total-caption { font-size: 11px; color: var(--ink-soft); line-height: 1.3; }
+.here-kicker {
+  font: 700 9px/1 var(--font); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--amber); margin: 0 0 8px;
+}
+.here-title { font: 700 19px/1.2 var(--font); letter-spacing: -0.02em; color: var(--ink); margin: 0 0 3px; }
+.here-where { font: 400 13px/1.35 var(--font); color: var(--ink-soft); margin: 0 0 13px; }
+.route-caption { font: 400 12px/1.4 var(--font); color: var(--ink-soft); margin: 14px 0 0; text-align: center; }
+
+/* The road runs the full width of the screen, under the drawing of the place. */
+.route-map {
+  display: flex; flex-direction: column; align-items: center;
+  margin: 0 -18px; padding: 14px 18px 24px;
+}
+.route-chapter { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+.route-banner {
+  width: 100%; display: flex; align-items: center; gap: 12px;
+  padding: 13px 15px; border-radius: 16px;
+  background: var(--accent); color: var(--accent-fg); margin: 6px 0 4px;
+}
+.route-banner-body { flex: 1; min-width: 0; }
+.route-banner-kicker {
+  font: 700 9px/1 var(--font); letter-spacing: 0.14em; text-transform: uppercase;
+  opacity: 0.65; margin: 0 0 6px;
+}
+.route-banner-title { font: 700 16px/1.2 var(--font); letter-spacing: -0.02em; margin: 0; }
+.route-banner-note { font: 400 11px/1.35 var(--font); opacity: 0.7; margin: 4px 0 0; text-wrap: pretty; }
+.route-banner-count { flex: none; font: 700 13px/1 var(--font); opacity: 0.9; font-variant-numeric: tabular-nums; }
+
+.route-stop { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+.route-badge {
+  display: block; font: 700 9px/1 var(--font); letter-spacing: 0.14em; text-transform: uppercase;
+  color: #fff; background: var(--amber); padding: 6px 11px; border-radius: 999px;
+  box-shadow: 0 3px 0 rgba(27, 32, 41, 0.18); margin-bottom: 2px;
+}
+.route-node {
+  width: 62px; height: 62px; border-radius: 50%; padding: 0;
+  display: grid; place-items: center;
+  transition: transform 140ms ease-out, box-shadow 140ms ease-out;
+}
+.route-node.done { background: var(--mint); color: #fff; box-shadow: 0 5px 0 rgba(27, 32, 41, 0.22); }
+.route-node.current {
+  width: 74px; height: 74px;
+  background: var(--amber); color: #fff; box-shadow: 0 5px 0 rgba(27, 32, 41, 0.22);
+}
+.route-node.open {
+  background: var(--surface-solid); color: var(--accent);
+  border: 2px solid var(--border-col); box-shadow: 0 4px 0 rgba(27, 32, 41, 0.12);
+}
+.route-node.locked { background: var(--track); color: var(--ink-soft); box-shadow: none; }
+.route-node:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 2px 0 rgba(27, 32, 41, 0.22); }
+.route-name {
+  font: 700 11px/1.3 var(--font); color: var(--ink);
+  text-align: center; max-width: 124px; text-wrap: pretty;
+}
+.route-minutes { font: 400 10px/1 var(--font); color: var(--ink-soft); margin-top: -3px; }
 
 /* ── The sky behind each tab ───────────────────────────────────────────────── */
 
@@ -429,17 +606,12 @@ body { background-attachment: fixed; overscroll-behavior-y: none; }
 :root[data-theme='minimal'][data-learning='es'] .app[data-tab='progress'] { background-image: url('./bg/progress-es.svg'); }
 
 /*
- * The course is terrain, not weather: it belongs to the route and therefore scrolls with
- * it, tiling down the whole level. The tile is drawn to meet itself top to bottom, so a
- * level of any length has no seam in it.
- */
-/*
  * A wash of the canvas colour sits between the terrain and the list. In the prototype
  * the route was a path of nodes drawn over the map, with nothing to read; here it is a
  * dense list of units, and a ferris wheel behind "0 / 2" is exactly the dirt the
  * background philosophy warns about. The veil keeps the place and drops the noise.
  */
-:root[data-theme='minimal'] .course-scroll {
+:root[data-theme='minimal'] .route-map {
   background-image:
     linear-gradient(color-mix(in srgb, var(--surface-solid) 66%, transparent), color-mix(in srgb, var(--surface-solid) 66%, transparent)),
     url('./bg/course-en.svg');
@@ -447,7 +619,7 @@ body { background-attachment: fixed; overscroll-behavior-y: none; }
   background-position: top center, top center;
   background-size: auto, 100% auto;
 }
-:root[data-theme='minimal'][data-learning='es'] .course-scroll {
+:root[data-theme='minimal'][data-learning='es'] .route-map {
   background-image:
     linear-gradient(color-mix(in srgb, var(--surface-solid) 66%, transparent), color-mix(in srgb, var(--surface-solid) 66%, transparent)),
     url('./bg/course-es.svg');

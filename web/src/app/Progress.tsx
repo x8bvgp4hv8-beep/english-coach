@@ -1,106 +1,162 @@
 import { useStore } from './App'
 import { Header } from './Header'
-import { LevelBar } from './Today'
-import { plural } from './plural'
-import { EmptyNote, SectionTitle } from '../kit'
+import { plural, spell } from './plural'
+import { AbilityChip, EmptyNote, SectionTitle } from '../kit'
 import type { AppStore } from './store'
 
 /**
- * The tab the app never had: what the last week actually looked like.
+ * The week, the level and what the answers add up to.
  *
- * Everything on it was already being recorded — minutes per day, the streak, points,
- * units closed — it simply had nowhere to be seen but a single line in the header.
+ * Everything on it was already being recorded — minutes per day, units closed, the
+ * accuracy behind the weak topics — it simply had nowhere to be seen but one line of
+ * header. The two meters that used to sit on every screen live here now, where they are
+ * the subject rather than decoration.
  */
 export function Progress() {
   const model = useStore()
-  const streak = model.streak()
+  const level = model.levelProgress
+  const unit = model.unitProgress
+  const answers = model.recentAccuracy
 
   return (
     <>
-      <Header model={model} title="Прогресс" />
+      <Header model={model} />
       <div className="scroll">
-        <div className="streak-hero">
-          <span className="streak-figure">🔥 {streak}</span>
-          <span className="streak-caption">
-            {streak === 0
-              ? 'Серия начнётся с первого занятия сегодня'
-              : `${plural(streak, 'день', 'дня', 'дней')} подряд`}
-          </span>
+        <div className="twin-bars">
+          <div className="twin">
+            <span className="twin-track"><span style={{ width: `${level.value * 100}%`, background: 'var(--mint)' }} /></span>
+            <span className="twin-row">
+              <span className="twin-label">Блок {unit.title.match(/\d+/)?.[0] ?? 1} из {level.total}</span>
+              <span className="twin-value" style={{ color: 'var(--amber)' }}>{unit.caption}</span>
+            </span>
+          </div>
+          <div className="twin">
+            <span className="twin-track"><span style={{ width: `${answers.share * 100}%`, background: 'var(--ink)' }} /></span>
+            <span className="twin-row">
+              <span className="twin-label">Верных ответов</span>
+              <span className="twin-value" style={{ color: 'var(--blue)' }}>{answers.correct} из {answers.total}</span>
+            </span>
+          </div>
         </div>
 
-        <SectionTitle hint={`Пунктир — твоя цель, ${model.dailyGoalMinutes} мин в день`}>
-          Минуты по дням
-        </SectionTitle>
+        <SectionTitle hint="Не слова, а то, что ты можешь ими сделать">Умения</SectionTitle>
+        <Abilities model={model} />
+
+        <SectionTitle>Произношение</SectionTitle>
+        <Pronunciation model={model} />
+
+        <SectionTitle>Минуты по дням</SectionTitle>
+        <p className="chart-goal">Цель — {model.dailyGoalMinutes} минут в день</p>
         <WeekChart model={model} />
-
-        <LevelBar model={model} />
-
-        <SectionTitle>Всего</SectionTitle>
-        <div className="totals">
-          <Total value={`✦ ${model.totalPoints}`} caption="очков" />
-          <Total value={`${model.levelProgress.done}`} caption={plural(model.levelProgress.done, 'блок закрыт', 'блока закрыто', 'блоков закрыто')} />
-          <Total value={`${model.dueCount}`} caption="ждёт повторения" />
-        </div>
       </div>
     </>
   )
 }
 
-function Total({ value, caption }: { value: string; caption: string }) {
+/**
+ * What the level has actually bought you, said as things you can do.
+ *
+ * Kept out of Сегодня, where it competed with the one lesson that screen exists for,
+ * and kept here, where looking back is the whole point.
+ */
+function Abilities({ model }: { model: AppStore }) {
+  const { earned, next } = model.abilities
+  if (earned.length === 0 && next.length === 0) {
+    return <EmptyNote>Появится, когда закроешь первый блок.</EmptyNote>
+  }
   return (
-    <div className="total">
-      <span className="total-value">{value}</span>
-      <span className="total-caption">{caption}</span>
+    <div className="abilities">
+      {earned.map((item) => <AbilityChip key={item} state="earned">{item}</AbilityChip>)}
+      {next.map((item) => <AbilityChip key={item} state="next">{item}</AbilityChip>)}
     </div>
   )
 }
 
 /**
- * Seven days of practice as seven bars.
+ * Speaking, reported only as far as the app can hear.
  *
- * One series, so no legend — the section title names it. Whether a day met the goal is
- * drawn as a line across the chart rather than as a colour alone, so the answer survives
- * a screenshot, a colour-blind reader and a black-and-white print; the colour is a
- * second voice saying the same thing.
+ * The prototype's placeholder promised a breakdown by sound. Nothing in this app listens
+ * to a voice, so that breakdown would be a promise it cannot keep; what it can say is
+ * which phrases were said out loud and which of them you marked as not having come out.
+ */
+function Pronunciation({ model }: { model: AppStore }) {
+  const { count, hard } = model.spoken
+  if (count < SPOKEN_ENOUGH) {
+    const left = SPOKEN_ENOUGH - count
+    return (
+      <EmptyNote>
+        Здесь появятся фразы, которые даются тяжелее других. Нужно проговорить вслух
+        хотя бы {SPOKEN_ENOUGH} — {count === 0 ? 'пока ни одной' : `пока ${count}, осталось ${left}`}.
+      </EmptyNote>
+    )
+  }
+  if (hard.length === 0) {
+    return <EmptyNote>Проговорено {count}, и все вышли. Тут пока не за что зацепиться.</EmptyNote>
+  }
+  return (
+    <ul className="spoken">
+      {hard.map((phrase) => <li key={phrase} className="learn">{phrase}</li>)}
+    </ul>
+  )
+}
+
+/** Below this a list of "hard phrases" is noise rather than a finding. */
+const SPOKEN_ENOUGH = 10
+
+/**
+ * Seven days of practice as seven bars, each with its own number above it.
  *
- * The scale is the taller of the goal and the best day, which keeps the goal line on
- * screen even in a week where nothing reached it.
+ * One series, so no legend — the heading names it, and the goal is spelled out in words
+ * under the heading rather than drawn as a second thing to decode. A day that reached
+ * the goal is ink; a day that fell short is the track colour, which is the same contrast
+ * the rest of the app uses for "not yet".
  */
 function WeekChart({ model }: { model: AppStore }) {
-  const days = model.recentDays(7)
+  const days = model.recentDays()
   const best = Math.max(...days.map((day) => day.minutes))
   const top = Math.max(model.dailyGoalMinutes, best, 1)
-  const goalAt = (model.dailyGoalMinutes / top) * 100
+  const total = days.reduce((sum, day) => sum + day.minutes, 0)
 
   if (best === 0) {
     return <EmptyNote>За последнюю неделю занятий не записано. Первый же урок появится здесь столбиком.</EmptyNote>
   }
 
   return (
-    <div className="week">
-      <div className="week-plot">
-        <div className="week-goal" style={{ bottom: `${goalAt}%` }} aria-hidden="true" />
-        {days.map((day, index) => (
-          <div className="week-col" key={day.key}>
-            <div
-              className={`week-bar${day.goalReached ? ' reached' : ''}`}
-              style={{ height: `${(day.minutes / top) * 100}%` }}
-              role="img"
-              aria-label={`${day.weekday}: ${day.minutes} ${plural(day.minutes, 'минута', 'минуты', 'минут')}${day.goalReached ? ', цель выполнена' : ''}`}
-            >
-              {/* Only the day being lived gets a number: seven of them is a table, not a chart. */}
-              {index === days.length - 1 && day.minutes > 0 && (
-                <span className="week-value">{day.minutes}</span>
-              )}
+    <>
+      <div className="chart">
+        <div className="chart-values">
+          {days.map((day) => (
+            <span key={day.key}>{day.minutes > 0 ? day.minutes : ''}</span>
+          ))}
+        </div>
+        <div className="chart-plot">
+          {days.map((day) => (
+            <div className="chart-col" key={day.key}>
+              <div
+                className={`chart-bar${day.goalReached ? ' reached' : ''}`}
+                style={{ height: `${(day.minutes / top) * 100}%` }}
+                role="img"
+                aria-label={`${day.weekday}: ${day.minutes} ${plural(day.minutes, 'минута', 'минуты', 'минут')}`}
+              />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className="chart-axis">
+          {days.map((day) => (
+            <span key={day.key} className={day.today ? 'today' : undefined}>{day.weekday.toUpperCase()}</span>
+          ))}
+        </div>
       </div>
-      <div className="week-axis">
-        {days.map((day, index) => (
-          <span key={day.key} className={index === days.length - 1 ? 'today' : undefined}>{day.weekday}</span>
-        ))}
-      </div>
-    </div>
+      <p className="chart-line">{chartLine(total, days.filter((d) => d.goalReached).length)}</p>
+    </>
   )
 }
+
+function chartLine(total: number, reached: number): string {
+  const minutes = `${total} ${plural(total, 'минута', 'минуты', 'минут')} за неделю`
+  if (reached === 0) return `${capitalise(minutes)}. Цель пока не взята ни в одном дне.`
+  const days = `${spell(reached)} ${plural(reached, 'дне', 'днях', 'днях')}`
+  return `${capitalise(minutes)}. Цель взята в ${days} из семи.`
+}
+
+const capitalise = (text: string): string => text.charAt(0).toUpperCase() + text.slice(1)
