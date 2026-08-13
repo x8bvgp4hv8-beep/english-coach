@@ -94,7 +94,9 @@ export function Player() {
           <div className="exercise-kind">{kindLabel(exercise.type, model.currentLanguage, recall)}</div>
           {exercise.title && <h2 className="exercise-title">{exercise.title}</h2>}
           {exercise.prompt && !answerHidden && (
-            <div className="exercise-prompt">
+            /* A flashcard prompt is the word itself; every other kind asks its question
+               in Russian, so only this one is handed to the second face. */
+            <div className={`exercise-prompt${exercise.type === 'flashcard' ? ' learn' : ''}`}>
               {exercise.prompt}
               {exercise.type === 'flashcard' && (
                 <button className="speak" style={{ marginLeft: 8 }} onClick={() => speak(exercise.prompt!)} aria-label="Произнести">🔊</button>
@@ -118,7 +120,7 @@ export function Player() {
               {answerHidden && (
                 <p className="exercise-hint">Скажи про себя, как это будет {model.currentLanguage.adverb}</p>
               )}
-              {exercise.example && !answerHidden && <p className="exercise-hint"><em>{exercise.example}</em></p>}
+              {exercise.example && !answerHidden && <p className="exercise-hint learn"><em>{exercise.example}</em></p>}
             </>
           )}
 

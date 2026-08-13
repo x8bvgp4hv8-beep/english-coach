@@ -17,7 +17,8 @@
  */
 :root[data-theme='cartoon'] {
   color-scheme: light;
-  --font: ui-rounded, 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font: 'Balsamiq Sans', ui-rounded, 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-learn: 'Comic Neue', 'Balsamiq Sans', ui-rounded, 'SF Pro Rounded', system-ui, sans-serif;
   --bg: linear-gradient(170deg, #fbf4e6 0%, #f6ece0 100%);
   --ink: #241e1a;
   --ink-soft: #8b7f70;
@@ -42,13 +43,14 @@
   --shadow-btn: 0 5px 0 var(--border-col);
   --shadow-btn-active: 0 1px 0 var(--border-col);
   --press-y: 4px;
-  --display-w: 800;
+  --display-w: 700;
   --tap: 48px;
 }
 
 :root[data-theme='night'] {
   color-scheme: dark;
-  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --font: 'Balsamiq Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --font-learn: 'Comic Neue', 'Balsamiq Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --bg: radial-gradient(120% 70% at 50% 0%, #251f57 0%, #16123a 45%, #0f0d25 100%);
   --ink: #efeefb;
   --ink-soft: #918cc4;
@@ -73,7 +75,7 @@
   --shadow-btn: 0 14px 34px rgba(105, 95, 230, 0.45);
   --shadow-btn-active: 0 6px 16px rgba(105, 95, 230, 0.4);
   --press-y: 0px;
-  --display-w: 750;
+  --display-w: 700;
   --tap: 48px;
 }
 
@@ -197,6 +199,11 @@ body { background-attachment: fixed; overscroll-behavior-y: none; }
 .exercise-kind { font-size: 10px; font-weight: 800; letter-spacing: 1.2px; color: var(--accent); text-align: center; }
 .exercise-title { font-size: 22px; font-weight: var(--display-w); text-align: center; margin: 10px 0 0; letter-spacing: -0.02em; }
 .exercise-prompt { font-size: 24px; font-weight: var(--display-w); text-align: center; margin: 10px 0 0; letter-spacing: -0.02em; line-height: 1.22; }
+/* The second hand. Set on the elements the content guarantees are in the language being
+   learned — a prompt is Russian in a translation exercise and English in a flashcard, so
+   the screen decides, not the stylesheet. Cyrillic falls back to the interface face
+   anyway, which makes a wrong guess quiet rather than broken. */
+.learn { font-family: var(--font-learn); }
 .exercise-explanation { font-size: 16px; line-height: 1.5; margin: 12px 0 0; }
 .exercise-hint { font-size: 13px; color: var(--ink-soft); margin: 12px 0 0; text-align: center; }
 

@@ -10,12 +10,16 @@
  * colour, a radius or a border width that a token could carry instead.
  */
 
+@import './fonts.css';
+
 /* ── Tokens ───────────────────────────────────────────────────────────────── */
 
 :root,
 :root[data-theme='minimal'] {
   color-scheme: light;
-  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --font: 'Balsamiq Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  /* The language being learned, wherever it is shown as itself rather than translated. */
+  --font-learn: 'Comic Neue', 'Balsamiq Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --bg: #fbfbfd;
   --ink: #14121f;
   --ink-soft: #86839a;
@@ -40,7 +44,9 @@
   --shadow-btn: none;
   --shadow-btn-active: none;
   --press-y: 0px;
-  --display-w: 800;
+  /* Balsamiq Sans ships 400 and 700 and nothing between, so anything heavier than 700
+     asks the browser to invent a weight. 700 is the heaviest that is really drawn. */
+  --display-w: 700;
   /* Never themed: the smallest thing a thumb is asked to hit. */
   --tap: 48px;
 }
@@ -104,7 +110,7 @@ button { cursor: pointer; border: none; background: none; }
 .dialogue { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; text-align: left; }
 .dialogue-line { padding-left: 10px; border-left: 2px solid var(--accent-soft); }
 .dialogue-speaker { display: block; font-size: 10px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: var(--accent); }
-.dialogue-text { font-size: 17px; font-weight: 600; line-height: 1.35; margin-top: 2px; }
+.dialogue-text { font-family: var(--font-learn); font-size: 17px; font-weight: 600; line-height: 1.35; margin-top: 2px; }
 .dialogue-translation { font-size: 13px; color: var(--ink-soft); line-height: 1.35; margin-top: 3px; }
 .speak { min-width: 40px; min-height: 40px; border-radius: 50%; background: color-mix(in srgb, var(--blue) 18%, transparent); color: var(--blue); font-size: 17px; }
 .speak.small { min-width: 28px; min-height: 28px; font-size: 13px; margin-left: 6px; vertical-align: middle; }
@@ -222,6 +228,7 @@ button { cursor: pointer; border: none; background: none; }
  * for the one thing that submits.
  */
 .choice {
+  font-family: var(--font-learn);
   position: relative;
   width: 100%; min-height: var(--tap); padding: 0 40px; border-radius: var(--radius-btn); font-weight: 650; font-size: 16px;
   background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
@@ -248,6 +255,7 @@ button { cursor: pointer; border: none; background: none; }
 /* ── AnswerField ──────────────────────────────────────────────────────────── */
 
 .answer-field {
+  font-family: var(--font-learn);
   width: 100%; min-height: var(--tap); margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-btn);
   border: var(--border-w) solid var(--border-col); background: var(--surface-solid); font-size: 17px;
 }
@@ -258,6 +266,7 @@ button { cursor: pointer; border: none; background: none; }
 
 .tokens { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .token {
+  font-family: var(--font-learn);
   min-height: 40px; padding: 0 13px; border-radius: 999px; font-weight: 650;
   background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
 }
@@ -285,7 +294,7 @@ button { cursor: pointer; border: none; background: none; }
 .feedback.correct .feedback-title { color: var(--mint); }
 .feedback.wrong .feedback-title { color: var(--amber); }
 .feedback-note { font-size: 14px; color: var(--ink-soft); margin-top: 6px; line-height: 1.4; }
-.feedback-answer { font-size: 15px; margin-top: 6px; font-weight: 650; }
+.feedback-answer { font-family: var(--font-learn); font-size: 15px; margin-top: 6px; font-weight: 650; }
 .feedback-diff { font-size: 13px; margin-top: 6px; color: var(--amber); }
 
 @media (prefers-reduced-motion: reduce) {
@@ -369,7 +378,7 @@ button { cursor: pointer; border: none; background: none; }
 
 /* ── Typewriter ───────────────────────────────────────────────────────────── */
 
-.typewriter { display: inline-flex; align-items: baseline; }
+.typewriter { font-family: var(--font-learn); display: inline-flex; align-items: baseline; }
 .caret {
   display: inline-block; width: 2px; height: 1em; margin-left: 3px; border-radius: 1px;
   background: var(--accent); animation: caret-blink 1s steps(2, start) infinite;
