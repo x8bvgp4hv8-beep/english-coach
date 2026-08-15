@@ -46,6 +46,17 @@ export function Practice() {
             ready={model.listeningCount > 0}
             onClick={() => model.startListening()}
           />
+          {/* Dialogue drills are not built yet: the pool deliberately excludes dialogues,
+              because hearing an exchange again is exposure rather than practice. The row
+              stands anyway, dimmed and saying so — the same way an empty kind does — so
+              the list is the whole map of what practice will be, not just what it is. */}
+          <KindRow
+            icon="dialogue" color="var(--blue)"
+            title="Диалог"
+            note="Сначала целиком, потом по репликам"
+            ready={false}
+            onClick={() => {}}
+          />
           {PRACTICE_KINDS.map((kind) => (
             <KindRow
               key={kind.id}

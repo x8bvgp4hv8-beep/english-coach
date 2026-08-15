@@ -37,6 +37,17 @@ export const TABS = ['today', 'course', 'practice', 'progress'] as const
 export type Tab = (typeof TABS)[number]
 export type Screen = Tab | 'settings' | 'topics' | 'language'
 
+/**
+ * Where the running set came from. Four doors lead into the same player, and the
+ * summary at the end has to name the one the learner came through — and send them
+ * back out of it, rather than always to the same tab.
+ */
+export type SessionMode = 'lesson' | 'review' | 'drill' | 'topic'
+
+const MODE_KICKER: Record<SessionMode, string> = {
+  lesson: 'ЗАНЯТИЕ', review: 'ПОВТОРЕНИЕ', drill: 'ТРЕНИРОВКА', topic: 'СЛАБАЯ ТЕМА',
+}
+
 export function isTab(screen: Screen): screen is Tab {
   return (TABS as readonly string[]).includes(screen)
 }
@@ -90,6 +101,18 @@ export class AppStore {
   /** Listening does the same: same session, its own screen, the text kept hidden. */
   listeningActive = false
   listeningItems: ListeningItem[] = []
+
+  /**
+   * The running set: which door it came through, how many answers went wrong in it,
+   * and how to build the very same set again for "Ещё раз".
+   *
+   * The repeat is a replay of the set that was actually played, not a fresh draw from
+   * the same door: a second pass over the review queue would come back empty, and a
+   * second draw of a drill would be different exercises. "Ещё раз" means these ones.
+   */
+  sessionMode: SessionMode = 'lesson'
+  sessionMistakes = 0
+  private sessionRepeat: (() => void) | null = null
 
   placementActive = false
   placementIndex = 0
@@ -497,7 +520,41 @@ export class AppStore {
     this.session = new LearningSession(this.state, this.language ?? DEFAULT_LANGUAGE)
     this.session.start(lesson, { recordsCompletion })
     this.lessonStartedAt = new Date()
+    this.sessionMode = 'lesson'
+    this.sessionMistakes = 0
+    this.sessionWrongIDs = new Set()
+    this.sessionRepeat = () => this.startLesson(lesson, recordsCompletion)
     this.changed()
+  }
+
+  /**
+   * A generated set — review, drill, weak topic — opened under the door it came from.
+   *
+   * The mode has to be carried by the repeat as well as by the first run: replaying a
+   * drill through `startLesson` alone would call it a lesson the second time round, and
+   * the summary would both name it wrong and show the way out to the wrong tab.
+   */
+  private beginSession(lesson: Lesson, mode: SessionMode): void {
+    this.startLesson(lesson, false)
+    this.sessionMode = mode
+    this.sessionRepeat = () => this.beginSession(lesson, mode)
+    this.changed()
+  }
+
+  /** The kicker over the summary: which of the four doors this set came through. */
+  get sessionKicker(): string { return MODE_KICKER[this.sessionMode] }
+
+  /** The same exercises once more, from the top. */
+  repeatSession(): void { this.sessionRepeat?.() }
+
+  /**
+   * Out of the summary. A drill and a weak topic are started from Тренировка, so that
+   * is where leaving one lands; a lesson and a review land on Сегодня.
+   */
+  exitSession(): void {
+    const mode = this.sessionMode
+    this.closeLesson()
+    this.setScreen(mode === 'drill' || mode === 'topic' ? 'practice' : 'today')
   }
 
   /**
@@ -516,13 +573,13 @@ export class AppStore {
       // Profiles written before rule cards stopped being scheduled still carry them.
       .filter((exercise) => exercise.type !== 'info' && exercise.type !== 'dialogue')
     if (exercises.length === 0) return
-    this.startLesson({
+    this.beginSession({
       id: 'daily-review',
       title: 'Повторение',
       summary: 'Закрепи то, что пора освежить.',
       estimatedMinutes: Math.max(2, Math.round(exercises.length * 0.6)),
       exercises,
-    }, false)
+    }, 'review')
   }
 
   get practiceCounts(): Record<string, number> {
@@ -535,7 +592,7 @@ export class AppStore {
       courses: this.practiceCourses, level: this.selectedLevel, state: this.state, types: kind.types,
     })
     if (exercises.length === 0) return
-    this.startLesson(PracticeEngine.lesson(exercises, kind.title), false)
+    this.beginSession(PracticeEngine.lesson(exercises, kind.title), 'drill')
   }
 
   // MARK: - Grammar topics
@@ -558,7 +615,7 @@ export class AppStore {
     })
     if (exercises.length === 0) return
     const title = this.syllabus?.topics.find((t) => t.id === topicID)?.title ?? 'Тренировка'
-    this.startLesson(PracticeEngine.lesson(exercises, title), false)
+    this.beginSession(PracticeEngine.lesson(exercises, title), 'topic')
   }
 
   // MARK: - Shadowing
@@ -642,7 +699,9 @@ export class AppStore {
    * a word from a card. Counts exactly like a checked answer, mistakes included.
    */
   selfAssess(correct: boolean): void {
+    const id = this.session.currentExercise?.id
     this.session.selfAssess(correct)
+    if (!correct && id) this.countMistake(id)
     this.state = this.session.state
     if (this.session.isComplete) this.bankPracticeTime()
     this.persist()
@@ -651,8 +710,31 @@ export class AppStore {
   submitText(answer: string): void { this.session.submitText(answer); this.afterAttempt() }
   submitChoice(choice: string): void { this.session.submitChoice(choice); this.afterAttempt() }
   completePassive(): void { this.session.completePassiveExercise(); this.afterAttempt() }
-  markLastAnswerCorrect(): void { this.session.markLastAnswerCorrect(); this.afterAttempt() }
+
+  markLastAnswerCorrect(): void {
+    const id = this.session.currentExercise?.id
+    this.session.markLastAnswerCorrect()
+    // The escape hatch takes the mistake back with it — the answer was right after all.
+    if (id && this.session.feedback?.isCorrect && this.sessionWrongIDs.delete(id)) {
+      this.sessionMistakes = Math.max(0, this.sessionMistakes - 1)
+    }
+    this.afterAttempt()
+  }
+
   retry(): void { this.session.retry(); this.changed() }
+
+  /**
+   * Counted per exercise rather than per answer: a second miss on the same one after
+   * "Ещё раз" is the same mistake being worked on, not a new one. A typo never lands
+   * here — the checker calls it correct, and so does the tally.
+   */
+  private sessionWrongIDs = new Set<string>()
+
+  private countMistake(exerciseID: string): void {
+    if (this.sessionWrongIDs.has(exerciseID)) return
+    this.sessionWrongIDs.add(exerciseID)
+    this.sessionMistakes += 1
+  }
 
   advance(): void {
     this.session.advance()
@@ -662,6 +744,8 @@ export class AppStore {
   }
 
   private afterAttempt(): void {
+    const id = this.session.currentExercise?.id
+    if (id && this.session.feedback?.verdict === 'wrong') this.countMistake(id)
     this.state = this.session.state
     this.persist()
   }
