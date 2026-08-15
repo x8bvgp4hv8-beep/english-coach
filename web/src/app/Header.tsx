@@ -9,8 +9,10 @@ import type { AppStore } from './store'
  * where each belongs: the streak and the daily goal are pills on Сегодня, the meters are
  * the top of Прогресс. The header stopped being a dashboard.
  *
- * Tapping the name opens settings, which is also where the language is changed; the
- * course label beside it says which one is open.
+ * Two targets, not one. The name opens settings; the course beside it opens the course
+ * itself — the screen with the rhino on it. That is the only way back to a screen the
+ * app otherwise shows once, on the very first launch, and burying it under settings
+ * made the app look as though it had lost it.
  */
 export function Header({ model }: { model: AppStore }) {
   return (
@@ -18,7 +20,9 @@ export function Header({ model }: { model: AppStore }) {
       <BrandMark />
       <button className="brandbar-name" onClick={() => model.setScreen('settings')}>
         <span className="brandbar-word">Coachirinho</span>
-        <span className="brandbar-course">{model.currentLanguage.short} · {model.selectedLevel}</span>
+      </button>
+      <button className="brandbar-course" onClick={() => model.openLanguages()}>
+        {model.currentLanguage.short} · {model.selectedLevel}
       </button>
     </header>
   )
