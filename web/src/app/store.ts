@@ -304,6 +304,24 @@ export class AppStore {
   }
 
   /**
+   * How long the level takes at a given daily goal, in whatever unit stays readable.
+   *
+   * Counted off the hours the course actually holds. The prototype printed a fixed
+   * "14 недель" for every level; here A1 in Spanish is 92 hours and A1 in English is
+   * two, and the honest answer to "сколько это займёт" is the one that differs.
+   */
+  levelPace(level: CEFRLevel, dailyMinutes: number): string {
+    const hours = ProgressionEngine.hours(level, this.courses)
+    if (hours <= 0 || dailyMinutes <= 0) return '—'
+    const days = Math.ceil((hours * 60) / dailyMinutes)
+    if (days <= 13) return `${days} ${plural(days, 'день', 'дня', 'дней')}`
+    const weeks = Math.round(days / 7)
+    if (weeks <= 12) return `${weeks} ${plural(weeks, 'неделя', 'недели', 'недель')}`
+    const months = Math.round(days / 30)
+    return `${months} ${plural(months, 'месяц', 'месяца', 'месяцев')}`
+  }
+
+  /**
    * Speaking, as far as the app can honestly report on it.
    *
    * The prototype promised a breakdown by sound; nothing here listens to a voice, so
@@ -414,8 +432,12 @@ export class AppStore {
     })
   }
 
-  streak(): number {
-    const days = new Set(this.state.attempts.map((a) => PracticeLog.dayKey(a.date)))
+  /**
+   * Days in a row up to today. Takes a state so the picker can ask the same question
+   * about the course that is *not* open — its streak is saved, just not loaded.
+   */
+  streak(state: UserState = this.state): number {
+    const days = new Set(state.attempts.map((a) => PracticeLog.dayKey(a.date)))
     const cursor = new Date()
     if (!days.has(PracticeLog.dayKey(cursor))) cursor.setDate(cursor.getDate() - 1)
     let count = 0

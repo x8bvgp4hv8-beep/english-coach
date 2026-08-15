@@ -203,7 +203,9 @@ export function Settings() {
           <div className="settings-row">
             <span className="label">Цель в день</span>
             <div className="pills">
-              {[5, 10, 15].map((minutes) => (
+              {/* The same three the route was built from, so a goal picked at the start
+                  can still be picked here. */}
+              {[5, 10, 20].map((minutes) => (
                 <button
                   key={minutes}
                   className={`pill${minutes === model.dailyGoalMinutes ? ' selected' : ''}`}

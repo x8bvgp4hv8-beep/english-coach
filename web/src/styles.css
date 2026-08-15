@@ -381,14 +381,154 @@ textarea,
 }
 .lang-chip-caret { font-size: 12px; letter-spacing: 0; opacity: 0.7; }
 
-/* The language picker screen. The cards themselves are in the kit. */
-.lang-screen { padding-top: 8px; }
-.lang-intro { text-align: center; padding: 26px 6px 10px; display: grid; gap: 10px; justify-items: center; }
-.lang-intro h1 { font-size: 26px; font-weight: var(--display-w); margin: 0; }
-.lang-intro p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.45; max-width: 34ch; }
+/* The language picker: one course at a time, the whole screen given to it. */
+.lang-screen {
+  flex: 1; min-height: 0; position: relative; isolation: isolate;
+  display: flex; flex-direction: column;
+  padding: 14px 18px calc(20px + env(safe-area-inset-bottom));
+  overflow: hidden;
+}
 
-.lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0 14px; }
-@media (max-width: 340px) { .lang-grid { grid-template-columns: 1fr; } }
+/* The city, anchored to the bottom edge and breathing very slowly. Behind everything
+   and never scrolled: it is scenery, not content. */
+.lang-screen::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background-repeat: no-repeat; background-size: cover; background-position: 50% 100%;
+  transform-origin: 50% 100%;
+  animation: city-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) both, city-breathe 34s 1.1s ease-in-out infinite;
+}
+.lang-screen[data-course='en']::before { background-image: url('./bg/bg-london.svg'); }
+.lang-screen[data-course='es']::before { background-image: url('./bg/bg-madrid.svg'); }
+@keyframes city-in { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: scale(1.005); } }
+@keyframes city-breathe { 0%, 100% { transform: scale(1.005); } 50% { transform: scale(1.03); } }
+
+.lang-kicker {
+  position: relative; margin: 0 0 14px; text-align: center;
+  font: 700 11px/1 var(--font); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
+}
+
+.lang-panel { flex: 1; min-height: 0; display: flex; align-items: flex-start; gap: 2px; }
+.lang-panel[data-from='left'] { animation: panel-from-left 320ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.lang-panel[data-from='right'] { animation: panel-from-right 320ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes panel-from-left { from { opacity: 0; transform: translate3d(-26px, 0, 0); } to { opacity: 1; transform: none; } }
+@keyframes panel-from-right { from { opacity: 0; transform: translate3d(26px, 0, 0); } to { opacity: 1; transform: none; } }
+
+/* Both arrows sit level with the title rather than with the middle of the panel: the
+   rhino is 452px of drawing and would push them off the bottom of a small screen. */
+/* Wider than the circle it holds: the label under it is a whole word, and at 44px
+   "Español" was trimmed by the edge of the screen. The tap target stays 44. */
+.lang-arrow {
+  width: 58px; flex: none; margin-top: 96px;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+}
+.lang-arrow-mark {
+  width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft); color: var(--ink);
+  font: 400 19px/44px var(--font); text-align: center;
+}
+.lang-arrow-label {
+  font: 700 9px/1.2 var(--font); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft);
+}
+
+.lang-stage { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.lang-name { margin: 0; font: 800 36px/1 var(--font); letter-spacing: -0.035em; color: var(--ink); }
+
+.lang-flag {
+  width: 112px; height: 56px; border-radius: 7px; flex: none;
+  border: 1px solid var(--border-col); background-size: cover;
+}
+.lang-flag.es {
+  background-image: linear-gradient(to bottom, #aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75% 100%);
+}
+.lang-flag.en {
+  background-color: #012169;
+  background-image:
+    linear-gradient(to bottom right, transparent calc(50% - 3px), #c8102e calc(50% - 3px) calc(50% + 3px), transparent calc(50% + 3px)),
+    linear-gradient(to top right, transparent calc(50% - 3px), #c8102e calc(50% - 3px) calc(50% + 3px), transparent calc(50% + 3px)),
+    linear-gradient(to bottom, transparent calc(50% - 6px), #c8102e calc(50% - 6px) calc(50% + 6px), transparent calc(50% + 6px)),
+    linear-gradient(to right, transparent calc(50% - 6px), #c8102e calc(50% - 6px) calc(50% + 6px), transparent calc(50% + 6px)),
+    linear-gradient(to bottom, transparent calc(50% - 11px), #fff calc(50% - 11px) calc(50% + 11px), transparent calc(50% + 11px)),
+    linear-gradient(to right, transparent calc(50% - 11px), #fff calc(50% - 11px) calc(50% + 11px), transparent calc(50% + 11px)),
+    linear-gradient(to bottom right, transparent calc(50% - 8px), #fff calc(50% - 8px) calc(50% + 8px), transparent calc(50% + 8px)),
+    linear-gradient(to top right, transparent calc(50% - 8px), #fff calc(50% - 8px) calc(50% + 8px), transparent calc(50% + 8px));
+}
+
+.lang-cloud {
+  position: relative; width: 186px; height: 163px; margin: 2px 0 0 40px; flex: none; z-index: 2;
+  transform-origin: 34% 96%;
+  animation: cloud-in 460ms 120ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.lang-cloud svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.lang-cloud-word {
+  position: absolute; left: 10%; right: 10%; top: 4%; height: 62%;
+  display: flex; align-items: center; justify-content: center;
+  font: 800 26px/1 var(--font); letter-spacing: -0.02em; color: var(--accent);
+}
+@keyframes cloud-in { from { opacity: 0; transform: scale(0.6) rotate(-6deg); } to { opacity: 1; transform: none; } }
+
+/* He climbs up behind the balloon, and he is drawn square — so the height follows the
+   width, and the width is whatever the shortest side of the phone can spare. The
+   prototype's flat 400×452 filled a tall canvas and buried the button on an SE. */
+.lang-mascot {
+  width: min(400px, 100%, 44vh); flex: none; position: relative;
+  margin-top: max(-96px, -11vh);
+}
+.lang-mascot rhino-mascot { display: block; width: 100%; }
+
+.lang-foot { margin-top: auto; padding-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+.lang-chips { display: flex; gap: 8px; justify-content: center; margin-top: 2px; }
+.lang-stat {
+  display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 15px; border-radius: 999px;
+}
+.lang-stat.level { background: var(--accent); color: var(--accent-fg); }
+.lang-stat.streak { background: #efe3ca; color: #5b4a2c; }
+.lang-stat-key { font: 700 9px/1 var(--font); letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.62; }
+.lang-stat-value { font: 800 15px/1 var(--font); letter-spacing: -0.01em; }
+.lang-stat-flame { display: flex; align-items: center; justify-content: center; width: 15px; height: 15px; font-size: 13px; line-height: 1; }
+.lang-note {
+  margin: 0; text-align: center; font: 400 13px/1.4 var(--font); color: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-screen::before, .lang-panel, .lang-cloud { animation: none; }
+}
+
+/* Choosing a level, and setting the pace. Both are long screens rather than centred
+   ones: they ask two real questions and show what the answers add up to. */
+.onboarding { padding-top: 10px; }
+.onboarding-title {
+  margin: 8px 0; font: 800 28px/1.16 var(--font); letter-spacing: -0.025em; color: var(--ink); text-wrap: pretty;
+}
+.onboarding-lead { margin: 0 0 20px; font: 400 15px/1.5 var(--font); color: var(--ink-soft); text-wrap: pretty; }
+/* The mascot is drawn square and sizes itself off its width, so a height alone would
+   let him grow to the full width of the screen and sit on top of the cards. */
+.onboarding-rhino { margin: 0 0 14px; display: grid; place-items: center; }
+.onboarding-rhino rhino-mascot { display: block; width: 150px; }
+.onboarding-rhino.tall rhino-mascot { width: 220px; }
+.onboarding .action + .action { margin-top: 10px; }
+
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 26px; }
+.pill-button { border: none; background: none; padding: 0; font: inherit; text-align: center; }
+
+.plan-card {
+  padding: 16px 18px; border-radius: var(--radius); background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card); margin: 0 0 18px;
+  animation: plan-blink 200ms ease-out both;
+}
+@keyframes plan-blink { from { opacity: 0; } to { opacity: 1; } }
+.plan-kicker {
+  margin: 0 0 10px; font: 700 10px/1 var(--font); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
+}
+.plan-columns { display: flex; gap: 14px; }
+.plan-columns > div { flex: 1; min-width: 0; }
+.plan-rule { width: 1px; background: var(--hairline); flex: none; }
+.plan-figure { margin: 0 0 5px; font: 800 20px/1 var(--font); letter-spacing: -0.02em; color: var(--ink); }
+.plan-label { margin: 0; font: 400 12px/1.35 var(--font); color: var(--ink-soft); }
+.plan-note { margin: 12px 0 0; font: 400 13px/1.45 var(--font); color: var(--ink-soft); text-wrap: pretty; }
+
+.gap-10 { height: 10px; }
+.gap-18 { height: 18px; }
+
+@media (prefers-reduced-motion: reduce) { .plan-card { animation: none; } }
 
 /* A waiting version, seen only mid-exercise: everywhere else it applies itself. */
 .update-bar {
@@ -751,5 +891,3 @@ textarea,
 }
 
 /* On the language cards he is the course: a hat each, waving. */
-.lang-rhino { width: 74px; height: 74px; margin: 0 auto 2px; }
-.lang-rhino rhino-mascot { display: block; width: 100%; height: 100%; }
