@@ -61,10 +61,6 @@ export function LanguagePicker({ onBack }: { onBack?: () => void }) {
           <div className="lang-stage">
             <h1 className="lang-name">{language.nativeTitle}</h1>
             <span className={`lang-flag ${language.code}`} role="img" aria-label={`Флаг: ${language.title}`} />
-            <Cloud word={language.greeting} />
-            <span className="lang-mascot" aria-hidden="true">
-              <rhino-mascot state="wave" hat={hatFor(language.code)} />
-            </span>
           </div>
 
           <Arrow
@@ -72,6 +68,17 @@ export function LanguagePicker({ onBack }: { onBack?: () => void }) {
             label={index === 0 ? other.nativeTitle : undefined}
             onClick={() => swap('right')}
           />
+        </div>
+
+        {/* Outside the panel, and pinned to the ground drawn in the city rather than to
+            the flow: the drawing has a pavement in it, and a rhino floating a hundred
+            pixels above it is the first thing the eye catches. The balloon travels with
+            him so it stays tied to his head. */}
+        <div className="lang-figure" key={`figure-${language.code}`}>
+          <Cloud word={language.greeting} />
+          <span className="lang-mascot" aria-hidden="true">
+            <rhino-mascot state="wave" hat={hatFor(language.code)} />
+          </span>
         </div>
 
         <div className="lang-foot">
