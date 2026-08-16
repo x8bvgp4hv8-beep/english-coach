@@ -1,0 +1,287 @@
+// B2, блок 54 — Friends over time. Друзья со временем.
+//
+// Тематический блок: как заводить дружбу взрослым, расхождение, расстояние,
+// ссора и возвращение. Перфект, условия, осторожные слова о чувствах.
+
+const RE = 'b2-tema-relaciones'
+const PS = 'b2-tema-psicologia'
+const CU = 'b2-tema-cultura'
+const SO = 'b2-tema-sociedad'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'friends-over-time',
+  title: 'Друзья со временем',
+  subtitle: 'Как заводят, теряют и возвращают',
+  canDo: [
+    'говорить о дружбе взрослых',
+    'объяснять расхождение без обиды',
+    'поддерживать связь на расстоянии',
+    'мириться после ссоры',
+    'признавать, что дружба закончилась',
+  ],
+  lessons: [
+    {
+      title: 'Making friends at forty',
+      summary: 'Дружба в сорок.',
+      topics: [RE, PS, LI],
+      dialogue: ['Знакомство', [
+        ['Anna', 'Nobody has time, and everybody wants to.', 'Ни у кого нет времени, и все хотят.'],
+        ['Ben', 'Which is a solvable problem, on paper.', 'На бумаге это решаемая задача.'],
+        ['Anna', 'And needs the same thing every week.', 'И ей нужно одно и то же каждую неделю.'],
+        ['Ben', 'A place, a time, and no invitation.', 'Место, время и никаких приглашений.'],
+        ['Anna', 'Which is how every friendship I have started.', 'Так началась каждая моя дружба.'],
+      ]],
+      words: [
+        ['Nobody has time', 'ни у кого нет времени', 'Nobody has time, and everybody wants to.'],
+        ['a solvable problem', 'решаемая задача', 'Which is a solvable problem, on paper.'],
+        ['the same thing every week', 'одно и то же каждую неделю', 'And needs the same thing every week.'],
+        ['no invitation', 'никаких приглашений', 'A place, a time, and no invitation.'],
+        ['every friendship I have', 'каждая моя дружба', 'Which is how every friendship I have started.'],
+      ],
+      rule: ['Усечённое want to', 'Everybody wants to. Инфинитив без глагола повторяет уже названное действие.'],
+      quiz: [
+        ['«Ни у кого нет времени, и все хотят» —', ['Nobody has time, and everybody wants to', 'Nobody has time, and everybody wants', 'Nobody have time, and everybody wants to'], 0],
+        ['«И ей нужно одно и то же каждую неделю» —', ['And needs the same thing every week', 'And need the same thing every week', 'And needs the same thing all week'], 0],
+        ['«Так началась каждая моя дружба» —', ['Which is how every friendship I have started', 'Which is how every friendship I have start', 'Which is what every friendship I have started'], 0],
+      ],
+      order: ['Место, время и никаких приглашений.', 'A place, a time, and no invitation.'],
+      produce: [
+        ['Ни у кого нет времени, и все хотят.', 'Nobody has time, and everybody wants to.', []],
+        ['И ей нужно одно и то же каждую неделю.', 'And needs the same thing every week.', []],
+        ['Место, время и никаких приглашений.', 'A place, a time, and no invitation.', []],
+      ],
+    },
+    {
+      title: 'Drifting apart',
+      summary: 'Расходиться.',
+      topics: [RE, PS, LI],
+      dialogue: ['Расхождение', [
+        ['Ben', 'Nothing happened, which is the strange part.', 'Ничего не произошло, и это странная часть.'],
+        ['Anna', 'Since a fight would at least be a reason.', 'Ведь ссора была бы хоть какой-то причиной.'],
+        ['Ben', 'Whereas two busy years are not.', 'Тогда как два занятых года — нет.'],
+        ['Anna', 'And leave nothing to apologise for.', 'И не оставляют, за что извиняться.'],
+        ['Ben', 'Which makes it harder to repair.', 'Что и делает починку труднее.'],
+      ]],
+      words: [
+        ['Nothing happened', 'ничего не произошло', 'Nothing happened, which is the strange part.'],
+        ['a fight would be a reason', 'ссора была бы причиной', 'Since a fight would at least be a reason.'],
+        ['two busy years', 'два занятых года', 'Whereas two busy years are not.'],
+        ['nothing to apologise for', 'не за что извиняться', 'And leave nothing to apologise for.'],
+        ['harder to repair', 'труднее починить', 'Which makes it harder to repair.'],
+      ],
+      rule: ['Nothing to apologise for', 'Nothing to apologise for. Предлог остаётся в конце после инфинитива.'],
+      quiz: [
+        ['«И не оставляют, за что извиняться» —', ['And leave nothing to apologise for', 'And leave nothing to apologise', 'And leaves nothing to apologise for'], 0],
+        ['«Ведь ссора была бы хоть какой-то причиной» —', ['Since a fight would at least be a reason', 'Since a fight would at least to be a reason', 'Since a fight will at least be a reason'], 0],
+        ['«Что и делает починку труднее» —', ['Which makes it harder to repair', 'Which make it harder to repair', 'Which makes it harder for repair'], 0],
+      ],
+      order: ['Ничего не произошло, и это странная часть.', 'Nothing happened, which is the strange part.'],
+      produce: [
+        ['Ничего не произошло, и это странная часть.', 'Nothing happened, which is the strange part.', []],
+        ['Тогда как два занятых года — нет.', 'Whereas two busy years are not.', []],
+        ['И не оставляют, за что извиняться.', 'And leave nothing to apologise for.', []],
+      ],
+    },
+    {
+      title: 'Friendship across time zones',
+      summary: 'Дружба через пояса.',
+      topics: [RE, CU, LI],
+      dialogue: ['Расстояние', [
+        ['Anna', 'We have not met in six years.', 'Мы не виделись шесть лет.'],
+        ['Ben', 'And speak more than most people who live here.', 'И говорим больше, чем многие, кто живёт рядом.'],
+        ['Anna', 'Which surprises everybody except us.', 'Что удивляет всех, кроме нас.'],
+        ['Ben', 'Since distance removes the small talk.', 'Ведь расстояние убирает светскую болтовню.'],
+        ['Anna', 'And leaves only what is worth a call.', 'И оставляет только то, ради чего звонят.'],
+      ]],
+      words: [
+        ['have not met in six years', 'не виделись шесть лет', 'We have not met in six years.'],
+        ['more than most people', 'больше, чем многие', 'And speak more than most people who live here.'],
+        ['surprises everybody except us', 'удивляет всех, кроме нас', 'Which surprises everybody except us.'],
+        ['removes the small talk', 'убирает светскую болтовню', 'Since distance removes the small talk.'],
+        ['what is worth a call', 'то, ради чего звонят', 'And leaves only what is worth a call.'],
+      ],
+      rule: ['Have not met in — срок без встречи', 'We have not met in six years. Предлог in в отрицании заменяет for.'],
+      quiz: [
+        ['«Мы не виделись шесть лет» —', ['We have not met in six years', 'We have not meet in six years', 'We do not have met in six years'], 0],
+        ['«Ведь расстояние убирает светскую болтовню» —', ['Since distance removes the small talk', 'Since distance remove the small talk', 'Since distance removes the small talks'], 0],
+        ['«И оставляет только то, ради чего звонят» —', ['And leaves only what is worth a call', 'And leaves only that is worth a call', 'And leave only what is worth a call'], 0],
+      ],
+      order: ['Что удивляет всех, кроме нас.', 'Which surprises everybody except us.'],
+      produce: [
+        ['Мы не виделись шесть лет.', 'We have not met in six years.', []],
+        ['Ведь расстояние убирает светскую болтовню.', 'Since distance removes the small talk.', []],
+        ['И оставляет только то, ради чего звонят.', 'And leaves only what is worth a call.', []],
+      ],
+    },
+    {
+      title: 'The friend who changed',
+      summary: 'Друг, который изменился.',
+      topics: [PS, SO, LI],
+      dialogue: ['Перемена', [
+        ['Ben', 'He believes things I cannot argue with.', 'Он верит в вещи, с которыми я не могу спорить.'],
+        ['Anna', 'Which is different from disagreeing.', 'Это не то же, что не соглашаться.'],
+        ['Ben', 'Since there is nothing to test the claim against.', 'Ведь утверждение не с чем сверить.'],
+        ['Anna', 'So we talk about the dog and the weather.', 'Поэтому мы говорим о собаке и погоде.'],
+        ['Ben', 'Which is either a loss or a solution.', 'Это либо потеря, либо решение.'],
+      ]],
+      words: [
+        ['believes things I cannot argue with', 'верит в вещи, с которыми не поспоришь', 'He believes things I cannot argue with.'],
+        ['different from disagreeing', 'не то же, что несогласие', 'Which is different from disagreeing.'],
+        ['nothing to test the claim against', 'не с чем сверить утверждение', 'Since there is nothing to test the claim against.'],
+        ['the dog and the weather', 'собака и погода', 'So we talk about the dog and the weather.'],
+        ['a loss or a solution', 'потеря или решение', 'Which is either a loss or a solution.'],
+      ],
+      rule: ['Different from + герундий', 'Different from disagreeing. После предлога from идёт форма на -ing.'],
+      quiz: [
+        ['«Это не то же, что не соглашаться» —', ['Which is different from disagreeing', 'Which is different from disagree', 'Which is different than disagreeing'], 0],
+        ['«Ведь утверждение не с чем сверить» —', ['Since there is nothing to test the claim against', 'Since there is nothing to test the claim', 'Since there are nothing to test the claim against'], 0],
+        ['«Он верит в вещи, с которыми я не могу спорить» —', ['He believes things I cannot argue with', 'He believes things I cannot argue', 'He believe things I cannot argue with'], 0],
+      ],
+      order: ['Поэтому мы говорим о собаке и погоде.', 'So we talk about the dog and the weather.'],
+      produce: [
+        ['Он верит в вещи, с которыми я не могу спорить.', 'He believes things I cannot argue with.', []],
+        ['Это не то же, что не соглашаться.', 'Which is different from disagreeing.', []],
+        ['Это либо потеря, либо решение.', 'Which is either a loss or a solution.', []],
+      ],
+    },
+    {
+      title: 'The apology, years late',
+      summary: 'Извинение спустя годы.',
+      topics: [RE, PS, LI],
+      dialogue: ['Извинение', [
+        ['Anna', 'She wrote to me after eleven years.', 'Она написала мне через одиннадцать лет.'],
+        ['Ben', 'Naming exactly what she had done.', 'Назвав ровно то, что сделала.'],
+        ['Anna', 'Which is what made it possible to answer.', 'Именно это и дало возможность ответить.'],
+        ['Ben', 'Since a vague apology asks you to do the work.', 'Ведь размытое извинение перекладывает работу на вас.'],
+        ['Anna', 'Which most people cannot face twice.', 'На что у большинства нет сил дважды.'],
+      ]],
+      words: [
+        ['wrote to me after eleven years', 'написала через одиннадцать лет', 'She wrote to me after eleven years.'],
+        ['Naming exactly what she had done', 'назвав ровно то, что сделала', 'Naming exactly what she had done.'],
+        ['made it possible to answer', 'дало возможность ответить', 'Which is what made it possible to answer.'],
+        ['a vague apology', 'размытое извинение', 'Since a vague apology asks you to do the work.'],
+        ['cannot face twice', 'нет сил дважды', 'Which most people cannot face twice.'],
+      ],
+      rule: ['Make it possible to do', 'It made it possible to answer. Формальное it стоит перед прилагательным, настоящее подлежащее — инфинитив.'],
+      quiz: [
+        ['«Именно это и дало возможность ответить» —', ['Which is what made it possible to answer', 'Which is what made possible to answer', 'Which is what make it possible to answer'], 0],
+        ['«Назвав ровно то, что сделала» —', ['Naming exactly what she had done', 'Naming exactly what she has done then', 'Name exactly what she had done'], 0],
+        ['«Ведь размытое извинение перекладывает работу на вас» —', ['A vague apology asks you to do the work', 'A vague apology asks you do the work', 'A vague apology ask you to do the work'], 0],
+      ],
+      order: ['Она написала мне через одиннадцать лет.', 'She wrote to me after eleven years.'],
+      produce: [
+        ['Она написала мне через одиннадцать лет.', 'She wrote to me after eleven years.', []],
+        ['Назвав ровно то, что сделала.', 'Naming exactly what she had done.', []],
+        ['Именно это и дало возможность ответить.', 'Which is what made it possible to answer.', []],
+      ],
+    },
+    {
+      title: 'Being the one who asks',
+      summary: 'Быть тем, кто пишет первым.',
+      topics: [PS, RE, LI],
+      dialogue: ['Инициатива', [
+        ['Ben', 'I have always been the one who writes first.', 'Я всегда был тем, кто пишет первым.'],
+        ['Anna', 'Which you resented for about a decade.', 'На что вы обижались лет десять.'],
+        ['Ben', 'Until I decided it was simply my job.', 'Пока не решил, что это просто моя работа.'],
+        ['Anna', 'Which is either wisdom or surrender.', 'Это либо мудрость, либо сдача.'],
+        ['Ben', 'And has kept nine friendships alive.', 'И это сохранило девять дружб.'],
+      ]],
+      words: [
+        ['the one who writes first', 'тот, кто пишет первым', 'I have always been the one who writes first.'],
+        ['you resented', 'вы обижались', 'Which you resented for about a decade.'],
+        ['it was simply my job', 'это просто моя работа', 'Until I decided it was simply my job.'],
+        ['wisdom or surrender', 'мудрость или сдача', 'Which is either wisdom or surrender.'],
+        ['kept nine friendships alive', 'сохранило девять дружб', 'And has kept nine friendships alive.'],
+      ],
+      rule: ['Keep something alive', 'It kept nine friendships alive. После keep идёт объект и прилагательное.'],
+      quiz: [
+        ['«И это сохранило девять дружб» —', ['And has kept nine friendships alive', 'And has kept nine friendships lively', 'And have kept nine friendships alive'], 0],
+        ['«Я всегда был тем, кто пишет первым» —', ['I have always been the one who writes first', 'I have always been the one who write first', 'I am always been the one who writes first'], 0],
+        ['«Пока не решил, что это просто моя работа» —', ['Until I decided it was simply my job', 'Until I decided it is simply my job then', 'Until I decide it was simply my job'], 0],
+      ],
+      order: ['Это либо мудрость, либо сдача.', 'Which is either wisdom or surrender.'],
+      produce: [
+        ['Я всегда был тем, кто пишет первым.', 'I have always been the one who writes first.', []],
+        ['Пока не решил, что это просто моя работа.', 'Until I decided it was simply my job.', []],
+        ['И это сохранило девять дружб.', 'And has kept nine friendships alive.', []],
+      ],
+    },
+    {
+      title: 'Letting one go',
+      summary: 'Отпустить.',
+      topics: [RE, PS, LI],
+      dialogue: ['Финал', [
+        ['Anna', 'I stopped counting whose turn it was.', 'Я перестала считать, чья очередь.'],
+        ['Ben', 'Which is when you know it is over.', 'Именно тогда и понимаешь, что всё.'],
+        ['Anna', 'And felt lighter than I expected.', 'И стало легче, чем я ожидала.'],
+        ['Ben', 'Since carrying it was the tiring part.', 'Ведь утомляло именно тащить это.'],
+        ['Anna', 'Rather than losing it, in the end.', 'А не потеря, в итоге.'],
+      ]],
+      words: [
+        ['whose turn it was', 'чья очередь', 'I stopped counting whose turn it was.'],
+        ['when you know it is over', 'когда понимаешь, что всё', 'Which is when you know it is over.'],
+        ['felt lighter than I expected', 'стало легче, чем ожидала', 'And felt lighter than I expected.'],
+        ['carrying it', 'тащить это', 'Since carrying it was the tiring part.'],
+        ['losing it', 'потерять это', 'Rather than losing it, in the end.'],
+      ],
+      rule: ['Whose в косвенном вопросе', 'I stopped counting whose turn it was. Порядок слов прямой, вспомогательный глагол не нужен.'],
+      quiz: [
+        ['«Я перестала считать, чья очередь» —', ['I stopped counting whose turn it was', 'I stopped counting whose turn was it', 'I stopped to count whose turn it was'], 0],
+        ['«Ведь утомляло именно тащить это» —', ['Since carrying it was the tiring part', 'Since carry it was the tiring part', 'Since carrying it was the tired part'], 0],
+        ['«И стало легче, чем я ожидала» —', ['And felt lighter than I expected', 'And felt more light than I expected', 'And feel lighter than I expected'], 0],
+      ],
+      order: ['А не потеря, в итоге.', 'Rather than losing it, in the end.'],
+      produce: [
+        ['Я перестала считать, чья очередь.', 'I stopped counting whose turn it was.', []],
+        ['Именно тогда и понимаешь, что всё.', 'Which is when you know it is over.', []],
+        ['Ведь утомляло именно тащить это.', 'Since carrying it was the tiring part.', []],
+      ],
+    },
+    {
+      title: 'What friendship needs',
+      summary: 'Что нужно дружбе.',
+      topics: [RE, CU, LI],
+      dialogue: ['Итог', [
+        ['Ben', 'Time, repetition, and one shared boredom.', 'Время, повторение и одна общая скука.'],
+        ['Anna', 'Which sounds unromantic and holds up.', 'Звучит неромантично и подтверждается.'],
+        ['Ben', 'Against every theory I have read.', 'Против всех теорий, что я читал.'],
+        ['Anna', 'And explains why school friends survive.', 'И объясняет, почему школьные друзья держатся.'],
+        ['Ben', 'Long after they have nothing in common.', 'Долго после того, как общего не осталось.'],
+      ]],
+      words: [
+        ['one shared boredom', 'одна общая скука', 'Time, repetition, and one shared boredom.'],
+        ['sounds unromantic', 'звучит неромантично', 'Which sounds unromantic and holds up.'],
+        ['every theory I have read', 'все теории, что я читал', 'Against every theory I have read.'],
+        ['why school friends survive', 'почему школьные друзья держатся', 'And explains why school friends survive.'],
+        ['nothing in common', 'ничего общего', 'Long after they have nothing in common.'],
+      ],
+      rule: ['Дружба держится на повторе, а не на порыве', 'Одно и то же место в одно и то же время делает для дружбы больше, чем самые тёплые слова.'],
+      quiz: [
+        ['«И объясняет, почему школьные друзья держатся» —', ['And explains why school friends survive', 'And explain why school friends survive', 'And explains why do school friends survive'], 0],
+        ['«Долго после того, как общего не осталось» —', ['Long after they have nothing in common', 'Long after they have anything in common', 'Long after they has nothing in common'], 0],
+        ['«Звучит неромантично и подтверждается» —', ['Which sounds unromantic and holds up', 'Which sounds unromantically and holds up', 'Which sound unromantic and holds up'], 0],
+      ],
+      order: ['Время, повторение и одна общая скука.', 'Time, repetition, and one shared boredom.'],
+      produce: [
+        ['Время, повторение и одна общая скука.', 'Time, repetition, and one shared boredom.', []],
+        ['И объясняет, почему школьные друзья держатся.', 'And explains why school friends survive.', []],
+        ['Долго после того, как общего не осталось.', 'Long after they have nothing in common.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: друзья со временем',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [RE, PS, CU, SO],
+      produce: [
+        ['Ни у кого нет времени, и все хотят.', 'Nobody has time, and everybody wants to.', []],
+        ['И не оставляют, за что извиняться.', 'And leave nothing to apologise for.', []],
+        ['Мы не виделись шесть лет.', 'We have not met in six years.', []],
+        ['Это не то же, что не соглашаться.', 'Which is different from disagreeing.', []],
+        ['Назвав ровно то, что сделала.', 'Naming exactly what she had done.', []],
+        ['Я перестала считать, чья очередь.', 'I stopped counting whose turn it was.', []],
+      ],
+    },
+  ],
+}
