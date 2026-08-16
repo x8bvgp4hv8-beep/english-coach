@@ -1,0 +1,287 @@
+// B2, блок 46 — Names on the street. Имена на улицах.
+//
+// Тематический блок: памятники, переименования, школьная программа и то,
+// как страна выбирает, что помнить. Пассив, косвенная речь, уступки.
+
+const HI = 'b2-tema-historia'
+const SO = 'b2-tema-sociedad'
+const CU = 'b2-tema-cultura'
+const ED = 'b2-tema-educacion'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'names-on-the-street',
+  title: 'Имена на улицах',
+  subtitle: 'Памятники, переименования и школьная программа',
+  canDo: [
+    'обсуждать памятники и споры вокруг них',
+    'говорить о переименованиях',
+    'сравнивать версии одного события',
+    'спорить о школьной программе',
+    'признавать сложность без ухода от позиции',
+  ],
+  lessons: [
+    {
+      title: 'The statue in the square',
+      summary: 'Памятник на площади.',
+      topics: [HI, SO, LI],
+      dialogue: ['Памятник', [
+        ['Anna', 'It was put up in nineteen eleven.', 'Его поставили в тысяча девятьсот одиннадцатом.'],
+        ['Ben', 'By people making a point about themselves.', 'Людьми, которые говорили о самих себе.'],
+        ['Anna', 'Rather than about the man on the plinth.', 'А не о человеке на постаменте.'],
+        ['Ben', 'Which is true of most statues.', 'Что верно почти для всех памятников.'],
+        ['Anna', 'And is the useful thing to say first.', 'И с этого полезно начинать.'],
+      ]],
+      words: [
+        ['was put up', 'поставили', 'It was put up in nineteen eleven.'],
+        ['making a point about themselves', 'говорившими о самих себе', 'By people making a point about themselves.'],
+        ['the man on the plinth', 'человек на постаменте', 'Rather than about the man on the plinth.'],
+        ['true of most statues', 'верно для большинства памятников', 'Which is true of most statues.'],
+        ['the useful thing to say first', 'с чего полезно начинать', 'And is the useful thing to say first.'],
+      ],
+      rule: ['Put up — пассив фразового глагола', 'It was put up in nineteen eleven. В пассиве наречная часть остаётся при глаголе.'],
+      quiz: [
+        ['«Его поставили в тысяча девятьсот одиннадцатом» —', ['It was put up in nineteen eleven', 'It was putted up in nineteen eleven', 'It was put up on nineteen eleven'], 0],
+        ['«Что верно почти для всех памятников» —', ['Which is true of most statues', 'Which is true for most statues about', 'Which are true of most statues'], 0],
+        ['«Людьми, которые говорили о самих себе» —', ['By people making a point about themselves', 'By people making a point about theirselves', 'By people make a point about themselves'], 0],
+      ],
+      order: ['А не о человеке на постаменте.', 'Rather than about the man on the plinth.'],
+      produce: [
+        ['Его поставили в тысяча девятьсот одиннадцатом.', 'It was put up in nineteen eleven.', []],
+        ['Что верно почти для всех памятников.', 'Which is true of most statues.', []],
+        ['И с этого полезно начинать.', 'And is the useful thing to say first.', []],
+      ],
+    },
+    {
+      title: 'Renaming a street',
+      summary: 'Переименовать улицу.',
+      topics: [SO, HI, LI],
+      dialogue: ['Переименование', [
+        ['Ben', 'They said the change would erase history.', 'Говорили, что перемена сотрёт историю.'],
+        ['Anna', 'Which the plaque explaining it prevents.', 'Чему мешает объясняющая табличка.'],
+        ['Ben', 'And which nobody says about the first renaming.', 'И чего никто не говорит про первое переименование.'],
+        ['Anna', 'In eighteen ninety, from something else.', 'В тысяча восемьсот девяностом, из другого имени.'],
+        ['Ben', 'Which everybody had forgotten by then.', 'Которое к тому времени все забыли.'],
+      ]],
+      words: [
+        ['would erase history', 'сотрёт историю', 'They said the change would erase history.'],
+        ['the plaque explaining it', 'объясняющая табличка', 'Which the plaque explaining it prevents.'],
+        ['the first renaming', 'первое переименование', 'Nobody says that about the first renaming.'],
+        ['from something else', 'из другого имени', 'In eighteen ninety, from something else.'],
+        ['had forgotten by then', 'к тому времени забыли', 'Which everybody had forgotten by then.'],
+      ],
+      rule: ['Would в косвенной речи', 'They said it would erase history. Будущее в прошедшем передаётся через would.'],
+      quiz: [
+        ['«Говорили, что перемена сотрёт историю» —', ['They said the change would erase history', 'They said the change will erase history', 'They said the change would erased history'], 0],
+        ['«Которое к тому времени все забыли» —', ['Which everybody had forgotten by then', 'Which everybody had forgot by then', 'Which everybody has forgotten by then'], 0],
+        ['«Чему мешает объясняющая табличка» —', ['Which the plaque explaining it prevents', 'Which the plaque explaining it prevent', 'Which the plaque explained it prevents'], 0],
+      ],
+      order: ['В тысяча восемьсот девяностом, из другого имени.', 'In eighteen ninety, from something else.'],
+      produce: [
+        ['Говорили, что перемена сотрёт историю.', 'They said the change would erase history.', []],
+        ['Чему мешает объясняющая табличка.', 'Which the plaque explaining it prevents.', []],
+        ['Которое к тому времени все забыли.', 'Which everybody had forgotten by then.', []],
+      ],
+    },
+    {
+      title: 'Two versions of one war',
+      summary: 'Две версии одной войны.',
+      topics: [HI, ED, LI],
+      dialogue: ['Версии', [
+        ['Anna', 'Their textbook and ours disagree on the dates.', 'Их учебник и наш расходятся в датах.'],
+        ['Ben', 'Which is where the argument begins.', 'Отсюда спор и начинается.'],
+        ['Anna', 'Since a start date assigns the blame.', 'Ведь дата начала назначает виноватого.'],
+        ['Ben', 'Which everybody understands and nobody states.', 'Все это понимают и никто не проговаривает.'],
+        ['Anna', 'Which is why the argument never ends.', 'Поэтому спор и не кончается.'],
+      ]],
+      words: [
+        ['disagree on the dates', 'расходятся в датах', 'Their textbook and ours disagree on the dates.'],
+        ['where the argument begins', 'откуда начинается спор', 'Which is where the argument begins.'],
+        ['a start date assigns the blame', 'дата начала назначает виноватого', 'Since a start date assigns the blame.'],
+        ['nobody states', 'никто не проговаривает', 'Which everybody understands and nobody states.'],
+        ['never ends', 'не кончается', 'Which is why the argument never ends.'],
+      ],
+      rule: ['Disagree on something', 'They disagree on the dates. Предлог on вводит предмет разногласия.'],
+      quiz: [
+        ['«Их учебник и наш расходятся в датах» —', ['Their textbook and ours disagree on the dates', 'Their textbook and our disagree on the dates', 'Their textbook and ours disagrees on the dates'], 0],
+        ['«Ведь дата начала назначает виноватого» —', ['Since a start date assigns the blame', 'Since a start date assign the blame', 'Since a start date assigns to the blame'], 0],
+        ['«Все это понимают и никто не проговаривает» —', ['Which everybody understands and nobody states', 'Which everybody understand and nobody states', 'Which everybody understands and nobody state'], 0],
+      ],
+      order: ['Отсюда спор и начинается.', 'Which is where the argument begins.'],
+      produce: [
+        ['Их учебник и наш расходятся в датах.', 'Their textbook and ours disagree on the dates.', []],
+        ['Ведь дата начала назначает виноватого.', 'Since a start date assigns the blame.', []],
+        ['Поэтому спор и не кончается.', 'Which is why the argument never ends.', []],
+      ],
+    },
+    {
+      title: 'What the school leaves out',
+      summary: 'Что школа пропускает.',
+      topics: [ED, HI, LI],
+      dialogue: ['Программа', [
+        ['Ben', 'The famine took four lines in my textbook.', 'Голоду в моём учебнике отвели четыре строки.'],
+        ['Anna', 'Which is a decision, not a shortage of paper.', 'Это решение, а не нехватка бумаги.'],
+        ['Ben', 'And which I only noticed at thirty.', 'И заметил я его только в тридцать.'],
+        ['Anna', 'Having read a book from somewhere else.', 'Прочитав книгу из другого места.'],
+        ['Ben', 'Which is how most people find out.', 'Так большинство и узнаёт.'],
+      ]],
+      words: [
+        ['took four lines', 'отвели четыре строки', 'The famine took four lines in my textbook.'],
+        ['not a shortage of paper', 'не нехватка бумаги', 'Which is a decision, not a shortage of paper.'],
+        ['I only noticed at thirty', 'заметил только в тридцать', 'And which I only noticed at thirty.'],
+        ['Having read a book', 'прочитав книгу', 'Having read a book from somewhere else.'],
+        ['how most people find out', 'как большинство узнаёт', 'Which is how most people find out.'],
+      ],
+      rule: ['Having read — перфектное причастие', 'Having read a book from somewhere else. Форма ставит чтение раньше главного действия.'],
+      quiz: [
+        ['«Прочитав книгу из другого места» —', ['Having read a book from somewhere else', 'Have read a book from somewhere else', 'Having readed a book from somewhere else'], 0],
+        ['«Это решение, а не нехватка бумаги» —', ['Which is a decision, not a shortage of paper', 'Which is a decision, not a shortage from paper', 'Which is a decision, no a shortage of paper'], 0],
+        ['«Так большинство и узнаёт» —', ['Which is how most people find out', 'Which is how most people finds out', 'Which is what most people find out'], 0],
+      ],
+      order: ['И заметил я его только в тридцать.', 'And which I only noticed at thirty.'],
+      produce: [
+        ['Голоду в моём учебнике отвели четыре строки.', 'The famine took four lines in my textbook.', []],
+        ['Это решение, а не нехватка бумаги.', 'Which is a decision, not a shortage of paper.', []],
+        ['Прочитав книгу из другого места.', 'Having read a book from somewhere else.', []],
+      ],
+    },
+    {
+      title: 'The family story',
+      summary: 'Семейная история.',
+      topics: [HI, CU, LI],
+      dialogue: ['Дома', [
+        ['Anna', 'My grandfather never spoke about it.', 'Мой дед никогда об этом не говорил.'],
+        ['Ben', 'Which is its own kind of record.', 'Это тоже своего рода свидетельство.'],
+        ['Anna', 'And which took two generations to open.', 'И на то, чтобы открыть его, ушло два поколения.'],
+        ['Ben', 'By which point half of it was gone.', 'К тому времени половина уже исчезла.'],
+        ['Anna', 'Which is why I write things down.', 'Поэтому я и записываю.'],
+      ]],
+      words: [
+        ['never spoke about it', 'никогда об этом не говорил', 'My grandfather never spoke about it.'],
+        ['its own kind of record', 'своего рода свидетельство', 'Which is its own kind of record.'],
+        ['two generations to open', 'два поколения, чтобы открыть', 'And which took two generations to open.'],
+        ['half of it was gone', 'половина исчезла', 'By which point half of it was gone.'],
+        ['I write things down', 'я записываю', 'Which is why I write things down.'],
+      ],
+      rule: ['Take + время + to do', 'It took two generations to open. Конструкция называет затраченное время и действие.'],
+      quiz: [
+        ['«И на то, чтобы открыть его, ушло два поколения» —', ['And which took two generations to open', 'And which took two generations for open', 'And which take two generations to open'], 0],
+        ['«К тому времени половина уже исчезла» —', ['By which point half of it was gone', 'By which point half of it were gone', 'By what point half of it was gone'], 0],
+        ['«Мой дед никогда об этом не говорил» —', ['My grandfather never spoke about it', 'My grandfather never speak about it', 'My grandfather never spoken about it'], 0],
+      ],
+      order: ['Поэтому я и записываю.', 'Which is why I write things down.'],
+      produce: [
+        ['Мой дед никогда об этом не говорил.', 'My grandfather never spoke about it.', []],
+        ['Это тоже своего рода свидетельство.', 'Which is its own kind of record.', []],
+        ['И на то, чтобы открыть его, ушло два поколения.', 'And which took two generations to open.', []],
+      ],
+    },
+    {
+      title: 'Anniversaries',
+      summary: 'Годовщины.',
+      topics: [SO, HI, LI],
+      dialogue: ['Даты', [
+        ['Ben', 'The anniversary is marked differently in each city.', 'Годовщину в каждом городе отмечают по-своему.'],
+        ['Anna', 'Which tells you more than any textbook.', 'Это говорит больше любого учебника.'],
+        ['Ben', 'Since the flowers show what people actually feel.', 'Ведь цветы показывают, что люди чувствуют на самом деле.'],
+        ['Anna', 'Rather than what they are told to.', 'А не то, что им велят.'],
+        ['Ben', 'Which the speeches never quite match.', 'И речи никогда точно не совпадают.'],
+      ]],
+      words: [
+        ['is marked differently', 'отмечают по-своему', 'The anniversary is marked differently in each city.'],
+        ['tells you more than any textbook', 'говорит больше любого учебника', 'Which tells you more than any textbook.'],
+        ['the flowers show', 'цветы показывают', 'Since the flowers show what people actually feel.'],
+        ['what they are told to', 'что им велят', 'Rather than what they are told to.'],
+        ['never quite match', 'никогда точно не совпадают', 'Which the speeches never quite match.'],
+      ],
+      rule: ['Told to — усечённый инфинитив', 'What they are told to. Глагол после to опускается, если он ясен из контекста.'],
+      quiz: [
+        ['«А не то, что им велят» —', ['Rather than what they are told to', 'Rather than what they are told', 'Rather than that they are told to'], 0],
+        ['«Годовщину в каждом городе отмечают по-своему» —', ['The anniversary is marked differently in each city', 'The anniversary is mark differently in each city', 'The anniversary is marked different in each city'], 0],
+        ['«Ведь цветы показывают, что люди чувствуют на самом деле» —', ['Since the flowers show what people actually feel', 'Since the flowers shows what people actually feel', 'Since the flowers show what do people actually feel'], 0],
+      ],
+      order: ['И речи никогда точно не совпадают.', 'Which the speeches never quite match.'],
+      produce: [
+        ['Годовщину в каждом городе отмечают по-своему.', 'The anniversary is marked differently in each city.', []],
+        ['Это говорит больше любого учебника.', 'Which tells you more than any textbook.', []],
+        ['А не то, что им велят.', 'Rather than what they are told to.', []],
+      ],
+    },
+    {
+      title: 'Complicated, not cancelled',
+      summary: 'Сложный, а не отменённый.',
+      topics: [CU, SO, LI],
+      dialogue: ['Сложность', [
+        ['Anna', 'He built the hospital and owned the ships.', 'Он построил больницу и владел кораблями.'],
+        ['Ben', 'Both of which are on the record.', 'И то и другое зафиксировано.'],
+        ['Anna', 'And neither of which cancels the other.', 'И ни одно не отменяет другого.'],
+        ['Ben', 'Which is harder to fit on a banner.', 'Что труднее уместить на транспаранте.'],
+        ['Anna', 'And is the only honest sentence available.', 'И это единственная честная формулировка.'],
+      ]],
+      words: [
+        ['built the hospital', 'построил больницу', 'He built the hospital and owned the ships.'],
+        ['Both of which', 'и то и другое', 'Both of which are on the record.'],
+        ['neither of which cancels', 'ни одно не отменяет', 'And neither of which cancels the other.'],
+        ['harder to fit on a banner', 'труднее уместить на транспаранте', 'Which is harder to fit on a banner.'],
+        ['the only honest sentence', 'единственная честная формулировка', 'And is the only honest sentence available.'],
+      ],
+      rule: ['Both of which и neither of which', 'Both of which are on the record. Оборот присоединяет придаточное к двум предметам сразу.'],
+      quiz: [
+        ['«И ни одно не отменяет другого» —', ['And neither of which cancels the other', 'And neither of which cancel the other', 'And neither of which does not cancel the other'], 0],
+        ['«И то и другое зафиксировано» —', ['Both of which are on the record', 'Both of which is on the record', 'Both of them which are on the record'], 0],
+        ['«Что труднее уместить на транспаранте» —', ['Which is harder to fit on a banner', 'Which is harder to fitting on a banner', 'Which is more hard to fit on a banner'], 0],
+      ],
+      order: ['И это единственная честная формулировка.', 'And is the only honest sentence available.'],
+      produce: [
+        ['Он построил больницу и владел кораблями.', 'He built the hospital and owned the ships.', []],
+        ['И ни одно не отменяет другого.', 'And neither of which cancels the other.', []],
+        ['Что труднее уместить на транспаранте.', 'Which is harder to fit on a banner.', []],
+      ],
+    },
+    {
+      title: 'Who decides what stands',
+      summary: 'Кто решает, что стоит.',
+      topics: [SO, HI, LI],
+      dialogue: ['Решение', [
+        ['Ben', 'The city voted, after two years of shouting.', 'Город проголосовал, после двух лет крика.'],
+        ['Anna', 'Which is slower than a crane at night.', 'Медленнее, чем кран ночью.'],
+        ['Ben', 'And is the only version that holds.', 'И единственный вариант, который держится.'],
+        ['Anna', 'Since a vote can be pointed at, afterwards.', 'Ведь на голосование можно сослаться потом.'],
+        ['Ben', 'Which a crane never can.', 'Чего с краном не выйдет.'],
+      ]],
+      words: [
+        ['voted, after two years', 'проголосовал после двух лет', 'The city voted, after two years of shouting.'],
+        ['slower than a crane at night', 'медленнее крана ночью', 'Which is slower than a crane at night.'],
+        ['the only version that holds', 'единственный держащийся вариант', 'And is the only version that holds.'],
+        ['can be pointed at', 'можно сослаться на', 'Since a vote can be pointed at, afterwards.'],
+        ['a crane never can', 'с краном не выйдет', 'Which a crane never can.'],
+      ],
+      rule: ['История спорна, а процедура проверяема', 'Спор о памяти решается не аргументом о прошлом, а согласием о том, кто и как решает.'],
+      quiz: [
+        ['«Ведь на голосование можно сослаться потом» —', ['Since a vote can be pointed at, afterwards', 'Since a vote can be pointed, afterwards', 'Since a vote can being pointed at, afterwards'], 0],
+        ['«Медленнее, чем кран ночью» —', ['Which is slower than a crane at night', 'Which is more slow than a crane at night', 'Which is slower that a crane at night'], 0],
+        ['«Город проголосовал, после двух лет крика» —', ['The city voted, after two years of shouting', 'The city voted, after two years of shout', 'The city vote, after two years of shouting'], 0],
+      ],
+      order: ['Чего с краном не выйдет.', 'Which a crane never can.'],
+      produce: [
+        ['Город проголосовал, после двух лет крика.', 'The city voted, after two years of shouting.', []],
+        ['И единственный вариант, который держится.', 'And is the only version that holds.', []],
+        ['Ведь на голосование можно сослаться потом.', 'Since a vote can be pointed at, afterwards.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: имена на улицах',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [HI, SO, CU, ED],
+      produce: [
+        ['Его поставили в тысяча девятьсот одиннадцатом.', 'It was put up in nineteen eleven.', []],
+        ['Говорили, что перемена сотрёт историю.', 'They said the change would erase history.', []],
+        ['Ведь дата начала назначает виноватого.', 'Since a start date assigns the blame.', []],
+        ['Прочитав книгу из другого места.', 'Having read a book from somewhere else.', []],
+        ['А не то, что им велят.', 'Rather than what they are told to.', []],
+        ['И ни одно не отменяет другого.', 'And neither of which cancels the other.', []],
+      ],
+    },
+  ],
+}
