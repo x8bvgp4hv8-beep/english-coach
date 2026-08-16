@@ -87676,6 +87676,3364 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en-a2-so-because-although",
+      "title": "So, because, although",
+      "subtitle": "Связки: причина, следствие, уступка и цель",
+      "canDo": [
+        "объяснить причину и следствие",
+        "сказать «хотя» и «зато»",
+        "назвать цель действия",
+        "связать два предложения в одно",
+        "рассказать историю, а не список"
+      ],
+      "lessons": [
+        {
+          "id": "en-a2-so-because-although-01",
+          "title": "Because and so",
+          "summary": "Причина и следствие.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-01-d",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "dialogue",
+              "title": "Почему и поэтому",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I left early because I was tired.",
+                  "translation": "Я ушла рано, потому что устала."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "I was tired too, so I stayed.",
+                  "translation": "Я тоже устал, поэтому остался."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That is the opposite reaction.",
+                  "translation": "Обратная реакция."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Tired people make strange choices.",
+                  "translation": "Уставшие люди выбирают странно."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Both of us, apparently.",
+                  "translation": "Судя по всему, оба."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-01-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "because",
+              "translation": "потому что",
+              "example": "I left because I was tired."
+            },
+            {
+              "id": "en-a2-so-because-although-01-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "so",
+              "translation": "поэтому",
+              "example": "I was tired, so I stayed."
+            },
+            {
+              "id": "en-a2-so-because-although-01-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "the opposite",
+              "translation": "обратный",
+              "example": "That is the opposite reaction."
+            },
+            {
+              "id": "en-a2-so-because-although-01-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "strange choices",
+              "translation": "странный выбор",
+              "example": "Tired people make strange choices."
+            },
+            {
+              "id": "en-a2-so-because-although-01-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "both of us",
+              "translation": "оба",
+              "example": "Both of us, apparently."
+            },
+            {
+              "id": "en-a2-so-because-although-01-r",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "info",
+              "title": "Because — причина, so — следствие",
+              "explanation": "I left because I was tired: причина после because. I was tired, so I left: следствие после so. Одна мысль, два порядка, и путать их — значит менять местами причину и результат."
+            },
+            {
+              "id": "en-a2-so-because-although-01-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я ушла, потому что устала» —",
+              "options": [
+                "I left because I was tired",
+                "I left so I was tired",
+                "I left because of I was tired"
+              ],
+              "correctOption": "I left because I was tired"
+            },
+            {
+              "id": "en-a2-so-because-although-01-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я устала, поэтому ушла» —",
+              "options": [
+                "I was tired, so I left",
+                "I was tired, because I left",
+                "I was tired, so that I left it"
+              ],
+              "correctOption": "I was tired, so I left"
+            },
+            {
+              "id": "en-a2-so-because-although-01-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Судя по всему, оба» —",
+              "options": [
+                "Both of us, apparently",
+                "Both us, apparently",
+                "Apparently both from us"
+              ],
+              "correctOption": "Both of us, apparently"
+            },
+            {
+              "id": "en-a2-so-because-although-01-o",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "word_order",
+              "prompt": "Я тоже устал, поэтому остался.",
+              "canonicalAnswer": "I was tired too, so I stayed.",
+              "tokens": [
+                "stayed",
+                "I",
+                "so",
+                "too",
+                "tired",
+                "was",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-01-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Я ушла рано, потому что устала.",
+              "canonicalAnswer": "I left early because I was tired."
+            },
+            {
+              "id": "en-a2-so-because-although-01-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Я тоже устал, поэтому остался.",
+              "canonicalAnswer": "I was tired too, so I stayed."
+            },
+            {
+              "id": "en-a2-so-because-although-01-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Судя по всему, оба.",
+              "canonicalAnswer": "Both of us, apparently."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-02",
+          "title": "Because of the rain",
+          "summary": "Из-за чего.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-02-d",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "dialogue",
+              "title": "Из-за дождя",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "The match was cancelled because of the rain.",
+                  "translation": "Матч отменили из-за дождя."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Because it was raining, or because of the pitch?",
+                  "translation": "Из-за дождя или из-за поля?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Both, in the end.",
+                  "translation": "В итоге из-за обоих."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then Saturday?",
+                  "translation": "Тогда в субботу?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Saturday, same time.",
+                  "translation": "В субботу, в то же время."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-02-w1",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "because of the rain",
+              "translation": "из-за дождя",
+              "example": "Cancelled because of the rain."
+            },
+            {
+              "id": "en-a2-so-because-although-02-w2",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "was cancelled",
+              "translation": "отменили",
+              "example": "The match was cancelled."
+            },
+            {
+              "id": "en-a2-so-because-although-02-w3",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "the pitch",
+              "translation": "поле",
+              "example": "Because of the pitch?"
+            },
+            {
+              "id": "en-a2-so-because-although-02-w4",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "in the end",
+              "translation": "в итоге",
+              "example": "Both, in the end."
+            },
+            {
+              "id": "en-a2-so-because-although-02-w5",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "same time",
+              "translation": "в то же время",
+              "example": "Saturday, same time."
+            },
+            {
+              "id": "en-a2-so-because-although-02-r",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "info",
+              "title": "Because of — перед существительным",
+              "explanation": "Because of the rain, но because it was raining. После because идёт целое предложение с глаголом, после because of — только существительное. Русское «из-за» подсказывает вторую форму."
+            },
+            {
+              "id": "en-a2-so-because-although-02-c1",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Из-за дождя» —",
+              "options": [
+                "because of the rain",
+                "because the rain",
+                "because of it rained"
+              ],
+              "correctOption": "because of the rain"
+            },
+            {
+              "id": "en-a2-so-because-although-02-c2",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Потому что шёл дождь» —",
+              "options": [
+                "because it was raining",
+                "because of it was raining",
+                "because of the raining it"
+              ],
+              "correctOption": "because it was raining"
+            },
+            {
+              "id": "en-a2-so-because-although-02-c3",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В итоге» —",
+              "options": [
+                "in the end",
+                "at the end in",
+                "on the end"
+              ],
+              "correctOption": "in the end"
+            },
+            {
+              "id": "en-a2-so-because-although-02-o",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "word_order",
+              "prompt": "Матч отменили из-за дождя.",
+              "canonicalAnswer": "The match was cancelled because of the rain.",
+              "tokens": [
+                "rain",
+                "the",
+                "of",
+                "because",
+                "cancelled",
+                "was",
+                "match",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-02-t1",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Матч отменили из-за дождя.",
+              "canonicalAnswer": "The match was cancelled because of the rain."
+            },
+            {
+              "id": "en-a2-so-because-although-02-t2",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Потому что шёл дождь.",
+              "canonicalAnswer": "Because it was raining."
+            },
+            {
+              "id": "en-a2-so-because-although-02-t3",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-weather",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "В субботу, в то же время.",
+              "canonicalAnswer": "Saturday, same time."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-03",
+          "title": "Although it was cold",
+          "summary": "Уступка.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-03-d",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "dialogue",
+              "title": "Хотя было холодно",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Although it was cold, we walked home.",
+                  "translation": "Хотя было холодно, мы пошли пешком."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "How far?",
+                  "translation": "Далеко?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Forty minutes.",
+                  "translation": "Сорок минут."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Brave, or stubborn.",
+                  "translation": "Смело. Или упрямо."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The second one.",
+                  "translation": "Второе."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-03-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "although",
+              "translation": "хотя",
+              "example": "Although it was cold, we walked."
+            },
+            {
+              "id": "en-a2-so-because-although-03-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "we walked home",
+              "translation": "мы пошли пешком",
+              "example": "We walked home."
+            },
+            {
+              "id": "en-a2-so-because-although-03-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "How far?",
+              "translation": "Далеко?",
+              "example": "How far is it?"
+            },
+            {
+              "id": "en-a2-so-because-although-03-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "brave",
+              "translation": "смело",
+              "example": "Brave, or stubborn."
+            },
+            {
+              "id": "en-a2-so-because-although-03-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "the second one",
+              "translation": "второе",
+              "example": "The second one, honestly."
+            },
+            {
+              "id": "en-a2-so-because-although-03-r",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "info",
+              "title": "Although — «хотя», и без but",
+              "explanation": "Although it was cold, we walked. Второго союза не нужно: although it was cold, but we walked — ошибка, хотя по-русски «хотя… но» звучит нормально. Одна связка на одно соединение."
+            },
+            {
+              "id": "en-a2-so-because-although-03-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Хотя было холодно, мы пошли пешком» —",
+              "options": [
+                "Although it was cold, we walked home",
+                "Although it was cold, but we walked home",
+                "Although was cold, we walked home"
+              ],
+              "correctOption": "Although it was cold, we walked home"
+            },
+            {
+              "id": "en-a2-so-because-although-03-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Далеко?» —",
+              "options": [
+                "How far?",
+                "How far is far?",
+                "How long far?"
+              ],
+              "correctOption": "How far?"
+            },
+            {
+              "id": "en-a2-so-because-although-03-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Второе» —",
+              "options": [
+                "The second one",
+                "The second",
+                "Second one the"
+              ],
+              "correctOption": "The second one"
+            },
+            {
+              "id": "en-a2-so-because-although-03-o",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "word_order",
+              "prompt": "Хотя было холодно, мы пошли пешком.",
+              "canonicalAnswer": "Although it was cold, we walked home.",
+              "tokens": [
+                "home",
+                "walked",
+                "we",
+                "cold",
+                "was",
+                "it",
+                "Although"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-03-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Хотя было холодно, мы пошли пешком.",
+              "canonicalAnswer": "Although it was cold, we walked home."
+            },
+            {
+              "id": "en-a2-so-because-although-03-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Сорок минут.",
+              "canonicalAnswer": "Forty minutes."
+            },
+            {
+              "id": "en-a2-so-because-although-03-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Смело. Или упрямо.",
+              "canonicalAnswer": "Brave, or stubborn."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-04",
+          "title": "But and however",
+          "summary": "Зато и однако.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-04-d",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "dialogue",
+              "title": "Зато",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "The flat is small, but it is cheap.",
+                  "translation": "Квартира маленькая, зато дешёвая."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And far from work.",
+                  "translation": "И далеко от работы."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "True. However, the metro is close.",
+                  "translation": "Правда. Однако метро рядом."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then it works.",
+                  "translation": "Тогда сойдёт."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "For a year, at least.",
+                  "translation": "На год как минимум."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-04-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "but",
+              "translation": "но, зато",
+              "example": "Small, but cheap."
+            },
+            {
+              "id": "en-a2-so-because-although-04-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "however",
+              "translation": "однако",
+              "example": "However, the metro is close."
+            },
+            {
+              "id": "en-a2-so-because-although-04-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "far from work",
+              "translation": "далеко от работы",
+              "example": "And far from work."
+            },
+            {
+              "id": "en-a2-so-because-although-04-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "Then it works.",
+              "translation": "Тогда сойдёт.",
+              "example": "Then it works, fine."
+            },
+            {
+              "id": "en-a2-so-because-although-04-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "at least",
+              "translation": "как минимум",
+              "example": "For a year, at least."
+            },
+            {
+              "id": "en-a2-so-because-although-04-r",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "info",
+              "title": "But внутри, however в начале",
+              "explanation": "But соединяет части одного предложения: small but cheap. However начинает новое и отделяется запятой: However, the metro is close. Оно официальнее и чаще встречается на письме."
+            },
+            {
+              "id": "en-a2-so-because-although-04-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Маленькая, зато дешёвая» —",
+              "options": [
+                "small, but cheap",
+                "small, however cheap",
+                "small, but however cheap"
+              ],
+              "correctOption": "small, but cheap"
+            },
+            {
+              "id": "en-a2-so-because-although-04-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Однако метро рядом» —",
+              "options": [
+                "However, the metro is close",
+                "But however the metro is close",
+                "However the metro close is"
+              ],
+              "correctOption": "However, the metro is close"
+            },
+            {
+              "id": "en-a2-so-because-although-04-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Далеко от работы» —",
+              "options": [
+                "far from work",
+                "far of work",
+                "far to the work"
+              ],
+              "correctOption": "far from work"
+            },
+            {
+              "id": "en-a2-so-because-although-04-o",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "word_order",
+              "prompt": "Квартира маленькая, зато дешёвая.",
+              "canonicalAnswer": "The flat is small, but it is cheap.",
+              "tokens": [
+                "cheap",
+                "is",
+                "it",
+                "but",
+                "small",
+                "is",
+                "flat",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-04-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Квартира маленькая, зато дешёвая.",
+              "canonicalAnswer": "The flat is small, but it is cheap.",
+              "acceptedAnswers": [
+                "The flat is small, but it's cheap."
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-04-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Однако метро рядом.",
+              "canonicalAnswer": "However, the metro is close."
+            },
+            {
+              "id": "en-a2-so-because-although-04-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "На год как минимум.",
+              "canonicalAnswer": "For a year, at least."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-05",
+          "title": "To and in order to",
+          "summary": "Цель.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-05-d",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "dialogue",
+              "title": "Зачем",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I called to ask about Friday.",
+                  "translation": "Я звонила, чтобы спросить про пятницу."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And I did not answer.",
+                  "translation": "А я не ответил."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "You were driving, I know.",
+                  "translation": "Ты был за рулём, я знаю."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "So what about Friday?",
+                  "translation": "Так что там с пятницей?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "It has moved to Monday.",
+                  "translation": "Перенесли на понедельник."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-05-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "I called to ask",
+              "translation": "я звонила, чтобы спросить",
+              "example": "I called to ask about Friday."
+            },
+            {
+              "id": "en-a2-so-because-although-05-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "about Friday",
+              "translation": "про пятницу",
+              "example": "To ask about Friday."
+            },
+            {
+              "id": "en-a2-so-because-although-05-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "You were driving.",
+              "translation": "Ты был за рулём.",
+              "example": "You were driving, I know."
+            },
+            {
+              "id": "en-a2-so-because-although-05-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "So what about…?",
+              "translation": "Так что там с …?",
+              "example": "So what about Friday?"
+            },
+            {
+              "id": "en-a2-so-because-although-05-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "It has moved.",
+              "translation": "Перенесли.",
+              "example": "It has moved to Monday."
+            },
+            {
+              "id": "en-a2-so-because-although-05-r",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "info",
+              "title": "Цель — просто to",
+              "explanation": "I called to ask, I came to help. Официальнее — in order to, но в разговоре хватает одного to. Форма for asking здесь невозможна: for отвечает за назначение предмета, а не за цель действия."
+            },
+            {
+              "id": "en-a2-so-because-although-05-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я звонила, чтобы спросить» —",
+              "options": [
+                "I called to ask",
+                "I called for ask",
+                "I called for asking"
+              ],
+              "correctOption": "I called to ask"
+            },
+            {
+              "id": "en-a2-so-because-although-05-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я пришёл помочь» —",
+              "options": [
+                "I came to help",
+                "I came for help to",
+                "I came for helping"
+              ],
+              "correctOption": "I came to help"
+            },
+            {
+              "id": "en-a2-so-because-although-05-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Перенесли на понедельник» —",
+              "options": [
+                "It has moved to Monday",
+                "It has moved on Monday",
+                "It has move to Monday"
+              ],
+              "correctOption": "It has moved to Monday"
+            },
+            {
+              "id": "en-a2-so-because-although-05-o",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "word_order",
+              "prompt": "Я звонила, чтобы спросить про пятницу.",
+              "canonicalAnswer": "I called to ask about Friday.",
+              "tokens": [
+                "Friday",
+                "about",
+                "ask",
+                "to",
+                "called",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-05-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Я звонила, чтобы спросить про пятницу.",
+              "canonicalAnswer": "I called to ask about Friday."
+            },
+            {
+              "id": "en-a2-so-because-although-05-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Ты был за рулём, я знаю.",
+              "canonicalAnswer": "You were driving, I know."
+            },
+            {
+              "id": "en-a2-so-because-although-05-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-verb-patterns",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Перенесли на понедельник.",
+              "canonicalAnswer": "It has moved to Monday.",
+              "acceptedAnswers": [
+                "It's moved to Monday."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-06",
+          "title": "When, while, as soon as",
+          "summary": "Время в сложном предложении.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-06-d",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "dialogue",
+              "title": "Когда придёшь",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Call me when you arrive.",
+                  "translation": "Позвони, когда доедешь."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "As soon as I get off the train.",
+                  "translation": "Как только сойду с поезда."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And I will start cooking.",
+                  "translation": "А я начну готовить."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "While I am on the way?",
+                  "translation": "Пока я в дороге?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Exactly. Warm food beats fast food.",
+                  "translation": "Именно. Тёплая еда лучше быстрой."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-06-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "when you arrive",
+              "translation": "когда доедешь",
+              "example": "Call me when you arrive."
+            },
+            {
+              "id": "en-a2-so-because-although-06-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "as soon as",
+              "translation": "как только",
+              "example": "As soon as I get off the train."
+            },
+            {
+              "id": "en-a2-so-because-although-06-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "get off the train",
+              "translation": "сойти с поезда",
+              "example": "As soon as I get off the train."
+            },
+            {
+              "id": "en-a2-so-because-although-06-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "on the way",
+              "translation": "в дороге",
+              "example": "While I am on the way?"
+            },
+            {
+              "id": "en-a2-so-because-although-06-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "warm food",
+              "translation": "тёплая еда",
+              "example": "Warm food beats fast food."
+            },
+            {
+              "id": "en-a2-so-because-although-06-r",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "info",
+              "title": "После when о будущем — настоящее",
+              "explanation": "Call me when you arrive, I will wait until you come. После when, while, as soon as, until будущее не ставят, хотя речь о будущем. Правило то же, что после if, и нарушают его так же часто."
+            },
+            {
+              "id": "en-a2-so-because-although-06-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Позвони, когда доедешь» —",
+              "options": [
+                "Call me when you arrive",
+                "Call me when you will arrive",
+                "Call me when you are arrive"
+              ],
+              "correctOption": "Call me when you arrive"
+            },
+            {
+              "id": "en-a2-so-because-although-06-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Как только сойду с поезда» —",
+              "options": [
+                "As soon as I get off the train",
+                "As soon as I will get off the train",
+                "As soon I get off the train"
+              ],
+              "correctOption": "As soon as I get off the train"
+            },
+            {
+              "id": "en-a2-so-because-although-06-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пока я в дороге» —",
+              "options": [
+                "While I am on the way",
+                "While I will be on the way",
+                "While I on the way"
+              ],
+              "correctOption": "While I am on the way"
+            },
+            {
+              "id": "en-a2-so-because-although-06-o",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "word_order",
+              "prompt": "Позвони, когда доедешь.",
+              "canonicalAnswer": "Call me when you arrive.",
+              "tokens": [
+                "arrive",
+                "you",
+                "when",
+                "me",
+                "Call"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-06-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "translate",
+              "prompt": "Позвони, когда доедешь.",
+              "canonicalAnswer": "Call me when you arrive."
+            },
+            {
+              "id": "en-a2-so-because-although-06-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "translate",
+              "prompt": "Как только сойду с поезда.",
+              "canonicalAnswer": "As soon as I get off the train."
+            },
+            {
+              "id": "en-a2-so-because-although-06-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "translate",
+              "prompt": "А я начну готовить.",
+              "canonicalAnswer": "And I will start cooking.",
+              "acceptedAnswers": [
+                "And I'll start cooking."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-07",
+          "title": "Both, and neither",
+          "summary": "Оба и ни один.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-07-d",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "dialogue",
+              "title": "Оба или ни один",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Both flats are good.",
+                  "translation": "Обе квартиры хорошие."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "But neither is cheap.",
+                  "translation": "Но ни одна не дешёвая."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Either would work, though.",
+                  "translation": "Хотя подошла бы любая."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then we take the closer one.",
+                  "translation": "Тогда берём ту, что ближе."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Agreed.",
+                  "translation": "Согласна."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-07-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "both",
+              "translation": "оба",
+              "example": "Both flats are good."
+            },
+            {
+              "id": "en-a2-so-because-although-07-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "neither",
+              "translation": "ни один",
+              "example": "But neither is cheap."
+            },
+            {
+              "id": "en-a2-so-because-although-07-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "either",
+              "translation": "любой из двух",
+              "example": "Either would work."
+            },
+            {
+              "id": "en-a2-so-because-although-07-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "the closer one",
+              "translation": "та, что ближе",
+              "example": "We take the closer one."
+            },
+            {
+              "id": "en-a2-so-because-although-07-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "Agreed.",
+              "translation": "Согласна.",
+              "example": "Agreed, then."
+            },
+            {
+              "id": "en-a2-so-because-although-07-r",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "info",
+              "title": "Both, either, neither — только о двух",
+              "explanation": "Both flats, either flat, neither flat. Все три работают с парой; для трёх и больше идут all, any, none. Neither уже отрицание, поэтому глагол при нём положительный: neither is cheap."
+            },
+            {
+              "id": "en-a2-so-because-although-07-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ни одна не дешёвая» —",
+              "options": [
+                "Neither is cheap",
+                "Neither is not cheap",
+                "Neither are not cheap"
+              ],
+              "correctOption": "Neither is cheap"
+            },
+            {
+              "id": "en-a2-so-because-although-07-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Обе квартиры хорошие» —",
+              "options": [
+                "Both flats are good",
+                "Both flat are good",
+                "Both of flats is good"
+              ],
+              "correctOption": "Both flats are good"
+            },
+            {
+              "id": "en-a2-so-because-although-07-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Подошла бы любая» —",
+              "options": [
+                "Either would work",
+                "Either would works",
+                "Any of two would work either"
+              ],
+              "correctOption": "Either would work"
+            },
+            {
+              "id": "en-a2-so-because-although-07-o",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "word_order",
+              "prompt": "Но ни одна не дешёвая.",
+              "canonicalAnswer": "But neither is cheap.",
+              "tokens": [
+                "cheap",
+                "is",
+                "neither",
+                "But"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-07-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Обе квартиры хорошие.",
+              "canonicalAnswer": "Both flats are good."
+            },
+            {
+              "id": "en-a2-so-because-although-07-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Но ни одна не дешёвая.",
+              "canonicalAnswer": "But neither is cheap."
+            },
+            {
+              "id": "en-a2-so-because-although-07-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Тогда берём ту, что ближе.",
+              "canonicalAnswer": "Then we take the closer one."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-08",
+          "title": "First, then, finally",
+          "summary": "Порядок в рассказе.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-08-d",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "dialogue",
+              "title": "По порядку",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "First we got lost, then it rained.",
+                  "translation": "Сначала мы заблудились, потом пошёл дождь."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And finally?",
+                  "translation": "И чем кончилось?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Finally a farmer drove us back.",
+                  "translation": "В итоге фермер отвёз нас обратно."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That is a whole holiday in one day.",
+                  "translation": "Целый отпуск за один день."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "We slept for eleven hours after.",
+                  "translation": "Потом одиннадцать часов спали."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-08-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "first",
+              "translation": "сначала",
+              "example": "First we got lost."
+            },
+            {
+              "id": "en-a2-so-because-although-08-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "then",
+              "translation": "потом",
+              "example": "Then it rained."
+            },
+            {
+              "id": "en-a2-so-because-although-08-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "finally",
+              "translation": "в итоге, наконец",
+              "example": "Finally a farmer drove us back."
+            },
+            {
+              "id": "en-a2-so-because-although-08-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "a farmer",
+              "translation": "фермер",
+              "example": "A farmer drove us back."
+            },
+            {
+              "id": "en-a2-so-because-although-08-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "drove us back",
+              "translation": "отвёз нас обратно",
+              "example": "He drove us back."
+            },
+            {
+              "id": "en-a2-so-because-although-08-r",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "info",
+              "title": "Три слова, которые делают рассказ",
+              "explanation": "First, then, finally. Они ставятся в начало предложения и отделяются интонацией, а не запятой. Даже простые фразы с ними звучат как история, а не как перечень."
+            },
+            {
+              "id": "en-a2-so-because-although-08-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Сначала мы заблудились» —",
+              "options": [
+                "First we got lost",
+                "At first we got lost first",
+                "First we get lost"
+              ],
+              "correctOption": "First we got lost"
+            },
+            {
+              "id": "en-a2-so-because-although-08-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В итоге фермер отвёз нас обратно» —",
+              "options": [
+                "Finally a farmer drove us back",
+                "Finally a farmer drived us back",
+                "Finally a farmer drove back us"
+              ],
+              "correctOption": "Finally a farmer drove us back"
+            },
+            {
+              "id": "en-a2-so-because-although-08-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Потом пошёл дождь» —",
+              "options": [
+                "then it rained",
+                "then it was rain",
+                "then it rain"
+              ],
+              "correctOption": "then it rained"
+            },
+            {
+              "id": "en-a2-so-because-although-08-o",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "word_order",
+              "prompt": "Сначала мы заблудились, потом пошёл дождь.",
+              "canonicalAnswer": "First we got lost, then it rained.",
+              "tokens": [
+                "rained",
+                "it",
+                "then",
+                "lost",
+                "got",
+                "we",
+                "First"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-08-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Сначала мы заблудились, потом пошёл дождь.",
+              "canonicalAnswer": "First we got lost, then it rained."
+            },
+            {
+              "id": "en-a2-so-because-although-08-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "В итоге фермер отвёз нас обратно.",
+              "canonicalAnswer": "Finally a farmer drove us back."
+            },
+            {
+              "id": "en-a2-so-because-although-08-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Потом одиннадцать часов спали.",
+              "canonicalAnswer": "We slept for eleven hours after."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-09",
+          "title": "That is why",
+          "summary": "Вот почему.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-09-d",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "dialogue",
+              "title": "Вот почему",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "The bus is always late.",
+                  "translation": "Автобус вечно опаздывает."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "That is why I cycle.",
+                  "translation": "Вот поэтому я на велосипеде."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "In this weather?",
+                  "translation": "В такую погоду?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Even in this weather.",
+                  "translation": "Даже в такую."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That is either brave or mad.",
+                  "translation": "Это либо смело, либо безумно."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-09-w1",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "That is why…",
+              "translation": "Вот почему …",
+              "example": "That is why I cycle."
+            },
+            {
+              "id": "en-a2-so-because-although-09-w2",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "I cycle",
+              "translation": "я на велосипеде",
+              "example": "That is why I cycle."
+            },
+            {
+              "id": "en-a2-so-because-although-09-w3",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "even in this weather",
+              "translation": "даже в такую погоду",
+              "example": "Even in this weather."
+            },
+            {
+              "id": "en-a2-so-because-although-09-w4",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "either… or",
+              "translation": "либо… либо",
+              "example": "Either brave or mad."
+            },
+            {
+              "id": "en-a2-so-because-although-09-w5",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "mad",
+              "translation": "безумный",
+              "example": "Either brave or mad."
+            },
+            {
+              "id": "en-a2-so-because-although-09-r",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "info",
+              "title": "That is why и that is because",
+              "explanation": "That is why I cycle — вывод, следствие. That is because the bus is late — причина. Пара зеркальная, и путать их так же опасно, как so и because."
+            },
+            {
+              "id": "en-a2-so-because-although-09-c1",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Вот поэтому я на велосипеде» —",
+              "options": [
+                "That is why I cycle",
+                "That is because I cycle",
+                "That is why do I cycle"
+              ],
+              "correctOption": "That is why I cycle"
+            },
+            {
+              "id": "en-a2-so-because-although-09-c2",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Это потому, что автобус опаздывает» —",
+              "options": [
+                "That is because the bus is late",
+                "That is why the bus is late",
+                "That is because of the bus is late"
+              ],
+              "correctOption": "That is because the bus is late"
+            },
+            {
+              "id": "en-a2-so-because-although-09-c3",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Либо смело, либо безумно» —",
+              "options": [
+                "either brave or mad",
+                "either brave nor mad",
+                "both brave or mad"
+              ],
+              "correctOption": "either brave or mad"
+            },
+            {
+              "id": "en-a2-so-because-although-09-o",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "word_order",
+              "prompt": "Вот поэтому я на велосипеде.",
+              "canonicalAnswer": "That is why I cycle.",
+              "tokens": [
+                "cycle",
+                "I",
+                "why",
+                "is",
+                "That"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-09-t1",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "translate",
+              "prompt": "Автобус вечно опаздывает.",
+              "canonicalAnswer": "The bus is always late."
+            },
+            {
+              "id": "en-a2-so-because-although-09-t2",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "translate",
+              "prompt": "Вот поэтому я на велосипеде.",
+              "canonicalAnswer": "That is why I cycle.",
+              "acceptedAnswers": [
+                "That's why I cycle."
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-09-t3",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-tema-relato"
+              ],
+              "type": "translate",
+              "prompt": "Даже в такую.",
+              "canonicalAnswer": "Even in this weather."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-10",
+          "title": "So that and so much",
+          "summary": "Чтобы и настолько.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-10-d",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "dialogue",
+              "title": "Так, чтобы",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Write it down so that you remember.",
+                  "translation": "Запиши, чтобы не забыть."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I have so many notes already.",
+                  "translation": "У меня уже столько записей."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And so little memory.",
+                  "translation": "И так мало памяти."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That is exactly the problem.",
+                  "translation": "Вот в этом и проблема."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "One notebook, not five.",
+                  "translation": "Одна тетрадь, а не пять."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-10-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "so that you remember",
+              "translation": "чтобы не забыть",
+              "example": "Write it down so that you remember."
+            },
+            {
+              "id": "en-a2-so-because-although-10-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "so many notes",
+              "translation": "столько записей",
+              "example": "I have so many notes."
+            },
+            {
+              "id": "en-a2-so-because-although-10-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "so little memory",
+              "translation": "так мало памяти",
+              "example": "And so little memory."
+            },
+            {
+              "id": "en-a2-so-because-although-10-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "exactly the problem",
+              "translation": "в этом и проблема",
+              "example": "That is exactly the problem."
+            },
+            {
+              "id": "en-a2-so-because-although-10-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "a notebook",
+              "translation": "тетрадь",
+              "example": "One notebook, not five."
+            },
+            {
+              "id": "en-a2-so-because-although-10-r",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "info",
+              "title": "So that — цель с целым предложением",
+              "explanation": "To ask ставится, когда подлежащее одно: I called to ask. So that нужно, когда подлежащих два: write it down so that you remember. Это самый простой способ выбрать между ними."
+            },
+            {
+              "id": "en-a2-so-because-although-10-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Запиши, чтобы ты не забыл» —",
+              "options": [
+                "Write it down so that you remember",
+                "Write it down to you remember",
+                "Write it down for you remember"
+              ],
+              "correctOption": "Write it down so that you remember"
+            },
+            {
+              "id": "en-a2-so-because-although-10-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Столько записей» —",
+              "options": [
+                "so many notes",
+                "so much notes",
+                "such many notes"
+              ],
+              "correctOption": "so many notes"
+            },
+            {
+              "id": "en-a2-so-because-although-10-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Так мало памяти» —",
+              "options": [
+                "so little memory",
+                "so few memory",
+                "so little memories"
+              ],
+              "correctOption": "so little memory"
+            },
+            {
+              "id": "en-a2-so-because-although-10-o",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "word_order",
+              "prompt": "Запиши, чтобы не забыть.",
+              "canonicalAnswer": "Write it down so that you remember.",
+              "tokens": [
+                "remember",
+                "you",
+                "that",
+                "so",
+                "down",
+                "it",
+                "Write"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-10-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Запиши, чтобы не забыть.",
+              "canonicalAnswer": "Write it down so that you remember."
+            },
+            {
+              "id": "en-a2-so-because-although-10-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "У меня уже столько записей.",
+              "canonicalAnswer": "I have so many notes already.",
+              "acceptedAnswers": [
+                "I've got so many notes already."
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-10-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Одна тетрадь, а не пять.",
+              "canonicalAnswer": "One notebook, not five."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-11",
+          "title": "Adding a reason politely",
+          "summary": "Объяснить отказ причиной.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-11-d",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "dialogue",
+              "title": "Мягкий отказ",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I cannot come, because my sister is here.",
+                  "translation": "Не смогу прийти: сестра приехала."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "For how long?",
+                  "translation": "Надолго?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Until Sunday, so next week is better.",
+                  "translation": "До воскресенья, так что лучше на следующей."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Next week works for me.",
+                  "translation": "Мне следующая подходит."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then we say Tuesday.",
+                  "translation": "Тогда договоримся на вторник."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-11-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "I cannot come",
+              "translation": "не смогу прийти",
+              "example": "I cannot come, because my sister is here."
+            },
+            {
+              "id": "en-a2-so-because-although-11-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "my sister is here",
+              "translation": "сестра приехала",
+              "example": "Because my sister is here."
+            },
+            {
+              "id": "en-a2-so-because-although-11-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "until Sunday",
+              "translation": "до воскресенья",
+              "example": "Until Sunday, yes."
+            },
+            {
+              "id": "en-a2-so-because-although-11-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "next week is better",
+              "translation": "лучше на следующей",
+              "example": "So next week is better."
+            },
+            {
+              "id": "en-a2-so-because-although-11-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "works for me",
+              "translation": "мне подходит",
+              "example": "Next week works for me."
+            },
+            {
+              "id": "en-a2-so-because-although-11-r",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "info",
+              "title": "Причина плюс предложение — вежливый отказ",
+              "explanation": "Because объясняет, so предлагает выход: I cannot come because…, so next week is better. Отказ с альтернативой воспринимается не как отказ, а как перенос."
+            },
+            {
+              "id": "en-a2-so-because-although-11-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Не смогу прийти: сестра приехала» —",
+              "options": [
+                "I cannot come, because my sister is here",
+                "I cannot come, because of my sister is here",
+                "I cannot come, so my sister is here"
+              ],
+              "correctOption": "I cannot come, because my sister is here"
+            },
+            {
+              "id": "en-a2-so-because-although-11-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Так что лучше на следующей неделе» —",
+              "options": [
+                "so next week is better",
+                "because next week is better so",
+                "so next week is more better"
+              ],
+              "correctOption": "so next week is better"
+            },
+            {
+              "id": "en-a2-so-because-although-11-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мне подходит» —",
+              "options": [
+                "That works for me",
+                "That work for me",
+                "That is works for me"
+              ],
+              "correctOption": "That works for me"
+            },
+            {
+              "id": "en-a2-so-because-although-11-o",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "word_order",
+              "prompt": "До воскресенья, так что лучше на следующей.",
+              "canonicalAnswer": "Until Sunday, so next week is better.",
+              "tokens": [
+                "better",
+                "is",
+                "week",
+                "next",
+                "so",
+                "Sunday",
+                "Until"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-11-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "Не смогу прийти: сестра приехала.",
+              "canonicalAnswer": "I cannot come, because my sister is here.",
+              "acceptedAnswers": [
+                "I can't come, because my sister is here."
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-11-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "До воскресенья, так что лучше на следующей.",
+              "canonicalAnswer": "Until Sunday, so next week is better."
+            },
+            {
+              "id": "en-a2-so-because-although-11-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "Тогда договоримся на вторник.",
+              "canonicalAnswer": "Then we say Tuesday."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-12",
+          "title": "Even though and even if",
+          "summary": "Даже если.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-12-d",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "dialogue",
+              "title": "Даже если",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "I am going, even if it rains.",
+                  "translation": "Я пойду, даже если будет дождь."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Even though you have a cold?",
+                  "translation": "Даже несмотря на простуду?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "It is a small cold.",
+                  "translation": "Простуда маленькая."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "There is no such thing.",
+                  "translation": "Таких не бывает."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then take me an umbrella.",
+                  "translation": "Тогда принеси мне зонт."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-12-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "even if it rains",
+              "translation": "даже если будет дождь",
+              "example": "I am going, even if it rains."
+            },
+            {
+              "id": "en-a2-so-because-although-12-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "even though",
+              "translation": "даже несмотря на то, что",
+              "example": "Even though you have a cold?"
+            },
+            {
+              "id": "en-a2-so-because-although-12-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "a cold",
+              "translation": "простуда",
+              "example": "You have a cold."
+            },
+            {
+              "id": "en-a2-so-because-although-12-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "no such thing",
+              "translation": "таких не бывает",
+              "example": "There is no such thing."
+            },
+            {
+              "id": "en-a2-so-because-although-12-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "flashcard",
+              "prompt": "an umbrella",
+              "translation": "зонт",
+              "example": "Then take me an umbrella."
+            },
+            {
+              "id": "en-a2-so-because-although-12-r",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "info",
+              "title": "Even if — про возможное, even though — про факт",
+              "explanation": "Even if it rains — дождя может и не быть. Even though you have a cold — простуда уже есть. Русское «даже если» покрывает оба, и разница видна только по реальности события."
+            },
+            {
+              "id": "en-a2-so-because-although-12-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Даже если будет дождь» —",
+              "options": [
+                "even if it rains",
+                "even though it rains",
+                "even if it will rain"
+              ],
+              "correctOption": "even if it rains"
+            },
+            {
+              "id": "en-a2-so-because-although-12-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Даже несмотря на то, что ты болен» —",
+              "options": [
+                "even though you are ill",
+                "even if you are ill",
+                "even though you will be ill"
+              ],
+              "correctOption": "even though you are ill"
+            },
+            {
+              "id": "en-a2-so-because-although-12-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Таких не бывает» —",
+              "options": [
+                "There is no such thing",
+                "There is not such thing",
+                "There is no such a thing"
+              ],
+              "correctOption": "There is no such thing"
+            },
+            {
+              "id": "en-a2-so-because-although-12-o",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "word_order",
+              "prompt": "Я пойду, даже если будет дождь.",
+              "canonicalAnswer": "I am going, even if it rains.",
+              "tokens": [
+                "rains",
+                "it",
+                "if",
+                "even",
+                "going",
+                "am",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-12-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "translate",
+              "prompt": "Я пойду, даже если будет дождь.",
+              "canonicalAnswer": "I am going, even if it rains.",
+              "acceptedAnswers": [
+                "I'm going, even if it rains."
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-12-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "translate",
+              "prompt": "Даже несмотря на простуду?",
+              "canonicalAnswer": "Even though you have a cold?"
+            },
+            {
+              "id": "en-a2-so-because-although-12-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-zero-first-conditional",
+                "a2-tema-relato"
+              ],
+              "type": "translate",
+              "prompt": "Тогда принеси мне зонт.",
+              "canonicalAnswer": "Then take me an umbrella."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-13",
+          "title": "In the end and at the end",
+          "summary": "Два разных конца.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-13-d",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "dialogue",
+              "title": "В конце концов",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "In the end we stayed home.",
+                  "translation": "В итоге мы остались дома."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And at the end of the film?",
+                  "translation": "А в конце фильма?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Everybody cried, of course.",
+                  "translation": "Все плакали, конечно."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "That is why I chose it.",
+                  "translation": "За это я его и выбрал."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "You are a difficult person.",
+                  "translation": "Ты сложный человек."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-13-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "in the end",
+              "translation": "в итоге",
+              "example": "In the end we stayed home."
+            },
+            {
+              "id": "en-a2-so-because-although-13-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "at the end of",
+              "translation": "в конце (чего-то)",
+              "example": "At the end of the film."
+            },
+            {
+              "id": "en-a2-so-because-although-13-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "cried",
+              "translation": "плакали",
+              "example": "Everybody cried."
+            },
+            {
+              "id": "en-a2-so-because-although-13-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "I chose it",
+              "translation": "я его выбрал",
+              "example": "That is why I chose it."
+            },
+            {
+              "id": "en-a2-so-because-although-13-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "a difficult person",
+              "translation": "сложный человек",
+              "example": "You are a difficult person."
+            },
+            {
+              "id": "en-a2-so-because-although-13-r",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "info",
+              "title": "In the end и at the end",
+              "explanation": "In the end — «в итоге», о результате долгих раздумий. At the end of — точка окончания чего-то конкретного: at the end of the film, at the end of the street. Разница в предлоге, а смысл разный."
+            },
+            {
+              "id": "en-a2-so-because-although-13-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В итоге мы остались дома» —",
+              "options": [
+                "In the end we stayed home",
+                "At the end we stayed home",
+                "In the end of we stayed home"
+              ],
+              "correctOption": "In the end we stayed home"
+            },
+            {
+              "id": "en-a2-so-because-although-13-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В конце фильма» —",
+              "options": [
+                "at the end of the film",
+                "in the end of the film",
+                "at the end the film"
+              ],
+              "correctOption": "at the end of the film"
+            },
+            {
+              "id": "en-a2-so-because-although-13-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«За это я его и выбрал» —",
+              "options": [
+                "That is why I chose it",
+                "That is because I chose it why",
+                "That is why I choosed it"
+              ],
+              "correctOption": "That is why I chose it"
+            },
+            {
+              "id": "en-a2-so-because-although-13-o",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "word_order",
+              "prompt": "В итоге мы остались дома.",
+              "canonicalAnswer": "In the end we stayed home.",
+              "tokens": [
+                "home",
+                "stayed",
+                "we",
+                "end",
+                "the",
+                "In"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-13-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "В итоге мы остались дома.",
+              "canonicalAnswer": "In the end we stayed home."
+            },
+            {
+              "id": "en-a2-so-because-although-13-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "А в конце фильма?",
+              "canonicalAnswer": "And at the end of the film?"
+            },
+            {
+              "id": "en-a2-so-because-although-13-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Все плакали, конечно.",
+              "canonicalAnswer": "Everybody cried, of course."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-14",
+          "title": "Linking in writing",
+          "summary": "Связки на письме.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-14-d",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "В письме",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "How do I start the second paragraph?",
+                  "translation": "Как начать второй абзац?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "However, or on the other hand.",
+                  "translation": "However или on the other hand."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the last one?",
+                  "translation": "А последний?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "To sum up, or finally.",
+                  "translation": "To sum up или finally."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Short words, big difference.",
+                  "translation": "Короткие слова, большая разница."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-14-w1",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "a paragraph",
+              "translation": "абзац",
+              "example": "How do I start the second paragraph?"
+            },
+            {
+              "id": "en-a2-so-because-although-14-w2",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "on the other hand",
+              "translation": "с другой стороны",
+              "example": "However, or on the other hand."
+            },
+            {
+              "id": "en-a2-so-because-although-14-w3",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "to sum up",
+              "translation": "подводя итог",
+              "example": "To sum up, or finally."
+            },
+            {
+              "id": "en-a2-so-because-although-14-w4",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "the last one",
+              "translation": "последний",
+              "example": "And the last one?"
+            },
+            {
+              "id": "en-a2-so-because-although-14-w5",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "big difference",
+              "translation": "большая разница",
+              "example": "Short words, big difference."
+            },
+            {
+              "id": "en-a2-so-because-although-14-r",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Письменные связки идут с запятой",
+              "explanation": "However, on the other hand, to sum up — все они стоят в начале предложения и отделяются запятой. В разговоре их место занимают but и so, и это нормально: письменный регистр отличается сильнее, чем кажется."
+            },
+            {
+              "id": "en-a2-so-because-although-14-c1",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«С другой стороны» —",
+              "options": [
+                "on the other hand",
+                "from the other hand",
+                "on other hand"
+              ],
+              "correctOption": "on the other hand"
+            },
+            {
+              "id": "en-a2-so-because-although-14-c2",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Подводя итог» —",
+              "options": [
+                "to sum up",
+                "for sum up",
+                "to summing up"
+              ],
+              "correctOption": "to sum up"
+            },
+            {
+              "id": "en-a2-so-because-although-14-c3",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Как начать второй абзац?» —",
+              "options": [
+                "How do I start the second paragraph?",
+                "How do I start second paragraph?",
+                "How I do start the second paragraph?"
+              ],
+              "correctOption": "How do I start the second paragraph?"
+            },
+            {
+              "id": "en-a2-so-because-although-14-o",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "However или on the other hand.",
+              "canonicalAnswer": "However, or on the other hand.",
+              "tokens": [
+                "hand",
+                "other",
+                "the",
+                "on",
+                "or",
+                "However"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-14-t1",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Как начать второй абзац?",
+              "canonicalAnswer": "How do I start the second paragraph?"
+            },
+            {
+              "id": "en-a2-so-because-although-14-t2",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "С другой стороны.",
+              "canonicalAnswer": "On the other hand."
+            },
+            {
+              "id": "en-a2-so-because-although-14-t3",
+              "topics": [
+                "a2-connectors",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Короткие слова, большая разница.",
+              "canonicalAnswer": "Short words, big difference."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-15",
+          "title": "A story with all of them",
+          "summary": "Весь блок: связки в одном рассказе.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-15-d",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "dialogue",
+              "title": "Целый рассказ",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "We left late because the train was delayed.",
+                  "translation": "Мы выехали поздно, потому что поезд задержали."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "So you missed the start?",
+                  "translation": "И начало пропустили?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Although we ran, yes.",
+                  "translation": "Хотя и бежали, да."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And in the end?",
+                  "translation": "А в итоге?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "In the end it was worth it.",
+                  "translation": "В итоге оно того стоило."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-15-w1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "the train was delayed",
+              "translation": "поезд задержали",
+              "example": "Because the train was delayed."
+            },
+            {
+              "id": "en-a2-so-because-although-15-w2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "you missed the start",
+              "translation": "вы пропустили начало",
+              "example": "So you missed the start?"
+            },
+            {
+              "id": "en-a2-so-because-although-15-w3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "although we ran",
+              "translation": "хотя и бежали",
+              "example": "Although we ran, yes."
+            },
+            {
+              "id": "en-a2-so-because-although-15-w4",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "in the end",
+              "translation": "в итоге",
+              "example": "And in the end?"
+            },
+            {
+              "id": "en-a2-so-because-although-15-w5",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "it was worth it",
+              "translation": "оно того стоило",
+              "example": "In the end it was worth it."
+            },
+            {
+              "id": "en-a2-so-because-although-15-r",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "info",
+              "title": "Пять связок держат любой рассказ",
+              "explanation": "Because — причина, so — следствие, although — уступка, to — цель, in the end — итог. С ними речь перестаёт быть перечнем, и на A2 больше связок не нужно."
+            },
+            {
+              "id": "en-a2-so-because-although-15-c1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы выехали поздно, потому что поезд задержали» —",
+              "options": [
+                "We left late because the train was delayed",
+                "We left late because of the train was delayed",
+                "We left late so the train was delayed"
+              ],
+              "correctOption": "We left late because the train was delayed"
+            },
+            {
+              "id": "en-a2-so-because-although-15-c2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Хотя и бежали» —",
+              "options": [
+                "Although we ran",
+                "Although we run",
+                "Although but we ran"
+              ],
+              "correctOption": "Although we ran"
+            },
+            {
+              "id": "en-a2-so-because-although-15-c3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В итоге оно того стоило» —",
+              "options": [
+                "In the end it was worth it",
+                "At the end it was worth it",
+                "In the end it was worth"
+              ],
+              "correctOption": "In the end it was worth it"
+            },
+            {
+              "id": "en-a2-so-because-although-15-o",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "word_order",
+              "prompt": "Мы выехали поздно, потому что поезд задержали.",
+              "canonicalAnswer": "We left late because the train was delayed.",
+              "tokens": [
+                "delayed",
+                "was",
+                "train",
+                "the",
+                "because",
+                "late",
+                "left",
+                "We"
+              ]
+            },
+            {
+              "id": "en-a2-so-because-although-15-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Мы выехали поздно, потому что поезд задержали.",
+              "canonicalAnswer": "We left late because the train was delayed."
+            },
+            {
+              "id": "en-a2-so-because-although-15-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Хотя и бежали, да.",
+              "canonicalAnswer": "Although we ran, yes."
+            },
+            {
+              "id": "en-a2-so-because-although-15-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "В итоге оно того стоило.",
+              "canonicalAnswer": "In the end it was worth it."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-so-because-although-check",
+          "title": "Проверка: связки",
+          "summary": "Шесть фраз без подсказок — весь блок целиком.",
+          "estimatedMinutes": 5,
+          "kind": "checkpoint",
+          "exercises": [
+            {
+              "id": "en-a2-so-because-although-check-t1",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Я ушла рано, потому что устала.",
+              "canonicalAnswer": "I left early because I was tired."
+            },
+            {
+              "id": "en-a2-so-because-although-check-t2",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Матч отменили из-за дождя.",
+              "canonicalAnswer": "The match was cancelled because of the rain."
+            },
+            {
+              "id": "en-a2-so-because-although-check-t3",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Хотя было холодно, мы пошли пешком.",
+              "canonicalAnswer": "Although it was cold, we walked home."
+            },
+            {
+              "id": "en-a2-so-because-although-check-t4",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Я звонила, чтобы спросить про пятницу.",
+              "canonicalAnswer": "I called to ask about Friday."
+            },
+            {
+              "id": "en-a2-so-because-although-check-t5",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Позвони, когда доедешь.",
+              "canonicalAnswer": "Call me when you arrive."
+            },
+            {
+              "id": "en-a2-so-because-although-check-t6",
+              "topics": [
+                "a2-connectors",
+                "a2-tema-relato",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "В итоге мы остались дома.",
+              "canonicalAnswer": "In the end we stayed home."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
