@@ -64088,6 +64088,3373 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en-a2-trips-and-airports",
+      "title": "Trips and airports",
+      "subtitle": "Регистрация, багаж, пересадка, задержка и паспортный контроль",
+      "canDo": [
+        "пройти регистрацию и сдать багаж",
+        "ответить на паспортном контроле",
+        "разобраться с пересадкой",
+        "сообщить о задержке и потерянном багаже",
+        "рассказать о поездке после"
+      ],
+      "lessons": [
+        {
+          "id": "en-a2-trips-and-airports-01",
+          "title": "Checking in",
+          "summary": "Регистрация на рейс.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-01-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Стойка регистрации",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I am checking in for the ten o clock flight.",
+                  "translation": "Регистрируюсь на рейс в десять."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Passport, please. Any bags?",
+                  "translation": "Паспорт, пожалуйста. Багаж есть?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "One to check in, one with me.",
+                  "translation": "Один сдаю, один с собой."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Window or aisle?",
+                  "translation": "Окно или проход?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Aisle, please.",
+                  "translation": "Проход, пожалуйста."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "check in",
+              "translation": "зарегистрироваться",
+              "example": "I am checking in for the flight."
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "a flight",
+              "translation": "рейс",
+              "example": "The ten o clock flight."
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Any bags?",
+              "translation": "Багаж есть?",
+              "example": "Passport, please. Any bags?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "window or aisle",
+              "translation": "окно или проход",
+              "example": "Window or aisle?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "an aisle",
+              "translation": "проход",
+              "example": "Aisle, please."
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Check in — с частицей",
+              "explanation": "I check in for the flight, I checked in online, check-in desk. Как существительное пишется через дефис, как глагол — раздельно. Слово aisle читается «айл»: буквы s в нём не слышно."
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Регистрируюсь на рейс» —",
+              "options": [
+                "I am checking in for the flight",
+                "I am checking for the flight",
+                "I am check in for the flight"
+              ],
+              "correctOption": "I am checking in for the flight"
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Проход, пожалуйста» —",
+              "options": [
+                "Aisle, please",
+                "Corridor, please",
+                "Passage seat, please"
+              ],
+              "correctOption": "Aisle, please"
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Один сдаю, один с собой» —",
+              "options": [
+                "One to check in, one with me",
+                "One for check in, one with me",
+                "One to check in, one by me"
+              ],
+              "correctOption": "One to check in, one with me"
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Регистрируюсь на рейс в десять.",
+              "canonicalAnswer": "I am checking in for the ten o clock flight.",
+              "tokens": [
+                "flight",
+                "clock",
+                "o",
+                "ten",
+                "the",
+                "for",
+                "in",
+                "checking",
+                "am",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Паспорт, пожалуйста. Багаж есть?",
+              "canonicalAnswer": "Passport, please. Any bags?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Один сдаю, один с собой.",
+              "canonicalAnswer": "One to check in, one with me."
+            },
+            {
+              "id": "en-a2-trips-and-airports-01-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Проход, пожалуйста.",
+              "canonicalAnswer": "Aisle, please."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-02",
+          "title": "Your bag is overweight",
+          "summary": "Перевес.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-02-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Перевес",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Your bag is two kilos overweight.",
+                  "translation": "У вас перевес два килограмма."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "How much is that?",
+                  "translation": "Сколько это будет стоить?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Thirty euros, or take something out.",
+                  "translation": "Тридцать евро, или достаньте что-нибудь."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I will take out the books.",
+                  "translation": "Достану книги."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Books are always the problem.",
+                  "translation": "С книгами всегда так."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "overweight",
+              "translation": "перевес",
+              "example": "Your bag is two kilos overweight."
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "two kilos",
+              "translation": "два килограмма",
+              "example": "Two kilos overweight."
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "take something out",
+              "translation": "достать что-нибудь",
+              "example": "Or take something out."
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "the books",
+              "translation": "книги",
+              "example": "I will take out the books."
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "always",
+              "translation": "всегда",
+              "example": "Books are always the problem."
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Take out — порядок с частицей",
+              "explanation": "Take out the books или take the books out — оба верны. С местоимением только внутрь: take them out. Это общее правило всех фразовых глаголов с коротким дополнением."
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Достань их» —",
+              "options": [
+                "Take them out",
+                "Take out them",
+                "Take out they"
+              ],
+              "correctOption": "Take them out"
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«У вас перевес два килограмма» —",
+              "options": [
+                "Your bag is two kilos overweight",
+                "Your bag is two kilos over weight more",
+                "Your bag has two kilos overweight"
+              ],
+              "correctOption": "Your bag is two kilos overweight"
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Достану книги» —",
+              "options": [
+                "I will take out the books",
+                "I will take the books out will",
+                "I take out will the books"
+              ],
+              "correctOption": "I will take out the books"
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Тридцать евро, или достаньте что-нибудь.",
+              "canonicalAnswer": "Thirty euros, or take something out.",
+              "tokens": [
+                "out",
+                "something",
+                "take",
+                "or",
+                "euros",
+                "Thirty"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "У вас перевес два килограмма.",
+              "canonicalAnswer": "Your bag is two kilos overweight."
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Сколько это будет стоить?",
+              "canonicalAnswer": "How much is that?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-02-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Достану книги.",
+              "canonicalAnswer": "I will take out the books.",
+              "acceptedAnswers": [
+                "I'll take out the books."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-03",
+          "title": "At passport control",
+          "summary": "Паспортный контроль.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-03-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "dialogue",
+              "title": "Контроль",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "What is the purpose of your visit?",
+                  "translation": "Цель поездки?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Tourism. Five days.",
+                  "translation": "Туризм. Пять дней."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Where are you staying?",
+                  "translation": "Где остановитесь?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "A hotel in the centre.",
+                  "translation": "Отель в центре."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Enjoy your stay.",
+                  "translation": "Хорошего пребывания."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "the purpose of your visit",
+              "translation": "цель поездки",
+              "example": "What is the purpose of your visit?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "tourism",
+              "translation": "туризм",
+              "example": "Tourism. Five days."
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "Where are you staying?",
+              "translation": "Где остановитесь?",
+              "example": "Where are you staying?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "a hotel in the centre",
+              "translation": "отель в центре",
+              "example": "A hotel in the centre."
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "Enjoy your stay.",
+              "translation": "Хорошего пребывания.",
+              "example": "Enjoy your stay!"
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "info",
+              "title": "Отвечать коротко — правильно",
+              "explanation": "На паспортном контроле ждут два-три слова: tourism, five days, a hotel. Длинный ответ вызывает следующий вопрос, а короткий закрывает разговор. Это тот редкий случай, где немногословность — вежливость."
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Цель поездки?» —",
+              "options": [
+                "What is the purpose of your visit?",
+                "What is the purpose from your visit?",
+                "What purpose of your visit is?"
+              ],
+              "correctOption": "What is the purpose of your visit?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Где остановитесь?» —",
+              "options": [
+                "Where are you staying?",
+                "Where do you staying?",
+                "Where are you stay?"
+              ],
+              "correctOption": "Where are you staying?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Отель в центре» —",
+              "options": [
+                "A hotel in the centre",
+                "A hotel on the centre",
+                "The hotel in centre"
+              ],
+              "correctOption": "A hotel in the centre"
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "word_order",
+              "prompt": "Цель поездки?",
+              "canonicalAnswer": "What is the purpose of your visit?",
+              "tokens": [
+                "visit",
+                "your",
+                "of",
+                "purpose",
+                "the",
+                "is",
+                "What"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Цель поездки?",
+              "canonicalAnswer": "What is the purpose of your visit?",
+              "acceptedAnswers": [
+                "What's the purpose of your visit?"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Туризм. Пять дней.",
+              "canonicalAnswer": "Tourism. Five days."
+            },
+            {
+              "id": "en-a2-trips-and-airports-03-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Отель в центре.",
+              "canonicalAnswer": "A hotel in the centre."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-04",
+          "title": "The flight is delayed",
+          "summary": "Задержка.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-04-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "dialogue",
+              "title": "Задержали",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "The flight is delayed by two hours.",
+                  "translation": "Рейс задержали на два часа."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Do we get anything?",
+                  "translation": "Что-нибудь дают?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "A voucher for food, apparently.",
+                  "translation": "Судя по всему, талон на еду."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the connection?",
+                  "translation": "А стыковка?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "We will miss it.",
+                  "translation": "Мы её не успеем."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "delayed by two hours",
+              "translation": "задержан на два часа",
+              "example": "The flight is delayed by two hours."
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "Do we get anything?",
+              "translation": "Что-нибудь дают?",
+              "example": "Do we get anything for that?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "a voucher",
+              "translation": "талон",
+              "example": "A voucher for food."
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "a connection",
+              "translation": "стыковка",
+              "example": "And the connection?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "We will miss it.",
+              "translation": "Мы её не успеем.",
+              "example": "We will miss it, certainly."
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "info",
+              "title": "Delayed by — на сколько",
+              "explanation": "Delayed by two hours, delayed until six. Предлог by показывает величину задержки, until — до какого времени. Русское «на два часа» переводится через by, а не on."
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Задержан на два часа» —",
+              "options": [
+                "delayed by two hours",
+                "delayed on two hours",
+                "delayed for two hours by"
+              ],
+              "correctOption": "delayed by two hours"
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы её не успеем» —",
+              "options": [
+                "We will miss it",
+                "We will miss",
+                "We will to miss it"
+              ],
+              "correctOption": "We will miss it"
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что-нибудь дают?» —",
+              "options": [
+                "Do we get anything?",
+                "Do we get something for?",
+                "Are we get anything?"
+              ],
+              "correctOption": "Do we get anything?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "word_order",
+              "prompt": "Рейс задержали на два часа.",
+              "canonicalAnswer": "The flight is delayed by two hours.",
+              "tokens": [
+                "hours",
+                "two",
+                "by",
+                "delayed",
+                "is",
+                "flight",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Рейс задержали на два часа.",
+              "canonicalAnswer": "The flight is delayed by two hours."
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Судя по всему, талон на еду.",
+              "canonicalAnswer": "A voucher for food, apparently."
+            },
+            {
+              "id": "en-a2-trips-and-airports-04-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Мы её не успеем.",
+              "canonicalAnswer": "We will miss it.",
+              "acceptedAnswers": [
+                "We'll miss it."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-05",
+          "title": "Missing a connection",
+          "summary": "Пересадка сорвалась.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-05-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Стыковка",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "We have missed our connection.",
+                  "translation": "Мы опоздали на стыковку."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Go to the transfer desk.",
+                  "translation": "Идите к стойке пересадки."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Do they book us on the next one?",
+                  "translation": "Они перебронируют на следующий?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "They have to, it is their delay.",
+                  "translation": "Обязаны, задержка их."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then I stop worrying.",
+                  "translation": "Тогда перестаю нервничать."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "missed our connection",
+              "translation": "опоздали на стыковку",
+              "example": "We have missed our connection."
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "a transfer desk",
+              "translation": "стойка пересадки",
+              "example": "Go to the transfer desk."
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "book us on the next one",
+              "translation": "перебронировать на следующий",
+              "example": "Do they book us on the next one?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "their delay",
+              "translation": "их задержка",
+              "example": "It is their delay."
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "stop worrying",
+              "translation": "перестать нервничать",
+              "example": "Then I stop worrying."
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Have to — обязанность по правилам",
+              "explanation": "They have to rebook you — так устроены правила перевозки. Must здесь звучал бы как ваше личное требование, а have to ссылается на порядок вещей, и в споре это работает лучше."
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы опоздали на стыковку» —",
+              "options": [
+                "We have missed our connection",
+                "We have miss our connection",
+                "We has missed our connection"
+              ],
+              "correctOption": "We have missed our connection"
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Они обязаны» —",
+              "options": [
+                "They have to",
+                "They have",
+                "They must to"
+              ],
+              "correctOption": "They have to"
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Перестаю нервничать» —",
+              "options": [
+                "I stop worrying",
+                "I stop to worry",
+                "I stop worry"
+              ],
+              "correctOption": "I stop worrying"
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Мы опоздали на стыковку.",
+              "canonicalAnswer": "We have missed our connection.",
+              "tokens": [
+                "connection",
+                "our",
+                "missed",
+                "have",
+                "We"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Мы опоздали на стыковку.",
+              "canonicalAnswer": "We have missed our connection.",
+              "acceptedAnswers": [
+                "We've missed our connection."
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Идите к стойке пересадки.",
+              "canonicalAnswer": "Go to the transfer desk."
+            },
+            {
+              "id": "en-a2-trips-and-airports-05-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Обязаны, задержка их.",
+              "canonicalAnswer": "They have to, it is their delay."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-06",
+          "title": "My luggage did not arrive",
+          "summary": "Потерянный багаж.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-06-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "dialogue",
+              "title": "Багаж не пришёл",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "My luggage did not arrive.",
+                  "translation": "Мой багаж не прилетел."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Fill in this form, please.",
+                  "translation": "Заполните бланк, пожалуйста."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "When will you find it?",
+                  "translation": "Когда его найдут?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Usually within two days.",
+                  "translation": "Обычно в течение двух дней."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And you deliver it to the hotel?",
+                  "translation": "И привезёте в отель?"
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "luggage",
+              "translation": "багаж",
+              "example": "My luggage did not arrive."
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "did not arrive",
+              "translation": "не прилетел",
+              "example": "My luggage did not arrive."
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "within two days",
+              "translation": "в течение двух дней",
+              "example": "Usually within two days."
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "deliver",
+              "translation": "доставить",
+              "example": "And you deliver it to the hotel?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "a suitcase",
+              "translation": "чемодан",
+              "example": "One suitcase, black."
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "info",
+              "title": "Luggage — неисчисляемое",
+              "explanation": "Much luggage, a piece of luggage, my luggage is lost. Форма luggages не существует; считают места: two pieces of luggage или two suitcases. Глагол при luggage всегда единственный."
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мой багаж потерялся» —",
+              "options": [
+                "My luggage is lost",
+                "My luggages are lost",
+                "My luggage are lost"
+              ],
+              "correctOption": "My luggage is lost"
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В течение двух дней» —",
+              "options": [
+                "within two days",
+                "in during two days",
+                "within of two days"
+              ],
+              "correctOption": "within two days"
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мой багаж не прилетел» —",
+              "options": [
+                "My luggage did not arrive",
+                "My luggage did not arrived",
+                "My luggage not arrived"
+              ],
+              "correctOption": "My luggage did not arrive"
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "word_order",
+              "prompt": "Мой багаж не прилетел.",
+              "canonicalAnswer": "My luggage did not arrive.",
+              "tokens": [
+                "arrive",
+                "not",
+                "did",
+                "luggage",
+                "My"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Мой багаж не прилетел.",
+              "canonicalAnswer": "My luggage did not arrive.",
+              "acceptedAnswers": [
+                "My luggage didn't arrive."
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Когда его найдут?",
+              "canonicalAnswer": "When will you find it?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-06-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Обычно в течение двух дней.",
+              "canonicalAnswer": "Usually within two days."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-07",
+          "title": "Announcements you must catch",
+          "summary": "Объявления в аэропорту.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-07-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "dialogue",
+              "title": "Объявление",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "What did they just say?",
+                  "translation": "Что сейчас объявили?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Gate change: B12 now.",
+                  "translation": "Смена выхода: теперь B12."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "From where to where?",
+                  "translation": "С какого на какой?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "From A5. Other end.",
+                  "translation": "С A5. Другой конец."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then we walk fast.",
+                  "translation": "Тогда идём быстро."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "What did they just say?",
+              "translation": "Что сейчас объявили?",
+              "example": "What did they just say?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "a gate change",
+              "translation": "смена выхода",
+              "example": "Gate change: B12 now."
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "a gate",
+              "translation": "выход на посадку",
+              "example": "Gate B12."
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "the other end",
+              "translation": "другой конец",
+              "example": "From A5. Other end."
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "walk fast",
+              "translation": "идти быстро",
+              "example": "Then we walk fast."
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "info",
+              "title": "Ключевые слова объявлений",
+              "explanation": "Gate, boarding, final call, delayed, cancelled, proceed to. В шуме аэропорта ловят не фразу целиком, а эти слова и номер. Понимать их достаточно, чтобы не пропустить рейс."
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что сейчас объявили?» —",
+              "options": [
+                "What did they just say?",
+                "What did they just said?",
+                "What they just said?"
+              ],
+              "correctOption": "What did they just say?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Смена выхода» —",
+              "options": [
+                "a gate change",
+                "a change of gate exit",
+                "a gates change"
+              ],
+              "correctOption": "a gate change"
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда идём быстро» —",
+              "options": [
+                "Then we walk fast",
+                "Then we walk fastly",
+                "Then we are walk fast"
+              ],
+              "correctOption": "Then we walk fast"
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "word_order",
+              "prompt": "Смена выхода: теперь B12.",
+              "canonicalAnswer": "Gate change: B12 now.",
+              "tokens": [
+                "now",
+                "B12",
+                "change:",
+                "Gate"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Что сейчас объявили?",
+              "canonicalAnswer": "What did they just say?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Смена выхода: теперь B12.",
+              "canonicalAnswer": "Gate change: B12 now."
+            },
+            {
+              "id": "en-a2-trips-and-airports-07-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Тогда идём быстро.",
+              "canonicalAnswer": "Then we walk fast."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-08",
+          "title": "On board",
+          "summary": "В самолёте.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-08-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "В салоне",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Excuse me, that is my seat.",
+                  "translation": "Извините, это моё место."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Sorry, which row?",
+                  "translation": "Простите, какой ряд?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Twenty two, by the window.",
+                  "translation": "Двадцать второй, у окна."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then I am one behind.",
+                  "translation": "Значит, я на один назад."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "No problem at all.",
+                  "translation": "Ничего страшного."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "that is my seat",
+              "translation": "это моё место",
+              "example": "Excuse me, that is my seat."
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "which row",
+              "translation": "какой ряд",
+              "example": "Sorry, which row?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "by the window",
+              "translation": "у окна",
+              "example": "Twenty two, by the window."
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "one behind",
+              "translation": "на один назад",
+              "example": "Then I am one behind."
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "a seat belt",
+              "translation": "ремень",
+              "example": "Fasten your seat belt."
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Row и seat",
+              "explanation": "Row — ряд, seat — место. В билете они пишутся вместе: 22A, где 22 — ряд, A — место. Спрашивают обычно про ряд: which row are you in."
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Какой ряд?» —",
+              "options": [
+                "Which row?",
+                "Which line?",
+                "What raw?"
+              ],
+              "correctOption": "Which row?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Это моё место» —",
+              "options": [
+                "That is my seat",
+                "That is my sit",
+                "That is mine seat"
+              ],
+              "correctOption": "That is my seat"
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Значит, я на один назад» —",
+              "options": [
+                "Then I am one behind",
+                "Then I am one back behind",
+                "Then I one behind am"
+              ],
+              "correctOption": "Then I am one behind"
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Двадцать второй, у окна.",
+              "canonicalAnswer": "Twenty two, by the window.",
+              "tokens": [
+                "window",
+                "the",
+                "by",
+                "two",
+                "Twenty"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Извините, это моё место.",
+              "canonicalAnswer": "Excuse me, that is my seat.",
+              "acceptedAnswers": [
+                "Excuse me, that's my seat."
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Двадцать второй, у окна.",
+              "canonicalAnswer": "Twenty two, by the window."
+            },
+            {
+              "id": "en-a2-trips-and-airports-08-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Ничего страшного.",
+              "canonicalAnswer": "No problem at all."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-09",
+          "title": "Renting a car abroad",
+          "summary": "Аренда машины.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-09-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "dialogue",
+              "title": "Прокат",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Is insurance included?",
+                  "translation": "Страховка включена?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Basic insurance, yes.",
+                  "translation": "Базовая — да."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And what is not covered?",
+                  "translation": "А что не покрывается?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Glass and tyres.",
+                  "translation": "Стёкла и шины."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then I take the full one.",
+                  "translation": "Тогда беру полную."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "flashcard",
+              "prompt": "insurance",
+              "translation": "страховка",
+              "example": "Is insurance included?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "flashcard",
+              "prompt": "included",
+              "translation": "включена",
+              "example": "Is insurance included?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "flashcard",
+              "prompt": "not covered",
+              "translation": "не покрывается",
+              "example": "And what is not covered?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "flashcard",
+              "prompt": "tyres",
+              "translation": "шины",
+              "example": "Glass and tyres."
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "flashcard",
+              "prompt": "the full one",
+              "translation": "полная",
+              "example": "Then I take the full one."
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "info",
+              "title": "Cover — «покрывать» о страховке",
+              "explanation": "The insurance covers theft, glass is not covered. Глагол cover в этом значении встречается в каждом договоре, и вопрос what is not covered экономит потом сотни евро."
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что не покрывается?» —",
+              "options": [
+                "What is not covered?",
+                "What is not cover?",
+                "What does not covered?"
+              ],
+              "correctOption": "What is not covered?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Страховка включена?» —",
+              "options": [
+                "Is insurance included?",
+                "Is insurance include?",
+                "Is the insurances included?"
+              ],
+              "correctOption": "Is insurance included?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда беру полную» —",
+              "options": [
+                "Then I take the full one",
+                "Then I take full one",
+                "Then I am take the full one"
+              ],
+              "correctOption": "Then I take the full one"
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "word_order",
+              "prompt": "А что не покрывается?",
+              "canonicalAnswer": "And what is not covered?",
+              "tokens": [
+                "covered",
+                "not",
+                "is",
+                "what",
+                "And"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "translate",
+              "prompt": "Страховка включена?",
+              "canonicalAnswer": "Is insurance included?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "translate",
+              "prompt": "А что не покрывается?",
+              "canonicalAnswer": "And what is not covered?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-09-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a1-tema-shopping"
+              ],
+              "type": "translate",
+              "prompt": "Тогда беру полную.",
+              "canonicalAnswer": "Then I take the full one."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-10",
+          "title": "Asking about the trip",
+          "summary": "Как доехали.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-10-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "dialogue",
+              "title": "Как долетели",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "How was the trip?",
+                  "translation": "Как доехали?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Long. We were waiting four hours.",
+                  "translation": "Долго. Четыре часа сидели ждали."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Because of the storm?",
+                  "translation": "Из-за грозы?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Because of the storm, yes.",
+                  "translation": "Да, из-за грозы."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "At least you arrived.",
+                  "translation": "Зато долетели."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "flashcard",
+              "prompt": "How was the trip?",
+              "translation": "Как доехали?",
+              "example": "How was the trip?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "flashcard",
+              "prompt": "we were waiting",
+              "translation": "мы сидели ждали",
+              "example": "We were waiting four hours."
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "flashcard",
+              "prompt": "a storm",
+              "translation": "гроза",
+              "example": "Because of the storm?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "flashcard",
+              "prompt": "you arrived",
+              "translation": "вы долетели",
+              "example": "At least you arrived."
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "flashcard",
+              "prompt": "at least",
+              "translation": "зато, по крайней мере",
+              "example": "At least you arrived."
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "info",
+              "title": "Trip, journey, travel",
+              "explanation": "Trip — поездка целиком, journey — дорога от точки до точки, travel — путешествия как занятие и глагол. Спрашивают всегда how was the trip, а не how was your travel."
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Как поездка?» —",
+              "options": [
+                "How was the trip?",
+                "How was the travel?",
+                "How was your travels?"
+              ],
+              "correctOption": "How was the trip?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Четыре часа ждали» —",
+              "options": [
+                "We were waiting four hours",
+                "We waited were four hours",
+                "We was waiting four hours"
+              ],
+              "correctOption": "We were waiting four hours"
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Зато долетели» —",
+              "options": [
+                "At least you arrived",
+                "At least you arrive",
+                "At last you arrived"
+              ],
+              "correctOption": "At least you arrived"
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "word_order",
+              "prompt": "Долго. Четыре часа сидели ждали.",
+              "canonicalAnswer": "Long. We were waiting four hours.",
+              "tokens": [
+                "hours",
+                "four",
+                "waiting",
+                "were",
+                "We",
+                "Long"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "translate",
+              "prompt": "Как доехали?",
+              "canonicalAnswer": "How was the trip?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "translate",
+              "prompt": "Долго. Четыре часа сидели ждали.",
+              "canonicalAnswer": "Long. We were waiting four hours."
+            },
+            {
+              "id": "en-a2-trips-and-airports-10-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-past-continuous"
+              ],
+              "type": "translate",
+              "prompt": "Зато долетели.",
+              "canonicalAnswer": "At least you arrived."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-11",
+          "title": "A refund for the ticket",
+          "summary": "Возврат за билет.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-11-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "dialogue",
+              "title": "Возврат",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Can I get a refund?",
+                  "translation": "Можно вернуть деньги?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The flight was cancelled, so yes.",
+                  "translation": "Рейс отменили, так что да."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "How do I claim it?",
+                  "translation": "Как подать?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Online, with the booking number.",
+                  "translation": "Онлайн, с номером брони."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I have kept everything.",
+                  "translation": "Я всё сохранила."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "a refund",
+              "translation": "возврат денег",
+              "example": "Can I get a refund?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "was cancelled",
+              "translation": "отменили",
+              "example": "The flight was cancelled."
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "claim",
+              "translation": "подать требование",
+              "example": "How do I claim it?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "a booking number",
+              "translation": "номер брони",
+              "example": "With the booking number."
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "I have kept everything.",
+              "translation": "Я всё сохранила.",
+              "example": "I have kept everything, luckily."
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "info",
+              "title": "Was cancelled — первый пассив",
+              "explanation": "The flight was cancelled — кто отменил, неважно, важен результат. Форма собирается из was плюс третья форма глагола. На A2 хватает узнавать её в объявлениях и письмах: полностью она разбирается на B1."
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Рейс отменили» —",
+              "options": [
+                "The flight was cancelled",
+                "The flight was cancel",
+                "The flight is cancel"
+              ],
+              "correctOption": "The flight was cancelled"
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Можно вернуть деньги?» —",
+              "options": [
+                "Can I get a refund?",
+                "Can I get refund?",
+                "Can I to get a refund?"
+              ],
+              "correctOption": "Can I get a refund?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я всё сохранила» —",
+              "options": [
+                "I have kept everything",
+                "I have keep everything",
+                "I have kept all things everything"
+              ],
+              "correctOption": "I have kept everything"
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Рейс отменили, так что да.",
+              "canonicalAnswer": "The flight was cancelled, so yes.",
+              "tokens": [
+                "yes",
+                "so",
+                "cancelled",
+                "was",
+                "flight",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Можно вернуть деньги?",
+              "canonicalAnswer": "Can I get a refund?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Рейс отменили, так что да.",
+              "canonicalAnswer": "The flight was cancelled, so yes."
+            },
+            {
+              "id": "en-a2-trips-and-airports-11-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Онлайн, с номером брони.",
+              "canonicalAnswer": "Online, with the booking number."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-12",
+          "title": "Travelling light",
+          "summary": "Только ручная кладь.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-12-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "dialogue",
+              "title": "Только ручная",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "I only travel with hand luggage.",
+                  "translation": "Я летаю только с ручной кладью."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "For two weeks?",
+                  "translation": "На две недели?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "For two weeks. Less stuff, less stress.",
+                  "translation": "На две недели. Меньше вещей, меньше нервов."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And no waiting at the belt.",
+                  "translation": "И у ленты не стоишь."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "That alone is worth it.",
+                  "translation": "Уже ради этого стоит."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "hand luggage",
+              "translation": "ручная кладь",
+              "example": "I only travel with hand luggage."
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "stuff",
+              "translation": "вещи",
+              "example": "Less stuff, less stress."
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "stress",
+              "translation": "нервы, стресс",
+              "example": "Less stuff, less stress."
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "the belt",
+              "translation": "лента выдачи",
+              "example": "And no waiting at the belt."
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "worth it",
+              "translation": "того стоит",
+              "example": "That alone is worth it."
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "info",
+              "title": "Stuff — неисчисляемое «вещи»",
+              "explanation": "Less stuff, too much stuff, my stuff. Слово разговорное и удобное, когда перечислять лень. Множественного числа у него нет: stuffs не говорят."
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Меньше вещей» —",
+              "options": [
+                "less stuff",
+                "less stuffs",
+                "fewer stuff"
+              ],
+              "correctOption": "less stuff"
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Только с ручной кладью» —",
+              "options": [
+                "only with hand luggage",
+                "only with hand luggages",
+                "only with a hand luggage"
+              ],
+              "correctOption": "only with hand luggage"
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Оно того стоит» —",
+              "options": [
+                "It is worth it",
+                "It is worth",
+                "It is worthy it"
+              ],
+              "correctOption": "It is worth it"
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "word_order",
+              "prompt": "Я летаю только с ручной кладью.",
+              "canonicalAnswer": "I only travel with hand luggage.",
+              "tokens": [
+                "luggage",
+                "hand",
+                "with",
+                "travel",
+                "only",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Я летаю только с ручной кладью.",
+              "canonicalAnswer": "I only travel with hand luggage."
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Меньше вещей, меньше нервов.",
+              "canonicalAnswer": "Less stuff, less stress."
+            },
+            {
+              "id": "en-a2-trips-and-airports-12-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Уже ради этого стоит.",
+              "canonicalAnswer": "That alone is worth it."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-13",
+          "title": "Trains instead of planes",
+          "summary": "Поезд вместо самолёта.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-13-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "dialogue",
+              "title": "Поездом",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "The train takes six hours.",
+                  "translation": "Поезд идёт шесть часов."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the plane one.",
+                  "translation": "А самолёт час."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Plus two to the airport, plus two before.",
+                  "translation": "Плюс два до аэропорта, плюс два до вылета."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "So the train is the same.",
+                  "translation": "То есть поезд то же самое."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And you can walk around.",
+                  "translation": "И ходить можно."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "flashcard",
+              "prompt": "the train takes",
+              "translation": "поезд идёт",
+              "example": "The train takes six hours."
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "flashcard",
+              "prompt": "the plane",
+              "translation": "самолёт",
+              "example": "And the plane one."
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "flashcard",
+              "prompt": "plus two",
+              "translation": "плюс два",
+              "example": "Plus two to the airport."
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "flashcard",
+              "prompt": "the same",
+              "translation": "то же самое",
+              "example": "So the train is the same."
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "flashcard",
+              "prompt": "walk around",
+              "translation": "ходить, разминаться",
+              "example": "And you can walk around."
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "info",
+              "title": "Take — о длительности пути",
+              "explanation": "The train takes six hours, it takes an hour to get there. Глагол take с временем встречался уже дважды: сколько занимает услуга, сколько идёт поезд. Это одно и то же значение."
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Поезд идёт шесть часов» —",
+              "options": [
+                "The train takes six hours",
+                "The train goes six hours long",
+                "The train takes six hour"
+              ],
+              "correctOption": "The train takes six hours"
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И ходить можно» —",
+              "options": [
+                "And you can walk around",
+                "And you can to walk around",
+                "And you can walking around"
+              ],
+              "correctOption": "And you can walk around"
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«То есть поезд то же самое» —",
+              "options": [
+                "So the train is the same",
+                "So the train is same",
+                "So the train the same is"
+              ],
+              "correctOption": "So the train is the same"
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "word_order",
+              "prompt": "Плюс два до аэропорта, плюс два до вылета.",
+              "canonicalAnswer": "Plus two to the airport, plus two before.",
+              "tokens": [
+                "before",
+                "two",
+                "plus",
+                "airport",
+                "the",
+                "to",
+                "two",
+                "Plus"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "translate",
+              "prompt": "Поезд идёт шесть часов.",
+              "canonicalAnswer": "The train takes six hours."
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "translate",
+              "prompt": "А самолёт час.",
+              "canonicalAnswer": "And the plane one."
+            },
+            {
+              "id": "en-a2-trips-and-airports-13-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-comparatives",
+                "a1-tema-travel"
+              ],
+              "type": "translate",
+              "prompt": "И ходить можно.",
+              "canonicalAnswer": "And you can walk around."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-14",
+          "title": "Telling somebody about the place",
+          "summary": "Рассказать о месте после поездки.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-14-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "dialogue",
+              "title": "Как там",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "How was it there?",
+                  "translation": "Как там было?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Cheaper than here, and warmer.",
+                  "translation": "Дешевле, чем здесь, и теплее."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Would you go back?",
+                  "translation": "Ещё поедешь?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "In autumn, not in August.",
+                  "translation": "Осенью, не в августе."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Too many people in August.",
+                  "translation": "В августе слишком много людей."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "How was it there?",
+              "translation": "Как там было?",
+              "example": "How was it there, really?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "cheaper than here",
+              "translation": "дешевле, чем здесь",
+              "example": "Cheaper than here, and warmer."
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "Would you go back?",
+              "translation": "Ещё поедешь?",
+              "example": "Would you go back there?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "in autumn",
+              "translation": "осенью",
+              "example": "In autumn, not in August."
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "too many people",
+              "translation": "слишком много людей",
+              "example": "Too many people in August."
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "info",
+              "title": "Would you — вежливый вопрос о желании",
+              "explanation": "Would you go back, would you recommend it, would you do it again. Форма мягче, чем will, и не требует ответа сейчас: на A2 достаточно узнавать её и отвечать I would или I would not."
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ещё поедешь?» —",
+              "options": [
+                "Would you go back?",
+                "Would you to go back?",
+                "Will you would go back?"
+              ],
+              "correctOption": "Would you go back?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Дешевле, чем здесь» —",
+              "options": [
+                "cheaper than here",
+                "cheaper that here",
+                "more cheap than here"
+              ],
+              "correctOption": "cheaper than here"
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В августе слишком много людей» —",
+              "options": [
+                "Too many people in August",
+                "Too much people in August",
+                "Too many peoples in August"
+              ],
+              "correctOption": "Too many people in August"
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "word_order",
+              "prompt": "Дешевле, чем здесь, и теплее.",
+              "canonicalAnswer": "Cheaper than here, and warmer.",
+              "tokens": [
+                "warmer",
+                "and",
+                "here",
+                "than",
+                "Cheaper"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Как там было?",
+              "canonicalAnswer": "How was it there?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Дешевле, чем здесь, и теплее.",
+              "canonicalAnswer": "Cheaper than here, and warmer."
+            },
+            {
+              "id": "en-a2-trips-and-airports-14-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-past-simple",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Осенью, не в августе.",
+              "canonicalAnswer": "In autumn, not in August."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-15",
+          "title": "A journey, end to end",
+          "summary": "Весь блок: поездка целиком.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-15-d",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "dialogue",
+              "title": "Вся поездка",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "We checked in online, so no queue.",
+                  "translation": "Зарегистрировались онлайн, очереди не было."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the flight was on time?",
+                  "translation": "И рейс вовремя?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Delayed by an hour, no more.",
+                  "translation": "Задержали на час, не больше."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the luggage?",
+                  "translation": "А багаж?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Arrived with us, for once.",
+                  "translation": "Прилетел с нами, что редкость."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-w1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "checked in online",
+              "translation": "зарегистрировались онлайн",
+              "example": "We checked in online."
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-w2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "no queue",
+              "translation": "без очереди",
+              "example": "So no queue."
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-w3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "on time",
+              "translation": "вовремя",
+              "example": "And the flight was on time?"
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-w4",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "arrived with us",
+              "translation": "прилетел с нами",
+              "example": "Arrived with us, for once."
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-w5",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "for once",
+              "translation": "что редкость",
+              "example": "Arrived with us, for once."
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-r",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "info",
+              "title": "On time и in time",
+              "explanation": "On time — по расписанию, точно в срок. In time — успеть, до того как поздно: we got there in time. Разница в один предлог, а смысл разный: первое про пунктуальность, второе про успеть."
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-c1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Рейс вовремя» (по расписанию) —",
+              "options": [
+                "The flight was on time",
+                "The flight was in time",
+                "The flight was at time"
+              ],
+              "correctOption": "The flight was on time"
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-c2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы успели» —",
+              "options": [
+                "We got there in time",
+                "We got there on time to make",
+                "We got there at time"
+              ],
+              "correctOption": "We got there in time"
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-c3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Прилетел с нами» —",
+              "options": [
+                "Arrived with us",
+                "Arrived by us",
+                "Arrive with us"
+              ],
+              "correctOption": "Arrived with us"
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-o",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "word_order",
+              "prompt": "Зарегистрировались онлайн, очереди не было.",
+              "canonicalAnswer": "We checked in online, so no queue.",
+              "tokens": [
+                "queue",
+                "no",
+                "so",
+                "online",
+                "in",
+                "checked",
+                "We"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Зарегистрировались онлайн, очереди не было.",
+              "canonicalAnswer": "We checked in online, so no queue."
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Задержали на час, не больше.",
+              "canonicalAnswer": "Delayed by an hour, no more."
+            },
+            {
+              "id": "en-a2-trips-and-airports-15-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a2-present-perfect",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Прилетел с нами, что редкость.",
+              "canonicalAnswer": "Arrived with us, for once."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-trips-and-airports-check",
+          "title": "Проверка: поездки и аэропорт",
+          "summary": "Шесть фраз без подсказок — весь блок целиком.",
+          "estimatedMinutes": 5,
+          "kind": "checkpoint",
+          "exercises": [
+            {
+              "id": "en-a2-trips-and-airports-check-t1",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Регистрируюсь на рейс в десять.",
+              "canonicalAnswer": "I am checking in for the ten o clock flight.",
+              "acceptedAnswers": [
+                "I'm checking in for the ten o clock flight."
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-check-t2",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Цель поездки?",
+              "canonicalAnswer": "What is the purpose of your visit?",
+              "acceptedAnswers": [
+                "What's the purpose of your visit?"
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-check-t3",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Рейс задержали на два часа.",
+              "canonicalAnswer": "The flight is delayed by two hours."
+            },
+            {
+              "id": "en-a2-trips-and-airports-check-t4",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Мы опоздали на стыковку.",
+              "canonicalAnswer": "We have missed our connection.",
+              "acceptedAnswers": [
+                "We've missed our connection."
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-check-t5",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Мой багаж не прилетел.",
+              "canonicalAnswer": "My luggage did not arrive.",
+              "acceptedAnswers": [
+                "My luggage didn't arrive."
+              ]
+            },
+            {
+              "id": "en-a2-trips-and-airports-check-t6",
+              "topics": [
+                "a2-tema-viaje",
+                "a1-tema-travel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Можно вернуть деньги?",
+              "canonicalAnswer": "Can I get a refund?"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
