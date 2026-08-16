@@ -452,7 +452,7 @@ export default {
       produce: [
         ['Три, пожалуйста.', 'Three, please.', []],
         ['Сколько стоит билет?', 'How much is the ticket?', []],
-        ['Два чая, пожалуйста.', 'Two teas, please.', []],
+        ['Два кофе, пожалуйста.', 'Two coffees, please.', []],
       ],
     },
     {
