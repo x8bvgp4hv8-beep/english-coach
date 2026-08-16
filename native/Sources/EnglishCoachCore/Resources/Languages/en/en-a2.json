@@ -91034,6 +91034,3391 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en-a2-making-sure",
+      "title": "Making sure",
+      "subtitle": "Переспросить, повторить услышанное и подтвердить договорённость",
+      "canDo": [
+        "переспросить, не теряя лица",
+        "повторить услышанное для проверки",
+        "уточнить цифры и имена по буквам",
+        "задать хвостовой вопрос",
+        "подтвердить договорённость письменно"
+      ],
+      "lessons": [
+        {
+          "id": "en-a2-making-sure-01",
+          "title": "You are coming, are you not?",
+          "summary": "Хвостовой вопрос.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-01-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "dialogue",
+              "title": "Ты придёшь?",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "You are coming tomorrow, are you not?",
+                  "translation": "Ты завтра придёшь, да?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "I am, at seven.",
+                  "translation": "Приду, в семь."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And you know the address?",
+                  "translation": "И адрес знаешь?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "You sent it twice.",
+                  "translation": "Ты его дважды присылала."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That is how I am sure.",
+                  "translation": "Так я и убеждаюсь."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-01-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "are you not?",
+              "translation": "да? (хвост)",
+              "example": "You are coming, are you not?"
+            },
+            {
+              "id": "en-a2-making-sure-01-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "I am.",
+              "translation": "Приду.",
+              "example": "I am, at seven."
+            },
+            {
+              "id": "en-a2-making-sure-01-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "the address",
+              "translation": "адрес",
+              "example": "And you know the address?"
+            },
+            {
+              "id": "en-a2-making-sure-01-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "sent it twice",
+              "translation": "присылала дважды",
+              "example": "You sent it twice."
+            },
+            {
+              "id": "en-a2-making-sure-01-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "That is how…",
+              "translation": "Так и …",
+              "example": "That is how I am sure."
+            },
+            {
+              "id": "en-a2-making-sure-01-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "info",
+              "title": "Хвост противоположен началу",
+              "explanation": "Утверждение — отрицательный хвост: you are coming, aren’t you. Отрицание — положительный: you are not coming, are you. Русское «да?» и «правда?» одинаково для обоих, английское переворачивается."
+            },
+            {
+              "id": "en-a2-making-sure-01-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ты придёшь, да?» —",
+              "options": [
+                "You are coming, are you not?",
+                "You are coming, are you?",
+                "You are coming, do you not?"
+              ],
+              "correctOption": "You are coming, are you not?"
+            },
+            {
+              "id": "en-a2-making-sure-01-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ты не придёшь, да?» —",
+              "options": [
+                "You are not coming, are you?",
+                "You are not coming, are you not?",
+                "You are not coming, do you?"
+              ],
+              "correctOption": "You are not coming, are you?"
+            },
+            {
+              "id": "en-a2-making-sure-01-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Приду» (короткий ответ) —",
+              "options": [
+                "I am",
+                "I do",
+                "I will am"
+              ],
+              "correctOption": "I am"
+            },
+            {
+              "id": "en-a2-making-sure-01-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "word_order",
+              "prompt": "Ты завтра придёшь, да?",
+              "canonicalAnswer": "You are coming tomorrow, are you not?",
+              "tokens": [
+                "not",
+                "you",
+                "are",
+                "tomorrow",
+                "coming",
+                "are",
+                "You"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-01-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Ты завтра придёшь, да?",
+              "canonicalAnswer": "You are coming tomorrow, are you not?",
+              "acceptedAnswers": [
+                "You're coming tomorrow, aren't you?"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-01-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Приду, в семь.",
+              "canonicalAnswer": "I am, at seven.",
+              "acceptedAnswers": [
+                "I am, at seven."
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-01-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "И адрес знаешь?",
+              "canonicalAnswer": "And you know the address?"
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-02",
+          "title": "It was Tuesday, was it not?",
+          "summary": "Хвост в прошедшем.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-02-d",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "dialogue",
+              "title": "Это было во вторник?",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "The meeting was Tuesday, was it not?",
+                  "translation": "Встреча была во вторник, да?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Wednesday, actually.",
+                  "translation": "Вообще-то в среду."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And I missed it.",
+                  "translation": "И я её пропустил."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "You did.",
+                  "translation": "Пропустил."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "That explains the emails.",
+                  "translation": "Тогда понятно про письма."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-02-w1",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "was it not?",
+              "translation": "да? (в прошедшем)",
+              "example": "It was Tuesday, was it not?"
+            },
+            {
+              "id": "en-a2-making-sure-02-w2",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "actually",
+              "translation": "вообще-то",
+              "example": "Wednesday, actually."
+            },
+            {
+              "id": "en-a2-making-sure-02-w3",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "I missed it",
+              "translation": "я пропустил",
+              "example": "And I missed it."
+            },
+            {
+              "id": "en-a2-making-sure-02-w4",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "You did.",
+              "translation": "Пропустил.",
+              "example": "You did, yes."
+            },
+            {
+              "id": "en-a2-making-sure-02-w5",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "That explains…",
+              "translation": "Тогда понятно про …",
+              "example": "That explains the emails."
+            },
+            {
+              "id": "en-a2-making-sure-02-r",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "info",
+              "title": "Хвост повторяет помощника",
+              "explanation": "Was it not, did you not, have you not. Хвост берёт тот же вспомогательный глагол, что и начало; если его нет, появляется do: you went, didn’t you."
+            },
+            {
+              "id": "en-a2-making-sure-02-c1",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ты ходил, да?» —",
+              "options": [
+                "You went, did you not?",
+                "You went, went you not?",
+                "You went, do you not?"
+              ],
+              "correctOption": "You went, did you not?"
+            },
+            {
+              "id": "en-a2-making-sure-02-c2",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Встреча была во вторник, да?» —",
+              "options": [
+                "The meeting was Tuesday, was it not?",
+                "The meeting was Tuesday, is it not?",
+                "The meeting was Tuesday, did it not?"
+              ],
+              "correctOption": "The meeting was Tuesday, was it not?"
+            },
+            {
+              "id": "en-a2-making-sure-02-c3",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пропустил» (короткий ответ) —",
+              "options": [
+                "You did",
+                "You do",
+                "You have did"
+              ],
+              "correctOption": "You did"
+            },
+            {
+              "id": "en-a2-making-sure-02-o",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "word_order",
+              "prompt": "Встреча была во вторник, да?",
+              "canonicalAnswer": "The meeting was Tuesday, was it not?",
+              "tokens": [
+                "not",
+                "it",
+                "was",
+                "Tuesday",
+                "was",
+                "meeting",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-02-t1",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "translate",
+              "prompt": "Встреча была во вторник, да?",
+              "canonicalAnswer": "The meeting was Tuesday, was it not?",
+              "acceptedAnswers": [
+                "The meeting was Tuesday, wasn't it?"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-02-t2",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "translate",
+              "prompt": "Вообще-то в среду.",
+              "canonicalAnswer": "Wednesday, actually."
+            },
+            {
+              "id": "en-a2-making-sure-02-t3",
+              "topics": [
+                "a2-question-tags",
+                "a2-past-simple",
+                "a1-tema-meetings"
+              ],
+              "type": "translate",
+              "prompt": "Тогда понятно про письма.",
+              "canonicalAnswer": "That explains the emails."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-03",
+          "title": "So, if I understand right",
+          "summary": "Повторить своими словами.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-03-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "dialogue",
+              "title": "Правильно понял?",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "So, if I understand right: two files by Friday?",
+                  "translation": "Правильно понимаю: два файла к пятнице?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Two files, and the summary.",
+                  "translation": "Два файла и краткое изложение."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The summary too. Anything else?",
+                  "translation": "И изложение. Что-нибудь ещё?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "That is all.",
+                  "translation": "Это всё."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Good, now I am sure.",
+                  "translation": "Хорошо, теперь я уверена."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-03-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "if I understand right",
+              "translation": "если правильно понимаю",
+              "example": "So, if I understand right…"
+            },
+            {
+              "id": "en-a2-making-sure-03-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "two files",
+              "translation": "два файла",
+              "example": "Two files by Friday?"
+            },
+            {
+              "id": "en-a2-making-sure-03-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "the summary",
+              "translation": "краткое изложение",
+              "example": "Two files, and the summary."
+            },
+            {
+              "id": "en-a2-making-sure-03-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "Anything else?",
+              "translation": "Что-нибудь ещё?",
+              "example": "The summary too. Anything else?"
+            },
+            {
+              "id": "en-a2-making-sure-03-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "now I am sure",
+              "translation": "теперь я уверена",
+              "example": "Good, now I am sure."
+            },
+            {
+              "id": "en-a2-making-sure-03-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "info",
+              "title": "Повтор своими словами дешевле переделки",
+              "explanation": "So, if I understand right… — и краткий пересказ задачи. Тридцать секунд на эту фразу экономят день работы не туда, и в английской рабочей культуре она считается признаком профессионала, а не слабости."
+            },
+            {
+              "id": "en-a2-making-sure-03-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если правильно понимаю» —",
+              "options": [
+                "if I understand right",
+                "if I understand rightly correct",
+                "if I am understand right"
+              ],
+              "correctOption": "if I understand right"
+            },
+            {
+              "id": "en-a2-making-sure-03-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Два файла к пятнице?» —",
+              "options": [
+                "Two files by Friday?",
+                "Two files until Friday?",
+                "Two files to Friday?"
+              ],
+              "correctOption": "Two files by Friday?"
+            },
+            {
+              "id": "en-a2-making-sure-03-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Теперь я уверена» —",
+              "options": [
+                "Now I am sure",
+                "Now I am sured",
+                "Now I sure am"
+              ],
+              "correctOption": "Now I am sure"
+            },
+            {
+              "id": "en-a2-making-sure-03-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "word_order",
+              "prompt": "Правильно понимаю: два файла к пятнице?",
+              "canonicalAnswer": "So, if I understand right: two files by Friday?",
+              "tokens": [
+                "Friday",
+                "by",
+                "files",
+                "two",
+                "right:",
+                "understand",
+                "I",
+                "if",
+                "So"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-03-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Правильно понимаю: два файла к пятнице?",
+              "canonicalAnswer": "So, if I understand right: two files by Friday?"
+            },
+            {
+              "id": "en-a2-making-sure-03-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Два файла и краткое изложение.",
+              "canonicalAnswer": "Two files, and the summary."
+            },
+            {
+              "id": "en-a2-making-sure-03-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Хорошо, теперь я уверена.",
+              "canonicalAnswer": "Good, now I am sure.",
+              "acceptedAnswers": [
+                "Good, now I'm sure."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-04",
+          "title": "Sorry, did you say fifteen or fifty?",
+          "summary": "Цифры на слух.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-04-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "dialogue",
+              "title": "Пятнадцать или пятьдесят",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "It costs fifty euros.",
+                  "translation": "Это стоит пятьдесят евро."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Sorry, fifteen or fifty?",
+                  "translation": "Извините, пятнадцать или пятьдесят?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Five zero. Fifty.",
+                  "translation": "Пять ноль. Пятьдесят."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Thank you, they sound the same.",
+                  "translation": "Спасибо, они звучат одинаково."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Everybody asks.",
+                  "translation": "Все переспрашивают."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-04-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "fifteen or fifty",
+              "translation": "пятнадцать или пятьдесят",
+              "example": "Sorry, fifteen or fifty?"
+            },
+            {
+              "id": "en-a2-making-sure-04-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "five zero",
+              "translation": "пять ноль",
+              "example": "Five zero. Fifty."
+            },
+            {
+              "id": "en-a2-making-sure-04-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "they sound the same",
+              "translation": "звучат одинаково",
+              "example": "They sound the same."
+            },
+            {
+              "id": "en-a2-making-sure-04-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "Everybody asks.",
+              "translation": "Все переспрашивают.",
+              "example": "Everybody asks, do not worry."
+            },
+            {
+              "id": "en-a2-making-sure-04-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "It costs…",
+              "translation": "Это стоит …",
+              "example": "It costs fifty euros."
+            },
+            {
+              "id": "en-a2-making-sure-04-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "info",
+              "title": "Тринадцать и тридцать различают ударением",
+              "explanation": "Thirteen и thirty, fifteen и fifty, eighteen и eighty. В первых ударение на второй слог, во вторых на первый, и на слух этого мало. Носители сами уточняют цифрой: five zero."
+            },
+            {
+              "id": "en-a2-making-sure-04-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пятнадцать или пятьдесят?» —",
+              "options": [
+                "Fifteen or fifty?",
+                "Fiveteen or fifty?",
+                "Fifteen or fivety?"
+              ],
+              "correctOption": "Fifteen or fifty?"
+            },
+            {
+              "id": "en-a2-making-sure-04-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Звучат одинаково» —",
+              "options": [
+                "They sound the same",
+                "They sound same",
+                "They are sound the same"
+              ],
+              "correctOption": "They sound the same"
+            },
+            {
+              "id": "en-a2-making-sure-04-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Это стоит пятьдесят евро» —",
+              "options": [
+                "It costs fifty euros",
+                "It cost fifty euros",
+                "It is costs fifty euros"
+              ],
+              "correctOption": "It costs fifty euros"
+            },
+            {
+              "id": "en-a2-making-sure-04-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "word_order",
+              "prompt": "Извините, пятнадцать или пятьдесят?",
+              "canonicalAnswer": "Sorry, fifteen or fifty?",
+              "tokens": [
+                "fifty",
+                "or",
+                "fifteen",
+                "Sorry"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-04-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Извините, пятнадцать или пятьдесят?",
+              "canonicalAnswer": "Sorry, fifteen or fifty?"
+            },
+            {
+              "id": "en-a2-making-sure-04-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Пять ноль. Пятьдесят.",
+              "canonicalAnswer": "Five zero. Fifty."
+            },
+            {
+              "id": "en-a2-making-sure-04-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Спасибо, они звучат одинаково.",
+              "canonicalAnswer": "Thank you, they sound the same."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-05",
+          "title": "How do you spell that?",
+          "summary": "По буквам.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-05-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "dialogue",
+              "title": "По буквам",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "How do you spell that?",
+                  "translation": "Продиктуйте по буквам."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "K R I S, then T I A N.",
+                  "translation": "К Р И С, потом Т И А Н."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "With a K, not a C?",
+                  "translation": "Через K, не через C?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "With a K, always.",
+                  "translation": "Через K, всегда."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Got it, thank you.",
+                  "translation": "Записала, спасибо."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-05-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "How do you spell that?",
+              "translation": "Как это пишется?",
+              "example": "How do you spell that, please?"
+            },
+            {
+              "id": "en-a2-making-sure-05-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "with a K",
+              "translation": "через K",
+              "example": "With a K, not a C?"
+            },
+            {
+              "id": "en-a2-making-sure-05-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "not a C",
+              "translation": "не через C",
+              "example": "With a K, not a C?"
+            },
+            {
+              "id": "en-a2-making-sure-05-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "Got it.",
+              "translation": "Записала.",
+              "example": "Got it, thank you."
+            },
+            {
+              "id": "en-a2-making-sure-05-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "a letter",
+              "translation": "буква",
+              "example": "Letter by letter, please."
+            },
+            {
+              "id": "en-a2-making-sure-05-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "info",
+              "title": "Буквы уточняют словами",
+              "explanation": "B as in Bravo, S as in Sugar. Когда буквы путаются на слух, их называют через слово: это стандарт в аэропортах, банках и по телефону. Достаточно любого известного слова на нужную букву."
+            },
+            {
+              "id": "en-a2-making-sure-05-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Как это пишется?» —",
+              "options": [
+                "How do you spell that?",
+                "How do you write that spell?",
+                "How you spell that?"
+              ],
+              "correctOption": "How do you spell that?"
+            },
+            {
+              "id": "en-a2-making-sure-05-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Через K, не через C» —",
+              "options": [
+                "With a K, not a C",
+                "By a K, not a C",
+                "With K, not C letter"
+              ],
+              "correctOption": "With a K, not a C"
+            },
+            {
+              "id": "en-a2-making-sure-05-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Б как в слове Браво» —",
+              "options": [
+                "B as in Bravo",
+                "B like in Bravo how",
+                "B as Bravo in"
+              ],
+              "correctOption": "B as in Bravo"
+            },
+            {
+              "id": "en-a2-making-sure-05-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "word_order",
+              "prompt": "Продиктуйте по буквам.",
+              "canonicalAnswer": "How do you spell that?",
+              "tokens": [
+                "that",
+                "spell",
+                "you",
+                "do",
+                "How"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-05-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Продиктуйте по буквам.",
+              "canonicalAnswer": "How do you spell that?"
+            },
+            {
+              "id": "en-a2-making-sure-05-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Через K, не через C?",
+              "canonicalAnswer": "With a K, not a C?"
+            },
+            {
+              "id": "en-a2-making-sure-05-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Записала, спасибо.",
+              "canonicalAnswer": "Got it, thank you."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-06",
+          "title": "Could you repeat that more slowly?",
+          "summary": "Попросить помедленнее.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-06-d",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "dialogue",
+              "title": "Помедленнее",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Could you repeat that more slowly?",
+                  "translation": "Повторите помедленнее, пожалуйста."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Of course. Which part?",
+                  "translation": "Конечно. Какую часть?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "From the second sentence.",
+                  "translation": "Со второго предложения."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The office closes at four on Fridays.",
+                  "translation": "По пятницам офис закрывается в четыре."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "At four. Now I have it.",
+                  "translation": "В четыре. Теперь понял."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-06-w1",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "Could you repeat that?",
+              "translation": "Повторите, пожалуйста.",
+              "example": "Could you repeat that more slowly?"
+            },
+            {
+              "id": "en-a2-making-sure-06-w2",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "more slowly",
+              "translation": "помедленнее",
+              "example": "Could you repeat that more slowly?"
+            },
+            {
+              "id": "en-a2-making-sure-06-w3",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "Which part?",
+              "translation": "Какую часть?",
+              "example": "Of course. Which part?"
+            },
+            {
+              "id": "en-a2-making-sure-06-w4",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "the second sentence",
+              "translation": "второе предложение",
+              "example": "From the second sentence."
+            },
+            {
+              "id": "en-a2-making-sure-06-w5",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "Now I have it.",
+              "translation": "Теперь понял.",
+              "example": "At four. Now I have it."
+            },
+            {
+              "id": "en-a2-making-sure-06-r",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "info",
+              "title": "Просьба с указанием места",
+              "explanation": "Не просто repeat, а from the second sentence, the part about the price. Точная просьба экономит обоим время: собеседник не повторяет всё заново."
+            },
+            {
+              "id": "en-a2-making-sure-06-c1",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Повторите помедленнее» —",
+              "options": [
+                "Could you repeat that more slowly?",
+                "Could you repeat that more slow?",
+                "Could you to repeat that slowlier?"
+              ],
+              "correctOption": "Could you repeat that more slowly?"
+            },
+            {
+              "id": "en-a2-making-sure-06-c2",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Со второго предложения» —",
+              "options": [
+                "From the second sentence",
+                "Since the second sentence",
+                "From second sentence the"
+              ],
+              "correctOption": "From the second sentence"
+            },
+            {
+              "id": "en-a2-making-sure-06-c3",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Теперь понял» —",
+              "options": [
+                "Now I have it",
+                "Now I have",
+                "Now I am have it"
+              ],
+              "correctOption": "Now I have it"
+            },
+            {
+              "id": "en-a2-making-sure-06-o",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "word_order",
+              "prompt": "Повторите помедленнее, пожалуйста.",
+              "canonicalAnswer": "Could you repeat that more slowly?",
+              "tokens": [
+                "slowly",
+                "more",
+                "that",
+                "repeat",
+                "you",
+                "Could"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-06-t1",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Повторите помедленнее, пожалуйста.",
+              "canonicalAnswer": "Could you repeat that more slowly?"
+            },
+            {
+              "id": "en-a2-making-sure-06-t2",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Со второго предложения.",
+              "canonicalAnswer": "From the second sentence."
+            },
+            {
+              "id": "en-a2-making-sure-06-t3",
+              "topics": [
+                "a2-question-tags",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "В четыре. Теперь понял.",
+              "canonicalAnswer": "At four. Now I have it."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-07",
+          "title": "What does that mean?",
+          "summary": "Незнакомое слово.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-07-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "dialogue",
+              "title": "Что это значит",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "What does \"deposit\" mean here?",
+                  "translation": "Что здесь значит «deposit»?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Money you leave and get back.",
+                  "translation": "Деньги, которые оставляешь и получаешь обратно."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "If nothing is broken.",
+                  "translation": "Если ничего не сломано."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Exactly that.",
+                  "translation": "Именно так."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then I understand the contract.",
+                  "translation": "Тогда договор понятен."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-07-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "What does it mean?",
+              "translation": "Что это значит?",
+              "example": "What does \"deposit\" mean?"
+            },
+            {
+              "id": "en-a2-making-sure-07-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "money you leave",
+              "translation": "деньги, которые оставляешь",
+              "example": "Money you leave and get back."
+            },
+            {
+              "id": "en-a2-making-sure-07-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "get back",
+              "translation": "получить обратно",
+              "example": "And get back."
+            },
+            {
+              "id": "en-a2-making-sure-07-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "Exactly that.",
+              "translation": "Именно так.",
+              "example": "Exactly that, yes."
+            },
+            {
+              "id": "en-a2-making-sure-07-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "the contract",
+              "translation": "договор",
+              "example": "Then I understand the contract."
+            },
+            {
+              "id": "en-a2-making-sure-07-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "info",
+              "title": "Mean — про слово, а не про человека",
+              "explanation": "What does this word mean, what do you mean. Первое про значение, второе про намерение говорящего. Ошибка what means this word — прямой порядок вместо вопроса, и слышна она сразу."
+            },
+            {
+              "id": "en-a2-making-sure-07-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что значит это слово?» —",
+              "options": [
+                "What does this word mean?",
+                "What means this word?",
+                "What does mean this word?"
+              ],
+              "correctOption": "What does this word mean?"
+            },
+            {
+              "id": "en-a2-making-sure-07-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что ты имеешь в виду?» —",
+              "options": [
+                "What do you mean?",
+                "What means you?",
+                "What do you meaning?"
+              ],
+              "correctOption": "What do you mean?"
+            },
+            {
+              "id": "en-a2-making-sure-07-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Именно так» —",
+              "options": [
+                "Exactly that",
+                "That exactly it",
+                "Exact that"
+              ],
+              "correctOption": "Exactly that"
+            },
+            {
+              "id": "en-a2-making-sure-07-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "word_order",
+              "prompt": "Что здесь значит «deposit»?",
+              "canonicalAnswer": "What does \"deposit\" mean here?",
+              "tokens": [
+                "here",
+                "mean",
+                "\"deposit\"",
+                "does",
+                "What"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-07-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Что здесь значит «deposit»?",
+              "canonicalAnswer": "What does \"deposit\" mean here?"
+            },
+            {
+              "id": "en-a2-making-sure-07-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Деньги, которые оставляешь и получаешь обратно.",
+              "canonicalAnswer": "Money you leave and get back."
+            },
+            {
+              "id": "en-a2-making-sure-07-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Тогда договор понятен.",
+              "canonicalAnswer": "Then I understand the contract."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-08",
+          "title": "Let me check",
+          "summary": "Проверить прежде чем ответить.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-08-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Сейчас проверю",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Is Thursday still free?",
+                  "translation": "Четверг ещё свободен?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Let me check.",
+                  "translation": "Сейчас проверю."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "No rush.",
+                  "translation": "Не спеши."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Free until three, then busy.",
+                  "translation": "Свободен до трёх, потом занят."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Two o clock, then.",
+                  "translation": "Тогда в два."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-08-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Let me check.",
+              "translation": "Сейчас проверю.",
+              "example": "Let me check the calendar."
+            },
+            {
+              "id": "en-a2-making-sure-08-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "still free",
+              "translation": "ещё свободен",
+              "example": "Is Thursday still free?"
+            },
+            {
+              "id": "en-a2-making-sure-08-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "No rush.",
+              "translation": "Не спеши.",
+              "example": "No rush, take your time."
+            },
+            {
+              "id": "en-a2-making-sure-08-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "until three",
+              "translation": "до трёх",
+              "example": "Free until three."
+            },
+            {
+              "id": "en-a2-making-sure-08-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "then busy",
+              "translation": "потом занят",
+              "example": "Free until three, then busy."
+            },
+            {
+              "id": "en-a2-making-sure-08-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Let me — «дай-ка я»",
+              "explanation": "Let me check, let me see, let me think. Оборот выигрывает время и звучит нормально даже в деловом разговоре. После let глагол идёт без to — как и в первом блоке про let и make."
+            },
+            {
+              "id": "en-a2-making-sure-08-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Сейчас проверю» —",
+              "options": [
+                "Let me check",
+                "Let me to check",
+                "Let me checking"
+              ],
+              "correctOption": "Let me check"
+            },
+            {
+              "id": "en-a2-making-sure-08-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Не спеши» —",
+              "options": [
+                "No rush",
+                "Not rush",
+                "No a rush"
+              ],
+              "correctOption": "No rush"
+            },
+            {
+              "id": "en-a2-making-sure-08-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Свободен до трёх» —",
+              "options": [
+                "Free until three",
+                "Free till the three",
+                "Free by three"
+              ],
+              "correctOption": "Free until three"
+            },
+            {
+              "id": "en-a2-making-sure-08-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Свободен до трёх, потом занят.",
+              "canonicalAnswer": "Free until three, then busy.",
+              "tokens": [
+                "busy",
+                "then",
+                "three",
+                "until",
+                "Free"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-08-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Четверг ещё свободен?",
+              "canonicalAnswer": "Is Thursday still free?"
+            },
+            {
+              "id": "en-a2-making-sure-08-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Сейчас проверю.",
+              "canonicalAnswer": "Let me check."
+            },
+            {
+              "id": "en-a2-making-sure-08-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Свободен до трёх, потом занят.",
+              "canonicalAnswer": "Free until three, then busy."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-09",
+          "title": "Confirming in writing",
+          "summary": "Подтвердить письменно.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-09-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "dialogue",
+              "title": "Письменно",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I will send you a short message to confirm.",
+                  "translation": "Пришлю короткое сообщение для подтверждения."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Good, I forget things.",
+                  "translation": "Хорошо, я всё забываю."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Everybody does.",
+                  "translation": "Как все."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "That is why we write it down.",
+                  "translation": "Поэтому и записываем."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Exactly.",
+                  "translation": "Именно."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-09-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "to confirm",
+              "translation": "для подтверждения",
+              "example": "A short message to confirm."
+            },
+            {
+              "id": "en-a2-making-sure-09-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "a short message",
+              "translation": "короткое сообщение",
+              "example": "I will send a short message."
+            },
+            {
+              "id": "en-a2-making-sure-09-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "I forget things.",
+              "translation": "Я всё забываю.",
+              "example": "Good, I forget things."
+            },
+            {
+              "id": "en-a2-making-sure-09-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "Everybody does.",
+              "translation": "Как все.",
+              "example": "Everybody does, honestly."
+            },
+            {
+              "id": "en-a2-making-sure-09-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "flashcard",
+              "prompt": "write it down",
+              "translation": "записать",
+              "example": "That is why we write it down."
+            },
+            {
+              "id": "en-a2-making-sure-09-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "info",
+              "title": "Everybody does — короткое согласие",
+              "explanation": "В коротком ответе с обычным глаголом появляется do: everybody does, I do, she does. С be повторяют be, с have — have. Схема одна: повторяется помощник, а не смысловой глагол."
+            },
+            {
+              "id": "en-a2-making-sure-09-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Как все» (в ответ на \"я забываю\") —",
+              "options": [
+                "Everybody does",
+                "Everybody do",
+                "Everybody is"
+              ],
+              "correctOption": "Everybody does"
+            },
+            {
+              "id": "en-a2-making-sure-09-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пришлю сообщение для подтверждения» —",
+              "options": [
+                "I will send a message to confirm",
+                "I will send a message for confirm",
+                "I will send a message for confirming"
+              ],
+              "correctOption": "I will send a message to confirm"
+            },
+            {
+              "id": "en-a2-making-sure-09-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Поэтому и записываем» —",
+              "options": [
+                "That is why we write it down",
+                "That is because we write it down",
+                "That is why we write down it"
+              ],
+              "correctOption": "That is why we write it down"
+            },
+            {
+              "id": "en-a2-making-sure-09-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "word_order",
+              "prompt": "Пришлю короткое сообщение для подтверждения.",
+              "canonicalAnswer": "I will send you a short message to confirm.",
+              "tokens": [
+                "confirm",
+                "to",
+                "message",
+                "short",
+                "a",
+                "you",
+                "send",
+                "will",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-09-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Пришлю короткое сообщение для подтверждения.",
+              "canonicalAnswer": "I will send you a short message to confirm.",
+              "acceptedAnswers": [
+                "I'll send you a short message to confirm."
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-09-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Хорошо, я всё забываю.",
+              "canonicalAnswer": "Good, I forget things."
+            },
+            {
+              "id": "en-a2-making-sure-09-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a1-tema-work"
+              ],
+              "type": "translate",
+              "prompt": "Поэтому и записываем.",
+              "canonicalAnswer": "That is why we write it down.",
+              "acceptedAnswers": [
+                "That's why we write it down."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-10",
+          "title": "Are we still on?",
+          "summary": "В силе ли договорённость.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-10-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "dialogue",
+              "title": "В силе?",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Are we still on for tonight?",
+                  "translation": "Сегодня всё в силе?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "We are. Same place?",
+                  "translation": "В силе. Там же?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Same place, same time.",
+                  "translation": "Там же, в то же время."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "See you at eight.",
+                  "translation": "До восьми."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "See you.",
+                  "translation": "Давай."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-10-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "Are we still on?",
+              "translation": "Всё в силе?",
+              "example": "Are we still on for tonight?"
+            },
+            {
+              "id": "en-a2-making-sure-10-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "for tonight",
+              "translation": "на сегодня",
+              "example": "Still on for tonight?"
+            },
+            {
+              "id": "en-a2-making-sure-10-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "We are.",
+              "translation": "В силе.",
+              "example": "We are. Same place?"
+            },
+            {
+              "id": "en-a2-making-sure-10-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "same place",
+              "translation": "там же",
+              "example": "Same place, same time."
+            },
+            {
+              "id": "en-a2-making-sure-10-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "See you at eight.",
+              "translation": "До восьми.",
+              "example": "See you at eight, then."
+            },
+            {
+              "id": "en-a2-making-sure-10-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "info",
+              "title": "Still on — «в силе»",
+              "explanation": "Are we still on, is it still on. Разговорная формула проверки договорённости, и она короче любой альтернативы. Отменённое событие — it is off: the meeting is off."
+            },
+            {
+              "id": "en-a2-making-sure-10-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Всё в силе?» —",
+              "options": [
+                "Are we still on?",
+                "Are we still in?",
+                "Is we still on?"
+              ],
+              "correctOption": "Are we still on?"
+            },
+            {
+              "id": "en-a2-making-sure-10-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Встреча отменяется» —",
+              "options": [
+                "The meeting is off",
+                "The meeting is out",
+                "The meeting is not on it"
+              ],
+              "correctOption": "The meeting is off"
+            },
+            {
+              "id": "en-a2-making-sure-10-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В силе» (короткий ответ) —",
+              "options": [
+                "We are",
+                "We do",
+                "We are on it"
+              ],
+              "correctOption": "We are"
+            },
+            {
+              "id": "en-a2-making-sure-10-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "word_order",
+              "prompt": "Сегодня всё в силе?",
+              "canonicalAnswer": "Are we still on for tonight?",
+              "tokens": [
+                "tonight",
+                "for",
+                "on",
+                "still",
+                "we",
+                "Are"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-10-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Сегодня всё в силе?",
+              "canonicalAnswer": "Are we still on for tonight?"
+            },
+            {
+              "id": "en-a2-making-sure-10-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "В силе. Там же?",
+              "canonicalAnswer": "We are. Same place?"
+            },
+            {
+              "id": "en-a2-making-sure-10-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Там же, в то же время.",
+              "canonicalAnswer": "Same place, same time."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-11",
+          "title": "Making sure about money",
+          "summary": "Уточнить цену и условия.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-11-d",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Про цену",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "So that is eighty in total, is it?",
+                  "translation": "То есть восемьдесят всего, да?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Eighty with tax.",
+                  "translation": "Восемьдесят с налогом."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And nothing else after?",
+                  "translation": "И больше ничего потом?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Nothing else, I promise.",
+                  "translation": "Ничего, обещаю."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then we have a deal.",
+                  "translation": "Тогда договорились."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-11-w1",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "in total",
+              "translation": "всего",
+              "example": "Eighty in total, is it?"
+            },
+            {
+              "id": "en-a2-making-sure-11-w2",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "with tax",
+              "translation": "с налогом",
+              "example": "Eighty with tax."
+            },
+            {
+              "id": "en-a2-making-sure-11-w3",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "nothing else after",
+              "translation": "больше ничего потом",
+              "example": "And nothing else after?"
+            },
+            {
+              "id": "en-a2-making-sure-11-w4",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "I promise",
+              "translation": "обещаю",
+              "example": "Nothing else, I promise."
+            },
+            {
+              "id": "en-a2-making-sure-11-w5",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "We have a deal.",
+              "translation": "Договорились.",
+              "example": "Then we have a deal."
+            },
+            {
+              "id": "en-a2-making-sure-11-r",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Is it — хвост после that is",
+              "explanation": "That is eighty, is it? Хвост берёт be из начала предложения. Такой вопрос звучит осторожно и уместен там, где вы хотите ясности без напора."
+            },
+            {
+              "id": "en-a2-making-sure-11-c1",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«То есть восемьдесят всего, да?» —",
+              "options": [
+                "So that is eighty in total, is it?",
+                "So that is eighty in total, does it?",
+                "So that is eighty in total, it is?"
+              ],
+              "correctOption": "So that is eighty in total, is it?"
+            },
+            {
+              "id": "en-a2-making-sure-11-c2",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Восемьдесят с налогом» —",
+              "options": [
+                "Eighty with tax",
+                "Eighty with the taxes of",
+                "Eighty by tax"
+              ],
+              "correctOption": "Eighty with tax"
+            },
+            {
+              "id": "en-a2-making-sure-11-c3",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда договорились» —",
+              "options": [
+                "Then we have a deal",
+                "Then we have deal",
+                "Then we do a deal have"
+              ],
+              "correctOption": "Then we have a deal"
+            },
+            {
+              "id": "en-a2-making-sure-11-o",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "То есть восемьдесят всего, да?",
+              "canonicalAnswer": "So that is eighty in total, is it?",
+              "tokens": [
+                "it",
+                "is",
+                "total",
+                "in",
+                "eighty",
+                "is",
+                "that",
+                "So"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-11-t1",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "То есть восемьдесят всего, да?",
+              "canonicalAnswer": "So that is eighty in total, is it?",
+              "acceptedAnswers": [
+                "So that's eighty in total, is it?"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-11-t2",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "И больше ничего потом?",
+              "canonicalAnswer": "And nothing else after?"
+            },
+            {
+              "id": "en-a2-making-sure-11-t3",
+              "topics": [
+                "a2-question-tags",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Тогда договорились.",
+              "canonicalAnswer": "Then we have a deal."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-12",
+          "title": "When you did not hear",
+          "summary": "Не расслышал.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-12-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "dialogue",
+              "title": "Не расслышал",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Sorry, I did not catch that.",
+                  "translation": "Извините, не расслышал."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The train leaves from platform nine.",
+                  "translation": "Поезд отходит с девятой платформы."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Platform nine, thank you.",
+                  "translation": "С девятой, спасибо."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Or nineteen, listen again.",
+                  "translation": "Или с девятнадцатой, послушайте ещё раз."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Of course it is nineteen.",
+                  "translation": "Ну конечно, девятнадцатая."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-12-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "I did not catch that.",
+              "translation": "Не расслышал.",
+              "example": "Sorry, I did not catch that."
+            },
+            {
+              "id": "en-a2-making-sure-12-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "platform nine",
+              "translation": "девятая платформа",
+              "example": "From platform nine."
+            },
+            {
+              "id": "en-a2-making-sure-12-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "listen again",
+              "translation": "послушайте ещё раз",
+              "example": "Or nineteen, listen again."
+            },
+            {
+              "id": "en-a2-making-sure-12-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "nineteen",
+              "translation": "девятнадцать",
+              "example": "Or nineteen, listen."
+            },
+            {
+              "id": "en-a2-making-sure-12-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "Of course.",
+              "translation": "Ну конечно.",
+              "example": "Of course it is nineteen."
+            },
+            {
+              "id": "en-a2-making-sure-12-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "info",
+              "title": "I did not catch that — вежливее, чем what",
+              "explanation": "Голое what звучит грубовато, sorry смягчает, а I did not catch that объясняет причину: не расслышал, а не не понял. В шумном месте это лучшая формула."
+            },
+            {
+              "id": "en-a2-making-sure-12-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Не расслышал» —",
+              "options": [
+                "I did not catch that",
+                "I did not catched that",
+                "I do not catch that"
+              ],
+              "correctOption": "I did not catch that"
+            },
+            {
+              "id": "en-a2-making-sure-12-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«С девятой платформы» —",
+              "options": [
+                "from platform nine",
+                "from the platform nine of",
+                "from ninth platform"
+              ],
+              "correctOption": "from platform nine"
+            },
+            {
+              "id": "en-a2-making-sure-12-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Послушайте ещё раз» —",
+              "options": [
+                "Listen again",
+                "Listen one more again",
+                "Hear again"
+              ],
+              "correctOption": "Listen again"
+            },
+            {
+              "id": "en-a2-making-sure-12-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "word_order",
+              "prompt": "Извините, не расслышал.",
+              "canonicalAnswer": "Sorry, I did not catch that.",
+              "tokens": [
+                "that",
+                "catch",
+                "not",
+                "did",
+                "I",
+                "Sorry"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-12-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Извините, не расслышал.",
+              "canonicalAnswer": "Sorry, I did not catch that.",
+              "acceptedAnswers": [
+                "Sorry, I didn't catch that."
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-12-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "С девятой, спасибо.",
+              "canonicalAnswer": "Platform nine, thank you."
+            },
+            {
+              "id": "en-a2-making-sure-12-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Ну конечно, девятнадцатая.",
+              "canonicalAnswer": "Of course it is nineteen."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-13",
+          "title": "Double-checking a plan",
+          "summary": "Проверить план целиком.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-13-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "dialogue",
+              "title": "Проверяем план",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "So: airport at six, check in at seven.",
+                  "translation": "Итак: в шесть в аэропорту, в семь регистрация."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the taxi at half past five.",
+                  "translation": "И такси в полшестого."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Have you booked it?",
+                  "translation": "Ты его заказал?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Last night.",
+                  "translation": "Вчера вечером."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then we are ready.",
+                  "translation": "Тогда мы готовы."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-13-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "airport at six",
+              "translation": "в аэропорту в шесть",
+              "example": "Airport at six."
+            },
+            {
+              "id": "en-a2-making-sure-13-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "check in at seven",
+              "translation": "регистрация в семь",
+              "example": "Check in at seven."
+            },
+            {
+              "id": "en-a2-making-sure-13-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "half past five",
+              "translation": "полшестого",
+              "example": "The taxi at half past five."
+            },
+            {
+              "id": "en-a2-making-sure-13-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "Have you booked it?",
+              "translation": "Ты его заказал?",
+              "example": "Have you booked it yet?"
+            },
+            {
+              "id": "en-a2-making-sure-13-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "we are ready",
+              "translation": "мы готовы",
+              "example": "Then we are ready."
+            },
+            {
+              "id": "en-a2-making-sure-13-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "info",
+              "title": "Проверка плана вслух",
+              "explanation": "Перечислить пункты и время в порядке — самый надёжный способ найти дыру заранее. Английский для этого не нужен сложный: хватает so, and, then и цифр."
+            },
+            {
+              "id": "en-a2-making-sure-13-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Полшестого» —",
+              "options": [
+                "half past five",
+                "half to six",
+                "half five past six"
+              ],
+              "correctOption": "half past five"
+            },
+            {
+              "id": "en-a2-making-sure-13-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ты его заказал?» —",
+              "options": [
+                "Have you booked it?",
+                "Have you book it?",
+                "Did you have booked it?"
+              ],
+              "correctOption": "Have you booked it?"
+            },
+            {
+              "id": "en-a2-making-sure-13-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда мы готовы» —",
+              "options": [
+                "Then we are ready",
+                "Then we ready are",
+                "Then we are readied"
+              ],
+              "correctOption": "Then we are ready"
+            },
+            {
+              "id": "en-a2-making-sure-13-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "word_order",
+              "prompt": "И такси в полшестого.",
+              "canonicalAnswer": "And the taxi at half past five.",
+              "tokens": [
+                "five",
+                "past",
+                "half",
+                "at",
+                "taxi",
+                "the",
+                "And"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-13-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Итак: в шесть в аэропорту, в семь регистрация.",
+              "canonicalAnswer": "So: airport at six, check in at seven."
+            },
+            {
+              "id": "en-a2-making-sure-13-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "И такси в полшестого.",
+              "canonicalAnswer": "And the taxi at half past five."
+            },
+            {
+              "id": "en-a2-making-sure-13-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-meetings",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Тогда мы готовы.",
+              "canonicalAnswer": "Then we are ready.",
+              "acceptedAnswers": [
+                "Then we're ready."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-14",
+          "title": "Admitting you did not understand",
+          "summary": "Признать честно.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-14-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Не понял",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "I nodded, but I did not understand.",
+                  "translation": "Я кивал, но не понял."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then ask him again.",
+                  "translation": "Тогда спроси ещё раз."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "It is the third time.",
+                  "translation": "Это уже третий раз."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Better three times than wrong once.",
+                  "translation": "Лучше трижды спросить, чем один раз сделать не так."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "You are right, as usual.",
+                  "translation": "Ты права, как обычно."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-14-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "I nodded",
+              "translation": "я кивал",
+              "example": "I nodded, but I did not understand."
+            },
+            {
+              "id": "en-a2-making-sure-14-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "ask him again",
+              "translation": "спроси ещё раз",
+              "example": "Then ask him again."
+            },
+            {
+              "id": "en-a2-making-sure-14-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "the third time",
+              "translation": "третий раз",
+              "example": "It is the third time."
+            },
+            {
+              "id": "en-a2-making-sure-14-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Better three times than…",
+              "translation": "Лучше трижды, чем …",
+              "example": "Better three times than wrong once."
+            },
+            {
+              "id": "en-a2-making-sure-14-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "as usual",
+              "translation": "как обычно",
+              "example": "You are right, as usual."
+            },
+            {
+              "id": "en-a2-making-sure-14-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Кивнуть вместо вопроса — дорого",
+              "explanation": "Признаться, что не понял, стоит секунды, а молчаливый кивок — переделанной работы или пропущенного поворота. Английский даёт для этого готовые формулы, и все они в этом блоке."
+            },
+            {
+              "id": "en-a2-making-sure-14-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я кивал, но не понял» —",
+              "options": [
+                "I nodded, but I did not understand",
+                "I nodded, but I did not understood",
+                "I nod, but I did not understand"
+              ],
+              "correctOption": "I nodded, but I did not understand"
+            },
+            {
+              "id": "en-a2-making-sure-14-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда спроси ещё раз» —",
+              "options": [
+                "Then ask him again",
+                "Then ask again him",
+                "Then you ask him again it"
+              ],
+              "correctOption": "Then ask him again"
+            },
+            {
+              "id": "en-a2-making-sure-14-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ты права, как обычно» —",
+              "options": [
+                "You are right, as usual",
+                "You are right, as usually",
+                "You are right, like usual"
+              ],
+              "correctOption": "You are right, as usual"
+            },
+            {
+              "id": "en-a2-making-sure-14-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Я кивал, но не понял.",
+              "canonicalAnswer": "I nodded, but I did not understand.",
+              "tokens": [
+                "understand",
+                "not",
+                "did",
+                "I",
+                "but",
+                "nodded",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-14-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Я кивал, но не понял.",
+              "canonicalAnswer": "I nodded, but I did not understand.",
+              "acceptedAnswers": [
+                "I nodded, but I didn't understand."
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-14-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Это уже третий раз.",
+              "canonicalAnswer": "It is the third time.",
+              "acceptedAnswers": [
+                "It's the third time."
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-14-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Ты права, как обычно.",
+              "canonicalAnswer": "You are right, as usual.",
+              "acceptedAnswers": [
+                "You're right, as usual."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-15",
+          "title": "One careful conversation",
+          "summary": "Весь блок: разговор с проверками.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-15-d",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "dialogue",
+              "title": "Внимательный разговор",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "The delivery comes on the fifteenth, does it not?",
+                  "translation": "Доставка пятнадцатого, да?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The fiftieth would be a long wait.",
+                  "translation": "Пятидесятого ждать было бы долго."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Fifteen, five one, I mean.",
+                  "translation": "Пятнадцать, один пять, я имею в виду."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "One five. And the address is the same?",
+                  "translation": "Один пять. И адрес прежний?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The same. I will confirm by email.",
+                  "translation": "Прежний. Подтвержу письмом."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-15-w1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "the delivery",
+              "translation": "доставка",
+              "example": "The delivery comes on the fifteenth."
+            },
+            {
+              "id": "en-a2-making-sure-15-w2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "on the fifteenth",
+              "translation": "пятнадцатого",
+              "example": "On the fifteenth, yes."
+            },
+            {
+              "id": "en-a2-making-sure-15-w3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "I mean",
+              "translation": "я имею в виду",
+              "example": "Fifteen, I mean."
+            },
+            {
+              "id": "en-a2-making-sure-15-w4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "the address is the same",
+              "translation": "адрес прежний",
+              "example": "And the address is the same?"
+            },
+            {
+              "id": "en-a2-making-sure-15-w5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "I will confirm by email.",
+              "translation": "Подтвержу письмом.",
+              "example": "I will confirm by email."
+            },
+            {
+              "id": "en-a2-making-sure-15-r",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "info",
+              "title": "Четыре инструмента проверки",
+              "explanation": "Хвостовой вопрос, повтор своими словами, цифра по разрядам и подтверждение письмом. Ни один из них не про грамматику — все про то, чтобы не переделывать потом."
+            },
+            {
+              "id": "en-a2-making-sure-15-c1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Доставка пятнадцатого, да?» —",
+              "options": [
+                "The delivery comes on the fifteenth, does it not?",
+                "The delivery comes on the fifteenth, is it not?",
+                "The delivery comes on fifteenth, does it not?"
+              ],
+              "correctOption": "The delivery comes on the fifteenth, does it not?"
+            },
+            {
+              "id": "en-a2-making-sure-15-c2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я имею в виду» —",
+              "options": [
+                "I mean",
+                "I meaning",
+                "I am mean"
+              ],
+              "correctOption": "I mean"
+            },
+            {
+              "id": "en-a2-making-sure-15-c3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Подтвержу письмом» —",
+              "options": [
+                "I will confirm by email",
+                "I will confirm on email",
+                "I will confirm with the email"
+              ],
+              "correctOption": "I will confirm by email"
+            },
+            {
+              "id": "en-a2-making-sure-15-o",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "word_order",
+              "prompt": "Прежний. Подтвержу письмом.",
+              "canonicalAnswer": "The same. I will confirm by email.",
+              "tokens": [
+                "email",
+                "by",
+                "confirm",
+                "will",
+                "I",
+                "same",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-15-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Доставка пятнадцатого, да?",
+              "canonicalAnswer": "The delivery comes on the fifteenth, does it not?",
+              "acceptedAnswers": [
+                "The delivery comes on the fifteenth, doesn't it?"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-15-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "И адрес прежний?",
+              "canonicalAnswer": "And the address is the same?"
+            },
+            {
+              "id": "en-a2-making-sure-15-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-work",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Прежний. Подтвержу письмом.",
+              "canonicalAnswer": "The same. I will confirm by email."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-making-sure-check",
+          "title": "Проверка: переспросить и уточнить",
+          "summary": "Шесть фраз без подсказок — весь блок целиком.",
+          "estimatedMinutes": 5,
+          "kind": "checkpoint",
+          "exercises": [
+            {
+              "id": "en-a2-making-sure-check-t1",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Ты завтра придёшь, да?",
+              "canonicalAnswer": "You are coming tomorrow, are you not?",
+              "acceptedAnswers": [
+                "You're coming tomorrow, aren't you?"
+              ]
+            },
+            {
+              "id": "en-a2-making-sure-check-t2",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Правильно понимаю: два файла к пятнице?",
+              "canonicalAnswer": "So, if I understand right: two files by Friday?"
+            },
+            {
+              "id": "en-a2-making-sure-check-t3",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Извините, пятнадцать или пятьдесят?",
+              "canonicalAnswer": "Sorry, fifteen or fifty?"
+            },
+            {
+              "id": "en-a2-making-sure-check-t4",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Продиктуйте по буквам.",
+              "canonicalAnswer": "How do you spell that?"
+            },
+            {
+              "id": "en-a2-making-sure-check-t5",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Повторите помедленнее, пожалуйста.",
+              "canonicalAnswer": "Could you repeat that more slowly?"
+            },
+            {
+              "id": "en-a2-making-sure-check-t6",
+              "topics": [
+                "a2-question-tags",
+                "a1-tema-contact",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Сегодня всё в силе?",
+              "canonicalAnswer": "Are we still on for tonight?"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
