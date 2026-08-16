@@ -94419,6 +94419,3382 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en-a2-weather-and-seasons",
+      "title": "Weather and seasons",
+      "subtitle": "Прогноз, сезоны и планы, которые от погоды зависят",
+      "canDo": [
+        "рассказать о погоде и прогнозе",
+        "связать планы с погодой",
+        "сравнить сезоны и месяцы",
+        "объяснить, что помешало",
+        "выбрать время для поездки"
+      ],
+      "lessons": [
+        {
+          "id": "en-a2-weather-and-seasons-01",
+          "title": "It is going to rain",
+          "summary": "Прогноз на сегодня.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-01-d",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "dialogue",
+              "title": "Сегодня",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "It is going to rain this afternoon.",
+                  "translation": "После обеда будет дождь."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The app says evening.",
+                  "translation": "Приложение говорит — вечером."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The sky says afternoon.",
+                  "translation": "Небо говорит — после обеда."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "I trust the sky.",
+                  "translation": "Верю небу."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Take the umbrella anyway.",
+                  "translation": "Всё равно возьми зонт."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "flashcard",
+              "prompt": "It is going to rain.",
+              "translation": "Будет дождь.",
+              "example": "It is going to rain this afternoon."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "flashcard",
+              "prompt": "this afternoon",
+              "translation": "после обеда",
+              "example": "It is going to rain this afternoon."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "flashcard",
+              "prompt": "the app says",
+              "translation": "приложение говорит",
+              "example": "The app says evening."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "flashcard",
+              "prompt": "I trust",
+              "translation": "я верю",
+              "example": "I trust the sky."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "flashcard",
+              "prompt": "anyway",
+              "translation": "всё равно",
+              "example": "Take the umbrella anyway."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-r",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "info",
+              "title": "Погода — всегда через it",
+              "explanation": "It is raining, it is cold, it is going to snow. Подлежащее it здесь пустое и обязательное: is raining без него — не предложение. Русское безличное «холодно» английскому не разрешено."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Будет дождь» (тучи видно) —",
+              "options": [
+                "It is going to rain",
+                "Is going to rain",
+                "It going to rain"
+              ],
+              "correctOption": "It is going to rain"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Холодно» —",
+              "options": [
+                "It is cold",
+                "Is cold",
+                "There is cold"
+              ],
+              "correctOption": "It is cold"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Всё равно возьми зонт» —",
+              "options": [
+                "Take the umbrella anyway",
+                "Take anyway the umbrella",
+                "Take the umbrella any way it"
+              ],
+              "correctOption": "Take the umbrella anyway"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-o",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "word_order",
+              "prompt": "После обеда будет дождь.",
+              "canonicalAnswer": "It is going to rain this afternoon.",
+              "tokens": [
+                "afternoon",
+                "this",
+                "rain",
+                "to",
+                "going",
+                "is",
+                "It"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "translate",
+              "prompt": "После обеда будет дождь.",
+              "canonicalAnswer": "It is going to rain this afternoon.",
+              "acceptedAnswers": [
+                "It's going to rain this afternoon."
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "translate",
+              "prompt": "Приложение говорит — вечером.",
+              "canonicalAnswer": "The app says evening."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-01-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-weather",
+                "a2-going-to"
+              ],
+              "type": "translate",
+              "prompt": "Всё равно возьми зонт.",
+              "canonicalAnswer": "Take the umbrella anyway."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-02",
+          "title": "What is the forecast?",
+          "summary": "Прогноз на неделю.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-02-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "dialogue",
+              "title": "Прогноз",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "What is the forecast for the weekend?",
+                  "translation": "Какой прогноз на выходные?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Sunny on Saturday, wet on Sunday.",
+                  "translation": "В субботу солнечно, в воскресенье дождь."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then Saturday for the lake.",
+                  "translation": "Значит, на озеро в субботу."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And Sunday for the museum.",
+                  "translation": "А в воскресенье в музей."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "A plan that survives weather.",
+                  "translation": "План, который переживёт погоду."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "the forecast",
+              "translation": "прогноз",
+              "example": "What is the forecast?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "sunny",
+              "translation": "солнечно",
+              "example": "Sunny on Saturday."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "wet",
+              "translation": "дождливо",
+              "example": "Wet on Sunday."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "for the lake",
+              "translation": "на озеро",
+              "example": "Saturday for the lake."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "survives",
+              "translation": "переживёт",
+              "example": "A plan that survives weather."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "info",
+              "title": "Прилагательные погоды",
+              "explanation": "Sunny, rainy, windy, cloudy, foggy, icy — все от существительных с -y. Wet и dry стоят особняком, а «мороз» — frost, и от него получается frosty. Схема простая и работает почти всегда."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ветрено» —",
+              "options": [
+                "windy",
+                "winded",
+                "windful"
+              ],
+              "correctOption": "windy"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Какой прогноз на выходные?» —",
+              "options": [
+                "What is the forecast for the weekend?",
+                "What is the forecast on the weekend?",
+                "Which is forecast for weekend?"
+              ],
+              "correctOption": "What is the forecast for the weekend?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В субботу солнечно» —",
+              "options": [
+                "Sunny on Saturday",
+                "Sunny in Saturday",
+                "Sun on Saturday"
+              ],
+              "correctOption": "Sunny on Saturday"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "word_order",
+              "prompt": "В субботу солнечно, в воскресенье дождь.",
+              "canonicalAnswer": "Sunny on Saturday, wet on Sunday.",
+              "tokens": [
+                "Sunday",
+                "on",
+                "wet",
+                "Saturday",
+                "on",
+                "Sunny"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "Какой прогноз на выходные?",
+              "canonicalAnswer": "What is the forecast for the weekend?",
+              "acceptedAnswers": [
+                "What's the forecast for the weekend?"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "В субботу солнечно, в воскресенье дождь.",
+              "canonicalAnswer": "Sunny on Saturday, wet on Sunday."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-02-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-will",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "Значит, на озеро в субботу.",
+              "canonicalAnswer": "Then Saturday for the lake."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-03",
+          "title": "If it snows, we stay",
+          "summary": "Планы под условием.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-03-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "dialogue",
+              "title": "Если снег",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "If it snows tonight, we stay home.",
+                  "translation": "Если ночью выпадет снег, останемся дома."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And if it does not?",
+                  "translation": "А если нет?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then we leave at seven.",
+                  "translation": "Тогда выезжаем в семь."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The roads are bad up there.",
+                  "translation": "Дороги там плохие."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That is why we decide in the morning.",
+                  "translation": "Поэтому решим утром."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "If it snows",
+              "translation": "если выпадет снег",
+              "example": "If it snows tonight, we stay home."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "we stay home",
+              "translation": "останемся дома",
+              "example": "We stay home, then."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "we leave at seven",
+              "translation": "выезжаем в семь",
+              "example": "Then we leave at seven."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "the roads",
+              "translation": "дороги",
+              "example": "The roads are bad up there."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "up there",
+              "translation": "там наверху",
+              "example": "The roads are bad up there."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "info",
+              "title": "После if — настоящее, и в третий раз",
+              "explanation": "If it snows, we stay. Правило встречалось в блоке про условия и в блоке про связки, и повторяется оно потому, что ломается чаще любого другого: русское «если выпадет» тянет за собой будущее."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если ночью выпадет снег» —",
+              "options": [
+                "If it snows tonight",
+                "If it will snow tonight",
+                "If it is snow tonight"
+              ],
+              "correctOption": "If it snows tonight"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда выезжаем в семь» —",
+              "options": [
+                "Then we leave at seven",
+                "Then we will leaving at seven",
+                "Then we leave in seven"
+              ],
+              "correctOption": "Then we leave at seven"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Дороги там плохие» —",
+              "options": [
+                "The roads are bad up there",
+                "The roads is bad up there",
+                "The road are bad up there"
+              ],
+              "correctOption": "The roads are bad up there"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "word_order",
+              "prompt": "Если ночью выпадет снег, останемся дома.",
+              "canonicalAnswer": "If it snows tonight, we stay home.",
+              "tokens": [
+                "home",
+                "stay",
+                "we",
+                "tonight",
+                "snows",
+                "it",
+                "If"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "Если ночью выпадет снег, останемся дома.",
+              "canonicalAnswer": "If it snows tonight, we stay home."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "Тогда выезжаем в семь.",
+              "canonicalAnswer": "Then we leave at seven."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-03-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "Поэтому решим утром.",
+              "canonicalAnswer": "That is why we decide in the morning.",
+              "acceptedAnswers": [
+                "That's why we decide in the morning."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-04",
+          "title": "Warmer than last year",
+          "summary": "Сравнить сезоны.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-04-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "dialogue",
+              "title": "Теплее",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "This winter is warmer than last year.",
+                  "translation": "Эта зима теплее прошлой."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Much warmer. And shorter.",
+                  "translation": "Намного теплее. И короче."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Snow only twice.",
+                  "translation": "Снег всего дважды."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The children were disappointed.",
+                  "translation": "Дети расстроились."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the drivers were not.",
+                  "translation": "А водители нет."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "warmer than last year",
+              "translation": "теплее прошлого года",
+              "example": "This winter is warmer than last year."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "shorter",
+              "translation": "короче",
+              "example": "Much warmer. And shorter."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "snow only twice",
+              "translation": "снег всего дважды",
+              "example": "Snow only twice."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "disappointed",
+              "translation": "расстроенный",
+              "example": "The children were disappointed."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "the drivers",
+              "translation": "водители",
+              "example": "And the drivers were not."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "info",
+              "title": "Disappointed и disappointing",
+              "explanation": "Дети расстроены — disappointed. Зима разочаровывающая — disappointing. Правило то же, что с tired и tiring в блоке о чувствах, и здесь оно работает на погоде."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Дети расстроились» —",
+              "options": [
+                "The children were disappointed",
+                "The children were disappointing",
+                "The children was disappointed"
+              ],
+              "correctOption": "The children were disappointed"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Теплее прошлого года» —",
+              "options": [
+                "warmer than last year",
+                "more warm than last year",
+                "warmer that last year"
+              ],
+              "correctOption": "warmer than last year"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Снег всего дважды» —",
+              "options": [
+                "Snow only twice",
+                "Snow only two times it",
+                "Only snow twice times"
+              ],
+              "correctOption": "Snow only twice"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "word_order",
+              "prompt": "Эта зима теплее прошлой.",
+              "canonicalAnswer": "This winter is warmer than last year.",
+              "tokens": [
+                "year",
+                "last",
+                "than",
+                "warmer",
+                "is",
+                "winter",
+                "This"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Эта зима теплее прошлой.",
+              "canonicalAnswer": "This winter is warmer than last year."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Намного теплее. И короче.",
+              "canonicalAnswer": "Much warmer. And shorter."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-04-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Дети расстроились.",
+              "canonicalAnswer": "The children were disappointed."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-05",
+          "title": "The best month to go",
+          "summary": "Когда ехать.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-05-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "dialogue",
+              "title": "Лучший месяц",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "When is the best month to go?",
+                  "translation": "В каком месяце лучше ехать?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "May or September.",
+                  "translation": "В мае или сентябре."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Not August?",
+                  "translation": "Не в августе?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "August is hot and full.",
+                  "translation": "В августе жарко и полно народу."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then September.",
+                  "translation": "Тогда сентябрь."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "flashcard",
+              "prompt": "the best month",
+              "translation": "лучший месяц",
+              "example": "When is the best month to go?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "flashcard",
+              "prompt": "May or September",
+              "translation": "май или сентябрь",
+              "example": "May or September."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "flashcard",
+              "prompt": "hot and full",
+              "translation": "жарко и полно народу",
+              "example": "August is hot and full."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "flashcard",
+              "prompt": "Not August?",
+              "translation": "Не в августе?",
+              "example": "Not August, really?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "flashcard",
+              "prompt": "a season",
+              "translation": "сезон",
+              "example": "The high season is August."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "info",
+              "title": "Месяцы — с большой буквы и без артикля",
+              "explanation": "In May, in September, but the best month. Названия месяцев и дней недели в английском всегда с заглавной, а артикль перед ними не ставят: in the May — ошибка."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В мае» —",
+              "options": [
+                "in May",
+                "in the May",
+                "on May"
+              ],
+              "correctOption": "in May"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В каком месяце лучше ехать?» —",
+              "options": [
+                "When is the best month to go?",
+                "When is the best month for go?",
+                "When is best month to go?"
+              ],
+              "correctOption": "When is the best month to go?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Жарко и полно народу» —",
+              "options": [
+                "hot and full",
+                "hot and fully",
+                "hotly and full"
+              ],
+              "correctOption": "hot and full"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "word_order",
+              "prompt": "В каком месяце лучше ехать?",
+              "canonicalAnswer": "When is the best month to go?",
+              "tokens": [
+                "go",
+                "to",
+                "month",
+                "best",
+                "the",
+                "is",
+                "When"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "translate",
+              "prompt": "В каком месяце лучше ехать?",
+              "canonicalAnswer": "When is the best month to go?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "translate",
+              "prompt": "В мае или сентябре.",
+              "canonicalAnswer": "May or September."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-05-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-tema-viaje"
+              ],
+              "type": "translate",
+              "prompt": "В августе жарко и полно народу.",
+              "canonicalAnswer": "August is hot and full."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-06",
+          "title": "Because of the storm",
+          "summary": "Погода помешала.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-06-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "dialogue",
+              "title": "Из-за шторма",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "The ferry did not go because of the storm.",
+                  "translation": "Паром не пошёл из-за шторма."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "For how long?",
+                  "translation": "И надолго?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Two days, and we slept in the car.",
+                  "translation": "Два дня, и мы спали в машине."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That is a holiday story.",
+                  "translation": "Вот это отпускная история."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "It was not funny then.",
+                  "translation": "Тогда было не смешно."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "a ferry",
+              "translation": "паром",
+              "example": "The ferry did not go."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "because of the storm",
+              "translation": "из-за шторма",
+              "example": "Because of the storm."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "we slept in the car",
+              "translation": "мы спали в машине",
+              "example": "We slept in the car."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "a holiday story",
+              "translation": "отпускная история",
+              "example": "That is a holiday story."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "It was not funny then.",
+              "translation": "Тогда было не смешно.",
+              "example": "It was not funny then."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "info",
+              "title": "Because of the storm — снова с существительным",
+              "explanation": "Пара because и because of встречается в разговоре о погоде постоянно: because of the rain, because it rained. Правило из блока связок здесь отрабатывается на живых предложениях."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Из-за шторма» —",
+              "options": [
+                "because of the storm",
+                "because the storm",
+                "because of it stormed"
+              ],
+              "correctOption": "because of the storm"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы спали в машине» —",
+              "options": [
+                "We slept in the car",
+                "We sleeped in the car",
+                "We were slept in the car"
+              ],
+              "correctOption": "We slept in the car"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда было не смешно» —",
+              "options": [
+                "It was not funny then",
+                "It was not funnily then",
+                "It not was funny then"
+              ],
+              "correctOption": "It was not funny then"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "word_order",
+              "prompt": "Паром не пошёл из-за шторма.",
+              "canonicalAnswer": "The ferry did not go because of the storm.",
+              "tokens": [
+                "storm",
+                "the",
+                "of",
+                "because",
+                "go",
+                "not",
+                "did",
+                "ferry",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Паром не пошёл из-за шторма.",
+              "canonicalAnswer": "The ferry did not go because of the storm.",
+              "acceptedAnswers": [
+                "The ferry didn't go because of the storm."
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Два дня, и мы спали в машине.",
+              "canonicalAnswer": "Two days, and we slept in the car."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-06-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-connectors",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Тогда было не смешно.",
+              "canonicalAnswer": "It was not funny then."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-07",
+          "title": "Dressing for it",
+          "summary": "Как одеться.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-07-d",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "dialogue",
+              "title": "Как одеться",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "What should I wear?",
+                  "translation": "Что надеть?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Layers. It changes every hour.",
+                  "translation": "Слоями. Погода меняется каждый час."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And shoes?",
+                  "translation": "А обувь?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Something waterproof.",
+                  "translation": "Что-нибудь непромокаемое."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Right, this is not Spain.",
+                  "translation": "Точно, это не Испания."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "What should I wear?",
+              "translation": "Что надеть?",
+              "example": "What should I wear today?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "layers",
+              "translation": "слои одежды",
+              "example": "Layers. It changes every hour."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "it changes",
+              "translation": "меняется",
+              "example": "It changes every hour."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "waterproof",
+              "translation": "непромокаемый",
+              "example": "Something waterproof."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "shoes",
+              "translation": "обувь",
+              "example": "And shoes?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-r",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "info",
+              "title": "Wear и put on",
+              "explanation": "Wear — носить, находиться в одежде: I am wearing a coat. Put on — надеть, действие: put on your coat. Русское «надеть» покрывает оба, и на выходе получается I am putting on a coat всё утро."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что надеть?» —",
+              "options": [
+                "What should I wear?",
+                "What should I put on me?",
+                "What should I to wear?"
+              ],
+              "correctOption": "What should I wear?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Надень пальто» —",
+              "options": [
+                "Put on your coat",
+                "Wear your coat now on",
+                "Put your coat"
+              ],
+              "correctOption": "Put on your coat"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что-нибудь непромокаемое» —",
+              "options": [
+                "Something waterproof",
+                "Waterproof something",
+                "Something water proofed"
+              ],
+              "correctOption": "Something waterproof"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-o",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "word_order",
+              "prompt": "Слоями. Погода меняется каждый час.",
+              "canonicalAnswer": "Layers. It changes every hour.",
+              "tokens": [
+                "hour",
+                "every",
+                "changes",
+                "It",
+                "Layers"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Что надеть?",
+              "canonicalAnswer": "What should I wear?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Слоями. Погода меняется каждый час.",
+              "canonicalAnswer": "Layers. It changes every hour."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-07-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-shopping",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Что-нибудь непромокаемое.",
+              "canonicalAnswer": "Something waterproof."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-08",
+          "title": "Degrees and temperature",
+          "summary": "Градусы.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-08-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "dialogue",
+              "title": "Сколько градусов",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "How cold is it outside?",
+                  "translation": "Сколько там на улице?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Minus three, but it feels like minus ten.",
+                  "translation": "Минус три, но ощущается как минус десять."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The wind again.",
+                  "translation": "Опять ветер."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The wind always.",
+                  "translation": "Ветер всегда."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then two jumpers.",
+                  "translation": "Тогда два свитера."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "How cold is it?",
+              "translation": "Сколько градусов?",
+              "example": "How cold is it outside?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "minus three",
+              "translation": "минус три",
+              "example": "Minus three degrees."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "it feels like",
+              "translation": "ощущается как",
+              "example": "It feels like minus ten."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "the wind",
+              "translation": "ветер",
+              "example": "The wind again."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "jumpers",
+              "translation": "свитера",
+              "example": "Then two jumpers."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "info",
+              "title": "How cold is it — вопрос о степени",
+              "explanation": "How cold, how hot, how far, how long. Схема how плюс прилагательное спрашивает не «какой», а «насколько», и в разговоре о погоде она главная."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Сколько градусов на улице?» —",
+              "options": [
+                "How cold is it outside?",
+                "How much cold is outside?",
+                "How cold it is outside?"
+              ],
+              "correctOption": "How cold is it outside?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ощущается как минус десять» —",
+              "options": [
+                "It feels like minus ten",
+                "It feels as minus ten",
+                "It feels like a minus ten"
+              ],
+              "correctOption": "It feels like minus ten"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда два свитера» —",
+              "options": [
+                "Then two jumpers",
+                "Then two jumper",
+                "Then two of jumpers"
+              ],
+              "correctOption": "Then two jumpers"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "word_order",
+              "prompt": "Минус три, но ощущается как минус десять.",
+              "canonicalAnswer": "Minus three, but it feels like minus ten.",
+              "tokens": [
+                "ten",
+                "minus",
+                "like",
+                "feels",
+                "it",
+                "but",
+                "three",
+                "Minus"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Сколько там на улице?",
+              "canonicalAnswer": "How cold is it outside?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Минус три, но ощущается как минус десять.",
+              "canonicalAnswer": "Minus three, but it feels like minus ten."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-08-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Тогда два свитера.",
+              "canonicalAnswer": "Then two jumpers."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-09",
+          "title": "A grey week",
+          "summary": "Погода и настроение.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-09-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "dialogue",
+              "title": "Серо",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Six grey days in a row.",
+                  "translation": "Шесть серых дней подряд."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "It affects everybody.",
+                  "translation": "На всех действует."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I sleep more and do less.",
+                  "translation": "Больше сплю и меньше делаю."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Light helps, they say.",
+                  "translation": "Говорят, свет помогает."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then let us walk at lunch.",
+                  "translation": "Тогда пойдём гулять в обед."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "grey days",
+              "translation": "серые дни",
+              "example": "Six grey days in a row."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "in a row",
+              "translation": "подряд",
+              "example": "Six days in a row."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "It affects everybody.",
+              "translation": "На всех действует.",
+              "example": "It affects everybody, honestly."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "light helps",
+              "translation": "свет помогает",
+              "example": "Light helps, they say."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "at lunch",
+              "translation": "в обед",
+              "example": "Let us walk at lunch."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "info",
+              "title": "In a row — «подряд»",
+              "explanation": "Six days in a row, three times in a row. Русское «подряд» переводится только этим оборотом; слово after here не работает, и вариантов у выражения нет."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Шесть дней подряд» —",
+              "options": [
+                "six days in a row",
+                "six days on a row",
+                "six days by row"
+              ],
+              "correctOption": "six days in a row"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«На всех действует» —",
+              "options": [
+                "It affects everybody",
+                "It affect everybody",
+                "It effects everybody"
+              ],
+              "correctOption": "It affects everybody"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Больше сплю и меньше делаю» —",
+              "options": [
+                "I sleep more and do less",
+                "I sleep more and do lesser",
+                "I sleep much and do less"
+              ],
+              "correctOption": "I sleep more and do less"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "word_order",
+              "prompt": "Шесть серых дней подряд.",
+              "canonicalAnswer": "Six grey days in a row.",
+              "tokens": [
+                "row",
+                "a",
+                "in",
+                "days",
+                "grey",
+                "Six"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Шесть серых дней подряд.",
+              "canonicalAnswer": "Six grey days in a row."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Больше сплю и меньше делаю.",
+              "canonicalAnswer": "I sleep more and do less."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-09-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-relaciones",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Тогда пойдём гулять в обед.",
+              "canonicalAnswer": "Then let us walk at lunch.",
+              "acceptedAnswers": [
+                "Then let's walk at lunch."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-10",
+          "title": "Heat and shade",
+          "summary": "Жара.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-10-d",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "dialogue",
+              "title": "Жара",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "It is thirty five in the shade.",
+                  "translation": "Тридцать пять в тени."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then nobody works after two.",
+                  "translation": "Тогда после двух никто не работает."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "If you drink enough, it is fine.",
+                  "translation": "Если пить достаточно, нормально."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And if you do not?",
+                  "translation": "А если нет?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then the head, and the day is gone.",
+                  "translation": "Тогда голова, и день пропал."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "in the shade",
+              "translation": "в тени",
+              "example": "Thirty five in the shade."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "nobody works",
+              "translation": "никто не работает",
+              "example": "Nobody works after two."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "drink enough",
+              "translation": "пить достаточно",
+              "example": "If you drink enough."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "the head",
+              "translation": "голова",
+              "example": "Then the head."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "the day is gone",
+              "translation": "день пропал",
+              "example": "And the day is gone."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-r",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "info",
+              "title": "In the shade и in the sun",
+              "explanation": "Оба с артиклем the: in the shade, in the sun. Слово shadow значит другую тень — ту, которую отбрасывает предмет, — и на солнцепёке его не употребляют."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В тени» (прохлада) —",
+              "options": [
+                "in the shade",
+                "in the shadow",
+                "on the shade"
+              ],
+              "correctOption": "in the shade"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если пить достаточно, нормально» —",
+              "options": [
+                "If you drink enough, it is fine",
+                "If you will drink enough, it is fine",
+                "If you drink enough, it will fine"
+              ],
+              "correctOption": "If you drink enough, it is fine"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«После двух никто не работает» —",
+              "options": [
+                "Nobody works after two",
+                "Nobody work after two",
+                "Nobody does not work after two"
+              ],
+              "correctOption": "Nobody works after two"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-o",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "word_order",
+              "prompt": "Тридцать пять в тени.",
+              "canonicalAnswer": "It is thirty five in the shade.",
+              "tokens": [
+                "shade",
+                "the",
+                "in",
+                "five",
+                "thirty",
+                "is",
+                "It"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Тридцать пять в тени.",
+              "canonicalAnswer": "It is thirty five in the shade.",
+              "acceptedAnswers": [
+                "It's thirty five in the shade."
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Тогда после двух никто не работает.",
+              "canonicalAnswer": "Then nobody works after two."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-10-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-health",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Если пить достаточно, нормально.",
+              "canonicalAnswer": "If you drink enough, it is fine."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-11",
+          "title": "Seasons at home",
+          "summary": "Сезоны своей страны.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-11-d",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "dialogue",
+              "title": "Дома иначе",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "In {country} the winter is longer.",
+                  "translation": "В {страна} зима длиннее."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "How much longer?",
+                  "translation": "Насколько?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Five months, from November.",
+                  "translation": "Пять месяцев, с ноября."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the summer?",
+                  "translation": "А лето?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Short and very green.",
+                  "translation": "Короткое и очень зелёное."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "the winter is longer",
+              "translation": "зима длиннее",
+              "example": "In {country} the winter is longer."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "five months",
+              "translation": "пять месяцев",
+              "example": "Five months, from November."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "from November",
+              "translation": "с ноября",
+              "example": "From November, yes."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "short",
+              "translation": "короткое",
+              "example": "Short and very green."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "green",
+              "translation": "зелёное",
+              "example": "Short and very green."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-r",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "info",
+              "title": "Сезоны — без артикля в общем смысле",
+              "explanation": "In winter, in summer — вообще. The winter of 2019, the winter is longer here — о конкретной. На A2 обе формы встречаются, и артикль появляется там, где речь о своей, определённой зиме."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Зимой» (вообще) —",
+              "options": [
+                "in winter",
+                "in the winter time of",
+                "on winter"
+              ],
+              "correctOption": "in winter"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пять месяцев, с ноября» —",
+              "options": [
+                "Five months, from November",
+                "Five month, from November",
+                "Five months, since the November"
+              ],
+              "correctOption": "Five months, from November"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Короткое и очень зелёное» —",
+              "options": [
+                "Short and very green",
+                "Shortly and very green",
+                "Short and very greenly"
+              ],
+              "correctOption": "Short and very green"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-o",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "word_order",
+              "prompt": "В {страна} зима длиннее.",
+              "canonicalAnswer": "In {country} the winter is longer.",
+              "tokens": [
+                "longer",
+                "is",
+                "winter",
+                "the",
+                "{country}",
+                "In"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "В {страна} зима длиннее.",
+              "canonicalAnswer": "In {country} the winter is longer."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Пять месяцев, с ноября.",
+              "canonicalAnswer": "Five months, from November."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-11-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a1-tema-travel",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Короткое и очень зелёное.",
+              "canonicalAnswer": "Short and very green."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-12",
+          "title": "Weather warnings",
+          "summary": "Предупреждения.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-12-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "dialogue",
+              "title": "Предупреждение",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "There is a wind warning for tomorrow.",
+                  "translation": "На завтра предупреждение о ветре."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "How strong?",
+                  "translation": "Насколько сильном?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Ninety kilometres an hour.",
+                  "translation": "Девяносто километров в час."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then the trees will fall.",
+                  "translation": "Тогда деревья повалит."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Do not park under one.",
+                  "translation": "Не паркуйся под деревом."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "a wind warning",
+              "translation": "предупреждение о ветре",
+              "example": "There is a wind warning."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "How strong?",
+              "translation": "Насколько сильный?",
+              "example": "How strong is it?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "ninety kilometres an hour",
+              "translation": "девяносто километров в час",
+              "example": "Ninety kilometres an hour."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "the trees will fall",
+              "translation": "деревья повалит",
+              "example": "Then the trees will fall."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "flashcard",
+              "prompt": "park under one",
+              "translation": "парковаться под деревом",
+              "example": "Do not park under one."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "info",
+              "title": "Скорость — через an hour",
+              "explanation": "Ninety kilometres an hour, sixty miles an hour. Артикль an значит «в каждый», как и в fifty a month. Форма per hour тоже верна и звучит официальнее."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Девяносто километров в час» —",
+              "options": [
+                "ninety kilometres an hour",
+                "ninety kilometres in hour",
+                "ninety kilometre an hour"
+              ],
+              "correctOption": "ninety kilometres an hour"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда деревья повалит» —",
+              "options": [
+                "Then the trees will fall",
+                "Then the trees will falls",
+                "Then the trees fall will"
+              ],
+              "correctOption": "Then the trees will fall"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Не паркуйся под деревом» —",
+              "options": [
+                "Do not park under one",
+                "Do not park under it one",
+                "Not park under one"
+              ],
+              "correctOption": "Do not park under one"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "word_order",
+              "prompt": "На завтра предупреждение о ветре.",
+              "canonicalAnswer": "There is a wind warning for tomorrow.",
+              "tokens": [
+                "tomorrow",
+                "for",
+                "warning",
+                "wind",
+                "a",
+                "is",
+                "There"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "На завтра предупреждение о ветре.",
+              "canonicalAnswer": "There is a wind warning for tomorrow.",
+              "acceptedAnswers": [
+                "There's a wind warning for tomorrow."
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Девяносто километров в час.",
+              "canonicalAnswer": "Ninety kilometres an hour."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-12-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-urgencia",
+                "a2-will"
+              ],
+              "type": "translate",
+              "prompt": "Не паркуйся под деревом.",
+              "canonicalAnswer": "Do not park under one.",
+              "acceptedAnswers": [
+                "Don't park under one."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-13",
+          "title": "A good day at last",
+          "summary": "Наконец хорошая погода.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-13-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "dialogue",
+              "title": "Наконец-то",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "The sun has come out.",
+                  "translation": "Солнце вышло."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "First time this week.",
+                  "translation": "Первый раз за неделю."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Everybody is outside already.",
+                  "translation": "Все уже на улице."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Every café is full.",
+                  "translation": "Все кафе забиты."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then we sit on a wall.",
+                  "translation": "Тогда сядем на парапет."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "The sun has come out.",
+              "translation": "Солнце вышло.",
+              "example": "The sun has come out at last."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "first time this week",
+              "translation": "первый раз за неделю",
+              "example": "First time this week."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "outside already",
+              "translation": "уже на улице",
+              "example": "Everybody is outside already."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "every café is full",
+              "translation": "все кафе забиты",
+              "example": "Every café is full."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "a wall",
+              "translation": "парапет, стенка",
+              "example": "Then we sit on a wall."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "info",
+              "title": "Every — с единственным числом",
+              "explanation": "Every café is full, every day counts. Слово every требует единственного числа, хотя значит «все». Множественное берут all: all the cafés are full."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Все кафе забиты» —",
+              "options": [
+                "Every café is full",
+                "Every cafés are full",
+                "Every café are full"
+              ],
+              "correctOption": "Every café is full"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Солнце вышло» —",
+              "options": [
+                "The sun has come out",
+                "The sun has came out",
+                "The sun is come out"
+              ],
+              "correctOption": "The sun has come out"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Первый раз за неделю» —",
+              "options": [
+                "First time this week",
+                "First time in this week of",
+                "The first time on this week"
+              ],
+              "correctOption": "First time this week"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Все уже на улице.",
+              "canonicalAnswer": "Everybody is outside already.",
+              "tokens": [
+                "already",
+                "outside",
+                "is",
+                "Everybody"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Солнце вышло.",
+              "canonicalAnswer": "The sun has come out.",
+              "acceptedAnswers": [
+                "The sun's come out."
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Первый раз за неделю.",
+              "canonicalAnswer": "First time this week."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-13-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Все кафе забиты.",
+              "canonicalAnswer": "Every café is full."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-14",
+          "title": "Planning around the weather",
+          "summary": "План под погоду.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-14-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "dialogue",
+              "title": "План на день",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Morning outside, afternoon inside.",
+                  "translation": "Утром на улице, днём в помещении."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Because of the rain at two?",
+                  "translation": "Из-за дождя в два?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "At two, or three, or never.",
+                  "translation": "В два, или в три, или никогда."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Forecasts are opinions.",
+                  "translation": "Прогнозы — это мнения."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Well-paid opinions.",
+                  "translation": "Хорошо оплачиваемые мнения."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "morning outside",
+              "translation": "утром на улице",
+              "example": "Morning outside, afternoon inside."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "afternoon inside",
+              "translation": "днём в помещении",
+              "example": "Afternoon inside, then."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "at two, or three",
+              "translation": "в два или в три",
+              "example": "At two, or three, or never."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "Forecasts are opinions.",
+              "translation": "Прогнозы — это мнения.",
+              "example": "Forecasts are opinions, honestly."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "flashcard",
+              "prompt": "well-paid",
+              "translation": "хорошо оплачиваемый",
+              "example": "Well-paid opinions."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "info",
+              "title": "Существительное вместо длинной фразы",
+              "explanation": "Morning outside, afternoon inside — по-английски это нормальный, живой план, а не обрубок. Разговорная речь любит короткие блоки без глаголов, и понимать их надо буквально."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Прогнозы — это мнения» —",
+              "options": [
+                "Forecasts are opinions",
+                "Forecasts is opinions",
+                "Forecast are opinion"
+              ],
+              "correctOption": "Forecasts are opinions"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Из-за дождя в два?» —",
+              "options": [
+                "Because of the rain at two?",
+                "Because the rain at two?",
+                "Because of the rain in two?"
+              ],
+              "correctOption": "Because of the rain at two?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Хорошо оплачиваемые мнения» —",
+              "options": [
+                "Well-paid opinions",
+                "Good-paid opinions",
+                "Well-payed opinions"
+              ],
+              "correctOption": "Well-paid opinions"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "word_order",
+              "prompt": "Утром на улице, днём в помещении.",
+              "canonicalAnswer": "Morning outside, afternoon inside.",
+              "tokens": [
+                "inside",
+                "afternoon",
+                "outside",
+                "Morning"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Утром на улице, днём в помещении.",
+              "canonicalAnswer": "Morning outside, afternoon inside."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Из-за дождя в два?",
+              "canonicalAnswer": "Because of the rain at two?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-14-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-tema-planes",
+                "a2-zero-first-conditional"
+              ],
+              "type": "translate",
+              "prompt": "Прогнозы — это мнения.",
+              "canonicalAnswer": "Forecasts are opinions."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-15",
+          "title": "A year of weather",
+          "summary": "Весь блок: год по сезонам.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-15-d",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "dialogue",
+              "title": "Год",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Spring is short, summer is hot.",
+                  "translation": "Весна короткая, лето жаркое."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And autumn?",
+                  "translation": "А осень?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The best, although it rains.",
+                  "translation": "Лучшая, хотя и дождливая."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Because of the colours?",
+                  "translation": "Из-за красок?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The colours, and the quiet.",
+                  "translation": "Из-за красок и тишины."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-w1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "spring",
+              "translation": "весна",
+              "example": "Spring is short."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-w2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "autumn",
+              "translation": "осень",
+              "example": "And autumn?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-w3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "the best",
+              "translation": "лучшая",
+              "example": "The best, although it rains."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-w4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "the colours",
+              "translation": "краски",
+              "example": "Because of the colours?"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-w5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "flashcard",
+              "prompt": "the quiet",
+              "translation": "тишина",
+              "example": "The colours, and the quiet."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-r",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "info",
+              "title": "Погода собирает весь уровень",
+              "explanation": "It как пустое подлежащее, прилагательные на -y, сравнение, условие с if, связки because и although. В одном разговоре о погоде проверяется половина грамматики A2 — и потому она любимая тема экзаменаторов."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-c1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Лучшая, хотя и дождливая» —",
+              "options": [
+                "The best, although it rains",
+                "The best, although but it rains",
+                "The best, although it will rain"
+              ],
+              "correctOption": "The best, although it rains"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-c2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Весна короткая, лето жаркое» —",
+              "options": [
+                "Spring is short, summer is hot",
+                "The spring is short, the summer is hot generally",
+                "Spring is short, summer are hot"
+              ],
+              "correctOption": "Spring is short, summer is hot"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-c3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Из-за красок» —",
+              "options": [
+                "Because of the colours",
+                "Because the colours",
+                "Because of colours the"
+              ],
+              "correctOption": "Because of the colours"
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-o",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "word_order",
+              "prompt": "Лучшая, хотя и дождливая.",
+              "canonicalAnswer": "The best, although it rains.",
+              "tokens": [
+                "rains",
+                "it",
+                "although",
+                "best",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Весна короткая, лето жаркое.",
+              "canonicalAnswer": "Spring is short, summer is hot."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Лучшая, хотя и дождливая.",
+              "canonicalAnswer": "The best, although it rains."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-15-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Из-за красок и тишины.",
+              "canonicalAnswer": "The colours, and the quiet."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-weather-and-seasons-check",
+          "title": "Проверка: погода и сезоны",
+          "summary": "Шесть фраз без подсказок — весь блок целиком.",
+          "estimatedMinutes": 5,
+          "kind": "checkpoint",
+          "exercises": [
+            {
+              "id": "en-a2-weather-and-seasons-check-t1",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "После обеда будет дождь.",
+              "canonicalAnswer": "It is going to rain this afternoon.",
+              "acceptedAnswers": [
+                "It's going to rain this afternoon."
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-check-t2",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Какой прогноз на выходные?",
+              "canonicalAnswer": "What is the forecast for the weekend?",
+              "acceptedAnswers": [
+                "What's the forecast for the weekend?"
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-check-t3",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Если ночью выпадет снег, останемся дома.",
+              "canonicalAnswer": "If it snows tonight, we stay home."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-check-t4",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Эта зима теплее прошлой.",
+              "canonicalAnswer": "This winter is warmer than last year."
+            },
+            {
+              "id": "en-a2-weather-and-seasons-check-t5",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Паром не пошёл из-за шторма.",
+              "canonicalAnswer": "The ferry did not go because of the storm.",
+              "acceptedAnswers": [
+                "The ferry didn't go because of the storm."
+              ]
+            },
+            {
+              "id": "en-a2-weather-and-seasons-check-t6",
+              "topics": [
+                "a2-tema-clima",
+                "a2-zero-first-conditional",
+                "a2-comparatives",
+                "a2-connectors"
+              ],
+              "type": "translate",
+              "prompt": "Сколько там на улице?",
+              "canonicalAnswer": "How cold is it outside?"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
