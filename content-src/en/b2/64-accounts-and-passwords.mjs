@@ -1,0 +1,287 @@
+// B2, блок 64 — Accounts and passwords. Аккаунты и пароли.
+//
+// Тематический блок: взлом, восстановление доступа, цифровое наследство,
+// поддержка и данные. Пассив, условия, точные просьбы.
+
+const DA = 'b2-tema-datos'
+const SE = 'b1-tema-servicios'
+const RI = 'b2-tema-riesgo'
+const ET = 'b2-tema-etica'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'accounts-and-passwords',
+  title: 'Аккаунты и пароли',
+  subtitle: 'Взлом, восстановление и цифровое наследство',
+  canDo: [
+    'описывать взлом и его последствия',
+    'восстанавливать доступ по шагам',
+    'обсуждать защиту без паники',
+    'говорить о данных после смерти',
+    'просить помощь у поддержки точно',
+  ],
+  lessons: [
+    {
+      title: 'The email at four in the morning',
+      summary: 'Письмо в четыре утра.',
+      topics: [RI, DA, LI],
+      dialogue: ['Взлом', [
+        ['Anna', 'A login from a country I have never visited.', 'Вход из страны, где я никогда не была.'],
+        ['Ben', 'Which the alert says at four in the morning.', 'О чём оповещение сообщает в четыре утра.'],
+        ['Anna', 'And which is real, about half the time.', 'И что примерно в половине случаев правда.'],
+        ['Ben', 'The other half being the alert itself.', 'Вторая половина — само это письмо.'],
+        ['Anna', 'Which is why you never click the link.', 'Поэтому по ссылке и не переходят.'],
+      ]],
+      words: [
+        ['A login from a country', 'вход из страны', 'A login from a country I have never visited.'],
+        ['I have never visited', 'где я никогда не была', 'A country I have never visited.'],
+        ['about half the time', 'примерно в половине случаев', 'And which is real, about half the time.'],
+        ['The other half', 'вторая половина', 'The other half being the alert itself.'],
+        ['never click the link', 'по ссылке не переходят', 'Which is why you never click the link.'],
+      ],
+      rule: ['Being в абсолютном обороте', 'The other half being the alert itself. Оборот присоединяет вторую часть без союза.'],
+      quiz: [
+        ['«Вторая половина — само это письмо» —', ['The other half being the alert itself', 'The other half be the alert itself', 'The other half being the alert himself'], 0],
+        ['«Вход из страны, где я никогда не была» —', ['A login from a country I have never visited', 'A login from a country I have never visit', 'A login from a country what I have never visited'], 0],
+        ['«Поэтому по ссылке и не переходят» —', ['Which is why you never click the link', 'Which is why you never clicks the link', 'What is why you never click the link'], 0],
+      ],
+      order: ['О чём оповещение сообщает в четыре утра.', 'Which the alert says at four in the morning.'],
+      produce: [
+        ['Вход из страны, где я никогда не была.', 'A login from a country I have never visited.', []],
+        ['И что примерно в половине случаев правда.', 'And which is real, about half the time.', []],
+        ['Поэтому по ссылке и не переходят.', 'Which is why you never click the link.', []],
+      ],
+    },
+    {
+      title: 'Locked out',
+      summary: 'Заперт снаружи.',
+      topics: [SE, RI, LI],
+      dialogue: ['Доступ', [
+        ['Ben', 'The code goes to a number I no longer have.', 'Код уходит на номер, которого у меня больше нет.'],
+        ['Anna', 'Which is the most common way people lose everything.', 'Самый частый способ потерять всё.'],
+        ['Ben', 'And is fixed in two minutes, beforehand.', 'И чинится за две минуты, заранее.'],
+        ['Anna', 'Or in eleven weeks, afterwards.', 'Или за одиннадцать недель, потом.'],
+        ['Ben', 'If it is fixed at all, which it often is not.', 'Если чинится вообще, а часто и нет.'],
+      ]],
+      words: [
+        ['a number I no longer have', 'номер, которого больше нет', 'The code goes to a number I no longer have.'],
+        ['the most common way', 'самый частый способ', 'Which is the most common way people lose everything.'],
+        ['fixed in two minutes, beforehand', 'чинится за две минуты заранее', 'And is fixed in two minutes, beforehand.'],
+        ['in eleven weeks, afterwards', 'за одиннадцать недель потом', 'Or in eleven weeks, afterwards.'],
+        ['which it often is not', 'а часто и нет', 'If it is fixed at all, which it often is not.'],
+      ],
+      rule: ['No longer — «больше не»', 'A number I no longer have. Оборот ставится перед смысловым глаголом.'],
+      quiz: [
+        ['«Код уходит на номер, которого у меня больше нет» —', ['The code goes to a number I no longer have', 'The code goes to a number I not longer have', 'The code go to a number I no longer have'], 0],
+        ['«И чинится за две минуты, заранее» —', ['And is fixed in two minutes, beforehand', 'And is fix in two minutes, beforehand', 'And is fixed on two minutes, beforehand'], 0],
+        ['«Если чинится вообще, а часто и нет» —', ['If it is fixed at all, which it often is not', 'If it is fixed at all, which it often does not', 'If it is fixed at all, what it often is not'], 0],
+      ],
+      order: ['Или за одиннадцать недель, потом.', 'Or in eleven weeks, afterwards.'],
+      produce: [
+        ['Код уходит на номер, которого у меня больше нет.', 'The code goes to a number I no longer have.', []],
+        ['Самый частый способ потерять всё.', 'Which is the most common way people lose everything.', []],
+        ['И чинится за две минуты, заранее.', 'And is fixed in two minutes, beforehand.', []],
+      ],
+    },
+    {
+      title: 'The support form',
+      summary: 'Форма поддержки.',
+      topics: [SE, LI, DA],
+      dialogue: ['Поддержка', [
+        ['Anna', 'They asked for the last four digits.', 'Они попросили последние четыре цифры.'],
+        ['Ben', 'Which anybody who has your post can find.', 'Что найдёт любой, у кого ваша почта.'],
+        ['Anna', 'And which therefore proves very little.', 'И что поэтому почти ничего не доказывает.'],
+        ['Ben', 'Though it is the standard everywhere.', 'Хотя это стандарт везде.'],
+        ['Anna', 'Which is worth knowing when you feel safe.', 'Это стоит помнить, когда чувствуешь себя в безопасности.'],
+      ]],
+      words: [
+        ['the last four digits', 'последние четыре цифры', 'They asked for the last four digits.'],
+        ['who has your post', 'у кого ваша почта', 'Which anybody who has your post can find.'],
+        ['proves very little', 'почти ничего не доказывает', 'And which therefore proves very little.'],
+        ['the standard everywhere', 'стандарт везде', 'Though it is the standard everywhere.'],
+        ['when you feel safe', 'когда чувствуешь себя в безопасности', 'Which is worth knowing when you feel safe.'],
+      ],
+      rule: ['Anybody who — единственное число', 'Anybody who has your post can find it. После anybody глагол в единственном числе.'],
+      quiz: [
+        ['«Что найдёт любой, у кого ваша почта» —', ['Which anybody who has your post can find', 'Which anybody who have your post can find', 'Which anybody what has your post can find'], 0],
+        ['«И что поэтому почти ничего не доказывает» —', ['And which therefore proves very little', 'And which therefore prove very little', 'And which therefore proves very few'], 0],
+        ['«Это стоит помнить, когда чувствуешь себя в безопасности» —', ['Which is worth knowing when you feel safe', 'Which is worth to know when you feel safe', 'Which is worth knowing when you feel safely'], 0],
+      ],
+      order: ['Хотя это стандарт везде.', 'Though it is the standard everywhere.'],
+      produce: [
+        ['Они попросили последние четыре цифры.', 'They asked for the last four digits.', []],
+        ['Что найдёт любой, у кого ваша почта.', 'Which anybody who has your post can find.', []],
+        ['И что поэтому почти ничего не доказывает.', 'And which therefore proves very little.', []],
+      ],
+    },
+    {
+      title: 'The one password everywhere',
+      summary: 'Один пароль везде.',
+      topics: [RI, DA, LI],
+      dialogue: ['Пароль', [
+        ['Ben', 'It was used on nine sites, for eleven years.', 'Он стоял на девяти сайтах, одиннадцать лет.'],
+        ['Anna', 'One of which was breached in twenty nineteen.', 'Один из которых взломали в девятнадцатом.'],
+        ['Ben', 'Which nobody was told about until March.', 'О чём никому не сообщали до марта.'],
+        ['Anna', 'By which time the list had been sold twice.', 'К тому времени список продали дважды.'],
+        ['Ben', 'Which is the ordinary story, not a dramatic one.', 'Обычная история, а не драматическая.'],
+      ]],
+      words: [
+        ['used on nine sites', 'стоял на девяти сайтах', 'It was used on nine sites, for eleven years.'],
+        ['One of which was breached', 'один из которых взломали', 'One of which was breached in twenty nineteen.'],
+        ['nobody was told about', 'никому не сообщали', 'Which nobody was told about until March.'],
+        ['had been sold twice', 'продали дважды', 'By which time the list had been sold twice.'],
+        ['the ordinary story', 'обычная история', 'Which is the ordinary story, not a dramatic one.'],
+      ],
+      rule: ['One of which — часть множества', 'One of which was breached. Глагол согласуется с one, то есть единственное число.'],
+      quiz: [
+        ['«Один из которых взломали в девятнадцатом» —', ['One of which was breached in twenty nineteen', 'One of which were breached in twenty nineteen', 'One of which was breach in twenty nineteen'], 0],
+        ['«К тому времени список продали дважды» —', ['By which time the list had been sold twice', 'By which time the list had been sell twice', 'By which time the list has been sold twice then'], 0],
+        ['«О чём никому не сообщали до марта» —', ['Which nobody was told about until March', 'Which nobody was told until March', 'Which nobody was tell about until March'], 0],
+      ],
+      order: ['Обычная история, а не драматическая.', 'Which is the ordinary story, not a dramatic one.'],
+      produce: [
+        ['Он стоял на девяти сайтах, одиннадцать лет.', 'It was used on nine sites, for eleven years.', []],
+        ['Один из которых взломали в девятнадцатом.', 'One of which was breached in twenty nineteen.', []],
+        ['К тому времени список продали дважды.', 'By which time the list had been sold twice.', []],
+      ],
+    },
+    {
+      title: 'Helping a parent',
+      summary: 'Помочь родителю.',
+      topics: [SE, ET, LI],
+      dialogue: ['Помощь', [
+        ['Anna', 'She wrote them all in a paper notebook.', 'Она записала их все в бумажную тетрадь.'],
+        ['Ben', 'Which experts call terrible and I call fine.', 'Что эксперты зовут ужасным, а я — нормальным.'],
+        ['Anna', 'Since the threat is not a burglar with a torch.', 'Ведь угроза — не вор с фонариком.'],
+        ['Ben', 'But a list bought in another country.', 'А список, купленный в другой стране.'],
+        ['Anna', 'Which a notebook is perfectly safe from.', 'От чего тетрадь совершенно защищена.'],
+      ]],
+      words: [
+        ['in a paper notebook', 'в бумажную тетрадь', 'She wrote them all in a paper notebook.'],
+        ['experts call terrible', 'эксперты зовут ужасным', 'Which experts call terrible and I call fine.'],
+        ['a burglar with a torch', 'вор с фонариком', 'Since the threat is not a burglar with a torch.'],
+        ['bought in another country', 'купленный в другой стране', 'But a list bought in another country.'],
+        ['perfectly safe from', 'совершенно защищена от', 'Which a notebook is perfectly safe from.'],
+      ],
+      rule: ['Safe from — предлог в конце', 'Which a notebook is perfectly safe from. Предлог остаётся в хвосте придаточного.'],
+      quiz: [
+        ['«От чего тетрадь совершенно защищена» —', ['Which a notebook is perfectly safe from', 'Which a notebook is perfectly safe', 'Which a notebook is perfect safe from'], 0],
+        ['«А список, купленный в другой стране» —', ['But a list bought in another country', 'But a list buying in another country', 'But a list bought in other country'], 0],
+        ['«Что эксперты зовут ужасным, а я — нормальным» —', ['Which experts call terrible and I call fine', 'Which experts calls terrible and I call fine', 'Which experts call terribly and I call fine'], 0],
+      ],
+      order: ['Она записала их все в бумажную тетрадь.', 'She wrote them all in a paper notebook.'],
+      produce: [
+        ['Она записала их все в бумажную тетрадь.', 'She wrote them all in a paper notebook.', []],
+        ['Ведь угроза — не вор с фонариком.', 'Since the threat is not a burglar with a torch.', []],
+        ['От чего тетрадь совершенно защищена.', 'Which a notebook is perfectly safe from.', []],
+      ],
+    },
+    {
+      title: 'What happens to it after',
+      summary: 'Что с этим будет потом.',
+      topics: [ET, DA, LI],
+      dialogue: ['После', [
+        ['Ben', 'His photographs are in an account nobody can open.', 'Его фотографии в аккаунте, который никто не может открыть.'],
+        ['Anna', 'Which the law is only starting to address.', 'К чему закон только начинает подступаться.'],
+        ['Ben', 'And which one printed page would have solved.', 'И что решила бы одна распечатанная страница.'],
+        ['Anna', 'Left with the will, in an envelope.', 'Оставленная с завещанием, в конверте.'],
+        ['Ben', 'Which sounds old fashioned and works.', 'Звучит старомодно и работает.'],
+      ]],
+      words: [
+        ['nobody can open', 'никто не может открыть', 'An account nobody can open.'],
+        ['the law is starting to address', 'закон начинает подступаться', 'Which the law is only starting to address.'],
+        ['one printed page', 'одна распечатанная страница', 'And which one printed page would have solved.'],
+        ['Left with the will', 'оставленная с завещанием', 'Left with the will, in an envelope.'],
+        ['sounds old fashioned', 'звучит старомодно', 'Which sounds old fashioned and works.'],
+      ],
+      rule: ['Would have solved — несбывшееся решение', 'One page would have solved it. Форма называет то, что решило бы проблему в прошлом.'],
+      quiz: [
+        ['«И что решила бы одна распечатанная страница» —', ['And which one printed page would have solved', 'And which one printed page would has solved', 'And which one printed page would have solve'], 0],
+        ['«Оставленная с завещанием, в конверте» —', ['Left with the will, in an envelope', 'Leaving with the will, in an envelope', 'Left with the will, on an envelope'], 0],
+        ['«К чему закон только начинает подступаться» —', ['Which the law is only starting to address', 'Which the law is only starting address', 'Which the law are only starting to address'], 0],
+      ],
+      order: ['Звучит старомодно и работает.', 'Which sounds old fashioned and works.'],
+      produce: [
+        ['Его фотографии в аккаунте, который никто не может открыть.', 'His photographs are in an account nobody can open.', []],
+        ['И что решила бы одна распечатанная страница.', 'And which one printed page would have solved.', []],
+        ['Оставленная с завещанием, в конверте.', 'Left with the will, in an envelope.', []],
+      ],
+    },
+    {
+      title: 'The scam that nearly worked',
+      summary: 'Мошенничество, которое почти сработало.',
+      topics: [RI, SE, LI],
+      dialogue: ['Мошенники', [
+        ['Anna', 'They knew my last order and my name.', 'Они знали мой последний заказ и моё имя.'],
+        ['Ben', 'Which comes from the shop, not from you.', 'Что берётся из магазина, а не от вас.'],
+        ['Anna', 'And is what made the call believable.', 'И это и сделало звонок правдоподобным.'],
+        ['Ben', 'Until they asked me to move the money.', 'Пока меня не попросили перевести деньги.'],
+        ['Anna', 'Which no real bank has ever done.', 'Чего ни один настоящий банк никогда не делал.'],
+      ]],
+      words: [
+        ['knew my last order', 'знали мой последний заказ', 'They knew my last order and my name.'],
+        ['comes from the shop', 'берётся из магазина', 'Which comes from the shop, not from you.'],
+        ['made the call believable', 'сделало звонок правдоподобным', 'And is what made the call believable.'],
+        ['asked me to move the money', 'попросили перевести деньги', 'Until they asked me to move the money.'],
+        ['no real bank has done', 'ни один настоящий банк не делал', 'Which no real bank has ever done.'],
+      ],
+      rule: ['Make something believable', 'It made the call believable. После make идёт объект и прилагательное.'],
+      quiz: [
+        ['«И это и сделало звонок правдоподобным» —', ['And is what made the call believable', 'And is what made the call believably', 'And is what make the call believable'], 0],
+        ['«Пока меня не попросили перевести деньги» —', ['Until they asked me to move the money', 'Until they asked me move the money', 'Until they asked to me to move the money'], 0],
+        ['«Чего ни один настоящий банк никогда не делал» —', ['Which no real bank has ever done', 'Which no real bank has ever did', 'Which no real bank have ever done'], 0],
+      ],
+      order: ['Что берётся из магазина, а не от вас.', 'Which comes from the shop, not from you.'],
+      produce: [
+        ['Они знали мой последний заказ и моё имя.', 'They knew my last order and my name.', []],
+        ['И это и сделало звонок правдоподобным.', 'And is what made the call believable.', []],
+        ['Чего ни один настоящий банк никогда не делал.', 'Which no real bank has ever done.', []],
+      ],
+    },
+    {
+      title: 'An hour that saves a month',
+      summary: 'Час, который экономит месяц.',
+      topics: [DA, RI, LI],
+      dialogue: ['Итог', [
+        ['Ben', 'One evening: recovery numbers, two backups, one envelope.', 'Один вечер: номера восстановления, две копии, один конверт.'],
+        ['Anna', 'Which nobody does until something happens.', 'Чего никто не делает, пока что-нибудь не случится.'],
+        ['Ben', 'And everybody does immediately afterwards.', 'И все делают сразу после.'],
+        ['Anna', 'Which is the most predictable pattern here.', 'Самая предсказуемая схема здесь.'],
+        ['Ben', 'And the easiest to break, in advance.', 'И самая простая, чтобы её сломать заранее.'],
+      ]],
+      words: [
+        ['recovery numbers', 'номера восстановления', 'One evening: recovery numbers, two backups, one envelope.'],
+        ['two backups', 'две копии', 'Two backups are the minimum.'],
+        ['until something happens', 'пока что-нибудь не случится', 'Which nobody does until something happens.'],
+        ['immediately afterwards', 'сразу после', 'And everybody does immediately afterwards.'],
+        ['in advance', 'заранее', 'And the easiest to break, in advance.'],
+      ],
+      rule: ['Доступ теряют не из-за взлома, а из-за старого номера', 'Обновлённый телефон восстановления и конверт с бумагой стоят одного вечера.'],
+      quiz: [
+        ['«Чего никто не делает, пока что-нибудь не случится» —', ['Which nobody does until something happens', 'Which nobody does until something will happen', 'Which nobody do until something happens'], 0],
+        ['«И все делают сразу после» —', ['And everybody does immediately afterwards', 'And everybody do immediately afterwards', 'And everybody does immediate afterwards'], 0],
+        ['«И самая простая, чтобы её сломать заранее» —', ['And the easiest to break, in advance', 'And the easiest to breaking, in advance', 'And the most easy to break, in advance'], 0],
+      ],
+      order: ['Самая предсказуемая схема здесь.', 'Which is the most predictable pattern here.'],
+      produce: [
+        ['Один вечер: номера восстановления, две копии, один конверт.', 'One evening: recovery numbers, two backups, one envelope.', []],
+        ['Чего никто не делает, пока что-нибудь не случится.', 'Which nobody does until something happens.', []],
+        ['И все делают сразу после.', 'And everybody does immediately afterwards.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: аккаунты и пароли',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [DA, SE, RI, ET],
+      produce: [
+        ['Вторая половина — само это письмо.', 'The other half being the alert itself.', []],
+        ['Код уходит на номер, которого у меня больше нет.', 'The code goes to a number I no longer have.', []],
+        ['Что найдёт любой, у кого ваша почта.', 'Which anybody who has your post can find.', []],
+        ['Один из которых взломали в девятнадцатом.', 'One of which was breached in twenty nineteen.', []],
+        ['От чего тетрадь совершенно защищена.', 'Which a notebook is perfectly safe from.', []],
+        ['И что решила бы одна распечатанная страница.', 'And which one printed page would have solved.', []],
+      ],
+    },
+  ],
+}

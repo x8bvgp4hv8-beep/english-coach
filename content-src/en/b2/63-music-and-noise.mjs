@@ -1,0 +1,287 @@
+// B2, блок 63 — Music and noise. Музыка и шум.
+//
+// Тематический блок: что мы слушаем, живые концерты, музыка на работе,
+// шум как конфликт и что музыка делает с памятью.
+
+const CU = 'b2-tema-cultura'
+const ME = 'b2-tema-medios'
+const CI = 'b2-tema-ciudad'
+const PS = 'b2-tema-psicologia'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'music-and-noise',
+  title: 'Музыка и шум',
+  subtitle: 'Концерты, наушники, соседи и память',
+  canDo: [
+    'рассказывать, что и почему слушаете',
+    'обсуждать концерты и их цену',
+    'говорить о музыке на работе',
+    'решать конфликт из-за шума',
+    'объяснять связь музыки и памяти',
+  ],
+  lessons: [
+    {
+      title: 'What you listen to now',
+      summary: 'Что вы слушаете сейчас.',
+      topics: [CU, ME, LI],
+      dialogue: ['Плейлист', [
+        ['Anna', 'Nine of the ten are from my twenties.', 'Девять из десяти — из моих двадцати.'],
+        ['Ben', 'Which is what the research predicts.', 'Именно это предсказывают исследования.'],
+        ['Anna', 'And which I resisted believing for years.', 'И во что я годами отказывалась верить.'],
+        ['Ben', 'Until I looked at my own list.', 'Пока не посмотрел на собственный список.'],
+        ['Anna', 'Which settled the argument immediately.', 'Что мгновенно закрыло спор.'],
+      ]],
+      words: [
+        ['Nine of the ten', 'девять из десяти', 'Nine of the ten are from my twenties.'],
+        ['from my twenties', 'из моих двадцати', 'They are all from my twenties.'],
+        ['what the research predicts', 'что предсказывают исследования', 'Which is what the research predicts.'],
+        ['resisted believing', 'отказывалась верить', 'And which I resisted believing for years.'],
+        ['settled the argument', 'закрыло спор', 'Which settled the argument immediately.'],
+      ],
+      rule: ['Resist + герундий', 'I resisted believing it. После resist идёт форма на -ing, а не инфинитив.'],
+      quiz: [
+        ['«И во что я годами отказывалась верить» —', ['And which I resisted believing for years', 'And which I resisted to believe for years', 'And which I resisted believe for years'], 0],
+        ['«Девять из десяти — из моих двадцати» —', ['Nine of the ten are from my twenties', 'Nine of the ten is from my twenties', 'Nine of ten are from my twenties'], 0],
+        ['«Что мгновенно закрыло спор» —', ['Which settled the argument immediately', 'Which settle the argument immediately', 'Which settled the argument immediate'], 0],
+      ],
+      order: ['Пока не посмотрел на собственный список.', 'Until I looked at my own list.'],
+      produce: [
+        ['Девять из десяти — из моих двадцати.', 'Nine of the ten are from my twenties.', []],
+        ['И во что я годами отказывалась верить.', 'And which I resisted believing for years.', []],
+        ['Что мгновенно закрыло спор.', 'Which settled the argument immediately.', []],
+      ],
+    },
+    {
+      title: 'The price of a ticket',
+      summary: 'Цена билета на концерт.',
+      topics: [ME, CU, LI],
+      dialogue: ['Концерт', [
+        ['Ben', 'A hundred and forty, before the fees.', 'Сто сорок, без сборов.'],
+        ['Anna', 'Which are added at the last screen.', 'Которые добавляют на последнем экране.'],
+        ['Ben', 'By which point you have chosen the seats.', 'К этому моменту вы уже выбрали места.'],
+        ['Anna', 'Which is exactly why they are there.', 'Именно поэтому они там и стоят.'],
+        ['Ben', 'And why the law now argues about it.', 'И поэтому об этом теперь спорит закон.'],
+      ]],
+      words: [
+        ['before the fees', 'без сборов', 'A hundred and forty, before the fees.'],
+        ['added at the last screen', 'добавляют на последнем экране', 'Which are added at the last screen.'],
+        ['you have chosen the seats', 'вы уже выбрали места', 'By which point you have chosen the seats.'],
+        ['why they are there', 'зачем они там', 'Which is exactly why they are there.'],
+        ['the law now argues about it', 'закон теперь об этом спорит', 'And why the law now argues about it.'],
+      ],
+      rule: ['By which point с перфектом', 'By which point you have chosen the seats. Оборот показывает, что действие уже завершено к этому моменту.'],
+      quiz: [
+        ['«К этому моменту вы уже выбрали места» —', ['By which point you have chosen the seats', 'By which point you have choose the seats', 'By which point you has chosen the seats'], 0],
+        ['«Которые добавляют на последнем экране» —', ['Which are added at the last screen', 'Which are add at the last screen', 'Which is added at the last screen'], 0],
+        ['«И поэтому об этом теперь спорит закон» —', ['And why the law now argues about it', 'And why the law now argue about it', 'And why the law now argues it about'], 0],
+      ],
+      order: ['Сто сорок, без сборов.', 'A hundred and forty, before the fees.'],
+      produce: [
+        ['Сто сорок, без сборов.', 'A hundred and forty, before the fees.', []],
+        ['Которые добавляют на последнем экране.', 'Which are added at the last screen.', []],
+        ['К этому моменту вы уже выбрали места.', 'By which point you have chosen the seats.', []],
+      ],
+    },
+    {
+      title: 'Live and loud',
+      summary: 'Живьём и громко.',
+      topics: [CU, PS, LI],
+      dialogue: ['Концерт', [
+        ['Anna', 'Two thousand people knowing the same words.', 'Две тысячи человек, знающих одни и те же слова.'],
+        ['Ben', 'Which is rarer than it sounds, in a city.', 'В городе это реже, чем кажется.'],
+        ['Anna', 'And explains the price people will pay.', 'И объясняет цену, которую платят.'],
+        ['Ben', 'Not for the sound, which is worse.', 'Не за звук, который хуже.'],
+        ['Anna', 'But for standing among strangers, singing.', 'А за то, чтобы стоять среди чужих и петь.'],
+      ]],
+      words: [
+        ['knowing the same words', 'знающих одни и те же слова', 'Two thousand people knowing the same words.'],
+        ['rarer than it sounds', 'реже, чем кажется', 'Which is rarer than it sounds, in a city.'],
+        ['the price people will pay', 'цена, которую платят', 'And explains the price people will pay.'],
+        ['which is worse', 'который хуже', 'Not for the sound, which is worse.'],
+        ['standing among strangers', 'стоять среди чужих', 'But for standing among strangers, singing.'],
+      ],
+      rule: ['For + герундий как причина', 'For standing among strangers. После предлога for идёт форма на -ing.'],
+      quiz: [
+        ['«А за то, чтобы стоять среди чужих и петь» —', ['But for standing among strangers, singing', 'But for stand among strangers, singing', 'But for to stand among strangers, singing'], 0],
+        ['«Две тысячи человек, знающих одни и те же слова» —', ['Two thousand people knowing the same words', 'Two thousand people know the same words', 'Two thousands people knowing the same words'], 0],
+        ['«И объясняет цену, которую платят» —', ['And explains the price people will pay', 'And explain the price people will pay', 'And explains the price what people will pay'], 0],
+      ],
+      order: ['Не за звук, который хуже.', 'Not for the sound, which is worse.'],
+      produce: [
+        ['Две тысячи человек, знающих одни и те же слова.', 'Two thousand people knowing the same words.', []],
+        ['В городе это реже, чем кажется.', 'Which is rarer than it sounds, in a city.', []],
+        ['А за то, чтобы стоять среди чужих и петь.', 'But for standing among strangers, singing.', []],
+      ],
+    },
+    {
+      title: 'Music at work',
+      summary: 'Музыка на работе.',
+      topics: [PS, CU, LI],
+      dialogue: ['Наушники', [
+        ['Ben', 'Words in the music cost me about a fifth.', 'Слова в музыке отнимают у меня примерно пятую часть.'],
+        ['Anna', 'Which is measured, and only for reading work.', 'Это измерено, и только для работы с текстом.'],
+        ['Ben', 'So the instrumental list exists for Tuesdays.', 'Поэтому инструментальный список — для вторников.'],
+        ['Anna', 'And the loud one for the invoices.', 'А громкий — для счетов.'],
+        ['Ben', 'Which nobody needs concentration for.', 'На которые сосредоточенность не нужна.'],
+      ]],
+      words: [
+        ['Words in the music', 'слова в музыке', 'Words in the music cost me about a fifth.'],
+        ['about a fifth', 'примерно пятая часть', 'It costs me about a fifth.'],
+        ['only for reading work', 'только для работы с текстом', 'Which is measured, and only for reading work.'],
+        ['the instrumental list', 'инструментальный список', 'So the instrumental list exists for Tuesdays.'],
+        ['nobody needs concentration for', 'на что не нужна сосредоточенность', 'Which nobody needs concentration for.'],
+      ],
+      rule: ['Need something for — предлог в конце', 'Which nobody needs concentration for. Предлог остаётся в хвосте придаточного.'],
+      quiz: [
+        ['«На которые сосредоточенность не нужна» —', ['Which nobody needs concentration for', 'Which nobody needs concentration', 'Which nobody need concentration for'], 0],
+        ['«Слова в музыке отнимают у меня примерно пятую часть» —', ['Words in the music cost me about a fifth', 'Words in the music costs me about a fifth', 'Words in the music cost to me about a fifth'], 0],
+        ['«Поэтому инструментальный список — для вторников» —', ['So the instrumental list exists for Tuesdays', 'So the instrumental list exist for Tuesdays', 'So the instrumental list exists on Tuesdays for'], 0],
+      ],
+      order: ['А громкий — для счетов.', 'And the loud one for the invoices.'],
+      produce: [
+        ['Слова в музыке отнимают у меня примерно пятую часть.', 'Words in the music cost me about a fifth.', []],
+        ['Это измерено, и только для работы с текстом.', 'Which is measured, and only for reading work.', []],
+        ['На которые сосредоточенность не нужна.', 'Which nobody needs concentration for.', []],
+      ],
+    },
+    {
+      title: 'The neighbour and the bass',
+      summary: 'Сосед и басы.',
+      topics: [CI, LI, PS],
+      dialogue: ['Басы', [
+        ['Anna', 'Only the bass comes through the wall.', 'Через стену проходят только басы.'],
+        ['Ben', 'Which he genuinely cannot hear himself.', 'Которых он сам действительно не слышит.'],
+        ['Anna', 'Since it is quiet in his own room.', 'Ведь у него в комнате тихо.'],
+        ['Ben', 'Which is worth saying before anything else.', 'И это стоит сказать первым делом.'],
+        ['Anna', 'Because it turns an accusation into news.', 'Потому что превращает обвинение в новость.'],
+      ]],
+      words: [
+        ['Only the bass comes through', 'проходят только басы', 'Only the bass comes through the wall.'],
+        ['cannot hear himself', 'сам не слышит', 'Which he genuinely cannot hear himself.'],
+        ['it is quiet in his own room', 'у него в комнате тихо', 'Since it is quiet in his own room.'],
+        ['before anything else', 'первым делом', 'Which is worth saying before anything else.'],
+        ['turns an accusation into news', 'превращает обвинение в новость', 'Because it turns an accusation into news.'],
+      ],
+      rule: ['Himself как усиление', 'He cannot hear it himself. Возвратное местоимение подчёркивает лицо и стоит в конце.'],
+      quiz: [
+        ['«Которых он сам действительно не слышит» —', ['Which he genuinely cannot hear himself', 'Which he genuinely cannot hear hisself', 'Which he genuine cannot hear himself'], 0],
+        ['«Потому что превращает обвинение в новость» —', ['Because it turns an accusation into news', 'Because it turn an accusation into news', 'Because it turns an accusation in news'], 0],
+        ['«Через стену проходят только басы» —', ['Only the bass comes through the wall', 'Only the bass come through the wall', 'Only the bass comes through of the wall'], 0],
+      ],
+      order: ['Ведь у него в комнате тихо.', 'Since it is quiet in his own room.'],
+      produce: [
+        ['Через стену проходят только басы.', 'Only the bass comes through the wall.', []],
+        ['Которых он сам действительно не слышит.', 'Which he genuinely cannot hear himself.', []],
+        ['Потому что превращает обвинение в новость.', 'Because it turns an accusation into news.', []],
+      ],
+    },
+    {
+      title: 'Learning an instrument late',
+      summary: 'Инструмент во взрослом возрасте.',
+      topics: [PS, CU, LI],
+      dialogue: ['Учёба', [
+        ['Ben', 'I started at thirty eight, badly.', 'Я начал в тридцать восемь, плохо.'],
+        ['Anna', 'Which is the only way anybody starts.', 'Иначе никто и не начинает.'],
+        ['Ben', 'And is harder to accept as an adult.', 'И взрослому это принять труднее.'],
+        ['Anna', 'Since children are allowed to be bad at things.', 'Ведь детям позволено быть плохими в чём-то.'],
+        ['Ben', 'Which nobody extends to a grown man.', 'Чего взрослому мужчине никто не позволяет.'],
+      ]],
+      words: [
+        ['started at thirty eight, badly', 'начал в тридцать восемь, плохо', 'I started at thirty eight, badly.'],
+        ['the only way anybody starts', 'единственный способ начать', 'Which is the only way anybody starts.'],
+        ['harder to accept as an adult', 'взрослому труднее принять', 'And is harder to accept as an adult.'],
+        ['allowed to be bad at things', 'позволено быть плохим в чём-то', 'Since children are allowed to be bad at things.'],
+        ['nobody extends to a grown man', 'взрослому никто не позволяет', 'Which nobody extends to a grown man.'],
+      ],
+      rule: ['Be allowed to be', 'Children are allowed to be bad at things. Пассив от allow сохраняет инфинитив с to.'],
+      quiz: [
+        ['«Ведь детям позволено быть плохими в чём-то» —', ['Since children are allowed to be bad at things', 'Since children are allow to be bad at things', 'Since children are allowed being bad at things'], 0],
+        ['«Иначе никто и не начинает» —', ['Which is the only way anybody starts', 'Which is the only way anybody start', 'Which is the only way anybody starting'], 0],
+        ['«И взрослому это принять труднее» —', ['And is harder to accept as an adult', 'And is harder to accepting as an adult', 'And is more hard to accept as an adult'], 0],
+      ],
+      order: ['Я начал в тридцать восемь, плохо.', 'I started at thirty eight, badly.'],
+      produce: [
+        ['Я начал в тридцать восемь, плохо.', 'I started at thirty eight, badly.', []],
+        ['Ведь детям позволено быть плохими в чём-то.', 'Since children are allowed to be bad at things.', []],
+        ['Чего взрослому мужчине никто не позволяет.', 'Which nobody extends to a grown man.', []],
+      ],
+    },
+    {
+      title: 'A song and a room',
+      summary: 'Песня и комната.',
+      topics: [PS, CU, LI],
+      dialogue: ['Память', [
+        ['Anna', 'Four bars and I am in a kitchen in ninety nine.', 'Четыре такта — и я на кухне в девяносто девятом.'],
+        ['Ben', 'Which no photograph manages.', 'Чего не умеет ни одна фотография.'],
+        ['Anna', 'Since a picture shows and a song returns.', 'Ведь снимок показывает, а песня возвращает.'],
+        ['Ben', 'Which is why they are used in care homes.', 'Поэтому их и используют в домах престарелых.'],
+        ['Anna', 'With results nobody quite expected.', 'С результатами, которых никто вполне не ждал.'],
+      ]],
+      words: [
+        ['Four bars', 'четыре такта', 'Four bars and I am in a kitchen in ninety nine.'],
+        ['no photograph manages', 'ни одна фотография не умеет', 'Which no photograph manages.'],
+        ['a picture shows and a song returns', 'снимок показывает, песня возвращает', 'Since a picture shows and a song returns.'],
+        ['used in care homes', 'используют в домах престарелых', 'Which is why they are used in care homes.'],
+        ['nobody quite expected', 'никто вполне не ждал', 'With results nobody quite expected.'],
+      ],
+      rule: ['Manage без дополнения', 'Which no photograph manages. Глагол опускает уже названное действие.'],
+      quiz: [
+        ['«Чего не умеет ни одна фотография» —', ['Which no photograph manages', 'Which no photograph manage', 'Which not photograph manages'], 0],
+        ['«Поэтому их и используют в домах престарелых» —', ['Which is why they are used in care homes', 'Which is why they are use in care homes', 'Which is why they are used on care homes'], 0],
+        ['«С результатами, которых никто вполне не ждал» —', ['With results nobody quite expected', 'With results nobody quite expect', 'With results what nobody quite expected'], 0],
+      ],
+      order: ['Ведь снимок показывает, а песня возвращает.', 'Since a picture shows and a song returns.'],
+      produce: [
+        ['Четыре такта — и я на кухне в девяносто девятом.', 'Four bars and I am in a kitchen in ninety nine.', []],
+        ['Ведь снимок показывает, а песня возвращает.', 'Since a picture shows and a song returns.', []],
+        ['С результатами, которых никто вполне не ждал.', 'With results nobody quite expected.', []],
+      ],
+    },
+    {
+      title: 'Silence, occasionally',
+      summary: 'Иногда тишина.',
+      topics: [PS, CI, LI],
+      dialogue: ['Тишина', [
+        ['Ben', 'I walked home with nothing in my ears.', 'Я шёл домой без наушников.'],
+        ['Anna', 'Which felt strange for about a week.', 'Примерно неделю это ощущалось странно.'],
+        ['Ben', 'And then became the best part of the day.', 'А потом стало лучшей частью дня.'],
+        ['Anna', 'Which is a very old piece of advice.', 'Очень старый совет.'],
+        ['Ben', 'And works, annoyingly, as they usually do.', 'И работает, как это обычно с ними и бывает.'],
+      ]],
+      words: [
+        ['with nothing in my ears', 'без наушников', 'I walked home with nothing in my ears.'],
+        ['felt strange for about a week', 'неделю ощущалось странно', 'Which felt strange for about a week.'],
+        ['the best part of the day', 'лучшая часть дня', 'And then became the best part of the day.'],
+        ['a very old piece of advice', 'очень старый совет', 'Which is a very old piece of advice.'],
+        ['as they usually do', 'как это обычно бывает', 'And works, annoyingly, as they usually do.'],
+      ],
+      rule: ['Музыка — это память, а не фон', 'То, что слушали в двадцать, остаётся с человеком, и это стоит учитывать в любом разговоре о вкусе.'],
+      quiz: [
+        ['«Очень старый совет» —', ['A very old piece of advice', 'A very old advice', 'A very old advices'], 0],
+        ['«Я шёл домой без наушников» —', ['I walked home with nothing in my ears', 'I walked home with anything in my ears', 'I walk home with nothing in my ears'], 0],
+        ['«И работает, как это обычно с ними и бывает» —', ['And works, annoyingly, as they usually do', 'And works, annoyingly, as they usually does', 'And work, annoyingly, as they usually do'], 0],
+      ],
+      order: ['А потом стало лучшей частью дня.', 'And then became the best part of the day.'],
+      produce: [
+        ['Я шёл домой без наушников.', 'I walked home with nothing in my ears.', []],
+        ['А потом стало лучшей частью дня.', 'And then became the best part of the day.', []],
+        ['Очень старый совет.', 'Which is a very old piece of advice.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: музыка и шум',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [CU, ME, CI, PS],
+      produce: [
+        ['И во что я годами отказывалась верить.', 'And which I resisted believing for years.', []],
+        ['К этому моменту вы уже выбрали места.', 'By which point you have chosen the seats.', []],
+        ['А за то, чтобы стоять среди чужих и петь.', 'But for standing among strangers, singing.', []],
+        ['На которые сосредоточенность не нужна.', 'Which nobody needs concentration for.', []],
+        ['Которых он сам действительно не слышит.', 'Which he genuinely cannot hear himself.', []],
+        ['Ведь детям позволено быть плохими в чём-то.', 'Since children are allowed to be bad at things.', []],
+      ],
+    },
+  ],
+}
