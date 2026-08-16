@@ -9,6 +9,7 @@ import {
   PlacementScorer,
   PRACTICE_KINDS,
   PracticeEngine,
+  PaceLog,
   PracticeLog,
   ProgressionEngine,
   ReviewEngine,
@@ -877,6 +878,26 @@ export class AppStore {
     const seconds = (now.getTime() - this.lessonStartedAt.getTime()) / 1000
     this.lessonStartedAt = null
     this.state.practiceSeconds = PracticeLog.adding(seconds, this.state.practiceSeconds, now)
+    // Замер идёт в копилку только с дойденного до конца урока: брошенный на середине
+    // говорит о жизни, а не о длине урока, и сравнивать его с оценкой нельзя.
+    const lesson = this.session.activeLesson
+    if (lesson && this.session.isComplete) {
+      this.state.lessonPace = PaceLog.recording(
+        { estimateMinutes: lesson.estimatedMinutes, seconds },
+        this.state.lessonPace,
+      )
+    }
+  }
+
+  /**
+   * Насколько оценка урока сходится с настоящим прохождением.
+   *
+   * Объём курса посчитан из нормы Cambridge через одиннадцать минут на урок. Пока
+   * замеров меньше пяти — возвращается null: показывать медиану по двум прохождениям
+   * значило бы выдавать шум за проверку.
+   */
+  get paceCheck(): { samples: number; actualMinutes: number; estimateMinutes: number; ratio: number } | null {
+    return PaceLog.summary(this.state.lessonPace)
   }
 
   private persist(): void {

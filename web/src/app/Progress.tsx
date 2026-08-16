@@ -48,7 +48,37 @@ export function Progress() {
         <SectionTitle>Минуты по дням</SectionTitle>
         <p className="chart-goal">Цель — {model.dailyGoalMinutes} минут в день</p>
         <WeekChart model={model} />
+
+        <PaceCheck model={model} />
       </div>
+    </>
+  )
+}
+
+/**
+ * Сколько урок стоит на самом деле.
+ *
+ * Объём курса посчитан из нормы Cambridge через оценку в одиннадцать минут на урок.
+ * Оценка проверяется единственным способом, который вообще возможен, — замером на
+ * живом прохождении. Пока замеров меньше пяти, блок не показывается вовсе: цифра по
+ * двум урокам была бы не проверкой, а видимостью проверки.
+ */
+function PaceCheck({ model }: { model: AppStore }) {
+  const pace = model.paceCheck
+  if (!pace) return null
+  const drift = Math.round(Math.abs(pace.ratio - 1) * 100)
+  const verdict = drift <= 10
+    ? 'оценка сходится'
+    : pace.ratio > 1
+      ? `дольше оценки на ${drift}%`
+      : `быстрее оценки на ${drift}%`
+  return (
+    <>
+      <SectionTitle hint="Из этой цифры посчитан объём всего курса">Длина урока</SectionTitle>
+      <p className="chart-line">
+        {pace.actualMinutes} мин против {pace.estimateMinutes} — {verdict}.
+        {' '}Замеров: {pace.samples}.
+      </p>
     </>
   )
 }

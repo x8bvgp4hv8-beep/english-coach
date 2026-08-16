@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest'
 import { check, diffSummary, normalize } from './answer'
 import { decodeCourse, decodePlacement } from './content'
 import { SyllabusEngine, TopicProgressEngine, decodeSyllabus, unseenVocabulary } from './syllabus'
-import { CourseRouting, LevelOrder, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
+import { CourseRouting, LevelOrder, PaceLog, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
 import { ListeningEngine, listeningPhrase } from './listening'
 import { PracticeEngine, taughtCourses } from './practice'
 import { LearningSession } from './session'
@@ -724,7 +724,9 @@ describe('syllabus', () => {
     // neither is a dialogue, which the counter has always excluded too. The test only
     // said "info" because English had no dialogues to disagree about.
     const onlyInfoTopic = (info.topics ?? [])[0]
-    const practice = allExercises(courses[0])
+    // По всем курсам, а не по первому: темы A1 живут и в A2 — там их продолжают
+    // отрабатывать, — и счётчик обязан видеть обе половины.
+    const practice = courses.flatMap(allExercises)
       .filter((e) => e.type !== 'info' && e.type !== 'dialogue' && (e.topics ?? []).includes(onlyInfoTopic))
     expect(counts[onlyInfoTopic]).toBe(practice.length)
   })
@@ -923,8 +925,12 @@ describe('progression', () => {
   })
 
   /**
-   * Испанский A1 — 92 часа, испанский A2 — один. Предложить «переходи на A2» значило бы
-   * позвать человека в пустую комнату: курс кончится в тот же вечер.
+   * Позвать «переходи на A2», когда там час содержания, значит позвать человека в
+   * пустую комнату: курс кончится в тот же вечер.
+   *
+   * Раньше проверка опиралась на то, что A2 в поставке и правда был часовым. Теперь он
+   * дописан, и тонкий уровень приходится строить нарочно — так тест и должен был стоять
+   * с самого начала: он про правило, а не про сегодняшний объём курса.
    */
   it('does not invite the learner into a level that is barely built', () => {
     const a1 = ProgressionEngine.lessons('A1', courses)
@@ -933,15 +939,27 @@ describe('progression', () => {
       id, exerciseID: id, correct: true, date: now,
     }))
 
-    expect(ProgressionEngine.hours('A2', courses)).toBeLessThan(ProgressionEngine.readyHours)
-    expect(ProgressionEngine.isReady('A2', courses)).toBe(false)
-    expect(ProgressionEngine.shouldSuggestAdvance('A1', courses, done, goodAttempts, new Set())).toBe(false)
+    const thin = withThinLevel(courses, 'A2')
+    expect(ProgressionEngine.hours('A2', thin)).toBeLessThan(ProgressionEngine.readyHours)
+    expect(ProgressionEngine.isReady('A2', thin)).toBe(false)
+    expect(ProgressionEngine.shouldSuggestAdvance('A1', thin, done, goodAttempts, new Set())).toBe(false)
 
     const stocked = withStockedLevel(courses, 'A2')
     expect(ProgressionEngine.isReady('A2', stocked)).toBe(true)
     expect(ProgressionEngine.shouldSuggestAdvance('A1', stocked, done, goodAttempts, new Set())).toBe(true)
   })
 })
+
+/** The same courses, with one level cut down to a single chapter of one lesson. */
+function withThinLevel(packs: CoursePack[], level: CEFRLevel): CoursePack[] {
+  return packs.map((pack) => pack.level !== level ? pack : {
+    ...pack,
+    chapters: pack.chapters.slice(0, 1).map((chapter) => ({
+      ...chapter,
+      lessons: chapter.lessons.slice(0, 1),
+    })),
+  })
+}
 
 /** The same courses, with one level padded past the "ready" bar. */
 function withStockedLevel(packs: CoursePack[], level: CEFRLevel): CoursePack[] {
@@ -968,6 +986,57 @@ describe('daily practice log', () => {
   it('caps a forgotten tab at 30 minutes and ignores negative time', () => {
     expect(PracticeLog.minutes(PracticeLog.adding(10 * 3600, undefined, day), day)).toBe(30)
     expect(PracticeLog.adding(-5, undefined, day)).toEqual({})
+  })
+})
+
+/**
+ * Объём курса посчитан из нормы Cambridge через оценку в одиннадцать минут на урок.
+ * Эти тесты стерегут единственную проверку этой оценки — замер на живом прохождении.
+ */
+describe('lesson pace check', () => {
+  const entries = (...seconds: number[]) =>
+    seconds.reduce<{ estimateMinutes: number; seconds: number }[]>(
+      (log, value) => PaceLog.recording({ estimateMinutes: 11, seconds: value }, log),
+      undefined as unknown as { estimateMinutes: number; seconds: number }[],
+    )
+
+  it('stays silent below five samples', () => {
+    expect(PaceLog.summary(entries(660, 700, 620, 680))).toBeNull()
+    expect(PaceLog.summary(undefined)).toBeNull()
+  })
+
+  it('reports the median against the estimate', () => {
+    const summary = PaceLog.summary(entries(660, 660, 660, 660, 660))
+    expect(summary?.samples).toBe(5)
+    expect(summary?.actualMinutes).toBe(11)
+    expect(summary?.ratio).toBe(1)
+  })
+
+  it('shows the drift when lessons run longer than promised', () => {
+    const summary = PaceLog.summary(entries(900, 880, 920, 900, 890))
+    expect(summary?.ratio).toBeGreaterThan(1.3)
+  })
+
+  // Один урок в четыре захода и одна забытая вкладка сдвинули бы среднее и не сдвигают
+  // медиану — ради этого она и выбрана.
+  it('survives one outlier without moving the verdict', () => {
+    const clean = PaceLog.summary(entries(660, 660, 660, 660, 660))
+    const withOutlier = PaceLog.summary(entries(660, 660, 660, 660, 660, 1790))
+    expect(withOutlier?.ratio).toBe(clean?.ratio)
+  })
+
+  it('drops flick-throughs and forgotten tabs before they reach the log', () => {
+    expect(PaceLog.recording({ estimateMinutes: 11, seconds: 20 }, undefined)).toEqual([])
+    expect(PaceLog.recording({ estimateMinutes: 11, seconds: 40 * 60 }, undefined)).toEqual([])
+    expect(PaceLog.recording({ estimateMinutes: 0, seconds: 660 }, undefined)).toEqual([])
+  })
+
+  it('keeps the log bounded', () => {
+    let log: { estimateMinutes: number; seconds: number }[] | undefined
+    for (let index = 0; index < PaceLog.cap + 40; index += 1) {
+      log = PaceLog.recording({ estimateMinutes: 11, seconds: 660 }, log)
+    }
+    expect(log?.length).toBe(PaceLog.cap)
   })
 })
 

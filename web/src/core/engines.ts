@@ -150,6 +150,66 @@ export const PracticeLog = {
   },
 }
 
+// MARK: - Проверка оценки урока на живом прохождении
+
+/**
+ * Курс обещает уровень, и объём посчитан из нормы Cambridge через одну оценку: урок
+ * стоит одиннадцать минут. Пока по урокам никто не прошёл, это допущение, а не факт.
+ *
+ * Здесь копятся замеры настоящих прохождений и сравниваются с оценкой. Медиана, а не
+ * среднее: одна забытая вкладка или урок в четыре захода сдвинули бы среднее, а медиану
+ * не сдвинут. Пять замеров — минимум, ниже которого цифру показывать нечестно.
+ */
+export const PaceLog = {
+  /** Дольше получаса — это не урок, а забытая вкладка: тот же потолок, что у дневника. */
+  sessionCapSeconds: 30 * 60,
+  /** Быстрее минуты — пролистывание, а не прохождение. */
+  floorSeconds: 60,
+  /** Хватает на два уровня замеров; старые вытесняются новыми. */
+  cap: 200,
+  /** Ниже этого числа замеров медиана — шум, и её не показывают. */
+  minSamples: 5,
+
+  recording(
+    entry: { estimateMinutes: number; seconds: number },
+    log: { estimateMinutes: number; seconds: number }[] | undefined,
+  ): { estimateMinutes: number; seconds: number }[] {
+    const seconds = Math.trunc(entry.seconds)
+    const kept = [...(log ?? [])]
+    if (entry.estimateMinutes <= 0) return kept
+    if (seconds < this.floorSeconds || seconds > this.sessionCapSeconds) return kept
+    kept.push({ estimateMinutes: entry.estimateMinutes, seconds })
+    return kept.slice(-this.cap)
+  },
+
+  /**
+   * Отношение факта к оценке: 1.0 — оценка верна, 1.3 — уровень на треть длиннее
+   * обещанного, 0.8 — короче. Возвращается null, пока замеров меньше минимума.
+   */
+  summary(log: { estimateMinutes: number; seconds: number }[] | undefined): {
+    samples: number
+    actualMinutes: number
+    estimateMinutes: number
+    ratio: number
+  } | null {
+    const entries = (log ?? []).filter((item) => item.estimateMinutes > 0 && item.seconds > 0)
+    if (entries.length < this.minSamples) return null
+    const median = (values: number[]) => {
+      const sorted = [...values].sort((a, b) => a - b)
+      const middle = Math.floor(sorted.length / 2)
+      return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2
+    }
+    const actualMinutes = median(entries.map((item) => item.seconds / 60))
+    const estimateMinutes = median(entries.map((item) => item.estimateMinutes))
+    return {
+      samples: entries.length,
+      actualMinutes: Math.round(actualMinutes * 10) / 10,
+      estimateMinutes,
+      ratio: Math.round((actualMinutes / estimateMinutes) * 100) / 100,
+    }
+  },
+}
+
 // MARK: - Spaced repetition
 
 /**

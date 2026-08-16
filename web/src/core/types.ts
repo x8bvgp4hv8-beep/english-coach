@@ -204,6 +204,14 @@ export interface UserState {
   /** Seconds spent in lessons per local day ("2026-07-23" → 420). */
   practiceSeconds?: Record<string, number>
   /**
+   * Сколько на самом деле занял каждый пройденный урок против оценки в 11 минут.
+   *
+   * Объём курса посчитан из нормы Cambridge через эту оценку, и до первого живого
+   * прохождения она остаётся допущением. Здесь копится единственное доказательство,
+   * которое вообще возможно, — замер на настоящем человеке.
+   */
+  lessonPace?: { estimateMinutes: number; seconds: number }[]
+  /**
    * Phrasings the learner marked as correct after the checker disagreed, per exercise.
    * The escape hatch: whatever the checker misses, it only ever costs one tap, once.
    */
