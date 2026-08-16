@@ -10,8 +10,26 @@ public enum ContentError: Error, Equatable {
 public enum ContentRepository {
     static let schemaVersions: Set<Int> = [1, 2]
 
-    public static func decode(_ data: Data) throws -> CoursePack {
-        let course = try JSONDecoder().decode(CoursePack.self, from: data)
+    /// Откуда учащийся: подстановки `{country}` и `{city}` в содержании становятся его
+    /// страной и городом. Пока приложение не спросило — нейтральный пример, заведомо
+    /// чужой, чтобы фраза читалась как пример, а не как утверждение о самом человеке.
+    public struct Home: Sendable, Equatable {
+        public var country: String
+        public var city: String
+        public var title: String
+        public var cityTitle: String
+        public init(country: String, city: String, title: String, cityTitle: String) {
+            self.country = country; self.city = city; self.title = title; self.cityTitle = cityTitle
+        }
+        public static let example = Home(country: "Spain", city: "Madrid", title: "Испании", cityTitle: "Мадрида")
+    }
+
+    /// Замена идёт по тексту JSON до разбора: подстановки — уникальные строки, а так
+    /// не приходится пересобирать все структуры ради пяти слов. Дом передаётся
+    /// параметром, а не глобальной переменной: содержание читают из разных потоков.
+    public static func decode(_ data: Data, home: Home = .example) throws -> CoursePack {
+        let filled = personalise(data, home: home)
+        let course = try JSONDecoder().decode(CoursePack.self, from: filled)
         guard Self.schemaVersions.contains(course.schemaVersion) else { throw ContentError.unsupportedSchema(course.schemaVersion) }
         guard !course.chapters.isEmpty else { throw ContentError.emptyCourse }
         // v1 packs are grammar chapters; v2 packs are can-do units with the five-step ladder.
@@ -52,6 +70,17 @@ public enum ContentRepository {
             }
         }
         return course
+    }
+
+    static func personalise(_ data: Data, home: Home) -> Data {
+        guard var text = String(data: data, encoding: .utf8) else { return data }
+        guard text.contains("{country}") || text.contains("{city}")
+            || text.contains("{страна}") || text.contains("{город}") else { return data }
+        text = text.replacingOccurrences(of: "{country}", with: home.country)
+        text = text.replacingOccurrences(of: "{city}", with: home.city)
+        text = text.replacingOccurrences(of: "{страна}", with: home.title)
+        text = text.replacingOccurrences(of: "{город}", with: home.cityTitle)
+        return Data(text.utf8)
     }
 
     // MARK: - Finding the files
@@ -100,18 +129,18 @@ public enum ContentRepository {
 
     // MARK: - Course packs
 
-    public static func loadBundled(_ language: LanguageCode = .default) throws -> [CoursePack] {
-        try loadBundled(language, bundle: contentBundle())
+    public static func loadBundled(_ language: LanguageCode = .default, home: Home = .example) throws -> [CoursePack] {
+        try loadBundled(language, bundle: contentBundle(), home: home)
     }
 
-    public static func loadBundled(_ language: LanguageCode = .default, bundle: Bundle) throws -> [CoursePack] {
+    public static func loadBundled(_ language: LanguageCode = .default, bundle: Bundle, home: Home = .example) throws -> [CoursePack] {
         let notCourses = ["placement", "syllabus"]
         let urls = files(for: language, in: bundle).filter { url in
             !notCourses.contains { url.lastPathComponent.contains($0) }
         }
         guard !urls.isEmpty else { throw ContentError.emptyCourse }
         return try urls.sorted { $0.lastPathComponent < $1.lastPathComponent }
-            .map { try decode(Data(contentsOf: $0)) }
+            .map { try decode(Data(contentsOf: $0), home: home) }
     }
 
     // MARK: - Placement test bank

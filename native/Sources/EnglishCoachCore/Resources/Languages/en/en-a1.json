@@ -3660,8 +3660,8 @@
                 },
                 {
                   "speaker": "Anna",
-                  "text": "I am from Russia. And you?",
-                  "translation": "Я из России. А вы?"
+                  "text": "I am from {country}. And you?",
+                  "translation": "Я из {страна}. А вы?"
                 },
                 {
                   "speaker": "Ben",
@@ -3700,9 +3700,9 @@
                 "a1-tema-travel"
               ],
               "type": "flashcard",
-              "prompt": "I am from Russia.",
-              "translation": "Я из России.",
-              "example": "I am from Russia, from Moscow."
+              "prompt": "I am from {country}.",
+              "translation": "Я из {страна}.",
+              "example": "I am from {country}, from {city}."
             },
             {
               "id": "en-a1-nice-to-meet-you-03-w3",
@@ -3749,7 +3749,7 @@
               ],
               "type": "info",
               "title": "From — «из»",
-              "explanation": "Откуда человек, говорят через from: I am from Russia, she is from London. Страну и город пишут с большой буквы всегда, даже в середине предложения — по-русски это правило то же, но забывают о нём именно в английском."
+              "explanation": "Откуда человек, говорят через from: I am from {country}, she is from London. Страну и город пишут с большой буквы всегда, даже в середине предложения — по-русски это правило то же, но забывают о нём именно в английском."
             },
             {
               "id": "en-a1-nice-to-meet-you-03-c1",
@@ -3775,13 +3775,13 @@
                 "a1-tema-travel"
               ],
               "type": "multiple_choice",
-              "prompt": "«Я из Москвы» —",
+              "prompt": "«Я из {город}» —",
               "options": [
-                "I am from Moscow",
-                "I am from moscow",
-                "I from Moscow"
+                "I am from {city}",
+                "I am from the {city}",
+                "I from {city}"
               ],
-              "correctOption": "I am from Moscow"
+              "correctOption": "I am from {city}"
             },
             {
               "id": "en-a1-nice-to-meet-you-03-c3",
@@ -3807,10 +3807,10 @@
                 "a1-tema-travel"
               ],
               "type": "word_order",
-              "prompt": "Я из России.",
-              "canonicalAnswer": "I am from Russia.",
+              "prompt": "Я из {страна}.",
+              "canonicalAnswer": "I am from {country}.",
               "tokens": [
-                "Russia",
+                "{country}",
                 "from",
                 "am",
                 "I"
@@ -3952,7 +3952,7 @@
               "type": "flashcard",
               "prompt": "too",
               "translation": "тоже",
-              "example": "I am from Russia too."
+              "example": "I am from {country} too."
             },
             {
               "id": "en-a1-nice-to-meet-you-04-r",
@@ -4055,8 +4055,8 @@
                 "a1-questions"
               ],
               "type": "translate",
-              "prompt": "Он тоже из России?",
-              "canonicalAnswer": "Is he from Russia too?"
+              "prompt": "Он тоже из {страна}?",
+              "canonicalAnswer": "Is he from {country} too?"
             }
           ]
         },
@@ -6267,7 +6267,7 @@
               "type": "flashcard",
               "prompt": "Me too.",
               "translation": "Я тоже.",
-              "example": "I am from Russia. — Me too."
+              "example": "I am from {country}. — Me too."
             },
             {
               "id": "en-a1-nice-to-meet-you-15-w5",
@@ -6300,7 +6300,7 @@
                 "a1-tema-weather"
               ],
               "type": "multiple_choice",
-              "prompt": "«Я тоже» в ответ на I am from Russia:",
+              "prompt": "«Я тоже» в ответ на I am from {country}:",
               "options": [
                 "Me too",
                 "I too",
@@ -6426,8 +6426,8 @@
                 },
                 {
                   "speaker": "Ben",
-                  "text": "From Leeds. And you are from Moscow, yes?",
-                  "translation": "Из Лидса. А вы из Москвы, да?"
+                  "text": "From Leeds. And you are from {city}, yes?",
+                  "translation": "Из Лидса. А вы из {город}, да?"
                 },
                 {
                   "speaker": "Anna",
@@ -6446,7 +6446,7 @@
               "type": "flashcard",
               "prompt": "Yes, that is right.",
               "translation": "Да, верно.",
-              "example": "You are from Moscow? — Yes, that is right."
+              "example": "You are from {city}? — Yes, that is right."
             },
             {
               "id": "en-a1-nice-to-meet-you-16-w2",
@@ -6629,10 +6629,10 @@
                 "a1-tema-work"
               ],
               "type": "translate",
-              "prompt": "Я Анна, я из России.",
-              "canonicalAnswer": "I am Anna, I am from Russia.",
+              "prompt": "Я Анна, я из {страна}.",
+              "canonicalAnswer": "I am Anna, I am from {country}.",
               "acceptedAnswers": [
-                "I'm Anna, I'm from Russia."
+                "I'm Anna, I'm from {country}."
               ]
             },
             {
@@ -10200,7 +10200,7 @@
               "type": "flashcard",
               "prompt": "I live",
               "translation": "я живу",
-              "example": "I live in Moscow."
+              "example": "I live in {city}."
             },
             {
               "id": "en-a1-every-day-01-w3",
@@ -26062,18 +26062,18 @@
               "lines": [
                 {
                   "speaker": "Ben",
-                  "text": "Is your family from Moscow?",
-                  "translation": "Твоя семья из Москвы?"
+                  "text": "Is your family from {city}?",
+                  "translation": "Твоя семья из {город}?"
                 },
                 {
                   "speaker": "Anna",
-                  "text": "My parents are, but I was born in Tver.",
-                  "translation": "Родители да, а я родилась в Твери."
+                  "text": "My parents are, but I was born in another city.",
+                  "translation": "Родители да, а я родилась в другом городе."
                 },
                 {
                   "speaker": "Ben",
-                  "text": "And now they live in Moscow?",
-                  "translation": "И сейчас живут в Москве?"
+                  "text": "And now they live in {city}?",
+                  "translation": "И сейчас живут в {city}?"
                 },
                 {
                   "speaker": "Anna",
@@ -26097,7 +26097,7 @@
               "type": "flashcard",
               "prompt": "I was born",
               "translation": "я родился",
-              "example": "I was born in Tver."
+              "example": "I was born in {city}."
             },
             {
               "id": "en-a1-family-12-w2",
@@ -26166,13 +26166,13 @@
                 "a1-present-simple"
               ],
               "type": "multiple_choice",
-              "prompt": "«Я родился в Твери» —",
+              "prompt": "«Я родился в {город}» —",
               "options": [
-                "I was born in Tver",
-                "I am born in Tver",
-                "I born in Tver"
+                "I was born in {city}",
+                "I am born in {city}",
+                "I born in {city}"
               ],
-              "correctOption": "I was born in Tver"
+              "correctOption": "I was born in {city}"
             },
             {
               "id": "en-a1-family-12-c2",
@@ -26214,10 +26214,10 @@
                 "a1-present-simple"
               ],
               "type": "word_order",
-              "prompt": "Я родилась в Твери.",
-              "canonicalAnswer": "I was born in Tver.",
+              "prompt": "Я родился в {город}.",
+              "canonicalAnswer": "I was born in {city}.",
               "tokens": [
-                "Tver",
+                "{city}",
                 "in",
                 "born",
                 "was",
@@ -26232,8 +26232,8 @@
                 "a1-present-simple"
               ],
               "type": "translate",
-              "prompt": "Я родился в Москве.",
-              "canonicalAnswer": "I was born in Moscow."
+              "prompt": "Я родился в {город}.",
+              "canonicalAnswer": "I was born in {city}."
             },
             {
               "id": "en-a1-family-12-t2",
@@ -27220,6 +27220,3492 @@
               "acceptedAnswers": [
                 "Do you have a pet?"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "en-a1-time-and-days",
+      "title": "Time and days",
+      "subtitle": "Назвать час, день недели и договориться о встрече",
+      "canDo": [
+        "назвать точное время и понять чужое",
+        "договориться о встрече и предложить другой час",
+        "предупредить, что опаздываешь",
+        "перенести или отменить встречу",
+        "сказать, когда ты свободен"
+      ],
+      "lessons": [
+        {
+          "id": "en-a1-time-and-days-01",
+          "title": "At ten, on Monday, in May",
+          "summary": "Три предлога времени в одном уроке.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-01-d",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "dialogue",
+              "title": "Когда встретимся",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Are you free on Monday?",
+                  "translation": "Ты свободен в понедельник?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Yes, in the morning.",
+                  "translation": "Да, утром."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "At ten?",
+                  "translation": "В десять?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "At ten is fine.",
+                  "translation": "В десять нормально."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Great, see you then.",
+                  "translation": "Отлично, тогда до встречи."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-01-w1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "flashcard",
+              "prompt": "at ten",
+              "translation": "в десять",
+              "example": "The meeting is at ten."
+            },
+            {
+              "id": "en-a1-time-and-days-01-w2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "flashcard",
+              "prompt": "on Monday",
+              "translation": "в понедельник",
+              "example": "On Monday I am free."
+            },
+            {
+              "id": "en-a1-time-and-days-01-w3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "flashcard",
+              "prompt": "in May",
+              "translation": "в мае",
+              "example": "In May we travel."
+            },
+            {
+              "id": "en-a1-time-and-days-01-w4",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "flashcard",
+              "prompt": "free",
+              "translation": "свободный",
+              "example": "Are you free?"
+            },
+            {
+              "id": "en-a1-time-and-days-01-w5",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "flashcard",
+              "prompt": "then",
+              "translation": "тогда",
+              "example": "See you then."
+            },
+            {
+              "id": "en-a1-time-and-days-01-r",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "info",
+              "title": "At, on, in — от точки к отрезку",
+              "explanation": "At — точка на часах: at ten, at midnight. On — день: on Monday, on the fifth. In — всё, что длиннее дня: in May, in 2026, in the morning. Правило одно: чем крупнее отрезок, тем «шире» предлог."
+            },
+            {
+              "id": "en-a1-time-and-days-01-c1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В десять» —",
+              "options": [
+                "at ten",
+                "in ten",
+                "on ten"
+              ],
+              "correctOption": "at ten"
+            },
+            {
+              "id": "en-a1-time-and-days-01-c2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В понедельник» —",
+              "options": [
+                "on Monday",
+                "in Monday",
+                "at Monday"
+              ],
+              "correctOption": "on Monday"
+            },
+            {
+              "id": "en-a1-time-and-days-01-c3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В мае» —",
+              "options": [
+                "in May",
+                "on May",
+                "at May"
+              ],
+              "correctOption": "in May"
+            },
+            {
+              "id": "en-a1-time-and-days-01-o",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "word_order",
+              "prompt": "Встреча в понедельник в десять.",
+              "canonicalAnswer": "The meeting is on Monday at ten.",
+              "tokens": [
+                "ten",
+                "at",
+                "Monday",
+                "on",
+                "is",
+                "meeting",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-01-t1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "translate",
+              "prompt": "Ты свободен в понедельник?",
+              "canonicalAnswer": "Are you free on Monday?"
+            },
+            {
+              "id": "en-a1-time-and-days-01-t2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "translate",
+              "prompt": "Встреча в десять.",
+              "canonicalAnswer": "The meeting is at ten."
+            },
+            {
+              "id": "en-a1-time-and-days-01-t3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-routine"
+              ],
+              "type": "translate",
+              "prompt": "В мае мы путешествуем.",
+              "canonicalAnswer": "In May we travel."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-02",
+          "title": "Half past, quarter to",
+          "summary": "Время не круглым часом.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-02-d",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "dialogue",
+              "title": "Точное время",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "What time is the train?",
+                  "translation": "Во сколько поезд?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "At half past six.",
+                  "translation": "В половине седьмого."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And we leave at quarter to six?",
+                  "translation": "А выходим без четверти шесть?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Yes, that is enough.",
+                  "translation": "Да, этого хватит."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "OK, I am ready at twenty to.",
+                  "translation": "Хорошо, я готов без двадцати."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-02-w1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "half past six",
+              "translation": "половина седьмого",
+              "example": "At half past six."
+            },
+            {
+              "id": "en-a1-time-and-days-02-w2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "quarter to six",
+              "translation": "без четверти шесть",
+              "example": "At quarter to six."
+            },
+            {
+              "id": "en-a1-time-and-days-02-w3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "quarter past",
+              "translation": "четверть после часа",
+              "example": "At quarter past nine."
+            },
+            {
+              "id": "en-a1-time-and-days-02-w4",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "twenty to",
+              "translation": "без двадцати",
+              "example": "At twenty to six."
+            },
+            {
+              "id": "en-a1-time-and-days-02-w5",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "leave",
+              "translation": "уходить, выходить",
+              "example": "We leave at six."
+            },
+            {
+              "id": "en-a1-time-and-days-02-r",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "info",
+              "title": "Half past — от прошедшего часа",
+              "explanation": "Half past six — половина СЕДЬМОГО, то есть полчаса после шести. Русский считает вперёд, английский назад, и на этом ошибаются постоянно. Спасение простое: в расписаниях и на телефоне всегда есть цифры."
+            },
+            {
+              "id": "en-a1-time-and-days-02-c1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "multiple_choice",
+              "prompt": "Half past six — это",
+              "options": [
+                "18:30",
+                "17:30",
+                "06:06"
+              ],
+              "correctOption": "18:30"
+            },
+            {
+              "id": "en-a1-time-and-days-02-c2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Без четверти шесть» —",
+              "options": [
+                "quarter to six",
+                "quarter past six",
+                "six quarter to"
+              ],
+              "correctOption": "quarter to six"
+            },
+            {
+              "id": "en-a1-time-and-days-02-c3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы выходим в шесть» —",
+              "options": [
+                "We leave at six",
+                "We leave in six",
+                "We are leave at six"
+              ],
+              "correctOption": "We leave at six"
+            },
+            {
+              "id": "en-a1-time-and-days-02-o",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "word_order",
+              "prompt": "Поезд в половине седьмого.",
+              "canonicalAnswer": "The train is at half past six.",
+              "tokens": [
+                "six",
+                "past",
+                "half",
+                "at",
+                "is",
+                "train",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-02-t1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "translate",
+              "prompt": "Во сколько поезд?",
+              "canonicalAnswer": "What time is the train?"
+            },
+            {
+              "id": "en-a1-time-and-days-02-t2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "translate",
+              "prompt": "В половине седьмого.",
+              "canonicalAnswer": "At half past six."
+            },
+            {
+              "id": "en-a1-time-and-days-02-t3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "translate",
+              "prompt": "Без четверти шесть.",
+              "canonicalAnswer": "At quarter to six."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-03",
+          "title": "Can we meet on Tuesday?",
+          "summary": "Предложить день и время.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-03-d",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "dialogue",
+              "title": "Договориться",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Can we meet on Tuesday?",
+                  "translation": "Можем встретиться во вторник?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Tuesday is difficult. Wednesday?",
+                  "translation": "Вторник сложно. В среду?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Wednesday works. At two?",
+                  "translation": "Среда подходит. В два?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Let us say three.",
+                  "translation": "Давай в три."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Three it is.",
+                  "translation": "Значит в три."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-03-w1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "Can we meet…?",
+              "translation": "Можем встретиться …?",
+              "example": "Can we meet on Tuesday?"
+            },
+            {
+              "id": "en-a1-time-and-days-03-w2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "Tuesday",
+              "translation": "вторник",
+              "example": "On Tuesday, please."
+            },
+            {
+              "id": "en-a1-time-and-days-03-w3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "Wednesday",
+              "translation": "среда",
+              "example": "Wednesday works."
+            },
+            {
+              "id": "en-a1-time-and-days-03-w4",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "It works.",
+              "translation": "Подходит.",
+              "example": "Wednesday works for me."
+            },
+            {
+              "id": "en-a1-time-and-days-03-w5",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "Let us say three.",
+              "translation": "Давай в три.",
+              "example": "Let us say three, then."
+            },
+            {
+              "id": "en-a1-time-and-days-03-r",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "info",
+              "title": "Works for me",
+              "explanation": "Самый частый способ согласиться на время: that works for me, Wednesday works. Дословно «это работает», и по-русски так же не скажешь, но именно эту фразу вы услышите в любом рабочем разговоре."
+            },
+            {
+              "id": "en-a1-time-and-days-03-c1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Среда подходит» —",
+              "options": [
+                "Wednesday works",
+                "Wednesday is work",
+                "Wednesday works to me it"
+              ],
+              "correctOption": "Wednesday works"
+            },
+            {
+              "id": "en-a1-time-and-days-03-c2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Можем встретиться во вторник?» —",
+              "options": [
+                "Can we meet on Tuesday?",
+                "Can we meet in Tuesday?",
+                "Can we to meet Tuesday?"
+              ],
+              "correctOption": "Can we meet on Tuesday?"
+            },
+            {
+              "id": "en-a1-time-and-days-03-c3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Давай в три» —",
+              "options": [
+                "Let us say three",
+                "Let us to say three",
+                "Let we say three"
+              ],
+              "correctOption": "Let us say three"
+            },
+            {
+              "id": "en-a1-time-and-days-03-o",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "word_order",
+              "prompt": "Можем встретиться в среду?",
+              "canonicalAnswer": "Can we meet on Wednesday?",
+              "tokens": [
+                "Wednesday",
+                "on",
+                "meet",
+                "we",
+                "Can"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-03-t1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "translate",
+              "prompt": "Можем встретиться во вторник?",
+              "canonicalAnswer": "Can we meet on Tuesday?"
+            },
+            {
+              "id": "en-a1-time-and-days-03-t2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "translate",
+              "prompt": "Среда подходит.",
+              "canonicalAnswer": "Wednesday works."
+            },
+            {
+              "id": "en-a1-time-and-days-03-t3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-prepositions-time"
+              ],
+              "type": "translate",
+              "prompt": "Давай в три.",
+              "canonicalAnswer": "Let us say three.",
+              "acceptedAnswers": [
+                "Let's say three."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-04",
+          "title": "I am late",
+          "summary": "Предупредить об опоздании.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-04-d",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "dialogue",
+              "title": "Задержка",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Sorry, I am ten minutes late.",
+                  "translation": "Извини, я на десять минут опаздываю."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "No problem, take your time.",
+                  "translation": "Ничего, не спеши."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The bus is very slow today.",
+                  "translation": "Автобус сегодня очень медленный."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I am in the café, at the window.",
+                  "translation": "Я в кафе, у окна."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "See you in a minute.",
+                  "translation": "Скоро буду."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-04-w1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "flashcard",
+              "prompt": "I am late",
+              "translation": "я опаздываю",
+              "example": "Sorry, I am late."
+            },
+            {
+              "id": "en-a1-time-and-days-04-w2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "flashcard",
+              "prompt": "ten minutes late",
+              "translation": "на десять минут",
+              "example": "I am ten minutes late."
+            },
+            {
+              "id": "en-a1-time-and-days-04-w3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "flashcard",
+              "prompt": "Take your time.",
+              "translation": "Не спеши.",
+              "example": "No problem, take your time."
+            },
+            {
+              "id": "en-a1-time-and-days-04-w4",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "flashcard",
+              "prompt": "on time",
+              "translation": "вовремя",
+              "example": "The train is on time."
+            },
+            {
+              "id": "en-a1-time-and-days-04-w5",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "flashcard",
+              "prompt": "in a minute",
+              "translation": "через минуту",
+              "example": "See you in a minute."
+            },
+            {
+              "id": "en-a1-time-and-days-04-r",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "info",
+              "title": "On time и in time",
+              "explanation": "On time — точно по расписанию: the train is on time. In time — успеть до срока: we are in time for the film. Разница в предлоге, а значат они разное, и подменять одно другим слышно."
+            },
+            {
+              "id": "en-a1-time-and-days-04-c1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я опаздываю на десять минут» —",
+              "options": [
+                "I am ten minutes late",
+                "I late ten minutes",
+                "I am late on ten minutes"
+              ],
+              "correctOption": "I am ten minutes late"
+            },
+            {
+              "id": "en-a1-time-and-days-04-c2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Поезд по расписанию» —",
+              "options": [
+                "The train is on time",
+                "The train is in time",
+                "The train is at time"
+              ],
+              "correctOption": "The train is on time"
+            },
+            {
+              "id": "en-a1-time-and-days-04-c3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Не спеши» —",
+              "options": [
+                "Take your time",
+                "Take you time",
+                "Take the time you"
+              ],
+              "correctOption": "Take your time"
+            },
+            {
+              "id": "en-a1-time-and-days-04-o",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "word_order",
+              "prompt": "Извини, я опаздываю.",
+              "canonicalAnswer": "Sorry, I am late.",
+              "tokens": [
+                "late",
+                "am",
+                "I",
+                "Sorry"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-04-t1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "translate",
+              "prompt": "Я опаздываю на десять минут.",
+              "canonicalAnswer": "I am ten minutes late.",
+              "acceptedAnswers": [
+                "I'm ten minutes late."
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-04-t2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "translate",
+              "prompt": "Не спеши.",
+              "canonicalAnswer": "Take your time."
+            },
+            {
+              "id": "en-a1-time-and-days-04-t3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-tema-contact",
+                "a1-to-be"
+              ],
+              "type": "translate",
+              "prompt": "Поезд по расписанию.",
+              "canonicalAnswer": "The train is on time."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-05",
+          "title": "Can we move it?",
+          "summary": "Перенести встречу на другой час.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-05-d",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "dialogue",
+              "title": "Перенос",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Can we move our meeting?",
+                  "translation": "Можем перенести встречу?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Sure. To when?",
+                  "translation": "Конечно. На когда?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "To Thursday, same time.",
+                  "translation": "На четверг, в то же время."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Thursday at three, then.",
+                  "translation": "Тогда четверг в три."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Thank you for understanding.",
+                  "translation": "Спасибо за понимание."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-05-w1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "move",
+              "translation": "перенести",
+              "example": "Can we move it?"
+            },
+            {
+              "id": "en-a1-time-and-days-05-w2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "To when?",
+              "translation": "На когда?",
+              "example": "Sure. To when?"
+            },
+            {
+              "id": "en-a1-time-and-days-05-w3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "Thursday",
+              "translation": "четверг",
+              "example": "On Thursday."
+            },
+            {
+              "id": "en-a1-time-and-days-05-w4",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "the same time",
+              "translation": "то же время",
+              "example": "Same time, please."
+            },
+            {
+              "id": "en-a1-time-and-days-05-w5",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "Sure.",
+              "translation": "Конечно.",
+              "example": "Sure, no problem."
+            },
+            {
+              "id": "en-a1-time-and-days-05-r",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "info",
+              "title": "Просьба без объяснения",
+              "explanation": "На A1 не нужно длинных объяснений: can we move it, to Thursday — достаточно. Причину добавляют одним словом: sorry, I am busy. Долгие оправдания по-английски звучат тревожнее, чем короткая просьба."
+            },
+            {
+              "id": "en-a1-time-and-days-05-c1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Можем перенести?» —",
+              "options": [
+                "Can we move it?",
+                "Can we move it to?",
+                "Can we to move it?"
+              ],
+              "correctOption": "Can we move it?"
+            },
+            {
+              "id": "en-a1-time-and-days-05-c2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В то же время» —",
+              "options": [
+                "same time",
+                "the same of time",
+                "in same time"
+              ],
+              "correctOption": "same time"
+            },
+            {
+              "id": "en-a1-time-and-days-05-c3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Спасибо за понимание» —",
+              "options": [
+                "Thank you for understanding",
+                "Thank for understand you",
+                "Thanks you understanding"
+              ],
+              "correctOption": "Thank you for understanding"
+            },
+            {
+              "id": "en-a1-time-and-days-05-o",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "word_order",
+              "prompt": "Можем перенести встречу?",
+              "canonicalAnswer": "Can we move our meeting?",
+              "tokens": [
+                "meeting",
+                "our",
+                "move",
+                "we",
+                "Can"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-05-t1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Можем перенести?",
+              "canonicalAnswer": "Can we move it?"
+            },
+            {
+              "id": "en-a1-time-and-days-05-t2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "На четверг, в то же время.",
+              "canonicalAnswer": "To Thursday, same time."
+            },
+            {
+              "id": "en-a1-time-and-days-05-t3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Спасибо за понимание.",
+              "canonicalAnswer": "Thank you for understanding."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-06",
+          "title": "When are you free?",
+          "summary": "Спросить о свободном времени.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-06-d",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "dialogue",
+              "title": "Найти окно",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "When are you free this week?",
+                  "translation": "Когда ты свободен на этой неделе?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Friday afternoon.",
+                  "translation": "В пятницу днём."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Before or after lunch?",
+                  "translation": "До или после обеда?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "After. Say two o'clock.",
+                  "translation": "После. Скажем, в два."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Perfect, I put it in my calendar.",
+                  "translation": "Отлично, записываю в календарь."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-06-w1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "this week",
+              "translation": "на этой неделе",
+              "example": "Free this week?"
+            },
+            {
+              "id": "en-a1-time-and-days-06-w2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "before",
+              "translation": "до, перед",
+              "example": "Before lunch."
+            },
+            {
+              "id": "en-a1-time-and-days-06-w3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "after",
+              "translation": "после",
+              "example": "After lunch."
+            },
+            {
+              "id": "en-a1-time-and-days-06-w4",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "a calendar",
+              "translation": "календарь",
+              "example": "In my calendar."
+            },
+            {
+              "id": "en-a1-time-and-days-06-w5",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "Friday afternoon",
+              "translation": "в пятницу днём",
+              "example": "Free on Friday afternoon."
+            },
+            {
+              "id": "en-a1-time-and-days-06-r",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "info",
+              "title": "Before и after без предлога",
+              "explanation": "Before lunch, after work, before six — никаких дополнительных предлогов не нужно. Русское «до обеда» и «после работы» переводится ровно двумя словами, и добавлять of или to сюда нельзя."
+            },
+            {
+              "id": "en-a1-time-and-days-06-c1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«После обеда» —",
+              "options": [
+                "after lunch",
+                "after of lunch",
+                "after the lunch it"
+              ],
+              "correctOption": "after lunch"
+            },
+            {
+              "id": "en-a1-time-and-days-06-c2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Когда ты свободен?» —",
+              "options": [
+                "When are you free?",
+                "When you are free?",
+                "When do you free?"
+              ],
+              "correctOption": "When are you free?"
+            },
+            {
+              "id": "en-a1-time-and-days-06-c3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В пятницу днём» —",
+              "options": [
+                "on Friday afternoon",
+                "in Friday afternoon",
+                "at Friday afternoon"
+              ],
+              "correctOption": "on Friday afternoon"
+            },
+            {
+              "id": "en-a1-time-and-days-06-o",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "word_order",
+              "prompt": "Когда ты свободен на этой неделе?",
+              "canonicalAnswer": "When are you free this week?",
+              "tokens": [
+                "week",
+                "this",
+                "free",
+                "you",
+                "are",
+                "When"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-06-t1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "translate",
+              "prompt": "Когда ты свободен?",
+              "canonicalAnswer": "When are you free?"
+            },
+            {
+              "id": "en-a1-time-and-days-06-t2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "translate",
+              "prompt": "После обеда.",
+              "canonicalAnswer": "After lunch."
+            },
+            {
+              "id": "en-a1-time-and-days-06-t3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-prepositions-time"
+              ],
+              "type": "translate",
+              "prompt": "В пятницу днём.",
+              "canonicalAnswer": "On Friday afternoon."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-07",
+          "title": "It takes twenty minutes",
+          "summary": "Сколько времени занимает дорога или дело.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-07-d",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "dialogue",
+              "title": "Сколько ехать",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "How long does it take?",
+                  "translation": "Сколько это занимает?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Twenty minutes by bus.",
+                  "translation": "Двадцать минут на автобусе."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And on foot?",
+                  "translation": "А пешком?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "About an hour. Too long.",
+                  "translation": "Около часа. Долго."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then we take the bus.",
+                  "translation": "Тогда на автобусе."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-07-w1",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "flashcard",
+              "prompt": "It takes twenty minutes.",
+              "translation": "Это занимает двадцать минут.",
+              "example": "It takes twenty minutes by bus."
+            },
+            {
+              "id": "en-a1-time-and-days-07-w2",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "flashcard",
+              "prompt": "How long does it take?",
+              "translation": "Сколько это занимает?",
+              "example": "How long does it take by car?"
+            },
+            {
+              "id": "en-a1-time-and-days-07-w3",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "flashcard",
+              "prompt": "on foot",
+              "translation": "пешком",
+              "example": "About an hour on foot."
+            },
+            {
+              "id": "en-a1-time-and-days-07-w4",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "flashcard",
+              "prompt": "too long",
+              "translation": "слишком долго",
+              "example": "An hour is too long."
+            },
+            {
+              "id": "en-a1-time-and-days-07-w5",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "flashcard",
+              "prompt": "we take the bus",
+              "translation": "мы едем на автобусе",
+              "example": "Then we take the bus."
+            },
+            {
+              "id": "en-a1-time-and-days-07-r",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "info",
+              "title": "It takes — про длительность",
+              "explanation": "Сколько занимает дорога или дело, говорят через безличное it takes: it takes twenty minutes, it takes an hour. Начать с I take нельзя — получится «я беру двадцать минут»."
+            },
+            {
+              "id": "en-a1-time-and-days-07-c1",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Это занимает двадцать минут» —",
+              "options": [
+                "It takes twenty minutes",
+                "It takes twenty minute",
+                "It is take twenty minutes"
+              ],
+              "correctOption": "It takes twenty minutes"
+            },
+            {
+              "id": "en-a1-time-and-days-07-c2",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Сколько это занимает?» —",
+              "options": [
+                "How long does it take?",
+                "How long it takes?",
+                "How much does it take long?"
+              ],
+              "correctOption": "How long does it take?"
+            },
+            {
+              "id": "en-a1-time-and-days-07-c3",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пешком» —",
+              "options": [
+                "on foot",
+                "by foot",
+                "in foot"
+              ],
+              "correctOption": "on foot"
+            },
+            {
+              "id": "en-a1-time-and-days-07-o",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "word_order",
+              "prompt": "Это занимает двадцать минут.",
+              "canonicalAnswer": "It takes twenty minutes.",
+              "tokens": [
+                "minutes",
+                "twenty",
+                "takes",
+                "It"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-07-t1",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "translate",
+              "prompt": "Сколько это занимает?",
+              "canonicalAnswer": "How long does it take?"
+            },
+            {
+              "id": "en-a1-time-and-days-07-t2",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "translate",
+              "prompt": "Двадцать минут на автобусе.",
+              "canonicalAnswer": "Twenty minutes by bus."
+            },
+            {
+              "id": "en-a1-time-and-days-07-t3",
+              "topics": [
+                "a1-tema-routine",
+                "a1-questions",
+                "a1-tema-city"
+              ],
+              "type": "translate",
+              "prompt": "Около часа пешком.",
+              "canonicalAnswer": "About an hour on foot."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-08",
+          "title": "Opening hours",
+          "summary": "До скольких работает и когда закрыто.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-08-d",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "dialogue",
+              "title": "До скольких",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "What time do you open?",
+                  "translation": "Во сколько вы открываетесь?"
+                },
+                {
+                  "speaker": "Продавец",
+                  "text": "At nine, every day.",
+                  "translation": "В девять, каждый день."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And you close at?",
+                  "translation": "А закрываетесь?"
+                },
+                {
+                  "speaker": "Продавец",
+                  "text": "At eight, but at six on Sunday.",
+                  "translation": "В восемь, но в воскресенье в шесть."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Good to know, thank you.",
+                  "translation": "Хорошо, спасибо."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-08-w1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "open",
+              "translation": "открываться",
+              "example": "We open at nine."
+            },
+            {
+              "id": "en-a1-time-and-days-08-w2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "close",
+              "translation": "закрываться",
+              "example": "We close at eight."
+            },
+            {
+              "id": "en-a1-time-and-days-08-w3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "opening hours",
+              "translation": "часы работы",
+              "example": "The opening hours are here."
+            },
+            {
+              "id": "en-a1-time-and-days-08-w4",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "every day",
+              "translation": "каждый день",
+              "example": "Open every day."
+            },
+            {
+              "id": "en-a1-time-and-days-08-w5",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "Good to know.",
+              "translation": "Хорошо знать.",
+              "example": "Good to know, thanks."
+            },
+            {
+              "id": "en-a1-time-and-days-08-r",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "info",
+              "title": "Открываемся, а не открыты",
+              "explanation": "Про часы работы говорят глаголом: we open at nine, we close at eight. Прилагательное годится для состояния сейчас: we are open, we are closed. Путаница даёт странное «мы открытые в девять»."
+            },
+            {
+              "id": "en-a1-time-and-days-08-c1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы открываемся в девять» —",
+              "options": [
+                "We open at nine",
+                "We are open at nine o",
+                "We opening at nine"
+              ],
+              "correctOption": "We open at nine"
+            },
+            {
+              "id": "en-a1-time-and-days-08-c2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Сейчас закрыто» —",
+              "options": [
+                "It is closed",
+                "It closes now is",
+                "It is close"
+              ],
+              "correctOption": "It is closed"
+            },
+            {
+              "id": "en-a1-time-and-days-08-c3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Часы работы» —",
+              "options": [
+                "opening hours",
+                "hours of open",
+                "work hours open"
+              ],
+              "correctOption": "opening hours"
+            },
+            {
+              "id": "en-a1-time-and-days-08-o",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "word_order",
+              "prompt": "Мы закрываемся в восемь.",
+              "canonicalAnswer": "We close at eight.",
+              "tokens": [
+                "eight",
+                "at",
+                "close",
+                "We"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-08-t1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "translate",
+              "prompt": "Во сколько вы открываетесь?",
+              "canonicalAnswer": "What time do you open?"
+            },
+            {
+              "id": "en-a1-time-and-days-08-t2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "translate",
+              "prompt": "Мы закрываемся в восемь.",
+              "canonicalAnswer": "We close at eight."
+            },
+            {
+              "id": "en-a1-time-and-days-08-t3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-shopping",
+                "a1-questions"
+              ],
+              "type": "translate",
+              "prompt": "Открыто каждый день.",
+              "canonicalAnswer": "Open every day."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-09",
+          "title": "See you on Saturday",
+          "summary": "Договорённость на выходные.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-09-d",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "dialogue",
+              "title": "Планы на субботу",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "What are you doing on Saturday?",
+                  "translation": "Что делаешь в субботу?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Nothing special. Why?",
+                  "translation": "Ничего особенного. А что?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "There is a concert at seven.",
+                  "translation": "В семь концерт."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Sounds good. Where?",
+                  "translation": "Звучит хорошо. Где?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "In the park. See you on Saturday!",
+                  "translation": "В парке. Увидимся в субботу!"
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-09-w1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "flashcard",
+              "prompt": "nothing special",
+              "translation": "ничего особенного",
+              "example": "Nothing special, why?"
+            },
+            {
+              "id": "en-a1-time-and-days-09-w2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "flashcard",
+              "prompt": "a concert",
+              "translation": "концерт",
+              "example": "A concert at seven."
+            },
+            {
+              "id": "en-a1-time-and-days-09-w3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "flashcard",
+              "prompt": "Why?",
+              "translation": "Почему? А что?",
+              "example": "Nothing special. Why?"
+            },
+            {
+              "id": "en-a1-time-and-days-09-w4",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "flashcard",
+              "prompt": "Sounds good.",
+              "translation": "Звучит хорошо.",
+              "example": "A concert? Sounds good."
+            },
+            {
+              "id": "en-a1-time-and-days-09-w5",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "flashcard",
+              "prompt": "Where?",
+              "translation": "Где?",
+              "example": "Where is the concert?"
+            },
+            {
+              "id": "en-a1-time-and-days-09-r",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "info",
+              "title": "Планы на выходные — длительное время",
+              "explanation": "Что делаешь в субботу — what are you doing on Saturday. О договорённостях спрашивают в present continuous, а не через will: план уже существует, и язык это подчёркивает."
+            },
+            {
+              "id": "en-a1-time-and-days-09-c1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что делаешь в субботу?» —",
+              "options": [
+                "What are you doing on Saturday?",
+                "What do you do on Saturday will?",
+                "What you are doing Saturday?"
+              ],
+              "correctOption": "What are you doing on Saturday?"
+            },
+            {
+              "id": "en-a1-time-and-days-09-c2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ничего особенного» —",
+              "options": [
+                "Nothing special",
+                "Nothing of special",
+                "No special thing it"
+              ],
+              "correctOption": "Nothing special"
+            },
+            {
+              "id": "en-a1-time-and-days-09-c3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Звучит хорошо» —",
+              "options": [
+                "Sounds good",
+                "It sounds well good",
+                "That sound good"
+              ],
+              "correctOption": "Sounds good"
+            },
+            {
+              "id": "en-a1-time-and-days-09-o",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "word_order",
+              "prompt": "Что делаешь в субботу?",
+              "canonicalAnswer": "What are you doing on Saturday?",
+              "tokens": [
+                "Saturday",
+                "on",
+                "doing",
+                "you",
+                "are",
+                "What"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-09-t1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "translate",
+              "prompt": "Ничего особенного.",
+              "canonicalAnswer": "Nothing special."
+            },
+            {
+              "id": "en-a1-time-and-days-09-t2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "translate",
+              "prompt": "В семь концерт.",
+              "canonicalAnswer": "There is a concert at seven."
+            },
+            {
+              "id": "en-a1-time-and-days-09-t3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-leisure"
+              ],
+              "type": "translate",
+              "prompt": "Увидимся в субботу!",
+              "canonicalAnswer": "See you on Saturday!"
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-10",
+          "title": "Sorry, I cannot",
+          "summary": "Вежливо отказаться от встречи.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-10-d",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "dialogue",
+              "title": "Отказ",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Can you come on Friday?",
+                  "translation": "Сможешь прийти в пятницу?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Sorry, I cannot. I am working.",
+                  "translation": "Извини, не могу. Я работаю."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Maybe next week?",
+                  "translation": "Может, на следующей неделе?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Next week is better, yes.",
+                  "translation": "На следующей лучше, да."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I write to you on Monday.",
+                  "translation": "Напишу тебе в понедельник."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-10-w1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "flashcard",
+              "prompt": "I cannot",
+              "translation": "я не могу",
+              "example": "Sorry, I cannot."
+            },
+            {
+              "id": "en-a1-time-and-days-10-w2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "flashcard",
+              "prompt": "next week",
+              "translation": "на следующей неделе",
+              "example": "Maybe next week?"
+            },
+            {
+              "id": "en-a1-time-and-days-10-w3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "flashcard",
+              "prompt": "better",
+              "translation": "лучше",
+              "example": "Next week is better."
+            },
+            {
+              "id": "en-a1-time-and-days-10-w4",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "flashcard",
+              "prompt": "Maybe next time.",
+              "translation": "Может, в следующий раз.",
+              "example": "Maybe next time, sorry."
+            },
+            {
+              "id": "en-a1-time-and-days-10-w5",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "flashcard",
+              "prompt": "write to you",
+              "translation": "напишу тебе",
+              "example": "I write to you on Monday."
+            },
+            {
+              "id": "en-a1-time-and-days-10-r",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "info",
+              "title": "Отказ из трёх частей",
+              "explanation": "Sorry — извинение, I cannot — отказ, I am working — причина. Все три коротко и в этом порядке. Отказ без причины по-английски звучит холодно, а причина без извинения — как оправдание."
+            },
+            {
+              "id": "en-a1-time-and-days-10-c1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Извини, не могу» —",
+              "options": [
+                "Sorry, I cannot",
+                "Sorry, I no can",
+                "Sorry, I cannot to"
+              ],
+              "correctOption": "Sorry, I cannot"
+            },
+            {
+              "id": "en-a1-time-and-days-10-c2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«На следующей неделе лучше» —",
+              "options": [
+                "Next week is better",
+                "The next week is more better",
+                "Next week better is"
+              ],
+              "correctOption": "Next week is better"
+            },
+            {
+              "id": "en-a1-time-and-days-10-c3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Может, в следующий раз» —",
+              "options": [
+                "Maybe next time",
+                "Maybe the next time it",
+                "May be next time"
+              ],
+              "correctOption": "Maybe next time"
+            },
+            {
+              "id": "en-a1-time-and-days-10-o",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "word_order",
+              "prompt": "Извини, не могу.",
+              "canonicalAnswer": "Sorry, I cannot.",
+              "tokens": [
+                "cannot",
+                "I",
+                "Sorry"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-10-t1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "translate",
+              "prompt": "Извини, не могу. Я работаю.",
+              "canonicalAnswer": "Sorry, I cannot. I am working.",
+              "acceptedAnswers": [
+                "Sorry, I can't. I'm working."
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-10-t2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "translate",
+              "prompt": "Может, на следующей неделе?",
+              "canonicalAnswer": "Maybe next week?"
+            },
+            {
+              "id": "en-a1-time-and-days-10-t3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-can"
+              ],
+              "type": "translate",
+              "prompt": "Напишу тебе в понедельник.",
+              "canonicalAnswer": "I write to you on Monday."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-11",
+          "title": "Yesterday, today, tomorrow",
+          "summary": "Три дня, которые нужны каждый день.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-11-d",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "dialogue",
+              "title": "Три дня",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Was the meeting yesterday?",
+                  "translation": "Встреча была вчера?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "No, it is today at four.",
+                  "translation": "Нет, она сегодня в четыре."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the report?",
+                  "translation": "А отчёт?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Tomorrow morning.",
+                  "translation": "Завтра утром."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Busy days.",
+                  "translation": "Насыщенные дни."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-11-w1",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "yesterday",
+              "translation": "вчера",
+              "example": "The meeting was yesterday."
+            },
+            {
+              "id": "en-a1-time-and-days-11-w2",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "tomorrow morning",
+              "translation": "завтра утром",
+              "example": "Tomorrow morning, please."
+            },
+            {
+              "id": "en-a1-time-and-days-11-w3",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "a report",
+              "translation": "отчёт",
+              "example": "The report is ready."
+            },
+            {
+              "id": "en-a1-time-and-days-11-w4",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "the day after tomorrow",
+              "translation": "послезавтра",
+              "example": "The day after tomorrow."
+            },
+            {
+              "id": "en-a1-time-and-days-11-w5",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "flashcard",
+              "prompt": "was",
+              "translation": "был, была",
+              "example": "The meeting was yesterday."
+            },
+            {
+              "id": "en-a1-time-and-days-11-r",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "info",
+              "title": "Yesterday и tomorrow без предлога",
+              "explanation": "С этими словами предлог не ставят: I work tomorrow, not on tomorrow. То же с today и tonight. Предлог возвращается, если добавили часть дня: on Monday morning, но tomorrow morning — снова без него."
+            },
+            {
+              "id": "en-a1-time-and-days-11-c1",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Завтра утром» —",
+              "options": [
+                "tomorrow morning",
+                "on tomorrow morning",
+                "in tomorrow morning"
+              ],
+              "correctOption": "tomorrow morning"
+            },
+            {
+              "id": "en-a1-time-and-days-11-c2",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Встреча была вчера» —",
+              "options": [
+                "The meeting was yesterday",
+                "The meeting is yesterday",
+                "The meeting was in yesterday"
+              ],
+              "correctOption": "The meeting was yesterday"
+            },
+            {
+              "id": "en-a1-time-and-days-11-c3",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Послезавтра» —",
+              "options": [
+                "the day after tomorrow",
+                "after tomorrow day",
+                "the tomorrow after day"
+              ],
+              "correctOption": "the day after tomorrow"
+            },
+            {
+              "id": "en-a1-time-and-days-11-o",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "word_order",
+              "prompt": "Отчёт завтра утром.",
+              "canonicalAnswer": "The report is tomorrow morning.",
+              "tokens": [
+                "morning",
+                "tomorrow",
+                "is",
+                "report",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-11-t1",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "translate",
+              "prompt": "Встреча была вчера.",
+              "canonicalAnswer": "The meeting was yesterday."
+            },
+            {
+              "id": "en-a1-time-and-days-11-t2",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "translate",
+              "prompt": "Завтра утром.",
+              "canonicalAnswer": "Tomorrow morning."
+            },
+            {
+              "id": "en-a1-time-and-days-11-t3",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time"
+              ],
+              "type": "translate",
+              "prompt": "Она сегодня в четыре.",
+              "canonicalAnswer": "It is today at four.",
+              "acceptedAnswers": [
+                "It's today at four."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-12",
+          "title": "A quick reminder",
+          "summary": "Напомнить о встрече сообщением.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-12-d",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "dialogue",
+              "title": "Напоминание",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Hi! Just a reminder: today at four.",
+                  "translation": "Привет! Напоминаю: сегодня в четыре."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Thanks! I remember.",
+                  "translation": "Спасибо! Помню."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The address is in the message.",
+                  "translation": "Адрес в сообщении."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Got it. See you there.",
+                  "translation": "Понял. До встречи."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "See you!",
+                  "translation": "До встречи!"
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-12-w1",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "a reminder",
+              "translation": "напоминание",
+              "example": "Just a reminder."
+            },
+            {
+              "id": "en-a1-time-and-days-12-w2",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "I remember.",
+              "translation": "Я помню.",
+              "example": "Thanks, I remember."
+            },
+            {
+              "id": "en-a1-time-and-days-12-w3",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "a message",
+              "translation": "сообщение",
+              "example": "The address is in the message."
+            },
+            {
+              "id": "en-a1-time-and-days-12-w4",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "Got it.",
+              "translation": "Понял.",
+              "example": "Got it, thanks."
+            },
+            {
+              "id": "en-a1-time-and-days-12-w5",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "flashcard",
+              "prompt": "See you there.",
+              "translation": "До встречи там.",
+              "example": "Got it. See you there."
+            },
+            {
+              "id": "en-a1-time-and-days-12-r",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "info",
+              "title": "Just смягчает",
+              "explanation": "Just a reminder, just a question, just checking — слово just делает сообщение лёгким и необязывающим. Без него a reminder звучит как выговор, особенно в переписке с коллегой."
+            },
+            {
+              "id": "en-a1-time-and-days-12-c1",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Просто напоминаю» —",
+              "options": [
+                "Just a reminder",
+                "Only a reminder is",
+                "A just reminder"
+              ],
+              "correctOption": "Just a reminder"
+            },
+            {
+              "id": "en-a1-time-and-days-12-c2",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Понял» —",
+              "options": [
+                "Got it",
+                "I got",
+                "Get it"
+              ],
+              "correctOption": "Got it"
+            },
+            {
+              "id": "en-a1-time-and-days-12-c3",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Адрес в сообщении» —",
+              "options": [
+                "The address is in the message",
+                "The address in message is",
+                "Address is on the message"
+              ],
+              "correctOption": "The address is in the message"
+            },
+            {
+              "id": "en-a1-time-and-days-12-o",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "word_order",
+              "prompt": "Просто напоминаю: сегодня в четыре.",
+              "canonicalAnswer": "Just a reminder: today at four.",
+              "tokens": [
+                "four",
+                "at",
+                "today",
+                "reminder:",
+                "a",
+                "Just"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-12-t1",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "translate",
+              "prompt": "Просто напоминаю.",
+              "canonicalAnswer": "Just a reminder."
+            },
+            {
+              "id": "en-a1-time-and-days-12-t2",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "translate",
+              "prompt": "Спасибо, я помню.",
+              "canonicalAnswer": "Thanks, I remember."
+            },
+            {
+              "id": "en-a1-time-and-days-12-t3",
+              "topics": [
+                "a1-tema-contact",
+                "a1-tema-meetings"
+              ],
+              "type": "translate",
+              "prompt": "Понял. До встречи.",
+              "canonicalAnswer": "Got it. See you there."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-13",
+          "title": "Time zones and calls",
+          "summary": "Разница во времени и созвоны.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-13-d",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "dialogue",
+              "title": "Разные часовые пояса",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "What time is it for you now?",
+                  "translation": "Сколько у тебя сейчас времени?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Two in the afternoon. And for you?",
+                  "translation": "Два часа дня. А у тебя?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Five. Three hours difference.",
+                  "translation": "Пять. Разница три часа."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "So a call at six is fine for both.",
+                  "translation": "Значит созвон в шесть удобен обоим."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Agreed.",
+                  "translation": "Договорились."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-13-w1",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "a difference",
+              "translation": "разница",
+              "example": "Three hours difference."
+            },
+            {
+              "id": "en-a1-time-and-days-13-w2",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "for you",
+              "translation": "у тебя, для тебя",
+              "example": "What time is it for you?"
+            },
+            {
+              "id": "en-a1-time-and-days-13-w3",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "a call",
+              "translation": "звонок, созвон",
+              "example": "A call at six."
+            },
+            {
+              "id": "en-a1-time-and-days-13-w4",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "both",
+              "translation": "оба",
+              "example": "Fine for both."
+            },
+            {
+              "id": "en-a1-time-and-days-13-w5",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "flashcard",
+              "prompt": "Agreed.",
+              "translation": "Договорились.",
+              "example": "Agreed, see you then."
+            },
+            {
+              "id": "en-a1-time-and-days-13-r",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "info",
+              "title": "In the afternoon вместо PM",
+              "explanation": "В разговоре редко говорят two PM: чаще two in the afternoon, eight in the evening. Формат с AM и PM живёт в расписаниях и письмах, а вслух звучит по-канцелярски."
+            },
+            {
+              "id": "en-a1-time-and-days-13-c1",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Два часа дня» —",
+              "options": [
+                "two in the afternoon",
+                "two of afternoon",
+                "two at the afternoon"
+              ],
+              "correctOption": "two in the afternoon"
+            },
+            {
+              "id": "en-a1-time-and-days-13-c2",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Разница три часа» —",
+              "options": [
+                "three hours difference",
+                "difference of three hour",
+                "three hour of difference"
+              ],
+              "correctOption": "three hours difference"
+            },
+            {
+              "id": "en-a1-time-and-days-13-c3",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Удобно обоим» —",
+              "options": [
+                "fine for both",
+                "fine to both of",
+                "good for the both"
+              ],
+              "correctOption": "fine for both"
+            },
+            {
+              "id": "en-a1-time-and-days-13-o",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "word_order",
+              "prompt": "Сколько у тебя сейчас времени?",
+              "canonicalAnswer": "What time is it for you now?",
+              "tokens": [
+                "now",
+                "you",
+                "for",
+                "it",
+                "is",
+                "time",
+                "What"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-13-t1",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "translate",
+              "prompt": "Два часа дня.",
+              "canonicalAnswer": "Two in the afternoon."
+            },
+            {
+              "id": "en-a1-time-and-days-13-t2",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "translate",
+              "prompt": "Разница три часа.",
+              "canonicalAnswer": "Three hours difference."
+            },
+            {
+              "id": "en-a1-time-and-days-13-t3",
+              "topics": [
+                "a1-tema-contact",
+                "a1-prepositions-time",
+                "a1-questions"
+              ],
+              "type": "translate",
+              "prompt": "Договорились.",
+              "canonicalAnswer": "Agreed."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-14",
+          "title": "Every Monday",
+          "summary": "Регулярные встречи и расписание недели.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-14-d",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "dialogue",
+              "title": "Расписание",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Do you have English every Monday?",
+                  "translation": "У тебя английский каждый понедельник?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "On Mondays and Thursdays.",
+                  "translation": "По понедельникам и четвергам."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "At the same time?",
+                  "translation": "В одно и то же время?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Yes, always at seven.",
+                  "translation": "Да, всегда в семь."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "A good routine.",
+                  "translation": "Хороший режим."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-14-w1",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "flashcard",
+              "prompt": "every Monday",
+              "translation": "каждый понедельник",
+              "example": "English every Monday."
+            },
+            {
+              "id": "en-a1-time-and-days-14-w2",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "flashcard",
+              "prompt": "on Mondays",
+              "translation": "по понедельникам",
+              "example": "On Mondays and Thursdays."
+            },
+            {
+              "id": "en-a1-time-and-days-14-w3",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "flashcard",
+              "prompt": "at the same time",
+              "translation": "в одно и то же время",
+              "example": "Always at the same time."
+            },
+            {
+              "id": "en-a1-time-and-days-14-w4",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "flashcard",
+              "prompt": "a lesson",
+              "translation": "урок, занятие",
+              "example": "A lesson at seven."
+            },
+            {
+              "id": "en-a1-time-and-days-14-w5",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "flashcard",
+              "prompt": "a routine",
+              "translation": "режим, распорядок",
+              "example": "A good routine."
+            },
+            {
+              "id": "en-a1-time-and-days-14-r",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "info",
+              "title": "Mondays во множественном",
+              "explanation": "Регулярность выражают множественным числом дня: on Mondays — «по понедельникам». Every Monday значит то же самое, но звучит чуть сильнее, с упором на «каждый»."
+            },
+            {
+              "id": "en-a1-time-and-days-14-c1",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«По понедельникам» —",
+              "options": [
+                "on Mondays",
+                "in Mondays",
+                "at Monday every"
+              ],
+              "correctOption": "on Mondays"
+            },
+            {
+              "id": "en-a1-time-and-days-14-c2",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Всегда в семь» —",
+              "options": [
+                "always at seven",
+                "at always seven",
+                "always in seven"
+              ],
+              "correctOption": "always at seven"
+            },
+            {
+              "id": "en-a1-time-and-days-14-c3",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В одно и то же время» —",
+              "options": [
+                "at the same time",
+                "in the same time",
+                "on same time"
+              ],
+              "correctOption": "at the same time"
+            },
+            {
+              "id": "en-a1-time-and-days-14-o",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "word_order",
+              "prompt": "По понедельникам и четвергам.",
+              "canonicalAnswer": "On Mondays and Thursdays.",
+              "tokens": [
+                "Thursdays",
+                "and",
+                "Mondays",
+                "On"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-14-t1",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "translate",
+              "prompt": "У меня английский каждый понедельник.",
+              "canonicalAnswer": "I have English every Monday."
+            },
+            {
+              "id": "en-a1-time-and-days-14-t2",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "translate",
+              "prompt": "Всегда в семь.",
+              "canonicalAnswer": "Always at seven."
+            },
+            {
+              "id": "en-a1-time-and-days-14-t3",
+              "topics": [
+                "a1-tema-routine",
+                "a1-prepositions-time",
+                "a1-adverbs-frequency"
+              ],
+              "type": "translate",
+              "prompt": "Хороший режим.",
+              "canonicalAnswer": "A good routine.",
+              "acceptedAnswers": [
+                "It's a good routine."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-15",
+          "title": "Confirming the time",
+          "summary": "Убедиться, что вы поняли друг друга.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-15-d",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "dialogue",
+              "title": "Подтверждение",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "So, Thursday at three?",
+                  "translation": "Итак, четверг в три?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Thursday at three, yes.",
+                  "translation": "Четверг в три, да."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "In your office?",
+                  "translation": "У тебя в офисе?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Yes, third floor.",
+                  "translation": "Да, третий этаж."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "See you then. I confirm by message.",
+                  "translation": "Тогда до встречи. Подтвержу сообщением."
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-15-w1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "So…",
+              "translation": "Итак …",
+              "example": "So, Thursday at three?"
+            },
+            {
+              "id": "en-a1-time-and-days-15-w2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "confirm",
+              "translation": "подтвердить",
+              "example": "I confirm by message."
+            },
+            {
+              "id": "en-a1-time-and-days-15-w3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "in your office",
+              "translation": "у тебя в офисе",
+              "example": "The meeting is in your office."
+            },
+            {
+              "id": "en-a1-time-and-days-15-w4",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "Right?",
+              "translation": "Верно?",
+              "example": "Thursday at three, right?"
+            },
+            {
+              "id": "en-a1-time-and-days-15-w5",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "Exactly.",
+              "translation": "Именно.",
+              "example": "Exactly, see you."
+            },
+            {
+              "id": "en-a1-time-and-days-15-r",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "info",
+              "title": "Повторить — значит подтвердить",
+              "explanation": "Договорившись, англичане повторяют время вслух: Thursday at three, yes. Это не переспрашивание, а подтверждение, и именно так избегают половины недоразумений с встречами."
+            },
+            {
+              "id": "en-a1-time-and-days-15-c1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Четверг в три, верно?» —",
+              "options": [
+                "Thursday at three, right?",
+                "Thursday in three, right?",
+                "Right Thursday at three is?"
+              ],
+              "correctOption": "Thursday at three, right?"
+            },
+            {
+              "id": "en-a1-time-and-days-15-c2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Подтвержу сообщением» —",
+              "options": [
+                "I confirm by message",
+                "I confirm with a message it",
+                "I am confirm by message"
+              ],
+              "correctOption": "I confirm by message"
+            },
+            {
+              "id": "en-a1-time-and-days-15-c3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Именно» —",
+              "options": [
+                "Exactly",
+                "Exact",
+                "Exactly it is so"
+              ],
+              "correctOption": "Exactly"
+            },
+            {
+              "id": "en-a1-time-and-days-15-o",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "word_order",
+              "prompt": "Четверг в три, верно?",
+              "canonicalAnswer": "Thursday at three, right?",
+              "tokens": [
+                "right",
+                "three",
+                "at",
+                "Thursday"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-15-t1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Итак, четверг в три?",
+              "canonicalAnswer": "So, Thursday at three?"
+            },
+            {
+              "id": "en-a1-time-and-days-15-t2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Да, третий этаж.",
+              "canonicalAnswer": "Yes, third floor."
+            },
+            {
+              "id": "en-a1-time-and-days-15-t3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-questions",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Подтвержу сообщением.",
+              "canonicalAnswer": "I confirm by message."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-16",
+          "title": "A week of plans",
+          "summary": "Весь блок: договориться, перенести, подтвердить.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-16-d",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "dialogue",
+              "title": "Неделя целиком",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Are you free this week?",
+                  "translation": "Ты свободен на этой неделе?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "On Wednesday after lunch.",
+                  "translation": "В среду после обеда."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Can we say two o'clock?",
+                  "translation": "Скажем, в два?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Two works. Where?",
+                  "translation": "Два подходит. Где?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "In the café near your office. See you!",
+                  "translation": "В кафе рядом с твоим офисом. До встречи!"
+                }
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-16-w1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "Are you free this week?",
+              "translation": "Свободен на этой неделе?",
+              "example": "Hi! Are you free this week?"
+            },
+            {
+              "id": "en-a1-time-and-days-16-w2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "Two works.",
+              "translation": "Два подходит.",
+              "example": "Two works for me."
+            },
+            {
+              "id": "en-a1-time-and-days-16-w3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "near your office",
+              "translation": "рядом с твоим офисом",
+              "example": "The café near your office."
+            },
+            {
+              "id": "en-a1-time-and-days-16-w4",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "a plan for the week",
+              "translation": "план на неделю",
+              "example": "A plan for the week."
+            },
+            {
+              "id": "en-a1-time-and-days-16-w5",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "flashcard",
+              "prompt": "busy week",
+              "translation": "занятая неделя",
+              "example": "It is a busy week."
+            },
+            {
+              "id": "en-a1-time-and-days-16-r",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "info",
+              "title": "Договорённость — четыре шага",
+              "explanation": "Свободен? → когда? → во сколько? → где? Этих четырёх вопросов хватает, чтобы назначить встречу на любом языке, и на A1 они все уже есть. Всё остальное — вежливость вокруг них."
+            },
+            {
+              "id": "en-a1-time-and-days-16-c1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Два подходит» —",
+              "options": [
+                "Two works",
+                "Two is work",
+                "Two works to me it"
+              ],
+              "correctOption": "Two works"
+            },
+            {
+              "id": "en-a1-time-and-days-16-c2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Рядом с твоим офисом» —",
+              "options": [
+                "near your office",
+                "near of your office",
+                "in near your office"
+              ],
+              "correctOption": "near your office"
+            },
+            {
+              "id": "en-a1-time-and-days-16-c3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Занятая неделя» —",
+              "options": [
+                "a busy week",
+                "a week busy",
+                "the busy of week"
+              ],
+              "correctOption": "a busy week"
+            },
+            {
+              "id": "en-a1-time-and-days-16-o",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "word_order",
+              "prompt": "В кафе рядом с твоим офисом.",
+              "canonicalAnswer": "In the café near your office.",
+              "tokens": [
+                "office",
+                "your",
+                "near",
+                "café",
+                "the",
+                "In"
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-16-t1",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Ты свободен на этой неделе?",
+              "canonicalAnswer": "Are you free this week?"
+            },
+            {
+              "id": "en-a1-time-and-days-16-t2",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "В среду после обеда.",
+              "canonicalAnswer": "On Wednesday after lunch."
+            },
+            {
+              "id": "en-a1-time-and-days-16-t3",
+              "topics": [
+                "a1-tema-meetings",
+                "a1-prepositions-time",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Два подходит.",
+              "canonicalAnswer": "Two works."
+            }
+          ]
+        },
+        {
+          "id": "en-a1-time-and-days-check",
+          "title": "Проверка: время и дни",
+          "summary": "Шесть фраз без подсказок — весь блок целиком.",
+          "estimatedMinutes": 5,
+          "kind": "checkpoint",
+          "exercises": [
+            {
+              "id": "en-a1-time-and-days-check-t1",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-meetings",
+                "a1-tema-routine",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Ты свободен в понедельник?",
+              "canonicalAnswer": "Are you free on Monday?"
+            },
+            {
+              "id": "en-a1-time-and-days-check-t2",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-meetings",
+                "a1-tema-routine",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "В половине седьмого.",
+              "canonicalAnswer": "At half past six."
+            },
+            {
+              "id": "en-a1-time-and-days-check-t3",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-meetings",
+                "a1-tema-routine",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Извини, я опаздываю на десять минут.",
+              "canonicalAnswer": "Sorry, I am ten minutes late.",
+              "acceptedAnswers": [
+                "Sorry, I'm ten minutes late."
+              ]
+            },
+            {
+              "id": "en-a1-time-and-days-check-t4",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-meetings",
+                "a1-tema-routine",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Можем перенести встречу?",
+              "canonicalAnswer": "Can we move our meeting?"
+            },
+            {
+              "id": "en-a1-time-and-days-check-t5",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-meetings",
+                "a1-tema-routine",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "Сколько это занимает?",
+              "canonicalAnswer": "How long does it take?"
+            },
+            {
+              "id": "en-a1-time-and-days-check-t6",
+              "topics": [
+                "a1-prepositions-time",
+                "a1-tema-meetings",
+                "a1-tema-routine",
+                "a1-tema-contact"
+              ],
+              "type": "translate",
+              "prompt": "По понедельникам и четвергам.",
+              "canonicalAnswer": "On Mondays and Thursdays."
             }
           ]
         }

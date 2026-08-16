@@ -1,3 +1,5 @@
+import type { LearnerHome } from './home'
+
 /** Mirrors EnglishCoachCore/Models.swift. The JSON on disk is shared with the macOS app. */
 
 export type CEFRLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1'
@@ -164,6 +166,11 @@ export interface PlacementBank {
 
 export interface UserProfile {
   selectedLevel: CEFRLevel
+  /**
+   * Откуда учащийся. Необязательное: у профилей, заведённых до этой возможности,
+   * его нет, и курс подставляет нейтральный пример, пока человек не скажет своё.
+   */
+  home?: LearnerHome
   dailyGoalMinutes: number
   reminderHour: number
   reminderMinute: number

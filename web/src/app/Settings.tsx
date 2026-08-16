@@ -6,7 +6,7 @@ import { disablePush, enablePush, pushState } from './push'
 import { chooseVoice, chosenVoiceName, speak, voicesFor } from './speech'
 import { THEMES, applyTheme, loadTheme } from './theme'
 import type { PushState } from './push'
-import { LEVELS, importBackup } from '../core'
+import { COMMON_COUNTRIES, LEVELS, importBackup } from '../core'
 import { downloadBackup } from './backup'
 import type { CEFRLevel, LanguageCode } from '../core'
 import type { ThemeID } from './theme'
@@ -31,6 +31,7 @@ const SWATCH: Record<LanguageCode, Record<ThemeID, string[]>> = {
 
 export function Settings() {
   const model = useStore()
+  const [own, setOwn] = useState('')
   const [placement, setPlacement] = useState<'closed' | 'running' | CEFRLevel>('closed')
   const [message, setMessage] = useState<string | null>(null)
   const [theme, setTheme] = useState(loadTheme)
@@ -198,6 +199,38 @@ export function Settings() {
             </button>
           )}
         </div>
+
+        {/* Курс говорит «я из …» словами того, кто его проходит. Пока страна не выбрана,
+            в упражнениях стоит чужая для примера — и это видно по подписи. */}
+        <div className="settings-group">
+          <div className="settings-row" style={{ display: 'block', paddingTop: 12, paddingBottom: 12 }}>
+            <span className="label">Откуда ты</span>
+            <div className="pills" style={{ marginTop: 10 }}>
+              {COMMON_COUNTRIES.map((item) => (
+                <button
+                  key={item.country}
+                  className={`pill${model.home.country === item.country ? ' selected' : ''}`}
+                  style={{ minHeight: 36 }}
+                  onClick={() => model.setHome(item)}
+                >
+                  {item.title}
+                </button>
+              ))}
+            </div>
+            <input
+              className="answer-field home-input"
+              value={own}
+              placeholder="Другая страна — по-английски"
+              onChange={(event) => setOwn(event.target.value)}
+              onBlur={() => { if (own.trim()) model.setHome({ country: own.trim(), city: '' }) }}
+            />
+          </div>
+        </div>
+        <p className="settings-note">
+          {model.homeIsSet
+            ? `Упражнения про себя говорят «${model.home.country}» — так, как сказал бы ты.`
+            : 'Пока страна не выбрана, в упражнениях стоит чужая для примера.'}
+        </p>
 
         <div className="settings-group">
           <div className="settings-row">

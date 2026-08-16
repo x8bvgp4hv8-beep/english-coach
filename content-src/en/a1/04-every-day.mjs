@@ -37,7 +37,7 @@ export default {
       ]],
       words: [
         ['I work', 'я работаю', 'I work in a bank.'],
-        ['I live', 'я живу', 'I live in Moscow.'],
+        ['I live', 'я живу', 'I live in {city}.'],
         ['a bank', 'банк', 'The bank is open.'],
         ['a park', 'парк', 'The park is near.'],
         ['near', 'рядом, около', 'I live near the park.'],

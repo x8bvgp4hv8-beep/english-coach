@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react'
 import { useStore } from './App'
 import { PlacementTest } from './Placement'
 import { hatFor } from '../mascot/Rhino'
-import { LEVELS } from '../core'
+import { COMMON_COUNTRIES, LEVELS } from '../core'
 import { ActionCard, Pill, PrimaryButton, SecondaryButton, SectionTitle } from '../kit'
-import type { CEFRLevel } from '../core'
+import type { CEFRLevel, LearnerHome } from '../core'
 
 type Stage = 'levelchoice' | 'placement' | 'result' | 'setup' | 'ready'
 
@@ -39,13 +39,16 @@ export function Onboarding() {
   const [stage, setStage] = useState<Stage>('levelchoice')
   const [level, setLevel] = useState<CEFRLevel>('A1')
   const [goal, setGoal] = useState(10)
+  /** Страна учащегося: из списка или вписанная руками. */
+  const [home, setHome] = useState<LearnerHome>(COMMON_COUNTRIES[0])
+  const [own, setOwn] = useState('')
 
   // The last beat before the map: the rhino says it is ready, and then it is.
   useEffect(() => {
     if (stage !== 'ready') return
-    const timer = setTimeout(() => model.completeOnboarding(level, goal), 680)
+    const timer = setTimeout(() => model.completeOnboarding(level, goal, home), 680)
     return () => clearTimeout(timer)
-  }, [stage, level, goal, model])
+  }, [stage, level, goal, home, model])
 
   if (stage === 'placement') {
     return (
@@ -142,6 +145,27 @@ export function Onboarding() {
           </button>
         ))}
       </div>
+
+      {/* «Я из России» — первая фраза о себе на любом языке, и она должна быть про тебя.
+          Курс подставит эту страну во все упражнения, где человек говорит о себе. */}
+      <SectionTitle hint="Курс будет говорить о тебе, а не о выдуманном человеке">Откуда ты</SectionTitle>
+      <div className="pill-row">
+        {COMMON_COUNTRIES.map((item) => (
+          <button key={item.country} className="pill-button" onClick={() => { setHome(item); setOwn('') }}>
+            <Pill selected={own === '' && item.country === home.country}>{item.title}</Pill>
+          </button>
+        ))}
+      </div>
+      <input
+        className="answer-field home-input"
+        value={own}
+        placeholder="Другая страна — по-английски"
+        onChange={(event) => {
+          const value = event.target.value
+          setOwn(value)
+          if (value.trim()) setHome({ country: value.trim(), city: '' })
+        }}
+      />
 
       {/* Keyed by the pair, so the card blinks when either answer changes. */}
       <div className="plan-card" key={`${level}-${goal}`}>

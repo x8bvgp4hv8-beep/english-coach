@@ -53,11 +53,17 @@ function shown(exercise) {
 
 const normalise = (text) => text.toLowerCase().replace(/[^\p{L}\p{N}' ]/gu, ' ').replace(/\s+/g, ' ').trim()
 
+// Подстановки заменяются на нейтральный пример до всех проверок: приложение делает
+// то же самое при загрузке, и проверять надо ровно тот текст, который увидит человек.
+const EXAMPLE_HOME = { '{country}': 'Spain', '{city}': 'Madrid', '{страна}': 'Испании', '{город}': 'Мадрида' }
+const personalise = (text) => Object.entries(EXAMPLE_HOME)
+  .reduce((out, [key, value]) => out.split(key).join(value), text)
+
 const language = process.argv[2] ?? 'en'
 const packs = []
 for (const level of LEVELS) {
   try {
-    packs.push(JSON.parse(readFileSync(join(languages, language, `${language}-${level}.json`), 'utf8')))
+    packs.push(JSON.parse(personalise(readFileSync(join(languages, language, `${language}-${level}.json`), 'utf8'))))
   } catch { /* уровня может не быть на диске */ }
 }
 const syllabus = JSON.parse(readFileSync(join(languages, language, `${language}-syllabus.json`), 'utf8'))

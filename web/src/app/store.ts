@@ -16,13 +16,15 @@ import {
   TopicProgressEngine,
   freshState,
   languageOf,
+  DEFAULT_HOME,
   loadContent,
   localProgressStore,
+  personalise,
   taughtCourses,
 } from '../core'
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
-  PlacementQuestion, ShadowingItem, Syllabus, TopicProgress, UserState,
+  LearnerHome, PlacementQuestion, ShadowingItem, Syllabus, TopicProgress, UserState,
 } from '../core'
 
 /**
@@ -80,6 +82,12 @@ export class AppStore {
   /** `null` until the learner has picked a language; that is what opens the picker. */
   language: LanguageCode | null = null
   courses: CoursePack[] = []
+  /**
+   * Курс как он лежит на диске, с подстановками `{country}` и `{city}` на месте.
+   * `courses` — тот же курс, но уже про этого человека; при смене страны он
+   * пересобирается отсюда, а не из уже подставленного текста.
+   */
+  private rawCourses: CoursePack[] = []
   placementBank: PlacementQuestion[] = []
   syllabus: Syllabus | null = null
   state: UserState = freshState()
@@ -198,10 +206,11 @@ export class AppStore {
     this.startupError = null
     try {
       const { courses, placement, syllabus } = await loadContent(language)
-      this.courses = courses
+      this.rawCourses = courses
+      this.state = localProgressStore(language).load()
+      this.courses = personalise(courses, this.home)
       this.placementBank = placement.questions
       this.syllabus = syllabus
-      this.state = localProgressStore(language).load()
       this.session = new LearningSession(this.state, language)
     } catch (error) {
       this.startupError = error instanceof Error ? error.message : 'Не удалось загрузить учебные материалы'
@@ -481,10 +490,24 @@ export class AppStore {
 
   // MARK: - Profile
 
-  completeOnboarding(level: CEFRLevel, dailyGoal: number): void {
+  /** Откуда учащийся: его собственная страна вместо чужой из примера. */
+  get home(): LearnerHome { return this.state.profile?.home ?? DEFAULT_HOME }
+  get homeIsSet(): boolean { return this.state.profile?.home != null }
+
+  setHome(home: LearnerHome): void {
+    if (!this.state.profile) return
+    this.state.profile = { ...this.state.profile, home }
+    // Курс собирается заново из сырья: иначе вчерашняя страна осталась бы вшитой.
+    this.courses = personalise(this.rawCourses, home)
+    this.persist()
+  }
+
+  completeOnboarding(level: CEFRLevel, dailyGoal: number, home?: LearnerHome): void {
     this.state.profile = {
       selectedLevel: level, dailyGoalMinutes: dailyGoal, reminderHour: 19, reminderMinute: 0, remindersEnabled: false,
+      ...(home ? { home } : {}),
     }
+    if (home) this.courses = personalise(this.rawCourses, home)
     this.persist()
   }
 

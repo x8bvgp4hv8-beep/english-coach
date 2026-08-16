@@ -1,6 +1,7 @@
 export * from './types'
 export * from './answer'
 export * from './engines'
+export * from './home'
 export * from './language'
 export * from './content'
 export * from './listening'
