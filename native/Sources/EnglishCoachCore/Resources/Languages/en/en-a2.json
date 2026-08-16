@@ -97795,6 +97795,3386 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en-a2-at-the-hotel",
+      "title": "At the hotel",
+      "subtitle": "Заселение, просьбы, жалобы и выезд без нервов",
+      "canDo": [
+        "заселиться и понять условия",
+        "попросить о смене номера или вещах",
+        "пожаловаться так, чтобы помогли",
+        "спросить о завтраке, вайфае и трансфере",
+        "выехать и оставить багаж"
+      ],
+      "lessons": [
+        {
+          "id": "en-a2-at-the-hotel-01",
+          "title": "I have a reservation",
+          "summary": "Заселение.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-01-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "dialogue",
+              "title": "На стойке",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I have a reservation for two nights.",
+                  "translation": "У меня бронь на две ночи."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Your passport, please.",
+                  "translation": "Паспорт, пожалуйста."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Here you are.",
+                  "translation": "Вот, пожалуйста."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Room 412, fourth floor.",
+                  "translation": "Номер 412, четвёртый этаж."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And breakfast is included?",
+                  "translation": "Завтрак включён?"
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "a reservation",
+              "translation": "бронь",
+              "example": "I have a reservation for two nights."
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "for two nights",
+              "translation": "на две ночи",
+              "example": "A reservation for two nights."
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "Here you are.",
+              "translation": "Вот, пожалуйста.",
+              "example": "Here you are, my passport."
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "fourth floor",
+              "translation": "четвёртый этаж",
+              "example": "Room 412, fourth floor."
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "breakfast is included",
+              "translation": "завтрак включён",
+              "example": "And breakfast is included?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "info",
+              "title": "Nights, а не days",
+              "explanation": "Гостиницу считают ночами: two nights, a week. Русское «на два дня» переводится как two nights, иначе получается путаница на сутки — и в брони, и в счёте."
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Бронь на две ночи» —",
+              "options": [
+                "a reservation for two nights",
+                "a reservation for two days",
+                "a reservation on two nights"
+              ],
+              "correctOption": "a reservation for two nights"
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Завтрак включён?» —",
+              "options": [
+                "Is breakfast included?",
+                "Is the breakfast include?",
+                "Is breakfast included in it of?"
+              ],
+              "correctOption": "Is breakfast included?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Вот, пожалуйста» —",
+              "options": [
+                "Here you are",
+                "Here is you",
+                "There you are here"
+              ],
+              "correctOption": "Here you are"
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "У меня бронь на две ночи.",
+              "canonicalAnswer": "I have a reservation for two nights.",
+              "tokens": [
+                "nights",
+                "two",
+                "for",
+                "reservation",
+                "a",
+                "have",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "У меня бронь на две ночи.",
+              "canonicalAnswer": "I have a reservation for two nights.",
+              "acceptedAnswers": [
+                "I've got a reservation for two nights."
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Вот, пожалуйста.",
+              "canonicalAnswer": "Here you are."
+            },
+            {
+              "id": "en-a2-at-the-hotel-01-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Завтрак включён?",
+              "canonicalAnswer": "Is breakfast included?"
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-02",
+          "title": "What time is check-out?",
+          "summary": "Время заезда и выезда.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-02-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Время",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "What time is check-out?",
+                  "translation": "Во сколько выезд?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Eleven, but we can hold your bags.",
+                  "translation": "В одиннадцать, но сумки можем подержать."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And late check-out?",
+                  "translation": "А поздний выезд?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Until two, twenty euros.",
+                  "translation": "До двух, двадцать евро."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The bags are enough.",
+                  "translation": "Хватит и сумок."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "check-out",
+              "translation": "выезд",
+              "example": "What time is check-out?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "hold your bags",
+              "translation": "подержать сумки",
+              "example": "We can hold your bags."
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "late check-out",
+              "translation": "поздний выезд",
+              "example": "And late check-out?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "until two",
+              "translation": "до двух",
+              "example": "Until two, twenty euros."
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "check-in",
+              "translation": "заселение",
+              "example": "Check-in is at three."
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Check-in и check-out — существительные через дефис",
+              "explanation": "What time is check-out — существительное. To check out of the hotel — глагол, раздельно. Правило то же, что с fill in и fill-in, и разница видна только на письме."
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Во сколько выезд?» —",
+              "options": [
+                "What time is check-out?",
+                "What time is check out the?",
+                "What time do check-out?"
+              ],
+              "correctOption": "What time is check-out?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы можем подержать ваши сумки» —",
+              "options": [
+                "We can hold your bags",
+                "We can to hold your bags",
+                "We can holding your bags"
+              ],
+              "correctOption": "We can hold your bags"
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«До двух» —",
+              "options": [
+                "until two",
+                "till the two",
+                "by two until"
+              ],
+              "correctOption": "until two"
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "В одиннадцать, но сумки можем подержать.",
+              "canonicalAnswer": "Eleven, but we can hold your bags.",
+              "tokens": [
+                "bags",
+                "your",
+                "hold",
+                "can",
+                "we",
+                "but",
+                "Eleven"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Во сколько выезд?",
+              "canonicalAnswer": "What time is check-out?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "В одиннадцать, но сумки можем подержать.",
+              "canonicalAnswer": "Eleven, but we can hold your bags."
+            },
+            {
+              "id": "en-a2-at-the-hotel-02-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "А поздний выезд?",
+              "canonicalAnswer": "And late check-out?"
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-03",
+          "title": "Could I have another room?",
+          "summary": "Сменить номер.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-03-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "dialogue",
+              "title": "Другой номер",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Could I have another room?",
+                  "translation": "Можно другой номер?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Is something wrong?",
+                  "translation": "Что-то не так?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "It faces the road, and it is loud.",
+                  "translation": "Он выходит на дорогу, шумно."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "I have one at the back.",
+                  "translation": "Есть один во двор."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That would be perfect.",
+                  "translation": "Было бы отлично."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "another room",
+              "translation": "другой номер",
+              "example": "Could I have another room?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "Is something wrong?",
+              "translation": "Что-то не так?",
+              "example": "Is something wrong with it?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "it faces the road",
+              "translation": "выходит на дорогу",
+              "example": "It faces the road."
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "at the back",
+              "translation": "во двор, с задней стороны",
+              "example": "I have one at the back."
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "That would be perfect.",
+              "translation": "Было бы отлично.",
+              "example": "That would be perfect, thank you."
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "info",
+              "title": "Another и other",
+              "explanation": "Another room — ещё один, любой другой. The other room — тот самый второй из двух. Another пишется слитно и всегда с единственным числом: another rooms не бывает."
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Можно другой номер?» —",
+              "options": [
+                "Could I have another room?",
+                "Could I have other room?",
+                "Could I have an other rooms?"
+              ],
+              "correctOption": "Could I have another room?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Он выходит на дорогу» —",
+              "options": [
+                "It faces the road",
+                "It faces to the road",
+                "It is face the road"
+              ],
+              "correctOption": "It faces the road"
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Было бы отлично» —",
+              "options": [
+                "That would be perfect",
+                "That will be perfect would",
+                "That would to be perfect"
+              ],
+              "correctOption": "That would be perfect"
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "word_order",
+              "prompt": "Он выходит на дорогу, шумно.",
+              "canonicalAnswer": "It faces the road, and it is loud.",
+              "tokens": [
+                "loud",
+                "is",
+                "it",
+                "and",
+                "road",
+                "the",
+                "faces",
+                "It"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Можно другой номер?",
+              "canonicalAnswer": "Could I have another room?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Он выходит на дорогу, шумно.",
+              "canonicalAnswer": "It faces the road, and it is loud.",
+              "acceptedAnswers": [
+                "It faces the road, and it's loud."
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-03-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Было бы отлично.",
+              "canonicalAnswer": "That would be perfect."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-04",
+          "title": "The shower is not working",
+          "summary": "Жалоба на номер.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-04-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Не работает",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Sorry, the shower is not working.",
+                  "translation": "Извините, душ не работает."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "No hot water, or nothing at all?",
+                  "translation": "Нет горячей воды или совсем ничего?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Cold only.",
+                  "translation": "Только холодная."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I send somebody in ten minutes.",
+                  "translation": "Пришлю кого-нибудь через десять минут."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Thank you, I will be here.",
+                  "translation": "Спасибо, я буду здесь."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "the shower",
+              "translation": "душ",
+              "example": "The shower is not working."
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "no hot water",
+              "translation": "нет горячей воды",
+              "example": "No hot water?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "nothing at all",
+              "translation": "совсем ничего",
+              "example": "Or nothing at all?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "I send somebody",
+              "translation": "пришлю кого-нибудь",
+              "example": "I send somebody in ten minutes."
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "I will be here.",
+              "translation": "Я буду здесь.",
+              "example": "Thank you, I will be here."
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Жалоба в гостинице — о предмете",
+              "explanation": "The shower is not working, the room is cold, the window does not close. Подлежащее — вещь, а не человек: так жалоба остаётся просьбой починить, а не претензией к персоналу."
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Душ не работает» —",
+              "options": [
+                "The shower is not working",
+                "The shower does not working",
+                "The shower not works"
+              ],
+              "correctOption": "The shower is not working"
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Только холодная» —",
+              "options": [
+                "Cold only",
+                "Only cold water it",
+                "Cold alone"
+              ],
+              "correctOption": "Cold only"
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пришлю кого-нибудь» —",
+              "options": [
+                "I send somebody",
+                "I send anybody",
+                "I am send somebody"
+              ],
+              "correctOption": "I send somebody"
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Извините, душ не работает.",
+              "canonicalAnswer": "Sorry, the shower is not working.",
+              "tokens": [
+                "working",
+                "not",
+                "is",
+                "shower",
+                "the",
+                "Sorry"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Извините, душ не работает.",
+              "canonicalAnswer": "Sorry, the shower is not working.",
+              "acceptedAnswers": [
+                "Sorry, the shower isn't working."
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Только холодная.",
+              "canonicalAnswer": "Cold only."
+            },
+            {
+              "id": "en-a2-at-the-hotel-04-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Спасибо, я буду здесь.",
+              "canonicalAnswer": "Thank you, I will be here.",
+              "acceptedAnswers": [
+                "Thank you, I'll be here."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-05",
+          "title": "Could we have extra towels?",
+          "summary": "Попросить вещи.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-05-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "dialogue",
+              "title": "Ещё полотенца",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Could we have extra towels, please?",
+                  "translation": "Можно ещё полотенца?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "How many?",
+                  "translation": "Сколько?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Two, and a pillow.",
+                  "translation": "Два и подушку."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "I bring them up now.",
+                  "translation": "Сейчас принесу."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "You are very kind.",
+                  "translation": "Вы очень добры."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "extra towels",
+              "translation": "ещё полотенца",
+              "example": "Could we have extra towels?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "How many?",
+              "translation": "Сколько?",
+              "example": "How many towels?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "a pillow",
+              "translation": "подушка",
+              "example": "Two, and a pillow."
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "bring them up",
+              "translation": "принести наверх",
+              "example": "I bring them up now."
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "very kind",
+              "translation": "очень добры",
+              "example": "You are very kind."
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "info",
+              "title": "Extra — «дополнительный»",
+              "explanation": "Extra towels, an extra bed, extra charge. Слово стоит перед существительным и заменяет «ещё один». Русское «ещё» в значении «дополнительно» лучше переводить именно им, а не more."
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ещё полотенца» (дополнительные) —",
+              "options": [
+                "extra towels",
+                "more towels extra",
+                "another towels"
+              ],
+              "correctOption": "extra towels"
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Два и подушку» —",
+              "options": [
+                "Two, and a pillow",
+                "Two, and pillow",
+                "Two, and one pillows"
+              ],
+              "correctOption": "Two, and a pillow"
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Сейчас принесу» —",
+              "options": [
+                "I bring them up now",
+                "I bring up them now",
+                "I am bring them up now"
+              ],
+              "correctOption": "I bring them up now"
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "word_order",
+              "prompt": "Можно ещё полотенца?",
+              "canonicalAnswer": "Could we have extra towels, please?",
+              "tokens": [
+                "please",
+                "towels",
+                "extra",
+                "have",
+                "we",
+                "Could"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Можно ещё полотенца?",
+              "canonicalAnswer": "Could we have extra towels, please?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Два и подушку.",
+              "canonicalAnswer": "Two, and a pillow."
+            },
+            {
+              "id": "en-a2-at-the-hotel-05-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Вы очень добры.",
+              "canonicalAnswer": "You are very kind.",
+              "acceptedAnswers": [
+                "You're very kind."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-06",
+          "title": "Breakfast until ten",
+          "summary": "Завтрак.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-06-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Завтрак",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "What time is breakfast?",
+                  "translation": "Во сколько завтрак?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Seven to ten, in the back room.",
+                  "translation": "С семи до десяти, в дальнем зале."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And at the weekend?",
+                  "translation": "А в выходные?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Until eleven then.",
+                  "translation": "Тогда до одиннадцати."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Good, we sleep late.",
+                  "translation": "Хорошо, мы поздно встаём."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "What time is breakfast?",
+              "translation": "Во сколько завтрак?",
+              "example": "What time is breakfast served?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "seven to ten",
+              "translation": "с семи до десяти",
+              "example": "Seven to ten, yes."
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "the back room",
+              "translation": "дальний зал",
+              "example": "In the back room."
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "until eleven",
+              "translation": "до одиннадцати",
+              "example": "Until eleven then."
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "we sleep late",
+              "translation": "мы поздно встаём",
+              "example": "Good, we sleep late."
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Sleep late — «поздно встаём»",
+              "explanation": "Английское sleep late значит «спать допоздна», а не «поздно ложиться». Лечь поздно — go to bed late. Русское «поздно спать» двусмысленно, английское — нет."
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы поздно встаём» —",
+              "options": [
+                "We sleep late",
+                "We go to bed late",
+                "We sleep lately"
+              ],
+              "correctOption": "We sleep late"
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«С семи до десяти» —",
+              "options": [
+                "seven to ten",
+                "from seven until to ten",
+                "since seven to ten"
+              ],
+              "correctOption": "seven to ten"
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Во сколько завтрак?» —",
+              "options": [
+                "What time is breakfast?",
+                "What time breakfast is?",
+                "What time does breakfast?"
+              ],
+              "correctOption": "What time is breakfast?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "С семи до десяти, в дальнем зале.",
+              "canonicalAnswer": "Seven to ten, in the back room.",
+              "tokens": [
+                "room",
+                "back",
+                "the",
+                "in",
+                "ten",
+                "to",
+                "Seven"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Во сколько завтрак?",
+              "canonicalAnswer": "What time is breakfast?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "С семи до десяти, в дальнем зале.",
+              "canonicalAnswer": "Seven to ten, in the back room."
+            },
+            {
+              "id": "en-a2-at-the-hotel-06-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Хорошо, мы поздно встаём.",
+              "canonicalAnswer": "Good, we sleep late."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-07",
+          "title": "The wifi password",
+          "summary": "Интернет.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-07-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "dialogue",
+              "title": "Вайфай",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "The wifi does not connect.",
+                  "translation": "Вайфай не подключается."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which network do you see?",
+                  "translation": "Какую сеть видите?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Two with the same name.",
+                  "translation": "Две с одинаковым названием."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Take the one with the number.",
+                  "translation": "Берите ту, что с цифрой."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That worked, thank you.",
+                  "translation": "Заработало, спасибо."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "does not connect",
+              "translation": "не подключается",
+              "example": "The wifi does not connect."
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "which network",
+              "translation": "какую сеть",
+              "example": "Which network do you see?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "the same name",
+              "translation": "одинаковое название",
+              "example": "Two with the same name."
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "with the number",
+              "translation": "с цифрой",
+              "example": "The one with the number."
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "That worked.",
+              "translation": "Заработало.",
+              "example": "That worked, thank you."
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "info",
+              "title": "Which — выбор из видимого",
+              "explanation": "Which network do you see — сетей на экране конкретное число. What network звучало бы так, будто выбор бесконечен. Разница из блока про придаточные работает и в вопросах."
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Какую сеть видите?» —",
+              "options": [
+                "Which network do you see?",
+                "Which network you see?",
+                "Which network do you sees?"
+              ],
+              "correctOption": "Which network do you see?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Две с одинаковым названием» —",
+              "options": [
+                "Two with the same name",
+                "Two with same name",
+                "Two with the same names"
+              ],
+              "correctOption": "Two with the same name"
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Заработало» —",
+              "options": [
+                "That worked",
+                "That work",
+                "That is worked"
+              ],
+              "correctOption": "That worked"
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "word_order",
+              "prompt": "Берите ту, что с цифрой.",
+              "canonicalAnswer": "Take the one with the number.",
+              "tokens": [
+                "number",
+                "the",
+                "with",
+                "one",
+                "the",
+                "Take"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Вайфай не подключается.",
+              "canonicalAnswer": "The wifi does not connect.",
+              "acceptedAnswers": [
+                "The wifi doesn't connect."
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Две с одинаковым названием.",
+              "canonicalAnswer": "Two with the same name."
+            },
+            {
+              "id": "en-a2-at-the-hotel-07-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-tecno",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Берите ту, что с цифрой.",
+              "canonicalAnswer": "Take the one with the number."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-08",
+          "title": "Is there a lift?",
+          "summary": "Устройство гостиницы.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-08-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Есть ли лифт",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Is there a lift?",
+                  "translation": "Лифт есть?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "There is, behind the stairs.",
+                  "translation": "Есть, за лестницей."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And is there a safe in the room?",
+                  "translation": "А в номере сейф?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "In the wardrobe.",
+                  "translation": "В шкафу."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Good, I never find them.",
+                  "translation": "Хорошо, я их вечно не нахожу."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Is there a lift?",
+              "translation": "Лифт есть?",
+              "example": "Is there a lift in the hotel?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "behind the stairs",
+              "translation": "за лестницей",
+              "example": "There is, behind the stairs."
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "a safe",
+              "translation": "сейф",
+              "example": "Is there a safe in the room?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "the wardrobe",
+              "translation": "шкаф",
+              "example": "In the wardrobe."
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "I never find them.",
+              "translation": "Вечно не нахожу.",
+              "example": "I never find them, honestly."
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Lift и elevator",
+              "explanation": "В Британии lift, в Америке elevator. Табличка в отеле может быть любой; понимать нужно обе. То же с ground floor и first floor — этажи считаются по-разному, и это стоит уточнять."
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Лифт» (по-британски) —",
+              "options": [
+                "a lift",
+                "an elevator",
+                "a raise"
+              ],
+              "correctOption": "a lift"
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Есть, за лестницей» —",
+              "options": [
+                "There is, behind the stairs",
+                "There is, after the stairs",
+                "It is, behind the stairs"
+              ],
+              "correctOption": "There is, behind the stairs"
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В номере есть сейф?» —",
+              "options": [
+                "Is there a safe in the room?",
+                "Is it a safe in the room?",
+                "Has there a safe in the room?"
+              ],
+              "correctOption": "Is there a safe in the room?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Есть, за лестницей.",
+              "canonicalAnswer": "There is, behind the stairs.",
+              "tokens": [
+                "stairs",
+                "the",
+                "behind",
+                "is",
+                "There"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Лифт есть?",
+              "canonicalAnswer": "Is there a lift?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Есть, за лестницей.",
+              "canonicalAnswer": "There is, behind the stairs."
+            },
+            {
+              "id": "en-a2-at-the-hotel-08-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-city",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "А в номере сейф?",
+              "canonicalAnswer": "And is there a safe in the room?"
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-09",
+          "title": "Can you call a taxi?",
+          "summary": "Такси и трансфер.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-09-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Такси",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Can you call a taxi for six in the morning?",
+                  "translation": "Можете вызвать такси на шесть утра?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "To the airport?",
+                  "translation": "В аэропорт?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "To the airport, two people.",
+                  "translation": "В аэропорт, двое."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "It costs about thirty.",
+                  "translation": "Стоит около тридцати."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "That is fine, book it.",
+                  "translation": "Нормально, заказывайте."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "call a taxi",
+              "translation": "вызвать такси",
+              "example": "Can you call a taxi?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "for six in the morning",
+              "translation": "на шесть утра",
+              "example": "For six in the morning."
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "two people",
+              "translation": "двое",
+              "example": "To the airport, two people."
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "It costs about thirty.",
+              "translation": "Стоит около тридцати.",
+              "example": "It costs about thirty euros."
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "book it",
+              "translation": "заказывайте",
+              "example": "That is fine, book it."
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "For — на какое время",
+              "explanation": "A taxi for six, a table for eight, a room for Friday. Предлог for указывает время заказа, а at — просто час: it comes at six. В брони почти всегда for."
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Такси на шесть утра» —",
+              "options": [
+                "a taxi for six in the morning",
+                "a taxi at six in the morning book",
+                "a taxi on six in the morning"
+              ],
+              "correctOption": "a taxi for six in the morning"
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Стоит около тридцати» —",
+              "options": [
+                "It costs about thirty",
+                "It cost about thirty",
+                "It costs about of thirty"
+              ],
+              "correctOption": "It costs about thirty"
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Нормально, заказывайте» —",
+              "options": [
+                "That is fine, book it",
+                "That is fine, book",
+                "That is fine, to book it"
+              ],
+              "correctOption": "That is fine, book it"
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Можете вызвать такси на шесть утра?",
+              "canonicalAnswer": "Can you call a taxi for six in the morning?",
+              "tokens": [
+                "morning",
+                "the",
+                "in",
+                "six",
+                "for",
+                "taxi",
+                "a",
+                "call",
+                "you",
+                "Can"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Можете вызвать такси на шесть утра?",
+              "canonicalAnswer": "Can you call a taxi for six in the morning?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "В аэропорт, двое.",
+              "canonicalAnswer": "To the airport, two people."
+            },
+            {
+              "id": "en-a2-at-the-hotel-09-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Нормально, заказывайте.",
+              "canonicalAnswer": "That is fine, book it.",
+              "acceptedAnswers": [
+                "That's fine, book it."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-10",
+          "title": "Something is missing",
+          "summary": "Пропала вещь.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-10-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "dialogue",
+              "title": "Пропало",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "My charger has disappeared from the room.",
+                  "translation": "Из номера пропала зарядка."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Have you checked behind the bed?",
+                  "translation": "За кроватью смотрели?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Twice.",
+                  "translation": "Дважды."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I ask the cleaners.",
+                  "translation": "Спрошу уборщиц."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Thank you, it is the only one I have.",
+                  "translation": "Спасибо, она у меня одна."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "has disappeared",
+              "translation": "пропала",
+              "example": "My charger has disappeared."
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "from the room",
+              "translation": "из номера",
+              "example": "Disappeared from the room."
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "behind the bed",
+              "translation": "за кроватью",
+              "example": "Have you checked behind the bed?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "the cleaners",
+              "translation": "уборщицы",
+              "example": "I ask the cleaners."
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "the only one",
+              "translation": "единственная",
+              "example": "It is the only one I have."
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "info",
+              "title": "Perfect для пропажи",
+              "explanation": "It has disappeared, I have lost it — важно, что вещи нет сейчас. Прошедшее it disappeared yesterday звучало бы как рассказ о вчерашнем событии, а не как просьба помочь."
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пропала зарядка» —",
+              "options": [
+                "My charger has disappeared",
+                "My charger has disappear",
+                "My charger disappeared has"
+              ],
+              "correctOption": "My charger has disappeared"
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«За кроватью смотрели?» —",
+              "options": [
+                "Have you checked behind the bed?",
+                "Have you check behind the bed?",
+                "Did you have checked behind the bed?"
+              ],
+              "correctOption": "Have you checked behind the bed?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Она у меня одна» —",
+              "options": [
+                "It is the only one I have",
+                "It is only one I have",
+                "It is the one only I have"
+              ],
+              "correctOption": "It is the only one I have"
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Из номера пропала зарядка.",
+              "canonicalAnswer": "My charger has disappeared from the room.",
+              "tokens": [
+                "room",
+                "the",
+                "from",
+                "disappeared",
+                "has",
+                "charger",
+                "My"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Из номера пропала зарядка.",
+              "canonicalAnswer": "My charger has disappeared from the room."
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "За кроватью смотрели?",
+              "canonicalAnswer": "Have you checked behind the bed?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-10-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a1-tema-problems",
+                "a2-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Спасибо, она у меня одна.",
+              "canonicalAnswer": "Thank you, it is the only one I have."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-11",
+          "title": "A quieter room, a better view",
+          "summary": "Сравнить номера.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-11-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Что лучше",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "The room upstairs is quieter.",
+                  "translation": "Номер наверху тише."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "But this one has a better view.",
+                  "translation": "Зато у этого вид лучше."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Quiet beats view, at night.",
+                  "translation": "Ночью тишина важнее вида."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "You are right, as always.",
+                  "translation": "Ты права, как всегда."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then we move upstairs.",
+                  "translation": "Тогда переезжаем наверх."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "upstairs",
+              "translation": "наверху",
+              "example": "The room upstairs is quieter."
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "quieter",
+              "translation": "тише",
+              "example": "The room upstairs is quieter."
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "a better view",
+              "translation": "вид лучше",
+              "example": "This one has a better view."
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "beats",
+              "translation": "важнее, побеждает",
+              "example": "Quiet beats view."
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "we move upstairs",
+              "translation": "переезжаем наверх",
+              "example": "Then we move upstairs."
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Quiet — quieter, не more quiet",
+              "explanation": "Двусложные на -et и -y берут -er: quieter, easier, happier. Форма more quiet встречается, но реже, и в разговоре звучит тяжелее."
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тише» —",
+              "options": [
+                "quieter",
+                "more quiet",
+                "quietier"
+              ],
+              "correctOption": "quieter"
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Вид лучше» —",
+              "options": [
+                "a better view",
+                "a more good view",
+                "a gooder view"
+              ],
+              "correctOption": "a better view"
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда переезжаем наверх» —",
+              "options": [
+                "Then we move upstairs",
+                "Then we move to upstairs",
+                "Then we are move upstairs"
+              ],
+              "correctOption": "Then we move upstairs"
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Зато у этого вид лучше.",
+              "canonicalAnswer": "But this one has a better view.",
+              "tokens": [
+                "view",
+                "better",
+                "a",
+                "has",
+                "one",
+                "this",
+                "But"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Номер наверху тише.",
+              "canonicalAnswer": "The room upstairs is quieter."
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Зато у этого вид лучше.",
+              "canonicalAnswer": "But this one has a better view."
+            },
+            {
+              "id": "en-a2-at-the-hotel-11-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-comparatives",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Тогда переезжаем наверх.",
+              "canonicalAnswer": "Then we move upstairs."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-12",
+          "title": "Paying at the end",
+          "summary": "Счёт за номер.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-12-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "dialogue",
+              "title": "Счёт",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "There is a mistake in the bill.",
+                  "translation": "В счёте ошибка."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which line?",
+                  "translation": "Какая строка?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The minibar. I did not open it.",
+                  "translation": "Минибар. Я его не открывал."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I take it off, sorry.",
+                  "translation": "Уберу, извините."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "No problem at all.",
+                  "translation": "Ничего страшного."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "a mistake in the bill",
+              "translation": "ошибка в счёте",
+              "example": "There is a mistake in the bill."
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "Which line?",
+              "translation": "Какая строка?",
+              "example": "Which line exactly?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "the minibar",
+              "translation": "минибар",
+              "example": "The minibar, I did not open it."
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "I take it off.",
+              "translation": "Уберу.",
+              "example": "I take it off, sorry."
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "No problem at all.",
+              "translation": "Ничего страшного.",
+              "example": "No problem at all, really."
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "info",
+              "title": "Take off — «снять со счёта»",
+              "explanation": "I take it off the bill, they took ten euros off. Тот же глагол, что и «снять одежду», и «взлететь», — значение задаёт дополнение. В счёте он значит именно «убрать позицию»."
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В счёте ошибка» —",
+              "options": [
+                "There is a mistake in the bill",
+                "There is a mistake on the bill of",
+                "It is a mistake in the bill"
+              ],
+              "correctOption": "There is a mistake in the bill"
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я его не открывал» —",
+              "options": [
+                "I did not open it",
+                "I did not opened it",
+                "I not opened it"
+              ],
+              "correctOption": "I did not open it"
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Уберу со счёта» —",
+              "options": [
+                "I take it off the bill",
+                "I take off it the bill",
+                "I take it off from the bill of"
+              ],
+              "correctOption": "I take it off the bill"
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "word_order",
+              "prompt": "В счёте ошибка.",
+              "canonicalAnswer": "There is a mistake in the bill.",
+              "tokens": [
+                "bill",
+                "the",
+                "in",
+                "mistake",
+                "a",
+                "is",
+                "There"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "В счёте ошибка.",
+              "canonicalAnswer": "There is a mistake in the bill.",
+              "acceptedAnswers": [
+                "There's a mistake in the bill."
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Минибар. Я его не открывал.",
+              "canonicalAnswer": "The minibar. I did not open it.",
+              "acceptedAnswers": [
+                "The minibar. I didn't open it."
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-12-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-dinero",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Ничего страшного.",
+              "canonicalAnswer": "No problem at all."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-13",
+          "title": "Leaving bags for the day",
+          "summary": "Оставить багаж.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-13-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Багаж после выезда",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Can we leave our bags until five?",
+                  "translation": "Можно оставить сумки до пяти?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Of course, in the room behind me.",
+                  "translation": "Конечно, в комнате за мной."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Do we need a ticket?",
+                  "translation": "Талон нужен?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "I give you one.",
+                  "translation": "Сейчас дам."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then we go and enjoy the city.",
+                  "translation": "Тогда идём гулять по городу."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "leave our bags",
+              "translation": "оставить сумки",
+              "example": "Can we leave our bags until five?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "behind me",
+              "translation": "за мной",
+              "example": "In the room behind me."
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Do we need a ticket?",
+              "translation": "Талон нужен?",
+              "example": "Do we need a ticket for that?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "I give you one.",
+              "translation": "Сейчас дам.",
+              "example": "I give you one now."
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "enjoy the city",
+              "translation": "гулять по городу",
+              "example": "We go and enjoy the city."
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Leave — оставить и уехать",
+              "explanation": "Leave the bags — оставить. Leave the hotel — уехать. Одно слово, два смысла, и путаницы не возникает: различает дополнение."
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Оставить сумки до пяти» —",
+              "options": [
+                "leave our bags until five",
+                "leave our bags till the five",
+                "left our bags until five"
+              ],
+              "correctOption": "leave our bags until five"
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Талон нужен?» —",
+              "options": [
+                "Do we need a ticket?",
+                "Do we need ticket?",
+                "Are we need a ticket?"
+              ],
+              "correctOption": "Do we need a ticket?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Сейчас дам» —",
+              "options": [
+                "I give you one",
+                "I give one you",
+                "I am give you one"
+              ],
+              "correctOption": "I give you one"
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Можно оставить сумки до пяти?",
+              "canonicalAnswer": "Can we leave our bags until five?",
+              "tokens": [
+                "five",
+                "until",
+                "bags",
+                "our",
+                "leave",
+                "we",
+                "Can"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Можно оставить сумки до пяти?",
+              "canonicalAnswer": "Can we leave our bags until five?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Талон нужен?",
+              "canonicalAnswer": "Do we need a ticket?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-13-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-tema-viaje",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Тогда идём гулять по городу.",
+              "canonicalAnswer": "Then we go and enjoy the city."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-14",
+          "title": "Leaving a review",
+          "summary": "Отзыв.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-14-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "dialogue",
+              "title": "Отзыв",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "What will you write in the review?",
+                  "translation": "Что напишешь в отзыве?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Clean, quiet, although the wifi is weak.",
+                  "translation": "Чисто, тихо, хотя вайфай слабый."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the staff?",
+                  "translation": "А персонал?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The best part.",
+                  "translation": "Самое лучшее."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then say that first.",
+                  "translation": "Тогда с этого и начни."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "a review",
+              "translation": "отзыв",
+              "example": "What will you write in the review?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "clean, quiet",
+              "translation": "чисто, тихо",
+              "example": "Clean, quiet, although…"
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "the wifi is weak",
+              "translation": "вайфай слабый",
+              "example": "Although the wifi is weak."
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "the staff",
+              "translation": "персонал",
+              "example": "And the staff?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "The best part.",
+              "translation": "Самое лучшее.",
+              "example": "The best part, honestly."
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "info",
+              "title": "Staff — множественное по смыслу",
+              "explanation": "The staff are friendly — в британском варианте глагол во множественном, потому что речь о людях. В американском чаще the staff is. Обе формы верны, и обе встречаются в отзывах."
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Персонал приветливый» (по-британски) —",
+              "options": [
+                "The staff are friendly",
+                "The staffs are friendly",
+                "The staff are friendlies"
+              ],
+              "correctOption": "The staff are friendly"
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Хотя вайфай слабый» —",
+              "options": [
+                "although the wifi is weak",
+                "although but the wifi is weak",
+                "although the wifi weak is"
+              ],
+              "correctOption": "although the wifi is weak"
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда с этого и начни» —",
+              "options": [
+                "Then say that first",
+                "Then say first that it",
+                "Then to say that first"
+              ],
+              "correctOption": "Then say that first"
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "word_order",
+              "prompt": "Чисто, тихо, хотя вайфай слабый.",
+              "canonicalAnswer": "Clean, quiet, although the wifi is weak.",
+              "tokens": [
+                "weak",
+                "is",
+                "wifi",
+                "the",
+                "although",
+                "quiet",
+                "Clean"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Что напишешь в отзыве?",
+              "canonicalAnswer": "What will you write in the review?",
+              "acceptedAnswers": [
+                "What'll you write in the review?"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Чисто, тихо, хотя вайфай слабый.",
+              "canonicalAnswer": "Clean, quiet, although the wifi is weak."
+            },
+            {
+              "id": "en-a2-at-the-hotel-14-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-connectors",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Самое лучшее.",
+              "canonicalAnswer": "The best part."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-15",
+          "title": "Two nights, end to end",
+          "summary": "Весь блок: заезд и выезд.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-15-d",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "От заезда до выезда",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I have a reservation for two nights.",
+                  "translation": "У меня бронь на две ночи."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Room 412. Breakfast until ten.",
+                  "translation": "Номер 412. Завтрак до десяти."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Could we have extra towels?",
+                  "translation": "Можно ещё полотенца?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "I bring them up. Anything else?",
+                  "translation": "Принесу. Что-нибудь ещё?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "A taxi for six on Friday, please.",
+                  "translation": "Такси на шесть в пятницу, пожалуйста."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-w1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Room 412",
+              "translation": "номер 412",
+              "example": "Room 412, fourth floor."
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-w2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "breakfast until ten",
+              "translation": "завтрак до десяти",
+              "example": "Breakfast until ten."
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-w3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "I bring them up.",
+              "translation": "Принесу.",
+              "example": "I bring them up in a minute."
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-w4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Anything else?",
+              "translation": "Что-нибудь ещё?",
+              "example": "Anything else for you?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-w5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "a taxi for six",
+              "translation": "такси на шесть",
+              "example": "A taxi for six on Friday."
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-r",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Пять фраз на всю поездку",
+              "explanation": "Бронь, завтрак, просьба, жалоба, такси. Гостиничный разговор не меняется от страны к стране, и эти пять формул закрывают его целиком — вместе с could и sorry, которые делают их вежливыми."
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-c1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«У меня бронь на две ночи» —",
+              "options": [
+                "I have a reservation for two nights",
+                "I have reservation for two nights",
+                "I have a reservation on two nights"
+              ],
+              "correctOption": "I have a reservation for two nights"
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-c2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Можно ещё полотенца?» —",
+              "options": [
+                "Could we have extra towels?",
+                "Could we have extra towel?",
+                "Could we to have extra towels?"
+              ],
+              "correctOption": "Could we have extra towels?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-c3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Такси на шесть в пятницу» —",
+              "options": [
+                "A taxi for six on Friday",
+                "A taxi at six in Friday",
+                "A taxi for six in Friday"
+              ],
+              "correctOption": "A taxi for six on Friday"
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-o",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Номер 412. Завтрак до десяти.",
+              "canonicalAnswer": "Room 412. Breakfast until ten.",
+              "tokens": [
+                "ten",
+                "until",
+                "Breakfast",
+                "412",
+                "Room"
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "У меня бронь на две ночи.",
+              "canonicalAnswer": "I have a reservation for two nights."
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Можно ещё полотенца?",
+              "canonicalAnswer": "Could we have extra towels?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-15-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Такси на шесть в пятницу, пожалуйста.",
+              "canonicalAnswer": "A taxi for six on Friday, please."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-at-the-hotel-check",
+          "title": "Проверка: гостиница",
+          "summary": "Шесть фраз без подсказок — весь блок целиком.",
+          "estimatedMinutes": 5,
+          "kind": "checkpoint",
+          "exercises": [
+            {
+              "id": "en-a2-at-the-hotel-check-t1",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems",
+                "a2-tema-viaje"
+              ],
+              "type": "translate",
+              "prompt": "У меня бронь на две ночи.",
+              "canonicalAnswer": "I have a reservation for two nights."
+            },
+            {
+              "id": "en-a2-at-the-hotel-check-t2",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems",
+                "a2-tema-viaje"
+              ],
+              "type": "translate",
+              "prompt": "Во сколько выезд?",
+              "canonicalAnswer": "What time is check-out?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-check-t3",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems",
+                "a2-tema-viaje"
+              ],
+              "type": "translate",
+              "prompt": "Можно другой номер?",
+              "canonicalAnswer": "Could I have another room?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-check-t4",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems",
+                "a2-tema-viaje"
+              ],
+              "type": "translate",
+              "prompt": "Извините, душ не работает.",
+              "canonicalAnswer": "Sorry, the shower is not working.",
+              "acceptedAnswers": [
+                "Sorry, the shower isn't working."
+              ]
+            },
+            {
+              "id": "en-a2-at-the-hotel-check-t5",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems",
+                "a2-tema-viaje"
+              ],
+              "type": "translate",
+              "prompt": "Можно ещё полотенца?",
+              "canonicalAnswer": "Could we have extra towels?"
+            },
+            {
+              "id": "en-a2-at-the-hotel-check-t6",
+              "topics": [
+                "a2-tema-hotel",
+                "a2-modals-advice",
+                "a1-tema-problems",
+                "a2-tema-viaje"
+              ],
+              "type": "translate",
+              "prompt": "Можно оставить сумки до пяти?",
+              "canonicalAnswer": "Can we leave our bags until five?"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
