@@ -1,0 +1,287 @@
+// B2, блок 58 — Science you cannot see. Наука, которую не видно.
+//
+// Тематический блок: исследования, неопределённость, доверие к экспертам,
+// как читать результат. Осторожные формулы, модальные, пассив.
+
+const CN = 'b2-tema-ciencia'
+const DA = 'b2-tema-datos'
+const ET = 'b2-tema-etica'
+const SA = 'b2-tema-sanidad'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'science-you-cannot-see',
+  title: 'Наука, которую не видно',
+  subtitle: 'Неопределённость, эксперты и доверие',
+  canDo: [
+    'говорить о неопределённости точно',
+    'читать результат исследования',
+    'обсуждать доверие к экспертам',
+    'спорить о риске и пользе',
+    'признавать пределы своего знания',
+  ],
+  lessons: [
+    {
+      title: 'What a result means',
+      summary: 'Что значит результат.',
+      topics: [DA, CN, LI],
+      dialogue: ['Результат', [
+        ['Anna', 'The effect was small but consistent.', 'Эффект был небольшой, но устойчивый.'],
+        ['Ben', 'Which is the sentence journalists cut.', 'Именно эту фразу журналисты и режут.'],
+        ['Anna', 'Leaving either a miracle or a scandal.', 'Оставляя либо чудо, либо скандал.'],
+        ['Ben', 'Neither of which was in the paper.', 'Ни того, ни другого в статье не было.'],
+        ['Anna', 'Which almost nobody goes back to read.', 'Которую почти никто не идёт читать.'],
+      ]],
+      words: [
+        ['small but consistent', 'небольшой, но устойчивый', 'The effect was small but consistent.'],
+        ['journalists cut', 'журналисты режут', 'Which is the sentence journalists cut.'],
+        ['Leaving either a miracle or a scandal', 'оставляя либо чудо, либо скандал', 'Leaving either a miracle or a scandal.'],
+        ['Neither of which was in the paper', 'ни того, ни другого не было в статье', 'Neither of which was in the paper.'],
+        ['goes back to read', 'идёт читать', 'Which almost nobody goes back to read.'],
+      ],
+      rule: ['Neither of which — согласование в единственном', 'Neither of which was in the paper. Глагол ставится в единственном числе.'],
+      quiz: [
+        ['«Ни того, ни другого в статье не было» —', ['Neither of which was in the paper', 'Neither of which were in the paper', 'Neither of which was not in the paper'], 0],
+        ['«Оставляя либо чудо, либо скандал» —', ['Leaving either a miracle or a scandal', 'Leave either a miracle or a scandal', 'Leaving either a miracle nor a scandal'], 0],
+        ['«Именно эту фразу журналисты и режут» —', ['The sentence journalists cut', 'The sentence journalists cuts', 'The sentence what journalists cut'], 0],
+      ],
+      order: ['Эффект был небольшой, но устойчивый.', 'The effect was small but consistent.'],
+      produce: [
+        ['Эффект был небольшой, но устойчивый.', 'The effect was small but consistent.', []],
+        ['Оставляя либо чудо, либо скандал.', 'Leaving either a miracle or a scandal.', []],
+        ['Ни того, ни другого в статье не было.', 'Neither of which was in the paper.', []],
+      ],
+    },
+    {
+      title: 'Saying you do not know',
+      summary: 'Сказать, что не знаешь.',
+      topics: [CN, ET, LI],
+      dialogue: ['Незнание', [
+        ['Ben', 'The honest answer was we do not know yet.', 'Честный ответ был: мы пока не знаем.'],
+        ['Anna', 'Which is heard as evasion, unfortunately.', 'К сожалению, это слышится как уклонение.'],
+        ['Ben', 'And is punished at every press conference.', 'И наказывается на каждой пресс-конференции.'],
+        ['Anna', 'Which teaches people to sound certain.', 'Что учит людей звучать уверенно.'],
+        ['Ben', 'And costs more, three months later.', 'И обходится дороже тремя месяцами позже.'],
+      ]],
+      words: [
+        ['we do not know yet', 'мы пока не знаем', 'The honest answer was we do not know yet.'],
+        ['heard as evasion', 'слышится как уклонение', 'Which is heard as evasion, unfortunately.'],
+        ['punished at every press conference', 'наказывается на каждой пресс-конференции', 'And is punished at every press conference.'],
+        ['teaches people to sound certain', 'учит звучать уверенно', 'Which teaches people to sound certain.'],
+        ['costs more, three months later', 'обходится дороже тремя месяцами позже', 'And costs more, three months later.'],
+      ],
+      rule: ['Teach somebody to do', 'It teaches people to sound certain. После teach идёт объект и инфинитив с to.'],
+      quiz: [
+        ['«Что учит людей звучать уверенно» —', ['Which teaches people to sound certain', 'Which teaches people sound certain', 'Which teach people to sound certain'], 0],
+        ['«К сожалению, это слышится как уклонение» —', ['Which is heard as evasion, unfortunately', 'Which is hear as evasion, unfortunately', 'Which is heard like evasion of, unfortunately'], 0],
+        ['«И наказывается на каждой пресс-конференции» —', ['And is punished at every press conference', 'And is punish at every press conference', 'And is punished on every press conference'], 0],
+      ],
+      order: ['Честный ответ был: мы пока не знаем.', 'The honest answer was we do not know yet.'],
+      produce: [
+        ['Честный ответ был: мы пока не знаем.', 'The honest answer was we do not know yet.', []],
+        ['И наказывается на каждой пресс-конференции.', 'And is punished at every press conference.', []],
+        ['Что учит людей звучать уверенно.', 'Which teaches people to sound certain.', []],
+      ],
+    },
+    {
+      title: 'The trial that failed',
+      summary: 'Испытание, которое провалилось.',
+      topics: [SA, CN, LI],
+      dialogue: ['Испытание', [
+        ['Anna', 'The drug did nothing, which is a result.', 'Лекарство ничего не дало, и это результат.'],
+        ['Ben', 'Though it is rarely published as one.', 'Хотя как результат его редко публикуют.'],
+        ['Anna', 'Which means the next team repeats it.', 'Значит, следующая группа это повторит.'],
+        ['Ben', 'At the same cost, for the same nothing.', 'За те же деньги, ради того же ничего.'],
+        ['Anna', 'Which registries were invented to stop.', 'Ради прекращения этого и придумали реестры.'],
+      ]],
+      words: [
+        ['did nothing, which is a result', 'ничего не дало, и это результат', 'The drug did nothing, which is a result.'],
+        ['rarely published as one', 'редко публикуют как результат', 'Though it is rarely published as one.'],
+        ['the next team repeats it', 'следующая группа повторит', 'Which means the next team repeats it.'],
+        ['for the same nothing', 'ради того же ничего', 'At the same cost, for the same nothing.'],
+        ['registries were invented to stop', 'реестры придумали, чтобы прекратить', 'Which registries were invented to stop.'],
+      ],
+      rule: ['Were invented to — цель в пассиве', 'Registries were invented to stop it. Инфинитив цели присоединяется прямо к пассиву.'],
+      quiz: [
+        ['«Ради прекращения этого и придумали реестры» —', ['Which registries were invented to stop', 'Which registries were invent to stop', 'Which registries was invented to stop'], 0],
+        ['«Хотя как результат его редко публикуют» —', ['Though it is rarely published as one', 'Though it is rarely publish as one', 'Though it is rare published as one'], 0],
+        ['«Значит, следующая группа это повторит» —', ['Which means the next team repeats it', 'Which mean the next team repeats it', 'Which means the next team repeat it'], 0],
+      ],
+      order: ['За те же деньги, ради того же ничего.', 'At the same cost, for the same nothing.'],
+      produce: [
+        ['Лекарство ничего не дало, и это результат.', 'The drug did nothing, which is a result.', []],
+        ['Значит, следующая группа это повторит.', 'Which means the next team repeats it.', []],
+        ['Ради прекращения этого и придумали реестры.', 'Which registries were invented to stop.', []],
+      ],
+    },
+    {
+      title: 'Risk and benefit',
+      summary: 'Риск и польза.',
+      topics: [SA, DA, LI],
+      dialogue: ['Баланс', [
+        ['Ben', 'One in ten thousand is a real number.', 'Один на десять тысяч — реальная цифра.'],
+        ['Anna', 'And feels enormous, if it is your child.', 'И кажется огромной, если это ваш ребёнок.'],
+        ['Ben', 'Which is not irrational, only personal.', 'Это не иррационально, просто лично.'],
+        ['Anna', 'And is answered badly by more statistics.', 'И плохо лечится новой статистикой.'],
+        ['Ben', 'Rather than by a person with time.', 'В отличие от человека, у которого есть время.'],
+      ]],
+      words: [
+        ['One in ten thousand', 'один на десять тысяч', 'One in ten thousand is a real number.'],
+        ['feels enormous', 'кажется огромной', 'And feels enormous, if it is your child.'],
+        ['not irrational, only personal', 'не иррационально, просто лично', 'Which is not irrational, only personal.'],
+        ['answered badly by more statistics', 'плохо лечится новой статистикой', 'And is answered badly by more statistics.'],
+        ['a person with time', 'человек, у которого есть время', 'Rather than by a person with time.'],
+      ],
+      rule: ['Feel + прилагательное', 'It feels enormous. После feel идёт прилагательное, а не наречие.'],
+      quiz: [
+        ['«И кажется огромной, если это ваш ребёнок» —', ['And feels enormous, if it is your child', 'And feels enormously, if it is your child', 'And feel enormous, if it is your child'], 0],
+        ['«И плохо лечится новой статистикой» —', ['And is answered badly by more statistics', 'And is answer badly by more statistics', 'And is answered bad by more statistics'], 0],
+        ['«Один на десять тысяч — реальная цифра» —', ['One in ten thousand is a real number', 'One in ten thousands is a real number', 'One of ten thousand is a real number'], 0],
+      ],
+      order: ['Это не иррационально, просто лично.', 'Which is not irrational, only personal.'],
+      produce: [
+        ['Один на десять тысяч — реальная цифра.', 'One in ten thousand is a real number.', []],
+        ['И кажется огромной, если это ваш ребёнок.', 'And feels enormous, if it is your child.', []],
+        ['В отличие от человека, у которого есть время.', 'Rather than by a person with time.', []],
+      ],
+    },
+    {
+      title: 'Who counts as an expert',
+      summary: 'Кто считается экспертом.',
+      topics: [ET, CN, LI],
+      dialogue: ['Эксперт', [
+        ['Anna', 'She is an expert on one narrow thing.', 'Она эксперт по одной узкой теме.'],
+        ['Ben', 'Which is what expertise actually is.', 'Именно так экспертиза и устроена.'],
+        ['Anna', 'And is asked about everything on television.', 'А на телевидении её спрашивают обо всём.'],
+        ['Ben', 'Which she should refuse, and rarely does.', 'От чего ей стоило бы отказываться и что она редко делает.'],
+        ['Anna', 'Since refusing is how you stop being asked.', 'Ведь отказавшись, перестаёшь быть нужным.'],
+      ]],
+      words: [
+        ['an expert on one narrow thing', 'эксперт по одной узкой теме', 'She is an expert on one narrow thing.'],
+        ['what expertise actually is', 'как устроена экспертиза', 'Which is what expertise actually is.'],
+        ['asked about everything', 'спрашивают обо всём', 'And is asked about everything on television.'],
+        ['she should refuse', 'ей стоило бы отказываться', 'Which she should refuse, and rarely does.'],
+        ['stop being asked', 'перестать быть нужным', 'Since refusing is how you stop being asked.'],
+      ],
+      rule: ['Stop being asked — пассивный герундий', 'You stop being asked. Форма описывает прекращение того, что делают с вами.'],
+      quiz: [
+        ['«Ведь отказавшись, перестаёшь быть нужным» —', ['Since refusing is how you stop being asked', 'Since refuse is how you stop being asked', 'Since refusing is how you stop be asked'], 0],
+        ['«Она эксперт по одной узкой теме» —', ['She is an expert on one narrow thing', 'She is an expert in one narrow thing about', 'She is a expert on one narrow thing'], 0],
+        ['«От чего ей стоило бы отказываться и что она редко делает» —', ['Which she should refuse, and rarely does', 'Which she should refuses, and rarely does', 'Which she should refuse, and rarely do'], 0],
+      ],
+      order: ['Именно так экспертиза и устроена.', 'Which is what expertise actually is.'],
+      produce: [
+        ['Она эксперт по одной узкой теме.', 'She is an expert on one narrow thing.', []],
+        ['А на телевидении её спрашивают обо всём.', 'And is asked about everything on television.', []],
+        ['Ведь отказавшись, перестаёшь быть нужным.', 'Since refusing is how you stop being asked.', []],
+      ],
+    },
+    {
+      title: 'Changing the advice',
+      summary: 'Изменить рекомендацию.',
+      topics: [SA, CN, LI],
+      dialogue: ['Перемена', [
+        ['Ben', 'The guidance changed twice in a year.', 'Рекомендация менялась дважды за год.'],
+        ['Anna', 'Which is how it should work, in principle.', 'В принципе, так и должно работать.'],
+        ['Ben', 'And destroys trust, in practice.', 'И разрушает доверие на практике.'],
+        ['Anna', 'Unless the reason is given each time.', 'Если только каждый раз не объяснять причину.'],
+        ['Ben', 'Which takes one sentence and is usually skipped.', 'На что нужна одна фраза, и её обычно пропускают.'],
+      ]],
+      words: [
+        ['The guidance changed twice', 'рекомендация менялась дважды', 'The guidance changed twice in a year.'],
+        ['how it should work', 'как должно работать', 'Which is how it should work, in principle.'],
+        ['destroys trust', 'разрушает доверие', 'And destroys trust, in practice.'],
+        ['the reason is given', 'причина объясняется', 'Unless the reason is given each time.'],
+        ['is usually skipped', 'обычно пропускают', 'Which takes one sentence and is usually skipped.'],
+      ],
+      rule: ['Unless с пассивом', 'Unless the reason is given. Союз уже содержит отрицание, второго не нужно.'],
+      quiz: [
+        ['«Если только каждый раз не объяснять причину» —', ['Unless the reason is given each time', 'Unless the reason is not given each time', 'Unless the reason is give each time'], 0],
+        ['«В принципе, так и должно работать» —', ['Which is how it should work, in principle', 'Which is how it should works, in principle', 'Which is what it should work, in principle'], 0],
+        ['«На что нужна одна фраза, и её обычно пропускают» —', ['Which takes one sentence and is usually skipped', 'Which take one sentence and is usually skipped', 'Which takes one sentence and is usually skip'], 0],
+      ],
+      order: ['И разрушает доверие на практике.', 'And destroys trust, in practice.'],
+      produce: [
+        ['Рекомендация менялась дважды за год.', 'The guidance changed twice in a year.', []],
+        ['В принципе, так и должно работать.', 'Which is how it should work, in principle.', []],
+        ['Если только каждый раз не объяснять причину.', 'Unless the reason is given each time.', []],
+      ],
+    },
+    {
+      title: 'Reading a paper without a degree',
+      summary: 'Читать статью без диплома.',
+      topics: [DA, CN, LI],
+      dialogue: ['Как читать', [
+        ['Anna', 'Read the methods and the limitations.', 'Читайте методы и ограничения.'],
+        ['Ben', 'Which is where the honesty lives.', 'Именно там и живёт честность.'],
+        ['Anna', 'And skip the press release entirely.', 'А пресс-релиз пропускайте целиком.'],
+        ['Ben', 'Which was written to be quoted.', 'Он написан, чтобы его цитировали.'],
+        ['Anna', 'And has been, four hundred times by Friday.', 'И его процитировали четыреста раз к пятнице.'],
+      ]],
+      words: [
+        ['the methods and the limitations', 'методы и ограничения', 'Read the methods and the limitations.'],
+        ['where the honesty lives', 'где живёт честность', 'Which is where the honesty lives.'],
+        ['skip the press release', 'пропускайте пресс-релиз', 'And skip the press release entirely.'],
+        ['written to be quoted', 'написан, чтобы цитировали', 'Which was written to be quoted.'],
+        ['four hundred times by Friday', 'четыреста раз к пятнице', 'And has been, four hundred times by Friday.'],
+      ],
+      rule: ['To be quoted — пассивный инфинитив цели', 'It was written to be quoted. Форма называет цель, где действие совершают другие.'],
+      quiz: [
+        ['«Он написан, чтобы его цитировали» —', ['Which was written to be quoted', 'Which was written to quote', 'Which was write to be quoted'], 0],
+        ['«Именно там и живёт честность» —', ['Which is where the honesty lives', 'Which is where the honesty live', 'Which is what the honesty lives'], 0],
+        ['«А пресс-релиз пропускайте целиком» —', ['And skip the press release entirely', 'And skip the press release entire', 'And skips the press release entirely'], 0],
+      ],
+      order: ['Читайте методы и ограничения.', 'Read the methods and the limitations.'],
+      produce: [
+        ['Читайте методы и ограничения.', 'Read the methods and the limitations.', []],
+        ['Именно там и живёт честность.', 'Which is where the honesty lives.', []],
+        ['Он написан, чтобы его цитировали.', 'Which was written to be quoted.', []],
+      ],
+    },
+    {
+      title: 'Living with uncertainty',
+      summary: 'Жить с неопределённостью.',
+      topics: [CN, ET, LI],
+      dialogue: ['Итог', [
+        ['Ben', 'Probably is the most useful word here.', 'Слово «вероятно» здесь самое полезное.'],
+        ['Anna', 'And the least popular, in a headline.', 'И наименее популярное в заголовке.'],
+        ['Ben', 'Which is why we argue about certainties.', 'Поэтому мы и спорим о достоверностях.'],
+        ['Anna', 'Nobody in the room actually has.', 'Которых ни у кого в комнате нет.'],
+        ['Ben', 'Which is worth saying, gently, once.', 'Это стоит сказать, мягко, один раз.'],
+      ]],
+      words: [
+        ['the most useful word', 'самое полезное слово', 'Probably is the most useful word here.'],
+        ['the least popular', 'наименее популярное', 'And the least popular, in a headline.'],
+        ['argue about certainties', 'спорим о достоверностях', 'Which is why we argue about certainties.'],
+        ['Nobody actually has', 'которых ни у кого нет', 'Nobody in the room actually has.'],
+        ['gently, once', 'мягко, один раз', 'Which is worth saying, gently, once.'],
+      ],
+      rule: ['Наука говорит вероятностями', 'Слова «вероятно» и «пока не знаем» — не слабость аргумента, а его точность.'],
+      quiz: [
+        ['«И наименее популярное в заголовке» —', ['And the least popular, in a headline', 'And the less popular, in a headline', 'And the least popularest, in a headline'], 0],
+        ['«Поэтому мы и спорим о достоверностях» —', ['Which is why we argue about certainties', 'Which is why we argue certainties', 'What is why we argue about certainties'], 0],
+        ['«Это стоит сказать, мягко, один раз» —', ['Which is worth saying, gently, once', 'Which is worth to say, gently, once', 'Which is worth saying, gentle, once'], 0],
+      ],
+      order: ['Слово «вероятно» здесь самое полезное.', 'Probably is the most useful word here.'],
+      produce: [
+        ['Слово «вероятно» здесь самое полезное.', 'Probably is the most useful word here.', []],
+        ['И наименее популярное в заголовке.', 'And the least popular, in a headline.', []],
+        ['Это стоит сказать, мягко, один раз.', 'Which is worth saying, gently, once.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: наука, которую не видно',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [CN, DA, ET, SA],
+      produce: [
+        ['Ни того, ни другого в статье не было.', 'Neither of which was in the paper.', []],
+        ['Что учит людей звучать уверенно.', 'Which teaches people to sound certain.', []],
+        ['Ради прекращения этого и придумали реестры.', 'Which registries were invented to stop.', []],
+        ['И кажется огромной, если это ваш ребёнок.', 'And feels enormous, if it is your child.', []],
+        ['Ведь отказавшись, перестаёшь быть нужным.', 'Since refusing is how you stop being asked.', []],
+        ['Он написан, чтобы его цитировали.', 'Which was written to be quoted.', []],
+      ],
+    },
+  ],
+}
