@@ -1,0 +1,318 @@
+// B2, блок 37 — What we believe about food. Во что мы верим про еду.
+//
+// Тематический блок: диеты, заголовки, исследования и здравый смысл.
+// Осторожные обобщения, оценка источников, спор о доказательствах.
+
+const CO = 'b2-tema-comida'
+const SA = 'b2-tema-sanidad'
+const DA = 'b2-tema-datos'
+const ME = 'b2-tema-medios'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'what-we-believe-about-food',
+  title: 'Во что мы верим про еду',
+  subtitle: 'Диеты, заголовки и доказательства',
+  canDo: [
+    'обсуждать питание без крайностей',
+    'разбирать заголовок об исследовании',
+    'говорить о привычках и срывах',
+    'спорить о «вредных» продуктах',
+    'объяснять, почему совет не работает',
+  ],
+  lessons: [
+    {
+      title: 'The headline and the study',
+      summary: 'Заголовок и исследование.',
+      topics: [DA, ME, CO],
+      dialogue: ['Заголовок', [
+        ['Anna', 'Coffee is said to add two years.', 'Говорят, что кофе добавляет два года.'],
+        ['Ben', 'Said by a headline about forty people.', 'Говорит заголовок про сорок человек.'],
+        ['Anna', 'Which is not a finding, but a hint.', 'Это не вывод, а намёк.'],
+        ['Ben', 'And is reported as a fact anyway.', 'И всё равно подаётся как факт.'],
+        ['Anna', 'Which is where most food advice comes from.', 'Оттуда и берётся почти весь совет о еде.'],
+      ]],
+      words: [
+        ['is said to add', 'говорят, что добавляет', 'Coffee is said to add two years.'],
+        ['a headline about forty people', 'заголовок про сорок человек', 'Said by a headline about forty people.'],
+        ['not a finding, but a hint', 'не вывод, а намёк', 'Which is not a finding, but a hint.'],
+        ['reported as a fact', 'подаётся как факт', 'And is reported as a fact anyway.'],
+        ['where advice comes from', 'откуда берётся совет', 'Which is where most food advice comes from.'],
+      ],
+      rule: ['Is said to — безличная ссылка', 'Coffee is said to add two years. Конструкция передаёт чужое утверждение, не принимая его.'],
+      quiz: [
+        ['«Говорят, что кофе добавляет два года» —', ['Coffee is said to add two years', 'Coffee is said add two years', 'Coffee is say to add two years'], 0],
+        ['«И всё равно подаётся как факт» —', ['And is reported as a fact anyway', 'And is report as a fact anyway', 'And is reported like a fact anyway of'], 0],
+        ['«Оттуда и берётся почти весь совет о еде» —', ['Which is where most food advice comes from', 'Which is where most food advice come from', 'Which is that most food advice comes from'], 0],
+      ],
+      order: ['Это не вывод, а намёк.', 'Which is not a finding, but a hint.'],
+      produce: [
+        ['Говорят, что кофе добавляет два года.', 'Coffee is said to add two years.', []],
+        ['Это не вывод, а намёк.', 'Which is not a finding, but a hint.', []],
+        ['И всё равно подаётся как факт.', 'And is reported as a fact anyway.', []],
+      ],
+    },
+    {
+      title: 'Correlation at the table',
+      summary: 'Корреляция за столом.',
+      topics: [DA, SA, LI],
+      dialogue: ['Связь', [
+        ['Ben', 'People who eat fish live longer.', 'Те, кто ест рыбу, живут дольше.'],
+        ['Anna', 'And can afford fish, generally.', 'И, как правило, могут её себе позволить.'],
+        ['Ben', 'Which is the sentence that ruins the study.', 'Фраза, которая рушит всё исследование.'],
+        ['Anna', 'Unless income is controlled for.', 'Если только доход не учтён.'],
+        ['Ben', 'Which the good ones do, in the appendix.', 'Хорошие это делают, в приложении.'],
+      ]],
+      words: [
+        ['People who eat fish', 'те, кто ест рыбу', 'People who eat fish live longer.'],
+        ['can afford fish', 'могут позволить себе рыбу', 'And can afford fish, generally.'],
+        ['ruins the study', 'рушит исследование', 'Which is the sentence that ruins the study.'],
+        ['income is controlled for', 'доход учтён', 'Unless income is controlled for.'],
+        ['in the appendix', 'в приложении', 'Which the good ones do, in the appendix.'],
+      ],
+      rule: ['Control for — учитывать фактор', 'Unless income is controlled for. Предлог for входит в термин и остаётся в конце.'],
+      quiz: [
+        ['«Если только доход не учтён» —', ['Unless income is controlled for', 'Unless income is controlled', 'Unless income is not controlled for'], 0],
+        ['«Те, кто ест рыбу, живут дольше» —', ['People who eat fish live longer', 'People who eats fish live longer', 'People what eat fish live longer'], 0],
+        ['«Хорошие это делают, в приложении» —', ['Which the good ones do, in the appendix', 'Which the good ones does, in the appendix', 'Which the good one do, in the appendix'], 0],
+      ],
+      order: ['И, как правило, могут её себе позволить.', 'And can afford fish, generally.'],
+      produce: [
+        ['Те, кто ест рыбу, живут дольше.', 'People who eat fish live longer.', []],
+        ['Фраза, которая рушит всё исследование.', 'Which is the sentence that ruins the study.', []],
+        ['Если только доход не учтён.', 'Unless income is controlled for.', []],
+      ],
+    },
+    {
+      title: 'The diet that worked',
+      summary: 'Диета, которая сработала.',
+      topics: [SA, CO, LI],
+      dialogue: ['Диета', [
+        ['Anna', 'She lost eleven kilos in four months.', 'Она сбросила одиннадцать килограммов за четыре месяца.'],
+        ['Ben', 'And has kept two of them off.', 'И удержала два из них.'],
+        ['Anna', 'Which is what the studies predict.', 'Именно это исследования и предсказывают.'],
+        ['Ben', 'And what nobody puts in the advert.', 'И чего никто не пишет в рекламе.'],
+        ['Anna', 'Because the honest number sells nothing.', 'Потому что честная цифра ничего не продаёт.'],
+      ]],
+      words: [
+        ['lost eleven kilos', 'сбросила одиннадцать килограммов', 'She lost eleven kilos in four months.'],
+        ['kept two of them off', 'удержала два из них', 'And has kept two of them off.'],
+        ['what the studies predict', 'что предсказывают исследования', 'Which is what the studies predict.'],
+        ['in the advert', 'в рекламе', 'And what nobody puts in the advert.'],
+        ['sells nothing', 'ничего не продаёт', 'Because the honest number sells nothing.'],
+      ],
+      rule: ['Keep weight off', 'She has kept two of them off. Фразовый глагол разделяется местоимением, которое стоит перед off.'],
+      quiz: [
+        ['«И удержала два из них» —', ['And has kept two of them off', 'And has kept off two of them of', 'And has keep two of them off'], 0],
+        ['«Она сбросила одиннадцать килограммов за четыре месяца» —', ['She lost eleven kilos in four months', 'She lost eleven kilos for four months', 'She losed eleven kilos in four months'], 0],
+        ['«Потому что честная цифра ничего не продаёт» —', ['Because the honest number sells nothing', 'Because the honest number sell nothing', 'Because the honest number sells anything'], 0],
+      ],
+      order: ['И чего никто не пишет в рекламе.', 'And what nobody puts in the advert.'],
+      produce: [
+        ['Она сбросила одиннадцать килограммов за четыре месяца.', 'She lost eleven kilos in four months.', []],
+        ['И удержала два из них.', 'And has kept two of them off.', []],
+        ['Потому что честная цифра ничего не продаёт.', 'Because the honest number sells nothing.', []],
+      ],
+    },
+    {
+      title: 'Cheap calories',
+      summary: 'Дешёвые калории.',
+      topics: [CO, SA, LI],
+      dialogue: ['Дёшево', [
+        ['Ben', 'The cheapest calories are the worst ones.', 'Самые дешёвые калории — самые плохие.'],
+        ['Anna', 'Which is a design, not an accident.', 'Это устройство системы, а не случайность.'],
+        ['Ben', 'Since they are the ones we subsidise.', 'Ведь именно их мы и субсидируем.'],
+        ['Anna', 'Whereas vegetables are taxed like luxuries.', 'Тогда как овощи облагаются как роскошь.'],
+        ['Ben', 'In several countries, absurdly.', 'В нескольких странах, до абсурда.'],
+      ]],
+      words: [
+        ['The cheapest calories', 'самые дешёвые калории', 'The cheapest calories are the worst ones.'],
+        ['a design, not an accident', 'устройство, а не случайность', 'Which is a design, not an accident.'],
+        ['the ones we subsidise', 'те, что мы субсидируем', 'Since they are the ones we subsidise.'],
+        ['taxed like luxuries', 'облагаются как роскошь', 'Whereas vegetables are taxed like luxuries.'],
+        ['In several countries', 'в нескольких странах', 'In several countries, absurdly.'],
+      ],
+      rule: ['The ones — замена существительного', 'They are the ones we subsidise. Оборот избегает повтора и требует определённого артикля.'],
+      quiz: [
+        ['«Ведь именно их мы и субсидируем» —', ['Since they are the ones we subsidise', 'Since they are ones we subsidise', 'Since they are the one we subsidise'], 0],
+        ['«Тогда как овощи облагаются как роскошь» —', ['Whereas vegetables are taxed like luxuries', 'Whereas vegetables are tax like luxuries', 'Whereas vegetables is taxed like luxuries'], 0],
+        ['«Это устройство системы, а не случайность» —', ['Which is a design, not an accident', 'Which is a design, not accident', 'Which is a design, no an accident'], 0],
+      ],
+      order: ['В нескольких странах, до абсурда.', 'In several countries, absurdly.'],
+      produce: [
+        ['Самые дешёвые калории — самые плохие.', 'The cheapest calories are the worst ones.', []],
+        ['Ведь именно их мы и субсидируем.', 'Since they are the ones we subsidise.', []],
+        ['Тогда как овощи облагаются как роскошь.', 'Whereas vegetables are taxed like luxuries.', []],
+      ],
+    },
+    {
+      title: 'Eating with other people',
+      summary: 'Еда с другими людьми.',
+      topics: [CO, LI, SA],
+      dialogue: ['Вместе', [
+        ['Anna', 'Nobody keeps a diet at a family dinner.', 'Никто не держит диету за семейным ужином.'],
+        ['Ben', 'Which is not weakness, but arithmetic.', 'Это не слабость, а арифметика.'],
+        ['Anna', 'Refusing food is refusing the person.', 'Отказаться от еды — значит отказать человеку.'],
+        ['Ben', 'In most cultures, still.', 'В большинстве культур, до сих пор.'],
+        ['Anna', 'Which any advice ignores, at its peril.', 'Любой совет игнорирует это себе во вред.'],
+      ]],
+      words: [
+        ['keeps a diet', 'держит диету', 'Nobody keeps a diet at a family dinner.'],
+        ['not weakness, but arithmetic', 'не слабость, а арифметика', 'Which is not weakness, but arithmetic.'],
+        ['Refusing food', 'отказаться от еды', 'Refusing food is refusing the person.'],
+        ['In most cultures', 'в большинстве культур', 'In most cultures, still.'],
+        ['at its peril', 'себе во вред', 'Which any advice ignores, at its peril.'],
+      ],
+      rule: ['Герундий как подлежащее', 'Refusing food is refusing the person. Форма на -ing работает как существительное в начале фразы.'],
+      quiz: [
+        ['«Отказаться от еды — значит отказать человеку» —', ['Refusing food is refusing the person', 'Refuse food is refusing the person', 'To refusing food is refusing the person'], 0],
+        ['«Никто не держит диету за семейным ужином» —', ['Nobody keeps a diet at a family dinner', 'Nobody keep a diet at a family dinner', 'Nobody keeps a diet in a family dinner'], 0],
+        ['«Любой совет игнорирует это себе во вред» —', ['Which any advice ignores, at its peril', 'Which any advice ignore, at its peril', 'Which any advices ignores, at its peril'], 0],
+      ],
+      order: ['В большинстве культур, до сих пор.', 'In most cultures, still.'],
+      produce: [
+        ['Никто не держит диету за семейным ужином.', 'Nobody keeps a diet at a family dinner.', []],
+        ['Это не слабость, а арифметика.', 'Which is not weakness, but arithmetic.', []],
+        ['Отказаться от еды — значит отказать человеку.', 'Refusing food is refusing the person.', []],
+      ],
+    },
+    {
+      title: 'The word natural',
+      summary: 'Слово «натуральный».',
+      topics: [ME, CO, LI],
+      dialogue: ['Натуральный', [
+        ['Ben', 'Natural is not a regulated word.', '«Натуральный» — слово нерегулируемое.'],
+        ['Anna', 'Which is why it is on everything.', 'Поэтому оно и стоит везде.'],
+        ['Ben', 'Unlike organic, which is defined.', 'В отличие от «органический», у которого есть определение.'],
+        ['Anna', 'And audited, at some cost.', 'И проверка, за некоторую цену.'],
+        ['Ben', 'Which the price on the shelf reflects.', 'Что и отражается в цене на полке.'],
+      ]],
+      words: [
+        ['not a regulated word', 'нерегулируемое слово', 'Natural is not a regulated word.'],
+        ['it is on everything', 'оно стоит везде', 'Which is why it is on everything.'],
+        ['Unlike organic', 'в отличие от органического', 'Unlike organic, which is defined.'],
+        ['audited, at some cost', 'проверяется, за некоторую цену', 'And audited, at some cost.'],
+        ['the price on the shelf', 'цена на полке', 'Which the price on the shelf reflects.'],
+      ],
+      rule: ['Unlike — предлог сравнения', 'Unlike organic, which is defined. После unlike идёт существительное, а не придаточное с глаголом.'],
+      quiz: [
+        ['«В отличие от «органический», у которого есть определение» —', ['Unlike organic, which is defined', 'Unlike organic, what is defined', 'Unlike from organic, which is defined'], 0],
+        ['«Поэтому оно и стоит везде» —', ['Which is why it is on everything', 'Which is why it is in everything of', 'What is why it is on everything'], 0],
+        ['«Что и отражается в цене на полке» —', ['Which the price on the shelf reflects', 'Which the price on the shelf reflect', 'Which the price in the shelf reflects'], 0],
+      ],
+      order: ['И проверка, за некоторую цену.', 'And audited, at some cost.'],
+      produce: [
+        ['«Натуральный» — слово нерегулируемое.', 'Natural is not a regulated word.', []],
+        ['В отличие от «органический», у которого есть определение.', 'Unlike organic, which is defined.', []],
+        ['Что и отражается в цене на полке.', 'Which the price on the shelf reflects.', []],
+      ],
+    },
+    {
+      title: 'Advice that ignores money',
+      summary: 'Совет, который не видит денег.',
+      topics: [SA, CO, LI],
+      dialogue: ['Совет', [
+        ['Anna', 'Cook everything from scratch, they say.', 'Готовьте всё с нуля, говорят они.'],
+        ['Ben', 'Which assumes a kitchen and two hours.', 'Что предполагает кухню и два часа.'],
+        ['Anna', 'And somebody who is not exhausted.', 'И человека, который не вымотан.'],
+        ['Ben', 'Which describes about a third of people.', 'Это описывает примерно треть людей.'],
+        ['Anna', 'And all of the people giving the advice.', 'И всех тех, кто раздаёт советы.'],
+      ]],
+      words: [
+        ['from scratch', 'с нуля', 'Cook everything from scratch, they say.'],
+        ['assumes a kitchen', 'предполагает кухню', 'Which assumes a kitchen and two hours.'],
+        ['who is not exhausted', 'кто не вымотан', 'And somebody who is not exhausted.'],
+        ['about a third of people', 'примерно треть людей', 'Which describes about a third of people.'],
+        ['the people giving the advice', 'те, кто раздаёт советы', 'And all of the people giving the advice.'],
+      ],
+      rule: ['Причастие вместо придаточного', 'The people giving the advice. Форма на -ing заменяет who give и сокращает фразу.'],
+      quiz: [
+        ['«И всех тех, кто раздаёт советы» —', ['And all of the people giving the advice', 'And all of the people give the advice', 'And all of the people gived the advice'], 0],
+        ['«Что предполагает кухню и два часа» —', ['Which assumes a kitchen and two hours', 'Which assume a kitchen and two hours', 'Which assumes a kitchen and two hour'], 0],
+        ['«Это описывает примерно треть людей» —', ['Which describes about a third of people', 'Which describes about a third of peoples', 'Which describe about a third of people'], 0],
+      ],
+      order: ['Готовьте всё с нуля, говорят они.', 'Cook everything from scratch, they say.'],
+      produce: [
+        ['Готовьте всё с нуля, говорят они.', 'Cook everything from scratch, they say.', []],
+        ['И человека, который не вымотан.', 'And somebody who is not exhausted.', []],
+        ['И всех тех, кто раздаёт советы.', 'And all of the people giving the advice.', []],
+      ],
+    },
+    {
+      title: 'What actually changes habits',
+      summary: 'Что действительно меняет привычки.',
+      topics: [SA, CO, LI],
+      dialogue: ['Привычки', [
+        ['Ben', 'What is in the house gets eaten.', 'Что в доме — то и съедается.'],
+        ['Anna', 'Which is the only rule that survives contact.', 'Единственное правило, переживающее столкновение с жизнью.'],
+        ['Ben', 'And it moves the decision to the shop.', 'И оно переносит решение в магазин.'],
+        ['Anna', 'Where it is made once a week, calmly.', 'Где оно принимается раз в неделю, спокойно.'],
+        ['Ben', 'Rather than nine times a day, tired.', 'А не девять раз в день, уставшим.'],
+      ]],
+      words: [
+        ['What is in the house', 'что в доме', 'What is in the house gets eaten.'],
+        ['gets eaten', 'съедается', 'What is in the house gets eaten.'],
+        ['survives contact', 'переживает столкновение', 'The only rule that survives contact.'],
+        ['once a week, calmly', 'раз в неделю, спокойно', 'Where it is made once a week, calmly.'],
+        ['Rather than nine times a day', 'а не девять раз в день', 'Rather than nine times a day, tired.'],
+      ],
+      rule: ['Rather than — противопоставление вариантов', 'Once a week rather than nine times a day. Оборот сравнивает два способа и подчёркивает выбор.'],
+      quiz: [
+        ['«А не девять раз в день, уставшим» —', ['Rather than nine times a day, tired', 'Rather that nine times a day, tired', 'Rather than nine time a day, tired'], 0],
+        ['«Что в доме — то и съедается» —', ['What is in the house gets eaten', 'What is in the house get eaten', 'What is in the house gets eat'], 0],
+        ['«Где оно принимается раз в неделю, спокойно» —', ['Where it is made once a week, calmly', 'Where it is make once a week, calmly', 'Where it is made once in week, calmly'], 0],
+      ],
+      order: ['И оно переносит решение в магазин.', 'And it moves the decision to the shop.'],
+      produce: [
+        ['Что в доме — то и съедается.', 'What is in the house gets eaten.', []],
+        ['И оно переносит решение в магазин.', 'And it moves the decision to the shop.', []],
+        ['А не девять раз в день, уставшим.', 'Rather than nine times a day, tired.', []],
+      ],
+    },
+    {
+      title: 'A sane position',
+      summary: 'Разумная позиция.',
+      topics: [CO, SA, LI],
+      dialogue: ['Позиция', [
+        ['Anna', 'Mostly plants, mostly cooked at home.', 'В основном растения, в основном дома.'],
+        ['Ben', 'Which fits on a postcard, and holds up.', 'Влезает на открытку и держится.'],
+        ['Anna', 'Against thirty years of contradictory studies.', 'Против тридцати лет противоречивых исследований.'],
+        ['Ben', 'Which is a strong recommendation, in itself.', 'Это само по себе сильная рекомендация.'],
+        ['Anna', 'And the end of the argument, for me.', 'И для меня конец спора.'],
+      ]],
+      words: [
+        ['Mostly plants', 'в основном растения', 'Mostly plants, mostly cooked at home.'],
+        ['fits on a postcard', 'влезает на открытку', 'Which fits on a postcard, and holds up.'],
+        ['holds up', 'держится', 'And holds up against the evidence.'],
+        ['contradictory studies', 'противоречивые исследования', 'Against thirty years of contradictory studies.'],
+        ['in itself', 'само по себе', 'Which is a strong recommendation, in itself.'],
+      ],
+      rule: ['Про еду спорят словами, а не данными', 'Проверяйте размер выборки и учтён ли доход — этого хватает, чтобы отсеять девять заголовков из десяти.'],
+      quiz: [
+        ['«Влезает на открытку и держится» —', ['Which fits on a postcard, and holds up', 'Which fit on a postcard, and holds up', 'Which fits in a postcard, and holds up'], 0],
+        ['«Это само по себе сильная рекомендация» —', ['Which is a strong recommendation, in itself', 'Which is a strong recommendation, in himself', 'Which is a strong recommendation, on itself'], 0],
+        ['«Против тридцати лет противоречивых исследований» —', ['Against thirty years of contradictory studies', 'Against thirty years of contradictory study', 'Against thirty year of contradictory studies'], 0],
+      ],
+      order: ['И для меня конец спора.', 'And the end of the argument, for me.'],
+      produce: [
+        ['В основном растения, в основном дома.', 'Mostly plants, mostly cooked at home.', []],
+        ['Влезает на открытку и держится.', 'Which fits on a postcard, and holds up.', []],
+        ['Это само по себе сильная рекомендация.', 'Which is a strong recommendation, in itself.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: во что мы верим про еду',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [CO, SA, DA, ME],
+      produce: [
+        ['Говорят, что кофе добавляет два года.', 'Coffee is said to add two years.', []],
+        ['Если только доход не учтён.', 'Unless income is controlled for.', []],
+        ['И удержала два из них.', 'And has kept two of them off.', []],
+        ['Ведь именно их мы и субсидируем.', 'Since they are the ones we subsidise.', []],
+        ['Отказаться от еды — значит отказать человеку.', 'Refusing food is refusing the person.', []],
+        ['Что в доме — то и съедается.', 'What is in the house gets eaten.', []],
+      ],
+    },
+  ],
+}
