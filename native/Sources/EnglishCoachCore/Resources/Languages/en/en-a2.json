@@ -80939,6 +80939,3369 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en-a2-eating-out",
+      "title": "Eating out",
+      "subtitle": "Бронь, меню, аллергии, жалоба и счёт",
+      "canDo": [
+        "забронировать стол и прийти без брони",
+        "разобраться в меню и спросить о блюде",
+        "предупредить об аллергии",
+        "вежливо пожаловаться",
+        "попросить счёт и оставить чаевые"
+      ],
+      "lessons": [
+        {
+          "id": "en-a2-eating-out-01",
+          "title": "A table for two",
+          "summary": "Бронь.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-01-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "dialogue",
+              "title": "Бронирую",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "A table for two at eight, please.",
+                  "translation": "Столик на двоих на восемь, пожалуйста."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Inside or outside?",
+                  "translation": "В зале или на улице?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Outside, if the weather holds.",
+                  "translation": "На улице, если погода не подведёт."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Name for the booking?",
+                  "translation": "На какое имя?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Petrova, P E T.",
+                  "translation": "Петрова, П Е Т."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-01-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "a table for two",
+              "translation": "столик на двоих",
+              "example": "A table for two, please."
+            },
+            {
+              "id": "en-a2-eating-out-01-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "inside or outside",
+              "translation": "в зале или на улице",
+              "example": "Inside or outside?"
+            },
+            {
+              "id": "en-a2-eating-out-01-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "if the weather holds",
+              "translation": "если погода не подведёт",
+              "example": "Outside, if the weather holds."
+            },
+            {
+              "id": "en-a2-eating-out-01-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "Name for the booking?",
+              "translation": "На какое имя?",
+              "example": "Name for the booking, please?"
+            },
+            {
+              "id": "en-a2-eating-out-01-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "flashcard",
+              "prompt": "a booking",
+              "translation": "бронь",
+              "example": "A booking for eight."
+            },
+            {
+              "id": "en-a2-eating-out-01-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "info",
+              "title": "Table for two — без слова people",
+              "explanation": "A table for two, a table for four. Слово people здесь лишнее: for two people звучит тяжеловесно, хотя понятно. Так же с билетами: two for the eight o clock."
+            },
+            {
+              "id": "en-a2-eating-out-01-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Столик на двоих» —",
+              "options": [
+                "a table for two",
+                "a table on two",
+                "a table for two peoples"
+              ],
+              "correctOption": "a table for two"
+            },
+            {
+              "id": "en-a2-eating-out-01-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если погода не подведёт» —",
+              "options": [
+                "if the weather holds",
+                "if the weather will hold",
+                "if the weather is hold"
+              ],
+              "correctOption": "if the weather holds"
+            },
+            {
+              "id": "en-a2-eating-out-01-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«На какое имя?» —",
+              "options": [
+                "Name for the booking?",
+                "Name of the booking on?",
+                "Which name for booking?"
+              ],
+              "correctOption": "Name for the booking?"
+            },
+            {
+              "id": "en-a2-eating-out-01-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "word_order",
+              "prompt": "Столик на двоих на восемь, пожалуйста.",
+              "canonicalAnswer": "A table for two at eight, please.",
+              "tokens": [
+                "please",
+                "eight",
+                "at",
+                "two",
+                "for",
+                "table",
+                "A"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-01-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "Столик на двоих на восемь, пожалуйста.",
+              "canonicalAnswer": "A table for two at eight, please."
+            },
+            {
+              "id": "en-a2-eating-out-01-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "На улице, если погода не подведёт.",
+              "canonicalAnswer": "Outside, if the weather holds."
+            },
+            {
+              "id": "en-a2-eating-out-01-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a2-tema-planes"
+              ],
+              "type": "translate",
+              "prompt": "Петрова, П Е Т.",
+              "canonicalAnswer": "Petrova, P E T."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-02",
+          "title": "We have not booked",
+          "summary": "Без брони.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-02-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Без брони",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "We have not booked. Is that a problem?",
+                  "translation": "Мы без брони. Это проблема?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Give me a moment.",
+                  "translation": "Минутку."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "We can wait at the bar.",
+                  "translation": "Можем подождать у бара."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Twenty minutes, is that all right?",
+                  "translation": "Двадцать минут, устроит?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Perfectly.",
+                  "translation": "Вполне."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-02-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "We have not booked.",
+              "translation": "Мы без брони.",
+              "example": "We have not booked, sorry."
+            },
+            {
+              "id": "en-a2-eating-out-02-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Is that a problem?",
+              "translation": "Это проблема?",
+              "example": "Is that a problem for you?"
+            },
+            {
+              "id": "en-a2-eating-out-02-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Give me a moment.",
+              "translation": "Минутку.",
+              "example": "Give me a moment, please."
+            },
+            {
+              "id": "en-a2-eating-out-02-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "wait at the bar",
+              "translation": "подождать у бара",
+              "example": "We can wait at the bar."
+            },
+            {
+              "id": "en-a2-eating-out-02-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Perfectly.",
+              "translation": "Вполне.",
+              "example": "Perfectly, thank you."
+            },
+            {
+              "id": "en-a2-eating-out-02-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Is that a problem — вежливее, чем can we",
+              "explanation": "Вопрос отдаёт решение собеседнику и звучит спокойно. Так же работают is that all right, does that work for you. Эти обороты в ресторане и в офисе одинаково уместны."
+            },
+            {
+              "id": "en-a2-eating-out-02-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы без брони» —",
+              "options": [
+                "We have not booked",
+                "We have not book",
+                "We did not have booked"
+              ],
+              "correctOption": "We have not booked"
+            },
+            {
+              "id": "en-a2-eating-out-02-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Это проблема?» —",
+              "options": [
+                "Is that a problem?",
+                "Is that problem?",
+                "That is a problem it?"
+              ],
+              "correctOption": "Is that a problem?"
+            },
+            {
+              "id": "en-a2-eating-out-02-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Двадцать минут, устроит?» —",
+              "options": [
+                "Twenty minutes, is that all right?",
+                "Twenty minutes, is that all right it?",
+                "Twenty minutes, that is all right?"
+              ],
+              "correctOption": "Twenty minutes, is that all right?"
+            },
+            {
+              "id": "en-a2-eating-out-02-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Мы без брони. Это проблема?",
+              "canonicalAnswer": "We have not booked. Is that a problem?",
+              "tokens": [
+                "problem",
+                "a",
+                "that",
+                "Is",
+                "booked",
+                "not",
+                "have",
+                "We"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-02-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Мы без брони. Это проблема?",
+              "canonicalAnswer": "We have not booked. Is that a problem?",
+              "acceptedAnswers": [
+                "We haven't booked. Is that a problem?"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-02-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Можем подождать у бара.",
+              "canonicalAnswer": "We can wait at the bar."
+            },
+            {
+              "id": "en-a2-eating-out-02-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-present-perfect",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Двадцать минут, устроит?",
+              "canonicalAnswer": "Twenty minutes, is that all right?"
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-03",
+          "title": "What do you recommend?",
+          "summary": "Спросить совета у официанта.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-03-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Что посоветуете",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "What do you recommend?",
+                  "translation": "Что посоветуете?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The fish today, it came this morning.",
+                  "translation": "Сегодня рыбу, привезли утром."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And for somebody who does not eat fish?",
+                  "translation": "А для того, кто рыбу не ест?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The mushroom pasta.",
+                  "translation": "Пасту с грибами."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "One of each, then.",
+                  "translation": "Тогда по одному."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-03-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "What do you recommend?",
+              "translation": "Что посоветуете?",
+              "example": "What do you recommend today?"
+            },
+            {
+              "id": "en-a2-eating-out-03-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "it came this morning",
+              "translation": "привезли утром",
+              "example": "The fish came this morning."
+            },
+            {
+              "id": "en-a2-eating-out-03-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "somebody who does not eat fish",
+              "translation": "тот, кто не ест рыбу",
+              "example": "For somebody who does not eat fish?"
+            },
+            {
+              "id": "en-a2-eating-out-03-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "mushroom pasta",
+              "translation": "паста с грибами",
+              "example": "The mushroom pasta."
+            },
+            {
+              "id": "en-a2-eating-out-03-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "one of each",
+              "translation": "по одному",
+              "example": "One of each, then."
+            },
+            {
+              "id": "en-a2-eating-out-03-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Один из каждого — one of each",
+              "explanation": "One of each — короткая формула вместо перечисления. В магазине и в кафе экономит целую фразу, и её понимают мгновенно."
+            },
+            {
+              "id": "en-a2-eating-out-03-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что посоветуете?» —",
+              "options": [
+                "What do you recommend?",
+                "What do you recommend to?",
+                "What are you recommend?"
+              ],
+              "correctOption": "What do you recommend?"
+            },
+            {
+              "id": "en-a2-eating-out-03-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тот, кто не ест рыбу» —",
+              "options": [
+                "somebody who does not eat fish",
+                "somebody which does not eat fish",
+                "somebody who do not eat fish"
+              ],
+              "correctOption": "somebody who does not eat fish"
+            },
+            {
+              "id": "en-a2-eating-out-03-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«По одному» —",
+              "options": [
+                "one of each",
+                "one from each",
+                "each of one"
+              ],
+              "correctOption": "one of each"
+            },
+            {
+              "id": "en-a2-eating-out-03-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Сегодня рыбу, привезли утром.",
+              "canonicalAnswer": "The fish today, it came this morning.",
+              "tokens": [
+                "morning",
+                "this",
+                "came",
+                "it",
+                "today",
+                "fish",
+                "The"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-03-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Что посоветуете?",
+              "canonicalAnswer": "What do you recommend?"
+            },
+            {
+              "id": "en-a2-eating-out-03-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Сегодня рыбу, привезли утром.",
+              "canonicalAnswer": "The fish today, it came this morning."
+            },
+            {
+              "id": "en-a2-eating-out-03-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Тогда по одному.",
+              "canonicalAnswer": "One of each, then."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-04",
+          "title": "I am allergic to nuts",
+          "summary": "Аллергия и ограничения.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-04-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Аллергия",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "I am allergic to nuts.",
+                  "translation": "У меня аллергия на орехи."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I tell the kitchen.",
+                  "translation": "Скажу на кухню."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Is there anything in the sauce?",
+                  "translation": "В соусе ничего такого нет?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I check, to be sure.",
+                  "translation": "Уточню, на всякий случай."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Thank you, that matters.",
+                  "translation": "Спасибо, это важно."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-04-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "allergic to nuts",
+              "translation": "аллергия на орехи",
+              "example": "I am allergic to nuts."
+            },
+            {
+              "id": "en-a2-eating-out-04-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "I tell the kitchen.",
+              "translation": "Скажу на кухню.",
+              "example": "I tell the kitchen, of course."
+            },
+            {
+              "id": "en-a2-eating-out-04-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "the sauce",
+              "translation": "соус",
+              "example": "Anything in the sauce?"
+            },
+            {
+              "id": "en-a2-eating-out-04-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "I check.",
+              "translation": "Уточню.",
+              "example": "I check, to be sure."
+            },
+            {
+              "id": "en-a2-eating-out-04-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "That matters.",
+              "translation": "Это важно.",
+              "example": "Thank you, that matters."
+            },
+            {
+              "id": "en-a2-eating-out-04-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Об аллергии говорят до заказа",
+              "explanation": "Фраза I am allergic to звучит в начале разговора, а не после того, как блюдо принесли. В Британии и Евросоюзе кухня обязана ответить, что внутри, и спрашивать об этом нормально."
+            },
+            {
+              "id": "en-a2-eating-out-04-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«У меня аллергия на орехи» —",
+              "options": [
+                "I am allergic to nuts",
+                "I have allergy on nuts",
+                "I am allergy to nuts"
+              ],
+              "correctOption": "I am allergic to nuts"
+            },
+            {
+              "id": "en-a2-eating-out-04-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В соусе ничего нет?» —",
+              "options": [
+                "Is there anything in the sauce?",
+                "Is there something in the sauce?",
+                "Is it anything in the sauce?"
+              ],
+              "correctOption": "Is there anything in the sauce?"
+            },
+            {
+              "id": "en-a2-eating-out-04-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«На всякий случай» —",
+              "options": [
+                "to be sure",
+                "for be sure",
+                "to be surely"
+              ],
+              "correctOption": "to be sure"
+            },
+            {
+              "id": "en-a2-eating-out-04-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "У меня аллергия на орехи.",
+              "canonicalAnswer": "I am allergic to nuts.",
+              "tokens": [
+                "nuts",
+                "to",
+                "allergic",
+                "am",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-04-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "У меня аллергия на орехи.",
+              "canonicalAnswer": "I am allergic to nuts.",
+              "acceptedAnswers": [
+                "I'm allergic to nuts."
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-04-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "В соусе ничего такого нет?",
+              "canonicalAnswer": "Is there anything in the sauce?"
+            },
+            {
+              "id": "en-a2-eating-out-04-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-health",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Уточню, на всякий случай.",
+              "canonicalAnswer": "I check, to be sure."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-05",
+          "title": "How would you like it?",
+          "summary": "Степень прожарки и уточнения.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-05-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Как приготовить",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "How would you like the steak?",
+                  "translation": "Как прожарить стейк?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Medium, please.",
+                  "translation": "Средне, пожалуйста."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And a side?",
+                  "translation": "Гарнир?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Salad instead of chips.",
+                  "translation": "Салат вместо картошки."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Of course.",
+                  "translation": "Конечно."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-05-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "How would you like it?",
+              "translation": "Как приготовить?",
+              "example": "How would you like the steak?"
+            },
+            {
+              "id": "en-a2-eating-out-05-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "medium",
+              "translation": "средней прожарки",
+              "example": "Medium, please."
+            },
+            {
+              "id": "en-a2-eating-out-05-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "a side",
+              "translation": "гарнир",
+              "example": "And a side?"
+            },
+            {
+              "id": "en-a2-eating-out-05-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "instead of",
+              "translation": "вместо",
+              "example": "Salad instead of chips."
+            },
+            {
+              "id": "en-a2-eating-out-05-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "chips",
+              "translation": "картошка фри",
+              "example": "Salad instead of chips."
+            },
+            {
+              "id": "en-a2-eating-out-05-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Instead of — с существительным и -ing",
+              "explanation": "Salad instead of chips, walk instead of driving. После of идёт существительное или -ing, никогда инфинитив: instead of to drive — ошибка."
+            },
+            {
+              "id": "en-a2-eating-out-05-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Салат вместо картошки» —",
+              "options": [
+                "Salad instead of chips",
+                "Salad instead chips",
+                "Salad instead of the chips of"
+              ],
+              "correctOption": "Salad instead of chips"
+            },
+            {
+              "id": "en-a2-eating-out-05-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пешком вместо того, чтобы ехать» —",
+              "options": [
+                "Walk instead of driving",
+                "Walk instead of to drive",
+                "Walk instead driving"
+              ],
+              "correctOption": "Walk instead of driving"
+            },
+            {
+              "id": "en-a2-eating-out-05-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Средне, пожалуйста» —",
+              "options": [
+                "Medium, please",
+                "On medium, please",
+                "Middle, please"
+              ],
+              "correctOption": "Medium, please"
+            },
+            {
+              "id": "en-a2-eating-out-05-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Салат вместо картошки.",
+              "canonicalAnswer": "Salad instead of chips.",
+              "tokens": [
+                "chips",
+                "of",
+                "instead",
+                "Salad"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-05-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Как прожарить стейк?",
+              "canonicalAnswer": "How would you like the steak?"
+            },
+            {
+              "id": "en-a2-eating-out-05-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Средне, пожалуйста.",
+              "canonicalAnswer": "Medium, please."
+            },
+            {
+              "id": "en-a2-eating-out-05-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Салат вместо картошки.",
+              "canonicalAnswer": "Salad instead of chips."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-06",
+          "title": "This is not what I ordered",
+          "summary": "Принесли не то.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-06-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "dialogue",
+              "title": "Не то блюдо",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Sorry, this is not what I ordered.",
+                  "translation": "Извините, это не то, что я заказывал."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Oh, I am sorry. What was it?",
+                  "translation": "Ой, простите. А что было?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The chicken, not the pork.",
+                  "translation": "Курица, не свинина."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I take it back right away.",
+                  "translation": "Сейчас же унесу."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "No rush, thank you.",
+                  "translation": "Не спешите, спасибо."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-06-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "This is not what I ordered.",
+              "translation": "Это не то, что я заказывал.",
+              "example": "Sorry, this is not what I ordered."
+            },
+            {
+              "id": "en-a2-eating-out-06-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "What was it?",
+              "translation": "А что было?",
+              "example": "I am sorry. What was it?"
+            },
+            {
+              "id": "en-a2-eating-out-06-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "the chicken",
+              "translation": "курица",
+              "example": "The chicken, not the pork."
+            },
+            {
+              "id": "en-a2-eating-out-06-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "pork",
+              "translation": "свинина",
+              "example": "Not the pork."
+            },
+            {
+              "id": "en-a2-eating-out-06-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "right away",
+              "translation": "сейчас же",
+              "example": "I take it back right away."
+            },
+            {
+              "id": "en-a2-eating-out-06-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "info",
+              "title": "Жалоба начинается с sorry",
+              "explanation": "Sorry, this is not what I ordered — извинение здесь не признание вины, а смягчитель. Британец начнёт с него даже там, где полностью прав, и это резко снижает температуру разговора."
+            },
+            {
+              "id": "en-a2-eating-out-06-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Это не то, что я заказывал» —",
+              "options": [
+                "This is not what I ordered",
+                "This is not that I ordered",
+                "This is not what I order"
+              ],
+              "correctOption": "This is not what I ordered"
+            },
+            {
+              "id": "en-a2-eating-out-06-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Сейчас же унесу» —",
+              "options": [
+                "I take it back right away",
+                "I take back it right away",
+                "I take it back right now away"
+              ],
+              "correctOption": "I take it back right away"
+            },
+            {
+              "id": "en-a2-eating-out-06-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Курица, не свинина» —",
+              "options": [
+                "The chicken, not the pork",
+                "The chicken, no the pork",
+                "The chicken, not pork the"
+              ],
+              "correctOption": "The chicken, not the pork"
+            },
+            {
+              "id": "en-a2-eating-out-06-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "word_order",
+              "prompt": "Извините, это не то, что я заказывал.",
+              "canonicalAnswer": "Sorry, this is not what I ordered.",
+              "tokens": [
+                "ordered",
+                "I",
+                "what",
+                "not",
+                "is",
+                "this",
+                "Sorry"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-06-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Извините, это не то, что я заказывал.",
+              "canonicalAnswer": "Sorry, this is not what I ordered."
+            },
+            {
+              "id": "en-a2-eating-out-06-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Курица, не свинина.",
+              "canonicalAnswer": "The chicken, not the pork."
+            },
+            {
+              "id": "en-a2-eating-out-06-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Не спешите, спасибо.",
+              "canonicalAnswer": "No rush, thank you."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-07",
+          "title": "It is cold",
+          "summary": "Блюдо холодное.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-07-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Холодное",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I am sorry, but this is cold.",
+                  "translation": "Извините, но это холодное."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Shall I heat it or bring a new one?",
+                  "translation": "Разогреть или принести новое?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "A new one, please.",
+                  "translation": "Новое, пожалуйста."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Of course, five minutes.",
+                  "translation": "Конечно, пять минут."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Thank you for understanding.",
+                  "translation": "Спасибо за понимание."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-07-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "this is cold",
+              "translation": "это холодное",
+              "example": "I am sorry, but this is cold."
+            },
+            {
+              "id": "en-a2-eating-out-07-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "heat it",
+              "translation": "разогреть",
+              "example": "Shall I heat it?"
+            },
+            {
+              "id": "en-a2-eating-out-07-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "bring a new one",
+              "translation": "принести новое",
+              "example": "Or bring a new one?"
+            },
+            {
+              "id": "en-a2-eating-out-07-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "five minutes",
+              "translation": "пять минут",
+              "example": "Of course, five minutes."
+            },
+            {
+              "id": "en-a2-eating-out-07-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "for understanding",
+              "translation": "за понимание",
+              "example": "Thank you for understanding."
+            },
+            {
+              "id": "en-a2-eating-out-07-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Жалоба без обвинения",
+              "explanation": "This is cold — факт о блюде, а не о человеке. You brought me cold food переводит разговор на вину официанта, и решается он после этого дольше и хуже."
+            },
+            {
+              "id": "en-a2-eating-out-07-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Извините, но это холодное» —",
+              "options": [
+                "I am sorry, but this is cold",
+                "I am sorry, but this is a cold",
+                "I sorry, but this is cold"
+              ],
+              "correctOption": "I am sorry, but this is cold"
+            },
+            {
+              "id": "en-a2-eating-out-07-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Разогреть или принести новое?» —",
+              "options": [
+                "Shall I heat it or bring a new one?",
+                "Shall I heat it or bring new one?",
+                "Shall I to heat it or bring a new one?"
+              ],
+              "correctOption": "Shall I heat it or bring a new one?"
+            },
+            {
+              "id": "en-a2-eating-out-07-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Спасибо за понимание» —",
+              "options": [
+                "Thank you for understanding",
+                "Thank you for understand",
+                "Thank you for the understand"
+              ],
+              "correctOption": "Thank you for understanding"
+            },
+            {
+              "id": "en-a2-eating-out-07-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Извините, но это холодное.",
+              "canonicalAnswer": "I am sorry, but this is cold.",
+              "tokens": [
+                "cold",
+                "is",
+                "this",
+                "but",
+                "sorry",
+                "am",
+                "I"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-07-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Извините, но это холодное.",
+              "canonicalAnswer": "I am sorry, but this is cold.",
+              "acceptedAnswers": [
+                "I'm sorry, but this is cold."
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-07-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Новое, пожалуйста.",
+              "canonicalAnswer": "A new one, please."
+            },
+            {
+              "id": "en-a2-eating-out-07-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-problems",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Спасибо за понимание.",
+              "canonicalAnswer": "Thank you for understanding."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-08",
+          "title": "Could we have some water?",
+          "summary": "Попросить добавку.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-08-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Ещё воды",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Could we have some more water?",
+                  "translation": "Можно ещё воды?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Still or sparkling?",
+                  "translation": "Без газа или с газом?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Still, and tap is fine.",
+                  "translation": "Без газа, можно из-под крана."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And more bread?",
+                  "translation": "Ещё хлеба?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Always more bread.",
+                  "translation": "Хлеба всегда."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-08-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "Could we have…?",
+              "translation": "Можно нам …?",
+              "example": "Could we have some more water?"
+            },
+            {
+              "id": "en-a2-eating-out-08-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "still or sparkling",
+              "translation": "без газа или с газом",
+              "example": "Still or sparkling?"
+            },
+            {
+              "id": "en-a2-eating-out-08-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "tap water",
+              "translation": "вода из-под крана",
+              "example": "Tap is fine."
+            },
+            {
+              "id": "en-a2-eating-out-08-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "more bread",
+              "translation": "ещё хлеба",
+              "example": "And more bread?"
+            },
+            {
+              "id": "en-a2-eating-out-08-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "always",
+              "translation": "всегда",
+              "example": "Always more bread."
+            },
+            {
+              "id": "en-a2-eating-out-08-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Could — вежливее, чем can",
+              "explanation": "Could we have, could you bring, could I see the menu. На A2 достаточно знать, что could в просьбе не про прошлое, а про вежливость, и что после него глагол без to."
+            },
+            {
+              "id": "en-a2-eating-out-08-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Можно ещё воды?» —",
+              "options": [
+                "Could we have some more water?",
+                "Could we to have some more water?",
+                "Could we have some more waters?"
+              ],
+              "correctOption": "Could we have some more water?"
+            },
+            {
+              "id": "en-a2-eating-out-08-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Без газа» —",
+              "options": [
+                "still",
+                "without gas",
+                "no sparkling gas"
+              ],
+              "correctOption": "still"
+            },
+            {
+              "id": "en-a2-eating-out-08-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Вода из-под крана» —",
+              "options": [
+                "tap water",
+                "crane water",
+                "water from tap the"
+              ],
+              "correctOption": "tap water"
+            },
+            {
+              "id": "en-a2-eating-out-08-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Можно ещё воды?",
+              "canonicalAnswer": "Could we have some more water?",
+              "tokens": [
+                "water",
+                "more",
+                "some",
+                "have",
+                "we",
+                "Could"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-08-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Можно ещё воды?",
+              "canonicalAnswer": "Could we have some more water?"
+            },
+            {
+              "id": "en-a2-eating-out-08-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Без газа, можно из-под крана.",
+              "canonicalAnswer": "Still, and tap is fine."
+            },
+            {
+              "id": "en-a2-eating-out-08-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-quantifiers",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Ещё хлеба?",
+              "canonicalAnswer": "And more bread?"
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-09",
+          "title": "The bill, please",
+          "summary": "Счёт.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-09-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "dialogue",
+              "title": "Счёт",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Could we have the bill, please?",
+                  "translation": "Можно счёт, пожалуйста?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Together or separately?",
+                  "translation": "Вместе или раздельно?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Together, and card.",
+                  "translation": "Вместе, картой."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Is service included?",
+                  "translation": "Обслуживание включено?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "It is, ten per cent.",
+                  "translation": "Да, десять процентов."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-09-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "the bill",
+              "translation": "счёт",
+              "example": "Could we have the bill?"
+            },
+            {
+              "id": "en-a2-eating-out-09-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "together or separately",
+              "translation": "вместе или раздельно",
+              "example": "Together or separately?"
+            },
+            {
+              "id": "en-a2-eating-out-09-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "service",
+              "translation": "обслуживание",
+              "example": "Is service included?"
+            },
+            {
+              "id": "en-a2-eating-out-09-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "included",
+              "translation": "включено",
+              "example": "Is service included?"
+            },
+            {
+              "id": "en-a2-eating-out-09-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "flashcard",
+              "prompt": "ten per cent",
+              "translation": "десять процентов",
+              "example": "It is, ten per cent."
+            },
+            {
+              "id": "en-a2-eating-out-09-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "info",
+              "title": "Bill и check",
+              "explanation": "В Британии просят the bill, в Америке the check. В обеих странах поймут обе формы, но привычка отличается, как и порядок чаевых: в США они обязательны и больше."
+            },
+            {
+              "id": "en-a2-eating-out-09-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Счёт, пожалуйста» (по-британски) —",
+              "options": [
+                "The bill, please",
+                "The check, please",
+                "The account, please"
+              ],
+              "correctOption": "The bill, please"
+            },
+            {
+              "id": "en-a2-eating-out-09-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Вместе или раздельно?» —",
+              "options": [
+                "Together or separately?",
+                "Together or separate?",
+                "All together or separately it?"
+              ],
+              "correctOption": "Together or separately?"
+            },
+            {
+              "id": "en-a2-eating-out-09-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Обслуживание включено?» —",
+              "options": [
+                "Is service included?",
+                "Is the service include?",
+                "Is service included in it of?"
+              ],
+              "correctOption": "Is service included?"
+            },
+            {
+              "id": "en-a2-eating-out-09-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "word_order",
+              "prompt": "Можно счёт, пожалуйста?",
+              "canonicalAnswer": "Could we have the bill, please?",
+              "tokens": [
+                "please",
+                "bill",
+                "the",
+                "have",
+                "we",
+                "Could"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-09-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Можно счёт, пожалуйста?",
+              "canonicalAnswer": "Could we have the bill, please?"
+            },
+            {
+              "id": "en-a2-eating-out-09-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Вместе, картой.",
+              "canonicalAnswer": "Together, and card."
+            },
+            {
+              "id": "en-a2-eating-out-09-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-modals-advice"
+              ],
+              "type": "translate",
+              "prompt": "Обслуживание включено?",
+              "canonicalAnswer": "Is service included?"
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-10",
+          "title": "Tipping",
+          "summary": "Чаевые.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-10-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "dialogue",
+              "title": "Чаевые",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "How much do you tip here?",
+                  "translation": "Сколько тут дают чаевых?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Ten per cent is normal.",
+                  "translation": "Десять процентов — норма."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And if service is included?",
+                  "translation": "А если обслуживание включено?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then nothing extra.",
+                  "translation": "Тогда ничего сверху."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Simpler than at home.",
+                  "translation": "Проще, чем у нас."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-10-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "tip",
+              "translation": "давать чаевые",
+              "example": "How much do you tip here?"
+            },
+            {
+              "id": "en-a2-eating-out-10-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "is normal",
+              "translation": "норма",
+              "example": "Ten per cent is normal."
+            },
+            {
+              "id": "en-a2-eating-out-10-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "nothing extra",
+              "translation": "ничего сверху",
+              "example": "Then nothing extra."
+            },
+            {
+              "id": "en-a2-eating-out-10-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "simpler",
+              "translation": "проще",
+              "example": "Simpler than at home."
+            },
+            {
+              "id": "en-a2-eating-out-10-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "at home",
+              "translation": "у нас, дома",
+              "example": "Simpler than at home."
+            },
+            {
+              "id": "en-a2-eating-out-10-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "info",
+              "title": "Правила чаевых меняются от страны",
+              "explanation": "В Британии десять процентов и часто уже в счёте, в США пятнадцать-двадцать сверху обязательно, в Японии чаевые могут обидеть. Спросить у местных — нормальный ход, и вопрос how much do you tip here никого не удивляет."
+            },
+            {
+              "id": "en-a2-eating-out-10-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Сколько тут дают чаевых?» —",
+              "options": [
+                "How much do you tip here?",
+                "How many do you tip here?",
+                "How much you tip here?"
+              ],
+              "correctOption": "How much do you tip here?"
+            },
+            {
+              "id": "en-a2-eating-out-10-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Тогда ничего сверху» —",
+              "options": [
+                "Then nothing extra",
+                "Then nothing more extra of",
+                "Then not anything extra"
+              ],
+              "correctOption": "Then nothing extra"
+            },
+            {
+              "id": "en-a2-eating-out-10-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Проще, чем у нас» —",
+              "options": [
+                "Simpler than at home",
+                "More simple than at home",
+                "Simpler that at home"
+              ],
+              "correctOption": "Simpler than at home"
+            },
+            {
+              "id": "en-a2-eating-out-10-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "word_order",
+              "prompt": "Десять процентов — норма.",
+              "canonicalAnswer": "Ten per cent is normal.",
+              "tokens": [
+                "normal",
+                "is",
+                "cent",
+                "per",
+                "Ten"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-10-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Сколько тут дают чаевых?",
+              "canonicalAnswer": "How much do you tip here?"
+            },
+            {
+              "id": "en-a2-eating-out-10-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Десять процентов — норма.",
+              "canonicalAnswer": "Ten per cent is normal."
+            },
+            {
+              "id": "en-a2-eating-out-10-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-tema-dinero",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Тогда ничего сверху.",
+              "canonicalAnswer": "Then nothing extra."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-11",
+          "title": "Breakfast and coffee",
+          "summary": "Утро в кафе.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-11-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "dialogue",
+              "title": "Завтрак",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Two coffees and one croissant.",
+                  "translation": "Два кофе и один круассан."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "To have here or take away?",
+                  "translation": "Здесь или с собой?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Here, we have time.",
+                  "translation": "Здесь, время есть."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Milk in both?",
+                  "translation": "Оба с молоком?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "One with, one without.",
+                  "translation": "Один с, другой без."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-11-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "two coffees",
+              "translation": "два кофе",
+              "example": "Two coffees and one croissant."
+            },
+            {
+              "id": "en-a2-eating-out-11-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "to have here",
+              "translation": "здесь",
+              "example": "To have here or take away?"
+            },
+            {
+              "id": "en-a2-eating-out-11-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "take away",
+              "translation": "с собой",
+              "example": "To have here or take away?"
+            },
+            {
+              "id": "en-a2-eating-out-11-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "milk in both",
+              "translation": "оба с молоком",
+              "example": "Milk in both?"
+            },
+            {
+              "id": "en-a2-eating-out-11-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "flashcard",
+              "prompt": "one with, one without",
+              "translation": "один с, другой без",
+              "example": "One with, one without."
+            },
+            {
+              "id": "en-a2-eating-out-11-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "info",
+              "title": "Two coffees — мера подразумевается",
+              "explanation": "Coffee неисчисляемо, но two coffees в кафе нормально: имеются в виду две чашки. Так же two waters, three beers. Это разговорная норма, а не ошибка."
+            },
+            {
+              "id": "en-a2-eating-out-11-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Два кофе» (в кафе) —",
+              "options": [
+                "two coffees",
+                "two coffee",
+                "two of coffee"
+              ],
+              "correctOption": "two coffees"
+            },
+            {
+              "id": "en-a2-eating-out-11-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«С собой» —",
+              "options": [
+                "take away",
+                "take with",
+                "to take out with me away"
+              ],
+              "correctOption": "take away"
+            },
+            {
+              "id": "en-a2-eating-out-11-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Один с, другой без» —",
+              "options": [
+                "One with, one without",
+                "One with, one without it",
+                "One with milk, one no"
+              ],
+              "correctOption": "One with, one without"
+            },
+            {
+              "id": "en-a2-eating-out-11-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "word_order",
+              "prompt": "Здесь или с собой?",
+              "canonicalAnswer": "To have here or take away?",
+              "tokens": [
+                "away",
+                "take",
+                "or",
+                "here",
+                "have",
+                "To"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-11-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Два кофе и один круассан.",
+              "canonicalAnswer": "Two coffees and one croissant."
+            },
+            {
+              "id": "en-a2-eating-out-11-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Здесь, время есть.",
+              "canonicalAnswer": "Here, we have time."
+            },
+            {
+              "id": "en-a2-eating-out-11-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-quantifiers"
+              ],
+              "type": "translate",
+              "prompt": "Один с, другой без.",
+              "canonicalAnswer": "One with, one without."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-12",
+          "title": "Talking about the food",
+          "summary": "Оценить блюдо.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-12-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "dialogue",
+              "title": "Как еда",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "How is yours?",
+                  "translation": "Как у тебя?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Better than I expected.",
+                  "translation": "Лучше, чем я ожидала."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Mine is a bit salty.",
+                  "translation": "У меня чуть солоновато."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Try this instead.",
+                  "translation": "Попробуй тогда моё."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Now that is good.",
+                  "translation": "Вот это хорошо."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-12-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "How is yours?",
+              "translation": "Как у тебя?",
+              "example": "How is yours?"
+            },
+            {
+              "id": "en-a2-eating-out-12-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "better than I expected",
+              "translation": "лучше, чем ожидала",
+              "example": "Better than I expected."
+            },
+            {
+              "id": "en-a2-eating-out-12-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "a bit salty",
+              "translation": "чуть солоновато",
+              "example": "Mine is a bit salty."
+            },
+            {
+              "id": "en-a2-eating-out-12-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "Try this instead.",
+              "translation": "Попробуй тогда моё.",
+              "example": "Try this instead."
+            },
+            {
+              "id": "en-a2-eating-out-12-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "flashcard",
+              "prompt": "Now that is good.",
+              "translation": "Вот это хорошо.",
+              "example": "Now that is good, yes."
+            },
+            {
+              "id": "en-a2-eating-out-12-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "info",
+              "title": "A bit — смягчает жалобу",
+              "explanation": "A bit salty, a bit cold, a bit late. Слово превращает претензию в наблюдение и звучит мягче, чем too. За столом с друзьями это разница между репликой и сценой."
+            },
+            {
+              "id": "en-a2-eating-out-12-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Чуть солоновато» —",
+              "options": [
+                "a bit salty",
+                "a bit of salty",
+                "bit salty"
+              ],
+              "correctOption": "a bit salty"
+            },
+            {
+              "id": "en-a2-eating-out-12-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Лучше, чем я ожидала» —",
+              "options": [
+                "Better than I expected",
+                "Better that I expected",
+                "More better than I expected"
+              ],
+              "correctOption": "Better than I expected"
+            },
+            {
+              "id": "en-a2-eating-out-12-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Как у тебя?» (о блюде) —",
+              "options": [
+                "How is yours?",
+                "How is your?",
+                "How are yours it?"
+              ],
+              "correctOption": "How is yours?"
+            },
+            {
+              "id": "en-a2-eating-out-12-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "word_order",
+              "prompt": "Лучше, чем я ожидала.",
+              "canonicalAnswer": "Better than I expected.",
+              "tokens": [
+                "expected",
+                "I",
+                "than",
+                "Better"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-12-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Как у тебя?",
+              "canonicalAnswer": "How is yours?"
+            },
+            {
+              "id": "en-a2-eating-out-12-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "Лучше, чем я ожидала.",
+              "canonicalAnswer": "Better than I expected."
+            },
+            {
+              "id": "en-a2-eating-out-12-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a1-tema-food",
+                "a2-comparatives"
+              ],
+              "type": "translate",
+              "prompt": "У меня чуть солоновато.",
+              "canonicalAnswer": "Mine is a bit salty."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-13",
+          "title": "A place worth going back to",
+          "summary": "Порекомендовать место.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-13-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "dialogue",
+              "title": "Хорошее место",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "It is a place I would go back to.",
+                  "translation": "Это место, куда я бы вернулась."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "For the food or the room?",
+                  "translation": "Из-за еды или из-за зала?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Both, and the price.",
+                  "translation": "И то и другое, и цена."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Then we bring the others next time.",
+                  "translation": "Тогда в следующий раз возьмём остальных."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "They will like it.",
+                  "translation": "Им понравится."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-13-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "flashcard",
+              "prompt": "a place I would go back to",
+              "translation": "место, куда я бы вернулась",
+              "example": "It is a place I would go back to."
+            },
+            {
+              "id": "en-a2-eating-out-13-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "flashcard",
+              "prompt": "for the food",
+              "translation": "из-за еды",
+              "example": "For the food or the room?"
+            },
+            {
+              "id": "en-a2-eating-out-13-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "flashcard",
+              "prompt": "the room",
+              "translation": "зал",
+              "example": "For the food or the room?"
+            },
+            {
+              "id": "en-a2-eating-out-13-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "flashcard",
+              "prompt": "bring the others",
+              "translation": "взять остальных",
+              "example": "We bring the others next time."
+            },
+            {
+              "id": "en-a2-eating-out-13-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "flashcard",
+              "prompt": "They will like it.",
+              "translation": "Им понравится.",
+              "example": "They will like it, certainly."
+            },
+            {
+              "id": "en-a2-eating-out-13-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "info",
+              "title": "Предлог снова в конце",
+              "explanation": "A place I would go back to, a person I told you about. Английское придаточное оставляет предлог позади — правило то же, что в блоке про who и which, и в отзывах о местах оно всплывает постоянно."
+            },
+            {
+              "id": "en-a2-eating-out-13-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Место, куда я бы вернулась» —",
+              "options": [
+                "a place I would go back to",
+                "a place to which I would go back to",
+                "a place where I would go back to it"
+              ],
+              "correctOption": "a place I would go back to"
+            },
+            {
+              "id": "en-a2-eating-out-13-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И то и другое, и цена» —",
+              "options": [
+                "Both, and the price",
+                "Both, and price",
+                "Two both, and the price"
+              ],
+              "correctOption": "Both, and the price"
+            },
+            {
+              "id": "en-a2-eating-out-13-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Им понравится» —",
+              "options": [
+                "They will like it",
+                "They will like",
+                "They will to like it"
+              ],
+              "correctOption": "They will like it"
+            },
+            {
+              "id": "en-a2-eating-out-13-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "word_order",
+              "prompt": "Это место, куда я бы вернулась.",
+              "canonicalAnswer": "It is a place I would go back to.",
+              "tokens": [
+                "to",
+                "back",
+                "go",
+                "would",
+                "I",
+                "place",
+                "a",
+                "is",
+                "It"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-13-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "translate",
+              "prompt": "Это место, куда я бы вернулась.",
+              "canonicalAnswer": "It is a place I would go back to.",
+              "acceptedAnswers": [
+                "It's a place I would go back to."
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-13-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "translate",
+              "prompt": "И то и другое, и цена.",
+              "canonicalAnswer": "Both, and the price."
+            },
+            {
+              "id": "en-a2-eating-out-13-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a2-relative-clauses"
+              ],
+              "type": "translate",
+              "prompt": "Им понравится.",
+              "canonicalAnswer": "They will like it.",
+              "acceptedAnswers": [
+                "They'll like it."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-14",
+          "title": "Ordering for somebody else",
+          "summary": "Заказать за другого.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-14-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "dialogue",
+              "title": "За двоих",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "She will have the soup.",
+                  "translation": "Ей суп."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And to drink?",
+                  "translation": "А пить?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Tea for her, water for me.",
+                  "translation": "Ей чай, мне воду."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Anything else?",
+                  "translation": "Что-нибудь ещё?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "That is everything, thank you.",
+                  "translation": "Это всё, спасибо."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-14-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "flashcard",
+              "prompt": "She will have…",
+              "translation": "Ей …",
+              "example": "She will have the soup."
+            },
+            {
+              "id": "en-a2-eating-out-14-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "flashcard",
+              "prompt": "to drink",
+              "translation": "из напитков",
+              "example": "And to drink?"
+            },
+            {
+              "id": "en-a2-eating-out-14-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "flashcard",
+              "prompt": "tea for her",
+              "translation": "ей чай",
+              "example": "Tea for her, water for me."
+            },
+            {
+              "id": "en-a2-eating-out-14-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "flashcard",
+              "prompt": "Anything else?",
+              "translation": "Что-нибудь ещё?",
+              "example": "Anything else for you?"
+            },
+            {
+              "id": "en-a2-eating-out-14-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "flashcard",
+              "prompt": "That is everything.",
+              "translation": "Это всё.",
+              "example": "That is everything, thank you."
+            },
+            {
+              "id": "en-a2-eating-out-14-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "info",
+              "title": "Will have — стандартный заказ",
+              "explanation": "I will have the soup, she will have the fish. Форма звучит естественнее, чем I want, и вежливее, чем give me. Это решение, принятое в момент речи, — ровно тот случай для will."
+            },
+            {
+              "id": "en-a2-eating-out-14-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ей суп» (заказ) —",
+              "options": [
+                "She will have the soup",
+                "She will has the soup",
+                "She wants the soup give"
+              ],
+              "correctOption": "She will have the soup"
+            },
+            {
+              "id": "en-a2-eating-out-14-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что-нибудь ещё?» —",
+              "options": [
+                "Anything else?",
+                "Something else more?",
+                "Anything more else?"
+              ],
+              "correctOption": "Anything else?"
+            },
+            {
+              "id": "en-a2-eating-out-14-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Это всё, спасибо» —",
+              "options": [
+                "That is everything, thank you",
+                "That is all everything, thank you",
+                "It is everything that, thank you"
+              ],
+              "correctOption": "That is everything, thank you"
+            },
+            {
+              "id": "en-a2-eating-out-14-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "word_order",
+              "prompt": "Ей чай, мне воду.",
+              "canonicalAnswer": "Tea for her, water for me.",
+              "tokens": [
+                "me",
+                "for",
+                "water",
+                "her",
+                "for",
+                "Tea"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-14-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "translate",
+              "prompt": "Ей суп.",
+              "canonicalAnswer": "She will have the soup.",
+              "acceptedAnswers": [
+                "She'll have the soup."
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-14-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "translate",
+              "prompt": "Ей чай, мне воду.",
+              "canonicalAnswer": "Tea for her, water for me."
+            },
+            {
+              "id": "en-a2-eating-out-14-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-verb-patterns",
+                "a1-tema-food"
+              ],
+              "type": "translate",
+              "prompt": "Это всё, спасибо.",
+              "canonicalAnswer": "That is everything, thank you."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-15",
+          "title": "An evening out, end to end",
+          "summary": "Весь блок: вечер целиком.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-15-d",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "dialogue",
+              "title": "Ужин целиком",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "A table for two, we have booked.",
+                  "translation": "Столик на двоих, у нас бронь."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Under which name?",
+                  "translation": "На чьё имя?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Petrova. And a quick question: nuts?",
+                  "translation": "Петрова. И вопрос: орехи есть в блюдах?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Only in the dessert.",
+                  "translation": "Только в десерте."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Then everything else is fine.",
+                  "translation": "Тогда всё остальное подходит."
+                }
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-15-w1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "we have booked",
+              "translation": "у нас бронь",
+              "example": "A table for two, we have booked."
+            },
+            {
+              "id": "en-a2-eating-out-15-w2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "Under which name?",
+              "translation": "На чьё имя?",
+              "example": "Under which name, please?"
+            },
+            {
+              "id": "en-a2-eating-out-15-w3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "a quick question",
+              "translation": "короткий вопрос",
+              "example": "And a quick question."
+            },
+            {
+              "id": "en-a2-eating-out-15-w4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "only in the dessert",
+              "translation": "только в десерте",
+              "example": "Only in the dessert."
+            },
+            {
+              "id": "en-a2-eating-out-15-w5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "flashcard",
+              "prompt": "everything else",
+              "translation": "всё остальное",
+              "example": "Then everything else is fine."
+            },
+            {
+              "id": "en-a2-eating-out-15-r",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "info",
+              "title": "Вечер в ресторане — пять шагов",
+              "explanation": "Бронь, заказ с уточнением, аллергия, жалоба если нужна, счёт. Все пять умещаются в короткие формулы, и почти все они начинаются с could или sorry — двух самых полезных слов этого блока."
+            },
+            {
+              "id": "en-a2-eating-out-15-c1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«У нас бронь» —",
+              "options": [
+                "We have booked",
+                "We have book",
+                "We are booked have"
+              ],
+              "correctOption": "We have booked"
+            },
+            {
+              "id": "en-a2-eating-out-15-c2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«На чьё имя?» —",
+              "options": [
+                "Under which name?",
+                "On which name?",
+                "Under which name it is?"
+              ],
+              "correctOption": "Under which name?"
+            },
+            {
+              "id": "en-a2-eating-out-15-c3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Только в десерте» —",
+              "options": [
+                "Only in the dessert",
+                "Only on the dessert",
+                "Only in dessert the"
+              ],
+              "correctOption": "Only in the dessert"
+            },
+            {
+              "id": "en-a2-eating-out-15-o",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "word_order",
+              "prompt": "Столик на двоих, у нас бронь.",
+              "canonicalAnswer": "A table for two, we have booked.",
+              "tokens": [
+                "booked",
+                "have",
+                "we",
+                "two",
+                "for",
+                "table",
+                "A"
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-15-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Столик на двоих, у нас бронь.",
+              "canonicalAnswer": "A table for two, we have booked.",
+              "acceptedAnswers": [
+                "A table for two, we've booked."
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-15-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "И вопрос: орехи есть в блюдах?",
+              "canonicalAnswer": "And a quick question: nuts?"
+            },
+            {
+              "id": "en-a2-eating-out-15-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Тогда всё остальное подходит.",
+              "canonicalAnswer": "Then everything else is fine."
+            }
+          ]
+        },
+        {
+          "id": "en-a2-eating-out-check",
+          "title": "Проверка: ресторан",
+          "summary": "Шесть фраз без подсказок — весь блок целиком.",
+          "estimatedMinutes": 5,
+          "kind": "checkpoint",
+          "exercises": [
+            {
+              "id": "en-a2-eating-out-check-t1",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-food",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Столик на двоих на восемь, пожалуйста.",
+              "canonicalAnswer": "A table for two at eight, please."
+            },
+            {
+              "id": "en-a2-eating-out-check-t2",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-food",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Что посоветуете?",
+              "canonicalAnswer": "What do you recommend?"
+            },
+            {
+              "id": "en-a2-eating-out-check-t3",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-food",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "У меня аллергия на орехи.",
+              "canonicalAnswer": "I am allergic to nuts.",
+              "acceptedAnswers": [
+                "I'm allergic to nuts."
+              ]
+            },
+            {
+              "id": "en-a2-eating-out-check-t4",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-food",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Извините, это не то, что я заказывал.",
+              "canonicalAnswer": "Sorry, this is not what I ordered."
+            },
+            {
+              "id": "en-a2-eating-out-check-t5",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-food",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Можно ещё воды?",
+              "canonicalAnswer": "Could we have some more water?"
+            },
+            {
+              "id": "en-a2-eating-out-check-t6",
+              "topics": [
+                "a2-tema-restaurante",
+                "a2-modals-advice",
+                "a1-tema-food",
+                "a1-tema-problems"
+              ],
+              "type": "translate",
+              "prompt": "Можно счёт, пожалуйста?",
+              "canonicalAnswer": "Could we have the bill, please?"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
