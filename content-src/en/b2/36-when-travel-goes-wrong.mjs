@@ -1,0 +1,318 @@
+// B2, блок 36 — When travel goes wrong. Когда поездка ломается.
+//
+// Тематический блок: отмены, страховки, границы, потерянный багаж и споры
+// с авиакомпанией. Пассив, условия и жёсткие письменные формулы в дороге.
+
+const VJ = 'b1-tema-viaje'
+const RI = 'b2-tema-riesgo'
+const DE = 'b2-tema-derecho'
+const CI = 'b2-tema-ciudad'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'when-travel-goes-wrong',
+  title: 'Когда поездка ломается',
+  subtitle: 'Отмены, багаж, границы и компенсации',
+  canDo: [
+    'разбираться с отменённым рейсом',
+    'требовать компенсацию по правилам',
+    'объясняться на границе',
+    'заявлять о пропаже багажа',
+    'спорить со страховой',
+  ],
+  lessons: [
+    {
+      title: 'The cancelled flight',
+      summary: 'Отменённый рейс.',
+      topics: [VJ, DE, LI],
+      dialogue: ['Отмена', [
+        ['Anna', 'The flight was cancelled two hours before.', 'Рейс отменили за два часа.'],
+        ['Ben', 'For operational reasons, they said.', 'По операционным причинам, как они сказали.'],
+        ['Anna', 'Which is a phrase with no legal meaning.', 'Формулировка без юридического смысла.'],
+        ['Ben', 'And which therefore does not remove the claim.', 'И которая поэтому не снимает требование.'],
+        ['Anna', 'Whatever the desk agent believes.', 'Что бы там ни думал сотрудник у стойки.'],
+      ]],
+      words: [
+        ['was cancelled two hours before', 'отменили за два часа', 'The flight was cancelled two hours before.'],
+        ['For operational reasons', 'по операционным причинам', 'For operational reasons, they said.'],
+        ['no legal meaning', 'без юридического смысла', 'Which is a phrase with no legal meaning.'],
+        ['does not remove the claim', 'не снимает требование', 'And which therefore does not remove the claim.'],
+        ['the desk agent', 'сотрудник у стойки', 'Whatever the desk agent believes.'],
+      ],
+      rule: ['Therefore в письменном споре', 'Which therefore does not remove the claim. Наречие связывает вывод с фактом и звучит формально.'],
+      quiz: [
+        ['«Рейс отменили за два часа» —', ['The flight was cancelled two hours before', 'The flight was cancel two hours before', 'The flight were cancelled two hours before'], 0],
+        ['«Что бы там ни думал сотрудник у стойки» —', ['Whatever the desk agent believes', 'Whatever does the desk agent believe', 'Whatever the desk agent believe'], 0],
+        ['«Формулировка без юридического смысла» —', ['A phrase with no legal meaning', 'A phrase with not legal meaning', 'A phrase without no legal meaning'], 0],
+      ],
+      order: ['По операционным причинам, как они сказали.', 'For operational reasons, they said.'],
+      produce: [
+        ['Рейс отменили за два часа.', 'The flight was cancelled two hours before.', []],
+        ['Формулировка без юридического смысла.', 'Which is a phrase with no legal meaning.', []],
+        ['Что бы там ни думал сотрудник у стойки.', 'Whatever the desk agent believes.', []],
+      ],
+    },
+    {
+      title: 'Rebooking at the desk',
+      summary: 'Перебронирование у стойки.',
+      topics: [VJ, LI, CI],
+      dialogue: ['Стойка', [
+        ['Ben', 'They put me on a flight two days later.', 'Меня посадили на рейс через два дня.'],
+        ['Anna', 'Which you accepted, having no choice.', 'Что вы приняли, не имея выбора.'],
+        ['Ben', 'And which does not waive anything.', 'И что ни от чего не отказывается.'],
+        ['Anna', 'Provided you keep the boarding passes.', 'При условии, что вы сохраните посадочные.'],
+        ['Ben', 'Which I photograph, always, now.', 'Что я теперь всегда фотографирую.'],
+      ]],
+      words: [
+        ['put me on a flight', 'посадили на рейс', 'They put me on a flight two days later.'],
+        ['having no choice', 'не имея выбора', 'Which you accepted, having no choice.'],
+        ['does not waive anything', 'ни от чего не отказывается', 'And which does not waive anything.'],
+        ['Provided you keep', 'при условии, что сохраните', 'Provided you keep the boarding passes.'],
+        ['the boarding passes', 'посадочные талоны', 'Keep the boarding passes, always.'],
+      ],
+      rule: ['Provided — формальное условие', 'Provided you keep the boarding passes. Союз заменяет if в договорах и требует настоящего времени.'],
+      quiz: [
+        ['«При условии, что вы сохраните посадочные» —', ['Provided you keep the boarding passes', 'Provided you will keep the boarding passes', 'Provided you keeping the boarding passes'], 0],
+        ['«Что вы приняли, не имея выбора» —', ['Which you accepted, having no choice', 'Which you accepted, have no choice', 'Which you accepted, having not choice'], 0],
+        ['«Меня посадили на рейс через два дня» —', ['They put me on a flight two days later', 'They put me in a flight two days later', 'They put me on a flight two days after later'], 0],
+      ],
+      order: ['Что я теперь всегда фотографирую.', 'Which I photograph, always, now.'],
+      produce: [
+        ['Меня посадили на рейс через два дня.', 'They put me on a flight two days later.', []],
+        ['Что вы приняли, не имея выбора.', 'Which you accepted, having no choice.', []],
+        ['При условии, что вы сохраните посадочные.', 'Provided you keep the boarding passes.', []],
+      ],
+    },
+    {
+      title: 'The compensation claim',
+      summary: 'Заявление на компенсацию.',
+      topics: [DE, VJ, LI],
+      dialogue: ['Компенсация', [
+        ['Anna', 'The claim was refused within an hour.', 'Заявление отклонили в течение часа.'],
+        ['Ben', 'Which nobody can read in an hour.', 'За час его никто прочитать не может.'],
+        ['Anna', 'So I asked which clause was applied.', 'Поэтому я спросила, какой пункт применили.'],
+        ['Ben', 'And got a different answer, in writing.', 'И получила другой ответ, письменно.'],
+        ['Anna', 'Which is the whole trick, unfortunately.', 'В этом, к сожалению, весь фокус.'],
+      ]],
+      words: [
+        ['was refused within an hour', 'отклонили в течение часа', 'The claim was refused within an hour.'],
+        ['nobody can read in an hour', 'за час никто не прочитает', 'Which nobody can read in an hour.'],
+        ['which clause was applied', 'какой пункт применили', 'So I asked which clause was applied.'],
+        ['a different answer', 'другой ответ', 'And got a different answer, in writing.'],
+        ['the whole trick', 'весь фокус', 'Which is the whole trick, unfortunately.'],
+      ],
+      rule: ['Косвенный вопрос с пассивом', 'I asked which clause was applied. Порядок слов прямой, вспомогательный глагол не выносится вперёд.'],
+      quiz: [
+        ['«Поэтому я спросила, какой пункт применили» —', ['So I asked which clause was applied', 'So I asked which clause was apply', 'So I asked which clause did they applied'], 0],
+        ['«Заявление отклонили в течение часа» —', ['The claim was refused within an hour', 'The claim was refuse within an hour', 'The claim was refused during an hour'], 0],
+        ['«И получила другой ответ, письменно» —', ['And got a different answer, in writing', 'And got a different answer, in written', 'And get a different answer, in writing'], 0],
+      ],
+      order: ['В этом, к сожалению, весь фокус.', 'Which is the whole trick, unfortunately.'],
+      produce: [
+        ['Заявление отклонили в течение часа.', 'The claim was refused within an hour.', []],
+        ['Поэтому я спросила, какой пункт применили.', 'So I asked which clause was applied.', []],
+        ['И получила другой ответ, письменно.', 'And got a different answer, in writing.', []],
+      ],
+    },
+    {
+      title: 'Lost luggage',
+      summary: 'Потерянный багаж.',
+      topics: [VJ, RI, LI],
+      dialogue: ['Багаж', [
+        ['Ben', 'The bag was traced to the wrong airport.', 'Сумку отследили не в том аэропорту.'],
+        ['Anna', 'Which happens more often than they admit.', 'Это бывает чаще, чем они признают.'],
+        ['Ben', 'And is fixed faster if you have a reference.', 'И решается быстрее, если есть номер обращения.'],
+        ['Anna', 'Which they give reluctantly, at the desk.', 'Который у стойки дают неохотно.'],
+        ['Ben', 'And which everything depends on later.', 'И от которого потом всё зависит.'],
+      ]],
+      words: [
+        ['was traced to the wrong airport', 'отследили не в том аэропорту', 'The bag was traced to the wrong airport.'],
+        ['more often than they admit', 'чаще, чем признают', 'Which happens more often than they admit.'],
+        ['if you have a reference', 'если есть номер обращения', 'And is fixed faster if you have a reference.'],
+        ['give reluctantly', 'дают неохотно', 'Which they give reluctantly, at the desk.'],
+        ['everything depends on', 'от чего всё зависит', 'And which everything depends on later.'],
+      ],
+      rule: ['Depend on — предлог в хвосте', 'Which everything depends on. В придаточном с which предлог остаётся в конце.'],
+      quiz: [
+        ['«И от которого потом всё зависит» —', ['And which everything depends on later', 'And which everything depends later', 'And which on everything depends later'], 0],
+        ['«Это бывает чаще, чем они признают» —', ['Which happens more often than they admit', 'Which happen more often than they admit', 'Which happens more often that they admit'], 0],
+        ['«Сумку отследили не в том аэропорту» —', ['The bag was traced to the wrong airport', 'The bag was trace to the wrong airport', 'The bag was traced in the wrong airport'], 0],
+      ],
+      order: ['Который у стойки дают неохотно.', 'Which they give reluctantly, at the desk.'],
+      produce: [
+        ['Сумку отследили не в том аэропорту.', 'The bag was traced to the wrong airport.', []],
+        ['Это бывает чаще, чем они признают.', 'Which happens more often than they admit.', []],
+        ['И решается быстрее, если есть номер обращения.', 'And is fixed faster if you have a reference.', []],
+      ],
+    },
+    {
+      title: 'At the border',
+      summary: 'На границе.',
+      topics: [VJ, DE, LI],
+      dialogue: ['Граница', [
+        ['Anna', 'They asked how long I intended to stay.', 'Спросили, как долго я намерена оставаться.'],
+        ['Ben', 'Which is the question the whole visit turns on.', 'Вопрос, вокруг которого крутится вся поездка.'],
+        ['Anna', 'So the answer matches the ticket exactly.', 'Поэтому ответ точно совпадает с билетом.'],
+        ['Ben', 'And the address matches the booking.', 'А адрес совпадает с бронью.'],
+        ['Anna', 'Which takes two minutes to prepare.', 'Подготовка занимает две минуты.'],
+      ]],
+      words: [
+        ['how long I intended to stay', 'как долго я намерена оставаться', 'They asked how long I intended to stay.'],
+        ['the whole visit turns on', 'вокруг чего крутится вся поездка', 'The question the whole visit turns on.'],
+        ['matches the ticket exactly', 'точно совпадает с билетом', 'So the answer matches the ticket exactly.'],
+        ['matches the booking', 'совпадает с бронью', 'And the address matches the booking.'],
+        ['two minutes to prepare', 'две минуты на подготовку', 'Which takes two minutes to prepare.'],
+      ],
+      rule: ['Intend to do', 'How long I intended to stay. После intend идёт инфинитив с to.'],
+      quiz: [
+        ['«Спросили, как долго я намерена оставаться» —', ['They asked how long I intended to stay', 'They asked how long did I intend to stay', 'They asked how long I intended staying to'], 0],
+        ['«Поэтому ответ точно совпадает с билетом» —', ['So the answer matches the ticket exactly', 'So the answer match the ticket exactly', 'So the answer matches to the ticket exactly'], 0],
+        ['«Подготовка занимает две минуты» —', ['Which takes two minutes to prepare', 'Which take two minutes to prepare', 'Which takes two minutes for prepare'], 0],
+      ],
+      order: ['А адрес совпадает с бронью.', 'And the address matches the booking.'],
+      produce: [
+        ['Спросили, как долго я намерена оставаться.', 'They asked how long I intended to stay.', []],
+        ['Поэтому ответ точно совпадает с билетом.', 'So the answer matches the ticket exactly.', []],
+        ['Подготовка занимает две минуты.', 'Which takes two minutes to prepare.', []],
+      ],
+    },
+    {
+      title: 'The insurance small print',
+      summary: 'Мелкий шрифт страховки.',
+      topics: [RI, DE, LI],
+      dialogue: ['Страховка', [
+        ['Ben', 'Cancellation is covered, unless it is weather.', 'Отмена покрывается, если это не погода.'],
+        ['Anna', 'Which is what half of them are.', 'А это половина всех случаев.'],
+        ['Ben', 'And which the price reflects, honestly.', 'И это честно отражено в цене.'],
+        ['Anna', 'Provided you read before buying.', 'При условии, что вы читаете до покупки.'],
+        ['Ben', 'Which almost nobody has time for.', 'На что почти ни у кого нет времени.'],
+      ]],
+      words: [
+        ['Cancellation is covered', 'отмена покрывается', 'Cancellation is covered, unless it is weather.'],
+        ['unless it is weather', 'если это не погода', 'Unless it is weather, they pay.'],
+        ['what half of them are', 'что составляет половину случаев', 'Which is what half of them are.'],
+        ['the price reflects', 'цена отражает', 'And which the price reflects, honestly.'],
+        ['nobody has time for', 'ни у кого нет времени', 'Which almost nobody has time for.'],
+      ],
+      rule: ['Have time for something', 'Nobody has time for it. Предлог for обязателен перед существительным.'],
+      quiz: [
+        ['«На что почти ни у кого нет времени» —', ['Which almost nobody has time for', 'Which almost nobody has time', 'Which almost nobody have time for'], 0],
+        ['«Отмена покрывается, если это не погода» —', ['Cancellation is covered, unless it is weather', 'Cancellation is cover, unless it is weather', 'Cancellation is covered, unless it is not weather'], 0],
+        ['«При условии, что вы читаете до покупки» —', ['Provided you read before buying', 'Provided you read before buy', 'Provided you will read before buying'], 0],
+      ],
+      order: ['А это половина всех случаев.', 'Which is what half of them are.'],
+      produce: [
+        ['Отмена покрывается, если это не погода.', 'Cancellation is covered, unless it is weather.', []],
+        ['И это честно отражено в цене.', 'And which the price reflects, honestly.', []],
+        ['На что почти ни у кого нет времени.', 'Which almost nobody has time for.', []],
+      ],
+    },
+    {
+      title: 'Stranded overnight',
+      summary: 'Ночь на месте.',
+      topics: [VJ, CI, LI],
+      dialogue: ['Ночёвка', [
+        ['Anna', 'Everyone was told to find a hotel.', 'Всем сказали искать гостиницу.'],
+        ['Ben', 'Which the airline owes, by the way.', 'Которую, между прочим, должна авиакомпания.'],
+        ['Anna', 'If you keep the receipt and claim later.', 'Если сохранить чек и заявить потом.'],
+        ['Ben', 'Which half the queue did not know.', 'Чего половина очереди не знала.'],
+        ['Anna', 'And which I said out loud, twice.', 'И о чём я громко сказала, дважды.'],
+      ]],
+      words: [
+        ['was told to find a hotel', 'сказали искать гостиницу', 'Everyone was told to find a hotel.'],
+        ['the airline owes', 'должна авиакомпания', 'Which the airline owes, by the way.'],
+        ['keep the receipt', 'сохранить чек', 'If you keep the receipt and claim later.'],
+        ['half the queue', 'половина очереди', 'Which half the queue did not know.'],
+        ['said out loud, twice', 'громко сказала дважды', 'And which I said out loud, twice.'],
+      ],
+      rule: ['Be told to do', 'Everyone was told to find a hotel. Пассив от tell сохраняет инфинитив с to.'],
+      quiz: [
+        ['«Всем сказали искать гостиницу» —', ['Everyone was told to find a hotel', 'Everyone was told find a hotel', 'Everyone was tell to find a hotel'], 0],
+        ['«Если сохранить чек и заявить потом» —', ['If you keep the receipt and claim later', 'If you will keep the receipt and claim later', 'If you keeps the receipt and claim later'], 0],
+        ['«Чего половина очереди не знала» —', ['Which half the queue did not know', 'Which half the queue did not knew', 'Which half of queue did not know'], 0],
+      ],
+      order: ['И о чём я громко сказала, дважды.', 'And which I said out loud, twice.'],
+      produce: [
+        ['Всем сказали искать гостиницу.', 'Everyone was told to find a hotel.', []],
+        ['Которую, между прочим, должна авиакомпания.', 'Which the airline owes, by the way.', []],
+        ['Если сохранить чек и заявить потом.', 'If you keep the receipt and claim later.', []],
+      ],
+    },
+    {
+      title: 'The refund, eventually',
+      summary: 'Возврат, в итоге.',
+      topics: [DE, RI, LI],
+      dialogue: ['Возврат', [
+        ['Ben', 'It arrived eleven weeks later.', 'Он пришёл одиннадцатью неделями позже.'],
+        ['Anna', 'Having been refused twice in between.', 'Дважды получив отказ по дороге.'],
+        ['Ben', 'Which is the normal path, not bad luck.', 'Это нормальный путь, а не невезение.'],
+        ['Anna', 'And which the system quietly relies on.', 'И на это система тихо и рассчитывает.'],
+        ['Ben', 'Since most people stop after the first no.', 'Ведь большинство сдаётся после первого «нет».'],
+      ]],
+      words: [
+        ['eleven weeks later', 'одиннадцатью неделями позже', 'It arrived eleven weeks later.'],
+        ['Having been refused twice', 'дважды получив отказ', 'Having been refused twice in between.'],
+        ['the normal path', 'нормальный путь', 'Which is the normal path, not bad luck.'],
+        ['quietly relies on', 'тихо рассчитывает на', 'And which the system quietly relies on.'],
+        ['stop after the first no', 'сдаются после первого «нет»', 'Since most people stop after the first no.'],
+      ],
+      rule: ['Having been refused — перфектный пассив', 'Having been refused twice. Форма показывает, что отказ случился до главного события.'],
+      quiz: [
+        ['«Дважды получив отказ по дороге» —', ['Having been refused twice in between', 'Have been refused twice in between', 'Having be refused twice in between'], 0],
+        ['«И на это система тихо и рассчитывает» —', ['And which the system quietly relies on', 'And which the system quietly relies', 'And which the system quiet relies on'], 0],
+        ['«Ведь большинство сдаётся после первого «нет»» —', ['Since most people stop after the first no', 'Since most people stops after the first no', 'Since most people stop after first no'], 0],
+      ],
+      order: ['Он пришёл одиннадцатью неделями позже.', 'It arrived eleven weeks later.'],
+      produce: [
+        ['Он пришёл одиннадцатью неделями позже.', 'It arrived eleven weeks later.', []],
+        ['Дважды получив отказ по дороге.', 'Having been refused twice in between.', []],
+        ['Это нормальный путь, а не невезение.', 'Which is the normal path, not bad luck.', []],
+      ],
+    },
+    {
+      title: 'What to carry',
+      summary: 'Что держать при себе.',
+      topics: [VJ, RI, LI],
+      dialogue: ['С собой', [
+        ['Anna', 'One change of clothes, in the cabin bag.', 'Одна смена одежды, в ручной клади.'],
+        ['Ben', 'Which sounds excessive until it is not.', 'Звучит как перебор, пока не перестанет.'],
+        ['Anna', 'Along with anything that has a charger.', 'Вместе со всем, у чего есть зарядка.'],
+        ['Ben', 'And the documents, obviously.', 'И документы, разумеется.'],
+        ['Anna', 'Which is a rule I learned expensively.', 'Правило, которое я выучила дорого.'],
+      ]],
+      words: [
+        ['One change of clothes', 'одна смена одежды', 'One change of clothes, in the cabin bag.'],
+        ['sounds excessive', 'звучит как перебор', 'Which sounds excessive until it is not.'],
+        ['Along with', 'вместе с', 'Along with anything that has a charger.'],
+        ['anything that has a charger', 'всё, у чего есть зарядка', 'Take anything that has a charger.'],
+        ['learned expensively', 'выучила дорого', 'Which is a rule I learned expensively.'],
+      ],
+      rule: ['Поездка ломается предсказуемо', 'Чек, номер обращения и смена одежды в ручной клади решают девять проблем из десяти.'],
+      quiz: [
+        ['«Вместе со всем, у чего есть зарядка» —', ['Along with anything that has a charger', 'Along with anything that have a charger', 'Along of anything that has a charger'], 0],
+        ['«Звучит как перебор, пока не перестанет» —', ['Which sounds excessive until it is not', 'Which sounds excessively until it is not', 'Which sound excessive until it is not'], 0],
+        ['«Правило, которое я выучила дорого» —', ['A rule I learned expensively', 'A rule what I learned expensively', 'A rule I learned expensive'], 0],
+      ],
+      order: ['И документы, разумеется.', 'And the documents, obviously.'],
+      produce: [
+        ['Одна смена одежды, в ручной клади.', 'One change of clothes, in the cabin bag.', []],
+        ['Вместе со всем, у чего есть зарядка.', 'Along with anything that has a charger.', []],
+        ['Правило, которое я выучила дорого.', 'Which is a rule I learned expensively.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: когда поездка ломается',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [VJ, DE, RI, CI],
+      produce: [
+        ['Рейс отменили за два часа.', 'The flight was cancelled two hours before.', []],
+        ['При условии, что вы сохраните посадочные.', 'Provided you keep the boarding passes.', []],
+        ['Поэтому я спросила, какой пункт применили.', 'So I asked which clause was applied.', []],
+        ['Спросили, как долго я намерена оставаться.', 'They asked how long I intended to stay.', []],
+        ['Всем сказали искать гостиницу.', 'Everyone was told to find a hotel.', []],
+        ['Дважды получив отказ по дороге.', 'Having been refused twice in between.', []],
+      ],
+    },
+  ],
+}
