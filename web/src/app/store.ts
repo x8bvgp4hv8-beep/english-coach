@@ -290,8 +290,10 @@ export class AppStore {
   /**
    * What a level actually contains, said out loud in the picker.
    *
-   * Spanish A1 is 92 hours and Spanish A2 is one: choosing A2 today means finishing the
-   * course in an evening. The learner deserves to see that before they pick, not after.
+   * Spanish A1 and A2 are ninety hours each and Spanish B1 is one and a half: choosing
+   * B1 today means finishing the course in an evening. The learner deserves to see that
+   * before they pick, not after — and the line is counted, never written down, so it
+   * keeps telling the truth as levels get filled.
    */
   levelSize(level: CEFRLevel): string {
     const hours = ProgressionEngine.hours(level, this.courses)

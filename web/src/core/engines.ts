@@ -95,8 +95,9 @@ export const ProgressionEngine = {
 
   /**
    * Cambridge puts a CEFR level at 90–100 guided hours. Anything under ten is a sketch,
-   * and inviting someone into it is a promise the content cannot keep: Spanish A1 is
-   * 92 hours and Spanish A2 is one, so "переходи на A2" would end the course.
+   * and inviting someone into it is a promise the content cannot keep: Spanish A1 and A2
+   * are ninety hours each, while B1 is one and a half — so "переходи на B1" would end
+   * the course the same evening it was offered.
    */
   readyHours: 10,
 
