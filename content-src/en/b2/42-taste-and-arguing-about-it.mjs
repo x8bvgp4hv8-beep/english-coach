@@ -1,0 +1,287 @@
+// B2, блок 42 — Taste and arguing about it. Вкус и споры о нём.
+//
+// Тематический блок: почему нравится, чем плохой фильм отличается от нелюбимого,
+// снобизм, ностальгия и рекомендации. Оценочная лексика и вежливое несогласие.
+
+const CU = 'b2-tema-cultura'
+const ME = 'b2-tema-medios'
+const PS = 'b2-tema-psicologia'
+const SO = 'b2-tema-sociedad'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'taste-and-arguing-about-it',
+  title: 'Вкус и споры о нём',
+  subtitle: 'Почему нравится и как об этом спорить',
+  canDo: [
+    'объяснить, почему вам что-то нравится',
+    'вежливо не согласиться об искусстве',
+    'отличать «плохо сделано» от «не моё»',
+    'говорить о ностальгии и моде',
+    'давать рекомендацию, которая сработает',
+  ],
+  lessons: [
+    {
+      title: 'Bad, or just not for me',
+      summary: 'Плохо или просто не моё.',
+      topics: [CU, LI, PS],
+      dialogue: ['Различие', [
+        ['Anna', 'It is not badly made, it is not for me.', 'Это не плохо сделано, это не для меня.'],
+        ['Ben', 'Which is a distinction few people draw.', 'Различие, которое мало кто проводит.'],
+        ['Anna', 'And which ends half the arguments.', 'И которое кончает половину споров.'],
+        ['Ben', 'Since taste is not a claim about quality.', 'Ведь вкус — это не утверждение о качестве.'],
+        ['Anna', 'Though it is defended as one.', 'Хотя его защищают именно так.'],
+      ]],
+      words: [
+        ['not badly made', 'не плохо сделано', 'It is not badly made, it is not for me.'],
+        ['a distinction few people draw', 'различие, которое мало кто проводит', 'Which is a distinction few people draw.'],
+        ['ends half the arguments', 'кончает половину споров', 'And which ends half the arguments.'],
+        ['not a claim about quality', 'не утверждение о качестве', 'Since taste is not a claim about quality.'],
+        ['defended as one', 'защищают именно так', 'Though it is defended as one.'],
+      ],
+      rule: ['Draw a distinction', 'A distinction few people draw. Устойчивое сочетание значит «проводить различие».'],
+      quiz: [
+        ['«Различие, которое мало кто проводит» —', ['A distinction few people draw', 'A distinction few people draws', 'A distinction a few people draw'], 0],
+        ['«Ведь вкус — это не утверждение о качестве» —', ['Since taste is not a claim about quality', 'Since taste is not a claim of quality about', 'Since taste is no a claim about quality'], 0],
+        ['«Хотя его защищают именно так» —', ['Though it is defended as one', 'Though it is defend as one', 'Though it is defended like one of'], 0],
+      ],
+      order: ['И которое кончает половину споров.', 'And which ends half the arguments.'],
+      produce: [
+        ['Это не плохо сделано, это не для меня.', 'It is not badly made, it is not for me.', []],
+        ['Различие, которое мало кто проводит.', 'Which is a distinction few people draw.', []],
+        ['Ведь вкус — это не утверждение о качестве.', 'Since taste is not a claim about quality.', []],
+      ],
+    },
+    {
+      title: 'Why you liked it',
+      summary: 'Почему вам понравилось.',
+      topics: [CU, PS, LI],
+      dialogue: ['Причина', [
+        ['Ben', 'I liked it because it took its time.', 'Мне понравилось, потому что фильм не спешил.'],
+        ['Anna', 'Which is a reason, not a rating.', 'Это причина, а не оценка.'],
+        ['Ben', 'And is far more useful to hear.', 'И слышать это куда полезнее.'],
+        ['Anna', 'Since I can tell whether it fits me.', 'Ведь так я понимаю, подойдёт ли мне.'],
+        ['Ben', 'Which a number never tells anybody.', 'Чего цифра никому не сообщает.'],
+      ]],
+      words: [
+        ['it took its time', 'фильм не спешил', 'I liked it because it took its time.'],
+        ['a reason, not a rating', 'причина, а не оценка', 'Which is a reason, not a rating.'],
+        ['far more useful', 'куда полезнее', 'And is far more useful to hear.'],
+        ['whether it fits me', 'подойдёт ли мне', 'Since I can tell whether it fits me.'],
+        ['a number never tells', 'цифра не сообщает', 'Which a number never tells anybody.'],
+      ],
+      rule: ['Far more — усиление сравнения', 'Far more useful. Наречие far усиливает сравнительную степень сильнее, чем much.'],
+      quiz: [
+        ['«Ведь так я понимаю, подойдёт ли мне» —', ['Since I can tell whether it fits me', 'Since I can tell whether does it fit me', 'Since I can tell whether it fit me'], 0],
+        ['«И слышать это куда полезнее» —', ['And is far more useful to hear', 'And is far more useful to hearing', 'And is far most useful to hear'], 0],
+        ['«Мне понравилось, потому что фильм не спешил» —', ['I liked it because it took its time', 'I liked it because it took his time', 'I liked it because it take its time'], 0],
+      ],
+      order: ['Чего цифра никому не сообщает.', 'Which a number never tells anybody.'],
+      produce: [
+        ['Мне понравилось, потому что фильм не спешил.', 'I liked it because it took its time.', []],
+        ['Это причина, а не оценка.', 'Which is a reason, not a rating.', []],
+        ['И слышать это куда полезнее.', 'And is far more useful to hear.', []],
+      ],
+    },
+    {
+      title: 'Disagreeing politely',
+      summary: 'Вежливо не согласиться.',
+      topics: [LI, CU, SO],
+      dialogue: ['Несогласие', [
+        ['Anna', 'I can see why people love it.', 'Я понимаю, почему его любят.'],
+        ['Ben', 'Which is not the same as agreeing.', 'Что не то же самое, что согласие.'],
+        ['Anna', 'And keeps the conversation going.', 'И держит разговор живым.'],
+        ['Ben', 'Whereas calling it rubbish ends it.', 'Тогда как назвать это чушью — закончить его.'],
+        ['Anna', 'Along with the friendship, occasionally.', 'Иногда вместе с дружбой.'],
+      ]],
+      words: [
+        ['I can see why', 'я понимаю, почему', 'I can see why people love it.'],
+        ['not the same as agreeing', 'не то же, что согласие', 'Which is not the same as agreeing.'],
+        ['keeps the conversation going', 'держит разговор живым', 'And keeps the conversation going.'],
+        ['calling it rubbish', 'назвать это чушью', 'Whereas calling it rubbish ends it.'],
+        ['Along with the friendship', 'вместе с дружбой', 'Along with the friendship, occasionally.'],
+      ],
+      rule: ['Keep something going', 'It keeps the conversation going. После keep идёт объект и форма на -ing.'],
+      quiz: [
+        ['«И держит разговор живым» —', ['And keeps the conversation going', 'And keeps the conversation to go', 'And keep the conversation going'], 0],
+        ['«Что не то же самое, что согласие» —', ['Which is not the same as agreeing', 'Which is not the same as agree', 'Which is not the same that agreeing'], 0],
+        ['«Тогда как назвать это чушью — закончить его» —', ['Whereas calling it rubbish ends it', 'Whereas call it rubbish ends it', 'Whereas calling it rubbish end it'], 0],
+      ],
+      order: ['Я понимаю, почему его любят.', 'I can see why people love it.'],
+      produce: [
+        ['Я понимаю, почему его любят.', 'I can see why people love it.', []],
+        ['И держит разговор живым.', 'And keeps the conversation going.', []],
+        ['Иногда вместе с дружбой.', 'Along with the friendship, occasionally.', []],
+      ],
+    },
+    {
+      title: 'The snob problem',
+      summary: 'Проблема снобизма.',
+      topics: [SO, CU, LI],
+      dialogue: ['Снобизм', [
+        ['Ben', 'Taste is used as a class marker.', 'Вкус используют как классовый маркер.'],
+        ['Anna', 'Which is why the arguments get hot.', 'Поэтому споры и накаляются.'],
+        ['Ben', 'Since nobody is defending a film.', 'Ведь никто не защищает фильм.'],
+        ['Anna', 'But a claim about who they are.', 'А утверждение о том, кто он такой.'],
+        ['Ben', 'Which is much harder to concede.', 'Уступить в этом гораздо труднее.'],
+      ]],
+      words: [
+        ['used as a class marker', 'используют как классовый маркер', 'Taste is used as a class marker.'],
+        ['the arguments get hot', 'споры накаляются', 'Which is why the arguments get hot.'],
+        ['nobody is defending a film', 'никто не защищает фильм', 'Since nobody is defending a film.'],
+        ['a claim about who they are', 'утверждение о том, кто он', 'But a claim about who they are.'],
+        ['harder to concede', 'труднее уступить', 'Which is much harder to concede.'],
+      ],
+      rule: ['Get + прилагательное — изменение', 'The arguments get hot. Глагол get значит «становиться», а не «получать».'],
+      quiz: [
+        ['«Поэтому споры и накаляются» —', ['Which is why the arguments get hot', 'Which is why the arguments get hotly', 'Which is why the arguments gets hot'], 0],
+        ['«Вкус используют как классовый маркер» —', ['Taste is used as a class marker', 'Taste is use as a class marker', 'Taste is used like a class marker of'], 0],
+        ['«Уступить в этом гораздо труднее» —', ['Which is much harder to concede', 'Which is much more hard to concede', 'Which is much harder to conceding'], 0],
+      ],
+      order: ['Ведь никто не защищает фильм.', 'Since nobody is defending a film.'],
+      produce: [
+        ['Вкус используют как классовый маркер.', 'Taste is used as a class marker.', []],
+        ['Поэтому споры и накаляются.', 'Which is why the arguments get hot.', []],
+        ['Уступить в этом гораздо труднее.', 'Which is much harder to concede.', []],
+      ],
+    },
+    {
+      title: 'Nostalgia',
+      summary: 'Ностальгия.',
+      topics: [PS, CU, LI],
+      dialogue: ['Ностальгия', [
+        ['Anna', 'Everything was better when we were fifteen.', 'Всё было лучше, когда нам было пятнадцать.'],
+        ['Ben', 'Which is a fact about fifteen, not about music.', 'Это факт про пятнадцать, а не про музыку.'],
+        ['Anna', 'Since that is when things imprint.', 'Ведь именно тогда всё и впечатывается.'],
+        ['Ben', 'And never quite happens again.', 'И больше так не случается.'],
+        ['Anna', 'Which is worth knowing before arguing.', 'Это стоит знать до начала спора.'],
+      ]],
+      words: [
+        ['when we were fifteen', 'когда нам было пятнадцать', 'Everything was better when we were fifteen.'],
+        ['a fact about fifteen', 'факт про пятнадцать', 'Which is a fact about fifteen, not about music.'],
+        ['that is when things imprint', 'тогда всё и впечатывается', 'Since that is when things imprint.'],
+        ['never quite happens again', 'больше так не случается', 'And never quite happens again.'],
+        ['before arguing', 'до начала спора', 'Which is worth knowing before arguing.'],
+      ],
+      rule: ['That is when — уточнение времени', 'That is when things imprint. Оборот выделяет момент, как which is why выделяет причину.'],
+      quiz: [
+        ['«Ведь именно тогда всё и впечатывается» —', ['Since that is when things imprint', 'Since that is when things imprints', 'Since that is what things imprint'], 0],
+        ['«И больше так не случается» —', ['And never quite happens again', 'And never quite happen again', 'And never quite happens again more'], 0],
+        ['«Это стоит знать до начала спора» —', ['Which is worth knowing before arguing', 'Which is worth to know before arguing', 'Which is worth knowing before argue'], 0],
+      ],
+      order: ['Всё было лучше, когда нам было пятнадцать.', 'Everything was better when we were fifteen.'],
+      produce: [
+        ['Всё было лучше, когда нам было пятнадцать.', 'Everything was better when we were fifteen.', []],
+        ['Это факт про пятнадцать, а не про музыку.', 'Which is a fact about fifteen, not about music.', []],
+        ['Ведь именно тогда всё и впечатывается.', 'Since that is when things imprint.', []],
+      ],
+    },
+    {
+      title: 'The algorithm and the shelf',
+      summary: 'Алгоритм и полка.',
+      topics: [ME, CU, LI],
+      dialogue: ['Рекомендации', [
+        ['Ben', 'It only offers me what I already like.', 'Он предлагает только то, что мне уже нравится.'],
+        ['Anna', 'Which is what it was built to do.', 'Для этого он и построен.'],
+        ['Ben', 'Whereas a shelf has a stranger next to it.', 'Тогда как у полки рядом стоит незнакомая книга.'],
+        ['Anna', 'And a bored shop assistant with opinions.', 'И скучающий продавец со своим мнением.'],
+        ['Ben', 'Which is where half my favourites came from.', 'Оттуда и взялась половина моих любимых.'],
+      ]],
+      words: [
+        ['what I already like', 'то, что мне уже нравится', 'It only offers me what I already like.'],
+        ['what it was built to do', 'для чего он построен', 'Which is what it was built to do.'],
+        ['a stranger next to it', 'незнакомая рядом', 'Whereas a shelf has a stranger next to it.'],
+        ['a bored shop assistant', 'скучающий продавец', 'And a bored shop assistant with opinions.'],
+        ['where my favourites came from', 'откуда взялись любимые', 'Which is where half my favourites came from.'],
+      ],
+      rule: ['Was built to do — цель в пассиве', 'What it was built to do. Инфинитив цели присоединяется к пассивной форме напрямую.'],
+      quiz: [
+        ['«Для этого он и построен» —', ['Which is what it was built to do', 'Which is what it was build to do', 'Which is that it was built to do'], 0],
+        ['«Он предлагает только то, что мне уже нравится» —', ['It only offers me what I already like', 'It only offer me what I already like', 'It only offers me that I already like'], 0],
+        ['«Оттуда и взялась половина моих любимых» —', ['Which is where half my favourites came from', 'Which is where half my favourites come from then', 'Which is where half my favourite came from'], 0],
+      ],
+      order: ['И скучающий продавец со своим мнением.', 'And a bored shop assistant with opinions.'],
+      produce: [
+        ['Он предлагает только то, что мне уже нравится.', 'It only offers me what I already like.', []],
+        ['Для этого он и построен.', 'Which is what it was built to do.', []],
+        ['Оттуда и взялась половина моих любимых.', 'Which is where half my favourites came from.', []],
+      ],
+    },
+    {
+      title: 'Recommending well',
+      summary: 'Хорошая рекомендация.',
+      topics: [CU, PS, LI],
+      dialogue: ['Рекомендация', [
+        ['Anna', 'Tell me what it is like, not that it is good.', 'Скажи, на что это похоже, а не что это хорошо.'],
+        ['Ben', 'Which takes one more sentence.', 'Это стоит одного лишнего предложения.'],
+        ['Anna', 'And doubles the chance I finish it.', 'И вдвое повышает шанс, что я досмотрю.'],
+        ['Ben', 'Since I know my own patience.', 'Ведь своё терпение я знаю.'],
+        ['Anna', 'Better than any critic does.', 'Лучше любого критика.'],
+      ]],
+      words: [
+        ['what it is like', 'на что это похоже', 'Tell me what it is like, not that it is good.'],
+        ['one more sentence', 'одно лишнее предложение', 'Which takes one more sentence.'],
+        ['doubles the chance', 'вдвое повышает шанс', 'And doubles the chance I finish it.'],
+        ['my own patience', 'своё терпение', 'Since I know my own patience.'],
+        ['Better than any critic does', 'лучше любого критика', 'Better than any critic does.'],
+      ],
+      rule: ['What it is like — описание, не оценка', 'Tell me what it is like. Вопрос спрашивает о свойствах, а не о качестве.'],
+      quiz: [
+        ['«Скажи, на что это похоже, а не что это хорошо» —', ['Tell me what it is like, not that it is good', 'Tell me what is it like, not that it is good', 'Tell me how it is like, not that it is good'], 0],
+        ['«И вдвое повышает шанс, что я досмотрю» —', ['And doubles the chance I finish it', 'And double the chance I finish it', 'And doubles the chance I will finished it'], 0],
+        ['«Лучше любого критика» —', ['Better than any critic does', 'Better than any critic do', 'Better that any critic does'], 0],
+      ],
+      order: ['Ведь своё терпение я знаю.', 'Since I know my own patience.'],
+      produce: [
+        ['Скажи, на что это похоже, а не что это хорошо.', 'Tell me what it is like, not that it is good.', []],
+        ['И вдвое повышает шанс, что я досмотрю.', 'And doubles the chance I finish it.', []],
+        ['Лучше любого критика.', 'Better than any critic does.', []],
+      ],
+    },
+    {
+      title: 'Changing your mind',
+      summary: 'Передумать.',
+      topics: [PS, CU, LI],
+      dialogue: ['Пересмотр', [
+        ['Ben', 'I hated it at twenty and love it now.', 'В двадцать я это ненавидел, а теперь люблю.'],
+        ['Anna', 'Which says the book waited, and you moved.', 'Значит, книга подождала, а изменились вы.'],
+        ['Ben', 'And is worth admitting out loud.', 'И это стоит признать вслух.'],
+        ['Anna', 'Since it makes the next opinion lighter.', 'Ведь так следующее мнение носить легче.'],
+        ['Ben', 'And much easier to change again.', 'И гораздо легче снова изменить.'],
+      ]],
+      words: [
+        ['hated it at twenty', 'ненавидел в двадцать', 'I hated it at twenty and love it now.'],
+        ['the book waited', 'книга подождала', 'Which says the book waited, and you moved.'],
+        ['worth admitting out loud', 'стоит признать вслух', 'And is worth admitting out loud.'],
+        ['makes the next opinion lighter', 'делает следующее мнение легче', 'Since it makes the next opinion lighter.'],
+        ['easier to change again', 'легче снова изменить', 'And much easier to change again.'],
+      ],
+      rule: ['О вкусе спорят причинами, а не оценками', 'Назовите свойство вместо оценки — и спор превращается в обмен сведениями.'],
+      quiz: [
+        ['«Ведь так следующее мнение носить легче» —', ['Since it makes the next opinion lighter', 'Since it make the next opinion lighter', 'Since it makes the next opinion more light'], 0],
+        ['«И это стоит признать вслух» —', ['And is worth admitting out loud', 'And is worth to admit out loud', 'And is worth admit out loud'], 0],
+        ['«В двадцать я это ненавидел, а теперь люблю» —', ['I hated it at twenty and love it now', 'I hated it in twenty and love it now', 'I hate it at twenty and love it now'], 0],
+      ],
+      order: ['И гораздо легче снова изменить.', 'And much easier to change again.'],
+      produce: [
+        ['В двадцать я это ненавидел, а теперь люблю.', 'I hated it at twenty and love it now.', []],
+        ['И это стоит признать вслух.', 'And is worth admitting out loud.', []],
+        ['Ведь так следующее мнение носить легче.', 'Since it makes the next opinion lighter.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: вкус и споры о нём',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [CU, ME, PS, SO],
+      produce: [
+        ['Это не плохо сделано, это не для меня.', 'It is not badly made, it is not for me.', []],
+        ['И слышать это куда полезнее.', 'And is far more useful to hear.', []],
+        ['И держит разговор живым.', 'And keeps the conversation going.', []],
+        ['Поэтому споры и накаляются.', 'Which is why the arguments get hot.', []],
+        ['Ведь именно тогда всё и впечатывается.', 'Since that is when things imprint.', []],
+        ['Скажи, на что это похоже, а не что это хорошо.', 'Tell me what it is like, not that it is good.', []],
+      ],
+    },
+  ],
+}
