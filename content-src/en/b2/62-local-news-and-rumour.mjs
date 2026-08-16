@@ -1,0 +1,287 @@
+// B2, блок 62 — Local news and rumour. Местные новости и слухи.
+//
+// Тематический блок: районный чат, исчезнувшая газета, слух про магазин,
+// проверка факта на месте. Косвенная речь, источники, осторожные формулы.
+
+const ME = 'b2-tema-medios'
+const CI = 'b2-tema-ciudad'
+const SO = 'b2-tema-sociedad'
+const DA = 'b2-tema-datos'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'local-news-and-rumour',
+  title: 'Местные новости и слухи',
+  subtitle: 'Районный чат, газета и проверка на месте',
+  canDo: [
+    'пересказывать услышанное с указанием источника',
+    'проверять местный слух',
+    'обсуждать закрытие газеты',
+    'спорить в районном чате по делу',
+    'опровергать неправду вежливо',
+  ],
+  lessons: [
+    {
+      title: 'Somebody said on the group',
+      summary: 'Кто-то написал в чате.',
+      topics: [ME, SO, LI],
+      dialogue: ['Чат', [
+        ['Anna', 'Apparently the school is closing.', 'Судя по всему, школу закрывают.'],
+        ['Ben', 'Which is the word doing all the work there.', 'Именно это слово там всё и тянет.'],
+        ['Anna', 'Since apparently means somebody said so.', 'Ведь «судя по всему» значит «кто-то сказал».'],
+        ['Ben', 'And nothing about whether it is true.', 'И ничего о том, правда ли это.'],
+        ['Anna', 'Which four hundred people then repeat.', 'Что потом повторяют четыреста человек.'],
+      ]],
+      words: [
+        ['Apparently the school is closing', 'судя по всему, школу закрывают', 'Apparently the school is closing.'],
+        ['doing all the work', 'тянет всё на себе', 'Which is the word doing all the work there.'],
+        ['somebody said so', 'кто-то так сказал', 'Since apparently means somebody said so.'],
+        ['whether it is true', 'правда ли это', 'And nothing about whether it is true.'],
+        ['four hundred people repeat', 'повторяют четыреста человек', 'Which four hundred people then repeat.'],
+      ],
+      rule: ['Apparently — ссылка без источника', 'Apparently the school is closing. Слово сообщает о слухе и не подтверждает его.'],
+      quiz: [
+        ['«И ничего о том, правда ли это» —', ['And nothing about whether it is true', 'And nothing about whether is it true', 'And nothing about if is it true'], 0],
+        ['«Судя по всему, школу закрывают» —', ['Apparently the school is closing', 'Apparently the school is close', 'Apparently the school are closing'], 0],
+        ['«Что потом повторяют четыреста человек» —', ['Which four hundred people then repeat', 'Which four hundred people then repeats', 'Which four hundreds people then repeat'], 0],
+      ],
+      order: ['Именно это слово там всё и тянет.', 'Which is the word doing all the work there.'],
+      produce: [
+        ['Судя по всему, школу закрывают.', 'Apparently the school is closing.', []],
+        ['Ведь «судя по всему» значит «кто-то сказал».', 'Since apparently means somebody said so.', []],
+        ['И ничего о том, правда ли это.', 'And nothing about whether it is true.', []],
+      ],
+    },
+    {
+      title: 'Checking it yourself',
+      summary: 'Проверить самому.',
+      topics: [DA, CI, LI],
+      dialogue: ['Проверка', [
+        ['Ben', 'I walked past and read the sign.', 'Я прошёл мимо и прочитал объявление.'],
+        ['Anna', 'Which took four minutes, in total.', 'На что ушло в сумме четыре минуты.'],
+        ['Ben', 'Against two days of speculation.', 'Против двух дней домыслов.'],
+        ['Anna', 'Which nobody counts as effort.', 'Которые никто не считает усилиями.'],
+        ['Ben', 'Though they cost far more than the walk.', 'Хотя они дороже прогулки.'],
+      ]],
+      words: [
+        ['walked past and read the sign', 'прошёл мимо и прочитал объявление', 'I walked past and read the sign.'],
+        ['four minutes, in total', 'в сумме четыре минуты', 'Which took four minutes, in total.'],
+        ['two days of speculation', 'два дня домыслов', 'Against two days of speculation.'],
+        ['nobody counts as effort', 'никто не считает усилиями', 'Which nobody counts as effort.'],
+        ['cost far more than the walk', 'дороже прогулки', 'Though they cost far more than the walk.'],
+      ],
+      rule: ['Far more than — усиленное сравнение', 'They cost far more than the walk. Наречие far усиливает сравнительную степень.'],
+      quiz: [
+        ['«Хотя они дороже прогулки» —', ['Though they cost far more than the walk', 'Though they costs far more than the walk', 'Though they cost far more that the walk'], 0],
+        ['«Которые никто не считает усилиями» —', ['Which nobody counts as effort', 'Which nobody count as effort', 'Which nobody counts like effort of'], 0],
+        ['«Я прошёл мимо и прочитал объявление» —', ['I walked past and read the sign', 'I walked past and readed the sign', 'I walk past and read the sign'], 0],
+      ],
+      order: ['Против двух дней домыслов.', 'Against two days of speculation.'],
+      produce: [
+        ['Я прошёл мимо и прочитал объявление.', 'I walked past and read the sign.', []],
+        ['На что ушло в сумме четыре минуты.', 'Which took four minutes, in total.', []],
+        ['Хотя они дороже прогулки.', 'Though they cost far more than the walk.', []],
+      ],
+    },
+    {
+      title: 'The paper that closed',
+      summary: 'Закрывшаяся газета.',
+      topics: [ME, SO, LI],
+      dialogue: ['Газета', [
+        ['Anna', 'The local paper folded in twenty seventeen.', 'Местная газета закрылась в семнадцатом.'],
+        ['Ben', 'Since which nobody has sat through a council meeting.', 'С тех пор никто не высиживает заседания мэрии.'],
+        ['Anna', 'Which is where most of the decisions are made.', 'А там и принимают большинство решений.'],
+        ['Ben', 'And where nothing is now written down.', 'И где теперь ничего не записывают.'],
+        ['Anna', 'By anybody outside the building.', 'Никем со стороны.'],
+      ]],
+      words: [
+        ['The local paper folded', 'местная газета закрылась', 'The local paper folded in twenty seventeen.'],
+        ['Since which nobody has sat through', 'с тех пор никто не высиживает', 'Since which nobody has sat through a council meeting.'],
+        ['where the decisions are made', 'где принимают решения', 'Which is where most of the decisions are made.'],
+        ['nothing is written down', 'ничего не записывают', 'And where nothing is now written down.'],
+        ['outside the building', 'со стороны', 'By anybody outside the building.'],
+      ],
+      rule: ['Since which — связка с моментом', 'Since which nobody has sat through a meeting. Оборот привязывает перфект к названной дате.'],
+      quiz: [
+        ['«С тех пор никто не высиживает заседания мэрии» —', ['Since which nobody has sat through a council meeting', 'Since which nobody has sit through a council meeting', 'Since which nobody have sat through a council meeting'], 0],
+        ['«А там и принимают большинство решений» —', ['Which is where most of the decisions are made', 'Which is where most of the decisions is made', 'Which is where most of the decisions are make'], 0],
+        ['«Местная газета закрылась в семнадцатом» —', ['The local paper folded in twenty seventeen', 'The local paper folded on twenty seventeen', 'The local paper fold in twenty seventeen'], 0],
+      ],
+      order: ['Никем со стороны.', 'By anybody outside the building.'],
+      produce: [
+        ['Местная газета закрылась в семнадцатом.', 'The local paper folded in twenty seventeen.', []],
+        ['А там и принимают большинство решений.', 'Which is where most of the decisions are made.', []],
+        ['И где теперь ничего не записывают.', 'And where nothing is now written down.', []],
+      ],
+    },
+    {
+      title: 'The rumour about the shop',
+      summary: 'Слух про магазин.',
+      topics: [SO, ME, LI],
+      dialogue: ['Слух', [
+        ['Ben', 'They were said to be shutting in June.', 'Говорили, что они закрываются в июне.'],
+        ['Anna', 'Which cost them a quarter of the trade.', 'Что стоило им четверти оборота.'],
+        ['Ben', 'Before anybody thought to ask them.', 'Ещё до того, как кто-то догадался спросить.'],
+        ['Anna', 'Which one customer finally did.', 'Что в итоге сделал один покупатель.'],
+        ['Ben', 'And posted the answer, with a photo.', 'И выложил ответ, с фотографией.'],
+      ]],
+      words: [
+        ['were said to be shutting', 'говорили, что закрываются', 'They were said to be shutting in June.'],
+        ['a quarter of the trade', 'четверть оборота', 'Which cost them a quarter of the trade.'],
+        ['thought to ask them', 'догадался спросить', 'Before anybody thought to ask them.'],
+        ['one customer finally did', 'один покупатель в итоге сделал', 'Which one customer finally did.'],
+        ['posted the answer', 'выложил ответ', 'And posted the answer, with a photo.'],
+      ],
+      rule: ['Were said to be doing', 'They were said to be shutting. Конструкция передаёт слух о происходящем сейчас.'],
+      quiz: [
+        ['«Говорили, что они закрываются в июне» —', ['They were said to be shutting in June', 'They were said to shutting in June', 'They was said to be shutting in June'], 0],
+        ['«Ещё до того, как кто-то догадался спросить» —', ['Before anybody thought to ask them', 'Before anybody thought asking them', 'Before anybody think to ask them'], 0],
+        ['«Что стоило им четверти оборота» —', ['Which cost them a quarter of the trade', 'Which costed them a quarter of the trade', 'Which cost to them a quarter of the trade'], 0],
+      ],
+      order: ['И выложил ответ, с фотографией.', 'And posted the answer, with a photo.'],
+      produce: [
+        ['Говорили, что они закрываются в июне.', 'They were said to be shutting in June.', []],
+        ['Что стоило им четверти оборота.', 'Which cost them a quarter of the trade.', []],
+        ['Ещё до того, как кто-то догадался спросить.', 'Before anybody thought to ask them.', []],
+      ],
+    },
+    {
+      title: 'Correcting the group politely',
+      summary: 'Поправить чат вежливо.',
+      topics: [LI, SO, ME],
+      dialogue: ['Поправка', [
+        ['Anna', 'I posted the notice, without a comment.', 'Я выложила объявление, без комментария.'],
+        ['Ben', 'Which corrects it without correcting anybody.', 'Что поправляет, никого не поправляя.'],
+        ['Anna', 'And leaves everybody their dignity.', 'И оставляет всем достоинство.'],
+        ['Ben', 'Which is the only way it works twice.', 'Только так это работает дважды.'],
+        ['Anna', 'Since nobody helps a person who shamed them.', 'Ведь никто не помогает тому, кто их пристыдил.'],
+      ]],
+      words: [
+        ['without a comment', 'без комментария', 'I posted the notice, without a comment.'],
+        ['without correcting anybody', 'никого не поправляя', 'Which corrects it without correcting anybody.'],
+        ['leaves everybody their dignity', 'оставляет всем достоинство', 'And leaves everybody their dignity.'],
+        ['the only way it works twice', 'единственный способ, работающий дважды', 'Which is the only way it works twice.'],
+        ['a person who shamed them', 'тот, кто их пристыдил', 'Nobody helps a person who shamed them.'],
+      ],
+      rule: ['Without + герундий в поправке', 'Correcting it without correcting anybody. Оборот сохраняет лицо собеседника.'],
+      quiz: [
+        ['«Что поправляет, никого не поправляя» —', ['Which corrects it without correcting anybody', 'Which corrects it without correct anybody', 'Which correct it without correcting anybody'], 0],
+        ['«Ведь никто не помогает тому, кто их пристыдил» —', ['Nobody helps a person who shamed them', 'Nobody help a person who shamed them', 'Nobody helps a person what shamed them'], 0],
+        ['«И оставляет всем достоинство» —', ['And leaves everybody their dignity', 'And leave everybody their dignity', 'And leaves everybody they dignity'], 0],
+      ],
+      order: ['Только так это работает дважды.', 'Which is the only way it works twice.'],
+      produce: [
+        ['Я выложила объявление, без комментария.', 'I posted the notice, without a comment.', []],
+        ['Что поправляет, никого не поправляя.', 'Which corrects it without correcting anybody.', []],
+        ['И оставляет всем достоинство.', 'And leaves everybody their dignity.', []],
+      ],
+    },
+    {
+      title: 'Who reports the good news',
+      summary: 'Кто сообщает хорошее.',
+      topics: [ME, CI, LI],
+      dialogue: ['Хорошее', [
+        ['Ben', 'The bridge opened and nobody wrote about it.', 'Мост открыли, и никто об этом не написал.'],
+        ['Anna', 'Which is not a conspiracy, only economics.', 'Это не заговор, только экономика.'],
+        ['Ben', 'Since anger is read and completion is not.', 'Ведь злость читают, а завершённое дело нет.'],
+        ['Anna', 'Which shapes what a place believes about itself.', 'Что и формирует представление места о себе.'],
+        ['Ben', 'Over about ten years, invisibly.', 'Примерно за десять лет, незаметно.'],
+      ]],
+      words: [
+        ['The bridge opened', 'мост открыли', 'The bridge opened and nobody wrote about it.'],
+        ['not a conspiracy, only economics', 'не заговор, только экономика', 'Which is not a conspiracy, only economics.'],
+        ['anger is read', 'злость читают', 'Since anger is read and completion is not.'],
+        ['what a place believes about itself', 'что место думает о себе', 'Which shapes what a place believes about itself.'],
+        ['Over about ten years', 'примерно за десять лет', 'Over about ten years, invisibly.'],
+      ],
+      rule: ['Believe about itself — возвратное', 'What a place believes about itself. Возвратное местоимение согласуется с подлежащим.'],
+      quiz: [
+        ['«Что и формирует представление места о себе» —', ['Which shapes what a place believes about itself', 'Which shapes what a place believes about himself', 'Which shape what a place believes about itself'], 0],
+        ['«Ведь злость читают, а завершённое дело нет» —', ['Since anger is read and completion is not', 'Since anger is readed and completion is not', 'Since anger is read and completion does not'], 0],
+        ['«Мост открыли, и никто об этом не написал» —', ['The bridge opened and nobody wrote about it', 'The bridge opened and nobody write about it', 'The bridge opened and nobody wrote it about'], 0],
+      ],
+      order: ['Примерно за десять лет, незаметно.', 'Over about ten years, invisibly.'],
+      produce: [
+        ['Мост открыли, и никто об этом не написал.', 'The bridge opened and nobody wrote about it.', []],
+        ['Ведь злость читают, а завершённое дело нет.', 'Since anger is read and completion is not.', []],
+        ['Что и формирует представление места о себе.', 'Which shapes what a place believes about itself.', []],
+      ],
+    },
+    {
+      title: 'The person everybody blames',
+      summary: 'Тот, кого все винят.',
+      topics: [SO, ME, LI],
+      dialogue: ['Виноватый', [
+        ['Anna', 'One name comes up in every thread.', 'Одно имя всплывает в каждой ветке.'],
+        ['Ben', 'Which is rarely the person deciding anything.', 'И редко это тот, кто что-то решает.'],
+        ['Anna', 'But the one who answers the phone.', 'А тот, кто берёт трубку.'],
+        ['Ben', 'Which is a bad reason to be blamed.', 'Плохая причина, чтобы стать виноватым.'],
+        ['Anna', 'And an excellent reason to be quoted.', 'И отличная, чтобы попасть в цитату.'],
+      ]],
+      words: [
+        ['comes up in every thread', 'всплывает в каждой ветке', 'One name comes up in every thread.'],
+        ['the person deciding anything', 'тот, кто решает', 'Which is rarely the person deciding anything.'],
+        ['who answers the phone', 'кто берёт трубку', 'But the one who answers the phone.'],
+        ['a bad reason to be blamed', 'плохая причина стать виноватым', 'Which is a bad reason to be blamed.'],
+        ['to be quoted', 'попасть в цитату', 'And an excellent reason to be quoted.'],
+      ],
+      rule: ['Reason to be done', 'A bad reason to be blamed. Пассивный инфинитив после существительного reason.'],
+      quiz: [
+        ['«Плохая причина, чтобы стать виноватым» —', ['A bad reason to be blamed', 'A bad reason to be blame', 'A bad reason for be blamed'], 0],
+        ['«Одно имя всплывает в каждой ветке» —', ['One name comes up in every thread', 'One name come up in every thread', 'One name comes up on every thread'], 0],
+        ['«И редко это тот, кто что-то решает» —', ['Which is rarely the person deciding anything', 'Which is rarely the person decide anything', 'Which is rare the person deciding anything'], 0],
+      ],
+      order: ['А тот, кто берёт трубку.', 'But the one who answers the phone.'],
+      produce: [
+        ['Одно имя всплывает в каждой ветке.', 'One name comes up in every thread.', []],
+        ['А тот, кто берёт трубку.', 'But the one who answers the phone.', []],
+        ['И отличная, чтобы попасть в цитату.', 'And an excellent reason to be quoted.', []],
+      ],
+    },
+    {
+      title: 'What a place needs to know',
+      summary: 'Что району надо знать.',
+      topics: [CI, ME, LI],
+      dialogue: ['Итог', [
+        ['Ben', 'Three facts a week would be enough.', 'Трёх фактов в неделю было бы достаточно.'],
+        ['Anna', 'Which one person with a newsletter provides.', 'Что даёт один человек с рассылкой.'],
+        ['Ben', 'In about forty places I know of.', 'Примерно в сорока местах, о которых я знаю.'],
+        ['Anna', 'And which nobody has worked out how to pay for.', 'И за что никто не придумал, как платить.'],
+        ['Ben', 'Which is the whole problem, in one line.', 'Вся проблема в одной строке.'],
+      ]],
+      words: [
+        ['Three facts a week', 'три факта в неделю', 'Three facts a week would be enough.'],
+        ['one person with a newsletter', 'один человек с рассылкой', 'Which one person with a newsletter provides.'],
+        ['forty places I know of', 'сорок мест, о которых я знаю', 'In about forty places I know of.'],
+        ['how to pay for', 'как за это платить', 'Nobody has worked out how to pay for it.'],
+        ['the whole problem', 'вся проблема', 'Which is the whole problem, in one line.'],
+      ],
+      rule: ['Слух проверяется ногами', 'Прогулка до объявления и один прямой вопрос закрывают девять слухов из десяти.'],
+      quiz: [
+        ['«Примерно в сорока местах, о которых я знаю» —', ['In about forty places I know of', 'In about forty places I know', 'In about forty places what I know of'], 0],
+        ['«Трёх фактов в неделю было бы достаточно» —', ['Three facts a week would be enough', 'Three facts a week would to be enough', 'Three facts a week will be enough'], 0],
+        ['«И за что никто не придумал, как платить» —', ['Nobody has worked out how to pay for it', 'Nobody has worked out how pay for it', 'Nobody have worked out how to pay for it'], 0],
+      ],
+      order: ['Вся проблема в одной строке.', 'Which is the whole problem, in one line.'],
+      produce: [
+        ['Трёх фактов в неделю было бы достаточно.', 'Three facts a week would be enough.', []],
+        ['Примерно в сорока местах, о которых я знаю.', 'In about forty places I know of.', []],
+        ['Вся проблема в одной строке.', 'Which is the whole problem, in one line.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: местные новости и слухи',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [ME, CI, SO, DA],
+      produce: [
+        ['И ничего о том, правда ли это.', 'And nothing about whether it is true.', []],
+        ['Хотя они дороже прогулки.', 'Though they cost far more than the walk.', []],
+        ['С тех пор никто не высиживает заседания мэрии.', 'Since which nobody has sat through a council meeting.', []],
+        ['Говорили, что они закрываются в июне.', 'They were said to be shutting in June.', []],
+        ['Что поправляет, никого не поправляя.', 'Which corrects it without correcting anybody.', []],
+        ['Плохая причина, чтобы стать виноватым.', 'Which is a bad reason to be blamed.', []],
+      ],
+    },
+  ],
+}

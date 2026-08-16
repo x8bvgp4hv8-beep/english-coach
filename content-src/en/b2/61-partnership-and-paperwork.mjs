@@ -1,0 +1,287 @@
+// B2, блок 61 — Partnership and paperwork. Пара и документы.
+//
+// Тематический блок: совместная жизнь, общие деньги, брак как договор,
+// расставание и дети. Условия, пассив, аккуратные формулы о чувствах.
+
+const RE = 'b2-tema-relaciones'
+const DE = 'b2-tema-derecho'
+const RI = 'b2-tema-riesgo'
+const SO = 'b2-tema-sociedad'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'partnership-and-paperwork',
+  title: 'Пара и документы',
+  subtitle: 'Совместная жизнь, деньги и договорённости',
+  canDo: [
+    'обсуждать совместный быт',
+    'договариваться об общих деньгах',
+    'говорить о браке как о договоре',
+    'обсуждать расставание спокойно',
+    'договариваться о детях и графике',
+  ],
+  lessons: [
+    {
+      title: 'Moving in together',
+      summary: 'Съехаться.',
+      topics: [RE, RI, LI],
+      dialogue: ['Переезд', [
+        ['Anna', 'We agreed everything except the bins.', 'Мы договорились обо всём, кроме мусора.'],
+        ['Ben', 'Which is what the first year is about.', 'Именно про это и весь первый год.'],
+        ['Anna', 'Since nobody argues about the big things.', 'Ведь о больших вещах никто не спорит.'],
+        ['Ben', 'Having discussed them for six months.', 'Обсудив их полгода.'],
+        ['Anna', 'Whereas the bins arrive unannounced.', 'Тогда как мусор возникает без предупреждения.'],
+      ]],
+      words: [
+        ['agreed everything except the bins', 'договорились обо всём, кроме мусора', 'We agreed everything except the bins.'],
+        ['what the first year is about', 'про что первый год', 'Which is what the first year is about.'],
+        ['nobody argues about the big things', 'о больших вещах не спорят', 'Since nobody argues about the big things.'],
+        ['Having discussed them', 'обсудив их', 'Having discussed them for six months.'],
+        ['arrive unannounced', 'возникают без предупреждения', 'Whereas the bins arrive unannounced.'],
+      ],
+      rule: ['Having discussed — предшествование', 'Having discussed them for six months. Форма ставит обсуждение раньше главного действия.'],
+      quiz: [
+        ['«Обсудив их полгода» —', ['Having discussed them for six months', 'Have discussed them for six months', 'Having discuss them for six months'], 0],
+        ['«Ведь о больших вещах никто не спорит» —', ['Since nobody argues about the big things', 'Since nobody argue about the big things', 'Since nobody argues the big things about'], 0],
+        ['«Тогда как мусор возникает без предупреждения» —', ['Whereas the bins arrive unannounced', 'Whereas the bins arrives unannounced', 'Whereas the bins arrive unannouncing'], 0],
+      ],
+      order: ['Мы договорились обо всём, кроме мусора.', 'We agreed everything except the bins.'],
+      produce: [
+        ['Мы договорились обо всём, кроме мусора.', 'We agreed everything except the bins.', []],
+        ['Обсудив их полгода.', 'Having discussed them for six months.', []],
+        ['Тогда как мусор возникает без предупреждения.', 'Whereas the bins arrive unannounced.', []],
+      ],
+    },
+    {
+      title: 'One account or three',
+      summary: 'Один счёт или три.',
+      topics: [RI, RE, LI],
+      dialogue: ['Деньги', [
+        ['Ben', 'We keep one joint and two separate.', 'У нас один общий и два раздельных.'],
+        ['Anna', 'Which sounds cold and prevents most rows.', 'Звучит холодно и предотвращает большинство ссор.'],
+        ['Ben', 'Since nobody has to justify a coffee.', 'Ведь никому не надо оправдывать кофе.'],
+        ['Anna', 'Or notice what the other one earns.', 'И замечать, сколько зарабатывает другой.'],
+        ['Ben', 'Which matters when the gap is wide.', 'Что важно, когда разрыв большой.'],
+      ]],
+      words: [
+        ['one joint and two separate', 'один общий и два раздельных', 'We keep one joint and two separate.'],
+        ['prevents most rows', 'предотвращает большинство ссор', 'Which sounds cold and prevents most rows.'],
+        ['justify a coffee', 'оправдывать кофе', 'Since nobody has to justify a coffee.'],
+        ['what the other one earns', 'сколько зарабатывает другой', 'Or notice what the other one earns.'],
+        ['when the gap is wide', 'когда разрыв большой', 'Which matters when the gap is wide.'],
+      ],
+      rule: ['Have to в отрицании', 'Nobody has to justify a coffee. Форма значит отсутствие необходимости, а не запрет.'],
+      quiz: [
+        ['«Ведь никому не надо оправдывать кофе» —', ['Since nobody has to justify a coffee', 'Since nobody have to justify a coffee', 'Since nobody has to justifying a coffee'], 0],
+        ['«И замечать, сколько зарабатывает другой» —', ['Or notice what the other one earns', 'Or notice what does the other one earn', 'Or notice what the other one earn'], 0],
+        ['«Звучит холодно и предотвращает большинство ссор» —', ['Which sounds cold and prevents most rows', 'Which sounds coldly and prevents most rows', 'Which sound cold and prevent most rows'], 0],
+      ],
+      order: ['У нас один общий и два раздельных.', 'We keep one joint and two separate.'],
+      produce: [
+        ['У нас один общий и два раздельных.', 'We keep one joint and two separate.', []],
+        ['Ведь никому не надо оправдывать кофе.', 'Since nobody has to justify a coffee.', []],
+        ['Что важно, когда разрыв большой.', 'Which matters when the gap is wide.', []],
+      ],
+    },
+    {
+      title: 'Marriage as a contract',
+      summary: 'Брак как договор.',
+      topics: [DE, SO, LI],
+      dialogue: ['Договор', [
+        ['Anna', 'Half of it is about tax and hospitals.', 'Половина этого — про налоги и больницы.'],
+        ['Ben', 'Which nobody mentions in the speeches.', 'О чём в тостах не упоминают.'],
+        ['Anna', 'And which matters on exactly one bad day.', 'И что важно ровно в один плохой день.'],
+        ['Ben', 'When somebody has to be allowed in.', 'Когда кого-то должны пустить внутрь.'],
+        ['Anna', 'Which is an argument nobody wants to make.', 'Аргумент, который никто не хочет приводить.'],
+      ]],
+      words: [
+        ['about tax and hospitals', 'про налоги и больницы', 'Half of it is about tax and hospitals.'],
+        ['in the speeches', 'в тостах', 'Which nobody mentions in the speeches.'],
+        ['on exactly one bad day', 'ровно в один плохой день', 'And which matters on exactly one bad day.'],
+        ['has to be allowed in', 'должны пустить внутрь', 'When somebody has to be allowed in.'],
+        ['nobody wants to make', 'никто не хочет приводить', 'An argument nobody wants to make.'],
+      ],
+      rule: ['Have to be allowed — модальный пассив', 'Somebody has to be allowed in. Форма соединяет необходимость и пассив.'],
+      quiz: [
+        ['«Когда кого-то должны пустить внутрь» —', ['When somebody has to be allowed in', 'When somebody has to be allow in', 'When somebody have to be allowed in'], 0],
+        ['«И что важно ровно в один плохой день» —', ['And which matters on exactly one bad day', 'And which matter on exactly one bad day', 'And which matters in exactly one bad day'], 0],
+        ['«Аргумент, который никто не хочет приводить» —', ['An argument nobody wants to make', 'An argument nobody want to make', 'An argument what nobody wants to make'], 0],
+      ],
+      order: ['О чём в тостах не упоминают.', 'Which nobody mentions in the speeches.'],
+      produce: [
+        ['Половина этого — про налоги и больницы.', 'Half of it is about tax and hospitals.', []],
+        ['И что важно ровно в один плохой день.', 'And which matters on exactly one bad day.', []],
+        ['Когда кого-то должны пустить внутрь.', 'When somebody has to be allowed in.', []],
+      ],
+    },
+    {
+      title: 'The agreement before',
+      summary: 'Договорённость заранее.',
+      topics: [DE, RI, LI],
+      dialogue: ['Заранее', [
+        ['Ben', 'We wrote down who owns what, at the start.', 'Мы записали, кто чем владеет, в самом начале.'],
+        ['Anna', 'Which felt unromantic for about an hour.', 'Примерно час это ощущалось неромантично.'],
+        ['Ben', 'And has never been looked at since.', 'И с тех пор в это ни разу не заглядывали.'],
+        ['Anna', 'Which is what a good agreement does.', 'Хорошая договорённость так и работает.'],
+        ['Ben', 'Nothing, quietly, for twenty years.', 'Ничего, тихо, двадцать лет.'],
+      ]],
+      words: [
+        ['who owns what', 'кто чем владеет', 'We wrote down who owns what, at the start.'],
+        ['felt unromantic', 'ощущалось неромантично', 'Which felt unromantic for about an hour.'],
+        ['has never been looked at', 'ни разу не заглядывали', 'And has never been looked at since.'],
+        ['what a good agreement does', 'как работает хорошая договорённость', 'Which is what a good agreement does.'],
+        ['Nothing, quietly', 'ничего, тихо', 'Nothing, quietly, for twenty years.'],
+      ],
+      rule: ['Be looked at — пассив фразового глагола', 'It has never been looked at. Предлог at остаётся после причастия.'],
+      quiz: [
+        ['«И с тех пор в это ни разу не заглядывали» —', ['And has never been looked at since', 'And has never been looked since', 'And has never been look at since'], 0],
+        ['«Мы записали, кто чем владеет, в самом начале» —', ['We wrote down who owns what, at the start', 'We wrote down who own what, at the start', 'We wrote down who does own what, at the start'], 0],
+        ['«Хорошая договорённость так и работает» —', ['Which is what a good agreement does', 'Which is what a good agreement do', 'Which is that a good agreement does'], 0],
+      ],
+      order: ['Ничего, тихо, двадцать лет.', 'Nothing, quietly, for twenty years.'],
+      produce: [
+        ['Мы записали, кто чем владеет, в самом начале.', 'We wrote down who owns what, at the start.', []],
+        ['И с тех пор в это ни разу не заглядывали.', 'And has never been looked at since.', []],
+        ['Хорошая договорённость так и работает.', 'Which is what a good agreement does.', []],
+      ],
+    },
+    {
+      title: 'The row that repeats',
+      summary: 'Ссора, которая повторяется.',
+      topics: [RE, LI, SO],
+      dialogue: ['Повтор', [
+        ['Anna', 'It is the same argument in four costumes.', 'Это один и тот же спор в четырёх костюмах.'],
+        ['Ben', 'Which most couples could name in a second.', 'Который большинство пар назвало бы сразу.'],
+        ['Anna', 'And spend nine years not naming.', 'И девять лет не называют.'],
+        ['Ben', 'Since naming it makes it solvable.', 'Ведь названный, он становится решаемым.'],
+        ['Anna', 'Or clearly not, which is also information.', 'Или явно нерешаемым, что тоже сведения.'],
+      ]],
+      words: [
+        ['the same argument in four costumes', 'один спор в четырёх костюмах', 'It is the same argument in four costumes.'],
+        ['could name in a second', 'назвало бы сразу', 'Which most couples could name in a second.'],
+        ['spend nine years not naming', 'девять лет не называют', 'And spend nine years not naming.'],
+        ['makes it solvable', 'делает решаемым', 'Since naming it makes it solvable.'],
+        ['which is also information', 'что тоже сведения', 'Or clearly not, which is also information.'],
+      ],
+      rule: ['Spend time doing', 'They spend nine years not naming it. После spend идёт время и форма на -ing.'],
+      quiz: [
+        ['«И девять лет не называют» —', ['And spend nine years not naming', 'And spend nine years not to name', 'And spends nine years not naming'], 0],
+        ['«Ведь названный, он становится решаемым» —', ['Since naming it makes it solvable', 'Since name it makes it solvable', 'Since naming it make it solvable'], 0],
+        ['«Который большинство пар назвало бы сразу» —', ['Which most couples could name in a second', 'Which most couples could named in a second', 'Which most couples can named in a second'], 0],
+      ],
+      order: ['Это один и тот же спор в четырёх костюмах.', 'It is the same argument in four costumes.'],
+      produce: [
+        ['Это один и тот же спор в четырёх костюмах.', 'It is the same argument in four costumes.', []],
+        ['И девять лет не называют.', 'And spend nine years not naming.', []],
+        ['Или явно нерешаемым, что тоже сведения.', 'Or clearly not, which is also information.', []],
+      ],
+    },
+    {
+      title: 'Separating',
+      summary: 'Расставание.',
+      topics: [DE, RE, LI],
+      dialogue: ['Развод', [
+        ['Ben', 'We used one lawyer, for the paperwork only.', 'Мы взяли одного юриста, только на документы.'],
+        ['Anna', 'Which halves the cost and the damage.', 'Что вдвое снижает и цену, и ущерб.'],
+        ['Ben', 'Provided both people want the same ending.', 'При условии, что оба хотят одного финала.'],
+        ['Anna', 'Which is rarer than it sounds.', 'Что реже, чем кажется.'],
+        ['Ben', 'And is the whole difference, when it happens.', 'И в этом вся разница, когда так выходит.'],
+      ]],
+      words: [
+        ['for the paperwork only', 'только на документы', 'We used one lawyer, for the paperwork only.'],
+        ['halves the cost and the damage', 'вдвое снижает цену и ущерб', 'Which halves the cost and the damage.'],
+        ['want the same ending', 'хотят одного финала', 'Provided both people want the same ending.'],
+        ['rarer than it sounds', 'реже, чем кажется', 'Which is rarer than it sounds.'],
+        ['the whole difference', 'вся разница', 'And is the whole difference, when it happens.'],
+      ],
+      rule: ['Provided both — формальное условие', 'Provided both people want the same ending. Союз требует настоящего времени.'],
+      quiz: [
+        ['«При условии, что оба хотят одного финала» —', ['Provided both people want the same ending', 'Provided both people wants the same ending', 'Provided both people will want the same ending'], 0],
+        ['«Что вдвое снижает и цену, и ущерб» —', ['Which halves the cost and the damage', 'Which halve the cost and the damage', 'Which halves the cost and the damages'], 0],
+        ['«Что реже, чем кажется» —', ['Which is rarer than it sounds', 'Which is rarer than it sound', 'Which is more rare than it sounds'], 0],
+      ],
+      order: ['Мы взяли одного юриста, только на документы.', 'We used one lawyer, for the paperwork only.'],
+      produce: [
+        ['Мы взяли одного юриста, только на документы.', 'We used one lawyer, for the paperwork only.', []],
+        ['Что вдвое снижает и цену, и ущерб.', 'Which halves the cost and the damage.', []],
+        ['При условии, что оба хотят одного финала.', 'Provided both people want the same ending.', []],
+      ],
+    },
+    {
+      title: 'Children and the calendar',
+      summary: 'Дети и календарь.',
+      topics: [RE, DE, LI],
+      dialogue: ['График', [
+        ['Anna', 'The schedule is written and never discussed.', 'График записан и не обсуждается.'],
+        ['Ben', 'Which removes ninety per cent of the friction.', 'Что убирает девяносто процентов трения.'],
+        ['Anna', 'Since the argument was never about Tuesdays.', 'Ведь спор был не про вторники.'],
+        ['Ben', 'But about who has to ask whom.', 'А про то, кто у кого должен просить.'],
+        ['Anna', 'Which a calendar quietly settles.', 'Что календарь тихо и решает.'],
+      ]],
+      words: [
+        ['written and never discussed', 'записан и не обсуждается', 'The schedule is written and never discussed.'],
+        ['ninety per cent of the friction', 'девяносто процентов трения', 'Which removes ninety per cent of the friction.'],
+        ['never about Tuesdays', 'не про вторники', 'Since the argument was never about Tuesdays.'],
+        ['who has to ask whom', 'кто у кого должен просить', 'But about who has to ask whom.'],
+        ['a calendar quietly settles', 'календарь тихо решает', 'Which a calendar quietly settles.'],
+      ],
+      rule: ['Who и whom в одном вопросе', 'Who has to ask whom. Форма whom стоит на месте дополнения.'],
+      quiz: [
+        ['«А про то, кто у кого должен просить» —', ['But about who has to ask whom', 'But about who has to ask who', 'But about whom has to ask who'], 0],
+        ['«График записан и не обсуждается» —', ['The schedule is written and never discussed', 'The schedule is wrote and never discussed', 'The schedule is written and never discuss'], 0],
+        ['«Что убирает девяносто процентов трения» —', ['Which removes ninety per cent of the friction', 'Which remove ninety per cent of the friction', 'Which removes ninety per cents of the friction'], 0],
+      ],
+      order: ['Что календарь тихо и решает.', 'Which a calendar quietly settles.'],
+      produce: [
+        ['График записан и не обсуждается.', 'The schedule is written and never discussed.', []],
+        ['Ведь спор был не про вторники.', 'Since the argument was never about Tuesdays.', []],
+        ['А про то, кто у кого должен просить.', 'But about who has to ask whom.', []],
+      ],
+    },
+    {
+      title: 'Staying, deliberately',
+      summary: 'Остаться, сознательно.',
+      topics: [RE, SO, LI],
+      dialogue: ['Выбор', [
+        ['Ben', 'We chose it again at forty, out loud.', 'В сорок мы выбрали это снова, вслух.'],
+        ['Anna', 'Which sounds like a ceremony and is not.', 'Звучит как церемония, а это не она.'],
+        ['Ben', 'Only a sentence, said on a Wednesday.', 'Просто фраза, сказанная в среду.'],
+        ['Anna', 'And repeated whenever it stops being obvious.', 'И повторяемая всякий раз, когда перестаёт быть очевидной.'],
+        ['Ben', 'Which is more often than anybody admits.', 'А это чаще, чем кто-либо признаёт.'],
+      ]],
+      words: [
+        ['chose it again at forty', 'выбрали снова в сорок', 'We chose it again at forty, out loud.'],
+        ['sounds like a ceremony', 'звучит как церемония', 'Which sounds like a ceremony and is not.'],
+        ['said on a Wednesday', 'сказанная в среду', 'Only a sentence, said on a Wednesday.'],
+        ['whenever it stops being obvious', 'когда перестаёт быть очевидной', 'And repeated whenever it stops being obvious.'],
+        ['more often than anybody admits', 'чаще, чем признают', 'Which is more often than anybody admits.'],
+      ],
+      rule: ['Пара держится на записанных договорённостях', 'Счета, график и один прямой разговор снимают споры, которые иначе повторяются годами.'],
+      quiz: [
+        ['«И повторяемая всякий раз, когда перестаёт быть очевидной» —', ['And repeated whenever it stops being obvious', 'And repeated whenever it stops to be obvious', 'And repeat whenever it stops being obvious'], 0],
+        ['«Просто фраза, сказанная в среду» —', ['Only a sentence, said on a Wednesday', 'Only a sentence, saying on a Wednesday', 'Only a sentence, said in a Wednesday'], 0],
+        ['«А это чаще, чем кто-либо признаёт» —', ['Which is more often than anybody admits', 'Which is more often than anybody admit', 'Which is more often that anybody admits'], 0],
+      ],
+      order: ['В сорок мы выбрали это снова, вслух.', 'We chose it again at forty, out loud.'],
+      produce: [
+        ['В сорок мы выбрали это снова, вслух.', 'We chose it again at forty, out loud.', []],
+        ['Просто фраза, сказанная в среду.', 'Only a sentence, said on a Wednesday.', []],
+        ['А это чаще, чем кто-либо признаёт.', 'Which is more often than anybody admits.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: пара и документы',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [RE, DE, RI, SO],
+      produce: [
+        ['Обсудив их полгода.', 'Having discussed them for six months.', []],
+        ['Ведь никому не надо оправдывать кофе.', 'Since nobody has to justify a coffee.', []],
+        ['Когда кого-то должны пустить внутрь.', 'When somebody has to be allowed in.', []],
+        ['И с тех пор в это ни разу не заглядывали.', 'And has never been looked at since.', []],
+        ['При условии, что оба хотят одного финала.', 'Provided both people want the same ending.', []],
+        ['А про то, кто у кого должен просить.', 'But about who has to ask whom.', []],
+      ],
+    },
+  ],
+}
