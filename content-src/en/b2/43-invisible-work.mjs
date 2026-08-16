@@ -1,0 +1,287 @@
+// B2, блок 43 — Invisible work. Невидимая работа.
+//
+// Тематический блок: то, что делается и не считается — бумажки, забота,
+// эмоциональный труд, «кто помнит про день рождения». Пассив и герундий.
+
+const SO = 'b2-tema-sociedad'
+const RE = 'b2-tema-relaciones'
+const CA = 'b1-tema-carrera'
+const TE = 'b2-tema-equipos'
+const LI = 'b2-linkers'
+
+export default {
+  slug: 'invisible-work',
+  title: 'Невидимая работа',
+  subtitle: 'То, что делается и не считается',
+  canDo: [
+    'называть работу, которую не замечают',
+    'делить домашние дела вслух',
+    'говорить об эмоциональном труде',
+    'просить признания без обвинения',
+    'спорить о том, что считать работой',
+  ],
+  lessons: [
+    {
+      title: 'Who remembers the birthdays',
+      summary: 'Кто помнит про дни рождения.',
+      topics: [RE, SO, LI],
+      dialogue: ['Память', [
+        ['Anna', 'Somebody keeps the calendar in their head.', 'Кто-то держит календарь в голове.'],
+        ['Ben', 'Which is a job, and is never called one.', 'Это работа, и её никогда так не называют.'],
+        ['Anna', 'Since nothing visible is produced.', 'Ведь ничего видимого не производится.'],
+        ['Ben', 'Only the absence of a forgotten aunt.', 'Только отсутствие забытой тёти.'],
+        ['Anna', 'Which nobody thanks anybody for.', 'За что никто никого не благодарит.'],
+      ]],
+      words: [
+        ['keeps the calendar in their head', 'держит календарь в голове', 'Somebody keeps the calendar in their head.'],
+        ['is never called one', 'её так никогда не называют', 'Which is a job, and is never called one.'],
+        ['nothing visible is produced', 'ничего видимого не производится', 'Since nothing visible is produced.'],
+        ['the absence of a forgotten aunt', 'отсутствие забытой тёти', 'Only the absence of a forgotten aunt.'],
+        ['nobody thanks anybody for', 'никто никого не благодарит за', 'Which nobody thanks anybody for.'],
+      ],
+      rule: ['Пассив без исполнителя', 'Nothing visible is produced. Форма описывает результат, когда исполнитель неважен или неудобен.'],
+      quiz: [
+        ['«Ведь ничего видимого не производится» —', ['Since nothing visible is produced', 'Since nothing visible is produce', 'Since nothing visible are produced'], 0],
+        ['«Это работа, и её никогда так не называют» —', ['Which is a job, and is never called one', 'Which is a job, and is never call one', 'Which is a job, and is never called it'], 0],
+        ['«За что никто никого не благодарит» —', ['Which nobody thanks anybody for', 'Which nobody thanks anybody', 'Which nobody thank anybody for'], 0],
+      ],
+      order: ['Только отсутствие забытой тёти.', 'Only the absence of a forgotten aunt.'],
+      produce: [
+        ['Кто-то держит календарь в голове.', 'Somebody keeps the calendar in their head.', []],
+        ['Это работа, и её никогда так не называют.', 'Which is a job, and is never called one.', []],
+        ['Ведь ничего видимого не производится.', 'Since nothing visible is produced.', []],
+      ],
+    },
+    {
+      title: 'Dividing the house',
+      summary: 'Разделить дом.',
+      topics: [RE, LI, SO],
+      dialogue: ['Дела', [
+        ['Ben', 'Doing the task is the easy half.', 'Сделать дело — лёгкая половина.'],
+        ['Anna', 'Noticing it needs doing is the other.', 'Заметить, что его надо сделать, — вторая.'],
+        ['Ben', 'Which is what nobody splits.', 'Именно её никто не делит.'],
+        ['Anna', 'So one person becomes the manager.', 'И один человек становится менеджером.'],
+        ['Ben', 'Of a house nobody agreed to run.', 'Дома, которым никто не соглашался управлять.'],
+      ]],
+      words: [
+        ['Doing the task', 'сделать дело', 'Doing the task is the easy half.'],
+        ['Noticing it needs doing', 'заметить, что надо сделать', 'Noticing it needs doing is the other.'],
+        ['what nobody splits', 'то, что никто не делит', 'Which is what nobody splits.'],
+        ['becomes the manager', 'становится менеджером', 'So one person becomes the manager.'],
+        ['nobody agreed to run', 'никто не соглашался управлять', 'Of a house nobody agreed to run.'],
+      ],
+      rule: ['Need doing — пассивное значение', 'It needs doing. После need форма на -ing означает «нуждается в том, чтобы это сделали».'],
+      quiz: [
+        ['«Заметить, что его надо сделать, — вторая» —', ['Noticing it needs doing is the other', 'Noticing it needs to do is the other', 'Notice it needs doing is the other'], 0],
+        ['«И один человек становится менеджером» —', ['So one person becomes the manager', 'So one person become the manager', 'So one person becomes manager the'], 0],
+        ['«Дома, которым никто не соглашался управлять» —', ['Of a house nobody agreed to run', 'Of a house nobody agreed running', 'Of a house nobody agree to run'], 0],
+      ],
+      order: ['Сделать дело — лёгкая половина.', 'Doing the task is the easy half.'],
+      produce: [
+        ['Сделать дело — лёгкая половина.', 'Doing the task is the easy half.', []],
+        ['Заметить, что его надо сделать, — вторая.', 'Noticing it needs doing is the other.', []],
+        ['И один человек становится менеджером.', 'So one person becomes the manager.', []],
+      ],
+    },
+    {
+      title: 'The office housework',
+      summary: 'Офисное домашнее хозяйство.',
+      topics: [CA, TE, LI],
+      dialogue: ['Офис', [
+        ['Anna', 'Somebody takes the notes at every meeting.', 'Кто-то ведёт записи на каждой встрече.'],
+        ['Ben', 'And it is the same person, statistically.', 'И статистически это один и тот же человек.'],
+        ['Anna', 'Which is why we rotate it by list.', 'Поэтому мы чередуем это по списку.'],
+        ['Ben', 'Which felt petty and worked immediately.', 'Казалось мелочным и сработало сразу.'],
+        ['Anna', 'As most small fixes do.', 'Как большинство мелких починок.'],
+      ]],
+      words: [
+        ['takes the notes', 'ведёт записи', 'Somebody takes the notes at every meeting.'],
+        ['the same person, statistically', 'статистически один и тот же', 'And it is the same person, statistically.'],
+        ['we rotate it by list', 'чередуем по списку', 'Which is why we rotate it by list.'],
+        ['felt petty and worked', 'казалось мелочным и сработало', 'Which felt petty and worked immediately.'],
+        ['As most small fixes do', 'как большинство мелких починок', 'As most small fixes do.'],
+      ],
+      rule: ['As + вспомогательный глагол', 'As most small fixes do. Оборот избегает повтора глагола и звучит естественно.'],
+      quiz: [
+        ['«Как большинство мелких починок» —', ['As most small fixes do', 'As most small fixes does', 'How most small fixes do'], 0],
+        ['«Поэтому мы чередуем это по списку» —', ['Which is why we rotate it by list', 'Which is why we rotates it by list', 'What is why we rotate it by list'], 0],
+        ['«Казалось мелочным и сработало сразу» —', ['Which felt petty and worked immediately', 'Which felt pettily and worked immediately', 'Which feel petty and worked immediately'], 0],
+      ],
+      order: ['И статистически это один и тот же человек.', 'And it is the same person, statistically.'],
+      produce: [
+        ['Кто-то ведёт записи на каждой встрече.', 'Somebody takes the notes at every meeting.', []],
+        ['Поэтому мы чередуем это по списку.', 'Which is why we rotate it by list.', []],
+        ['Как большинство мелких починок.', 'As most small fixes do.', []],
+      ],
+    },
+    {
+      title: 'Emotional labour',
+      summary: 'Эмоциональный труд.',
+      topics: [RE, CA, LI],
+      dialogue: ['Настроение', [
+        ['Ben', 'Being pleasant all day is work.', 'Быть приятным весь день — это работа.'],
+        ['Anna', 'Which is priced into some jobs and not others.', 'В одни работы это заложено в цену, в другие нет.'],
+        ['Ben', 'And is paid in neither, mostly.', 'И, в общем, не оплачивается ни там, ни там.'],
+        ['Anna', 'Though it is the first thing measured.', 'Хотя меряют его первым делом.'],
+        ['Ben', 'In every review I have ever had.', 'На каждой аттестации в моей жизни.'],
+      ]],
+      words: [
+        ['Being pleasant all day', 'быть приятным весь день', 'Being pleasant all day is work.'],
+        ['priced into some jobs', 'заложено в цену одних работ', 'Which is priced into some jobs and not others.'],
+        ['paid in neither', 'не оплачивается ни там, ни там', 'And is paid in neither, mostly.'],
+        ['the first thing measured', 'первое, что меряют', 'Though it is the first thing measured.'],
+        ['every review I have had', 'каждая аттестация в моей жизни', 'In every review I have ever had.'],
+      ],
+      rule: ['Neither — «ни то, ни другое»', 'It is paid in neither. Слово заменяет оба варианта сразу и не требует второго отрицания.'],
+      quiz: [
+        ['«И, в общем, не оплачивается ни там, ни там» —', ['And is paid in neither, mostly', 'And is not paid in neither, mostly', 'And is paid in either, mostly'], 0],
+        ['«Быть приятным весь день — это работа» —', ['Being pleasant all day is work', 'Be pleasant all day is work', 'Being pleasant all day are work'], 0],
+        ['«Хотя меряют его первым делом» —', ['Though it is the first thing measured', 'Though it is the first thing measure', 'Though it is first thing measured'], 0],
+      ],
+      order: ['На каждой аттестации в моей жизни.', 'In every review I have ever had.'],
+      produce: [
+        ['Быть приятным весь день — это работа.', 'Being pleasant all day is work.', []],
+        ['И, в общем, не оплачивается ни там, ни там.', 'And is paid in neither, mostly.', []],
+        ['Хотя меряют его первым делом.', 'Though it is the first thing measured.', []],
+      ],
+    },
+    {
+      title: 'The forms and the queues',
+      summary: 'Бумаги и очереди.',
+      topics: [SO, LI, CA],
+      dialogue: ['Бумаги', [
+        ['Anna', 'Getting the benefit took nine hours.', 'Оформление пособия заняло девять часов.'],
+        ['Ben', 'Spread over four visits and two websites.', 'Растянутых на четыре визита и два сайта.'],
+        ['Anna', 'Which is a cost paid by the poorest.', 'Эту цену платят самые бедные.'],
+        ['Ben', 'In time, since they have no other currency.', 'Временем, ведь другой валюты у них нет.'],
+        ['Anna', 'Which the design quietly assumes.', 'На это система тихо и рассчитана.'],
+      ]],
+      words: [
+        ['Getting the benefit', 'оформление пособия', 'Getting the benefit took nine hours.'],
+        ['Spread over four visits', 'растянутых на четыре визита', 'Spread over four visits and two websites.'],
+        ['a cost paid by the poorest', 'цена, которую платят беднейшие', 'Which is a cost paid by the poorest.'],
+        ['no other currency', 'нет другой валюты', 'Since they have no other currency.'],
+        ['the design quietly assumes', 'система тихо рассчитывает', 'Which the design quietly assumes.'],
+      ],
+      rule: ['Причастный оборот как определение', 'A cost paid by the poorest. Форма на -ed заменяет which is paid.'],
+      quiz: [
+        ['«Эту цену платят самые бедные» —', ['A cost paid by the poorest', 'A cost paying by the poorest', 'A cost paid from the poorest'], 0],
+        ['«Растянутых на четыре визита и два сайта» —', ['Spread over four visits and two websites', 'Spreading over four visits and two websites', 'Spread on four visits and two websites'], 0],
+        ['«Временем, ведь другой валюты у них нет» —', ['Since they have no other currency', 'Since they have not other currency', 'Since they has no other currency'], 0],
+      ],
+      order: ['Оформление пособия заняло девять часов.', 'Getting the benefit took nine hours.'],
+      produce: [
+        ['Оформление пособия заняло девять часов.', 'Getting the benefit took nine hours.', []],
+        ['Эту цену платят самые бедные.', 'Which is a cost paid by the poorest.', []],
+        ['На это система тихо и рассчитана.', 'Which the design quietly assumes.', []],
+      ],
+    },
+    {
+      title: 'Asking for it to be seen',
+      summary: 'Попросить, чтобы это заметили.',
+      topics: [RE, TE, LI],
+      dialogue: ['Признание', [
+        ['Ben', 'I listed it, without a single accusation.', 'Я перечислил это, без единого обвинения.'],
+        ['Anna', 'Which is what made it readable.', 'Именно поэтому это и читалось.'],
+        ['Ben', 'A list is harder to argue with.', 'Со списком спорить труднее.'],
+        ['Anna', 'Than a sentence beginning with you never.', 'Чем с фразой, начинающейся с «ты никогда».'],
+        ['Ben', 'Which closes the other person instantly.', 'Такая фраза мгновенно закрывает человека.'],
+      ]],
+      words: [
+        ['I listed it', 'я перечислил это', 'I listed it, without a single accusation.'],
+        ['without a single accusation', 'без единого обвинения', 'Without a single accusation, in writing.'],
+        ['what made it readable', 'что сделало это читаемым', 'Which is what made it readable.'],
+        ['harder to argue with', 'труднее спорить с', 'A list is harder to argue with.'],
+        ['closes the other person', 'закрывает человека', 'Which closes the other person instantly.'],
+      ],
+      rule: ['Harder to argue with', 'A list is harder to argue with. Предлог остаётся в конце и относится к подлежащему.'],
+      quiz: [
+        ['«Со списком спорить труднее» —', ['A list is harder to argue with', 'A list is harder to argue', 'A list is harder for argue with'], 0],
+        ['«Именно поэтому это и читалось» —', ['Which is what made it readable', 'Which is what make it readable', 'Which is that made it readable'], 0],
+        ['«Такая фраза мгновенно закрывает человека» —', ['Which closes the other person instantly', 'Which close the other person instantly', 'Which closes the other person instant'], 0],
+      ],
+      order: ['Чем с фразой, начинающейся с «ты никогда».', 'Than a sentence beginning with you never.'],
+      produce: [
+        ['Я перечислил это, без единого обвинения.', 'I listed it, without a single accusation.', []],
+        ['Со списком спорить труднее.', 'A list is harder to argue with.', []],
+        ['Такая фраза мгновенно закрывает человека.', 'Which closes the other person instantly.', []],
+      ],
+    },
+    {
+      title: 'When it is counted',
+      summary: 'Когда это посчитали.',
+      topics: [SO, RE, LI],
+      dialogue: ['Подсчёт', [
+        ['Anna', 'Unpaid care was valued at a tenth of the economy.', 'Неоплаченную заботу оценили в десятую часть экономики.'],
+        ['Ben', 'Which is a strange sentence to write.', 'Странное предложение для письма.'],
+        ['Anna', 'And a stranger one to have needed.', 'И ещё более странное, что оно понадобилось.'],
+        ['Ben', 'Since everybody involved already knew.', 'Ведь все причастные и так знали.'],
+        ['Anna', 'Only nobody had put a number on it.', 'Просто никто не ставил цифру.'],
+      ]],
+      words: [
+        ['Unpaid care', 'неоплаченная забота', 'Unpaid care was valued at a tenth of the economy.'],
+        ['was valued at a tenth', 'оценили в десятую часть', 'It was valued at a tenth of the economy.'],
+        ['a strange sentence to write', 'странное предложение для письма', 'Which is a strange sentence to write.'],
+        ['everybody involved', 'все причастные', 'Since everybody involved already knew.'],
+        ['put a number on it', 'поставить цифру', 'Only nobody had put a number on it.'],
+      ],
+      rule: ['Everybody involved — причастие после местоимения', 'Everybody involved already knew. Определение стоит после неопределённого местоимения.'],
+      quiz: [
+        ['«Ведь все причастные и так знали» —', ['Since everybody involved already knew', 'Since everybody involved already know', 'Since everybody involving already knew'], 0],
+        ['«Неоплаченную заботу оценили в десятую часть экономики» —', ['Unpaid care was valued at a tenth of the economy', 'Unpaid care was value at a tenth of the economy', 'Unpaid care were valued at a tenth of the economy'], 0],
+        ['«Просто никто не ставил цифру» —', ['Only nobody had put a number on it', 'Only nobody had putted a number on it', 'Only nobody has put a number on it then'], 0],
+      ],
+      order: ['Странное предложение для письма.', 'Which is a strange sentence to write.'],
+      produce: [
+        ['Неоплаченную заботу оценили в десятую часть экономики.', 'Unpaid care was valued at a tenth of the economy.', []],
+        ['Ведь все причастные и так знали.', 'Since everybody involved already knew.', []],
+        ['Просто никто не ставил цифру.', 'Only nobody had put a number on it.', []],
+      ],
+    },
+    {
+      title: 'Naming it out loud',
+      summary: 'Назвать вслух.',
+      topics: [RE, SO, LI],
+      dialogue: ['Итог', [
+        ['Ben', 'Half of the fix is having a word for it.', 'Половина решения — это иметь для этого слово.'],
+        ['Anna', 'Which sounds too easy to be true.', 'Звучит слишком просто, чтобы быть правдой.'],
+        ['Ben', 'And is, in every room I have tried it in.', 'И работает в каждой комнате, где я пробовал.'],
+        ['Anna', 'Since you cannot divide what has no name.', 'Ведь нельзя разделить то, у чего нет имени.'],
+        ['Ben', 'Which is the argument in one line.', 'Весь довод в одной строке.'],
+      ]],
+      words: [
+        ['having a word for it', 'иметь для этого слово', 'Half of the fix is having a word for it.'],
+        ['too easy to be true', 'слишком просто, чтобы быть правдой', 'Which sounds too easy to be true.'],
+        ['in every room I have tried it in', 'в каждой комнате, где я пробовал', 'And is, in every room I have tried it in.'],
+        ['cannot divide what has no name', 'нельзя разделить безымянное', 'Since you cannot divide what has no name.'],
+        ['the argument in one line', 'довод в одной строке', 'Which is the argument in one line.'],
+      ],
+      rule: ['Невидимую работу делает видимой список', 'Перечисление без обвинений превращает спор о справедливости в задачу распределения.'],
+      quiz: [
+        ['«Звучит слишком просто, чтобы быть правдой» —', ['Which sounds too easy to be true', 'Which sounds too easy for be true', 'Which sound too easy to be true'], 0],
+        ['«Ведь нельзя разделить то, у чего нет имени» —', ['Since you cannot divide what has no name', 'Since you cannot divide that has no name', 'Since you cannot divide what have no name'], 0],
+        ['«Половина решения — это иметь для этого слово» —', ['Half of the fix is having a word for it', 'Half of the fix is have a word for it', 'Half of the fix is having a word of it'], 0],
+      ],
+      order: ['Весь довод в одной строке.', 'Which is the argument in one line.'],
+      produce: [
+        ['Половина решения — это иметь для этого слово.', 'Half of the fix is having a word for it.', []],
+        ['Звучит слишком просто, чтобы быть правдой.', 'Which sounds too easy to be true.', []],
+        ['Ведь нельзя разделить то, у чего нет имени.', 'Since you cannot divide what has no name.', []],
+      ],
+    },
+    {
+      checkpoint: true,
+      title: 'Проверка: невидимая работа',
+      summary: 'Шесть фраз без подсказок.',
+      topics: [SO, RE, CA, TE],
+      produce: [
+        ['Ведь ничего видимого не производится.', 'Since nothing visible is produced.', []],
+        ['Заметить, что его надо сделать, — вторая.', 'Noticing it needs doing is the other.', []],
+        ['Как большинство мелких починок.', 'As most small fixes do.', []],
+        ['И, в общем, не оплачивается ни там, ни там.', 'And is paid in neither, mostly.', []],
+        ['Эту цену платят самые бедные.', 'Which is a cost paid by the poorest.', []],
+        ['Со списком спорить труднее.', 'A list is harder to argue with.', []],
+      ],
+    },
+  ],
+}
