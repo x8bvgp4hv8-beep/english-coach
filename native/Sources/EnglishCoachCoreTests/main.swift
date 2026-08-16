@@ -444,10 +444,18 @@ do {
     // High accuracy over A1 exercises should trigger an advancement suggestion.
     let a1IDs = ProgressionEngine.exerciseIDs(for: .a1, in: courses)
     let goodAttempts = a1IDs.map { AttemptRecord(id: UUID(), exerciseID: $0, correct: true, date: now) }
-    // Испанский A1 — 92 часа, испанский A2 — один: звать в пустую комнату нельзя,
-    // поэтому наполненность следующего уровня — часть правила, а не оформление.
-    expect(!ProgressionEngine.isReady(.a2, in: courses), "the shipped A2 is still a sketch")
-    expect(!ProgressionEngine.shouldSuggestAdvance(level: .a1, courses: courses, completed: done, attempts: goodAttempts, dismissed: []),
+    // Звать в пустую комнату нельзя, поэтому наполненность следующего уровня — часть
+    // правила, а не оформление. Раньше проверка опиралась на то, что A2 в поставке и
+    // правда был часовым; теперь он дописан, и тонкий уровень строится нарочно.
+    let thin = courses.map { pack -> CoursePack in
+        guard pack.level == .a2 else { return pack }
+        return CoursePack(schemaVersion: pack.schemaVersion, level: pack.level, chapters: pack.chapters.prefix(1).map { chapter in
+            Chapter(id: chapter.id, title: chapter.title, subtitle: chapter.subtitle,
+                    lessons: Array(chapter.lessons.prefix(1)), canDo: chapter.canDo)
+        })
+    }
+    expect(!ProgressionEngine.isReady(.a2, in: thin), "a one-lesson A2 is still a sketch")
+    expect(!ProgressionEngine.shouldSuggestAdvance(level: .a1, courses: thin, completed: done, attempts: goodAttempts, dismissed: []),
            "a barely built next level is not suggested")
 
     let stocked = courses.map { pack -> CoursePack in
