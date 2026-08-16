@@ -82,9 +82,16 @@ for (const pack of packs) {
         ids.add(exercise.id)
         const topics = exercise.topics ?? []
         if (topics.length === 0) problems.push(`${exercise.id}: нет темы`)
+        // Покрытие считается по практике: правило и диалог — это знакомство, а не работа.
+        // Ровно так же считает SyllabusEngine, и расходиться с ним здесь нельзя.
+        const isPractice = exercise.type !== 'info' && exercise.type !== 'dialogue'
         for (const topic of topics) {
-          topicCounts.set(topic, (topicCounts.get(topic) ?? 0) + 1)
-          if (exercise.type !== 'info' && exercise.type !== 'dialogue') drilledTopics.add(topic)
+          if (isPractice) {
+            topicCounts.set(topic, (topicCounts.get(topic) ?? 0) + 1)
+            drilledTopics.add(topic)
+          } else {
+            topicCounts.set(topic, topicCounts.get(topic) ?? 0)
+          }
         }
         if (pack.schemaVersion >= 2) {
           const step = STEP[exercise.type]
@@ -110,6 +117,24 @@ for (const pack of packs) {
     }
     if (pack.schemaVersion >= 2 && drilledTopics.size < 4) {
       problems.push(`${chapter.id}: тем в блоке ${drilledTopics.size}, нужно ≥4`)
+    }
+  }
+}
+
+// Повторить фразу в проверке блока — нормально и полезно: испанский A1 так и сделан.
+// А вот два одинаковых ответа рядом ломают проверку «ответ от другого упражнения не
+// принимается»: она сравнивает соседей на расстоянии 1 и 7 и считает совпадение
+// ложным срабатыванием проверяльщика. Значит повтор должен стоять далеко.
+const translates = packs.flatMap((pack) => pack.chapters)
+  .flatMap((chapter) => chapter.lessons)
+  .flatMap((lesson) => lesson.exercises)
+  .filter((exercise) => exercise.type === 'translate' && exercise.canonicalAnswer)
+for (let i = 0; i < translates.length; i += 1) {
+  for (const offset of [1, 7]) {
+    const other = translates[(i + offset) % translates.length]
+    if (!other || other.id === translates[i].id) continue
+    if (normalise(other.canonicalAnswer) === normalise(translates[i].canonicalAnswer)) {
+      problems.push(`${translates[i].id}: тот же ответ рядом с ${other.id} — «${translates[i].canonicalAnswer}»`)
     }
   }
 }

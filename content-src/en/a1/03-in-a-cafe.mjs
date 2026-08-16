@@ -530,7 +530,7 @@ export default {
         ['Сколько стоит сэндвич?', 'How much is the sandwich?', []],
         ['Я бы хотел суп.', 'I would like a soup.', ["I'd like a soup."]],
         ['Чай без сахара.', 'Tea without sugar.', []],
-        ['Есть столик на двоих?', 'Is there a table for two?', []],
+        ['Что у вас есть?', 'What do you have?', []],
         ['Можно счёт, пожалуйста?', 'Can I have the bill, please?', []],
       ],
     },

@@ -720,9 +720,12 @@ describe('syllabus', () => {
     const counts = SyllabusEngine.counts(courses)
     const info = allExercises(courses[0]).find((e) => e.type === 'info')!
     expect(info.topics?.length).toBeGreaterThan(0)
-    // The card carries the topic so a rule can be found, but it is not practice.
+    // The card carries the topic so a rule can be found, but it is not practice — and
+    // neither is a dialogue, which the counter has always excluded too. The test only
+    // said "info" because English had no dialogues to disagree about.
     const onlyInfoTopic = (info.topics ?? [])[0]
-    const practice = allExercises(courses[0]).filter((e) => e.type !== 'info' && (e.topics ?? []).includes(onlyInfoTopic))
+    const practice = allExercises(courses[0])
+      .filter((e) => e.type !== 'info' && e.type !== 'dialogue' && (e.topics ?? []).includes(onlyInfoTopic))
     expect(counts[onlyInfoTopic]).toBe(practice.length)
   })
 })

@@ -192,13 +192,22 @@ export class LearningSession {
     this.exerciseIndex -= 1
   }
 
-  /** Test helper: answers the current exercise correctly, whatever its type. */
+  /**
+   * Test helper: answers the current exercise correctly, whatever its type.
+   *
+   * `dialogue` belongs with the other passive steps and was missing here, while the
+   * Swift twin has had it all along — its switch over an enum has to be exhaustive, and
+   * TypeScript's does not. Nothing caught it because every caller loops until the lesson
+   * is complete, and English had no dialogues to loop on: the first English unit built
+   * the proper way hung the whole suite instead of failing it.
+   */
   completeCurrentCorrectly(now: Date = new Date()): void {
     const exercise = this.currentExercise
     if (!exercise) return
     switch (exercise.type) {
       case 'info':
       case 'flashcard':
+      case 'dialogue':
         this.completePassiveExercise(now)
         break
       case 'multiple_choice':
