@@ -77839,6 +77839,2700 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en-b2-one-thread",
+      "title": "Одна переписка",
+      "subtitle": "Спор в письмах: от уведомления до мирового",
+      "canDo": [
+        "открыть спор письмом без эмоций",
+        "фиксировать факты и сроки",
+        "отвечать на отказ",
+        "предлагать компромисс письменно",
+        "закрывать переписку так, чтобы к ней не возвращались"
+      ],
+      "lessons": [
+        {
+          "id": "en-b2-one-thread-01",
+          "title": "The first notice",
+          "summary": "Первое уведомление.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-01-d",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Уведомление",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "The delivery was due on the ninth.",
+                  "translation": "Поставка должна была быть девятого."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And arrived on the twenty second.",
+                  "translation": "А пришла двадцать второго."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is thirteen days, by your calendar.",
+                  "translation": "Это тринадцать дней, по вашему же календарю."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And the clause applies from day ten.",
+                  "translation": "А пункт действует с десятого дня."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is why this letter is short.",
+                  "translation": "Поэтому письмо и короткое."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-01-w1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "was due on the ninth",
+              "translation": "должна была быть девятого",
+              "example": "The delivery was due on the ninth."
+            },
+            {
+              "id": "en-b2-one-thread-01-w2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "arrived on the twenty second",
+              "translation": "пришла двадцать второго",
+              "example": "And arrived on the twenty second."
+            },
+            {
+              "id": "en-b2-one-thread-01-w3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "by your calendar",
+              "translation": "по вашему календарю",
+              "example": "Which is thirteen days, by your calendar."
+            },
+            {
+              "id": "en-b2-one-thread-01-w4",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "applies from day ten",
+              "translation": "действует с десятого дня",
+              "example": "And the clause applies from day ten."
+            },
+            {
+              "id": "en-b2-one-thread-01-w5",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "why this letter is short",
+              "translation": "почему письмо короткое",
+              "example": "Which is why this letter is short."
+            },
+            {
+              "id": "en-b2-one-thread-01-r",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Be due — «должно быть к сроку»",
+              "explanation": "The delivery was due on the ninth. Оборот называет срок без обвинения и открывает переписку фактом."
+            },
+            {
+              "id": "en-b2-one-thread-01-c1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Поставка должна была быть девятого» —",
+              "options": [
+                "The delivery was due on the ninth",
+                "The delivery was due in the ninth",
+                "The delivery were due on the ninth"
+              ],
+              "correctOption": "The delivery was due on the ninth"
+            },
+            {
+              "id": "en-b2-one-thread-01-c2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«А пункт действует с десятого дня» —",
+              "options": [
+                "And the clause applies from day ten",
+                "And the clause apply from day ten",
+                "And the clause applies from the day ten"
+              ],
+              "correctOption": "And the clause applies from day ten"
+            },
+            {
+              "id": "en-b2-one-thread-01-c3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Поэтому письмо и короткое» —",
+              "options": [
+                "Which is why this letter is short",
+                "What is why this letter is short",
+                "Which is why this letter is shortly"
+              ],
+              "correctOption": "Which is why this letter is short"
+            },
+            {
+              "id": "en-b2-one-thread-01-o",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "А пришла двадцать второго.",
+              "canonicalAnswer": "And arrived on the twenty second.",
+              "tokens": [
+                "second",
+                "twenty",
+                "the",
+                "on",
+                "arrived",
+                "And"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-01-t1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Поставка должна была быть девятого.",
+              "canonicalAnswer": "The delivery was due on the ninth."
+            },
+            {
+              "id": "en-b2-one-thread-01-t2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Это тринадцать дней, по вашему же календарю.",
+              "canonicalAnswer": "Which is thirteen days, by your calendar."
+            },
+            {
+              "id": "en-b2-one-thread-01-t3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Поэтому письмо и короткое.",
+              "canonicalAnswer": "Which is why this letter is short."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-02",
+          "title": "Their first reply",
+          "summary": "Их первый ответ.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-02-d",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Ответ",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "They say the port was closed for four days.",
+                  "translation": "Пишут, что порт был закрыт четыре дня."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which accounts for four, not thirteen.",
+                  "translation": "Что объясняет четыре, а не тринадцать."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And they call it force majeure.",
+                  "translation": "И они называют это форс-мажором."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which the clause defines narrowly.",
+                  "translation": "Что пункт определяет узко."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And port congestion is excluded by name.",
+                  "translation": "А заторы в порту исключены прямым текстом."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-02-w1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the port was closed",
+              "translation": "порт был закрыт",
+              "example": "They say the port was closed for four days."
+            },
+            {
+              "id": "en-b2-one-thread-02-w2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "accounts for four",
+              "translation": "объясняет четыре",
+              "example": "Which accounts for four, not thirteen."
+            },
+            {
+              "id": "en-b2-one-thread-02-w3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "they call it force majeure",
+              "translation": "они называют это форс-мажором",
+              "example": "And they call it force majeure."
+            },
+            {
+              "id": "en-b2-one-thread-02-w4",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "defines narrowly",
+              "translation": "определяет узко",
+              "example": "Which the clause defines narrowly."
+            },
+            {
+              "id": "en-b2-one-thread-02-w5",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "excluded by name",
+              "translation": "исключены прямым текстом",
+              "example": "And port congestion is excluded by name."
+            },
+            {
+              "id": "en-b2-one-thread-02-r",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Account for — объяснять часть",
+              "explanation": "It accounts for four, not thirteen. Оборот принимает часть объяснения и возвращает остаток."
+            },
+            {
+              "id": "en-b2-one-thread-02-c1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что объясняет четыре, а не тринадцать» —",
+              "options": [
+                "Which accounts for four, not thirteen",
+                "Which account for four, not thirteen",
+                "Which accounts four, not thirteen"
+              ],
+              "correctOption": "Which accounts for four, not thirteen"
+            },
+            {
+              "id": "en-b2-one-thread-02-c2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«А заторы в порту исключены прямым текстом» —",
+              "options": [
+                "And port congestion is excluded by name",
+                "And port congestion is exclude by name",
+                "And port congestion are excluded by name"
+              ],
+              "correctOption": "And port congestion is excluded by name"
+            },
+            {
+              "id": "en-b2-one-thread-02-c3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что пункт определяет узко» —",
+              "options": [
+                "Which the clause defines narrowly",
+                "Which the clause define narrowly",
+                "Which the clause defines narrow"
+              ],
+              "correctOption": "Which the clause defines narrowly"
+            },
+            {
+              "id": "en-b2-one-thread-02-o",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "И они называют это форс-мажором.",
+              "canonicalAnswer": "And they call it force majeure.",
+              "tokens": [
+                "majeure",
+                "force",
+                "it",
+                "call",
+                "they",
+                "And"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-02-t1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Пишут, что порт был закрыт четыре дня.",
+              "canonicalAnswer": "They say the port was closed for four days."
+            },
+            {
+              "id": "en-b2-one-thread-02-t2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Что объясняет четыре, а не тринадцать.",
+              "canonicalAnswer": "Which accounts for four, not thirteen."
+            },
+            {
+              "id": "en-b2-one-thread-02-t3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b1-tema-servicios",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "А заторы в порту исключены прямым текстом.",
+              "canonicalAnswer": "And port congestion is excluded by name."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-03",
+          "title": "Restating the facts",
+          "summary": "Повтор фактов.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-03-d",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Факты",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Nine days remain unexplained.",
+                  "translation": "Девять дней остаются без объяснения."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is the only number in this email.",
+                  "translation": "Единственная цифра в этом письме."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And it is repeated in the subject line.",
+                  "translation": "И она повторена в теме письма."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is not subtle, and works.",
+                  "translation": "Тонко не назовёшь, но работает."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Because it survives forwarding.",
+                  "translation": "Потому что переживает пересылку."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-03-w1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "remain unexplained",
+              "translation": "остаются без объяснения",
+              "example": "Nine days remain unexplained."
+            },
+            {
+              "id": "en-b2-one-thread-03-w2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the only number",
+              "translation": "единственная цифра",
+              "example": "Which is the only number in this email."
+            },
+            {
+              "id": "en-b2-one-thread-03-w3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "in the subject line",
+              "translation": "в теме письма",
+              "example": "And it is repeated in the subject line."
+            },
+            {
+              "id": "en-b2-one-thread-03-w4",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "not subtle, and works",
+              "translation": "тонко не назовёшь, но работает",
+              "example": "Which is not subtle, and works."
+            },
+            {
+              "id": "en-b2-one-thread-03-w5",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "survives forwarding",
+              "translation": "переживает пересылку",
+              "example": "Because it survives forwarding."
+            },
+            {
+              "id": "en-b2-one-thread-03-r",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Remain + прилагательное",
+              "explanation": "Nine days remain unexplained. После remain идёт прилагательное или причастие без to be."
+            },
+            {
+              "id": "en-b2-one-thread-03-c1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Девять дней остаются без объяснения» —",
+              "options": [
+                "Nine days remain unexplained",
+                "Nine days remains unexplained",
+                "Nine days remain unexplaining"
+              ],
+              "correctOption": "Nine days remain unexplained"
+            },
+            {
+              "id": "en-b2-one-thread-03-c2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И она повторена в теме письма» —",
+              "options": [
+                "And it is repeated in the subject line",
+                "And it is repeat in the subject line",
+                "And it is repeated on the subject line"
+              ],
+              "correctOption": "And it is repeated in the subject line"
+            },
+            {
+              "id": "en-b2-one-thread-03-c3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Потому что переживает пересылку» —",
+              "options": [
+                "Because it survives forwarding",
+                "Because it survive forwarding",
+                "Because it survives to forward"
+              ],
+              "correctOption": "Because it survives forwarding"
+            },
+            {
+              "id": "en-b2-one-thread-03-o",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "Единственная цифра в этом письме.",
+              "canonicalAnswer": "Which is the only number in this email.",
+              "tokens": [
+                "email",
+                "this",
+                "in",
+                "number",
+                "only",
+                "the",
+                "is",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-03-t1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Девять дней остаются без объяснения.",
+              "canonicalAnswer": "Nine days remain unexplained."
+            },
+            {
+              "id": "en-b2-one-thread-03-t2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "И она повторена в теме письма.",
+              "canonicalAnswer": "And it is repeated in the subject line."
+            },
+            {
+              "id": "en-b2-one-thread-03-t3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Потому что переживает пересылку.",
+              "canonicalAnswer": "Because it survives forwarding."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-04",
+          "title": "The refusal",
+          "summary": "Отказ.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-04-d",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "dialogue",
+              "title": "Отказ",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "They have declined the credit note.",
+                  "translation": "Они отказали в кредит-ноте."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Citing a clause that was removed in March.",
+                  "translation": "Ссылаясь на пункт, убранный в марте."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which we can show in two lines.",
+                  "translation": "Что мы можем показать в двух строках."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "With the signed version attached.",
+                  "translation": "С приложенной подписанной версией."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which usually ends the argument.",
+                  "translation": "Обычно на этом спор и кончается."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-04-w1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "have declined the credit note",
+              "translation": "отказали в кредит-ноте",
+              "example": "They have declined the credit note."
+            },
+            {
+              "id": "en-b2-one-thread-04-w2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "Citing a clause",
+              "translation": "ссылаясь на пункт",
+              "example": "Citing a clause that was removed in March."
+            },
+            {
+              "id": "en-b2-one-thread-04-w3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "that was removed",
+              "translation": "который убрали",
+              "example": "A clause that was removed in March."
+            },
+            {
+              "id": "en-b2-one-thread-04-w4",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "With the signed version attached",
+              "translation": "с приложенной подписанной версией",
+              "example": "With the signed version attached."
+            },
+            {
+              "id": "en-b2-one-thread-04-w5",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "ends the argument",
+              "translation": "заканчивает спор",
+              "example": "Which usually ends the argument."
+            },
+            {
+              "id": "en-b2-one-thread-04-r",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "info",
+              "title": "Citing как причастный хвост",
+              "explanation": "Citing a clause that was removed. Оборот присоединяет основание отказа без нового предложения."
+            },
+            {
+              "id": "en-b2-one-thread-04-c1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ссылаясь на пункт, убранный в марте» —",
+              "options": [
+                "Citing a clause that was removed in March",
+                "Cited a clause that was removed in March",
+                "Citing a clause what was removed in March"
+              ],
+              "correctOption": "Citing a clause that was removed in March"
+            },
+            {
+              "id": "en-b2-one-thread-04-c2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«С приложенной подписанной версией» —",
+              "options": [
+                "With the signed version attached",
+                "With the signed version attaching",
+                "With attached the signed version"
+              ],
+              "correctOption": "With the signed version attached"
+            },
+            {
+              "id": "en-b2-one-thread-04-c3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Они отказали в кредит-ноте» —",
+              "options": [
+                "They have declined the credit note",
+                "They have decline the credit note",
+                "They has declined the credit note"
+              ],
+              "correctOption": "They have declined the credit note"
+            },
+            {
+              "id": "en-b2-one-thread-04-o",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "word_order",
+              "prompt": "Что мы можем показать в двух строках.",
+              "canonicalAnswer": "Which we can show in two lines.",
+              "tokens": [
+                "lines",
+                "two",
+                "in",
+                "show",
+                "can",
+                "we",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-04-t1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Они отказали в кредит-ноте.",
+              "canonicalAnswer": "They have declined the credit note."
+            },
+            {
+              "id": "en-b2-one-thread-04-t2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Ссылаясь на пункт, убранный в марте.",
+              "canonicalAnswer": "Citing a clause that was removed in March."
+            },
+            {
+              "id": "en-b2-one-thread-04-t3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "С приложенной подписанной версией.",
+              "canonicalAnswer": "With the signed version attached."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-05",
+          "title": "Escalating politely",
+          "summary": "Поднять уровень вежливо.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-05-d",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Эскалация",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I am copying your commercial director.",
+                  "translation": "Ставлю в копию вашего коммерческого директора."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is a threat dressed as courtesy.",
+                  "translation": "Угроза, одетая в вежливость."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And is read correctly by everyone.",
+                  "translation": "И все читают её правильно."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Including the director, who will act.",
+                  "translation": "В том числе директор, который отреагирует."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Because nobody wants a thread with their name in it.",
+                  "translation": "Потому что никому не нужна переписка со своим именем."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-05-w1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "I am copying",
+              "translation": "ставлю в копию",
+              "example": "I am copying your commercial director."
+            },
+            {
+              "id": "en-b2-one-thread-05-w2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "a threat dressed as courtesy",
+              "translation": "угроза в одежде вежливости",
+              "example": "Which is a threat dressed as courtesy."
+            },
+            {
+              "id": "en-b2-one-thread-05-w3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "read correctly by everyone",
+              "translation": "все читают правильно",
+              "example": "And is read correctly by everyone."
+            },
+            {
+              "id": "en-b2-one-thread-05-w4",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "who will act",
+              "translation": "который отреагирует",
+              "example": "Including the director, who will act."
+            },
+            {
+              "id": "en-b2-one-thread-05-w5",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "with their name in it",
+              "translation": "со своим именем",
+              "example": "A thread with their name in it."
+            },
+            {
+              "id": "en-b2-one-thread-05-r",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Copy somebody in",
+              "explanation": "I am copying your director. Глагол copy без предлога значит поставить в копию письма."
+            },
+            {
+              "id": "en-b2-one-thread-05-c1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ставлю в копию вашего коммерческого директора» —",
+              "options": [
+                "I am copying your commercial director",
+                "I am copying to your commercial director",
+                "I am copy your commercial director"
+              ],
+              "correctOption": "I am copying your commercial director"
+            },
+            {
+              "id": "en-b2-one-thread-05-c2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И все читают её правильно» —",
+              "options": [
+                "And is read correctly by everyone",
+                "And is read correct by everyone",
+                "And is reading correctly by everyone"
+              ],
+              "correctOption": "And is read correctly by everyone"
+            },
+            {
+              "id": "en-b2-one-thread-05-c3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Потому что никому не нужна переписка со своим именем» —",
+              "options": [
+                "A thread with their name in it",
+                "A thread with their name on it",
+                "A thread with them name in it"
+              ],
+              "correctOption": "A thread with their name in it"
+            },
+            {
+              "id": "en-b2-one-thread-05-o",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "В том числе директор, который отреагирует.",
+              "canonicalAnswer": "Including the director, who will act.",
+              "tokens": [
+                "act",
+                "will",
+                "who",
+                "director",
+                "the",
+                "Including"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-05-t1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Ставлю в копию вашего коммерческого директора.",
+              "canonicalAnswer": "I am copying your commercial director."
+            },
+            {
+              "id": "en-b2-one-thread-05-t2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Угроза, одетая в вежливость.",
+              "canonicalAnswer": "Which is a threat dressed as courtesy."
+            },
+            {
+              "id": "en-b2-one-thread-05-t3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "И все читают её правильно.",
+              "canonicalAnswer": "And is read correctly by everyone."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-06",
+          "title": "Their counter offer",
+          "summary": "Их встречное предложение.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-06-d",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Контроффер",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "They offer half, as a gesture.",
+                  "translation": "Предлагают половину, в качестве жеста."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is the word that means no precedent.",
+                  "translation": "Слово, означающее «без прецедента»."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And is worth accepting anyway.",
+                  "translation": "И всё равно стоит принять."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "If it arrives within ten days.",
+                  "translation": "Если придёт в течение десяти дней."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is the condition we add.",
+                  "translation": "Это условие мы и добавляем."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-06-w1",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "They offer half",
+              "translation": "предлагают половину",
+              "example": "They offer half, as a gesture."
+            },
+            {
+              "id": "en-b2-one-thread-06-w2",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "as a gesture",
+              "translation": "в качестве жеста",
+              "example": "As a gesture, they say."
+            },
+            {
+              "id": "en-b2-one-thread-06-w3",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "means no precedent",
+              "translation": "означает «без прецедента»",
+              "example": "The word that means no precedent."
+            },
+            {
+              "id": "en-b2-one-thread-06-w4",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "worth accepting anyway",
+              "translation": "всё равно стоит принять",
+              "example": "And is worth accepting anyway."
+            },
+            {
+              "id": "en-b2-one-thread-06-w5",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the condition we add",
+              "translation": "условие, которое добавляем",
+              "example": "Which is the condition we add."
+            },
+            {
+              "id": "en-b2-one-thread-06-r",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Worth accepting — оценка предложения",
+              "explanation": "It is worth accepting. После worth идёт форма на -ing, а не инфинитив."
+            },
+            {
+              "id": "en-b2-one-thread-06-c1",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И всё равно стоит принять» —",
+              "options": [
+                "And is worth accepting anyway",
+                "And is worth to accept anyway",
+                "And is worth accept anyway"
+              ],
+              "correctOption": "And is worth accepting anyway"
+            },
+            {
+              "id": "en-b2-one-thread-06-c2",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Слово, означающее «без прецедента»» —",
+              "options": [
+                "The word that means no precedent",
+                "The word what means no precedent",
+                "The word that mean no precedent"
+              ],
+              "correctOption": "The word that means no precedent"
+            },
+            {
+              "id": "en-b2-one-thread-06-c3",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если придёт в течение десяти дней» —",
+              "options": [
+                "If it arrives within ten days",
+                "If it will arrive within ten days",
+                "If it arrive within ten days"
+              ],
+              "correctOption": "If it arrives within ten days"
+            },
+            {
+              "id": "en-b2-one-thread-06-o",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "Это условие мы и добавляем.",
+              "canonicalAnswer": "Which is the condition we add.",
+              "tokens": [
+                "add",
+                "we",
+                "condition",
+                "the",
+                "is",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-06-t1",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Предлагают половину, в качестве жеста.",
+              "canonicalAnswer": "They offer half, as a gesture."
+            },
+            {
+              "id": "en-b2-one-thread-06-t2",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "И всё равно стоит принять.",
+              "canonicalAnswer": "And is worth accepting anyway."
+            },
+            {
+              "id": "en-b2-one-thread-06-t3",
+              "topics": [
+                "b2-tema-negociacion",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Если придёт в течение десяти дней.",
+              "canonicalAnswer": "If it arrives within ten days."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-07",
+          "title": "Closing the loop",
+          "summary": "Закрыть круг.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-07-d",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Закрытие",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Accepted, on the terms below.",
+                  "translation": "Принято, на условиях ниже."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Two lines, repeating both numbers.",
+                  "translation": "Две строки, с повтором обеих цифр."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And the date the credit is due.",
+                  "translation": "И дата, к которой ожидается кредит."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which turns a promise into a deadline.",
+                  "translation": "Что превращает обещание в срок."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And ends the thread properly.",
+                  "translation": "И как следует закрывает переписку."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-07-w1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "Accepted, on the terms below",
+              "translation": "принято, на условиях ниже",
+              "example": "Accepted, on the terms below."
+            },
+            {
+              "id": "en-b2-one-thread-07-w2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "repeating both numbers",
+              "translation": "с повтором обеих цифр",
+              "example": "Two lines, repeating both numbers."
+            },
+            {
+              "id": "en-b2-one-thread-07-w3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the date the credit is due",
+              "translation": "дата, к которой ожидается кредит",
+              "example": "And the date the credit is due."
+            },
+            {
+              "id": "en-b2-one-thread-07-w4",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "turns a promise into a deadline",
+              "translation": "превращает обещание в срок",
+              "example": "Which turns a promise into a deadline."
+            },
+            {
+              "id": "en-b2-one-thread-07-w5",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "ends the thread properly",
+              "translation": "как следует закрывает переписку",
+              "example": "And ends the thread properly."
+            },
+            {
+              "id": "en-b2-one-thread-07-r",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Причастие с повтором условий",
+              "explanation": "Two lines, repeating both numbers. Оборот присоединяет содержание письма к его описанию."
+            },
+            {
+              "id": "en-b2-one-thread-07-c1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Две строки, с повтором обеих цифр» —",
+              "options": [
+                "Two lines, repeating both numbers",
+                "Two lines, repeated both numbers",
+                "Two line, repeating both numbers"
+              ],
+              "correctOption": "Two lines, repeating both numbers"
+            },
+            {
+              "id": "en-b2-one-thread-07-c2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что превращает обещание в срок» —",
+              "options": [
+                "Which turns a promise into a deadline",
+                "Which turn a promise into a deadline",
+                "Which turns a promise in a deadline"
+              ],
+              "correctOption": "Which turns a promise into a deadline"
+            },
+            {
+              "id": "en-b2-one-thread-07-c3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И как следует закрывает переписку» —",
+              "options": [
+                "And ends the thread properly",
+                "And end the thread properly",
+                "And ends the thread proper"
+              ],
+              "correctOption": "And ends the thread properly"
+            },
+            {
+              "id": "en-b2-one-thread-07-o",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "И дата, к которой ожидается кредит.",
+              "canonicalAnswer": "And the date the credit is due.",
+              "tokens": [
+                "due",
+                "is",
+                "credit",
+                "the",
+                "date",
+                "the",
+                "And"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-07-t1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Принято, на условиях ниже.",
+              "canonicalAnswer": "Accepted, on the terms below."
+            },
+            {
+              "id": "en-b2-one-thread-07-t2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Две строки, с повтором обеих цифр.",
+              "canonicalAnswer": "Two lines, repeating both numbers."
+            },
+            {
+              "id": "en-b2-one-thread-07-t3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Что превращает обещание в срок.",
+              "canonicalAnswer": "Which turns a promise into a deadline."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-08",
+          "title": "When they miss the new date",
+          "summary": "Когда сорван новый срок.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-08-d",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "dialogue",
+              "title": "Снова срыв",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "The credit was promised for the fifth.",
+                  "translation": "Кредит обещали к пятому."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And has not appeared by the eleventh.",
+                  "translation": "И к одиннадцатому не появился."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is a second breach, not a delay.",
+                  "translation": "Это второе нарушение, а не задержка."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And the wording changes accordingly.",
+                  "translation": "И формулировка меняется соответственно."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "From regret to reference numbers.",
+                  "translation": "С сожалений на номера документов."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-08-w1",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "was promised for the fifth",
+              "translation": "обещали к пятому",
+              "example": "The credit was promised for the fifth."
+            },
+            {
+              "id": "en-b2-one-thread-08-w2",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "has not appeared",
+              "translation": "не появился",
+              "example": "And has not appeared by the eleventh."
+            },
+            {
+              "id": "en-b2-one-thread-08-w3",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "a second breach",
+              "translation": "второе нарушение",
+              "example": "Which is a second breach, not a delay."
+            },
+            {
+              "id": "en-b2-one-thread-08-w4",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "changes accordingly",
+              "translation": "меняется соответственно",
+              "example": "And the wording changes accordingly."
+            },
+            {
+              "id": "en-b2-one-thread-08-w5",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "reference numbers",
+              "translation": "номера документов",
+              "example": "From regret to reference numbers."
+            },
+            {
+              "id": "en-b2-one-thread-08-r",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "info",
+              "title": "Смена регистра как сигнал",
+              "explanation": "From regret to reference numbers. Переход от вежливых оборотов к номерам читается как эскалация."
+            },
+            {
+              "id": "en-b2-one-thread-08-c1",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Кредит обещали к пятому» —",
+              "options": [
+                "The credit was promised for the fifth",
+                "The credit was promise for the fifth",
+                "The credit were promised for the fifth"
+              ],
+              "correctOption": "The credit was promised for the fifth"
+            },
+            {
+              "id": "en-b2-one-thread-08-c2",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И к одиннадцатому не появился» —",
+              "options": [
+                "And has not appeared by the eleventh",
+                "And has not appear by the eleventh",
+                "And has not appeared until the eleventh"
+              ],
+              "correctOption": "And has not appeared by the eleventh"
+            },
+            {
+              "id": "en-b2-one-thread-08-c3",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И формулировка меняется соответственно» —",
+              "options": [
+                "And the wording changes accordingly",
+                "And the wording change accordingly",
+                "And the wording changes according"
+              ],
+              "correctOption": "And the wording changes accordingly"
+            },
+            {
+              "id": "en-b2-one-thread-08-o",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "word_order",
+              "prompt": "Это второе нарушение, а не задержка.",
+              "canonicalAnswer": "Which is a second breach, not a delay.",
+              "tokens": [
+                "delay",
+                "a",
+                "not",
+                "breach",
+                "second",
+                "a",
+                "is",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-08-t1",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "translate",
+              "prompt": "Кредит обещали к пятому.",
+              "canonicalAnswer": "The credit was promised for the fifth."
+            },
+            {
+              "id": "en-b2-one-thread-08-t2",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "translate",
+              "prompt": "И к одиннадцатому не появился.",
+              "canonicalAnswer": "And has not appeared by the eleventh."
+            },
+            {
+              "id": "en-b2-one-thread-08-t3",
+              "topics": [
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b1-tema-mensajes"
+              ],
+              "type": "translate",
+              "prompt": "С сожалений на номера документов.",
+              "canonicalAnswer": "From regret to reference numbers."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-09",
+          "title": "The lawyer reads it",
+          "summary": "Письмо читает юрист.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-09-d",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Юрист",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "She said the thread was unusually clean.",
+                  "translation": "Она сказала, что переписка на редкость чистая."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Meaning no adjectives and no threats.",
+                  "translation": "То есть без прилагательных и без угроз."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is what a court would want.",
+                  "translation": "Именно это и нужно суду."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And what a settlement rests on.",
+                  "translation": "И на этом же стоит мировое."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is where this will end.",
+                  "translation": "Чем это и закончится."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-09-w1",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "unusually clean",
+              "translation": "на редкость чистая",
+              "example": "She said the thread was unusually clean."
+            },
+            {
+              "id": "en-b2-one-thread-09-w2",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "no adjectives and no threats",
+              "translation": "без прилагательных и без угроз",
+              "example": "Meaning no adjectives and no threats."
+            },
+            {
+              "id": "en-b2-one-thread-09-w3",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "what a court would want",
+              "translation": "что нужно суду",
+              "example": "Which is what a court would want."
+            },
+            {
+              "id": "en-b2-one-thread-09-w4",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "a settlement rests on",
+              "translation": "на чём стоит мировое",
+              "example": "And what a settlement rests on."
+            },
+            {
+              "id": "en-b2-one-thread-09-w5",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "where this will end",
+              "translation": "чем это закончится",
+              "example": "Which is where this will end."
+            },
+            {
+              "id": "en-b2-one-thread-09-r",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Rest on — опираться на",
+              "explanation": "What a settlement rests on. Предлог on обязателен и уходит в конец фразы."
+            },
+            {
+              "id": "en-b2-one-thread-09-c1",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Она сказала, что переписка на редкость чистая» —",
+              "options": [
+                "She said the thread was unusually clean",
+                "She said the thread is unusually clean",
+                "She said the thread were unusually clean"
+              ],
+              "correctOption": "She said the thread was unusually clean"
+            },
+            {
+              "id": "en-b2-one-thread-09-c2",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И на этом же стоит мировое» —",
+              "options": [
+                "And what a settlement rests on",
+                "And what a settlement rests",
+                "And that a settlement rests on"
+              ],
+              "correctOption": "And what a settlement rests on"
+            },
+            {
+              "id": "en-b2-one-thread-09-c3",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Именно это и нужно суду» —",
+              "options": [
+                "Which is what a court would want",
+                "Which is that a court would want",
+                "Which is what a court would wants"
+              ],
+              "correctOption": "Which is what a court would want"
+            },
+            {
+              "id": "en-b2-one-thread-09-o",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "Чем это и закончится.",
+              "canonicalAnswer": "Which is where this will end.",
+              "tokens": [
+                "end",
+                "will",
+                "this",
+                "where",
+                "is",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-09-t1",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Она сказала, что переписка на редкость чистая.",
+              "canonicalAnswer": "She said the thread was unusually clean."
+            },
+            {
+              "id": "en-b2-one-thread-09-t2",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "То есть без прилагательных и без угроз.",
+              "canonicalAnswer": "Meaning no adjectives and no threats."
+            },
+            {
+              "id": "en-b2-one-thread-09-t3",
+              "topics": [
+                "b2-tema-derecho",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "И на этом же стоит мировое.",
+              "canonicalAnswer": "And what a settlement rests on."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-10",
+          "title": "The settlement",
+          "summary": "Мировое.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-10-d",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "dialogue",
+              "title": "Мировое",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Sixty per cent, paid within five days.",
+                  "translation": "Шестьдесят процентов, оплата в течение пяти дней."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And the clause reworded for next year.",
+                  "translation": "И пункт переписан на следующий год."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is worth more than the money.",
+                  "translation": "Что дороже самих денег."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "If we had only taken the cash, it would repeat.",
+                  "translation": "Возьми мы только деньги, всё повторилось бы."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Every March, as it has twice.",
+                  "translation": "Каждый март, как уже дважды."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-10-w1",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "paid within five days",
+              "translation": "оплата в течение пяти дней",
+              "example": "Sixty per cent, paid within five days."
+            },
+            {
+              "id": "en-b2-one-thread-10-w2",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "reworded for next year",
+              "translation": "переписан на следующий год",
+              "example": "And the clause reworded for next year."
+            },
+            {
+              "id": "en-b2-one-thread-10-w3",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "worth more than the money",
+              "translation": "дороже денег",
+              "example": "Which is worth more than the money."
+            },
+            {
+              "id": "en-b2-one-thread-10-w4",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "If we had only taken the cash",
+              "translation": "возьми мы только деньги",
+              "example": "If we had only taken the cash, it would repeat."
+            },
+            {
+              "id": "en-b2-one-thread-10-w5",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "flashcard",
+              "prompt": "as it has twice",
+              "translation": "как уже дважды",
+              "example": "Every March, as it has twice."
+            },
+            {
+              "id": "en-b2-one-thread-10-r",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "info",
+              "title": "Смешанное условие в итоге спора",
+              "explanation": "If we had only taken the cash, it would repeat. Прошлое решение, повторяющееся последствие в настоящем."
+            },
+            {
+              "id": "en-b2-one-thread-10-c1",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Возьми мы только деньги, всё повторилось бы» —",
+              "options": [
+                "If we had only taken the cash, it would repeat",
+                "If we only took the cash, it would repeat",
+                "If we had only taken the cash, it will repeat"
+              ],
+              "correctOption": "If we had only taken the cash, it would repeat"
+            },
+            {
+              "id": "en-b2-one-thread-10-c2",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И пункт переписан на следующий год» —",
+              "options": [
+                "And the clause reworded for next year",
+                "And the clause rewording for next year",
+                "And the clause reworded for the next year of"
+              ],
+              "correctOption": "And the clause reworded for next year"
+            },
+            {
+              "id": "en-b2-one-thread-10-c3",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Каждый март, как уже дважды» —",
+              "options": [
+                "Every March, as it has twice",
+                "Every March, as it has two",
+                "Every March, how it has twice"
+              ],
+              "correctOption": "Every March, as it has twice"
+            },
+            {
+              "id": "en-b2-one-thread-10-o",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "word_order",
+              "prompt": "Что дороже самих денег.",
+              "canonicalAnswer": "Which is worth more than the money.",
+              "tokens": [
+                "money",
+                "the",
+                "than",
+                "more",
+                "worth",
+                "is",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-10-t1",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "translate",
+              "prompt": "Шестьдесят процентов, оплата в течение пяти дней.",
+              "canonicalAnswer": "Sixty per cent, paid within five days."
+            },
+            {
+              "id": "en-b2-one-thread-10-t2",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "translate",
+              "prompt": "И пункт переписан на следующий год.",
+              "canonicalAnswer": "And the clause reworded for next year."
+            },
+            {
+              "id": "en-b2-one-thread-10-t3",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-tema-derecho",
+                "b1-tema-mensajes"
+              ],
+              "type": "translate",
+              "prompt": "Возьми мы только деньги, всё повторилось бы.",
+              "canonicalAnswer": "If we had only taken the cash, it would repeat."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-11",
+          "title": "What the thread cost",
+          "summary": "Во что обошлась переписка.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-11-d",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Цена",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Eleven emails, four hours of my time.",
+                  "translation": "Одиннадцать писем, четыре часа моего времени."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Against nine thousand recovered.",
+                  "translation": "Против девяти тысяч возвращённых."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is a good rate, and exhausting.",
+                  "translation": "Хорошая ставка и при этом изматывающе."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Because the writing is the easy half.",
+                  "translation": "Потому что письма — лёгкая половина."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And the waiting is the other one.",
+                  "translation": "А ожидание — вторая."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-11-w1",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "Eleven emails",
+              "translation": "одиннадцать писем",
+              "example": "Eleven emails, four hours of my time."
+            },
+            {
+              "id": "en-b2-one-thread-11-w2",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "Against nine thousand recovered",
+              "translation": "против девяти тысяч возвращённых",
+              "example": "Against nine thousand recovered."
+            },
+            {
+              "id": "en-b2-one-thread-11-w3",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "a good rate",
+              "translation": "хорошая ставка",
+              "example": "Which is a good rate, and exhausting."
+            },
+            {
+              "id": "en-b2-one-thread-11-w4",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the easy half",
+              "translation": "лёгкая половина",
+              "example": "Because the writing is the easy half."
+            },
+            {
+              "id": "en-b2-one-thread-11-w5",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the other one",
+              "translation": "вторая",
+              "example": "And the waiting is the other one."
+            },
+            {
+              "id": "en-b2-one-thread-11-r",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Against в подсчёте",
+              "explanation": "Four hours against nine thousand recovered. Предлог против вводит вторую чашу весов."
+            },
+            {
+              "id": "en-b2-one-thread-11-c1",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Против девяти тысяч возвращённых» —",
+              "options": [
+                "Against nine thousand recovered",
+                "Against nine thousands recovered",
+                "Against nine thousand recover"
+              ],
+              "correctOption": "Against nine thousand recovered"
+            },
+            {
+              "id": "en-b2-one-thread-11-c2",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Хорошая ставка и при этом изматывающе» —",
+              "options": [
+                "Which is a good rate, and exhausting",
+                "Which is a good rate, and exhausted",
+                "Which is a good rate, and exhaust"
+              ],
+              "correctOption": "Which is a good rate, and exhausting"
+            },
+            {
+              "id": "en-b2-one-thread-11-c3",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«А ожидание — вторая» —",
+              "options": [
+                "And the waiting is the other one",
+                "And the waiting is the another one",
+                "And the waiting are the other one"
+              ],
+              "correctOption": "And the waiting is the other one"
+            },
+            {
+              "id": "en-b2-one-thread-11-o",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "Потому что письма — лёгкая половина.",
+              "canonicalAnswer": "Because the writing is the easy half.",
+              "tokens": [
+                "half",
+                "easy",
+                "the",
+                "is",
+                "writing",
+                "the",
+                "Because"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-11-t1",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Одиннадцать писем, четыре часа моего времени.",
+              "canonicalAnswer": "Eleven emails, four hours of my time."
+            },
+            {
+              "id": "en-b2-one-thread-11-t2",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Против девяти тысяч возвращённых.",
+              "canonicalAnswer": "Against nine thousand recovered."
+            },
+            {
+              "id": "en-b2-one-thread-11-t3",
+              "topics": [
+                "b1-tema-carrera",
+                "b1-tema-mensajes",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "А ожидание — вторая.",
+              "canonicalAnswer": "And the waiting is the other one."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-12",
+          "title": "One thread, end to end",
+          "summary": "Весь блок: переписка целиком.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-12-d",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "dialogue",
+              "title": "Итог",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Facts, dates, one number, no adjectives.",
+                  "translation": "Факты, даты, одна цифра, без прилагательных."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is the entire method.",
+                  "translation": "В этом весь метод."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And it works in any language.",
+                  "translation": "И работает на любом языке."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Though the politeness formulas differ.",
+                  "translation": "Хотя формулы вежливости различаются."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is what the level is for.",
+                  "translation": "Для этого уровень и нужен."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-12-w1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "Facts, dates, one number",
+              "translation": "факты, даты, одна цифра",
+              "example": "Facts, dates, one number, no adjectives."
+            },
+            {
+              "id": "en-b2-one-thread-12-w2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "the entire method",
+              "translation": "весь метод",
+              "example": "Which is the entire method."
+            },
+            {
+              "id": "en-b2-one-thread-12-w3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "works in any language",
+              "translation": "работает на любом языке",
+              "example": "And it works in any language."
+            },
+            {
+              "id": "en-b2-one-thread-12-w4",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "the politeness formulas",
+              "translation": "формулы вежливости",
+              "example": "Though the politeness formulas differ."
+            },
+            {
+              "id": "en-b2-one-thread-12-w5",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "what the level is for",
+              "translation": "для чего нужен уровень",
+              "example": "Which is what the level is for."
+            },
+            {
+              "id": "en-b2-one-thread-12-r",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "info",
+              "title": "Переписка на B2 — это факты и даты",
+              "explanation": "Одна цифра, один срок, ноль прилагательных. Так письмо доходит до решения быстрее любого разговора."
+            },
+            {
+              "id": "en-b2-one-thread-12-c1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Хотя формулы вежливости различаются» —",
+              "options": [
+                "Though the politeness formulas differ",
+                "Though the politeness formulas differs",
+                "Though the politeness formula differ"
+              ],
+              "correctOption": "Though the politeness formulas differ"
+            },
+            {
+              "id": "en-b2-one-thread-12-c2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И работает на любом языке» —",
+              "options": [
+                "And it works in any language",
+                "And it work in any language",
+                "And it works in any languages"
+              ],
+              "correctOption": "And it works in any language"
+            },
+            {
+              "id": "en-b2-one-thread-12-c3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Для этого уровень и нужен» —",
+              "options": [
+                "Which is what the level is for",
+                "Which is that the level is for",
+                "What is what the level is for"
+              ],
+              "correctOption": "Which is what the level is for"
+            },
+            {
+              "id": "en-b2-one-thread-12-o",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "word_order",
+              "prompt": "В этом весь метод.",
+              "canonicalAnswer": "Which is the entire method.",
+              "tokens": [
+                "method",
+                "entire",
+                "the",
+                "is",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-one-thread-12-t1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Факты, даты, одна цифра, без прилагательных.",
+              "canonicalAnswer": "Facts, dates, one number, no adjectives."
+            },
+            {
+              "id": "en-b2-one-thread-12-t2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "И работает на любом языке.",
+              "canonicalAnswer": "And it works in any language."
+            },
+            {
+              "id": "en-b2-one-thread-12-t3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Хотя формулы вежливости различаются.",
+              "canonicalAnswer": "Though the politeness formulas differ."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-one-thread-check",
+          "title": "Проверка: одна переписка",
+          "summary": "Шесть фраз без подсказок — весь блок целиком.",
+          "estimatedMinutes": 5,
+          "kind": "checkpoint",
+          "exercises": [
+            {
+              "id": "en-b2-one-thread-check-t1",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Поставка должна была быть девятого.",
+              "canonicalAnswer": "The delivery was due on the ninth."
+            },
+            {
+              "id": "en-b2-one-thread-check-t2",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Что объясняет четыре, а не тринадцать.",
+              "canonicalAnswer": "Which accounts for four, not thirteen."
+            },
+            {
+              "id": "en-b2-one-thread-check-t3",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Девять дней остаются без объяснения.",
+              "canonicalAnswer": "Nine days remain unexplained."
+            },
+            {
+              "id": "en-b2-one-thread-check-t4",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Ссылаясь на пункт, убранный в марте.",
+              "canonicalAnswer": "Citing a clause that was removed in March."
+            },
+            {
+              "id": "en-b2-one-thread-check-t5",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Ставлю в копию вашего коммерческого директора.",
+              "canonicalAnswer": "I am copying your commercial director."
+            },
+            {
+              "id": "en-b2-one-thread-check-t6",
+              "topics": [
+                "b1-tema-mensajes",
+                "b2-tema-derecho",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Предлагают половину, в качестве жеста.",
+              "canonicalAnswer": "They offer half, as a gesture."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
