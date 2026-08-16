@@ -64435,6 +64435,2687 @@
           ]
         }
       ]
+    },
+    {
+      "id": "en-b2-review-conditionals",
+      "title": "Повторение: условия",
+      "subtitle": "Пять типов и то, что меняется при выборе формы",
+      "canDo": [
+        "выбирать тип условия по смыслу",
+        "строить смешанные условия",
+        "использовать unless, provided, as long as",
+        "строить условие без if через инверсию",
+        "исправлять типичные ошибки в условиях"
+      ],
+      "lessons": [
+        {
+          "id": "en-b2-review-conditionals-01",
+          "title": "Zero and first",
+          "summary": "Нулевое и первое.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-01-d",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "dialogue",
+              "title": "Два первых",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "If water reaches a hundred, it boils.",
+                  "translation": "Если вода доходит до ста, она кипит."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is a law, not a plan.",
+                  "translation": "Это закон, а не план."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And if the kettle works, I will make tea.",
+                  "translation": "А если чайник работает, я сделаю чай."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is a plan, and needs will.",
+                  "translation": "Это план, и ему нужен will."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Same shape, different job.",
+                  "translation": "Форма похожа, задача разная."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-01-w1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "If water reaches a hundred",
+              "translation": "если вода доходит до ста",
+              "example": "If water reaches a hundred, it boils."
+            },
+            {
+              "id": "en-b2-review-conditionals-01-w2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "it boils",
+              "translation": "она кипит",
+              "example": "It boils, always."
+            },
+            {
+              "id": "en-b2-review-conditionals-01-w3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "a law, not a plan",
+              "translation": "закон, а не план",
+              "example": "Which is a law, not a plan."
+            },
+            {
+              "id": "en-b2-review-conditionals-01-w4",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "if the kettle works",
+              "translation": "если чайник работает",
+              "example": "And if the kettle works, I will make tea."
+            },
+            {
+              "id": "en-b2-review-conditionals-01-w5",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "Same shape, different job",
+              "translation": "форма похожа, задача разная",
+              "example": "Same shape, different job."
+            },
+            {
+              "id": "en-b2-review-conditionals-01-r",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "info",
+              "title": "Нулевое и первое условие",
+              "explanation": "Zero: if водa reaches a hundred, it boils — всегда верно. First: if the kettle works, I will make tea — конкретный случай в будущем."
+            },
+            {
+              "id": "en-b2-review-conditionals-01-c1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если вода доходит до ста, она кипит» —",
+              "options": [
+                "If water reaches a hundred, it boils",
+                "If water reaches a hundred, it will boils",
+                "If water will reach a hundred, it boils"
+              ],
+              "correctOption": "If water reaches a hundred, it boils"
+            },
+            {
+              "id": "en-b2-review-conditionals-01-c2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«А если чайник работает, я сделаю чай» —",
+              "options": [
+                "And if the kettle works, I will make tea",
+                "And if the kettle will work, I will make tea",
+                "And if the kettle works, I make will tea"
+              ],
+              "correctOption": "And if the kettle works, I will make tea"
+            },
+            {
+              "id": "en-b2-review-conditionals-01-c3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Форма похожа, задача разная» —",
+              "options": [
+                "Same shape, different job",
+                "Same shape, differents job",
+                "The same shape, different jobs of"
+              ],
+              "correctOption": "Same shape, different job"
+            },
+            {
+              "id": "en-b2-review-conditionals-01-o",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "word_order",
+              "prompt": "Это закон, а не план.",
+              "canonicalAnswer": "Which is a law, not a plan.",
+              "tokens": [
+                "plan",
+                "a",
+                "not",
+                "law",
+                "a",
+                "is",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-01-t1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "Если вода доходит до ста, она кипит.",
+              "canonicalAnswer": "If water reaches a hundred, it boils."
+            },
+            {
+              "id": "en-b2-review-conditionals-01-t2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "А если чайник работает, я сделаю чай.",
+              "canonicalAnswer": "And if the kettle works, I will make tea."
+            },
+            {
+              "id": "en-b2-review-conditionals-01-t3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "Форма похожа, задача разная.",
+              "canonicalAnswer": "Same shape, different job."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-02",
+          "title": "First and second",
+          "summary": "Первое и второе.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-02-d",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Вероятность",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "If they accept, we start in March.",
+                  "translation": "Если они согласятся, начинаем в марте."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And if they accepted, we would start in March.",
+                  "translation": "А «if they accepted» — мы бы начали в марте."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The second sounds less likely.",
+                  "translation": "Второе звучит менее вероятно."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is the only difference.",
+                  "translation": "В этом и вся разница."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And it is entirely about tone.",
+                  "translation": "И она целиком про интонацию."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-02-w1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "If they accept",
+              "translation": "если они согласятся",
+              "example": "If they accept, we start in March."
+            },
+            {
+              "id": "en-b2-review-conditionals-02-w2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "if they accepted",
+              "translation": "если бы они согласились",
+              "example": "And if they accepted, we would start in March."
+            },
+            {
+              "id": "en-b2-review-conditionals-02-w3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "sounds less likely",
+              "translation": "звучит менее вероятно",
+              "example": "The second sounds less likely."
+            },
+            {
+              "id": "en-b2-review-conditionals-02-w4",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the only difference",
+              "translation": "вся разница",
+              "example": "Which is the only difference."
+            },
+            {
+              "id": "en-b2-review-conditionals-02-w5",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "entirely about tone",
+              "translation": "целиком про интонацию",
+              "example": "And it is entirely about tone."
+            },
+            {
+              "id": "en-b2-review-conditionals-02-r",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Второе условие о дистанции",
+              "explanation": "If they accepted, we would start. Прошедшая форма не о прошлом, а о меньшей вероятности или большей вежливости."
+            },
+            {
+              "id": "en-b2-review-conditionals-02-c1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если они согласятся, начинаем в марте» —",
+              "options": [
+                "If they accept, we start in March",
+                "If they will accept, we start in March",
+                "If they accepted, we start in March"
+              ],
+              "correctOption": "If they accept, we start in March"
+            },
+            {
+              "id": "en-b2-review-conditionals-02-c2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«А если бы они согласились, мы бы начали в марте» —",
+              "options": [
+                "And if they accepted, we would start in March",
+                "And if they accepted, we will start in March",
+                "And if they would accept, we would start in March"
+              ],
+              "correctOption": "And if they accepted, we would start in March"
+            },
+            {
+              "id": "en-b2-review-conditionals-02-c3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И она целиком про интонацию» —",
+              "options": [
+                "And it is entirely about tone",
+                "And it is entire about tone",
+                "And it is entirely about the tone of"
+              ],
+              "correctOption": "And it is entirely about tone"
+            },
+            {
+              "id": "en-b2-review-conditionals-02-o",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "В этом и вся разница.",
+              "canonicalAnswer": "Which is the only difference.",
+              "tokens": [
+                "difference",
+                "only",
+                "the",
+                "is",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-02-t1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Если они согласятся, начинаем в марте.",
+              "canonicalAnswer": "If they accept, we start in March."
+            },
+            {
+              "id": "en-b2-review-conditionals-02-t2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "А «if they accepted» — мы бы начали в марте.",
+              "canonicalAnswer": "And if they accepted, we would start in March."
+            },
+            {
+              "id": "en-b2-review-conditionals-02-t3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Второе звучит менее вероятно.",
+              "canonicalAnswer": "The second sounds less likely."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-03",
+          "title": "Third and regret",
+          "summary": "Третье и сожаление.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-03-d",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Прошлое",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "If we had asked, they would have said yes.",
+                  "translation": "Спроси мы, они бы согласились."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And I wish we had asked.",
+                  "translation": "И жаль, что мы не спросили."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Two forms for the same regret.",
+                  "translation": "Две формы для одного сожаления."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "One about the cause, one about the feeling.",
+                  "translation": "Одна про причину, другая про чувство."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And both about the same Tuesday.",
+                  "translation": "И обе про один и тот же вторник."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-03-w1",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "If we had asked",
+              "translation": "спроси мы",
+              "example": "If we had asked, they would have said yes."
+            },
+            {
+              "id": "en-b2-review-conditionals-03-w2",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "they would have said yes",
+              "translation": "они бы согласились",
+              "example": "They would have said yes."
+            },
+            {
+              "id": "en-b2-review-conditionals-03-w3",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "I wish we had asked",
+              "translation": "жаль, что мы не спросили",
+              "example": "And I wish we had asked."
+            },
+            {
+              "id": "en-b2-review-conditionals-03-w4",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "about the cause",
+              "translation": "про причину",
+              "example": "One about the cause, one about the feeling."
+            },
+            {
+              "id": "en-b2-review-conditionals-03-w5",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the same Tuesday",
+              "translation": "тот же вторник",
+              "example": "And both about the same Tuesday."
+            },
+            {
+              "id": "en-b2-review-conditionals-03-r",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Третье условие и wish",
+              "explanation": "If we had asked, they would have said yes. I wish we had asked. Обе формы о прошлом, и обе строятся на past perfect."
+            },
+            {
+              "id": "en-b2-review-conditionals-03-c1",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Спроси мы, они бы согласились» —",
+              "options": [
+                "If we had asked, they would have said yes",
+                "If we asked, they would have said yes",
+                "If we had asked, they would said yes"
+              ],
+              "correctOption": "If we had asked, they would have said yes"
+            },
+            {
+              "id": "en-b2-review-conditionals-03-c2",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И жаль, что мы не спросили» —",
+              "options": [
+                "And I wish we had asked",
+                "And I wish we asked",
+                "And I wish we would ask"
+              ],
+              "correctOption": "And I wish we had asked"
+            },
+            {
+              "id": "en-b2-review-conditionals-03-c3",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Две формы для одного сожаления» —",
+              "options": [
+                "Two forms for the same regret",
+                "Two form for the same regret",
+                "Two forms for the same regrets"
+              ],
+              "correctOption": "Two forms for the same regret"
+            },
+            {
+              "id": "en-b2-review-conditionals-03-o",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "Одна про причину, другая про чувство.",
+              "canonicalAnswer": "One about the cause, one about the feeling.",
+              "tokens": [
+                "feeling",
+                "the",
+                "about",
+                "one",
+                "cause",
+                "the",
+                "about",
+                "One"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-03-t1",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Спроси мы, они бы согласились.",
+              "canonicalAnswer": "If we had asked, they would have said yes."
+            },
+            {
+              "id": "en-b2-review-conditionals-03-t2",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "И жаль, что мы не спросили.",
+              "canonicalAnswer": "And I wish we had asked."
+            },
+            {
+              "id": "en-b2-review-conditionals-03-t3",
+              "topics": [
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "И обе про один и тот же вторник.",
+              "canonicalAnswer": "And both about the same Tuesday."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-04",
+          "title": "Mixed, both directions",
+          "summary": "Смешанные в обе стороны.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-04-d",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "dialogue",
+              "title": "Смесь",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "If I had studied law, I would be in court now.",
+                  "translation": "Выучись я на юриста, был бы сейчас в суде."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Past cause, present result.",
+                  "translation": "Причина в прошлом, результат в настоящем."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And if I were braver, I would have said it then.",
+                  "translation": "А будь я смелее, сказал бы это тогда."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Present quality, past result.",
+                  "translation": "Свойство в настоящем, результат в прошлом."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Two mixes, both common.",
+                  "translation": "Две смеси, обе частые."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-04-w1",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "If I had studied law",
+              "translation": "выучись я на юриста",
+              "example": "If I had studied law, I would be in court now."
+            },
+            {
+              "id": "en-b2-review-conditionals-04-w2",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "I would be in court now",
+              "translation": "был бы сейчас в суде",
+              "example": "I would be in court now."
+            },
+            {
+              "id": "en-b2-review-conditionals-04-w3",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "Past cause, present result",
+              "translation": "причина в прошлом, результат в настоящем",
+              "example": "Past cause, present result."
+            },
+            {
+              "id": "en-b2-review-conditionals-04-w4",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "if I were braver",
+              "translation": "будь я смелее",
+              "example": "And if I were braver, I would have said it then."
+            },
+            {
+              "id": "en-b2-review-conditionals-04-w5",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "Two mixes",
+              "translation": "две смеси",
+              "example": "Two mixes, both common."
+            },
+            {
+              "id": "en-b2-review-conditionals-04-r",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "info",
+              "title": "Смешанные условия",
+              "explanation": "Had studied → would be now. Were braver → would have said then. Половины берутся из разных типов по смыслу."
+            },
+            {
+              "id": "en-b2-review-conditionals-04-c1",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Выучись я на юриста, был бы сейчас в суде» —",
+              "options": [
+                "If I had studied law, I would be in court now",
+                "If I studied law, I would be in court now",
+                "If I had studied law, I would have been in court now"
+              ],
+              "correctOption": "If I had studied law, I would be in court now"
+            },
+            {
+              "id": "en-b2-review-conditionals-04-c2",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«А будь я смелее, сказал бы это тогда» —",
+              "options": [
+                "And if I were braver, I would have said it then",
+                "And if I was braver, I would say it then",
+                "And if I were braver, I would said it then"
+              ],
+              "correctOption": "And if I were braver, I would have said it then"
+            },
+            {
+              "id": "en-b2-review-conditionals-04-c3",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Две смеси, обе частые» —",
+              "options": [
+                "Two mixes, both common",
+                "Two mix, both common",
+                "Two mixes, both commons"
+              ],
+              "correctOption": "Two mixes, both common"
+            },
+            {
+              "id": "en-b2-review-conditionals-04-o",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "word_order",
+              "prompt": "Свойство в настоящем, результат в прошлом.",
+              "canonicalAnswer": "Present quality, past result.",
+              "tokens": [
+                "result",
+                "past",
+                "quality",
+                "Present"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-04-t1",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "Выучись я на юриста, был бы сейчас в суде.",
+              "canonicalAnswer": "If I had studied law, I would be in court now."
+            },
+            {
+              "id": "en-b2-review-conditionals-04-t2",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "А будь я смелее, сказал бы это тогда.",
+              "canonicalAnswer": "And if I were braver, I would have said it then."
+            },
+            {
+              "id": "en-b2-review-conditionals-04-t3",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "Две смеси, обе частые.",
+              "canonicalAnswer": "Two mixes, both common."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-05",
+          "title": "Unless, provided, as long as",
+          "summary": "Три союза вместо if.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-05-d",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Союзы",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Unless they pay in advance, we hold the stock.",
+                  "translation": "Если не оплатят вперёд, товар придержим."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Provided that the price stays.",
+                  "translation": "При условии, что цена сохранится."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "As long as nobody else bids.",
+                  "translation": "Пока никто другой не предложит цену."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Three conditions, one contract.",
+                  "translation": "Три условия, один договор."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And all in the present tense.",
+                  "translation": "И все в настоящем времени."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-05-w1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "Unless they pay in advance",
+              "translation": "если не оплатят вперёд",
+              "example": "Unless they pay in advance, we hold the stock."
+            },
+            {
+              "id": "en-b2-review-conditionals-05-w2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "we hold the stock",
+              "translation": "товар придержим",
+              "example": "We hold the stock, then."
+            },
+            {
+              "id": "en-b2-review-conditionals-05-w3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "Provided that the price stays",
+              "translation": "при условии, что цена сохранится",
+              "example": "Provided that the price stays."
+            },
+            {
+              "id": "en-b2-review-conditionals-05-w4",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "As long as nobody else bids",
+              "translation": "пока никто другой не предложит цену",
+              "example": "As long as nobody else bids."
+            },
+            {
+              "id": "en-b2-review-conditionals-05-w5",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "all in the present tense",
+              "translation": "все в настоящем времени",
+              "example": "And all in the present tense."
+            },
+            {
+              "id": "en-b2-review-conditionals-05-r",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Союзы условия без будущего",
+              "explanation": "Unless they pay, provided the price stays, as long as nobody bids. Все три требуют настоящего времени, как и if."
+            },
+            {
+              "id": "en-b2-review-conditionals-05-c1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если не оплатят вперёд» —",
+              "options": [
+                "Unless they pay in advance",
+                "Unless they will pay in advance",
+                "Unless they do not pay in advance"
+              ],
+              "correctOption": "Unless they pay in advance"
+            },
+            {
+              "id": "en-b2-review-conditionals-05-c2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Пока никто другой не предложит цену» —",
+              "options": [
+                "As long as nobody else bids",
+                "As long as nobody else will bid",
+                "As long as nobody else bid"
+              ],
+              "correctOption": "As long as nobody else bids"
+            },
+            {
+              "id": "en-b2-review-conditionals-05-c3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И все в настоящем времени» —",
+              "options": [
+                "And all in the present tense",
+                "And all in present tense",
+                "And all in the present tenses"
+              ],
+              "correctOption": "And all in the present tense"
+            },
+            {
+              "id": "en-b2-review-conditionals-05-o",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "Три условия, один договор.",
+              "canonicalAnswer": "Three conditions, one contract.",
+              "tokens": [
+                "contract",
+                "one",
+                "conditions",
+                "Three"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-05-t1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Если не оплатят вперёд, товар придержим.",
+              "canonicalAnswer": "Unless they pay in advance, we hold the stock."
+            },
+            {
+              "id": "en-b2-review-conditionals-05-t2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "При условии, что цена сохранится.",
+              "canonicalAnswer": "Provided that the price stays."
+            },
+            {
+              "id": "en-b2-review-conditionals-05-t3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Пока никто другой не предложит цену.",
+              "canonicalAnswer": "As long as nobody else bids."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-06",
+          "title": "Inversion without if",
+          "summary": "Условие без if.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-06-d",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Инверсия",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Had we known, we would have waited.",
+                  "translation": "Знай мы, мы бы подождали."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is if we had known, formally.",
+                  "translation": "Формально это «if we had known»."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And were I in charge, it would be different.",
+                  "translation": "А «were I in charge» — будь я главным."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Both drop if and invert the verb.",
+                  "translation": "Оба выбрасывают if и меняют порядок слов."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And both sound written, not spoken.",
+                  "translation": "И оба звучат письменно, а не устно."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-06-w1",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "Had we known",
+              "translation": "знай мы",
+              "example": "Had we known, we would have waited."
+            },
+            {
+              "id": "en-b2-review-conditionals-06-w2",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "formally",
+              "translation": "формально",
+              "example": "Which is if we had known, formally."
+            },
+            {
+              "id": "en-b2-review-conditionals-06-w3",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "were I in charge",
+              "translation": "будь я главным",
+              "example": "And were I in charge, it would be different."
+            },
+            {
+              "id": "en-b2-review-conditionals-06-w4",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "drop if and invert",
+              "translation": "выбрасывают if и меняют порядок",
+              "example": "Both drop if and invert the verb."
+            },
+            {
+              "id": "en-b2-review-conditionals-06-w5",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "sound written",
+              "translation": "звучат письменно",
+              "example": "And both sound written, not spoken."
+            },
+            {
+              "id": "en-b2-review-conditionals-06-r",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Инверсия вместо if",
+              "explanation": "Had we known, were I in charge, should you need help. Три формы книжного условия без союза."
+            },
+            {
+              "id": "en-b2-review-conditionals-06-c1",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Знай мы, мы бы подождали» —",
+              "options": [
+                "Had we known, we would have waited",
+                "Had we know, we would have waited",
+                "Have we known, we would have waited"
+              ],
+              "correctOption": "Had we known, we would have waited"
+            },
+            {
+              "id": "en-b2-review-conditionals-06-c2",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Будь я главным» —",
+              "options": [
+                "were I in charge",
+                "was I in charge",
+                "were I in the charge"
+              ],
+              "correctOption": "were I in charge"
+            },
+            {
+              "id": "en-b2-review-conditionals-06-c3",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И оба звучат письменно, а не устно» —",
+              "options": [
+                "And both sound written, not spoken",
+                "And both sounds written, not spoken",
+                "And both sound writing, not spoken"
+              ],
+              "correctOption": "And both sound written, not spoken"
+            },
+            {
+              "id": "en-b2-review-conditionals-06-o",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "Оба выбрасывают if и меняют порядок слов.",
+              "canonicalAnswer": "Both drop if and invert the verb.",
+              "tokens": [
+                "verb",
+                "the",
+                "invert",
+                "and",
+                "if",
+                "drop",
+                "Both"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-06-t1",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Знай мы, мы бы подождали.",
+              "canonicalAnswer": "Had we known, we would have waited."
+            },
+            {
+              "id": "en-b2-review-conditionals-06-t2",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Формально это «if we had known».",
+              "canonicalAnswer": "Which is if we had known, formally."
+            },
+            {
+              "id": "en-b2-review-conditionals-06-t3",
+              "topics": [
+                "b2-third-conditional",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "И оба звучат письменно, а не устно.",
+              "canonicalAnswer": "And both sound written, not spoken."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-07",
+          "title": "Would in the if half",
+          "summary": "Would в придаточной части.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-07-d",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "dialogue",
+              "title": "Ошибка",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "People write if I would have time.",
+                  "translation": "Пишут «if I would have time»."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is wrong in every textbook.",
+                  "translation": "Что неверно в любом учебнике."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And common in every office.",
+                  "translation": "И обычно в любом офисе."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "The correct form is if I had time.",
+                  "translation": "Правильно — «if I had time»."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "One word shorter, and correct.",
+                  "translation": "На слово короче и верно."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-07-w1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "People write",
+              "translation": "пишут",
+              "example": "People write if I would have time."
+            },
+            {
+              "id": "en-b2-review-conditionals-07-w2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "wrong in every textbook",
+              "translation": "неверно в любом учебнике",
+              "example": "Which is wrong in every textbook."
+            },
+            {
+              "id": "en-b2-review-conditionals-07-w3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "common in every office",
+              "translation": "обычно в любом офисе",
+              "example": "And common in every office."
+            },
+            {
+              "id": "en-b2-review-conditionals-07-w4",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "The correct form",
+              "translation": "правильная форма",
+              "example": "The correct form is if I had time."
+            },
+            {
+              "id": "en-b2-review-conditionals-07-w5",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "One word shorter",
+              "translation": "на слово короче",
+              "example": "One word shorter, and correct."
+            },
+            {
+              "id": "en-b2-review-conditionals-07-r",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "info",
+              "title": "Would живёт в главной части",
+              "explanation": "If I had time, I would call. Would в придаточной с if — самая частая ошибка уровня."
+            },
+            {
+              "id": "en-b2-review-conditionals-07-c1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если бы у меня было время» —",
+              "options": [
+                "if I had time",
+                "if I would have time",
+                "if I will have time"
+              ],
+              "correctOption": "if I had time"
+            },
+            {
+              "id": "en-b2-review-conditionals-07-c2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Что неверно в любом учебнике» —",
+              "options": [
+                "Which is wrong in every textbook",
+                "Which is wrong in every textbooks",
+                "What is wrong in every textbook"
+              ],
+              "correctOption": "Which is wrong in every textbook"
+            },
+            {
+              "id": "en-b2-review-conditionals-07-c3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«На слово короче и верно» —",
+              "options": [
+                "One word shorter, and correct",
+                "One word more short, and correct",
+                "One words shorter, and correct"
+              ],
+              "correctOption": "One word shorter, and correct"
+            },
+            {
+              "id": "en-b2-review-conditionals-07-o",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "word_order",
+              "prompt": "И обычно в любом офисе.",
+              "canonicalAnswer": "And common in every office.",
+              "tokens": [
+                "office",
+                "every",
+                "in",
+                "common",
+                "And"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-07-t1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "Пишут «if I would have time».",
+              "canonicalAnswer": "People write if I would have time."
+            },
+            {
+              "id": "en-b2-review-conditionals-07-t2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "Правильно — «if I had time».",
+              "canonicalAnswer": "The correct form is if I had time."
+            },
+            {
+              "id": "en-b2-review-conditionals-07-t3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "На слово короче и верно.",
+              "canonicalAnswer": "One word shorter, and correct."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-08",
+          "title": "Conditions in contracts",
+          "summary": "Условия в договорах.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-08-d",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Договор",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "If the goods are late, the discount applies.",
+                  "translation": "Если товар опаздывает, применяется скидка."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Automatically, or on request?",
+                  "translation": "Автоматически или по заявлению?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Automatically, which is unusual.",
+                  "translation": "Автоматически, что необычно."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "And worth twice the clause above it.",
+                  "translation": "И стоит вдвое дороже пункта выше."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which nobody reads either.",
+                  "translation": "Который тоже никто не читает."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-08-w1",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "If the goods are late",
+              "translation": "если товар опаздывает",
+              "example": "If the goods are late, the discount applies."
+            },
+            {
+              "id": "en-b2-review-conditionals-08-w2",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the discount applies",
+              "translation": "применяется скидка",
+              "example": "The discount applies automatically."
+            },
+            {
+              "id": "en-b2-review-conditionals-08-w3",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "on request",
+              "translation": "по заявлению",
+              "example": "Automatically, or on request?"
+            },
+            {
+              "id": "en-b2-review-conditionals-08-w4",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "worth twice the clause",
+              "translation": "стоит вдвое дороже пункта",
+              "example": "And worth twice the clause above it."
+            },
+            {
+              "id": "en-b2-review-conditionals-08-w5",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "nobody reads either",
+              "translation": "тоже никто не читает",
+              "example": "Which nobody reads either."
+            },
+            {
+              "id": "en-b2-review-conditionals-08-r",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Первое условие в договоре",
+              "explanation": "If the goods are late, the discount applies. Настоящее время в обеих частях — стандарт юридического текста."
+            },
+            {
+              "id": "en-b2-review-conditionals-08-c1",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Если товар опаздывает, применяется скидка» —",
+              "options": [
+                "If the goods are late, the discount applies",
+                "If the goods will be late, the discount applies",
+                "If the goods are late, the discount apply"
+              ],
+              "correctOption": "If the goods are late, the discount applies"
+            },
+            {
+              "id": "en-b2-review-conditionals-08-c2",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И стоит вдвое дороже пункта выше» —",
+              "options": [
+                "And worth twice the clause above it",
+                "And worth two times the clause above it",
+                "And worth twice the clause above"
+              ],
+              "correctOption": "And worth twice the clause above it"
+            },
+            {
+              "id": "en-b2-review-conditionals-08-c3",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Который тоже никто не читает» —",
+              "options": [
+                "Which nobody reads either",
+                "Which nobody reads too",
+                "Which nobody read either"
+              ],
+              "correctOption": "Which nobody reads either"
+            },
+            {
+              "id": "en-b2-review-conditionals-08-o",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "Автоматически или по заявлению?",
+              "canonicalAnswer": "Automatically, or on request?",
+              "tokens": [
+                "request",
+                "on",
+                "or",
+                "Automatically"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-08-t1",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Если товар опаздывает, применяется скидка.",
+              "canonicalAnswer": "If the goods are late, the discount applies."
+            },
+            {
+              "id": "en-b2-review-conditionals-08-t2",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Автоматически, что необычно.",
+              "canonicalAnswer": "Automatically, which is unusual."
+            },
+            {
+              "id": "en-b2-review-conditionals-08-t3",
+              "topics": [
+                "b2-tema-negociacion",
+                "b2-second-conditional",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "И стоит вдвое дороже пункта выше.",
+              "canonicalAnswer": "And worth twice the clause above it."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-09",
+          "title": "Politeness through distance",
+          "summary": "Вежливость через дистанцию.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-09-d",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "dialogue",
+              "title": "Вежливо",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Would it be possible to move the date?",
+                  "translation": "Не могли бы мы перенести дату?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Rather than can we move the date.",
+                  "translation": "А не «can we move the date»."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is the same request, softened.",
+                  "translation": "Та же просьба, только смягчённая."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "By one conditional and two words.",
+                  "translation": "Одним условным и двумя словами."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which decides half of business writing.",
+                  "translation": "От этого зависит половина деловой переписки."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-09-w1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "Would it be possible",
+              "translation": "не могли бы мы",
+              "example": "Would it be possible to move the date?"
+            },
+            {
+              "id": "en-b2-review-conditionals-09-w2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "Rather than",
+              "translation": "а не",
+              "example": "Rather than can we move the date."
+            },
+            {
+              "id": "en-b2-review-conditionals-09-w3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "the same request, softened",
+              "translation": "та же просьба, смягчённая",
+              "example": "Which is the same request, softened."
+            },
+            {
+              "id": "en-b2-review-conditionals-09-w4",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "one conditional",
+              "translation": "одно условное",
+              "example": "By one conditional and two words."
+            },
+            {
+              "id": "en-b2-review-conditionals-09-w5",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "flashcard",
+              "prompt": "half of business writing",
+              "translation": "половина деловой переписки",
+              "example": "Which decides half of business writing."
+            },
+            {
+              "id": "en-b2-review-conditionals-09-r",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "info",
+              "title": "Would для вежливости",
+              "explanation": "Would it be possible, I would suggest, it would help. Условная форма создаёт дистанцию и делает просьбу мягче."
+            },
+            {
+              "id": "en-b2-review-conditionals-09-c1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Не могли бы мы перенести дату?» —",
+              "options": [
+                "Would it be possible to move the date?",
+                "Would it be possible moving the date?",
+                "Would it be possible move the date?"
+              ],
+              "correctOption": "Would it be possible to move the date?"
+            },
+            {
+              "id": "en-b2-review-conditionals-09-c2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Та же просьба, только смягчённая» —",
+              "options": [
+                "Which is the same request, softened",
+                "Which is the same request, softening",
+                "Which is the same request, soften"
+              ],
+              "correctOption": "Which is the same request, softened"
+            },
+            {
+              "id": "en-b2-review-conditionals-09-c3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«От этого зависит половина деловой переписки» —",
+              "options": [
+                "Which decides half of business writing",
+                "Which decide half of business writing",
+                "Which decides a half of business writings"
+              ],
+              "correctOption": "Which decides half of business writing"
+            },
+            {
+              "id": "en-b2-review-conditionals-09-o",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "word_order",
+              "prompt": "Одним условным и двумя словами.",
+              "canonicalAnswer": "By one conditional and two words.",
+              "tokens": [
+                "words",
+                "two",
+                "and",
+                "conditional",
+                "one",
+                "By"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-09-t1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Не могли бы мы перенести дату?",
+              "canonicalAnswer": "Would it be possible to move the date?"
+            },
+            {
+              "id": "en-b2-review-conditionals-09-t2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "Та же просьба, только смягчённая.",
+              "canonicalAnswer": "Which is the same request, softened."
+            },
+            {
+              "id": "en-b2-review-conditionals-09-t3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-tema-negociacion",
+                "b2-linkers"
+              ],
+              "type": "translate",
+              "prompt": "От этого зависит половина деловой переписки.",
+              "canonicalAnswer": "Which decides half of business writing."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-10",
+          "title": "Conditions inside reported speech",
+          "summary": "Условие в косвенной речи.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-10-d",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "dialogue",
+              "title": "Пересказ",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "He said he would come if the train ran.",
+                  "translation": "Он сказал, что приедет, если поезд пойдёт."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which was already a first conditional.",
+                  "translation": "Что уже было первым условием."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And moved one step back in the retelling.",
+                  "translation": "И сдвинулось на шаг назад при пересказе."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Will became would, present became past.",
+                  "translation": "Will стало would, настоящее стало прошедшим."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is the whole transformation.",
+                  "translation": "В этом и вся трансформация."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-10-w1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "he would come",
+              "translation": "что приедет",
+              "example": "He said he would come if the train ran."
+            },
+            {
+              "id": "en-b2-review-conditionals-10-w2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "if the train ran",
+              "translation": "если поезд пойдёт",
+              "example": "If the train ran, he said."
+            },
+            {
+              "id": "en-b2-review-conditionals-10-w3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "a first conditional",
+              "translation": "первое условие",
+              "example": "Which was already a first conditional."
+            },
+            {
+              "id": "en-b2-review-conditionals-10-w4",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "moved one step back",
+              "translation": "сдвинулось на шаг назад",
+              "example": "And moved one step back in the retelling."
+            },
+            {
+              "id": "en-b2-review-conditionals-10-w5",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "flashcard",
+              "prompt": "the whole transformation",
+              "translation": "вся трансформация",
+              "example": "Which is the whole transformation."
+            },
+            {
+              "id": "en-b2-review-conditionals-10-r",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "info",
+              "title": "Условие в пересказе",
+              "explanation": "He said he would come if the train ran. Первое условие в косвенной речи выглядит как второе, но смысл прежний."
+            },
+            {
+              "id": "en-b2-review-conditionals-10-c1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Он сказал, что приедет, если поезд пойдёт» —",
+              "options": [
+                "He said he would come if the train ran",
+                "He said he will come if the train runs",
+                "He said he would come if the train would run"
+              ],
+              "correctOption": "He said he would come if the train ran"
+            },
+            {
+              "id": "en-b2-review-conditionals-10-c2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«И сдвинулось на шаг назад при пересказе» —",
+              "options": [
+                "And moved one step back in the retelling",
+                "And moved one step back in the retell",
+                "And move one step back in the retelling"
+              ],
+              "correctOption": "And moved one step back in the retelling"
+            },
+            {
+              "id": "en-b2-review-conditionals-10-c3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«В этом и вся трансформация» —",
+              "options": [
+                "Which is the whole transformation",
+                "What is the whole transformation",
+                "Which is whole transformation"
+              ],
+              "correctOption": "Which is the whole transformation"
+            },
+            {
+              "id": "en-b2-review-conditionals-10-o",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "word_order",
+              "prompt": "Will стало would, настоящее стало прошедшим.",
+              "canonicalAnswer": "Will became would, present became past.",
+              "tokens": [
+                "past",
+                "became",
+                "present",
+                "would",
+                "became",
+                "Will"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-10-t1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "Он сказал, что приедет, если поезд пойдёт.",
+              "canonicalAnswer": "He said he would come if the train ran."
+            },
+            {
+              "id": "en-b2-review-conditionals-10-t2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "Что уже было первым условием.",
+              "canonicalAnswer": "Which was already a first conditional."
+            },
+            {
+              "id": "en-b2-review-conditionals-10-t3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-linkers",
+                "b1-tema-carrera"
+              ],
+              "type": "translate",
+              "prompt": "В этом и вся трансформация.",
+              "canonicalAnswer": "Which is the whole transformation."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-11",
+          "title": "Choosing under pressure",
+          "summary": "Выбор формы на ходу.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-11-d",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "dialogue",
+              "title": "На ходу",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "Is it possible, likely or over?",
+                  "translation": "Это возможно, вероятно или уже позади?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Three questions, three forms.",
+                  "translation": "Три вопроса, три формы."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Likely takes will, possible takes would.",
+                  "translation": "Вероятное берёт will, возможное — would."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "And over takes would have.",
+                  "translation": "А прошедшее — would have."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which is faster than any table.",
+                  "translation": "Это быстрее любой таблицы."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-11-w1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "possible, likely or over",
+              "translation": "возможно, вероятно или позади",
+              "example": "Is it possible, likely or over?"
+            },
+            {
+              "id": "en-b2-review-conditionals-11-w2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "Three questions, three forms",
+              "translation": "три вопроса, три формы",
+              "example": "Three questions, three forms."
+            },
+            {
+              "id": "en-b2-review-conditionals-11-w3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "Likely takes will",
+              "translation": "вероятное берёт will",
+              "example": "Likely takes will, possible takes would."
+            },
+            {
+              "id": "en-b2-review-conditionals-11-w4",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "over takes would have",
+              "translation": "прошедшее берёт would have",
+              "example": "And over takes would have."
+            },
+            {
+              "id": "en-b2-review-conditionals-11-w5",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "flashcard",
+              "prompt": "faster than any table",
+              "translation": "быстрее любой таблицы",
+              "example": "Which is faster than any table."
+            },
+            {
+              "id": "en-b2-review-conditionals-11-r",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "info",
+              "title": "Один вопрос вместо таблицы",
+              "explanation": "Вероятно, возможно или уже произошло. Ответ выбирает форму быстрее, чем схема из учебника."
+            },
+            {
+              "id": "en-b2-review-conditionals-11-c1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Это возможно, вероятно или уже позади?» —",
+              "options": [
+                "Is it possible, likely or over?",
+                "Is it possible, likely or over it?",
+                "Is it possible, likely or overs?"
+              ],
+              "correctOption": "Is it possible, likely or over?"
+            },
+            {
+              "id": "en-b2-review-conditionals-11-c2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Вероятное берёт will, возможное — would» —",
+              "options": [
+                "Likely takes will, possible takes would",
+                "Likely take will, possible takes would",
+                "Likely takes will, possible take would"
+              ],
+              "correctOption": "Likely takes will, possible takes would"
+            },
+            {
+              "id": "en-b2-review-conditionals-11-c3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Это быстрее любой таблицы» —",
+              "options": [
+                "Which is faster than any table",
+                "Which is faster that any table",
+                "Which is more fast than any table"
+              ],
+              "correctOption": "Which is faster than any table"
+            },
+            {
+              "id": "en-b2-review-conditionals-11-o",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "word_order",
+              "prompt": "А прошедшее — would have.",
+              "canonicalAnswer": "And over takes would have.",
+              "tokens": [
+                "have",
+                "would",
+                "takes",
+                "over",
+                "And"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-11-t1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Это возможно, вероятно или уже позади?",
+              "canonicalAnswer": "Is it possible, likely or over?"
+            },
+            {
+              "id": "en-b2-review-conditionals-11-t2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Вероятное берёт will, возможное — would.",
+              "canonicalAnswer": "Likely takes will, possible takes would."
+            },
+            {
+              "id": "en-b2-review-conditionals-11-t3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Это быстрее любой таблицы.",
+              "canonicalAnswer": "Which is faster than any table."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-12",
+          "title": "Conditionals, end to end",
+          "summary": "Весь блок целиком.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-12-d",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "dialogue",
+              "title": "Итог",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Five forms, two questions, one habit.",
+                  "translation": "Пять форм, два вопроса, одна привычка."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Which habit closes the block?",
+                  "translation": "Какая привычка закрывает блок?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Never putting would after if.",
+                  "translation": "Никогда не ставить would после if."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "If you kept only that, you would sound fluent.",
+                  "translation": "Держи только это — и звучал бы бегло."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Which is a sentence proving itself.",
+                  "translation": "Фраза, доказывающая сама себя."
+                }
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-12-w1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "flashcard",
+              "prompt": "Five forms, two questions",
+              "translation": "пять форм, два вопроса",
+              "example": "Five forms, two questions, one habit."
+            },
+            {
+              "id": "en-b2-review-conditionals-12-w2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "flashcard",
+              "prompt": "Which habit closes the block",
+              "translation": "какая привычка закрывает блок",
+              "example": "Which habit closes the block?"
+            },
+            {
+              "id": "en-b2-review-conditionals-12-w3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "flashcard",
+              "prompt": "Never putting would after if",
+              "translation": "никогда не ставить would после if",
+              "example": "Never putting would after if."
+            },
+            {
+              "id": "en-b2-review-conditionals-12-w4",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "flashcard",
+              "prompt": "If you kept only that",
+              "translation": "держи только это",
+              "example": "If you kept only that, you would sound fluent."
+            },
+            {
+              "id": "en-b2-review-conditionals-12-w5",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "flashcard",
+              "prompt": "proving itself",
+              "translation": "доказывающая сама себя",
+              "example": "Which is a sentence proving itself."
+            },
+            {
+              "id": "en-b2-review-conditionals-12-r",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "info",
+              "title": "Условия держатся на двух вопросах",
+              "explanation": "Реально ли это и когда произошло. Ответы выбирают форму, а привычка не ставить would после if убирает главную ошибку."
+            },
+            {
+              "id": "en-b2-review-conditionals-12-c1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Держи только это — и звучал бы бегло» —",
+              "options": [
+                "If you kept only that, you would sound fluent",
+                "If you would keep only that, you would sound fluent",
+                "If you kept only that, you will sound fluent"
+              ],
+              "correctOption": "If you kept only that, you would sound fluent"
+            },
+            {
+              "id": "en-b2-review-conditionals-12-c2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Никогда не ставить would после if» —",
+              "options": [
+                "Never putting would after if",
+                "Never put would after if it",
+                "Never putting would after the if"
+              ],
+              "correctOption": "Never putting would after if"
+            },
+            {
+              "id": "en-b2-review-conditionals-12-c3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Фраза, доказывающая сама себя» —",
+              "options": [
+                "A sentence proving itself",
+                "A sentence proving himself",
+                "A sentence prove itself"
+              ],
+              "correctOption": "A sentence proving itself"
+            },
+            {
+              "id": "en-b2-review-conditionals-12-o",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "word_order",
+              "prompt": "Какая привычка закрывает блок?",
+              "canonicalAnswer": "Which habit closes the block?",
+              "tokens": [
+                "block",
+                "the",
+                "closes",
+                "habit",
+                "Which"
+              ]
+            },
+            {
+              "id": "en-b2-review-conditionals-12-t1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "translate",
+              "prompt": "Пять форм, два вопроса, одна привычка.",
+              "canonicalAnswer": "Five forms, two questions, one habit."
+            },
+            {
+              "id": "en-b2-review-conditionals-12-t2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "translate",
+              "prompt": "Никогда не ставить would после if.",
+              "canonicalAnswer": "Never putting would after if."
+            },
+            {
+              "id": "en-b2-review-conditionals-12-t3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish"
+              ],
+              "type": "translate",
+              "prompt": "Держи только это — и звучал бы бегло.",
+              "canonicalAnswer": "If you kept only that, you would sound fluent."
+            }
+          ]
+        },
+        {
+          "id": "en-b2-review-conditionals-check",
+          "title": "Проверка: условия",
+          "summary": "Шесть фраз без подсказок — весь блок целиком.",
+          "estimatedMinutes": 5,
+          "kind": "checkpoint",
+          "exercises": [
+            {
+              "id": "en-b2-review-conditionals-check-t1",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Если вода доходит до ста, она кипит.",
+              "canonicalAnswer": "If water reaches a hundred, it boils."
+            },
+            {
+              "id": "en-b2-review-conditionals-check-t2",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Если они согласятся, начинаем в марте.",
+              "canonicalAnswer": "If they accept, we start in March."
+            },
+            {
+              "id": "en-b2-review-conditionals-check-t3",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Спроси мы, они бы согласились.",
+              "canonicalAnswer": "If we had asked, they would have said yes."
+            },
+            {
+              "id": "en-b2-review-conditionals-check-t4",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Выучись я на юриста, был бы сейчас в суде.",
+              "canonicalAnswer": "If I had studied law, I would be in court now."
+            },
+            {
+              "id": "en-b2-review-conditionals-check-t5",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Если не оплатят вперёд, товар придержим.",
+              "canonicalAnswer": "Unless they pay in advance, we hold the stock."
+            },
+            {
+              "id": "en-b2-review-conditionals-check-t6",
+              "topics": [
+                "b2-second-conditional",
+                "b2-third-conditional",
+                "b2-wish",
+                "b2-tema-negociacion"
+              ],
+              "type": "translate",
+              "prompt": "Знай мы, мы бы подождали.",
+              "canonicalAnswer": "Had we known, we would have waited."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
