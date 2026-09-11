@@ -134,7 +134,11 @@ public enum ContentRepository {
     }
 
     public static func loadBundled(_ language: LanguageCode = .default, bundle: Bundle, home: Home = .example) throws -> [CoursePack] {
-        let notCourses = ["placement", "syllabus"]
+        // Тот же список, что в web/scripts/sync-content.mjs: в папке языка лежат не только
+        // курсы. Разборы тем и банк контрольного среза появились на стороне веба
+        // (11.09.2026) и курсами не являются — без этого фильтра декодер падает на
+        // отсутствующем ключе `chapters`.
+        let notCourses = ["placement", "syllabus", "theory", "checkup"]
         let urls = files(for: language, in: bundle).filter { url in
             !notCourses.contains { url.lastPathComponent.contains($0) }
         }

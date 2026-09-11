@@ -1,3 +1,12 @@
+// АРХИВ. Источник правды — PWA в web/, решение от 11.09.2026 (см. native/ARCHIVED.md).
+//
+// Тесты ниже проверяют Swift-ядро, которое осталось на поведении до этой даты. Три
+// утверждения, описывавших поведение, признанное ошибкой, из них удалены — а не
+// оставлены «на всякий случай»: ведро «старые ошибки» выше нового материала (оно
+// отменяло расписание повторений) и «уровни ниже текущего открыты целиком» (из-за
+// чего на B1 выдавалось hello). Что здесь проходит — верно для этого кода, но не
+// описывает продукт.
+
 import Foundation
 import EnglishCoachCore
 
@@ -376,7 +385,8 @@ do {
     ]
     let ordered = PracticeEngine.build(courses: courses, level: .a1, state: state, size: 5, now: now, shuffle: identity)
     expect(ordered.first?.id == pool[5].id, "due repetitions come first")
-    expect(ordered.count > 1 && ordered[1].id == pool[9].id, "old mistakes come second")
+    // Утверждение «old mistakes come second» удалено: в вебе ведро ошибок убрано, оно
+    // отменяло расписание повторений.
 
     let cards = PracticeEngine.build(courses: courses, level: .b1, state: .fresh, types: [.flashcard], size: 12, shuffle: identity)
     expect(!cards.isEmpty && cards.allSatisfy { $0.type == .flashcard }, "a kind of practice offers only that kind")
@@ -399,11 +409,9 @@ do {
     let spoken = ShadowingEngine.build(courses: taught, level: .a1, state: .fresh, size: 20, shuffle: identity)
     expect(spoken.exercises.allSatisfy { reachable.contains($0.id) }, "speaking practice inherits the same limit")
 
-    // Placement can drop someone straight into B1: A1 and A2 are the claim that put them
-    // there, and locking them behind lessons nobody will replay would empty practice.
-    let placed = PracticeEngine.taught(courses: courses, level: .b1, completed: [])
-    expect(placed.map(\.level) == [.a1, .a2], "levels below the current one stay open in full")
-    expect(!PracticeEngine.pool(courses: placed, level: .b1).isEmpty, "a placed learner still has something to practise")
+    // Здесь стояли два утверждения о том, что уровни ниже текущего открыты целиком.
+    // Удалены: именно из-за этого на B1 выдавались Hello и Bye, и в вебе правило
+    // обратное — ниже текущего открыто только пройденное.
 
     var practiceSession = LearningSession(state: .fresh)
     practiceSession.start(PracticeEngine.lesson(Array(set.prefix(3))), recordsCompletion: false)
@@ -569,7 +577,7 @@ do {
 
     let set = ShadowingEngine.build(courses: courses, level: .a1, state: state, size: 5, now: now, shuffle: identity)
     expect(set.exercises.first?.id == pool[4].id, "shadowing puts due repetitions first")
-    expect(set.exercises.count > 1 && set.exercises[1].id == pool[7].id, "shadowing puts old mistakes second")
+    // «shadowing puts old mistakes second» удалено вместе с самим ведром ошибок.
     // Items and exercises stay aligned: the screen reads one, the session records the other.
     expect(set.items.map(\.exerciseID) == set.exercises.map(\.id), "phrases line up with the exercises they came from")
 
@@ -579,8 +587,8 @@ do {
     expect(speaking.state.points == 10 && speaking.state.attempts.last?.correct == true, "a phrase that came out is recorded as correct")
     speaking.selfAssess(false, now: now)
     let missedPhrase = speaking.state.reviews.first { $0.exerciseID == set.exercises[1].id }
-    // Like any miss, it drops to a one-day interval — and `prioritise` also puts it in
-    // the "old mistakes" bucket, so it is back in the very next set regardless.
+    // Like any miss, it drops to a one-day interval. (Прежняя вторая половина этого
+    // комментария — про ведро «старые ошибки» — больше не верна для продукта.)
     expect(missedPhrase?.intervalDays == 1 && missedPhrase?.repetitions == 0, "a phrase that did not come out comes back")
     expect(speaking.state.completedLessonIDs.isEmpty, "shadowing is never recorded as a completed lesson")
 } catch { failures += 1; print("✗ shadowing session: \(error)") }
