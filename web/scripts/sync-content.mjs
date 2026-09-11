@@ -30,16 +30,24 @@ for (const language of languages) {
   const files = readdirSync(from).filter((file) => file.endsWith('.json'))
   const plain = (file) => file.replace(`${language}-`, '')
   const isTheory = (file) => /^theory-/.test(plain(file))
-  const courseFiles = files.filter((file) => !/placement|syllabus/.test(file) && !isTheory(file)).map(plain).sort()
+  const isCheckup = (file) => /^checkup-/.test(plain(file))
+  const courseFiles = files
+    .filter((file) => !/placement|syllabus/.test(file) && !isTheory(file) && !isCheckup(file))
+    .map(plain).sort()
   // Разборы тем едут отдельной папкой и своим списком: это не курс, декодер у них свой,
   // и в `courses/` такой файл уронил бы загрузку целиком.
   const theoryFiles = files.filter(isTheory).map((file) => plain(file).replace('theory-', '')).sort()
   if (theoryFiles.length > 0) mkdirSync(join(to, 'theory'), { recursive: true })
+  // Банк контрольного среза — тоже не курс: у него свой декодер, который вдобавок
+  // сверяет задания с упражнениями и падает на совпадении.
+  const checkupFiles = files.filter(isCheckup).map((file) => plain(file).replace('checkup-', '')).sort()
+  if (checkupFiles.length > 0) mkdirSync(join(to, 'checkup'), { recursive: true })
 
   for (const file of files) {
     const name = plain(file)
     const target = isTheory(file)
       ? join('theory', name.replace('theory-', ''))
+      : isCheckup(file) ? join('checkup', name.replace('checkup-', ''))
       : courseFiles.includes(name) ? join('courses', name) : name
     // Re-emitted without the authoring indentation: the Spanish A1 pack is 3.4 MB
     // pretty-printed and the phone downloads it before the first lesson.
@@ -48,8 +56,11 @@ for (const language of languages) {
   }
 
   // A manifest, because a static host cannot be asked to list a directory.
-  writeFileSync(join(to, 'index.json'), JSON.stringify({ courses: courseFiles, theory: theoryFiles }, null, 2) + '\n')
-  summary.push(`${language} — ${courseFiles.length} packs, ${theoryFiles.length} разборов`)
+  writeFileSync(
+    join(to, 'index.json'),
+    JSON.stringify({ courses: courseFiles, theory: theoryFiles, checkup: checkupFiles }, null, 2) + '\n',
+  )
+  summary.push(`${language} — ${courseFiles.length} packs, ${theoryFiles.length} разборов, ${checkupFiles.length} срезов`)
 }
 
 // The list of languages themselves, for the same reason.

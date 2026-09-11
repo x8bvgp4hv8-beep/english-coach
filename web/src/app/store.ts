@@ -15,6 +15,7 @@ import {
   ReviewEngine,
   ShadowingEngine,
   StudyEngine,
+  CheckupEngine,
   TopicProgressEngine,
   VerbFormsEngine,
   VocabularyEngine,
@@ -31,7 +32,7 @@ import {
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
   LearnerHome, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
-  TopicProgress, UserState, VerbForms,
+  TopicProgress, UserState, VerbForms, CheckupBank, CheckupItem, CheckupResult,
 } from '../core'
 
 /**
@@ -99,6 +100,8 @@ export class AppStore {
   syllabus: Syllabus | null = null
   /** Разборы тем, по одному пакету на уровень. Уровень без разбора просто не показывает экран. */
   theoryPacks: TheoryPack[] = []
+  /** Банки контрольного среза — замера вне курса. */
+  checkupBanks: CheckupBank[] = []
   /**
    * Открытый разбор и занятие, построенное вокруг него.
    *
@@ -142,6 +145,18 @@ export class AppStore {
    * промах в тот же заход не умеет. А в дрилле форм возврат — это и есть весь смысл,
    * поэтому очередь здесь своя: не вышло — глагол уходит в конец очереди.
    */
+  /**
+   * Контрольный срез. Идёт своим режимом, а не через `LearningSession`, и это главное
+   * в нём: сессия пишет попытки и интервальные повторения, то есть смешала бы замер с
+   * тренировкой — ровно то, от чего срез и должен быть свободен.
+   */
+  checkupActive = false
+  checkupItems: CheckupItem[] = []
+  checkupIndex = 0
+  checkupCorrect = 0
+  /** Ответ на текущее задание: показан после проверки, до перехода дальше. */
+  checkupVerdict: { correct: boolean; answer: string } | null = null
+
   verbFormsActive = false
   verbFormsQueue: VerbForms[] = []
   verbFormsIndex = 0
@@ -182,7 +197,7 @@ export class AppStore {
   /** True while the learner is inside something that must not be interrupted. */
   get isBusy(): boolean {
     return this.activeLesson !== null || this.placementActive || this.shadowingActive
-      || this.listeningActive || this.verbFormsActive
+      || this.listeningActive || this.verbFormsActive || this.checkupActive
   }
 
   onUpdateReady(apply: () => Promise<void>): void {
@@ -247,13 +262,14 @@ export class AppStore {
     this.language = language
     this.startupError = null
     try {
-      const { courses, placement, syllabus, theory } = await loadContent(language)
+      const { courses, placement, syllabus, theory, checkups } = await loadContent(language)
       this.rawCourses = courses
       this.state = localProgressStore(language).load()
       this.courses = personalise(courses, this.home)
       this.placementBank = placement.questions
       this.syllabus = syllabus
       this.theoryPacks = theory
+      this.checkupBanks = checkups
       this.session = new LearningSession(this.state, language)
     } catch (error) {
       this.startupError = error instanceof Error ? error.message : 'Не удалось загрузить учебные материалы'
@@ -265,6 +281,8 @@ export class AppStore {
 
   /** A language switch must not leave a half-finished lesson from the other one on screen. */
   private closeAllModes(): void {
+    this.checkupActive = false
+    this.checkupItems = []
     this.theoryOverLesson = false
     this.verbFormsActive = false
     this.verbFormsQueue = []
@@ -732,6 +750,70 @@ export class AppStore {
     if (exercises.length === 0) return
     const title = this.syllabus?.topics.find((t) => t.id === topicID)?.title ?? 'Тренировка'
     this.beginSession(PracticeEngine.lesson(exercises, title), 'topic')
+  }
+
+  // MARK: - Контрольный срез
+
+  get checkupBank(): CheckupBank | null { return CheckupEngine.bank(this.checkupBanks, this.selectedLevel) }
+  get hasCheckup(): boolean { return (this.checkupBank?.items.length ?? 0) > 0 }
+  get lastCheckup(): CheckupResult | null { return CheckupEngine.latest(this.state, this.selectedLevel) }
+  /** Сдвиг против предыдущего замера в процентных пунктах; null, пока замер один. */
+  get checkupChange(): number | null { return CheckupEngine.change(this.state, this.selectedLevel) }
+  get currentCheckupItem(): CheckupItem | null { return this.checkupItems[this.checkupIndex] ?? null }
+  get checkupIsComplete(): boolean { return this.checkupActive && this.checkupIndex >= this.checkupItems.length }
+  get checkupTotal(): number { return this.checkupItems.length }
+
+  startCheckup(): void {
+    const bank = this.checkupBank
+    if (!bank || bank.items.length === 0) return
+    // Порядок банка сохраняется: два замера должны быть сделаны одинаково, иначе их
+    // нельзя сравнивать.
+    this.checkupItems = [...bank.items]
+    this.checkupIndex = 0
+    this.checkupCorrect = 0
+    this.checkupVerdict = null
+    this.checkupActive = true
+    this.changed()
+  }
+
+  /**
+   * Ответ на задание среза.
+   *
+   * Ни попытка, ни интервальное повторение здесь не пишутся: задания среза не должны
+   * попадать ни в проценты по темам, ни в очередь повторений, иначе следующий замер
+   * окажется по знакомым предложениям.
+   */
+  answerCheckup(answer: string): void {
+    const item = this.currentCheckupItem
+    if (!item || this.checkupVerdict) return
+    const correct = CheckupEngine.judge(item, answer)
+    if (correct) this.checkupCorrect += 1
+    this.checkupVerdict = { correct, answer }
+    this.changed()
+  }
+
+  nextCheckup(): void {
+    if (!this.checkupVerdict) return
+    this.checkupVerdict = null
+    this.checkupIndex += 1
+    if (this.checkupIndex >= this.checkupItems.length) {
+      this.state.checkups = CheckupEngine.recording({
+        date: new Date().toISOString().slice(0, 10),
+        level: this.selectedLevel,
+        correct: this.checkupCorrect,
+        total: this.checkupItems.length,
+      }, this.state)
+      this.persist()
+    }
+    this.changed()
+  }
+
+  closeCheckup(): void {
+    this.checkupActive = false
+    this.checkupItems = []
+    this.checkupVerdict = null
+    this.setScreen('progress')
+    this.changed()
   }
 
   // MARK: - Формы неправильных глаголов

@@ -14,6 +14,7 @@ import { Shadowing } from './Shadowing'
 import { TabBar } from './TabBar'
 import { Theory } from './Theory'
 import { VerbForms } from './VerbForms'
+import { Checkup } from './Checkup'
 import { Today } from './Today'
 import { Topics } from './Topics'
 import { isTab, store } from './store'
@@ -70,6 +71,7 @@ export function App() {
         : model.shadowingActive ? <Shadowing />
         : model.listeningActive ? <Listening />
         : model.verbFormsActive ? <VerbForms />
+        : model.checkupActive ? <Checkup />
         // Разбор поверх урока: сессия за ним жива, и возврат ведёт на то же место.
         : model.theoryOverLesson ? <Theory />
         : model.activeLesson ? <Player />

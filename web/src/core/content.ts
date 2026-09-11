@@ -1,9 +1,11 @@
 import { DEFAULT_LANGUAGE } from './language'
 import { decodeSyllabus } from './syllabus'
 import { decodeTheory } from './theory'
+import { decodeCheckup } from './checkup'
 import { ContentError, LESSON_STEPS, SCHEMA_VERSIONS, stepOf } from './types'
 import type { LanguageCode } from './language'
 import type { TheoryPack } from './theory'
+import type { CheckupBank } from './checkup'
 import type { CoursePack, PlacementBank, Syllabus } from './types'
 
 /** Mirrors EnglishCoachCore/ContentRepository.swift: same validation, same failure modes. */
@@ -84,9 +86,9 @@ export function decodePlacement(raw: unknown): PlacementBank {
 export async function loadContent(
   language: LanguageCode = DEFAULT_LANGUAGE,
   base = 'content',
-): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus; theory: TheoryPack[] }> {
+): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus; theory: TheoryPack[]; checkups: CheckupBank[] }> {
   const root = `${base}/${language}`
-  const index = (await fetchJSON(`${root}/index.json`)) as { courses: string[]; theory?: string[] }
+  const index = (await fetchJSON(`${root}/index.json`)) as { courses: string[]; theory?: string[]; checkup?: string[] }
   const courses = await Promise.all(
     [...index.courses].sort().map(async (file) => decodeCourse(await fetchJSON(`${root}/courses/${file}`))),
   )
@@ -98,7 +100,13 @@ export async function loadContent(
   const theory = await Promise.all(
     [...(index.theory ?? [])].sort().map(async (file) => decodeTheory(await fetchJSON(`${root}/theory/${file}`), known)),
   )
-  return { courses, placement, syllabus, theory }
+  // Банк среза сверяется с курсом при разборе: задание, встречающееся в упражнениях,
+  // не замер, а ещё одно упражнение.
+  const checkups = await Promise.all(
+    [...(index.checkup ?? [])].sort().map(async (file) =>
+      decodeCheckup(await fetchJSON(`${root}/checkup/${file}`), courses, known)),
+  )
+  return { courses, placement, syllabus, theory, checkups }
 }
 
 async function fetchJSON(url: string): Promise<unknown> {

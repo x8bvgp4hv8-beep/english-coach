@@ -224,6 +224,14 @@ export interface UserState {
    * по теме считаются отдельно, по ответам.
    */
   theoryRead?: string[]
+  /**
+   * Пройденные контрольные срезы — замеры вне курса.
+   *
+   * Хранятся отдельно от `attempts` намеренно: смысл среза в том, что он не смешан с
+   * упражнениями, по которым человек тренировался. Смешать их значило бы вернуть ту же
+   * замкнутую метрику, из-за которой срез и понадобился.
+   */
+  checkups?: { date: string; level: CEFRLevel; correct: number; total: number }[]
 }
 
 export function freshState(): UserState {

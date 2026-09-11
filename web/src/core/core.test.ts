@@ -14,6 +14,7 @@ import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { StudyEngine, decodeTheory } from './theory'
 import { VocabularyEngine, vocabularyUnit } from './vocabulary'
 import { VerbFormsEngine, formIsCorrect, verbFormsFromCard, verbFormsFromTheory } from './verbforms'
+import { CheckupEngine, courseFingerprints, decodeCheckup } from './checkup'
 import { deserialize, serialize } from './storage'
 import { LANGUAGE_CODES } from './language'
 import { ATTEMPT_LOG_LIMIT, EXERCISE_TYPES, LEVELS, freshState, seenExerciseIDs, trimAttempts } from './types'
@@ -30,7 +31,7 @@ const readJSON = (path: string) => JSON.parse(readFileSync(join(contentDir, path
 
 /** One language's shipped content, decoded exactly the way the app decodes it. */
 function readLanguage(language: LanguageCode) {
-  const index = readJSON(`${language}/index.json`) as { courses: string[]; theory?: string[] }
+  const index = readJSON(`${language}/index.json`) as { courses: string[]; theory?: string[]; checkup?: string[] }
   const syllabus = decodeSyllabus(readJSON(`${language}/syllabus.json`))
   const known = new Set(syllabus.topics.map((topic) => topic.id))
   return {
@@ -38,6 +39,8 @@ function readLanguage(language: LanguageCode) {
     placement: decodePlacement(readJSON(`${language}/placement.json`)),
     syllabus,
     theory: (index.theory ?? []).map((file) => decodeTheory(readJSON(`${language}/theory/${file}`), known)),
+    checkups: (index.checkup ?? []).map((file) =>
+      decodeCheckup(readJSON(`${language}/checkup/${file}`), undefined, known)),
   }
 }
 
@@ -1152,6 +1155,73 @@ describe('progress storage', () => {
  * Whatever is true of the app has to be true of every language it ships, not only of
  * the one it was written for. A new language passes here or it does not ship.
  */
+describe('контрольный срез — замер вне курса', () => {
+  const { checkups, syllabus } = readLanguage('en')
+
+  it('ни одно задание среза не встречается в курсе', () => {
+    // В этом весь смысл среза. Проценты приложения считаются по упражнениям, которые оно
+    // само и выдавало: увидел «My bike was stolen» двадцать раз, ответил верно — «85% по
+    // пассиву». Если задание среза окажется в курсе, замер снова станет замкнутым.
+    expect(checkups.length).toBeGreaterThan(0)
+    const inCourse = courseFingerprints(courses)
+    for (const bank of checkups) {
+      for (const item of bank.items) {
+        for (const answer of [item.canonicalAnswer, ...(item.acceptedAnswers ?? [])]) {
+          const fingerprint = answer.toLowerCase().replace(/['’]/g, '')
+            .replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim()
+          expect(inCourse.has(fingerprint), `${item.id}: «${answer}» есть в курсе`).toBe(false)
+        }
+      }
+    }
+  })
+
+  it('декодер отказывается принять задание, совпавшее с курсом', () => {
+    // Проверка обязана жить в коде, а не в внимательности автора банка.
+    const known = new Set(syllabus.topics.map((topic) => topic.id))
+    const fromCourse = PracticeEngine.pool(courses, 'B1', ['translate'])
+      .find((exercise) => exercise.canonicalAnswer)!
+    const bank = {
+      schemaVersion: 1, level: 'B1',
+      items: [{ id: 'x', topics: ['b1-present-perfect'], prompt: 'п', canonicalAnswer: fromCourse.canonicalAnswer }],
+    }
+    expect(() => decodeCheckup(bank, courses, known)).toThrow()
+    // Без курса тот же банк разбирается: проверка именно на пересечение.
+    expect(() => decodeCheckup(bank, undefined, known)).not.toThrow()
+  })
+
+  it('банк покрывает темы уровня и проверяет производство', () => {
+    const bank = CheckupEngine.bank(checkups, 'B1')!
+    expect(bank.items.length).toBeGreaterThanOrEqual(20)
+    const topics = new Set(bank.items.flatMap((item) => item.topics))
+    expect(topics.size, 'тем в срезе').toBeGreaterThanOrEqual(10)
+    for (const item of bank.items) {
+      expect(item.prompt, item.id).toBeTruthy()
+      expect(item.canonicalAnswer, item.id).toBeTruthy()
+    }
+  })
+
+  it('замер хранится отдельно от попыток и считает сдвиг', () => {
+    const bank = CheckupEngine.bank(checkups, 'B1')!
+    const state = freshState()
+    // Один замер движения не показывает — сдвиг появляется со второго.
+    state.checkups = [{ date: '2026-08-01', level: 'B1', correct: 10, total: 20 }]
+    expect(CheckupEngine.change(state, 'B1')).toBeNull()
+    state.checkups = [...state.checkups, { date: '2026-09-01', level: 'B1', correct: 14, total: 20 }]
+    expect(CheckupEngine.change(state, 'B1')).toBe(20)
+    expect(CheckupEngine.latest(state, 'B1')?.correct).toBe(14)
+    // Замеры другого уровня в расчёт не идут.
+    state.checkups = [...state.checkups, { date: '2026-09-02', level: 'A2', correct: 20, total: 20 }]
+    expect(CheckupEngine.latest(state, 'B1')?.correct).toBe(14)
+    // Попытки от среза не появляются: это замер, а не тренировка.
+    expect(state.attempts).toHaveLength(0)
+
+    // Проверка ответа — тем же чекером, что и в уроках: опечатка засчитывается.
+    const item = bank.items[0]
+    expect(CheckupEngine.judge(item, item.canonicalAnswer)).toBe(true)
+    expect(CheckupEngine.judge(item, 'полная чушь')).toBe(false)
+  })
+})
+
 describe('аудирование не даёт обрывков разговора', () => {
   it('отбраковывает реплики, вырванные из диалога', () => {
     // Настоящие фразы из курса: заглавная и точка на месте, а записать их без

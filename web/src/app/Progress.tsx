@@ -2,6 +2,7 @@ import { useStore } from './App'
 import { Header } from './Header'
 import { plural, spell } from './plural'
 import { AbilityChip, EmptyNote, SectionTitle } from '../kit'
+import { Icon } from '../kit/Icons'
 import type { AppStore } from './store'
 
 /**
@@ -38,6 +39,11 @@ export function Progress() {
             </span>
           </div>
         </div>
+
+        {/* Срез идёт первым и отдельной секцией: это единственная цифра на экране,
+            которую нельзя получить привыканием к формулировкам курса. Смешивать её с
+            «верных ответов» нельзя — там знакомые упражнения. */}
+        {model.hasCheckup && <CheckupSection model={model} />}
 
         <SectionTitle hint="Не слова, а то, что ты можешь ими сделать">Умения</SectionTitle>
         <Abilities model={model} />
@@ -180,6 +186,66 @@ function WeekChart({ model }: { model: AppStore }) {
       <p className="chart-line">{chartLine(total, days.filter((d) => d.goalReached).length)}</p>
     </>
   )
+}
+
+/**
+ * Контрольный срез: замер вне курса.
+ *
+ * Всё остальное на этом экране считается по упражнениям, которые приложение само и
+ * выдавало, — такая цифра растёт от привыкания к формулировкам. Здесь показывается
+ * замер на предложениях, которых в курсе нет, и сдвиг против прошлого раза.
+ */
+function CheckupSection({ model }: { model: AppStore }) {
+  const last = model.lastCheckup
+  const change = model.checkupChange
+  return (
+    <>
+      <SectionTitle hint="Предложения, которых нет ни в одном упражнении — цифра, которую нельзя натренировать">
+        Контрольный срез
+      </SectionTitle>
+      <button className="checkup-card-row" onClick={() => model.startCheckup()}>
+        {last ? (
+          <>
+            <span className="checkup-row-head">
+              <span className="checkup-row-value">{Math.round((last.correct / last.total) * 100)}%</span>
+              {change !== null && (
+                <span className="checkup-row-change" style={{ color: change >= 0 ? 'var(--mint)' : 'var(--coral)' }}>
+                  {change > 0 ? `+${change}` : change} п.п.
+                </span>
+              )}
+            </span>
+            <span className="checkup-row-note">
+              {last.correct} из {last.total} · {formatDate(last.date)}
+              {change === null && ' · первый замер, сравнивать пока не с чем'}
+            </span>
+          </>
+        ) : (
+          <>
+            <span className="checkup-row-head">
+              <span className="checkup-row-value">Пройти срез</span>
+            </span>
+            <span className="checkup-row-note">
+              Двадцать переводов без подсказок. Повторять раз в месяц — тогда виден сдвиг.
+            </span>
+          </>
+        )}
+        <span className="checkup-row-foot">
+          <span>{last ? 'Пройти снова' : 'Начать'}</span>
+          <Icon name="chevron" size={13} />
+        </span>
+      </button>
+    </>
+  )
+}
+
+/** «2026-09-11» → «11 сентября». */
+function formatDate(iso: string): string {
+  const months = [
+    'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+    'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря',
+  ]
+  const [, month, day] = iso.split('-')
+  return `${Number(day)} ${months[Number(month) - 1] ?? ''}`.trim()
 }
 
 function chartLine(total: number, reached: number): string {

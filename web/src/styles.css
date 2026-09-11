@@ -740,6 +740,36 @@ textarea,
   font: 400 11px/1 var(--font); color: var(--ink-soft);
 }
 
+/* ── Контрольный срез ──────────────────────────────────────────────────────── */
+
+.checkup-note { margin: 16px 0 0; font: 400 13px/1.45 var(--font); color: var(--ink-soft); text-align: center; }
+.checkup-card {
+  margin-top: 12px; padding: 18px; text-align: center; border-radius: var(--radius);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
+}
+.checkup-prompt { font: 400 19px/1.35 var(--font); color: var(--ink); }
+.checkup-verdict { margin-top: 12px; text-align: center; }
+.checkup-ok { margin: 0; font: 700 13px/1 var(--font); color: var(--mint); }
+.checkup-bad { margin: 0; font: 700 13px/1 var(--font); color: var(--coral); }
+.checkup-right { margin: 6px 0 0; font: 400 17px/1.35 var(--font-learn); color: var(--ink); }
+
+/* Строка на «Прогрессе». Нейтральная, без акцентного цвета: это замер, а не достижение. */
+.checkup-card-row {
+  display: block; width: 100%; text-align: left; margin-top: 10px; padding: 14px;
+  border-radius: var(--radius); background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col);
+}
+.checkup-row-head { display: flex; align-items: baseline; gap: 10px; }
+.checkup-row-value {
+  flex: 1; font: 700 20px/1 var(--font); color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.checkup-row-change { font: 700 13px/1 var(--font); font-variant-numeric: tabular-nums; }
+.checkup-row-note { display: block; font: 400 12px/1.4 var(--font); color: var(--ink-soft); margin-top: 6px; }
+.checkup-row-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 9px;
+  font: 400 11px/1 var(--font); color: var(--ink-soft);
+}
+
 /* ── Формы глагола ─────────────────────────────────────────────────────────── */
 
 .verb-card {
