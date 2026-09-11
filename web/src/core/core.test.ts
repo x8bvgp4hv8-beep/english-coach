@@ -13,6 +13,7 @@ import { LearningSession } from './session'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { StudyEngine, decodeTheory } from './theory'
 import { VocabularyEngine, vocabularyUnit } from './vocabulary'
+import { VerbFormsEngine, formIsCorrect, verbFormsFromCard, verbFormsFromTheory } from './verbforms'
 import { deserialize, serialize } from './storage'
 import { LANGUAGE_CODES } from './language'
 import { ATTEMPT_LOG_LIMIT, EXERCISE_TYPES, LEVELS, freshState, seenExerciseIDs, trimAttempts } from './types'
@@ -1151,6 +1152,56 @@ describe('progress storage', () => {
  * Whatever is true of the app has to be true of every language it ships, not only of
  * the one it was written for. A new language passes here or it does not ship.
  */
+describe('формы неправильных глаголов', () => {
+  const theory = readLanguage('en').theory.find((pack) => pack.level === 'B1')!
+
+  it('берёт глаголы из контента, а не из списка в коде', () => {
+    // Список в компоненте разошёлся бы с курсом на первой правке содержания.
+    const fromCards = PracticeEngine.pool(courses, 'B1', ['flashcard'])
+      .map(verbFormsFromCard).filter(Boolean)
+    expect(fromCards.length).toBeGreaterThan(20)
+    // Вторая половина — таблица форм внутри разбора: be, go, do в карточках не выданы.
+    const fromTheory = verbFormsFromTheory(theory)
+    expect(fromTheory.map((verb) => verb.infinitive)).toContain('be')
+    expect(fromTheory.find((verb) => verb.infinitive === 'go')?.participle).toBe('gone')
+
+    const pool = VerbFormsEngine.pool(courses, 'B1', theory)
+    expect(pool.length).toBeGreaterThanOrEqual(fromCards.length)
+    // Один глагол — одна запись, даже если он есть и в карточке, и в таблице.
+    expect(new Set(pool.map((verb) => verb.infinitive.toLowerCase())).size).toBe(pool.length)
+    for (const verb of pool) {
+      expect(verb.past, verb.infinitive).toBeTruthy()
+      expect(verb.participle, verb.infinitive).toBeTruthy()
+    }
+  })
+
+  it('принимает любой из вариантов формы', () => {
+    // «was / were» и «got / gotten» — язык, а не придирка: требовать обе половины
+    // значило бы считать верный ответ ошибкой.
+    expect(formIsCorrect('was', 'was / were')).toBe(true)
+    expect(formIsCorrect('were', 'was / were')).toBe(true)
+    expect(formIsCorrect('  GONE ', 'gone')).toBe(true)
+    expect(formIsCorrect('gotten', 'got / gotten')).toBe(true)
+    expect(formIsCorrect('goed', 'went')).toBe(false)
+    expect(formIsCorrect('', 'went')).toBe(false)
+  })
+
+  it('не принимает вторую форму там, где нужна третья', () => {
+    // Ровно та ошибка, из-за которой тема и появилась: has went, I have ate.
+    const pool = VerbFormsEngine.pool(courses, 'B1', theory)
+    const go = pool.find((verb) => verb.infinitive === 'go')!
+    expect(formIsCorrect('went', go.participle)).toBe(false)
+    expect(formIsCorrect('gone', go.participle)).toBe(true)
+  })
+
+  it('пачка не больше запрошенного и без повторов', () => {
+    const seeded = () => { let seed = 7; return () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648 } }
+    const batch = VerbFormsEngine.build({ courses, level: 'B1', theory, size: 15, random: seeded() })
+    expect(batch).toHaveLength(15)
+    expect(new Set(batch.map((verb) => verb.infinitive)).size).toBe(15)
+  })
+})
+
 describe('режим слов', () => {
   /**
    * Жалоба была «хочу поучить слова, а дают hello goodbye»: вторая её половина — что

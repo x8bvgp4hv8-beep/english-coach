@@ -16,8 +16,11 @@ import {
   ShadowingEngine,
   StudyEngine,
   TopicProgressEngine,
+  VerbFormsEngine,
   VocabularyEngine,
+  formIsCorrect,
   freshState,
+  trimAttempts,
   languageOf,
   DEFAULT_HOME,
   loadContent,
@@ -28,7 +31,7 @@ import {
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
   LearnerHome, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
-  TopicProgress, UserState,
+  TopicProgress, UserState, VerbForms,
 } from '../core'
 
 /**
@@ -125,6 +128,22 @@ export class AppStore {
   listeningItems: ListeningItem[] = []
 
   /**
+   * Тренажёр форм глагола идёт мимо `LearningSession` — и это осознанно.
+   *
+   * Сессия линейна: она ведёт по списку упражнений от первого к последнему и вернуть
+   * промах в тот же заход не умеет. А в дрилле форм возврат — это и есть весь смысл,
+   * поэтому очередь здесь своя: не вышло — глагол уходит в конец очереди.
+   */
+  verbFormsActive = false
+  verbFormsQueue: VerbForms[] = []
+  verbFormsIndex = 0
+  /** Сколько глаголов в заходе закрыто с первого раза и сколько всего было. */
+  verbFormsDone = 0
+  verbFormsTotal = 0
+  /** Разбор последнего ответа: что было неверно, чтобы показать это на экране. */
+  verbFormsVerdict: { past: boolean; participle: boolean } | null = null
+
+  /**
    * The running set: which door it came through, how many answers went wrong in it,
    * and how to build the very same set again for "Ещё раз".
    *
@@ -154,7 +173,8 @@ export class AppStore {
 
   /** True while the learner is inside something that must not be interrupted. */
   get isBusy(): boolean {
-    return this.activeLesson !== null || this.placementActive || this.shadowingActive || this.listeningActive
+    return this.activeLesson !== null || this.placementActive || this.shadowingActive
+      || this.listeningActive || this.verbFormsActive
   }
 
   onUpdateReady(apply: () => Promise<void>): void {
@@ -237,6 +257,8 @@ export class AppStore {
 
   /** A language switch must not leave a half-finished lesson from the other one on screen. */
   private closeAllModes(): void {
+    this.verbFormsActive = false
+    this.verbFormsQueue = []
     this.theoryTopicID = null
     this.studyPlan = null
     this.shadowingActive = false
@@ -701,6 +723,89 @@ export class AppStore {
     if (exercises.length === 0) return
     const title = this.syllabus?.topics.find((t) => t.id === topicID)?.title ?? 'Тренировка'
     this.beginSession(PracticeEngine.lesson(exercises, title), 'topic')
+  }
+
+  // MARK: - Формы неправильных глаголов
+
+  get verbFormsCount(): number {
+    return VerbFormsEngine.count(this.practiceCourses, this.selectedLevel, this.theory)
+  }
+
+  get currentVerb(): VerbForms | null { return this.verbFormsQueue[this.verbFormsIndex] ?? null }
+
+  get verbFormsIsComplete(): boolean {
+    return this.verbFormsActive && this.verbFormsIndex >= this.verbFormsQueue.length
+  }
+
+  /** «Осталось» — длина хвоста очереди, а не номер вопроса: с возвратами они расходятся. */
+  get verbFormsLeft(): number { return Math.max(0, this.verbFormsQueue.length - this.verbFormsIndex) }
+
+  startVerbForms(): void {
+    const verbs = VerbFormsEngine.build({
+      courses: this.practiceCourses, level: this.selectedLevel, theory: this.theory,
+    })
+    if (verbs.length === 0) return
+    this.verbFormsQueue = verbs
+    this.verbFormsIndex = 0
+    this.verbFormsDone = 0
+    this.verbFormsTotal = verbs.length
+    this.verbFormsVerdict = null
+    this.verbFormsActive = true
+    this.lessonStartedAt = new Date()
+    this.changed()
+  }
+
+  /**
+   * Ответ на обе формы сразу: вторая и третья — одна пара, которую и держат в памяти.
+   *
+   * Промах не заканчивает глагол, а отправляет его в конец очереди — до тех пор, пока не
+   * выйдет. Попытка пишется только для глагола, пришедшего из карточки: у строки таблицы
+   * разбора нет упражнения, против которого её можно записать.
+   */
+  answerVerbForms(past: string, participle: string): void {
+    const verb = this.currentVerb
+    if (!verb || this.verbFormsVerdict) return
+    const verdict = {
+      past: formIsCorrect(past, verb.past),
+      participle: formIsCorrect(participle, verb.participle),
+    }
+    this.verbFormsVerdict = verdict
+    const correct = verdict.past && verdict.participle
+    if (correct) {
+      this.verbFormsDone += 1
+      this.state.points += 10
+    }
+    if (verb.exerciseID) {
+      this.state.attempts = trimAttempts([
+        ...this.state.attempts,
+        { id: crypto.randomUUID(), exerciseID: verb.exerciseID, correct, date: new Date() },
+      ])
+    }
+    this.persist()
+    this.changed()
+  }
+
+  /** Дальше: верный ответ закрывает глагол, неверный ставит его в конец очереди. */
+  nextVerb(): void {
+    const verdict = this.verbFormsVerdict
+    const verb = this.currentVerb
+    if (!verdict || !verb) return
+    if (!(verdict.past && verdict.participle)) {
+      this.verbFormsQueue = [...this.verbFormsQueue, verb]
+    }
+    this.verbFormsIndex += 1
+    this.verbFormsVerdict = null
+    if (this.verbFormsIndex >= this.verbFormsQueue.length) this.bankPracticeTime()
+    this.changed()
+  }
+
+  closeVerbForms(): void {
+    this.bankPracticeTime()
+    this.verbFormsActive = false
+    this.verbFormsQueue = []
+    this.verbFormsVerdict = null
+    this.setScreen('practice')
+    this.changed()
   }
 
   // MARK: - Слова

@@ -13,6 +13,7 @@ import { Settings } from './Settings'
 import { Shadowing } from './Shadowing'
 import { TabBar } from './TabBar'
 import { Theory } from './Theory'
+import { VerbForms } from './VerbForms'
 import { Today } from './Today'
 import { Topics } from './Topics'
 import { isTab, store } from './store'
@@ -68,6 +69,7 @@ export function App() {
         : model.isOnboarding ? <Onboarding />
         : model.shadowingActive ? <Shadowing />
         : model.listeningActive ? <Listening />
+        : model.verbFormsActive ? <VerbForms />
         : model.activeLesson ? <Player />
         : model.screen === 'settings' ? <Settings />
         : model.screen === 'topics' ? <Topics />
