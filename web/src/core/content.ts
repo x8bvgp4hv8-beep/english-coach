@@ -1,7 +1,9 @@
 import { DEFAULT_LANGUAGE } from './language'
 import { decodeSyllabus } from './syllabus'
+import { decodeTheory } from './theory'
 import { ContentError, LESSON_STEPS, SCHEMA_VERSIONS, stepOf } from './types'
 import type { LanguageCode } from './language'
+import type { TheoryPack } from './theory'
 import type { CoursePack, PlacementBank, Syllabus } from './types'
 
 /** Mirrors EnglishCoachCore/ContentRepository.swift: same validation, same failure modes. */
@@ -82,15 +84,21 @@ export function decodePlacement(raw: unknown): PlacementBank {
 export async function loadContent(
   language: LanguageCode = DEFAULT_LANGUAGE,
   base = 'content',
-): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus }> {
+): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus; theory: TheoryPack[] }> {
   const root = `${base}/${language}`
-  const index = (await fetchJSON(`${root}/index.json`)) as { courses: string[] }
+  const index = (await fetchJSON(`${root}/index.json`)) as { courses: string[]; theory?: string[] }
   const courses = await Promise.all(
     [...index.courses].sort().map(async (file) => decodeCourse(await fetchJSON(`${root}/courses/${file}`))),
   )
   const placement = decodePlacement(await fetchJSON(`${root}/placement.json`))
   const syllabus = decodeSyllabus(await fetchJSON(`${root}/syllabus.json`))
-  return { courses, placement, syllabus }
+  // Разборы есть не у каждого уровня и не у каждого языка: язык без них должен
+  // открываться, просто без экрана теории.
+  const known = new Set(syllabus.topics.map((topic) => topic.id))
+  const theory = await Promise.all(
+    [...(index.theory ?? [])].sort().map(async (file) => decodeTheory(await fetchJSON(`${root}/theory/${file}`), known)),
+  )
+  return { courses, placement, syllabus, theory }
 }
 
 async function fetchJSON(url: string): Promise<unknown> {

@@ -8,9 +8,10 @@ import { decodeCourse, decodePlacement } from './content'
 import { SyllabusEngine, TopicProgressEngine, decodeSyllabus, unseenVocabulary } from './syllabus'
 import { CourseRouting, LevelOrder, PaceLog, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
 import { ListeningEngine, listeningPhrase } from './listening'
-import { PracticeEngine, taughtCourses } from './practice'
+import { PracticeEngine, prioritise, taughtCourses } from './practice'
 import { LearningSession } from './session'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
+import { StudyEngine, decodeTheory } from './theory'
 import { deserialize, serialize } from './storage'
 import { LANGUAGE_CODES } from './language'
 import { ATTEMPT_LOG_LIMIT, EXERCISE_TYPES, LEVELS, freshState, seenExerciseIDs, trimAttempts } from './types'
@@ -27,11 +28,14 @@ const readJSON = (path: string) => JSON.parse(readFileSync(join(contentDir, path
 
 /** One language's shipped content, decoded exactly the way the app decodes it. */
 function readLanguage(language: LanguageCode) {
-  const index = readJSON(`${language}/index.json`) as { courses: string[] }
+  const index = readJSON(`${language}/index.json`) as { courses: string[]; theory?: string[] }
+  const syllabus = decodeSyllabus(readJSON(`${language}/syllabus.json`))
+  const known = new Set(syllabus.topics.map((topic) => topic.id))
   return {
     courses: index.courses.map((file) => decodeCourse(readJSON(`${language}/courses/${file}`))) as CoursePack[],
     placement: decodePlacement(readJSON(`${language}/placement.json`)),
-    syllabus: decodeSyllabus(readJSON(`${language}/syllabus.json`)),
+    syllabus,
+    theory: (index.theory ?? []).map((file) => decodeTheory(readJSON(`${language}/theory/${file}`), known)),
   }
 }
 
@@ -584,12 +588,16 @@ describe('endless practice', () => {
     expect(set.every((e) => a1a2.has(e.id))).toBe(true)
   })
 
-  it('puts due repetitions first, then old mistakes', () => {
+  it('ставит назначенные повторения первыми, а отвеченное — за новым', () => {
     const state = freshState()
     const pool = PracticeEngine.pool(courses, 'A1')
     const dueExercise = pool[5]
     const failedExercise = pool[9]
-    state.reviews = [{ ...ReviewEngine.newItem(dueExercise.id, now), due: new Date(now.getTime() - 86_400_000) }]
+    state.reviews = [
+      { ...ReviewEngine.newItem(dueExercise.id, now), due: new Date(now.getTime() - 86_400_000) },
+      // Ошибка назначена на завтра — значит сегодня её очередь ещё не пришла.
+      ReviewEngine.recordFailure(ReviewEngine.newItem(failedExercise.id, now), now),
+    ]
     state.attempts = [
       { id: '1', exerciseID: failedExercise.id, correct: false, date: now },
       { id: '2', exerciseID: pool[0].id, correct: true, date: now },
@@ -597,9 +605,9 @@ describe('endless practice', () => {
 
     const set = PracticeEngine.build({ courses, level: 'A1', state, size: 5, now, random: seeded() })
     expect(set[0].id).toBe(dueExercise.id)
-    expect(set[1].id).toBe(failedExercise.id)
-    // An exercise already answered correctly is not repeated while unseen ones remain.
-    expect(set.slice(2).some((e) => e.id === pool[0].id)).toBe(false)
+    // Ни свежая ошибка, ни верный ответ не лезут вперёд нового материала.
+    expect(set.slice(1).some((e) => e.id === failedExercise.id)).toBe(false)
+    expect(set.slice(1).some((e) => e.id === pool[0].id)).toBe(false)
   })
 
   it('offers a single kind when the menu asks for one', () => {
@@ -613,38 +621,78 @@ describe('endless practice', () => {
     expect(counts.translate).toBeLessThan(counts.mixed)
   })
 
-  it('only draws from lessons the learner has finished', () => {
+  it('не просит произвести то, чему ещё не учили', () => {
     const a1 = courses.find((c) => c.level === 'A1')!
     const lessons = a1.chapters.flatMap((chapter) => chapter.lessons)
 
-    // Day one: nothing has been taught, so there is nothing to practise. Before this the
-    // first tap handed out the future tense from the last chapter of the level.
-    expect(taughtCourses(courses, 'A1', new Set())).toHaveLength(0)
-    expect(PracticeEngine.pool(taughtCourses(courses, 'A1', new Set()), 'A1')).toHaveLength(0)
+    // День первый: производить нечего. До этой обрезки первый же тап выдавал будущее
+    // время из последней главы уровня.
+    const day1 = taughtCourses(courses, 'A1', new Set())
+    expect(PracticeEngine.pool(day1, 'A1', ['translate', 'word_order', 'multiple_choice'])).toHaveLength(0)
 
-    // After two lessons, practice is those two lessons and nothing else.
+    // После двух уроков производить можно ровно эти два урока и ничего больше.
     const done = new Set([lessons[0].id, lessons[1].id])
     const reachable = new Set([...lessons[0].exercises, ...lessons[1].exercises].map((e) => e.id))
-    const set = PracticeEngine.build({
-      courses: taughtCourses(courses, 'A1', done), level: 'A1', state: freshState(), size: 40, random: seeded(),
+    const produced = PracticeEngine.build({
+      courses: taughtCourses(courses, 'A1', done), level: 'A1', state: freshState(), size: 40,
+      types: ['translate', 'word_order', 'multiple_choice'], random: seeded(),
     })
-    expect(set.length).toBeGreaterThan(0)
-    expect(set.every((e) => reachable.has(e.id))).toBe(true)
-
-    // Shadowing and listening ride on the same pool, so they inherit the same limit.
-    const spoken = ShadowingEngine.build({ courses: taughtCourses(courses, 'A1', done), level: 'A1', state: freshState(), size: 20, random: seeded() })
-    expect(spoken.exercises.every((e) => reachable.has(e.id))).toBe(true)
+    expect(produced.length).toBeGreaterThan(0)
+    expect(produced.every((e) => reachable.has(e.id))).toBe(true)
   })
 
-  it('keeps the levels below the current one open in full', () => {
-    // Placement can drop someone straight into B1: A1 and A2 are the claim that put them
-    // there, and locking them behind lessons nobody will replay would empty practice.
+  it('открывает карточки уровня, не дожидаясь уроков', () => {
+    // Карточка знакомит со словом сама, и «хочу поучить слова» — это самостоятельное
+    // занятие, а не награда за пройденный урок. Поэтому непройденные уроки текущего
+    // уровня отдают карточки, и только их.
+    const day1 = taughtCourses(courses, 'A1', new Set())
+    const cards = PracticeEngine.pool(day1, 'A1')
+    expect(cards.length).toBeGreaterThan(0)
+    expect(cards.every((e) => e.type === 'flashcard')).toBe(true)
+  })
+
+  it('не выдаёт слова уровней ниже как новый материал', () => {
+    // Корень жалобы «у меня B1, а приложение учит меня hello». Раньше уровни ниже
+    // текущего отдавались целиком, и у свежего B1-профиля весь пул был A1 плюс A2:
+    // первые карточки A1 — это буквально Hello, Hi, Bye.
     const trimmed = taughtCourses(courses, 'B1', new Set())
-    expect(trimmed.map((c) => c.level)).toEqual(['A1', 'A2'])
+    expect(trimmed.map((c) => c.level)).toEqual(['B1'])
+
     const pool = PracticeEngine.pool(trimmed, 'B1')
     const below = new Set([...ProgressionEngine.exerciseIDs('A1', courses), ...ProgressionEngine.exerciseIDs('A2', courses)])
     expect(pool.length).toBeGreaterThan(0)
-    expect(pool.every((e) => below.has(e.id))).toBe(true)
+    expect(pool.some((e) => below.has(e.id))).toBe(false)
+
+    // Пройденное на уровне ниже — другое дело: это человек учил здесь, и повторять
+    // это честно.
+    const a1 = courses.find((c) => c.level === 'A1')!
+    const first = a1.chapters[0].lessons[0]
+    const withHistory = taughtCourses(courses, 'B1', new Set([first.id]))
+    expect(withHistory.map((c) => c.level)).toEqual(['A1', 'B1'])
+    const ids = new Set(PracticeEngine.pool(withHistory, 'B1').map((e) => e.id))
+    expect(first.exercises.filter((e) => e.type === 'translate').every((e) => ids.has(e.id))).toBe(true)
+  })
+
+  it('не подаёт свежую ошибку немедленно, а ждёт назначенного срока', () => {
+    // Вторая половина жалобы: «хочу поучить фразы, а мне дают фразы из последнего
+    // задания». Ведро «ошибки» стояло выше нового материала и отменяло расписание,
+    // хотя recordFailure уже назначает повтор на завтра.
+    const pool: Exercise[] = [
+      { id: 'missed', type: 'translate', prompt: 'x', canonicalAnswer: 'x' },
+      { id: 'fresh-1', type: 'translate', prompt: 'y', canonicalAnswer: 'y' },
+      { id: 'fresh-2', type: 'translate', prompt: 'z', canonicalAnswer: 'z' },
+    ]
+    const state = freshState()
+    state.attempts = [{ id: 'a', exerciseID: 'missed', correct: false, date: now }]
+    state.reviews = [ReviewEngine.recordFailure(ReviewEngine.newItem('missed', now), now)]
+
+    const order = prioritise(pool, state, now, seeded())
+    expect(order[0].id).not.toBe('missed')
+    expect(order[order.length - 1].id).toBe('missed')
+
+    // Назавтра она приходит сама, первой.
+    const tomorrow = new Date(now.getTime() + 25 * 60 * 60 * 1000)
+    expect(prioritise(pool, state, tomorrow, seeded())[0].id).toBe('missed')
   })
 
   it('does not mark a synthetic lesson as a completed lesson', () => {
@@ -756,16 +804,15 @@ describe('shadowing', () => {
     }
   })
 
-  it('keeps the Russian meaning as the gloss, never as the line to say', () => {
-    const flashcard = allExercises(courses[0]).find((e) => e.type === 'flashcard')!
-    expect(shadowingPhrase(flashcard)).toEqual({
-      exerciseID: flashcard.id, text: flashcard.prompt, gloss: flashcard.translation,
-    })
+  it('говорит вслух целое предложение, а не кусок из карточки', () => {
+    // Карточки в курсе — это куски фраз: «night shifts», «of one problem». Вслух
+    // идёт example, то предложение диалога, откуда кусок взят.
+    const flashcard = allExercises(courses[0]).find((e) => e.type === 'flashcard' && e.example)!
+    expect(shadowingPhrase(flashcard)).toEqual({ exerciseID: flashcard.id, text: flashcard.example })
 
-    const translate = allExercises(courses[0]).find((e) => e.type === 'translate')!
-    const item = shadowingPhrase(translate)!
-    expect(item.text).toBe(translate.canonicalAnswer)
-    expect(item.gloss).toBe(translate.prompt)
+    // Без примера остаётся сам кусок, и тогда перевод к нему подходит и показывается.
+    expect(shadowingPhrase({ id: 'w', type: 'flashcard', prompt: 'the flu', translation: 'грипп' }))
+      .toEqual({ exerciseID: 'w', text: 'the flu', gloss: 'грипп' })
   })
 
   it('turns a gap-fill into a whole sentence and skips what cannot be said', () => {
@@ -784,15 +831,13 @@ describe('shadowing', () => {
     expect(shadowingPhrase({ id: 'h2', type: 'flashcard', prompt: 'Совсем русская строка', translation: 'x' })).toBeNull()
   })
 
-  it('puts due repetitions first, then old mistakes', () => {
+  it('ставит назначенные повторения первыми', () => {
     const state = freshState()
     const pool = ShadowingEngine.pool(courses, 'A1')
     state.reviews = [{ ...ReviewEngine.newItem(pool[4].id, now), due: new Date(now.getTime() - 86_400_000) }]
-    state.attempts = [{ id: '1', exerciseID: pool[7].id, correct: false, date: now }]
 
     const set = ShadowingEngine.build({ courses, level: 'A1', state, size: 5, now, random: seeded() })
     expect(set.exercises[0].id).toBe(pool[4].id)
-    expect(set.exercises[1].id).toBe(pool[7].id)
     // Items and exercises stay aligned: the screen reads one, the session records the other.
     expect(set.items.map((item) => item.exerciseID)).toEqual(set.exercises.map((e) => e.id))
   })
@@ -1105,6 +1150,97 @@ describe('progress storage', () => {
  * Whatever is true of the app has to be true of every language it ships, not only of
  * the one it was written for. A new language passes here or it does not ship.
  */
+describe('разбор темы и занятие на время', () => {
+  const { theory: packs, syllabus, courses: allCourses } = readLanguage('en')
+  const theory = packs.find((pack) => pack.level === 'B1')!
+  // Deterministic shuffling so the assertions are about the rules, not luck.
+  const seeded = () => {
+    let seed = 42
+    return () => {
+      seed = (seed * 1103515245 + 12345) % 2147483648
+      return seed / 2147483648
+    }
+  }
+
+  it('отказывается принимать разбор, который ни к чему не привязан', () => {
+    const known = new Set(syllabus.topics.map((topic) => topic.id))
+    const valid = { schemaVersion: 1, level: 'B1', topics: [
+      { topicID: 'b1-used-to', title: 'x', idea: 'y', minutes: 3, sections: [{ heading: 'h', body: 'b' }] },
+    ] }
+    expect(() => decodeTheory(valid, known)).not.toThrow()
+
+    // Опечатка в теме — это разбор, за которым нельзя дать практику: занятие
+    // собралось бы из пустого набора и выглядело как «теория и всё».
+    expect(() => decodeTheory({ ...valid, topics: [{ ...valid.topics[0], topicID: 'b1-used-too' }] }, known)).toThrow()
+    // Раздел без содержания и разбор без разделов — тоже отказ.
+    expect(() => decodeTheory({ ...valid, topics: [{ ...valid.topics[0], sections: [{ heading: 'h' }] }] }, known)).toThrow()
+    expect(() => decodeTheory({ ...valid, topics: [{ ...valid.topics[0], sections: [] }] }, known)).toThrow()
+    // Строка таблицы не по числу столбцов молча съехала бы на экране.
+    const crooked = { ...valid.topics[0], sections: [{ heading: 'h', table: { head: ['a', 'b'], rows: [['1']] } }] }
+    expect(() => decodeTheory({ ...valid, topics: [crooked] }, known)).toThrow()
+  })
+
+  it('каждая грамматическая тема B1 разобрана, и разбор не пустой', () => {
+    // Жалоба была «не обучает от и до с разбором теории»: в уроке на теорию отведён
+    // один абзац. Здесь проверяется, что у темы есть и формы, и границы, и ошибки.
+    const grammar = syllabus.topics.filter((topic) => topic.level === 'B1' && !topic.id.startsWith('b1-tema'))
+    const explained = new Set(theory.topics.map((topic) => topic.topicID))
+    expect([...grammar.map((topic) => topic.id)].filter((id) => !explained.has(id))).toEqual([])
+
+    for (const topic of theory.topics) {
+      expect(topic.sections.length, `${topic.topicID}: разделов`).toBeGreaterThanOrEqual(3)
+      expect(topic.sections.some((section) => section.table), `${topic.topicID}: таблица форм`).toBe(true)
+      const mistakes = topic.sections.flatMap((section) => section.mistakes ?? [])
+      expect(mistakes.length, `${topic.topicID}: разобранных ошибок`).toBeGreaterThanOrEqual(3)
+      // Ошибка без «почему» — это просто вторая фраза рядом с первой.
+      expect(mistakes.every((item) => item.wrong && item.right && item.why)).toBe(true)
+    }
+  })
+
+  it('строит занятие: разбор, потом узнавание, потом производство', () => {
+    const plan = StudyEngine.plan({
+      theory, courses: allCourses, syllabus, state: freshState(), level: 'B1', minutes: 20, random: seeded(),
+    })!
+    expect(plan.steps.map((step) => step.kind)).toEqual(['theory', 'recognise', 'produce'])
+    expect(plan.exercises.length).toBeGreaterThan(0)
+    // Всё занятие держится на одной теме, иначе «разбор + практика на неё» — обман.
+    expect(plan.exercises.every((exercise) => (exercise.topics ?? []).includes(plan.topic.topicID))).toBe(true)
+    // Одно упражнение не может попасть в занятие дважды.
+    expect(new Set(plan.exercises.map((e) => e.id)).size).toBe(plan.exercises.length)
+    // Практика не требует пройденных уроков: объяснение только что прочитано.
+    expect(plan.exercises.some((e) => e.type === 'translate' || e.type === 'word_order')).toBe(true)
+  })
+
+  it('масштабируется по тому, сколько человек готов заниматься', () => {
+    const size = (minutes: number) => StudyEngine.plan({
+      theory, courses: allCourses, syllabus, state: freshState(), level: 'B1', minutes, random: seeded(),
+    })!.exercises.length
+    expect(size(10)).toBeLessThan(size(20))
+    expect(size(20)).toBeLessThan(size(45))
+  })
+
+  it('сначала объясняет то, где человек ошибается', () => {
+    // Слабая тема — уже доказанный пробел, и разбирать надо в первую очередь его.
+    const topicID = 'b1-first-conditional'
+    const drilled = PracticeEngine.pool(allCourses, 'B1', undefined, [topicID]).slice(0, 8)
+    const state = freshState()
+    state.attempts = drilled.map((exercise, index) => ({
+      id: `a${index}`, exerciseID: exercise.id, correct: false, date: now,
+    }))
+
+    const chosen = StudyEngine.chooseTopic({ theory, syllabus, courses: allCourses, state, level: 'B1' })!
+    expect(chosen.topic.topicID).toBe(topicID)
+    expect(chosen.reason).toBe('weak')
+
+    // Без истории ошибок берётся первый непрочитанный разбор.
+    const fresh = StudyEngine.chooseTopic({ theory, syllabus, courses: allCourses, state: freshState(), level: 'B1' })!
+    expect(fresh.reason).toBe('unread')
+    // И прочитанное больше не предлагается как непрочитанное.
+    const read = { ...freshState(), theoryRead: theory.topics.map((topic) => topic.topicID) }
+    expect(StudyEngine.chooseTopic({ theory, syllabus, courses: allCourses, state: read, level: 'B1' })!.reason).toBe('next')
+  })
+})
+
 describe.each(LANGUAGE_CODES)('each shipped language: %s', (language) => {
   const { courses: packs, placement: bank, syllabus } = readLanguage(language)
 

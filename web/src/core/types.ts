@@ -216,6 +216,14 @@ export interface UserState {
    * The escape hatch: whatever the checker misses, it only ever costs one tap, once.
    */
   acceptedAnswers?: Record<string, string[]>
+  /**
+   * Темы силлабуса, разбор которых прочитан.
+   *
+   * Нужно, чтобы занятие на время само выбирало, что объяснять следующим, и чтобы
+   * список тем показывал, где человек уже был. Прочитан — не значит освоен: проценты
+   * по теме считаются отдельно, по ответам.
+   */
+  theoryRead?: string[]
 }
 
 export function freshState(): UserState {

@@ -29,20 +29,27 @@ for (const language of languages) {
 
   const files = readdirSync(from).filter((file) => file.endsWith('.json'))
   const plain = (file) => file.replace(`${language}-`, '')
-  const courseFiles = files.filter((file) => !/placement|syllabus/.test(file)).map(plain).sort()
+  const isTheory = (file) => /^theory-/.test(plain(file))
+  const courseFiles = files.filter((file) => !/placement|syllabus/.test(file) && !isTheory(file)).map(plain).sort()
+  // Разборы тем едут отдельной папкой и своим списком: это не курс, декодер у них свой,
+  // и в `courses/` такой файл уронил бы загрузку целиком.
+  const theoryFiles = files.filter(isTheory).map((file) => plain(file).replace('theory-', '')).sort()
+  if (theoryFiles.length > 0) mkdirSync(join(to, 'theory'), { recursive: true })
 
   for (const file of files) {
     const name = plain(file)
-    const isCourse = courseFiles.includes(name)
+    const target = isTheory(file)
+      ? join('theory', name.replace('theory-', ''))
+      : courseFiles.includes(name) ? join('courses', name) : name
     // Re-emitted without the authoring indentation: the Spanish A1 pack is 3.4 MB
     // pretty-printed and the phone downloads it before the first lesson.
     const json = JSON.parse(readFileSync(join(from, file), 'utf8'))
-    writeFileSync(join(to, isCourse ? join('courses', name) : name), JSON.stringify(json))
+    writeFileSync(join(to, target), JSON.stringify(json))
   }
 
   // A manifest, because a static host cannot be asked to list a directory.
-  writeFileSync(join(to, 'index.json'), JSON.stringify({ courses: courseFiles }, null, 2) + '\n')
-  summary.push(`${language} — ${courseFiles.length} packs`)
+  writeFileSync(join(to, 'index.json'), JSON.stringify({ courses: courseFiles, theory: theoryFiles }, null, 2) + '\n')
+  summary.push(`${language} — ${courseFiles.length} packs, ${theoryFiles.length} разборов`)
 }
 
 // The list of languages themselves, for the same reason.

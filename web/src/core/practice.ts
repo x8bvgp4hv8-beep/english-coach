@@ -2,41 +2,60 @@ import { LEVELS, seenExerciseIDs } from './types'
 import type { CEFRLevel, CoursePack, Exercise, ExerciseType, Lesson, UserState } from './types'
 
 /**
- * Endless practice built from the corpus that already ships.
+ * Бесконечная тренировка из того контента, который уже лежит в сборке.
  *
- * A level is five lessons, about fifty minutes: the course runs out long before a
- * daily habit forms, and "прошёл всё, что дальше" is where people stop. Practice
- * has no end and no completion: it keeps handing over the exercises that are due,
- * the ones that were failed, and the ones never seen, in that order.
+ * У неё нет конца и нет «пройдено»: она выдаёт то, что назначено на повтор, потом
+ * то, чего человек ещё не видел, потом остальное — в этом порядке. Из чего именно
+ * она собирается, решает `taughtCourses`; в каком порядке — `prioritise`. Обе
+ * функции ниже несут историю своих ошибок, потому что обе успели дать неверный
+ * ответ на вопрос «что этому человеку сейчас показать».
  */
 
 export const PRACTICE_LESSON_ID = 'practice'
 const DEFAULT_SIZE = 10
 
 /**
- * The course as far as this learner has actually walked it.
+ * Материал, который этому учащемуся уже можно давать.
  *
- * Practice used to draw from the whole level, so a Spanish account opened five minutes
- * ago was offered the future tense from lesson 11 and word order from lesson 7 before
- * lesson 1 had been opened. The lessons themselves unlock in order; practice quietly
- * ignored that.
+ * Раньше здесь было ровно наоборот, и это был корень жалобы «B1, а меня учат hello».
+ * Уровни ниже текущего отдавались ЦЕЛИКОМ как новый материал, а текущий обрезался до
+ * пройденных уроков — то есть у свежего B1-профиля пул был весь A1 плюс весь A2 и ноль
+ * из B1. Обоснование стояло в комментарии: «выбор B1 — это заявление про A1 и A2».
+ * Вывод из этого заявления обратный: если A1 человек уже знает, его слова нельзя
+ * выдавать как то, что он пришёл учить. Первые карточки A1 — буквально Hello, Hi, Bye.
  *
- * Levels below the current one stay open in full — choosing B1 is a claim about A1 and
- * A2, and the placement test makes that claim on the learner's behalf. The current level
- * is earned lesson by lesson.
+ * Что открыто теперь, и почему именно так:
  *
- * Trimming the courses rather than the pool keeps every engine unchanged: practice,
- * shadowing and listening all build on `PracticeEngine.pool`, so they inherit the same
- * limit by being handed the same trimmed packs.
+ * - Уровни НИЖЕ текущего — только те уроки, которые человек действительно прошёл.
+ *   Пройденное он учил здесь, и повторять это честно; непройденное он, по заявлению
+ *   placement-теста, знает и без нас.
+ * - Текущий уровень, пройденные уроки — целиком.
+ * - Текущий уровень, ещё не пройденные уроки — только карточки. Карточка сама
+ *   знакомит со словом («новое показывается, знакомое спрашивается»), ей не нужен
+ *   пройденный урок. А перевод и сборка предложения — производство: просить их по
+ *   теме, которую не объясняли, значит ставить стену, и ровно от этого пул когда-то
+ *   и обрезали.
+ *
+ * Обрезка идёт по упражнениям, а не по урокам, поэтому все потребители — практика,
+ * речь вслух, аудирование, темы — наследуют правило, продолжая строиться на
+ * `PracticeEngine.pool` и ничего про него не зная.
  */
 export function taughtCourses(courses: CoursePack[], level: CEFRLevel, completed: Set<string>): CoursePack[] {
   const ceiling = LEVELS.indexOf(level)
   return courses.flatMap((course) => {
     const index = LEVELS.indexOf(course.level)
     if (index > ceiling) return []
-    if (index < ceiling) return [course]
+    const isCurrent = index === ceiling
     const chapters = course.chapters
-      .map((chapter) => ({ ...chapter, lessons: chapter.lessons.filter((lesson) => completed.has(lesson.id)) }))
+      .map((chapter) => ({
+        ...chapter,
+        lessons: chapter.lessons.flatMap((lesson) => {
+          if (completed.has(lesson.id)) return [lesson]
+          if (!isCurrent) return []
+          const preview = lesson.exercises.filter((exercise) => exercise.type === 'flashcard')
+          return preview.length > 0 ? [{ ...lesson, exercises: preview }] : []
+        }),
+      }))
       .filter((chapter) => chapter.lessons.length > 0)
     return chapters.length > 0 ? [{ ...course, chapters }] : []
   })
@@ -65,9 +84,20 @@ export interface PracticeOptions {
 }
 
 /**
- * Everything the learner could be given next, in the order it should be offered:
- * due repetitions, then old mistakes, then unseen material, then the rest.
- * Shared with shadowing, which needs the same order over a narrower pool.
+ * Всё, что можно выдать следующим, в том порядке, в котором это стоит выдавать:
+ * назначенные повторения, затем никогда не виденное, затем остальное.
+ *
+ * Отдельного ведра «ошибки» здесь больше нет, и это вторая половина жалобы на
+ * нейрослоп — «хочу поучить фразы, а мне дают фразы из последнего задания».
+ * Ведро набиралось из `state.attempts` за всю историю и стояло ВЫШЕ нового
+ * материала, а самые свежие ошибки — это всегда последний урок. При этом ошибка
+ * и так назначается на повтор: `recordFailure` ставит срок на завтра. То есть
+ * ведро не добавляло ошибке ещё один шанс, а отменяло её расписание и подавало
+ * её немедленно — и снова, и снова, пока не ответишь верно.
+ *
+ * Теперь ошибки возвращаются ровно тогда, когда назначены, через `due`. Только
+ * что отвеченное не выпадает: срок у него в будущем, а новое идёт раньше
+ * пройденного.
  */
 export function prioritise(pool: Exercise[], state: UserState, now: Date, random: () => number): Exercise[] {
   const byID = new Map(pool.map((exercise) => [exercise.id, exercise]))
@@ -78,17 +108,14 @@ export function prioritise(pool: Exercise[], state: UserState, now: Date, random
     .map((item) => byID.get(item.exerciseID)!)
 
   // "Seen" must outlive the attempt window, or trimmed-away exercises would come back
-  // dressed as new material. Misses, on the other hand, are meant to be recent.
+  // dressed as new material.
   const attemptedIDs = seenExerciseIDs(state)
-  const failedIDs = new Set(state.attempts.filter((a) => !a.correct).map((a) => a.exerciseID))
-
-  const failed = pool.filter((exercise) => failedIDs.has(exercise.id))
   const unseen = pool.filter((exercise) => !attemptedIDs.has(exercise.id))
-  const rest = pool.filter((exercise) => attemptedIDs.has(exercise.id) && !failedIDs.has(exercise.id))
+  const rest = pool.filter((exercise) => attemptedIDs.has(exercise.id))
 
   const ordered: Exercise[] = []
   const taken = new Set<string>()
-  for (const bucket of [due, shuffled(failed, random), shuffled(unseen, random), shuffled(rest, random)]) {
+  for (const bucket of [due, shuffled(unseen, random), shuffled(rest, random)]) {
     for (const exercise of bucket) {
       if (taken.has(exercise.id)) continue
       taken.add(exercise.id)

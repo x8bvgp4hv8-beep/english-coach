@@ -73,7 +73,17 @@ export function shadowingPhrase(exercise: Exercise): ShadowingItem | null {
   }
   switch (exercise.type) {
     case 'flashcard':
-      return make(exercise.prompt, exercise.translation)
+      // Карточка учит не слово, а кусок фразы: «night shifts», «of one problem»,
+      // «about half of it». Произносить такой кусок вслух незачем — это и был
+      // второй источник жалобы «даёте мне обрывки из последнего задания». Рядом
+      // в карточке лежит `example` — то самое предложение из диалога, откуда
+      // кусок взят; вслух идёт оно, а сам кусок остаётся только если примера нет.
+      //
+      // Перевод при этом относится к куску, а не к примеру («night shifts» →
+      // «ночные смены»), поэтому вместе с примером он не показывается: подпись
+      // «ночные смены» под фразой «Have you ever worked night shifts?» — это
+      // неверный перевод на экране, а в аудировании ещё и ложная подсказка.
+      return exercise.example ? make(exercise.example) : make(exercise.prompt, exercise.translation)
     case 'translate':
     case 'word_order':
       return make(exercise.canonicalAnswer, exercise.prompt)
