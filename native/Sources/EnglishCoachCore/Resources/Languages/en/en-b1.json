@@ -3,6 +3,1244 @@
   "level": "B1",
   "chapters": [
     {
+      "id": "en-b1-irregular-verbs",
+      "title": "Неправильные глаголы",
+      "subtitle": "Вторая и третья форма: основа перфекта, пассива и прошедшего времени",
+      "canDo": [
+        "ставить после have и has третью форму, а не вторую",
+        "собирать страдательный залог: was stolen, was broken",
+        "различать has gone и has been",
+        "узнавать группу глагола и выводить формы по ней",
+        "рассказать о случившемся, не сбиваясь в формах"
+      ],
+      "lessons": [
+        {
+          "id": "en-b1-irregular-verbs-01",
+          "title": "Формы, которые не меняются",
+          "summary": "Самая лёгкая группа: все три формы совпадают.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b1-irregular-verbs-01-d",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "dialogue",
+              "title": "Порезался на кухне",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "I cut my finger this morning.",
+                  "translation": "Я утром порезал палец."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Has it stopped bleeding?",
+                  "translation": "Кровь остановилась?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Yes, but it still hurts.",
+                  "translation": "Да, но всё ещё болит."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "The repair has cost me a day off.",
+                  "translation": "Этот ремонт стоил мне отгула."
+                }
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-w1",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "cut — cut — cut",
+              "translation": "резать",
+              "example": "I cut my finger this morning."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-w2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "put — put — put",
+              "translation": "класть, ставить",
+              "example": "She has put the keys on the table."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-w3",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "let — let — let",
+              "translation": "позволять, пускать",
+              "example": "They let us in without a ticket."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-w4",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "cost — cost — cost",
+              "translation": "стоить",
+              "example": "The repair has cost me a day off."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-w5",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "hurt — hurt — hurt",
+              "translation": "болеть, ранить",
+              "example": "My back hurt all week."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-w6",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "shut — shut — shut",
+              "translation": "закрывать",
+              "example": "He has shut the door."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-r",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "info",
+              "title": "Три формы совпадают — учить нечего",
+              "explanation": "У cut, put, let, cost, hurt, shut, set все три формы одинаковые. Отличить их можно только по окружению: если рядом стоит have, has или had — это третья форма, если глагол один — вторая. I cut it yesterday и I have cut it выглядят одинаково, а времена разные."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-c1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Она положила ключи на стол» —",
+              "options": [
+                "She has put the keys on the table.",
+                "She has putted the keys on the table.",
+                "She has put the keys on the table yesterday."
+              ],
+              "correctOption": "She has put the keys on the table."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-c2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ремонт стоил мне отгула» —",
+              "options": [
+                "The repair has cost me a day off.",
+                "The repair has costed me a day off.",
+                "The repair has cost me a day off ago."
+              ],
+              "correctOption": "The repair has cost me a day off."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-c3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Он закрыл дверь» —",
+              "options": [
+                "He has shut the door.",
+                "He has shutted the door.",
+                "He has shut the door last week."
+              ],
+              "correctOption": "He has shut the door."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-o1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Кровь остановилась?",
+              "canonicalAnswer": "Has it stopped bleeding?",
+              "tokens": [
+                "stopped",
+                "it",
+                "bleeding?",
+                "Has"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-o2",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "word_order",
+              "prompt": "Они пустили нас без билета.",
+              "canonicalAnswer": "They let us in without a ticket.",
+              "tokens": [
+                "let",
+                "in",
+                "They",
+                "without",
+                "ticket.",
+                "us",
+                "a"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-t1",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Я утром порезал палец.",
+              "canonicalAnswer": "I cut my finger this morning."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-t2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Она положила ключи на стол.",
+              "canonicalAnswer": "She has put the keys on the table."
+            },
+            {
+              "id": "en-b1-irregular-verbs-01-t3",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Спина болела всю неделю.",
+              "canonicalAnswer": "My back hurt all week."
+            }
+          ]
+        },
+        {
+          "id": "en-b1-irregular-verbs-02",
+          "title": "Вторая и третья совпадают",
+          "summary": "Самая большая группа: одна форма вместо двух.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b1-irregular-verbs-02-d",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "dialogue",
+              "title": "Потерял телефон",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "I have lost my phone again.",
+                  "translation": "Я опять потеряла телефон."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Where did you leave it?",
+                  "translation": "Где ты его оставила?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "I think I left it at the office.",
+                  "translation": "Кажется, я оставила его в офисе."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Have you told anyone there?",
+                  "translation": "Ты кому-нибудь там сказала?"
+                }
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-w1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "lose — lost — lost",
+              "translation": "терять",
+              "example": "I have lost my phone again."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-w2",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "leave — left — left",
+              "translation": "оставлять, уезжать",
+              "example": "I think I left it at the office."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-w3",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "flashcard",
+              "prompt": "tell — told — told",
+              "translation": "сказать, рассказать",
+              "example": "Have you told anyone there?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-w4",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "buy — bought — bought",
+              "translation": "покупать",
+              "example": "We have bought the tickets."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-w5",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "think — thought — thought",
+              "translation": "думать",
+              "example": "I thought it was free."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-w6",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "find — found — found",
+              "translation": "находить",
+              "example": "They have found my bag."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-w7",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "pay — paid — paid",
+              "translation": "платить",
+              "example": "She has paid for both of us."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-w8",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "keep — kept — kept",
+              "translation": "хранить, держать",
+              "example": "He kept the receipt."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-r",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "info",
+              "title": "Одна форма работает и за прошедшее, и за перфект",
+              "explanation": "У buy, bring, teach, think, find, keep, leave, lose, meet, pay, sell, tell, spend, win вторая и третья формы совпадают: bought, thought, found, left, lost. Значит запомнить нужно одно слово, а различать времена — по have. I lost it — прошедшее. I have lost it — перфект, и телефона у меня сейчас нет."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-c1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я опять потеряла телефон» —",
+              "options": [
+                "I have lost my phone again.",
+                "I have losed my phone again.",
+                "I have lose my phone again."
+              ],
+              "correctOption": "I have lost my phone again."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-c2",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Где ты его оставила?» —",
+              "options": [
+                "Where did you leave it?",
+                "Where did you left it?",
+                "Where have you left it yesterday?"
+              ],
+              "correctOption": "Where did you leave it?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-c3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Она заплатила за нас двоих» —",
+              "options": [
+                "She has paid for both of us.",
+                "She has payed for both of us.",
+                "She has pay for both of us."
+              ],
+              "correctOption": "She has paid for both of us."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-o1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Мы купили билеты.",
+              "canonicalAnswer": "We have bought the tickets.",
+              "tokens": [
+                "We",
+                "tickets.",
+                "bought",
+                "the",
+                "have"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-o2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Они нашли мою сумку.",
+              "canonicalAnswer": "They have found my bag.",
+              "tokens": [
+                "have",
+                "bag.",
+                "They",
+                "my",
+                "found"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-t1",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Кажется, я оставила его в офисе.",
+              "canonicalAnswer": "I think I left it at the office."
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-t2",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "translate",
+              "prompt": "Ты кому-нибудь там сказала?",
+              "canonicalAnswer": "Have you told anyone there?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-02-t3",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Я думал, это бесплатно.",
+              "canonicalAnswer": "I thought it was free."
+            }
+          ]
+        },
+        {
+          "id": "en-b1-irregular-verbs-03",
+          "title": "Чередование i — a — u",
+          "summary": "Меняется один гласный, и группа запоминается целиком.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b1-irregular-verbs-03-d",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "dialogue",
+              "title": "После вечера",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "The concert began at nine.",
+                  "translation": "Концерт начался в девять."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Who sang first?",
+                  "translation": "Кто пел первым?"
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "A local band. We have drunk too much coffee since then.",
+                  "translation": "Местная группа. Мы с тех пор выпили слишком много кофе."
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "My phone has rung all evening.",
+                  "translation": "Мой телефон звонил весь вечер."
+                }
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-w1",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "flashcard",
+              "prompt": "begin — began — begun",
+              "translation": "начинать",
+              "example": "The concert began at nine."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-w2",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "flashcard",
+              "prompt": "sing — sang — sung",
+              "translation": "петь",
+              "example": "Who sang first?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-w3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "drink — drank — drunk",
+              "translation": "пить",
+              "example": "We have drunk too much coffee."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-w4",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "ring — rang — rung",
+              "translation": "звонить, звенеть",
+              "example": "My phone has rung all evening."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-w5",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "swim — swam — swum",
+              "translation": "плавать",
+              "example": "She has swum in this lake before."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-r",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "info",
+              "title": "i в первой, a во второй, u в третьей",
+              "explanation": "begin — began — begun, drink — drank — drunk, sing — sang — sung, ring — rang — rung, swim — swam — swum. Гласная меняется по одной схеме, поэтому пять глаголов держатся в памяти как один. Ошибка обычно одна: вторую форму ставят после have — I have drank вместо I have drunk."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-c1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы выпили слишком много кофе» —",
+              "options": [
+                "We have drunk too much coffee.",
+                "We have drank too much coffee.",
+                "We have drink too much coffee."
+              ],
+              "correctOption": "We have drunk too much coffee."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-c2",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Концерт начался в девять» —",
+              "options": [
+                "The concert began at nine.",
+                "The concert begun at nine.",
+                "The concert has began at nine."
+              ],
+              "correctOption": "The concert began at nine."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-c3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Она плавала в этом озере раньше» —",
+              "options": [
+                "She has swum in this lake before.",
+                "She has swam in this lake before.",
+                "She has swim in this lake before."
+              ],
+              "correctOption": "She has swum in this lake before."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-o1",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "word_order",
+              "prompt": "Кто пел первым?",
+              "canonicalAnswer": "Who sang first?",
+              "tokens": [
+                "first?",
+                "Who",
+                "sang"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-o2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Мой телефон звонил весь вечер.",
+              "canonicalAnswer": "My phone has rung all evening.",
+              "tokens": [
+                "rung",
+                "evening.",
+                "has",
+                "all",
+                "My",
+                "phone"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-t1",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "translate",
+              "prompt": "Концерт начался в девять.",
+              "canonicalAnswer": "The concert began at nine."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-t2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Мы выпили слишком много кофе.",
+              "canonicalAnswer": "We have drunk too much coffee."
+            },
+            {
+              "id": "en-b1-irregular-verbs-03-t3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Она плавала в этом озере раньше.",
+              "canonicalAnswer": "She has swum in this lake before."
+            }
+          ]
+        },
+        {
+          "id": "en-b1-irregular-verbs-04",
+          "title": "Третья форма на -en",
+          "summary": "Группа, без которой не собрать пассив.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b1-irregular-verbs-04-d",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "dialogue",
+              "title": "Заявление в полицию",
+              "lines": [
+                {
+                  "speaker": "Anna",
+                  "text": "My bike was stolen last night.",
+                  "translation": "Мой велосипед украли вчера ночью."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Was the lock broken?",
+                  "translation": "Замок был сломан?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Yes. I have written a report already.",
+                  "translation": "Да. Я уже написала заявление."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Have they taken your details?",
+                  "translation": "Они записали твои данные?"
+                }
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-w1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-passive-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "steal — stole — stolen",
+              "translation": "красть",
+              "example": "My bike was stolen last night."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-w2",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "flashcard",
+              "prompt": "break — broke — broken",
+              "translation": "ломать",
+              "example": "Was the lock broken?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-w3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "write — wrote — written",
+              "translation": "писать",
+              "example": "I have written a report already."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-w4",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "flashcard",
+              "prompt": "take — took — taken",
+              "translation": "брать, забирать",
+              "example": "Have they taken your details?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-w5",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "choose — chose — chosen",
+              "translation": "выбирать",
+              "example": "They have chosen another option."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-w6",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "speak — spoke — spoken",
+              "translation": "говорить",
+              "example": "I have spoken to the manager."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-w7",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "eat — ate — eaten",
+              "translation": "есть",
+              "example": "We have eaten already."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-w8",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "see — saw — seen",
+              "translation": "видеть",
+              "example": "Nobody has seen it since."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-r",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "info",
+              "title": "К второй форме добавляется -en, и это язык пассива",
+              "explanation": "break — broke — broken, steal — stole — stolen, write — wrote — written, take — took — taken, choose — chose — chosen, speak — spoke — spoken, eat — ate — eaten, see — saw — seen. Именно эта группа чаще всего нужна в страдательном залоге: was stolen, was broken, has been written. Ошибка «was stole» получается из второй формы, поставленной после be."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-c1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-passive-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мой велосипед украли вчера ночью» —",
+              "options": [
+                "My bike was stolen last night.",
+                "My bike was stole last night.",
+                "My bike has stolen last night."
+              ],
+              "correctOption": "My bike was stolen last night."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-c2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я уже написала заявление» —",
+              "options": [
+                "I have written a report already.",
+                "I have wrote a report already.",
+                "I have write a report already."
+              ],
+              "correctOption": "I have written a report already."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-c3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Мы уже поели» —",
+              "options": [
+                "We have eaten already.",
+                "We have ate already.",
+                "We have eat already."
+              ],
+              "correctOption": "We have eaten already."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-o1",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "word_order",
+              "prompt": "Замок был сломан?",
+              "canonicalAnswer": "Was the lock broken?",
+              "tokens": [
+                "lock",
+                "broken?",
+                "Was",
+                "the"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-o2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Я поговорила с менеджером.",
+              "canonicalAnswer": "I have spoken to the manager.",
+              "tokens": [
+                "the",
+                "to",
+                "I",
+                "manager.",
+                "have",
+                "spoken"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-t1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-passive-simple"
+              ],
+              "type": "translate",
+              "prompt": "Мой велосипед украли вчера ночью.",
+              "canonicalAnswer": "My bike was stolen last night."
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-t2",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "translate",
+              "prompt": "Они записали твои данные?",
+              "canonicalAnswer": "Have they taken your details?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-04-t3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Никто его с тех пор не видел.",
+              "canonicalAnswer": "Nobody has seen it since."
+            }
+          ]
+        },
+        {
+          "id": "en-b1-irregular-verbs-05",
+          "title": "Самые частотные",
+          "summary": "Глаголы, в которых ошибка слышна сразу.",
+          "estimatedMinutes": 11,
+          "exercises": [
+            {
+              "id": "en-b1-irregular-verbs-05-d",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "dialogue",
+              "title": "Кто куда уехал",
+              "lines": [
+                {
+                  "speaker": "Ben",
+                  "text": "Has she gone home?",
+                  "translation": "Она ушла домой?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "She has been to the office and come back.",
+                  "translation": "Она съездила в офис и вернулась."
+                },
+                {
+                  "speaker": "Ben",
+                  "text": "Did you know about the meeting?",
+                  "translation": "Ты знал про встречу?"
+                },
+                {
+                  "speaker": "Anna",
+                  "text": "Nobody has told me anything.",
+                  "translation": "Мне никто ничего не сказал."
+                }
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-w1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "go — went — gone",
+              "translation": "идти, ехать",
+              "example": "Has she gone home?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-w2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "be — was/were — been",
+              "translation": "быть",
+              "example": "She has been to the office and come back."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-w3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "come — came — come",
+              "translation": "приходить",
+              "example": "She has come back."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-w4",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "flashcard",
+              "prompt": "know — knew — known",
+              "translation": "знать",
+              "example": "Did you know about the meeting?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-w5",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "do — did — done",
+              "translation": "делать",
+              "example": "I have done my part."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-w6",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "get — got — got",
+              "translation": "получать, становиться",
+              "example": "We have got the answer."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-w7",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "forget — forgot — forgotten",
+              "translation": "забывать",
+              "example": "I have forgotten his name."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-w8",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "flashcard",
+              "prompt": "give — gave — given",
+              "translation": "давать",
+              "example": "They have given us two days."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-r",
+              "topics": [
+                "b1-irregular-verbs"
+              ],
+              "type": "info",
+              "title": "gone и been — не одно и то же",
+              "explanation": "У go две третьи формы с разным смыслом: has gone — уехал и ещё там, has been — был и вернулся. Остальные ловушки этой группы: после did глагол остаётся в первой форме (Did you know, а не Did you knew), и третья форма forget — forgotten, а не forgot."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-c1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Она ушла домой?» —",
+              "options": [
+                "Has she gone home?",
+                "Has she went home?",
+                "Has she go home?"
+              ],
+              "correctOption": "Has she gone home?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-c2",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Ты знал про встречу?» —",
+              "options": [
+                "Did you know about the meeting?",
+                "Did you knew about the meeting?",
+                "Did you known about the meeting?"
+              ],
+              "correctOption": "Did you know about the meeting?"
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-c3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "multiple_choice",
+              "prompt": "«Я забыл его имя» —",
+              "options": [
+                "I have forgotten his name.",
+                "I have forgot his name.",
+                "I have forget his name."
+              ],
+              "correctOption": "I have forgotten his name."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-o1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Мне никто ничего не сказал.",
+              "canonicalAnswer": "Nobody has told me anything.",
+              "tokens": [
+                "anything.",
+                "me",
+                "Nobody",
+                "has",
+                "told"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-o2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "word_order",
+              "prompt": "Они дали нам два дня.",
+              "canonicalAnswer": "They have given us two days.",
+              "tokens": [
+                "have",
+                "two",
+                "days.",
+                "They",
+                "us",
+                "given"
+              ]
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-t1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Она съездила в офис и вернулась.",
+              "canonicalAnswer": "She has been to the office and come back."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-t2",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Я свою часть сделал.",
+              "canonicalAnswer": "I have done my part."
+            },
+            {
+              "id": "en-b1-irregular-verbs-05-t3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Мы получили ответ.",
+              "canonicalAnswer": "We have got the answer."
+            }
+          ]
+        },
+        {
+          "id": "en-b1-irregular-verbs-check",
+          "title": "Проверка: неправильные глаголы",
+          "kind": "checkpoint",
+          "summary": "Те же предложения без подсказок и без вариантов.",
+          "estimatedMinutes": 8,
+          "exercises": [
+            {
+              "id": "en-b1-irregular-verbs-check-t1",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Она положила ключи на стол.",
+              "canonicalAnswer": "She has put the keys on the table."
+            },
+            {
+              "id": "en-b1-irregular-verbs-check-t2",
+              "topics": [
+                "b1-irregular-verbs",
+                "a2-past-simple"
+              ],
+              "type": "translate",
+              "prompt": "Кажется, я оставила его в офисе.",
+              "canonicalAnswer": "I think I left it at the office."
+            },
+            {
+              "id": "en-b1-irregular-verbs-check-t3",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Мы выпили слишком много кофе.",
+              "canonicalAnswer": "We have drunk too much coffee."
+            },
+            {
+              "id": "en-b1-irregular-verbs-check-t4",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-passive-simple"
+              ],
+              "type": "translate",
+              "prompt": "Мой велосипед украли вчера ночью.",
+              "canonicalAnswer": "My bike was stolen last night."
+            },
+            {
+              "id": "en-b1-irregular-verbs-check-t5",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Я забыл его имя.",
+              "canonicalAnswer": "I have forgotten his name."
+            },
+            {
+              "id": "en-b1-irregular-verbs-check-t6",
+              "topics": [
+                "b1-irregular-verbs",
+                "b1-present-perfect"
+              ],
+              "type": "translate",
+              "prompt": "Она съездила в офис и вернулась.",
+              "canonicalAnswer": "She has been to the office and come back."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "en-b1-perfect-against-past",
       "title": "Perfect against past",
       "subtitle": "Опыт, результат и закрытый период: когда перфект, а когда прошедшее",
