@@ -18,6 +18,7 @@
     "sync-content": "node scripts/sync-content.mjs",
     "comment:vocabulary": "Замер режима слов: сколько карточек проходит как лексическая единица. Запускать после sync-content; --sample N печатает выборку для проверки глазами.",
     "measure:vocabulary": "npm run sync-content && vite-node scripts/measure-vocabulary.mjs",
+    "measure:listening": "npm run sync-content && vite-node scripts/measure-listening.mjs",
     "dev": "npm run sync-content && vite",
     "build": "npm run sync-content && tsc --noEmit && vite build",
     "comment:mirror": "Зеркало для России: github.io оттуда открывается через раз. Пуш в web/ обновляет только GitHub Pages, зеркало обновляется этой командой вручную. Нужен node 22 — wrangler 4.x на 20-м не запускается.",

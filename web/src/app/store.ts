@@ -988,7 +988,7 @@ export class AppStore {
 
   // MARK: - Listening
 
-  get listeningCount(): number { return ListeningEngine.count(this.practiceCourses, this.selectedLevel) }
+  get listeningCount(): number { return ListeningEngine.count(this.practiceCourses, this.selectedLevel, this.language ?? DEFAULT_LANGUAGE) }
 
   /** The sentence for the exercise the session is on, found by id rather than position. */
   get currentListeningItem(): ListeningItem | null {
@@ -999,7 +999,10 @@ export class AppStore {
   get listeningIsComplete(): boolean { return this.listeningActive && this.session.isComplete }
 
   startListening(): void {
-    const set = ListeningEngine.build({ courses: this.practiceCourses, level: this.selectedLevel, state: this.state })
+    const set = ListeningEngine.build({
+      courses: this.practiceCourses, level: this.selectedLevel,
+      language: this.language ?? DEFAULT_LANGUAGE, state: this.state,
+    })
     if (set.exercises.length === 0) return
     this.listeningItems = set.items
     this.listeningActive = true

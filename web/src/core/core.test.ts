@@ -1152,6 +1152,63 @@ describe('progress storage', () => {
  * Whatever is true of the app has to be true of every language it ships, not only of
  * the one it was written for. A new language passes here or it does not ship.
  */
+describe('аудирование не даёт обрывков разговора', () => {
+  it('отбраковывает реплики, вырванные из диалога', () => {
+    // Настоящие фразы из курса: заглавная и точка на месте, а записать их без
+    // предыдущей реплики нельзя.
+    const fragments = [
+      'By this policy.',
+      'And fifteen years of company.',
+      'Two years in a warehouse.',
+      'Half on completion.',
+      'Named, dated and linked.',
+      'Two automatic ones.',
+      'Starting Monday, yes.',
+    ]
+    for (const text of fragments) {
+      const exercise: Exercise = { id: 'x', type: 'translate', prompt: 'п', canonicalAnswer: text }
+      expect(listeningPhrase(exercise), text).toBeNull()
+    }
+  })
+
+  it('оставляет предложения, включая короткие вопросы', () => {
+    const sentences = [
+      'I cut my finger this morning.',
+      'Was the lock broken?',
+      'Does it bother you at all?',
+      'The train is delayed.',
+      'Can it be rolled back?',
+    ]
+    for (const text of sentences) {
+      const exercise: Exercise = { id: 'x', type: 'translate', prompt: 'п', canonicalAnswer: text }
+      expect(listeningPhrase(exercise), text).not.toBeNull()
+    }
+  })
+
+  it('материала остаётся больше половины прежнего', () => {
+    // Строгость легко довести до пустого раздела, поэтому цена правила измерена:
+    // `npm run measure:listening` показывает 55–63% по английским уровням.
+    for (const level of ['A1', 'A2', 'B1'] as const) {
+      const all = PracticeEngine.pool(courses, level)
+      const sayable = all.filter((exercise) => {
+        const item = shadowingPhrase(exercise)
+        return item !== null && /^[A-Z].*[.!?]$/.test(item.text.trim())
+          && !item.text.includes('…') && item.text.trim().split(/\s+/).length >= 3
+      })
+      const kept = all.filter((exercise) => listeningPhrase(exercise) !== null)
+      expect(kept.length / sayable.length, `${level}: доля оставшегося`).toBeGreaterThan(0.5)
+    }
+  })
+
+  it('другому языку достаётся только базовое правило', () => {
+    // Списки собраны на английском; на испанском они отсеивали 99%, потому что там нет
+    // ни одного английского вспомогательного глагола.
+    const spanish: Exercise = { id: 'x', type: 'translate', prompt: 'п', canonicalAnswer: 'El café está abierto.' }
+    expect(listeningPhrase(spanish, 'en')).toBeNull()
+    expect(listeningPhrase(spanish, 'es')).not.toBeNull()
+  })
+})
+
 describe('формы неправильных глаголов', () => {
   const theory = readLanguage('en').theory.find((pack) => pack.level === 'B1')!
 
