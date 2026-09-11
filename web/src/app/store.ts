@@ -14,6 +14,7 @@ import {
   ProgressionEngine,
   ReviewEngine,
   ShadowingEngine,
+  StudyEngine,
   TopicProgressEngine,
   freshState,
   languageOf,
@@ -25,7 +26,8 @@ import {
 } from '../core'
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
-  LearnerHome, PlacementQuestion, ShadowingItem, Syllabus, TopicProgress, UserState,
+  LearnerHome, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
+  TopicProgress, UserState,
 } from '../core'
 
 /**
@@ -38,17 +40,17 @@ import type {
  */
 export const TABS = ['today', 'course', 'practice', 'progress'] as const
 export type Tab = (typeof TABS)[number]
-export type Screen = Tab | 'settings' | 'topics' | 'language'
+export type Screen = Tab | 'settings' | 'topics' | 'language' | 'theory'
 
 /**
  * Where the running set came from. Four doors lead into the same player, and the
  * summary at the end has to name the one the learner came through — and send them
  * back out of it, rather than always to the same tab.
  */
-export type SessionMode = 'lesson' | 'review' | 'drill' | 'topic'
+export type SessionMode = 'lesson' | 'review' | 'drill' | 'topic' | 'study'
 
 const MODE_KICKER: Record<SessionMode, string> = {
-  lesson: 'ЗАНЯТИЕ', review: 'ПОВТОРЕНИЕ', drill: 'ТРЕНИРОВКА', topic: 'СЛАБАЯ ТЕМА',
+  lesson: 'ЗАНЯТИЕ', review: 'ПОВТОРЕНИЕ', drill: 'ТРЕНИРОВКА', topic: 'СЛАБАЯ ТЕМА', study: 'ПО РАЗБОРУ',
 }
 
 export function isTab(screen: Screen): screen is Tab {
@@ -91,6 +93,16 @@ export class AppStore {
   private rawCourses: CoursePack[] = []
   placementBank: PlacementQuestion[] = []
   syllabus: Syllabus | null = null
+  /** Разборы тем, по одному пакету на уровень. Уровень без разбора просто не показывает экран. */
+  theoryPacks: TheoryPack[] = []
+  /**
+   * Открытый разбор и занятие, построенное вокруг него.
+   *
+   * Оба живут вместе, потому что экран один: и «почитать тему», и «занятие на двадцать
+   * минут» приводят на разбор, а дальше из плана берётся практика.
+   */
+  theoryTopicID: string | null = null
+  studyPlan: StudyPlan | null = null
   state: UserState = freshState()
   session = new LearningSession(freshState())
   screen: Screen = 'today'
@@ -206,12 +218,13 @@ export class AppStore {
     this.language = language
     this.startupError = null
     try {
-      const { courses, placement, syllabus } = await loadContent(language)
+      const { courses, placement, syllabus, theory } = await loadContent(language)
       this.rawCourses = courses
       this.state = localProgressStore(language).load()
       this.courses = personalise(courses, this.home)
       this.placementBank = placement.questions
       this.syllabus = syllabus
+      this.theoryPacks = theory
       this.session = new LearningSession(this.state, language)
     } catch (error) {
       this.startupError = error instanceof Error ? error.message : 'Не удалось загрузить учебные материалы'
@@ -223,6 +236,8 @@ export class AppStore {
 
   /** A language switch must not leave a half-finished lesson from the other one on screen. */
   private closeAllModes(): void {
+    this.theoryTopicID = null
+    this.studyPlan = null
     this.shadowingActive = false
     this.shadowingItems = []
     this.listeningActive = false
@@ -288,6 +303,19 @@ export class AppStore {
    */
   get practiceCourses(): CoursePack[] { return taughtCourses(this.courses, this.selectedLevel, this.completed) }
   get practiceIsAvailable(): boolean { return PracticeEngine.pool(this.practiceCourses, this.selectedLevel).length > 0 }
+
+  /**
+   * Есть ли что тренировать, но нечего производить.
+   *
+   * Так выглядит свежий уровень: карточки открыты, а перевод, сборка и тесты — нет,
+   * потому что производить можно то, чему учили. Три серых строки подряд без объяснения
+   * читаются как поломка, поэтому экран о них говорит.
+   */
+  get productionIsLocked(): boolean {
+    return PracticeEngine.pool(
+      this.practiceCourses, this.selectedLevel, ['translate', 'word_order', 'multiple_choice'],
+    ).length === 0
+  }
 
   get suggestedNextLevel(): CEFRLevel | null {
     const dismissed = new Set(this.state.levelUpDismissed ?? [])
@@ -598,10 +626,18 @@ export class AppStore {
   /**
    * Out of the summary. A drill and a weak topic are started from Тренировка, so that
    * is where leaving one lands; a lesson and a review land on Сегодня.
+   *
+   * Практика по разбору возвращает к списку тем: разобрал одну — видно, что дальше.
    */
   exitSession(): void {
     const mode = this.sessionMode
     this.closeLesson()
+    if (mode === 'study') {
+      this.theoryTopicID = null
+      this.studyPlan = null
+      this.setScreen('theory')
+      return
+    }
     this.setScreen(mode === 'drill' || mode === 'topic' ? 'practice' : 'today')
   }
 
@@ -664,6 +700,100 @@ export class AppStore {
     if (exercises.length === 0) return
     const title = this.syllabus?.topics.find((t) => t.id === topicID)?.title ?? 'Тренировка'
     this.beginSession(PracticeEngine.lesson(exercises, title), 'topic')
+  }
+
+  // MARK: - Разбор темы и занятие на время
+
+  /** Разборы того уровня, на котором человек сейчас. */
+  get theory(): TheoryPack | null {
+    return this.theoryPacks.find((pack) => pack.level === this.selectedLevel) ?? null
+  }
+
+  get hasTheory(): boolean { return (this.theory?.topics.length ?? 0) > 0 }
+
+  /**
+   * Темы уровня для экрана разборов: сам разбор, прочитан ли он и как идут проценты.
+   *
+   * Проценты берутся из той же таблицы, что и «слабые темы», поэтому список сразу
+   * отвечает на вопрос «что мне разобрать», а не просто перечисляет главы.
+   */
+  get theoryList(): Array<{ topic: TheoryTopic; read: boolean; progress: TopicProgress | null }> {
+    const theory = this.theory
+    if (!theory) return []
+    const progress = new Map(this.topicProgress.map((item) => [item.topic.id, item]))
+    return theory.topics.map((topic) => ({
+      topic,
+      read: StudyEngine.isRead(this.state, topic.topicID),
+      progress: progress.get(topic.topicID) ?? null,
+    }))
+  }
+
+  /** Открытый разбор, если экран теории показывает не список, а тему. */
+  get openTopic(): TheoryTopic | null {
+    const theory = this.theory
+    if (!theory || !this.theoryTopicID) return null
+    return StudyEngine.find(theory, this.theoryTopicID)
+  }
+
+  /**
+   * Сколько минут занимает занятие по умолчанию.
+   *
+   * Дневная цель и есть ответ на «сколько я готов сегодня заниматься» — человек уже
+   * назвал это число в настройках, спрашивать второй раз незачем. Ниже десяти минут
+   * занятие вырождается в разбор без практики, поэтому это нижняя граница.
+   */
+  get studyMinutes(): number { return Math.max(10, this.dailyGoalMinutes) }
+
+  /** Занятие, которое предложено на «Сегодня»: тема, почему она и сколько это займёт. */
+  get suggestedStudy(): StudyPlan | null {
+    const theory = this.theory
+    if (!theory) return null
+    return StudyEngine.plan({
+      theory, courses: this.courses, syllabus: this.syllabus, state: this.state,
+      level: this.selectedLevel, minutes: this.studyMinutes,
+    })
+  }
+
+  /** Открыть разбор: и как занятие с «Сегодня», и как чтение из списка тем. */
+  openTheory(topicID?: string, minutes = this.studyMinutes): void {
+    const theory = this.theory
+    if (!theory) return
+    const plan = StudyEngine.plan({
+      theory, courses: this.courses, syllabus: this.syllabus, state: this.state,
+      level: this.selectedLevel, minutes, topicID,
+    })
+    if (!plan) return
+    this.studyPlan = plan
+    this.theoryTopicID = plan.topic.topicID
+    this.screen = 'theory'
+    this.changed()
+  }
+
+  /** Список тем: разбор закрыт, экран остаётся. */
+  closeTopic(): void {
+    this.theoryTopicID = null
+    this.studyPlan = null
+    this.changed()
+  }
+
+  /**
+   * Разбор прочитан. Отмечается по переходу к практике или по закрытию разбора:
+   * это не достижение, а пометка «здесь я был», от которой зависит, что предложат
+   * разобрать следующим.
+   */
+  markTheoryRead(topicID: string): void {
+    if (StudyEngine.isRead(this.state, topicID)) return
+    this.state.theoryRead = [...(this.state.theoryRead ?? []), topicID]
+    this.persist()
+    this.changed()
+  }
+
+  /** Практика занятия — сразу после разбора, по той же теме. */
+  startStudyPractice(): void {
+    const plan = this.studyPlan
+    if (!plan || plan.exercises.length === 0) return
+    this.markTheoryRead(plan.topic.topicID)
+    this.beginSession(StudyEngine.lesson(plan), 'study')
   }
 
   // MARK: - Shadowing

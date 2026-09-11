@@ -122,7 +122,7 @@ export function Player() {
    */
   if (model.session.isComplete) {
     const mistakes = model.sessionMistakes
-    const drilling = model.sessionMode === 'drill' || model.sessionMode === 'topic'
+    const drilling = model.sessionMode === 'drill' || model.sessionMode === 'topic' || model.sessionMode === 'study'
     return (
       <div className="center">
         <p className="done-kicker">{model.sessionKicker}</p>

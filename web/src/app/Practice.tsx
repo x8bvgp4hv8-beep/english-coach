@@ -70,10 +70,18 @@ export function Practice() {
           ))}
         </div>
 
-        {!model.practiceIsAvailable && (
+        {!model.practiceIsAvailable ? (
           <EmptyNote>
             Тренировки собираются из пройденного. Пройди первый урок — и здесь появятся
             карточки, перевод, аудирование и речь вслух.
+          </EmptyNote>
+        ) : model.productionIsLocked && (
+          /* Три серых строки подряд выглядят как пустое приложение, если не сказать, от
+             чего они открываются. Сказать честно: производить можно то, что объяснили. */
+          <EmptyNote>
+            Перевод, сборка и тесты открываются по пройденному: просить сказать самому по
+            теме, которую ещё не объясняли, — это стена, а не упражнение. Пройди урок или
+            разбери тему — и они появятся.
           </EmptyNote>
         )}
 
@@ -97,6 +105,12 @@ export function Practice() {
               </button>
             ))}
           </>
+        )}
+
+        {model.hasTheory && (
+          <button className="link-button" onClick={() => model.setScreen('theory')}>
+            Разборы тем: правила, формы, ошибки ›
+          </button>
         )}
 
         <button className="link-button" onClick={() => model.setScreen('topics')}>

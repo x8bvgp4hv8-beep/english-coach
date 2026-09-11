@@ -12,6 +12,7 @@ import { Progress } from './Progress'
 import { Settings } from './Settings'
 import { Shadowing } from './Shadowing'
 import { TabBar } from './TabBar'
+import { Theory } from './Theory'
 import { Today } from './Today'
 import { Topics } from './Topics'
 import { isTab, store } from './store'
@@ -70,6 +71,7 @@ export function App() {
         : model.activeLesson ? <Player />
         : model.screen === 'settings' ? <Settings />
         : model.screen === 'topics' ? <Topics />
+        : model.screen === 'theory' ? <Theory />
         : model.screen === 'course' ? <Course />
         : model.screen === 'practice' ? <Practice />
         : model.screen === 'progress' ? <Progress />

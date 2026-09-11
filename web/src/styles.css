@@ -150,7 +150,12 @@ body {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  max-width: 560px;
+  /* Ширина колонки — она же ширина всего, что рисуется внутри. На телефоне это экран
+     целиком, в окне браузера — 560, и вот эту разницу приходится называть переменной:
+     всё, что должно совпасть с приложением, обязано мериться отсюда, а не от 100vw.
+     Окно шире колонки, и `100vw` в такой мерке промахивается ровно на эту разницу. */
+  --app-width: min(100vw, 560px);
+  max-width: var(--app-width);
   margin: 0 auto;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left);
   /* Chrome behaves like chrome: a long press on a tab or a heading selects nothing and
@@ -391,12 +396,17 @@ textarea,
   /* The city is drawn 1179×2556 — a phone screen — and `cover` scales it by this much.
      Everything that has to line up with something *in* the drawing is measured in these
      units, so the rhino keeps his feet on the pavement whatever the screen. */
-  --scene: max(100vw / 1179, 100svh / 2556);
-  /* The pavement runs from y=1802 to the bottom edge; he stands a little into it. */
-  --ground: calc(566 * var(--scene));
+  --scene: max(var(--app-width) / 1179, 100svh / 2556);
+  /* The pavement runs from y=1802 to the bottom edge; he stands a little into it.
+     На телефоне это всегда те же 22svh — там рисунок ложится по высоте. Растягивать
+     сцену начинает окно шире телефонного: `cover` берёт масштаб по ширине, срезает небо
+     сверху, и тротуар уезжает к середине экрана вместе с носорогом — тот упирается
+     головой в название языка. Потолок держит фигуру внутри кадра; ноги при этом сходят
+     с нарисованной кромки на набережную, что видно только в окне браузера. */
+  --ground: min(calc(566 * var(--scene)), 26svh);
   /* Viewport units, not percentages: this value is read both as a width and inside a
      `bottom`, and a percentage would quietly resolve against a different side there. */
-  --rhino: min(400px, 100vw, 44svh);
+  --rhino: min(400px, var(--app-width), 44svh);
 }
 
 /* The city, anchored to the bottom edge and breathing very slowly. Behind everything
@@ -729,6 +739,105 @@ textarea,
   display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px;
   font: 400 11px/1 var(--font); color: var(--ink-soft);
 }
+
+/* ── Разбор темы ───────────────────────────────────────────────────────────── */
+
+/* Карточка занятия на «Сегодня». Тон фиолетовый: у урока амбер, у повторения синий,
+   и занятие по правилу должно читаться как третья, своя дверь. */
+.study-card {
+  display: block; width: 100%; text-align: left; margin-top: 12px; padding: 15px;
+  border-radius: var(--radius); background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
+}
+.study-kicker {
+  display: block; font: 700 9px/1.3 var(--font); letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--violet); margin-bottom: 6px;
+}
+.study-title { display: block; font: 700 17px/1.2 var(--font); letter-spacing: -0.02em; color: var(--ink); }
+.study-idea { display: block; font: 400 12px/1.4 var(--font); color: var(--ink-soft); margin-top: 4px; }
+.study-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 9px;
+  font: 400 11px/1.35 var(--font); color: var(--ink-soft);
+}
+
+.theory-row {
+  display: block; width: 100%; text-align: left; margin-top: 10px; padding: 14px;
+  border-radius: var(--radius); background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
+}
+.theory-row-head { display: flex; align-items: baseline; gap: 10px; }
+.theory-row-title { flex: 1; font: 700 15px/1.2 var(--font); color: var(--ink); }
+.theory-row-score { font: 700 13px/1 var(--font); font-variant-numeric: tabular-nums; }
+.theory-row-read { color: var(--mint); display: inline-flex; }
+.theory-row-idea { display: block; font: 400 12px/1.4 var(--font); color: var(--ink-soft); margin-top: 5px; }
+.theory-row-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px;
+  font: 400 11px/1 var(--font); color: var(--ink-soft);
+}
+
+.theory-kicker {
+  font: 700 9px/1 var(--font); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--violet); margin: 2px 0 8px;
+}
+.theory-title { font: 700 25px/1.15 var(--font); letter-spacing: -0.02em; color: var(--ink); margin: 0; }
+.theory-idea { font: 400 14px/1.45 var(--font); color: var(--ink-soft); margin: 7px 0 0; }
+
+.theory-section { margin-top: 26px; }
+.theory-heading { font: 700 15px/1.3 var(--font); color: var(--ink); margin: 0 0 8px; }
+/* Текст правила читают, а не просматривают: строка длиннее и просторнее, чем в карточках. */
+.theory-body { font: 400 14px/1.6 var(--font); color: var(--ink); margin: 0; }
+
+/* Таблица форм шире телефона, поэтому прокручивается внутри себя, а не тянет страницу. */
+.theory-table-wrap { overflow-x: auto; margin-top: 11px; -webkit-overflow-scrolling: touch; }
+.theory-table {
+  width: 100%; border-collapse: collapse; font: 400 13px/1.4 var(--font);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
+  border-radius: var(--radius); overflow: hidden;
+}
+.theory-table caption {
+  caption-side: top; text-align: left; padding: 0 0 7px;
+  font: 400 12px/1.35 var(--font); color: var(--ink-soft);
+}
+.theory-table th {
+  text-align: left; padding: 9px 11px; font-weight: 700; color: var(--ink);
+  background: var(--accent-soft); border-bottom: var(--border-w) solid var(--border-col);
+  white-space: nowrap;
+}
+.theory-table td { padding: 9px 11px; color: var(--ink); vertical-align: top; }
+.theory-table td[lang='en'] { font-family: var(--font-learn); }
+.theory-table tbody tr + tr td { border-top: var(--border-w) solid var(--hairline); }
+
+.theory-cases { list-style: none; margin: 11px 0 0; padding: 0; display: grid; gap: 10px; }
+.theory-cases > li {
+  padding: 11px 13px; border-radius: var(--radius); background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col); border-left: 3px solid var(--blue);
+}
+.theory-case-use {
+  display: block; font: 700 11px/1.3 var(--font); color: var(--ink-soft);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.theory-case-example {
+  display: block; font: 400 15px/1.4 var(--font-learn); color: var(--ink); margin-top: 5px;
+}
+.theory-case-translation { display: block; font: 400 12px/1.4 var(--font); color: var(--ink-soft); margin-top: 3px; }
+
+/* Ошибки — главная часть разбора, поэтому неверное и верное стоят строкой друг под
+   другом: разница видна в одном взгляде, без чтения объяснения. */
+.theory-mistakes { list-style: none; margin: 11px 0 0; padding: 0; display: grid; gap: 10px; }
+.theory-mistakes > li {
+  padding: 11px 13px; border-radius: var(--radius); background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col);
+}
+.theory-wrong, .theory-right {
+  display: flex; gap: 7px; font: 400 15px/1.4 var(--font-learn);
+}
+.theory-wrong { color: var(--coral); }
+.theory-right { color: var(--mint); margin-top: 3px; }
+.theory-mark { flex: none; font: 700 13px/1.5 var(--font); }
+.theory-why { display: block; font: 400 12px/1.45 var(--font); color: var(--ink-soft); margin-top: 6px; }
+
+.theory-foot { margin: 30px 0 10px; display: grid; gap: 10px; }
+.theory-foot-note { font: 400 12px/1.45 var(--font); color: var(--ink-soft); margin: 0; text-align: center; }
 
 /* ── Progress ──────────────────────────────────────────────────────────────── */
 

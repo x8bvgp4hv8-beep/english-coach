@@ -18,6 +18,7 @@ export function Today() {
   const next = model.recommendedLesson
   const place = model.nextPlace
   const streak = model.streak()
+  const study = model.suggestedStudy
 
   return (
     <>
@@ -58,6 +59,26 @@ export function Today() {
                 <span className="next-in-block">Урок {place.position} из {place.total} в блоке</span>
               </>
             )}
+          </button>
+        )}
+
+        {/* Занятие по правилу: то, чего в приложении не было — теория с разбором и
+            практика на неё, ровно на то время, которое человек назвал дневной целью. */}
+        {study && (
+          <button className="study-card" onClick={() => model.openTheory(study.topic.topicID)}>
+            <span className="study-kicker">
+              {study.reason === 'weak' ? 'Разбор темы · здесь больше всего ошибок' : 'Разбор темы и практика'}
+              {' · '}{study.minutes} мин
+            </span>
+            <span className="study-title">{study.topic.title}</span>
+            <span className="study-idea">{study.topic.idea}</span>
+            <span className="study-foot">
+              <span>
+                Правило, формы, типичные ошибки — потом{' '}
+                {study.exercises.length} {plural(study.exercises.length, 'упражнение', 'упражнения', 'упражнений')} по нему
+              </span>
+              <Icon name="chevron" size={14} />
+            </span>
           </button>
         )}
 
