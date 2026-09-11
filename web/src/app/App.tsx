@@ -70,6 +70,8 @@ export function App() {
         : model.shadowingActive ? <Shadowing />
         : model.listeningActive ? <Listening />
         : model.verbFormsActive ? <VerbForms />
+        // Разбор поверх урока: сессия за ним жива, и возврат ведёт на то же место.
+        : model.theoryOverLesson ? <Theory />
         : model.activeLesson ? <Player />
         : model.screen === 'settings' ? <Settings />
         : model.screen === 'topics' ? <Topics />

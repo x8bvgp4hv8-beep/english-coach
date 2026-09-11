@@ -107,6 +107,14 @@ export class AppStore {
    */
   theoryTopicID: string | null = null
   studyPlan: StudyPlan | null = null
+  /**
+   * Разбор открыт поверх идущего урока.
+   *
+   * Урок при этом не закрывается: сессия жива, место в ней сохранено, и «Вернуться в урок»
+   * возвращает ровно туда, откуда ушли. Иначе «прочитать правило целиком» стоило бы
+   * потерянного занятия, и никто бы этим не пользовался.
+   */
+  theoryOverLesson = false
   state: UserState = freshState()
   session = new LearningSession(freshState())
   screen: Screen = 'today'
@@ -257,6 +265,7 @@ export class AppStore {
 
   /** A language switch must not leave a half-finished lesson from the other one on screen. */
   private closeAllModes(): void {
+    this.theoryOverLesson = false
     this.verbFormsActive = false
     this.verbFormsQueue = []
     this.theoryTopicID = null
@@ -898,7 +907,34 @@ export class AppStore {
   closeTopic(): void {
     this.theoryTopicID = null
     this.studyPlan = null
+    this.theoryOverLesson = false
     this.changed()
+  }
+
+  /**
+   * Разбор темы прямо из урока: правило целиком там, где оно понадобилось.
+   *
+   * В уроке теория — один абзац `info`, а полный разбор той же темы лежит рядом, и до
+   * этого они друг о друге не знали. Практика здесь не собирается: человек уже внутри
+   * занятия, и предлагать ему второе было бы странно.
+   */
+  openTheoryOverLesson(topicID: string): void {
+    const theory = this.theory
+    if (!theory || !StudyEngine.find(theory, topicID)) return
+    this.theoryTopicID = topicID
+    this.studyPlan = null
+    this.theoryOverLesson = true
+    this.changed()
+  }
+
+  /** Есть ли разбор у темы этого упражнения — по нему рисуется ссылка в уроке. */
+  theoryTopicFor(exercise: Exercise | null): string | null {
+    const theory = this.theory
+    if (!theory || !exercise) return null
+    for (const topicID of exercise.topics ?? []) {
+      if (StudyEngine.find(theory, topicID)) return topicID
+    }
+    return null
   }
 
   /**

@@ -1298,20 +1298,30 @@ describe('разбор темы и занятие на время', () => {
     expect(() => decodeTheory({ ...valid, topics: [crooked] }, known)).toThrow()
   })
 
-  it('каждая грамматическая тема B1 разобрана, и разбор не пустой', () => {
+  it('каждая грамматическая тема уровня разобрана, и разбор не пустой', () => {
     // Жалоба была «не обучает от и до с разбором теории»: в уроке на теорию отведён
     // один абзац. Здесь проверяется, что у темы есть и формы, и границы, и ошибки.
-    const grammar = syllabus.topics.filter((topic) => topic.level === 'B1' && !topic.id.startsWith('b1-tema'))
-    const explained = new Set(theory.topics.map((topic) => topic.topicID))
-    expect([...grammar.map((topic) => topic.id)].filter((id) => !explained.has(id))).toEqual([])
+    //
+    // Проверка идёт по каждому уровню, у которого есть разбор: пока она смотрела только
+    // B1, наполненный A2 мог остаться без разборов и ничего бы не упало.
+    expect(packs.length, 'уровней с разборами').toBeGreaterThanOrEqual(2)
 
-    for (const topic of theory.topics) {
-      expect(topic.sections.length, `${topic.topicID}: разделов`).toBeGreaterThanOrEqual(3)
-      expect(topic.sections.some((section) => section.table), `${topic.topicID}: таблица форм`).toBe(true)
-      const mistakes = topic.sections.flatMap((section) => section.mistakes ?? [])
-      expect(mistakes.length, `${topic.topicID}: разобранных ошибок`).toBeGreaterThanOrEqual(3)
-      // Ошибка без «почему» — это просто вторая фраза рядом с первой.
-      expect(mistakes.every((item) => item.wrong && item.right && item.why)).toBe(true)
+    for (const pack of packs) {
+      const prefix = `${pack.level.toLowerCase()}-tema`
+      const grammar = syllabus.topics
+        .filter((topic) => topic.level === pack.level && !topic.id.startsWith(prefix))
+        .map((topic) => topic.id)
+      const explained = new Set(pack.topics.map((topic) => topic.topicID))
+      expect(grammar.filter((id) => !explained.has(id)), `${pack.level}: без разбора`).toEqual([])
+
+      for (const topic of pack.topics) {
+        expect(topic.sections.length, `${topic.topicID}: разделов`).toBeGreaterThanOrEqual(3)
+        expect(topic.sections.some((section) => section.table), `${topic.topicID}: таблица форм`).toBe(true)
+        const mistakes = topic.sections.flatMap((section) => section.mistakes ?? [])
+        expect(mistakes.length, `${topic.topicID}: разобранных ошибок`).toBeGreaterThanOrEqual(3)
+        // Ошибка без «почему» — это просто вторая фраза рядом с первой.
+        expect(mistakes.every((item) => item.wrong && item.right && item.why)).toBe(true)
+      }
     }
   })
 

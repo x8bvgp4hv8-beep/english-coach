@@ -23,7 +23,7 @@ export function Theory() {
         <div className="header-top">
           <button
             className="icon-button"
-            onClick={() => (topic ? model.closeTopic() : model.goBack())}
+            onClick={() => (topic || model.theoryOverLesson ? model.closeTopic() : model.goBack())}
             aria-label="Назад"
           >
             ‹
@@ -97,7 +97,12 @@ function Reader({ model, topic, plan }: { model: AppStore; topic: TheoryTopic; p
       ))}
 
       <div className="theory-foot">
-        {exercises > 0 ? (
+        {model.theoryOverLesson ? (
+          /* Пришли из урока: практику предлагать незачем — человек уже внутри занятия. */
+          <PrimaryButton onClick={() => { model.markTheoryRead(topic.topicID); model.closeTopic() }}>
+            Вернуться в урок
+          </PrimaryButton>
+        ) : exercises > 0 ? (
           <>
             <PrimaryButton onClick={() => model.startStudyPractice()}>
               Дальше — практика по теме
@@ -110,11 +115,13 @@ function Reader({ model, topic, plan }: { model: AppStore; topic: TheoryTopic; p
         ) : (
           <EmptyNote>Упражнений по этой теме в курсе пока нет — разбор есть, практики ещё нет.</EmptyNote>
         )}
-        <SecondaryButton
-          onClick={() => { model.markTheoryRead(topic.topicID); model.closeTopic() }}
-        >
-          К списку тем
-        </SecondaryButton>
+        {!model.theoryOverLesson && (
+          <SecondaryButton
+            onClick={() => { model.markTheoryRead(topic.topicID); model.closeTopic() }}
+          >
+            К списку тем
+          </SecondaryButton>
+        )}
       </div>
     </>
   )

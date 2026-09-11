@@ -68,6 +68,7 @@ function DialoguePlayer({ lines }: { lines: DialogueLine[] }) {
 
 export function Player() {
   const model = useStore()
+  const theoryTopic = model.theoryTopicFor(model.currentExercise)
   const exercise = model.currentExercise
   const lesson = model.activeLesson
   const feedback = model.feedback
@@ -239,6 +240,14 @@ export function Player() {
           {shown.type === 'dialogue' && <DialoguePlayer lines={shown.lines ?? []} />}
 
           {shown.type === 'info' && <p className="exercise-explanation">{shown.explanation}</p>}
+
+          {/* В уроке правило — это абзац; полный разбор той же темы лежит рядом, и до
+              этой ссылки они друг о друге не знали. Урок за разбором не закрывается. */}
+          {shown.type === 'info' && theoryTopic && (
+            <button className="link-button" onClick={() => model.openTheoryOverLesson(theoryTopic)}>
+              Полный разбор темы: формы, границы, ошибки ›
+            </button>
+          )}
 
           {shown.type === 'flashcard' && (
             <>
