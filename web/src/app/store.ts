@@ -16,6 +16,7 @@ import {
   ShadowingEngine,
   StudyEngine,
   TopicProgressEngine,
+  VocabularyEngine,
   freshState,
   languageOf,
   DEFAULT_HOME,
@@ -700,6 +701,25 @@ export class AppStore {
     if (exercises.length === 0) return
     const title = this.syllabus?.topics.find((t) => t.id === topicID)?.title ?? 'Тренировка'
     this.beginSession(PracticeEngine.lesson(exercises, title), 'topic')
+  }
+
+  // MARK: - Слова
+
+  /**
+   * Сколько слов уровня доступно. Считается по тому же скоупу, что и вся практика,
+   * поэтому на непройденном уровне слова есть, а производство ещё нет.
+   */
+  get vocabularyCount(): number {
+    return VocabularyEngine.count(this.practiceCourses, this.selectedLevel, this.language ?? DEFAULT_LANGUAGE)
+  }
+
+  startVocabulary(): void {
+    const exercises = VocabularyEngine.build({
+      courses: this.practiceCourses, level: this.selectedLevel,
+      language: this.language ?? DEFAULT_LANGUAGE, state: this.state,
+    })
+    if (exercises.length === 0) return
+    this.beginSession(VocabularyEngine.lesson(exercises), 'drill')
   }
 
   // MARK: - Разбор темы и занятие на время

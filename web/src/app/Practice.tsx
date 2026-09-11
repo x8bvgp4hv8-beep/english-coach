@@ -6,7 +6,7 @@ import { EmptyNote, SectionTitle } from '../kit'
 import type { IconName } from '../kit/Icons'
 
 const KIND_ICON: Record<string, IconName> = {
-  mixed: 'target', flashcard: 'cards', translate: 'write', word_order: 'order',
+  mixed: 'target', flashcard: 'dialogue', translate: 'write', word_order: 'order',
   multiple_choice: 'choice',
 }
 const KIND_COLOR: Record<string, string> = {
@@ -56,6 +56,15 @@ export function Practice() {
             note="Сначала целиком, потом по репликам"
             ready={false}
             onClick={() => {}}
+          />
+          {/* Слова впереди остальных видов: «хочу поучить слова» — самый частый запрос к
+              тренажёру, и до этого режима приложение отвечало на него куском реплики. */}
+          <KindRow
+            icon="cards" color="var(--violet)"
+            title="Слова"
+            note="Слово, перевод и пример — без обрывков фраз"
+            ready={model.vocabularyCount > 0}
+            onClick={() => model.startVocabulary()}
           />
           {PRACTICE_KINDS.map((kind) => (
             <KindRow

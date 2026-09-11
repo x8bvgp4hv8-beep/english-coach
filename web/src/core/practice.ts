@@ -128,7 +128,9 @@ export function prioritise(pool: Exercise[], state: UserState, now: Date, random
 /** The kinds of practice offered on the main screen, in the order they are shown. */
 export const PRACTICE_KINDS: Array<{ id: string; title: string; subtitle: string; types: ExerciseType[] }> = [
   { id: 'mixed', title: 'Всё вперемешку', subtitle: 'Сначала сложное, потом новое', types: ['flashcard', 'translate', 'word_order', 'multiple_choice'] },
-  { id: 'flashcard', title: 'Карточки', subtitle: 'Новое показывается, знакомое спрашивается', types: ['flashcard'] },
+  // Не «Карточки», а «Фразы»: из 4660 карточек B1 одиночных слов 4%, остальное — куски
+  // реплик. Слова живут в своём режиме (`vocabulary.ts`), который их отбирает.
+  { id: 'flashcard', title: 'Фразы', subtitle: 'Куски реплик из диалогов: узнать и вспомнить', types: ['flashcard'] },
   { id: 'translate', title: 'Перевод', subtitle: 'С русского, письменно', types: ['translate'] },
   { id: 'word_order', title: 'Собрать предложение', subtitle: 'Слова даны, нужен порядок', types: ['word_order'] },
   { id: 'multiple_choice', title: 'Тесты', subtitle: 'Выбрать правильный вариант', types: ['multiple_choice'] },

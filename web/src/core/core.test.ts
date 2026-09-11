@@ -12,6 +12,7 @@ import { PracticeEngine, prioritise, taughtCourses } from './practice'
 import { LearningSession } from './session'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { StudyEngine, decodeTheory } from './theory'
+import { VocabularyEngine, vocabularyUnit } from './vocabulary'
 import { deserialize, serialize } from './storage'
 import { LANGUAGE_CODES } from './language'
 import { ATTEMPT_LOG_LIMIT, EXERCISE_TYPES, LEVELS, freshState, seenExerciseIDs, trimAttempts } from './types'
@@ -1150,6 +1151,72 @@ describe('progress storage', () => {
  * Whatever is true of the app has to be true of every language it ships, not only of
  * the one it was written for. A new language passes here or it does not ship.
  */
+describe('режим слов', () => {
+  /**
+   * Жалоба была «хочу поучить слова, а дают hello goodbye»: вторая её половина — что
+   * «словом» в приложении оказывался кусок реплики. Замер по B1 на 11.09.2026: одиночных
+   * слов 4%, коллокаций 61%, обрывков из четырёх и больше 27%, предложений 6%.
+   */
+  it('в набор не попадает то, что не является единицей', () => {
+    const level = 'B1'
+    const pool = VocabularyEngine.pool(courses, level, 'en')
+    expect(pool.length).toBeGreaterThan(0)
+
+    for (const exercise of pool) {
+      const prompt = exercise.prompt ?? ''
+      expect(prompt, 'многоточие — оборванная фраза').not.toContain('…')
+      expect(prompt, 'запятая — две части предложения').not.toContain(',')
+      if (!prompt.includes(' — ')) {
+        const bare = prompt.replace(/^[¿¡]+/, '').replace(/[.!?]+$/, '').trim()
+        expect(bare.split(/\s+/).length, `${prompt}: слов`).toBeLessThanOrEqual(3)
+        expect(bare, `${prompt}: личная форма be/have`).not.toMatch(/\b(is|are|was|were|has|have|had|will|can)\b/i)
+        expect(bare, `${prompt}: подлежащее`).not.toMatch(/^(I|You|He|She|We|They|It|There|Nobody)\b/i)
+      }
+    }
+  })
+
+  it('материала хватает на каждом наполненном уровне', () => {
+    // Отбор строгий, и строгость легко довести до пустого режима: 4660 карточек B1 дают
+    // 1214 единиц, и если правило станет жёстче, тест скажет об этом раньше учащегося.
+    for (const level of ['A1', 'A2', 'B1'] as const) {
+      expect(VocabularyEngine.count(courses, level, 'en'), `${level}: единиц`).toBeGreaterThan(400)
+    }
+  })
+
+  it('формы неправильного глагола остаются единицей', () => {
+    expect(vocabularyUnit({ id: 'f', type: 'flashcard', prompt: 'break — broke — broken', translation: 'ломать' }, 'en'))
+      .toBe('forms')
+    expect(vocabularyUnit({ id: 'w', type: 'flashcard', prompt: 'the flu', translation: 'грипп' }, 'en')).toBe('phrase')
+    expect(vocabularyUnit({ id: 's', type: 'flashcard', prompt: 'obvious', translation: 'очевидно' }, 'en')).toBe('word')
+  })
+
+  it('отбраковывает именно то, на что жаловались', () => {
+    // Каждая строка здесь — настоящая карточка из курса, не выдуманный пример.
+    const rejected = [
+      ['of one problem', 'одной задачи'],
+      ['about half of it', 'примерно половину'],
+      ['had left the tap running', 'забыл закрыть кран'],
+      ['the clock stops', 'счётчик останавливается'],
+      ['the letter says', 'в письме написано'],
+      ['nobody rests', 'никто не отдыхает'],
+      ['were left unpainted', 'оставили некрашеными'],
+      ['How long have you been…?', 'Давно вы …?'],
+      ['I noticed.', 'Я заметил.'],
+      ['than lose it', 'чем потерять'],
+    ]
+    for (const [prompt, translation] of rejected) {
+      expect(vocabularyUnit({ id: 'x', type: 'flashcard', prompt, translation }, 'en'), prompt).toBeNull()
+    }
+  })
+
+  it('слова есть на уровне, где производить ещё нечего', () => {
+    // Смысл режима: «поучить слова» не должно ждать пройденных уроков.
+    const scope = taughtCourses(courses, 'B1', new Set())
+    expect(PracticeEngine.pool(scope, 'B1', ['translate', 'word_order'])).toHaveLength(0)
+    expect(VocabularyEngine.count(scope, 'B1', 'en')).toBeGreaterThan(400)
+  })
+})
+
 describe('разбор темы и занятие на время', () => {
   const { theory: packs, syllabus, courses: allCourses } = readLanguage('en')
   const theory = packs.find((pack) => pack.level === 'B1')!
