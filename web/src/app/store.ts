@@ -716,6 +716,15 @@ export class AppStore {
     }, 'review')
   }
 
+  /** Минуты в разборах за последние семь дней и сколько тем разобрано. */
+  get studyWeek(): { minutes: number; topics: number } {
+    let seconds = 0
+    for (const date of calendarWeek()) {
+      seconds += (this.state.studySeconds ?? {})[PracticeLog.dayKey(date)] ?? 0
+    }
+    return { minutes: Math.floor(seconds / 60), topics: (this.state.theoryRead ?? []).length }
+  }
+
   get practiceCounts(): Record<string, number> {
     return PracticeEngine.counts(this.practiceCourses, this.selectedLevel)
   }
@@ -1254,6 +1263,11 @@ export class AppStore {
     const seconds = (now.getTime() - this.lessonStartedAt.getTime()) / 1000
     this.lessonStartedAt = null
     this.state.practiceSeconds = PracticeLog.adding(seconds, this.state.practiceSeconds, now)
+    // Занятие по разбору попадает и в общий дневник, и в свой: на «Прогрессе» видно,
+    // сколько времени ушло в теорию, а не только «сколько всего занимался».
+    if (this.sessionMode === 'study') {
+      this.state.studySeconds = PracticeLog.adding(seconds, this.state.studySeconds, now)
+    }
     // Замер идёт в копилку только с дойденного до конца урока: брошенный на середине
     // говорит о жизни, а не о длине урока, и сравнивать его с оценкой нельзя.
     const lesson = this.session.activeLesson

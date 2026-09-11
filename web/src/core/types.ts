@@ -232,6 +232,13 @@ export interface UserState {
    * замкнутую метрику, из-за которой срез и понадобился.
    */
   checkups?: { date: string; level: CEFRLevel; correct: number; total: number }[]
+  /**
+   * Секунды, ушедшие в занятия по разборам, по дням — подмножество `practiceSeconds`.
+   *
+   * Нужно, чтобы «Прогресс» мог сказать, сколько времени ушло в теорию против уроков:
+   * без этого разбор и урок сливаются в одну цифру, и неясно, чем человек занимался.
+   */
+  studySeconds?: Record<string, number>
 }
 
 export function freshState(): UserState {

@@ -51,6 +51,10 @@ export function Progress() {
         <SectionTitle>Произношение</SectionTitle>
         <Pronunciation model={model} />
 
+        {/* Разборы отдельной строкой: иначе теория и уроки сливаются в одну цифру,
+            и неясно, на что ушло время. */}
+        {model.hasTheory && <StudyLine model={model} />}
+
         <SectionTitle>Минуты по дням</SectionTitle>
         <p className="chart-goal">Цель — {model.dailyGoalMinutes} минут в день</p>
         <WeekChart model={model} />
@@ -184,6 +188,21 @@ function WeekChart({ model }: { model: AppStore }) {
         </div>
       </div>
       <p className="chart-line">{chartLine(total, days.filter((d) => d.goalReached).length)}</p>
+    </>
+  )
+}
+
+/** Сколько времени за неделю ушло в разборы и сколько тем разобрано. */
+function StudyLine({ model }: { model: AppStore }) {
+  const { minutes, topics } = model.studyWeek
+  return (
+    <>
+      <SectionTitle hint="Время в разборах теории, отдельно от уроков и повторений">Разборы</SectionTitle>
+      <p className="chart-goal">
+        {minutes === 0 && topics === 0
+          ? 'Пока ни одного разбора. Правило целиком — там, где в уроке один абзац.'
+          : `${minutes} ${plural(minutes, 'минута', 'минуты', 'минут')} за неделю · разобрано ${topics} ${plural(topics, 'тема', 'темы', 'тем')}`}
+      </p>
     </>
   )
 }

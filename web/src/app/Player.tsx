@@ -4,13 +4,13 @@ import { useStore } from './App'
 import { plural, spell } from './plural'
 import { speak } from './speech'
 import { hatFor, lineForVerdict, Rhino, RhinoPop } from '../mascot/Rhino'
-import { diffSummary } from '../core'
+import { diffSummary, vocabularyUnit } from '../core'
 import { Icon } from '../kit/Icons'
 import type { RhinoLine } from '../mascot/Rhino'
 import {
   AnswerField, Choice, ChoiceList, Dialogue, Feedback, Pill, PrimaryButton, SecondaryButton, WordOrderTray,
 } from '../kit'
-import type { AnswerResult, DialogueLine, Exercise, ExerciseType, LearningLanguage, WordDiff } from '../core'
+import type { AnswerResult, DialogueLine, Exercise, ExerciseType, LanguageCode, LearningLanguage, WordDiff } from '../core'
 
 /**
  * One answered step, frozen the way the learner left it.
@@ -37,9 +37,23 @@ const selfVerdict = (correct: boolean, exercise: Exercise): AnswerResult => ({
   canonical: exercise.canonicalAnswer ?? exercise.prompt ?? '',
 })
 
-/** The translate label names the target language, so it is built per language. */
-const kindLabel = (type: ExerciseType, language: LearningLanguage, recall: boolean): string => {
-  if (type === 'flashcard' && recall) return 'ВСПОМНИ ФРАЗУ'
+/**
+ * The translate label names the target language, so it is built per language.
+ *
+ * Подпись у карточки не одна на всех: на ней бывает и слово, и кусок реплики, и три
+ * формы глагола. «НОВАЯ ФРАЗА» над `get — got — got` — прямая неправда, и её видно
+ * каждый раз, когда открываешь тренажёр форм.
+ */
+const kindLabel = (
+  type: ExerciseType, language: LearningLanguage, recall: boolean,
+  exercise?: Exercise, code: LanguageCode = 'en',
+): string => {
+  if (type === 'flashcard') {
+    const unit = exercise ? vocabularyUnit(exercise, code) : null
+    if (unit === 'forms') return recall ? 'ВСПОМНИ ФОРМЫ' : 'ФОРМЫ ГЛАГОЛА'
+    if (unit === 'word') return recall ? 'ВСПОМНИ СЛОВО' : 'НОВОЕ СЛОВО'
+    if (recall) return 'ВСПОМНИ ФРАЗУ'
+  }
   return {
     dialogue: 'ПОСЛУШАЙ',
     info: 'КОРОТКОЕ ПРАВИЛО',
@@ -224,7 +238,9 @@ export function Player() {
         {past && <p className="peek-note">Это уже отвеченный шаг — ответ показан так, как ты его дал.</p>}
         {/* Keyed by exercise so the card replays its arrival on every step. */}
         <div className="card" key={shown.id}>
-          <div className="exercise-kind">{kindLabel(shown.type, model.currentLanguage, view.recall)}</div>
+          <div className="exercise-kind">
+            {kindLabel(shown.type, model.currentLanguage, view.recall, shown, model.currentLanguage.code)}
+          </div>
           {shown.title && <h2 className="exercise-title">{shown.title}</h2>}
           {shown.prompt && !answerHidden && (
             /* A flashcard prompt is the word itself; every other kind asks its question
