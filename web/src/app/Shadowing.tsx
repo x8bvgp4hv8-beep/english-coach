@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { useStore } from './App'
+import { Icon } from '../kit/Icons'
 import { speak, stopSpeaking } from './speech'
 
 /**
@@ -145,7 +146,7 @@ export function Shadowing() {
   return (
     <div className="player">
       <div className="player-bar">
-        <button className="icon-button" onClick={leave} aria-label="Выйти">✕</button>
+        <button className="icon-button" onClick={leave} aria-label="Закрыть"><Icon name="close" size={20} /></button>
         <span className="player-title">Вслух за диктором</span>
         <span className="player-count">{position} / {total}</span>
       </div>

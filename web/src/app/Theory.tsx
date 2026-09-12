@@ -26,7 +26,7 @@ export function Theory() {
             onClick={() => (topic || model.theoryOverLesson ? model.closeTopic() : model.goBack())}
             aria-label="Назад"
           >
-            ‹
+            <Icon name="arrow-left" size={20} />
           </button>
           <h1 className="brand-title" style={{ flex: 1, textAlign: 'center' }}>
             {topic ? 'Разбор' : 'Разборы тем'}

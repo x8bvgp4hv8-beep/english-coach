@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { useStore } from './App'
+import { Icon } from '../kit/Icons'
 import { SLOW_RATE, speak, stopSpeaking } from './speech'
 import { diffSummary } from '../core'
 import type { WordDiff } from '../core'
@@ -58,7 +59,7 @@ export function Listening() {
   return (
     <div className="player">
       <div className="player-bar">
-        <button className="icon-button" onClick={leave} aria-label="Выйти">✕</button>
+        <button className="icon-button" onClick={leave} aria-label="Закрыть"><Icon name="close" size={20} /></button>
         <span className="player-title">На слух</span>
         <span className="player-count">{position} / {total}</span>
       </div>

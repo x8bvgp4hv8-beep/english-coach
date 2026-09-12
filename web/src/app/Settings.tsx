@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { useStore } from './App'
+import { Icon } from '../kit/Icons'
 import { PlacementTest } from './Placement'
 import { disablePush, enablePush, pushState } from './push'
-import { chooseVoice, chosenVoiceName, speak, voicesFor } from './speech'
+import { APPLE, chooseVoice, chosenVoiceName, speak, voiceLabel, voicesFor } from './speech'
 import { THEMES, applyTheme, loadTheme } from './theme'
 import type { PushState } from './push'
 import { COMMON_COUNTRIES, LEVELS, importBackup } from '../core'
@@ -109,7 +110,7 @@ export function Settings() {
     <>
       <header className="header">
         <div className="header-top">
-          <button className="icon-button" onClick={() => model.goBack()} aria-label="Назад">‹</button>
+          <button className="icon-button" onClick={() => model.goBack()} aria-label="Назад"><Icon name="arrow-left" size={20} /></button>
           <h1 className="brand-title" style={{ flex: 1, textAlign: 'center' }}>Настройки</h1>
           <span style={{ width: 48 }} />
         </div>
@@ -140,17 +141,29 @@ export function Settings() {
                     speak(model.currentLanguage.greeting)
                   }}
                 >
-                  <span className="label">{item.name.split(' (')[0]}</span>
+                  <span className="label">{voiceLabel(item)}</span>
                   <span className="value">{item.name === voiceName ? 'выбран ✓' : 'послушать ›'}</span>
                 </button>
               ))}
             </div>
             <p className="settings-note">
-              Все голоса на этом устройстве — облегчённые, поэтому звучат механически. Живой голос
-              скачивается отдельно и один раз: на iPhone — Настройки → Универсальный доступ →
-              Устный контент → Голоса, на Маке — Системные настройки → Универсальный доступ →
-              Устная речь → Системный голос → «Управление голосами». Там у нужного языка выбери
-              вариант с пометкой Enhanced или Premium.
+              {APPLE ? (
+                <>
+                  Все голоса на этом устройстве — облегчённые, поэтому звучат механически. Живой голос
+                  скачивается отдельно и один раз: на iPhone — Настройки → Универсальный доступ →
+                  Устный контент → Голоса, на Маке — Системные настройки → Универсальный доступ →
+                  Устная речь → Системный голос → «Управление голосами». Там у нужного языка выбери
+                  вариант с пометкой Enhanced или Premium.
+                </>
+              ) : (
+                <>
+                  На Android голос читает вслух через «Синтез речи», и без интернета он звучит только
+                  из скачанного пакета: Настройки → Система → Языки и ввод → Синтез речи → Google →
+                  «Установка голосовых данных», там выбери нужный язык и скачай. Пока пакета нет,
+                  озвучка может молчать в самолёте и в метро — остальное приложение работает офлайн
+                  в любом случае.
+                </>
+              )}
             </p>
           </>
         )}
@@ -183,7 +196,6 @@ export function Settings() {
                 <button
                   key={level}
                   className={`pill${level === model.selectedLevel ? ' selected' : ''}`}
-                  style={{ minWidth: 44, minHeight: 36 }}
                   onClick={() => model.selectLevel(level)}
                 >
                   {level}
@@ -203,20 +215,23 @@ export function Settings() {
         {/* Курс говорит «я из …» словами того, кто его проходит. Пока страна не выбрана,
             в упражнениях стоит чужая для примера — и это видно по подписи. */}
         <div className="settings-group">
-          <div className="settings-row" style={{ display: 'block', paddingTop: 12, paddingBottom: 12 }}>
+          <div className="settings-row">
             <span className="label">Откуда ты</span>
-            <div className="pills" style={{ marginTop: 10 }}>
+            <div className="pills">
               {COMMON_COUNTRIES.map((item) => (
                 <button
                   key={item.country}
                   className={`pill${model.home.country === item.country ? ' selected' : ''}`}
-                  style={{ minHeight: 36 }}
                   onClick={() => model.setHome(item)}
                 >
                   {item.title}
                 </button>
               ))}
             </div>
+          </div>
+          {/* Своя страна — отдельной строкой группы, а не третьим элементом строки
+              выбора: поле высотой 48px ломало ритм 54px, из-за него строка была 58. */}
+          <div className="settings-row">
             <input
               className="answer-field home-input"
               value={own}
@@ -242,7 +257,6 @@ export function Settings() {
                 <button
                   key={minutes}
                   className={`pill${minutes === model.dailyGoalMinutes ? ' selected' : ''}`}
-                  style={{ minWidth: 44, minHeight: 36 }}
                   onClick={() => model.updateGoal(minutes)}
                 >
                   {minutes}
@@ -274,7 +288,6 @@ export function Settings() {
                     <button
                       key={hour}
                       className={`pill${hour === reminderHour ? ' selected' : ''}`}
-                      style={{ minWidth: 44, minHeight: 36 }}
                       onClick={async () => {
                         model.updateReminder(hour, push === 'ready')
                         if (push === 'ready') setPush(await enablePush(hour, model.language ?? 'en'))
@@ -344,8 +357,8 @@ export function Settings() {
         {message && <p className="settings-note">{message}</p>}
         <p className="settings-note">
           Копия относится к текущему языку ({model.currentLanguage.title.toLowerCase()}): у второго языка
-          свой прогресс и своя копия. Safari может очистить данные сайтов, которыми давно не пользовались,
-          поэтому копию стоит сохранять время от времени.
+          свой прогресс и своя копия. Браузер может очистить данные сайтов, которыми давно
+          не пользовались, поэтому копию стоит сохранять время от времени.
         </p>
 
         <div className="settings-group">

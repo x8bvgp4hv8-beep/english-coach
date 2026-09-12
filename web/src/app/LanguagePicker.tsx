@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { useStore } from './App'
+import { Icon } from '../kit/Icons'
 import { plural } from './plural'
 import { hatFor } from '../mascot/Rhino'
 import { LANGUAGES, localProgressStore } from '../core'
@@ -39,7 +40,7 @@ export function LanguagePicker({ onBack }: { onBack?: () => void }) {
       {onBack && (
         <header className="header">
           <div className="header-top">
-            <button className="icon-button" onClick={onBack} aria-label="Назад">‹</button>
+            <button className="icon-button" onClick={onBack} aria-label="Назад"><Icon name="arrow-left" size={20} /></button>
             <h1 className="brand-title" style={{ flex: 1, textAlign: 'center' }}>Язык</h1>
             <span style={{ width: 48 }} />
           </div>

@@ -350,9 +350,40 @@ textarea,
 }
 .settings-row { display: flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 16px; border-bottom: 1px solid var(--hairline); width: 100%; text-align: left; }
 .settings-row:last-child { border-bottom: none; }
-.settings-row .label { flex: 1; font-weight: 650; font-size: 15px; }
-.settings-row .value { color: var(--ink-soft); font-size: 14px; }
-.settings-note { font-size: 12px; color: var(--ink-soft); margin: 10px 4px 0; line-height: 1.45; }
+/* Подпись строки не сжимается и не переносится: иначе ряд вариантов отжимает её, и
+   «Откуда ты» встаёт в два ряда — та самая жалоба, только с другой стороны. */
+.settings-row .label { flex: 0 0 auto; white-space: nowrap; font-weight: 650; font-size: 15px; }
+/* Значение всегда у правого края: подпись больше не тянется на всю строку, поэтому
+   отжимать значение приходится отступом, а не растягиванием подписи. */
+.settings-row .value { margin-left: auto; text-align: right; color: var(--ink-soft); font-size: 14px; }
+
+/*
+ * Ряд вариантов внутри строки настроек едет в одну линию и прокручивается.
+ *
+ * Жалоба 13.09.2026 — «строчки слишком высокие, типа в два ряда» — была ровно об этом:
+ * `.pills` из кита переносит варианты (`flex-wrap: wrap`), и строка росла по числу
+ * кнопок. Замер: обычная строка 54px, «Уровень» с пятью уровнями 83px, «Откуда ты» с
+ * восемью странами 286px. Ритм экрана держался только там, где вариантов было три.
+ *
+ * В ките перенос оставлен: в онбординге варианты стоят по центру и переносятся — там
+ * это правильно. Здесь же строка обязана быть строкой, поэтому `nowrap` и прокрутка;
+ * `min-width: 0` нужен, чтобы flex-элемент мог сжаться и прокрутка вообще включилась.
+ */
+.settings-row .pills {
+  /* `margin-left: auto` прижимает короткий ряд к правому краю, а длинный начинается с
+     первого варианта и прокручивается: при `justify-content: flex-end` первые страны
+     уезжали за левый край и человек видел последние. */
+  flex: 0 1 auto; min-width: 0; margin-left: auto; flex-wrap: nowrap; justify-content: flex-start;
+  gap: 6px; overflow-x: auto; scrollbar-width: none;
+}
+.settings-row .pills::-webkit-scrollbar { display: none; }
+.settings-row .pill { flex: none; min-width: 40px; min-height: 36px; padding: 0 10px; font-size: 14px; }
+/* Поле ввода в строке настроек: без верхнего отступа из кита и по высоте строки. */
+.settings-row .answer-field { margin: 0; min-height: 38px; padding: 8px 12px; font-size: 15px; }
+
+/* Подпись под группой мерится по той же колонке, что и строки над ней: 16px отступа
+   внутри группы, а не собственные 4px, из-за которых заметка была уже контента. */
+.settings-note { font-size: 12px; color: var(--ink-soft); margin: 10px 0 0; padding: 0 2px; line-height: 1.45; }
 
 .sheet { position: fixed; inset: 0; background: var(--bg); z-index: 20; display: flex; flex-direction: column; padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom); }
 
@@ -578,7 +609,7 @@ textarea,
 }
 
 /* What a level actually contains, under the picker that chooses it. */
-.level-size { font-size: 12px; color: var(--ink-soft); margin: 10px 0 0; }
+.level-size { font-size: 12px; color: var(--ink-soft); margin: 0; padding: 10px 16px 12px; }
 
 /* ── The four tabs ─────────────────────────────────────────────────────────── */
 

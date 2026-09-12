@@ -1,4 +1,5 @@
 import { useStore } from './App'
+import { Icon } from '../kit/Icons'
 import { ENOUGH_ATTEMPTS } from '../core'
 import { SectionTitle, TopicRow } from '../kit'
 import type { TopicProgress } from '../core'
@@ -37,7 +38,7 @@ export function Topics() {
     <>
       <header className="header">
         <div className="header-top">
-          <button className="icon-button" onClick={() => model.goBack()} aria-label="Назад">‹</button>
+          <button className="icon-button" onClick={() => model.goBack()} aria-label="Назад"><Icon name="arrow-left" size={20} /></button>
           <h1 className="brand-title" style={{ flex: 1, textAlign: 'center' }}>Темы</h1>
           <span style={{ width: 48 }} />
         </div>

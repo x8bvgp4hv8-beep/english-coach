@@ -214,7 +214,7 @@ export function Player() {
   return (
     <div className="player">
       <div className="player-bar">
-        <button className="icon-button" onClick={() => model.closeLesson()} aria-label="Выйти">✕</button>
+        <button className="icon-button" onClick={() => model.closeLesson()} aria-label="Закрыть"><Icon name="close" size={20} /></button>
         {/* Back is only offered once there is something behind: an arrow that does
             nothing is worse than no arrow. */}
         <button
