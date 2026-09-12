@@ -239,6 +239,13 @@ export interface UserState {
    * без этого разбор и урок сливаются в одну цифру, и неясно, чем человек занимался.
    */
   studySeconds?: Record<string, number>
+  /**
+   * Что человек сделал со словами списка 3000: что знает и что учит.
+   *
+   * Отдельно от `attempts` и `reviews`: список — не курс, у его слов нет упражнений и
+   * идентификаторов, и мерить по нему надо охват частотного ядра, а не успеваемость.
+   */
+  wordlist?: { known: string[]; streak: Record<string, number> }
 }
 
 export function freshState(): UserState {

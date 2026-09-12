@@ -2,10 +2,12 @@ import { DEFAULT_LANGUAGE } from './language'
 import { decodeSyllabus } from './syllabus'
 import { decodeTheory } from './theory'
 import { decodeCheckup } from './checkup'
+import { decodeWordlist } from './wordlist'
 import { ContentError, LESSON_STEPS, SCHEMA_VERSIONS, stepOf } from './types'
 import type { LanguageCode } from './language'
 import type { TheoryPack } from './theory'
 import type { CheckupBank } from './checkup'
+import type { WordlistPack } from './wordlist'
 import type { CoursePack, PlacementBank, Syllabus } from './types'
 
 /** Mirrors EnglishCoachCore/ContentRepository.swift: same validation, same failure modes. */
@@ -86,9 +88,9 @@ export function decodePlacement(raw: unknown): PlacementBank {
 export async function loadContent(
   language: LanguageCode = DEFAULT_LANGUAGE,
   base = 'content',
-): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus; theory: TheoryPack[]; checkups: CheckupBank[] }> {
+): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus; theory: TheoryPack[]; checkups: CheckupBank[]; wordlists: WordlistPack[] }> {
   const root = `${base}/${language}`
-  const index = (await fetchJSON(`${root}/index.json`)) as { courses: string[]; theory?: string[]; checkup?: string[] }
+  const index = (await fetchJSON(`${root}/index.json`)) as { courses: string[]; theory?: string[]; checkup?: string[]; wordlist?: string[] }
   const courses = await Promise.all(
     [...index.courses].sort().map(async (file) => decodeCourse(await fetchJSON(`${root}/courses/${file}`))),
   )
@@ -106,7 +108,10 @@ export async function loadContent(
     [...(index.checkup ?? [])].sort().map(async (file) =>
       decodeCheckup(await fetchJSON(`${root}/checkup/${file}`), courses, known)),
   )
-  return { courses, placement, syllabus, theory, checkups }
+  const wordlists = await Promise.all(
+    [...(index.wordlist ?? [])].sort().map(async (file) => decodeWordlist(await fetchJSON(`${root}/wordlist/${file}`))),
+  )
+  return { courses, placement, syllabus, theory, checkups, wordlists }
 }
 
 async function fetchJSON(url: string): Promise<unknown> {

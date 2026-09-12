@@ -771,6 +771,49 @@ textarea,
   font: 400 11px/1 var(--font); color: var(--ink-soft);
 }
 
+/* ── 3000 частых слов ──────────────────────────────────────────────────────── */
+
+.wl-total {
+  display: block; margin-top: 16px; padding: 18px; border-radius: var(--radius);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col); text-align: center;
+}
+.wl-total-value { font: 700 40px/1 var(--font); color: var(--ink); font-variant-numeric: tabular-nums; }
+.wl-total-of { display: block; margin-top: 4px; font: 400 14px/1 var(--font); color: var(--ink-soft); }
+.wl-total-bar {
+  display: block; height: 8px; margin: 14px 0 10px; border-radius: 999px; background: var(--track);
+}
+.wl-total-bar > span { display: block; height: 8px; border-radius: 999px; background: var(--mint); }
+.wl-total-note { display: block; font: 400 12px/1.45 var(--font); color: var(--ink-soft); }
+
+.wl-chunk {
+  display: block; margin-top: 10px; padding: 12px 14px; border-radius: var(--radius);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
+}
+.wl-chunk-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.wl-chunk-name { font: 700 14px/1 var(--font); color: var(--ink); font-variant-numeric: tabular-nums; }
+.wl-chunk-value { font: 400 13px/1 var(--font); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.wl-chunk-bar { display: block; height: 6px; margin-top: 9px; border-radius: 999px; background: var(--track); }
+.wl-chunk-bar > span { display: block; height: 6px; border-radius: 999px; background: var(--violet); }
+
+.wl-actions { display: grid; gap: 10px; }
+.wl-hint { margin: 0 0 6px; font: 400 12px/1.45 var(--font); color: var(--ink-soft); text-align: center; }
+.wl-source { margin: 26px 0 10px; font: 400 11px/1.45 var(--font); color: var(--ink-soft); text-align: center; }
+
+.wl-card {
+  margin-top: 18px; padding: 26px 18px; text-align: center; border-radius: var(--radius);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
+}
+.wl-card-rank {
+  display: block; font: 700 10px/1 var(--font); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 12px;
+}
+.wl-card-word {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 400 32px/1.15 var(--font-learn); color: var(--ink);
+}
+.wl-card-translation { display: block; margin-top: 14px; font: 400 17px/1.4 var(--font); color: var(--ink-soft); }
+.wl-foot { display: grid; gap: 10px; margin: 22px 0 12px; }
+
 /* ── Контрольный срез ──────────────────────────────────────────────────────── */
 
 .checkup-note { margin: 16px 0 0; font: 400 13px/1.45 var(--font); color: var(--ink-soft); text-align: center; }

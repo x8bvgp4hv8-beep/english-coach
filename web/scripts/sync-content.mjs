@@ -31,8 +31,9 @@ for (const language of languages) {
   const plain = (file) => file.replace(`${language}-`, '')
   const isTheory = (file) => /^theory-/.test(plain(file))
   const isCheckup = (file) => /^checkup-/.test(plain(file))
+  const isWordlist = (file) => /^wordlist-/.test(plain(file))
   const courseFiles = files
-    .filter((file) => !/placement|syllabus/.test(file) && !isTheory(file) && !isCheckup(file))
+    .filter((file) => !/placement|syllabus/.test(file) && !isTheory(file) && !isCheckup(file) && !isWordlist(file))
     .map(plain).sort()
   // Разборы тем едут отдельной папкой и своим списком: это не курс, декодер у них свой,
   // и в `courses/` такой файл уронил бы загрузку целиком.
@@ -42,12 +43,16 @@ for (const language of languages) {
   // сверяет задания с упражнениями и падает на совпадении.
   const checkupFiles = files.filter(isCheckup).map((file) => plain(file).replace('checkup-', '')).sort()
   if (checkupFiles.length > 0) mkdirSync(join(to, 'checkup'), { recursive: true })
+  // Список частых слов: тоже не курс, свой декодер, своя папка.
+  const wordlistFiles = files.filter(isWordlist).map((file) => plain(file).replace('wordlist-', '')).sort()
+  if (wordlistFiles.length > 0) mkdirSync(join(to, 'wordlist'), { recursive: true })
 
   for (const file of files) {
     const name = plain(file)
     const target = isTheory(file)
       ? join('theory', name.replace('theory-', ''))
       : isCheckup(file) ? join('checkup', name.replace('checkup-', ''))
+      : isWordlist(file) ? join('wordlist', name.replace('wordlist-', ''))
       : courseFiles.includes(name) ? join('courses', name) : name
     // Re-emitted without the authoring indentation: the Spanish A1 pack is 3.4 MB
     // pretty-printed and the phone downloads it before the first lesson.
@@ -58,9 +63,14 @@ for (const language of languages) {
   // A manifest, because a static host cannot be asked to list a directory.
   writeFileSync(
     join(to, 'index.json'),
-    JSON.stringify({ courses: courseFiles, theory: theoryFiles, checkup: checkupFiles }, null, 2) + '\n',
+    JSON.stringify({
+      courses: courseFiles, theory: theoryFiles, checkup: checkupFiles, wordlist: wordlistFiles,
+    }, null, 2) + '\n',
   )
-  summary.push(`${language} — ${courseFiles.length} packs, ${theoryFiles.length} разборов, ${checkupFiles.length} срезов`)
+  summary.push(
+    `${language} — ${courseFiles.length} packs, ${theoryFiles.length} разборов, `
+    + `${checkupFiles.length} срезов, ${wordlistFiles.length} списков слов`,
+  )
 }
 
 // The list of languages themselves, for the same reason.

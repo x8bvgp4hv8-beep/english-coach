@@ -15,6 +15,7 @@ import { TabBar } from './TabBar'
 import { Theory } from './Theory'
 import { VerbForms } from './VerbForms'
 import { Checkup } from './Checkup'
+import { Wordlist } from './Wordlist'
 import { Today } from './Today'
 import { Topics } from './Topics'
 import { isTab, store } from './store'
@@ -72,12 +73,14 @@ export function App() {
         : model.listeningActive ? <Listening />
         : model.verbFormsActive ? <VerbForms />
         : model.checkupActive ? <Checkup />
+        : model.wordlistActive ? <Wordlist />
         // Разбор поверх урока: сессия за ним жива, и возврат ведёт на то же место.
         : model.theoryOverLesson ? <Theory />
         : model.activeLesson ? <Player />
         : model.screen === 'settings' ? <Settings />
         : model.screen === 'topics' ? <Topics />
         : model.screen === 'theory' ? <Theory />
+        : model.screen === 'wordlist' ? <Wordlist />
         : model.screen === 'course' ? <Course />
         : model.screen === 'practice' ? <Practice />
         : model.screen === 'progress' ? <Progress />

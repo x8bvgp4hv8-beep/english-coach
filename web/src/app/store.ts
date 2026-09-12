@@ -17,6 +17,7 @@ import {
   StudyEngine,
   CheckupEngine,
   TopicProgressEngine,
+  WordlistEngine,
   VerbFormsEngine,
   VocabularyEngine,
   formIsCorrect,
@@ -33,6 +34,7 @@ import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
   LearnerHome, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
   TopicProgress, UserState, VerbForms, CheckupBank, CheckupItem, CheckupResult,
+  WordlistPack, WordlistItem,
 } from '../core'
 
 /**
@@ -45,7 +47,7 @@ import type {
  */
 export const TABS = ['today', 'course', 'practice', 'progress'] as const
 export type Tab = (typeof TABS)[number]
-export type Screen = Tab | 'settings' | 'topics' | 'language' | 'theory'
+export type Screen = Tab | 'settings' | 'topics' | 'language' | 'theory' | 'wordlist'
 
 /**
  * Where the running set came from. Four doors lead into the same player, and the
@@ -102,6 +104,8 @@ export class AppStore {
   theoryPacks: TheoryPack[] = []
   /** Банки контрольного среза — замера вне курса. */
   checkupBanks: CheckupBank[] = []
+  /** Списки частых слов: отдельная группа изучения со своим охватом. */
+  wordlists: WordlistPack[] = []
   /**
    * Открытый разбор и занятие, построенное вокруг него.
    *
@@ -150,6 +154,22 @@ export class AppStore {
    * в нём: сессия пишет попытки и интервальные повторения, то есть смешала бы замер с
    * тренировкой — ровно то, от чего срез и должен быть свободен.
    */
+  /**
+   * Список 3000 слов: просеивание и изучение.
+   *
+   * Два режима на одном экране, потому что это один и тот же вопрос «знаю или нет»,
+   * заданный по-разному: на просеивании человек отвечает сам и сразу, в изучении —
+   * после того как увидел перевод.
+   */
+  wordlistActive = false
+  wordlistMode: 'sieve' | 'study' = 'sieve'
+  wordlistQueue: WordlistItem[] = []
+  wordlistIndex = 0
+  /** Перевод открыт: в изучении сначала слово, потом ответ. */
+  wordlistRevealed = false
+  /** Сколько слов закрыто в этом заходе — для итога пачки. */
+  wordlistDone = 0
+
   checkupActive = false
   checkupItems: CheckupItem[] = []
   checkupIndex = 0
@@ -197,7 +217,7 @@ export class AppStore {
   /** True while the learner is inside something that must not be interrupted. */
   get isBusy(): boolean {
     return this.activeLesson !== null || this.placementActive || this.shadowingActive
-      || this.listeningActive || this.verbFormsActive || this.checkupActive
+      || this.listeningActive || this.verbFormsActive || this.checkupActive || this.wordlistActive
   }
 
   onUpdateReady(apply: () => Promise<void>): void {
@@ -262,7 +282,7 @@ export class AppStore {
     this.language = language
     this.startupError = null
     try {
-      const { courses, placement, syllabus, theory, checkups } = await loadContent(language)
+      const { courses, placement, syllabus, theory, checkups, wordlists } = await loadContent(language)
       this.rawCourses = courses
       this.state = localProgressStore(language).load()
       this.courses = personalise(courses, this.home)
@@ -270,6 +290,7 @@ export class AppStore {
       this.syllabus = syllabus
       this.theoryPacks = theory
       this.checkupBanks = checkups
+      this.wordlists = wordlists
       this.session = new LearningSession(this.state, language)
     } catch (error) {
       this.startupError = error instanceof Error ? error.message : 'Не удалось загрузить учебные материалы'
@@ -281,6 +302,8 @@ export class AppStore {
 
   /** A language switch must not leave a half-finished lesson from the other one on screen. */
   private closeAllModes(): void {
+    this.wordlistActive = false
+    this.wordlistQueue = []
     this.checkupActive = false
     this.checkupItems = []
     this.theoryOverLesson = false
@@ -759,6 +782,118 @@ export class AppStore {
     if (exercises.length === 0) return
     const title = this.syllabus?.topics.find((t) => t.id === topicID)?.title ?? 'Тренировка'
     this.beginSession(PracticeEngine.lesson(exercises, title), 'topic')
+  }
+
+  // MARK: - Список 3000 частых слов
+
+  get wordlist(): WordlistPack | null {
+    return this.wordlists.find((pack) => pack.language === (this.language ?? DEFAULT_LANGUAGE)) ?? null
+  }
+
+  get hasWordlist(): boolean { return (this.wordlist?.items.length ?? 0) > 0 }
+
+  /**
+   * Слова, подтверждённые курсом. Считается один раз на обращение и переиспользуется
+   * всеми цифрами экрана: проход по всем упражнениям всех уровней недёшев.
+   */
+  private wordlistConfirmed(): Set<string> {
+    return WordlistEngine.confirmedByCourse(this.courses, this.state)
+  }
+
+  /** «Знаю N из 3000» — то, что просил Кристиан. */
+  get wordlistCount(): { known: number; total: number } {
+    const pack = this.wordlist
+    if (!pack) return { known: 0, total: 0 }
+    return WordlistEngine.count(pack, this.state, this.wordlistConfirmed())
+  }
+
+  /** Разбивка по тысячам: на трёх тысячах общая цифра почти не двигается. */
+  get wordlistThousands(): Array<{ from: number; to: number; known: number; total: number }> {
+    const pack = this.wordlist
+    if (!pack) return []
+    return WordlistEngine.thousands(pack, this.state, this.wordlistConfirmed())
+  }
+
+  get wordlistUnsorted(): number {
+    const pack = this.wordlist
+    return pack ? WordlistEngine.unsortedCount(pack, this.state, this.wordlistConfirmed()) : 0
+  }
+
+  get wordlistLearning(): number {
+    const pack = this.wordlist
+    return pack ? WordlistEngine.learningCount(pack, this.state) : 0
+  }
+
+  get currentWord(): WordlistItem | null { return this.wordlistQueue[this.wordlistIndex] ?? null }
+  get wordlistIsComplete(): boolean { return this.wordlistActive && this.wordlistIndex >= this.wordlistQueue.length }
+  get wordlistLeft(): number { return Math.max(0, this.wordlistQueue.length - this.wordlistIndex) }
+
+  /** Просеивание: пачка незнакомых приложению слов, по частоте. */
+  startWordlistSieve(size = 30): void {
+    const pack = this.wordlist
+    if (!pack) return
+    const items = WordlistEngine.toSieve(pack, this.state, size, this.wordlistConfirmed())
+    if (items.length === 0) return
+    this.wordlistQueue = items
+    this.wordlistMode = 'sieve'
+    this.wordlistIndex = 0
+    this.wordlistDone = 0
+    this.wordlistRevealed = false
+    this.wordlistActive = true
+    this.lessonStartedAt = new Date()
+    this.changed()
+  }
+
+  /** Изучение: то, что человек отметил как незнакомое. */
+  startWordlistStudy(size = 12): void {
+    const pack = this.wordlist
+    if (!pack) return
+    const items = WordlistEngine.toStudy(pack, this.state, size)
+    if (items.length === 0) return
+    this.wordlistQueue = items
+    this.wordlistMode = 'study'
+    this.wordlistIndex = 0
+    this.wordlistDone = 0
+    this.wordlistRevealed = false
+    this.wordlistActive = true
+    this.lessonStartedAt = new Date()
+    this.changed()
+  }
+
+  /** Открыть перевод — в изучении ответ виден только после попытки вспомнить. */
+  revealWord(): void {
+    this.wordlistRevealed = true
+    this.changed()
+  }
+
+  /**
+   * Ответ по слову. На просеивании «знаю» закрывает слово сразу, на изучении растит
+   * серию: три раза подряд — и слово уходит в известные.
+   */
+  answerWord(known: boolean): void {
+    const word = this.currentWord
+    if (!word) return
+    if (this.wordlistMode === 'sieve') {
+      this.state.wordlist = known
+        ? WordlistEngine.markKnown(word.w, this.state)
+        : WordlistEngine.markUnknown(word.w, this.state)
+    } else {
+      this.state.wordlist = WordlistEngine.recordRecall(word.w, known, this.state)
+    }
+    if (known) this.wordlistDone += 1
+    this.wordlistIndex += 1
+    this.wordlistRevealed = false
+    if (this.wordlistIndex >= this.wordlistQueue.length) this.bankPracticeTime()
+    this.persist()
+    this.changed()
+  }
+
+  closeWordlist(): void {
+    this.bankPracticeTime()
+    this.wordlistActive = false
+    this.wordlistQueue = []
+    this.setScreen('wordlist')
+    this.changed()
   }
 
   // MARK: - Контрольный срез

@@ -15,6 +15,7 @@ import { StudyEngine, decodeTheory } from './theory'
 import { VocabularyEngine, vocabularyUnit } from './vocabulary'
 import { VerbFormsEngine, formIsCorrect, verbFormsFromCard, verbFormsFromTheory } from './verbforms'
 import { CheckupEngine, courseFingerprints, decodeCheckup } from './checkup'
+import { STREAK_TO_KNOW, WordlistEngine, decodeWordlist } from './wordlist'
 import { deserialize, serialize } from './storage'
 import { LANGUAGE_CODES } from './language'
 import { ATTEMPT_LOG_LIMIT, EXERCISE_TYPES, LEVELS, freshState, seenExerciseIDs, trimAttempts } from './types'
@@ -31,7 +32,9 @@ const readJSON = (path: string) => JSON.parse(readFileSync(join(contentDir, path
 
 /** One language's shipped content, decoded exactly the way the app decodes it. */
 function readLanguage(language: LanguageCode) {
-  const index = readJSON(`${language}/index.json`) as { courses: string[]; theory?: string[]; checkup?: string[] }
+  const index = readJSON(`${language}/index.json`) as {
+    courses: string[]; theory?: string[]; checkup?: string[]; wordlist?: string[]
+  }
   const syllabus = decodeSyllabus(readJSON(`${language}/syllabus.json`))
   const known = new Set(syllabus.topics.map((topic) => topic.id))
   return {
@@ -41,6 +44,7 @@ function readLanguage(language: LanguageCode) {
     theory: (index.theory ?? []).map((file) => decodeTheory(readJSON(`${language}/theory/${file}`), known)),
     checkups: (index.checkup ?? []).map((file) =>
       decodeCheckup(readJSON(`${language}/checkup/${file}`), undefined, known)),
+    wordlists: (index.wordlist ?? []).map((file) => decodeWordlist(readJSON(`${language}/wordlist/${file}`))),
   }
 }
 
@@ -1155,6 +1159,93 @@ describe('progress storage', () => {
  * Whatever is true of the app has to be true of every language it ships, not only of
  * the one it was written for. A new language passes here or it does not ship.
  */
+describe('список 3000 частых слов', () => {
+  const pack = readLanguage('en').wordlists[0]
+
+  it('это ровно 3000 слов, каждое с переводом и частью речи', () => {
+    expect(pack.items).toHaveLength(3000)
+    for (const item of pack.items) {
+      expect(item.w, 'слово').toMatch(/^[a-z][a-z' -]*$/)
+      expect(item.t, `${item.w}: перевод`).toMatch(/[а-яё]/i)
+      expect(item.p, `${item.w}: часть речи`).toBeTruthy()
+    }
+    // Порядок — частотный, и дырка в нём означала бы, что «первая тысяча» посчитана
+    // по неполному списку.
+    expect(pack.items.map((item) => item.r)).toEqual(pack.items.map((_, i) => i + 1))
+    expect(new Set(pack.items.map((item) => item.w)).size).toBe(3000)
+  })
+
+  it('декодер не принимает список с дыркой в порядке', () => {
+    const broken = { ...pack, items: [pack.items[0], { ...pack.items[1], r: 99 }] }
+    expect(() => decodeWordlist(broken)).toThrow()
+  })
+
+  it('просеивание отдаёт слова по частоте и не возвращает разобранные', () => {
+    const state = freshState()
+    const first = WordlistEngine.toSieve(pack, state, 5)
+    expect(first.map((item) => item.r)).toEqual([1, 2, 3, 4, 5])
+
+    state.wordlist = WordlistEngine.markKnown(first[0].w, state)
+    state.wordlist = WordlistEngine.markUnknown(first[1].w, state)
+    const second = WordlistEngine.toSieve(pack, state, 5)
+    // Разобранные не возвращаются ни в каком виде: ни «знаю», ни «не знаю».
+    expect(second.some((item) => item.w === first[0].w || item.w === first[1].w)).toBe(false)
+    expect(second[0].r).toBe(3)
+  })
+
+  it('«знаю» считается сразу, а изучение — после трёх вспоминаний', () => {
+    const state = freshState()
+    const word = pack.items[0].w
+    const learnt = pack.items[1].w
+
+    state.wordlist = WordlistEngine.markKnown(word, state)
+    expect(WordlistEngine.count(pack, state).known).toBe(1)
+
+    state.wordlist = WordlistEngine.markUnknown(learnt, state)
+    expect(WordlistEngine.count(pack, state).known, 'отмеченное незнакомым не считается').toBe(1)
+    for (let i = 1; i < STREAK_TO_KNOW; i += 1) {
+      state.wordlist = WordlistEngine.recordRecall(learnt, true, state)
+      expect(WordlistEngine.count(pack, state).known, `после ${i} вспоминаний`).toBe(1)
+    }
+    state.wordlist = WordlistEngine.recordRecall(learnt, true, state)
+    expect(WordlistEngine.count(pack, state).known, 'на третий раз слово закрыто').toBe(2)
+
+    // Промах обнуляет серию, и слово возвращается в изучение.
+    const third = pack.items[2].w
+    state.wordlist = WordlistEngine.markUnknown(third, state)
+    state.wordlist = WordlistEngine.recordRecall(third, true, state)
+    state.wordlist = WordlistEngine.recordRecall(third, false, state)
+    expect(WordlistEngine.progress(state).streak[third]).toBe(0)
+    expect(WordlistEngine.toStudy(pack, state, 10).some((item) => item.w === third)).toBe(true)
+  })
+
+  it('счёт опирается не только на самооценку, но и на ответы в приложении', () => {
+    // Слово, которое встречалось в упражнении, ушедшем на неделю вперёд по интервальному
+    // повторению, считается известным без всякой отметки: человек его уже вспоминал.
+    const exercise = PracticeEngine.pool(courses, 'A1', ['flashcard'])
+      .find((item) => /^[a-z]+$/.test((item.prompt ?? '').trim().toLowerCase()))!
+    const word = (exercise.prompt ?? '').trim().toLowerCase()
+    const inList = pack.items.some((item) => item.w === word)
+
+    const state = freshState()
+    state.reviews = [{ id: exercise.id, exerciseID: exercise.id, due: now, intervalDays: 7, ease: 2.3, repetitions: 3 }]
+    const confirmed = WordlistEngine.confirmedByCourse(courses, state)
+    expect(confirmed.has(word), `${word} подтверждено курсом`).toBe(true)
+    if (inList) expect(WordlistEngine.isKnown(word, state, confirmed)).toBe(true)
+
+    // Недельный порог обязателен: свежая ошибка с интервалом в день ничего не доказывает.
+    state.reviews = [{ id: exercise.id, exerciseID: exercise.id, due: now, intervalDays: 1, ease: 2.3, repetitions: 0 }]
+    expect(WordlistEngine.confirmedByCourse(courses, state).has(word)).toBe(false)
+  })
+
+  it('разбивка по тысячам покрывает весь список', () => {
+    const chunks = WordlistEngine.thousands(pack, freshState())
+    expect(chunks).toHaveLength(3)
+    expect(chunks.map((chunk) => [chunk.from, chunk.to])).toEqual([[1, 1000], [1001, 2000], [2001, 3000]])
+    expect(chunks.reduce((sum, chunk) => sum + chunk.total, 0)).toBe(3000)
+  })
+})
+
 describe('контрольный срез — замер вне курса', () => {
   const { checkups, syllabus } = readLanguage('en')
 
