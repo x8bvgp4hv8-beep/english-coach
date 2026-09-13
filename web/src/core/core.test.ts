@@ -38,13 +38,17 @@ function readLanguage(language: LanguageCode) {
   }
   const syllabus = decodeSyllabus(readJSON(`${language}/syllabus.json`))
   const known = new Set(syllabus.topics.map((topic) => topic.id))
+  const courses = index.courses.map((file) => decodeCourse(readJSON(`${language}/courses/${file}`))) as CoursePack[]
   return {
-    courses: index.courses.map((file) => decodeCourse(readJSON(`${language}/courses/${file}`))) as CoursePack[],
+    courses,
     placement: decodePlacement(readJSON(`${language}/placement.json`)),
     syllabus,
     theory: (index.theory ?? []).map((file) => decodeTheory(readJSON(`${language}/theory/${file}`), known)),
+    // Курсы передаются не для красоты: задание среза, которое уже есть в курсе, ломает
+    // весь смысл замера. Раньше здесь стоял `undefined`, и храповик молчал — то есть
+    // повтор поймал бы только человек глазами.
     checkups: (index.checkup ?? []).map((file) =>
-      decodeCheckup(readJSON(`${language}/checkup/${file}`), undefined, known)),
+      decodeCheckup(readJSON(`${language}/checkup/${file}`), courses, known)),
     wordlists: (index.wordlist ?? []).map((file) => decodeWordlist(readJSON(`${language}/wordlist/${file}`))),
   }
 }
@@ -1589,7 +1593,35 @@ describe('разбор темы и занятие на время', () => {
 })
 
 describe.each(LANGUAGE_CODES)('each shipped language: %s', (language) => {
-  const { courses: packs, placement: bank, syllabus } = readLanguage(language)
+  const { courses: packs, placement: bank, syllabus, theory } = readLanguage(language)
+
+  it('срез спрашивает вне курса и по известным темам', () => {
+    const { checkups } = readLanguage(language)
+    const known = new Set(syllabus.topics.map((topic) => topic.id))
+    for (const bank of checkups) {
+      expect(bank.items.length, `${bank.level}: срез меньше десяти заданий`).toBeGreaterThanOrEqual(10)
+      for (const item of bank.items) {
+        expect(item.prompt && item.canonicalAnswer, `${item.id}: пустое задание`).toBeTruthy()
+        for (const topic of item.topics) {
+          expect([...known], `${item.id}: темы нет в силлабусе`).toContain(topic)
+        }
+      }
+    }
+  })
+
+  it('разборы теории привязаны к силлабусу', () => {
+    // `decodeTheory` бросает на чужом topicID, и это уже проверено самой загрузкой выше.
+    // Здесь — что пакет не пустой и что тема действительно разобрана, а не заявлена.
+    const known = new Set(syllabus.topics.map((topic) => topic.id))
+    for (const pack of theory) {
+      expect(pack.topics.length, `${pack.level}: пустой пакет разборов`).toBeGreaterThan(0)
+      for (const topic of pack.topics) {
+        expect([...known], `${pack.level} · ${topic.topicID}: темы нет в силлабусе`).toContain(topic.topicID)
+        expect(topic.sections.length, `${topic.topicID}: разбор без разделов`).toBeGreaterThan(0)
+        expect(topic.minutes, `${topic.topicID}: не указано время`).toBeGreaterThan(0)
+      }
+    }
+  })
 
   it('ships a course for every level', () => {
     expect(new Set(packs.map((pack) => pack.level))).toEqual(new Set(LEVELS))
