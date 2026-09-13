@@ -1,6 +1,7 @@
 import { PracticeEngine, prioritise } from './practice'
 import { shadowingPhrase } from './shadowing'
 import { DEFAULT_LANGUAGE } from './language'
+import { hasSpanishVerb } from './spanish'
 import type { LanguageCode } from './language'
 import type { CEFRLevel, CoursePack, Exercise, Lesson, UserState } from './types'
 
@@ -32,8 +33,13 @@ const MIN_WORDS = 3
  * Sentence-shaped: a capital at the front, a full stop at the back.
  *
  * Необходимое условие, но далеко не достаточное — см. ниже.
+ *
+ * Испанское письмо учтено здесь, а не отдельным правилом: вопрос начинается с «¿», а
+ * заглавная буква бывает с ударением («Él», «Está»). Прежнее `^[A-Z]` отбрасывало и то,
+ * и другое, то есть все испанские вопросы молча не попадали в аудирование — а вопрос на
+ * слух как раз и есть самое нужное: «¿Dónde está la estación?» слышишь каждый день.
  */
-const SENTENCE = /^[A-Z].*[.!?]$/
+const SENTENCE = /^[¿¡]?[A-ZÁÉÍÓÚÜÑ].*[.!?]$/
 
 /**
  * Реплика, вырванная из разговора: формально предложение, на слух — ничто.
@@ -47,6 +53,20 @@ const SENTENCE = /^[A-Z].*[.!?]$/
  * значит, что предложение началось до этого.
  */
 const FRAGMENT = /^(And|But|So|Or|Nor|Plus|Also|Because|Though|Although|Unless|While|Whereas|By|With|Without|From|For|In|On|At|To|Of|Into|Over|Under|After|Before|During|Yes|No|Sorry|Thanks|Right|Okay|OK|Exactly|Maybe|Perhaps|Probably|Only|Even|Just|Almost|Nearly|Twice|Once|Named|Dated|Confirmed|Always|Never|Sometimes|Usually)\b/
+
+/**
+ * Испанский обрывок реплики: предложение началось до этого.
+ *
+ * Список короче английского, и это не небрежность. Испанский опускает подлежащее, поэтому
+ * «Voy a llamar», «Tengo prisa», «Me duele la cabeza» — полные предложения, хотя
+ * начинаются с глагола или клитики; в английском такое начало почти всегда обрывок.
+ * Отрицание тоже остаётся: «No lo sé.» — законченная фраза. Предлоги в списке тоже не
+ * держатся: «Al final no fui a la fiesta», «En España no se deja propina», «Para el
+ * análisis hace falta ayuno» — полные предложения, которые начинаются с предложной
+ * группы, и по началу их от обрывка не отличить. Отличает глагол, а он проверяется
+ * отдельно, поэтому здесь остались только сочинительные союзы: «Y poco más.», «Pues eso.»
+ */
+const SPANISH_FRAGMENT = /^(Y|O|Pero|Pues|Además|También|Tampoco|Entonces|Así|Ni)(?![\wáéíóúñü])/
 
 /** Начало настоящего предложения: подлежащее, вопрос или повелительная форма. */
 const OPENER = /^(I|You|He|She|We|They|It|There|The|A|An|This|That|These|Those|My|Your|His|Her|Our|Their|Nobody|Somebody|Everyone|Someone|People|Who|What|Where|When|Why|How|Which|Whose|Any|Is|Are|Was|Were|Am|Do|Does|Did|Have|Has|Had|Can|Could|Will|Would|Should|Must|Shall|May|Might|Let|[A-Z][a-z]+)\b/
@@ -97,11 +117,16 @@ export function listeningPhrase(exercise: Exercise, language: LanguageCode = DEF
   if (text.includes('…') || !SENTENCE.test(text)) return null
   if (text.split(/\s+/).length < MIN_WORDS) return null
 
-  // Три списка выше собраны на английском и проверены английским замером
-  // (`npm run measure:listening`). На испанском они отсеивают 99% — там нет ни одного
-  // английского вспомогательного глагола, — поэтому другому языку достаётся только
-  // базовое правило. Выключить ему аудирование ради чистоты было бы хуже, чем оставить
-  // прежний порог: испанский набор придётся собирать и мерить отдельно.
+  // Три английских списка ниже на испанском отсеивали бы 99% — там нет ни одного
+  // английского вспомогательного глагола. Поэтому у испанского свои правила, а у
+  // третьего языка, когда он появится, останется базовое: форма предложения и три
+  // слова. Выключать ему аудирование ради чистоты хуже, чем держать прежний порог.
+  if (language === 'es') {
+    // Испанскому — свои правила: список форм глагола общий с отбором слов (`spanish.ts`),
+    // а признак обрывка свой, потому что испанское предложение начинается иначе.
+    if (SPANISH_FRAGMENT.test(text) || !hasSpanishVerb(text)) return null
+    return item
+  }
   if (language !== 'en') return item
   if (FRAGMENT.test(text) || !OPENER.test(text) || !HAS_VERB.test(text)) return null
   return item

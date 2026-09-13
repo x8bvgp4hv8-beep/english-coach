@@ -12,6 +12,7 @@ import { PRACTICE_MODES, modeStates } from './modes'
 import { PRACTICE_KINDS, PracticeEngine, prioritise, taughtCourses } from './practice'
 import { LearningSession } from './session'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
+import { hasSpanishVerb } from './spanish'
 import { StudyEngine, decodeTheory } from './theory'
 import { VocabularyEngine, vocabularyUnit } from './vocabulary'
 import { VerbFormsEngine, formIsCorrect, verbFormsFromCard, verbFormsFromTheory } from './verbforms'
@@ -1784,5 +1785,71 @@ describe('режимы тренировки', () => {
     for (const kind of PRACTICE_KINDS) {
       expect(ids, `вид практики ${kind.id} обязан быть строкой на экране`).toContain(kind.id)
     }
+  })
+})
+
+describe('испанский на равных', () => {
+  const packs = readLanguage('es')
+  const cards = (level: CEFRLevel) => packs.courses
+    .find((pack) => pack.level === level)!
+    .chapters.flatMap((chapter) => chapter.lessons)
+    .flatMap((lesson) => lesson.exercises)
+    .filter((exercise) => exercise.type === 'flashcard')
+
+  it('в словаре нет предложений и вопросов', () => {
+    // Отбор писался под английский, и на испанском давал 10% вместо 58%. Правила теперь
+    // свои (`core/spanish.ts`), а этот тест закрепляет, чего в словаре быть не должно.
+    for (const level of ['A1', 'A2'] as CEFRLevel[]) {
+      const units = cards(level).filter((card) => vocabularyUnit(card, 'es') !== null)
+      expect(units.length, `${level}: словарь не пустой`).toBeGreaterThan(300)
+      for (const unit of units) {
+        const prompt = (unit.prompt ?? '').trim()
+        expect(prompt.startsWith('¿'), `${unit.id}: вопрос — не единица`).toBe(false)
+        expect(prompt, `${unit.id}: без многоточия`).not.toContain('…')
+        expect(prompt.split(/\s+/).length, `${unit.id}: не длиннее группы`).toBeLessThanOrEqual(4)
+      }
+    }
+  })
+
+  it('личная форма глагола не пускает предложение в словарь', () => {
+    // `\bestá\b` не совпадало с «El bar está lleno» никогда: после «á» в JavaScript нет
+    // границы слова, и предложения с «está», «será», «sé» молча проходили как единицы.
+    const sentence = { id: 'x', type: 'flashcard' as const, prompt: 'El bar está lleno.', translation: 'В баре битком.' }
+    expect(vocabularyUnit(sentence, 'es')).toBeNull()
+    expect(hasSpanishVerb('El bar está lleno')).toBe(true)
+    expect(hasSpanishVerb('No sé nada')).toBe(true)
+
+    // А именная группа остаётся единицей.
+    const group = { id: 'y', type: 'flashcard' as const, prompt: 'un litro de leche', translation: 'литр молока' }
+    expect(vocabularyUnit(group, 'es')).toBe('phrase')
+    expect(hasSpanishVerb('un litro de leche')).toBe(false)
+  })
+
+  it('в аудировании нет обрывков, но есть вопросы', () => {
+    for (const level of ['A1', 'A2'] as CEFRLevel[]) {
+      const pool = ListeningEngine.pool(packs.courses, level, 'es')
+      expect(pool.length, `${level}: хватает на набор`).toBeGreaterThanOrEqual(8)
+      let questions = 0
+      for (const exercise of pool) {
+        const item = listeningPhrase(exercise, 'es')!
+        expect(item.text, `${exercise.id}: не оборванная фраза`).not.toContain('…')
+        expect(item.text.split(/\s+/).length, `${exercise.id}: несёт структуру`).toBeGreaterThanOrEqual(3)
+        // Обрывок реплики — это фраза без глагола: «Dos tostadas y dos cafés.»
+        expect(hasSpanishVerb(item.text), `${exercise.id}: в фразе есть глагол`).toBe(true)
+        if (item.text.startsWith('¿')) questions += 1
+      }
+      // Вопросы обязаны быть: прежнее правило `^[A-Z]` выбрасывало их все, а на слух
+      // вопрос — самое частое, что приходится разбирать.
+      expect(questions, `${level}: вопросы попадают в набор`).toBeGreaterThan(0)
+    }
+  })
+
+  it('сочинительный союз в начале — обрывок, предложная группа — нет', () => {
+    const fragment = { id: 'f', type: 'flashcard' as const, prompt: 'Y poco más.', translation: 'Вот, пожалуй, и всё.' }
+    expect(listeningPhrase(fragment, 'es')).toBeNull()
+
+    // А это полное предложение, хотя начинается с предлога.
+    const whole = { id: 'w', type: 'flashcard' as const, prompt: 'Al final no fui a la fiesta.', translation: 'В итоге я не пошёл на праздник.' }
+    expect(listeningPhrase(whole, 'es')).not.toBeNull()
   })
 })
