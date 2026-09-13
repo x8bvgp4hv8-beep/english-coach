@@ -1,5 +1,5 @@
 import { useStore } from './App'
-import { speak } from './speech'
+import { speak, speakBuiltIn } from './speech'
 import { plural } from './plural'
 import { Icon } from '../kit/Icons'
 import { EmptyNote, PrimaryButton, SecondaryButton, SectionTitle } from '../kit'
@@ -144,7 +144,13 @@ function Runner({ model }: { model: AppStore }) {
           <span className="wl-card-rank">{word.r}-е по частоте · {word.p}</span>
           <span className="wl-card-word" lang="en">
             {word.w}
-            <button className="verb-speak" onClick={() => speak(word.w)} aria-label="Послушать">
+            {/* Слова озвучены заранее и лежат в приложении: системный синтез нужен
+                только если файла нет. */}
+            <button
+              className="verb-speak"
+              onClick={() => { if (!speakBuiltIn(word.w)) speak(word.w) }}
+              aria-label="Послушать"
+            >
               <Icon name="audio" size={16} />
             </button>
           </span>

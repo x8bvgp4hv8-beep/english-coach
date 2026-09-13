@@ -228,6 +228,58 @@ export function activeVoice(): SpeechSynthesisVoice | null {
 }
 
 /**
+ * Слова списка 3000 озвучены заранее и лежат в самом приложении.
+ *
+ * Кристиан 13.09.2026: «вшей в приложение голос, чтобы не нужно было настраивать».
+ * Системный синтез этого не даёт: по умолчанию Apple ставит облегчённый вариант, он
+ * звучит роботом, а живой надо скачивать руками в настройках телефона. Поэтому для
+ * слов звук не синтезируется на устройстве, а взят из файла: два голоса, мужской и
+ * женский, записаны заранее (Piper, голоса ryan и lessac) и весят 10 МБ на оба.
+ *
+ * Файлы не входят в предзагрузку — иначе первый запуск тянул бы десять мегабайт, — но
+ * остаются офлайн после первого прослушивания: их забирает runtime-кэш service worker.
+ *
+ * Фразы уроков по-прежнему читает система: их пятнадцать тысяч, и заранее озвучить их
+ * значит увезти в сборку триста мегабайт.
+ */
+const BUILT_IN_LANGUAGES: LanguageCode[] = ['en']
+
+/** Имя файла из слова: пробелы в дефис, апострофы долой — как при генерации. */
+const voiceFileName = (word: string): string =>
+  word.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '')
+
+export function builtInVoiceURL(word: string, gender: VoiceGender, code: LanguageCode = language): string | null {
+  if (!BUILT_IN_LANGUAGES.includes(code)) return null
+  return `voice/${code}/${gender}/${voiceFileName(word)}.opus`
+}
+
+let player: HTMLAudioElement | null = null
+
+/**
+ * Произнести слово вшитым голосом. `false` — файла нет, и вызывающий переходит к синтезу.
+ *
+ * Ошибка загрузки не остаётся молчанием: `onEnd` вызывается в любом случае, потому что
+ * на нём висят цепочки вроде «сказал — теперь запиши себя».
+ */
+export function speakBuiltIn(word: string, onEnd?: () => void): boolean {
+  const gender = storedGender() ?? 'female'
+  const url = builtInVoiceURL(word, gender)
+  if (!url) return false
+  try {
+    stopSpeaking()
+    player?.pause()
+    const audio = new Audio(url)
+    player = audio
+    audio.addEventListener('ended', () => onEnd?.())
+    audio.addEventListener('error', () => onEnd?.())
+    void audio.play().catch(() => onEnd?.())
+    return true
+  } catch {
+    return false
+  }
+}
+
+/**
  * System voice, no network and no assets. Safari needs a user gesture to start it.
  * `onEnd` also fires when speech is unavailable or fails, so callers can chain the
  * learner's own recording after the model phrase without ever getting stuck.
@@ -260,4 +312,5 @@ export function speak(text: string, onEnd?: () => void, rate = 0.95): void {
 
 export function stopSpeaking(): void {
   if ('speechSynthesis' in window) speechSynthesis.cancel()
+  if (player) { player.pause(); player = null }
 }

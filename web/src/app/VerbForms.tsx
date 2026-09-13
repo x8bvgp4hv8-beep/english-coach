@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { useStore } from './App'
-import { speak } from './speech'
+import { speak, speakBuiltIn } from './speech'
 import { plural } from './plural'
 import { Icon } from '../kit/Icons'
 import { PrimaryButton, SecondaryButton } from '../kit'
@@ -74,7 +74,7 @@ export function VerbForms() {
             {verb.infinitive}
             <button
               className="verb-speak"
-              onClick={() => speak(verb.infinitive)}
+              onClick={() => { if (!speakBuiltIn(verb.infinitive)) speak(verb.infinitive) }}
               aria-label="Послушать"
             >
               <Icon name="audio" size={16} />

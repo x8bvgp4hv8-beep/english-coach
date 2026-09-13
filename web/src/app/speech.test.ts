@@ -130,6 +130,42 @@ describe('выбор голоса', () => {
     expect(said.voice.name).toBe('Моника')
   })
 
+  it('слова списка читает вшитый голос, а не система', async () => {
+    install(APPLE_VOICES)
+    const played: string[] = []
+    class FakeAudio {
+      src: string
+      constructor(src: string) { this.src = src; played.push(src) }
+      addEventListener() {}
+      pause() {}
+      play() { return Promise.resolve() }
+    }
+    vi.stubGlobal('Audio', FakeAudio)
+
+    const speech = await import('./speech')
+    speech.setVoiceLanguage('en')
+    speech.chooseGender('male', 'en')
+
+    expect(speech.speakBuiltIn('water')).toBe(true)
+    expect(played).toEqual(['voice/en/male/water.opus'])
+    // Система при этом молчит: голос уже прозвучал из файла.
+    expect(synthesis().speak).not.toHaveBeenCalled()
+
+    // Многословные единицы названы так же, как при генерации.
+    speech.speakBuiltIn("all right")
+    expect(played.at(-1)).toBe('voice/en/female/all-right.opus'.replace('female', 'male'))
+  })
+
+  it('для языка без вшитой озвучки возвращает false', async () => {
+    install(APPLE_VOICES)
+    vi.stubGlobal('Audio', class { addEventListener() {} pause() {} play() { return Promise.resolve() } })
+    const speech = await import('./speech')
+    // Испанской озвучки в сборке нет: там остаётся системный синтез.
+    expect(speech.builtInVoiceURL('agua', 'female', 'es')).toBeNull()
+    speech.setVoiceLanguage('es')
+    expect(speech.speakBuiltIn('agua')).toBe(false)
+  })
+
   it('выбор пола хранится отдельно для каждого языка', async () => {
     install(APPLE_VOICES)
     const speech = await import('./speech')

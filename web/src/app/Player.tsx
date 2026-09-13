@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useStore } from './App'
 import { plural, spell } from './plural'
-import { speak } from './speech'
+import { speak, speakBuiltIn } from './speech'
 import { hatFor, lineForVerdict, Rhino, RhinoPop } from '../mascot/Rhino'
 import { diffSummary, vocabularyUnit } from '../core'
 import { Icon } from '../kit/Icons'
@@ -248,7 +248,7 @@ export function Player() {
             <div className={`exercise-prompt${shown.type === 'flashcard' ? ' learn' : ''}`}>
               {shown.prompt}
               {shown.type === 'flashcard' && (
-                <button className="speak" style={{ marginLeft: 8 }} onClick={() => speak(shown.prompt!)} aria-label="Произнести">🔊</button>
+                <button className="speak" style={{ marginLeft: 8 }} onClick={() => { if (!speakBuiltIn(shown.prompt!)) speak(shown.prompt!) }} aria-label="Произнести">🔊</button>
               )}
             </div>
           )}

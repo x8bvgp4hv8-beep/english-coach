@@ -7,6 +7,25 @@ export default defineConfig({
   // Relative base so the build also works from a subfolder on a static host.
   base: './',
   esbuild: { jsx: 'automatic' },
+  build: {
+    // По умолчанию Vite собирает под браузеры не старше конца 2020 года, и на всём, что
+    // старше, скрипт молча падает с синтаксической ошибкой — экран остаётся пустым, без
+    // единого слова о причине. Телефон, который человеку не меняли пять лет, — ровно тот
+    // случай, ради которого всё это и делается. es2017 покрывает Chrome с 2018 года,
+    // стоит это несколько килобайт, и ни одного нового API в приложении нет (`flatMap`
+    // самый свежий, он с Chrome 69).
+    target: 'es2017',
+    rollupOptions: {
+      output: {
+        // Точки в середине имени запрещает GitVerse Pages — российское зеркало, ради
+        // которого всё это и затевалось: его сборщик такие файлы молча выбрасывает.
+        // Под правило попадает ровно один чанк, `workbox-window.prod.es5`, и отвечает
+        // он за обновление приложения — пропав, он ломает не картинку, а саму
+        // возможность довезти до человека следующее исправление.
+        chunkFileNames: (chunk) => `assets/${chunk.name.replace(/\./g, '-')}-[hash].js`,
+      },
+    },
+  },
   plugins: [
     VitePWA({
       // 'prompt', not 'autoUpdate': the app decides WHEN to swap versions, so an update
@@ -19,6 +38,19 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,json,png,svg,woff2}'],
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
+        // Озвучка слов — 6000 файлов и 10 МБ, и в предзагрузке ей нельзя: первый запуск
+        // тянул бы их все. Забирается по одному при прослушивании и остаётся офлайн.
+        runtimeCaching: [
+          {
+            urlPattern: /\/voice\/.*\.opus$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'voice-words',
+              expiration: { maxEntries: 6500 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+        ],
         // Workbox owns caching; push and notification clicks come from our own file.
         importScripts: ['push-sw.js'],
       },
@@ -36,7 +68,9 @@ export default defineConfig({
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
-          { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          // Отдельный файл, а не тот же самый: Android режет maskable-иконку по своей форме,
+          // и у носорога во весь кадр отрезало бы уши. В этом рисунок ужат до безопасной зоны.
+          { src: 'icons/icon-512-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
     }),
