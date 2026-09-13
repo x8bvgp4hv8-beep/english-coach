@@ -159,7 +159,8 @@ describe('выбор голоса', () => {
     const played: string[] = []
     class FakeAudio {
       src: string
-      constructor(src: string) { this.src = src; played.push(src) }
+      // Пустой `new Audio()` — проверка формата, а не запрос файла: её не считаем.
+      constructor(src: string) { this.src = src; if (src) played.push(src) }
       addEventListener() {}
       pause() {}
       play() { return Promise.resolve() }
@@ -175,9 +176,11 @@ describe('выбор голоса', () => {
     // Система при этом молчит: голос уже прозвучал из файла.
     expect(synthesis().speak).not.toHaveBeenCalled()
 
-    // Многословные единицы названы так же, как при генерации.
-    speech.speakBuiltIn("all right")
-    expect(played.at(-1)).toBe('voice/en/female/all-right.opus'.replace('female', 'male'))
+    // А вот на многословную единицу отдельного файла нет: в списке 3000 все записи
+    // однословные, и раньше приложение впустую просило `all-right.opus`. Такой текст
+    // читается спрайтом главы, а если его там нет — системой.
+    expect(speech.speakBuiltIn('all right')).toBe(false)
+    expect(played).toEqual(['voice/en/male/water.opus'])
   })
 
   it('для языка без вшитой озвучки возвращает false', async () => {
@@ -192,18 +195,23 @@ describe('выбор голоса', () => {
 
   it('фразу уровня читает спрайт, а не система', async () => {
     install(APPLE_VOICES)
-    const played: Array<{ src: string; seek: number }> = []
+    const created: Array<{ src: string; currentTime: number; played: boolean }> = []
     class FakeAudio {
       src: string
       currentTime = 0
       readyState = 1
-      constructor(src: string) { this.src = src }
+      played = false
+      constructor(src: string) {
+        this.src = src
+        // Пустой `new Audio()` — это проверка «умеет ли браузер формат», файла она не
+        // просит, и в списке запрошенного ей не место.
+        if (src) created.push(this as unknown as { src: string; currentTime: number; played: boolean })
+      }
       addEventListener() {}
       pause() {}
-      play() { played.push({ src: this.src, seek: this.currentTime }); return Promise.resolve() }
+      play() { this.played = true; return Promise.resolve() }
     }
     vi.stubGlobal('Audio', FakeAudio)
-    // Манифест уровня: хэш фразы → глава, старт, длительность.
     const phrase = 'I get up late on Sunday.'
     vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
       ok: url.includes('phrases-a1.json'),
@@ -219,11 +227,47 @@ describe('выбор голоса', () => {
 
     await speech.preloadPhraseVoice('A1')
     expect(speech.speakPhrase(phrase, 'A1')).toBe(true)
-    expect(played).toEqual([{ src: 'voice/en/female/en-a1-every-day.opus', seek: 12.5 }])
+    expect(created).toHaveLength(1)
+    expect(created[0].src).toBe('voice/en/female/en-a1-every-day.opus')
+    expect(created[0].played, 'play вызывается сразу, в такте нажатия').toBe(true)
+
+    // Перемотка — после старта: Safari разрешает звук только в том же такте, что и
+    // нажатие, поэтому ждать `loadedmetadata` перед `play()` нельзя.
+    await Promise.resolve()
+    await Promise.resolve()
+    expect(created[0].currentTime).toBe(12.5)
     expect(synthesis().speak).not.toHaveBeenCalled()
 
     // Фраза, которой в манифесте нет, спрайтом не читается.
     expect(speech.speakPhrase('Something else entirely.', 'A1')).toBe(false)
+  })
+
+  it('если файл не заиграл, дочитывает система, а не тишина', async () => {
+    // Прежде любая осечка — блокировка автозапуска, сеть, битый файл — давала тишину:
+    // человек нажимал кнопку, а звука не было. Это и значило «голос не слышно».
+    install(APPLE_VOICES)
+    class BrokenAudio {
+      currentTime = 0
+      readyState = 1
+      constructor(public src: string) {}
+      addEventListener() {}
+      pause() {}
+      play() { return Promise.reject(new Error('NotAllowedError')) }
+    }
+    vi.stubGlobal('Audio', BrokenAudio)
+    const phrase = 'I get up late on Sunday.'
+    vi.stubGlobal('fetch', vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ [PYTHON_HASH[phrase]]: ['en-a1-every-day', 12.5, 1.8] }),
+    })))
+
+    const speech = await import('./speech')
+    speech.setVoiceLanguage('en')
+    await speech.preloadPhraseVoice('A1')
+    expect(speech.speakPhrase(phrase, 'A1')).toBe(true)
+
+    await new Promise((resolve) => setTimeout(resolve, 10))
+    expect(synthesis().speak, 'фраза дочитана системным голосом').toHaveBeenCalledTimes(1)
   })
 
   it('уровень без озвучки не ломает воспроизведение', async () => {
@@ -234,6 +278,40 @@ describe('выбор голоса', () => {
     speech.setVoiceLanguage('en')
     await speech.preloadPhraseVoice('C1')
     expect(speech.speakPhrase('Whatever it is.', 'C1')).toBe(false)
+  })
+
+  it('браузер без ogg/opus читает системой, а не молчит', async () => {
+    // Safari научился ogg/opus только в 18.4 (март 2025). На iPhone постарше файл не
+    // играет вовсе, и правильный ответ — не тратить на него попытку, а сразу читать
+    // системным голосом: человек услышит механическую речь, но услышит.
+    install(APPLE_VOICES)
+    vi.stubGlobal('Audio', class {
+      addEventListener() {}
+      pause() {}
+      play() { return Promise.resolve() }
+      canPlayType() { return '' }
+    })
+    const speech = await import('./speech')
+    speech.setVoiceLanguage('en')
+
+    expect(speech.hasBuiltInVoice('en'), 'вшитый голос недоступен на этом браузере').toBe(false)
+    expect(speech.builtInVoiceURL('water', 'male')).toBe(null)
+    expect(speech.speakBuiltIn('water')).toBe(false)
+
+    speech.say('water')
+    expect(synthesis().speak).toHaveBeenCalledTimes(1)
+  })
+
+  it('за файлом на целую фразу не ходит — их озвучены только слова', async () => {
+    // Отдельными файлами озвучен список 3000 слов, и там нет ничего многословного.
+    install(APPLE_VOICES)
+    vi.stubGlobal('Audio', class { addEventListener() {} pause() {} play() { return Promise.resolve() } })
+    const speech = await import('./speech')
+    speech.setVoiceLanguage('en')
+
+    expect(speech.builtInVoiceURL('water', 'male')).toBe('voice/en/male/water.opus')
+    expect(speech.builtInVoiceURL('And it was not a joke.', 'male')).toBe(null)
+    expect(speech.speakBuiltIn('And it was not a joke.')).toBe(false)
   })
 
   it('выбор пола хранится отдельно для каждого языка', async () => {

@@ -254,8 +254,34 @@ const BUILT_IN_WORD_LANGUAGES: LanguageCode[] = ['en']
 /** Языки, для которых озвучены фразы уроков — то есть почти всё, что приложение говорит. */
 const BUILT_IN_PHRASE_LANGUAGES: LanguageCode[] = ['en', 'es']
 
+/**
+ * Умеет ли браузер играть вшитые файлы.
+ *
+ * Ogg/Opus появился в Safari только в 18.4 (март 2025); на iPhone постарше такой файл
+ * не играет вовсе. Спрашивать об этом браузер дешевле, чем выяснять осечкой: иначе на
+ * каждое нажатие уходил бы запрос, потом ошибка, и лишь потом звук — с задержкой.
+ *
+ * Если спросить не удалось, считаем, что умеет: осторожность здесь обошлась бы дороже
+ * попытки — файл всё равно подстрахован системным синтезом, а отказ от него без причины
+ * лишил бы человека того самого живого голоса, ради которого всё и сделано.
+ */
+let canPlayFiles: boolean | null = null
+function playsBuiltIn(): boolean {
+  if (canPlayFiles === null) {
+    try {
+      const probe = new Audio()
+      canPlayFiles = typeof probe.canPlayType !== 'function'
+        || probe.canPlayType('audio/ogg; codecs=opus') !== ''
+    } catch {
+      canPlayFiles = true
+    }
+  }
+  return canPlayFiles
+}
+
 /** Есть ли у языка своя озвучка в сборке — от системных голосов она не зависит. */
 export function hasBuiltInVoice(code: LanguageCode = language): boolean {
+  if (!playsBuiltIn()) return false
   return BUILT_IN_PHRASE_LANGUAGES.includes(code) || BUILT_IN_WORD_LANGUAGES.includes(code)
 }
 
@@ -270,7 +296,11 @@ const voiceFileName = (word: string): string =>
   word.toLowerCase().trim().replace(/[.!?,;:¡¿]/g, '').replace(/\s+/g, '-').replace(/'/g, '')
 
 export function builtInVoiceURL(word: string, gender: VoiceGender, code: LanguageCode = language): string | null {
-  if (!BUILT_IN_WORD_LANGUAGES.includes(code)) return null
+  if (!BUILT_IN_WORD_LANGUAGES.includes(code) || !playsBuiltIn()) return null
+  // Отдельными файлами озвучен список 3000 слов, и в нём все записи однословные. Без
+  // этой проверки каждая фраза, не найденная в спрайте, сперва просила несуществующий
+  // файл `and-it-was-not-a-joke.opus` — запрос впустую и задержка перед звуком.
+  if (/\s/.test(word.trim())) return null
   return `voice/${code}/${gender}/${voiceFileName(word)}.opus`
 }
 
@@ -291,9 +321,16 @@ export function speakBuiltIn(word: string, onEnd?: () => void): boolean {
     player?.pause()
     const audio = new Audio(url)
     player = audio
-    audio.addEventListener('ended', () => onEnd?.())
-    audio.addEventListener('error', () => onEnd?.())
-    void audio.play().catch(() => onEnd?.())
+    let finished = false
+    // Осечка файла — не повод молчать: дочитывает система.
+    const fallback = () => {
+      if (finished) return
+      finished = true
+      speak(word, onEnd)
+    }
+    audio.addEventListener('ended', () => { finished = true; onEnd?.() })
+    audio.addEventListener('error', fallback, { once: true })
+    void audio.play().catch(fallback)
     return true
   } catch {
     return false
@@ -344,6 +381,7 @@ const manifestKey = (level: string, code: LanguageCode, gender: VoiceGender): st
 export function preloadPhraseVoice(level: string, code: LanguageCode = language): Promise<void> {
   const gender = storedGender() ?? 'female'
   const key = manifestKey(level, code, gender)
+  if (!playsBuiltIn()) return Promise.resolve()
   if (manifests.has(key)) return Promise.resolve()
   const already = loading.get(key)
   if (already) return already
@@ -379,17 +417,40 @@ export function speakPhrase(text: string, level: string, onEnd?: () => void): bo
       audio.pause()
       onEnd?.()
     }
-    // Конец фразы — по таймеру: внутри спрайта событие `ended` придёт только в конце
-    // всей главы, то есть через минуты.
-    const play = () => {
-      audio.currentTime = start
-      void audio.play().then(() => { window.setTimeout(finish, duration * 1000 + 120) }).catch(finish)
+
+    /**
+     * Не заигралось — читаем системным голосом, а не молчим.
+     *
+     * Прежде здесь был `catch(finish)`: любая осечка — блокировка автозапуска, сеть,
+     * битый файл — превращалась в тишину, и человек нажимал кнопку, а звука не было.
+     * Тишина хуже механического голоса: она выглядит как поломка и ничему не учит.
+     */
+    const fallback = () => {
+      if (finished) return
+      finished = true
+      audio.pause()
+      speak(text, onEnd)
     }
-    if (audio.readyState >= 1) play()
-    else {
-      audio.addEventListener('loadedmetadata', play, { once: true })
-      audio.addEventListener('error', finish, { once: true })
-    }
+
+    // `play()` вызывается сразу, а перемотка — после начала воспроизведения.
+    //
+    // Порядок именно такой из-за Safari: он разрешает звук только в том же такте, что
+    // и нажатие. Прежний код ждал `loadedmetadata`, то есть к моменту `play()` жест был
+    // уже «потерян», и на iPhone воспроизведение блокировалось без всякой ошибки —
+    // именно это и значило «нажимаю, а голоса не слышно».
+    // Перемотка ставится дважды. Сразу — чтобы не услышать начало чужой фразы: глава
+    // часто уже в кэше, и тогда первая попытка срабатывает. И ещё раз после старта,
+    // потому что на свежем файле метаданных в этот момент может не быть, и браузер
+    // молча её проглатывает.
+    const seek = () => { try { audio.currentTime = start } catch { /* метаданных ещё нет */ } }
+    seek()
+    audio.addEventListener('error', fallback, { once: true })
+    void audio.play().then(() => {
+      if (Math.abs(audio.currentTime - start) > 0.25) seek()
+      // Конец фразы — по таймеру: внутри спрайта событие `ended` придёт только в конце
+      // всей главы, то есть через минуты.
+      window.setTimeout(finish, duration * 1000 + 140)
+    }).catch(fallback)
     return true
   } catch {
     return false
