@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { useStore } from './App'
 import { Icon } from '../kit/Icons'
-import { speak, stopSpeaking } from './speech'
+import { preloadPhraseVoice, say, stopSpeaking } from './speech'
 
 /**
  * Say it out loud, hear yourself next to the model phrase, judge it.
@@ -89,6 +89,8 @@ export function Shadowing() {
 
   useEffect(() => { reset() }, [item?.exerciseID, reset])
   useEffect(() => () => stopSpeaking(), [])
+  // Таймкоды уровня нужны до первого нажатия: без них фраза прозвучит системным голосом.
+  useEffect(() => { void preloadPhraseVoice(model.selectedLevel) }, [model.selectedLevel])
 
   const leave = () => { mic.stop(); stopSpeaking(); model.closeShadowing() }
 
@@ -122,7 +124,7 @@ export function Shadowing() {
   /** Model phrase, then your own take, so the difference is heard, not guessed. */
   const playBoth = () => {
     const audio = audioRef.current
-    if (!audio) { speak(item.text); return }
+    if (!audio) { say(item.text, model.selectedLevel); return }
     // Safari only starts an audio element from a user gesture, so it is unlocked
     // (muted) inside the tap and rewound before the voice hands over to it.
     audio.muted = true
@@ -137,7 +139,7 @@ export function Shadowing() {
       audio.currentTime = 0
       void audio.play()
     }
-    speak(item.text, playTake)
+    say(item.text, model.selectedLevel, playTake)
     // A browser with no installed voice never reports the phrase as finished, and the
     // learner would be left with silence. Hand over on time regardless.
     window.setTimeout(playTake, Math.min(12_000, 1_500 + item.text.length * 90))
@@ -162,7 +164,7 @@ export function Shadowing() {
           {item.gloss && <p className="exercise-explanation muted" style={{ textAlign: 'center' }}>{item.gloss}</p>}
 
           <div className="listen-row">
-            <button className="listen" onClick={() => speak(item.text)}>🔊 Эталон</button>
+            <button className="listen" onClick={() => say(item.text, model.selectedLevel)}>🔊 Эталон</button>
             <button className="listen" disabled={!mic.takeURL} onClick={playTake}>▶︎ Я</button>
             <button className="listen" disabled={!mic.takeURL} onClick={playBoth}>⇄ Подряд</button>
           </div>

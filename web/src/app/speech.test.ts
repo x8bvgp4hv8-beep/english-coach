@@ -53,6 +53,19 @@ function install(voices: FakeVoice[], userAgent = 'Macintosh'): void {
   })
 }
 
+/**
+ * Эталонные хэши, посчитанные питоновским `voice-build.py`.
+ *
+ * Вписаны числами намеренно. Первая версия теста считала хэш своей копией функции из
+ * приложения — и пропустила настоящий баг: в JS битовые операции знаковые, хэш выходил
+ * отрицательным и не совпадал с манифестом. Копия ошибки совпадает с ошибкой всегда,
+ * поэтому сверяться надо с тем, что записано на диск.
+ */
+const PYTHON_HASH: Record<string, string> = {
+  'A fin de mes estoy sin blanca.': 'f8c297b2',
+  'I get up late on Sunday.': '0d15d218',
+}
+
 const APPLE_VOICES = [
   // Настоящие
   voice('Дэниэл', 'en-GB'), voice('Саманта', 'en-US'), voice('Карен', 'en-AU'),
@@ -164,6 +177,52 @@ describe('выбор голоса', () => {
     expect(speech.builtInVoiceURL('agua', 'female', 'es')).toBeNull()
     speech.setVoiceLanguage('es')
     expect(speech.speakBuiltIn('agua')).toBe(false)
+  })
+
+  it('фразу уровня читает спрайт, а не система', async () => {
+    install(APPLE_VOICES)
+    const played: Array<{ src: string; seek: number }> = []
+    class FakeAudio {
+      src: string
+      currentTime = 0
+      readyState = 1
+      constructor(src: string) { this.src = src }
+      addEventListener() {}
+      pause() {}
+      play() { played.push({ src: this.src, seek: this.currentTime }); return Promise.resolve() }
+    }
+    vi.stubGlobal('Audio', FakeAudio)
+    // Манифест уровня: хэш фразы → глава, старт, длительность.
+    const phrase = 'I get up late on Sunday.'
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => ({
+      ok: url.includes('phrases-a1.json'),
+      json: async () => ({ [PYTHON_HASH[phrase]]: ['en-a1-every-day', 12.5, 1.8] }),
+    })))
+
+    const speech = await import('./speech')
+    speech.setVoiceLanguage('en')
+    speech.chooseGender('female', 'en')
+
+    // До загрузки манифеста звук идёт прежним путём.
+    expect(speech.speakPhrase(phrase, 'A1')).toBe(false)
+
+    await speech.preloadPhraseVoice('A1')
+    expect(speech.speakPhrase(phrase, 'A1')).toBe(true)
+    expect(played).toEqual([{ src: 'voice/en/female/en-a1-every-day.opus', seek: 12.5 }])
+    expect(synthesis().speak).not.toHaveBeenCalled()
+
+    // Фраза, которой в манифесте нет, спрайтом не читается.
+    expect(speech.speakPhrase('Something else entirely.', 'A1')).toBe(false)
+  })
+
+  it('уровень без озвучки не ломает воспроизведение', async () => {
+    install(APPLE_VOICES)
+    vi.stubGlobal('Audio', class { addEventListener() {} pause() {} play() { return Promise.resolve() } })
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, json: async () => ({}) })))
+    const speech = await import('./speech')
+    speech.setVoiceLanguage('en')
+    await speech.preloadPhraseVoice('C1')
+    expect(speech.speakPhrase('Whatever it is.', 'C1')).toBe(false)
   })
 
   it('выбор пола хранится отдельно для каждого языка', async () => {

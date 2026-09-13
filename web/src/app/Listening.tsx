@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useStore } from './App'
 import { Icon } from '../kit/Icons'
-import { SLOW_RATE, speak, stopSpeaking } from './speech'
+import { SLOW_RATE, preloadPhraseVoice, say, stopSpeaking } from './speech'
 import { diffSummary } from '../core'
 import type { WordDiff } from '../core'
 
@@ -26,10 +26,11 @@ export function Listening() {
     setShowGloss(false)
     setPlays(0)
     if (!phrase) return
+    void preloadPhraseVoice(model.selectedLevel)
     // The sentence plays itself on arrival, so the drill is one tap per item rather than
     // two. Safari can refuse the very first utterance outside a gesture; the button is
     // right there, and every later one goes through once speech has been unlocked.
-    speak(phrase)
+    say(phrase, model.selectedLevel)
     setPlays(1)
   }, [phrase])
   useEffect(() => () => stopSpeaking(), [])
@@ -54,7 +55,7 @@ export function Listening() {
 
   const total = model.listeningItems.length
   const position = Math.min(model.session.exerciseIndex + 1, total)
-  const play = (rate?: number) => { setPlays(plays + 1); speak(item.text, undefined, rate) }
+  const play = (rate?: number) => { setPlays(plays + 1); say(item.text, model.selectedLevel, undefined, rate) }
 
   return (
     <div className="player">

@@ -280,6 +280,102 @@ export function speakBuiltIn(word: string, onEnd?: () => void): boolean {
 }
 
 /**
+ * Фразы уроков озвучены заранее и склеены в спрайты — по одному файлу на главу.
+ *
+ * Файлами это не собрать: фраз тридцать восемь тысяч, и по файлу на каждую — это
+ * семьдесят шесть тысяч штук на два голоса, больше, чем принимает хостинг статики.
+ * Глава весит один-три мегабайта, тянется за раз и целиком остаётся в кэше, а внутрь
+ * файла браузер переходит по времени точно — проверено, расхождение ноль миллисекунд.
+ *
+ * Манифест уровня (хэш фразы → глава, старт, длительность) подгружается один раз, когда
+ * человек входит в режим со звуком. Пока он не загружен, `speakPhrase` возвращает `false`
+ * и звук идёт прежним путём — вшитым словом или системным синтезом.
+ */
+type PhraseMark = [chapter: string, start: number, duration: number]
+
+const manifests = new Map<string, Record<string, PhraseMark>>()
+const loading = new Map<string, Promise<void>>()
+
+/**
+ * Хэш фразы. Тот же djb2, что в `scripts/voice-build.py`: синхронный, без крипто-API.
+ *
+ * `>>> 0` здесь обязателен, и это не украшение. Битовые операции в JS работают со
+ * знаковым int32, поэтому `& 0xFFFFFFFF` беззнаковым числа не делает: тот же djb2
+ * возвращал `-73d684e` там, где Python отдаёт `f8c297b2`, и ни одна фраза не находилась
+ * в манифесте. Поймано живой проверкой в браузере — тест это пропустил, потому что
+ * повторял ту же ошибку своей копией функции.
+ */
+function phraseHash(text: string): string {
+  let value = 5381
+  for (const char of text) {
+    value = ((value * 33) ^ char.codePointAt(0)!) >>> 0
+  }
+  return value.toString(16).padStart(8, '0')
+}
+
+const manifestKey = (level: string, code: LanguageCode, gender: VoiceGender): string =>
+  `${code}/${gender}/${level.toLowerCase()}`
+
+/**
+ * Подгрузить таймкоды уровня. Зовётся при входе в режим со звуком; повторные вызовы
+ * ничего не стоят, а отсутствие файла — не ошибка: уровень может быть просто не озвучен.
+ */
+export function preloadPhraseVoice(level: string, code: LanguageCode = language): Promise<void> {
+  const gender = storedGender() ?? 'female'
+  const key = manifestKey(level, code, gender)
+  if (manifests.has(key)) return Promise.resolve()
+  const already = loading.get(key)
+  if (already) return already
+
+  const task = fetch(`voice/${code}/${gender}/phrases-${level.toLowerCase()}.json`)
+    .then((response) => (response.ok ? response.json() : {}))
+    .then((marks) => { manifests.set(key, marks as Record<string, PhraseMark>) })
+    .catch(() => { manifests.set(key, {}) })
+    .finally(() => { loading.delete(key) })
+  loading.set(key, task)
+  return task
+}
+
+/**
+ * Произнести фразу из спрайта. `false` — таймкода нет, и вызывающий идёт дальше по
+ * цепочке: вшитое слово, затем системный синтез.
+ */
+export function speakPhrase(text: string, level: string, onEnd?: () => void): boolean {
+  const gender = storedGender() ?? 'female'
+  const marks = manifests.get(manifestKey(level, language, gender))
+  const mark = marks?.[phraseHash(text.trim())]
+  if (!mark) return false
+
+  const [chapter, start, duration] = mark
+  try {
+    stopSpeaking()
+    const audio = new Audio(`voice/${language}/${gender}/${chapter}.opus`)
+    player = audio
+    let finished = false
+    const finish = () => {
+      if (finished) return
+      finished = true
+      audio.pause()
+      onEnd?.()
+    }
+    // Конец фразы — по таймеру: внутри спрайта событие `ended` придёт только в конце
+    // всей главы, то есть через минуты.
+    const play = () => {
+      audio.currentTime = start
+      void audio.play().then(() => { window.setTimeout(finish, duration * 1000 + 120) }).catch(finish)
+    }
+    if (audio.readyState >= 1) play()
+    else {
+      audio.addEventListener('loadedmetadata', play, { once: true })
+      audio.addEventListener('error', finish, { once: true })
+    }
+    return true
+  } catch {
+    return false
+  }
+}
+
+/**
  * System voice, no network and no assets. Safari needs a user gesture to start it.
  * `onEnd` also fires when speech is unavailable or fails, so callers can chain the
  * learner's own recording after the model phrase without ever getting stuck.
@@ -313,4 +409,18 @@ export function speak(text: string, onEnd?: () => void, rate = 0.95): void {
 export function stopSpeaking(): void {
   if ('speechSynthesis' in window) speechSynthesis.cancel()
   if (player) { player.pause(); player = null }
+}
+
+/**
+ * Единственная точка озвучки для экранов: спрайт фразы, затем вшитое слово, затем
+ * системный синтез.
+ *
+ * Порядок именно такой, и он же — порядок качества. Заранее записанное звучит живым
+ * голосом и одинаково на любом устройстве; система читает облегчённым голосом, который
+ * Кристиан справедливо назвал роботом, и её очередь — последняя.
+ */
+export function say(text: string, level?: string, onEnd?: () => void, rate = 0.95): void {
+  if (level && speakPhrase(text, level, onEnd)) return
+  if (speakBuiltIn(text, onEnd)) return
+  speak(text, onEnd, rate)
 }

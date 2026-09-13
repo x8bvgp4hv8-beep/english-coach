@@ -37,10 +37,18 @@ export default defineConfig({
       // The course packs must be available offline, not just the shell.
       workbox: {
         globPatterns: ['**/*.{js,css,html,json,png,svg,woff2}'],
+        // Манифесты озвучки — по 200–500 КБ на уровень, и нужны они только при входе в
+        // режим со звуком. В предзагрузке они стоили бы почти два мегабайта на запуске.
+        globIgnores: ['voice/**'],
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
         // Озвучка слов — 6000 файлов и 10 МБ, и в предзагрузке ей нельзя: первый запуск
         // тянул бы их все. Забирается по одному при прослушивании и остаётся офлайн.
         runtimeCaching: [
+          {
+            urlPattern: /\/voice\/.*\.json$/,
+            handler: 'StaleWhileRevalidate',
+            options: { cacheName: 'voice-manifests', expiration: { maxEntries: 40 } },
+          },
           {
             urlPattern: /\/voice\/.*\.opus$/,
             handler: 'CacheFirst',
