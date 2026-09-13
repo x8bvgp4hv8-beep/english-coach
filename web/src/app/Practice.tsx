@@ -95,18 +95,21 @@ export function Practice() {
         {/* Отдельная группа изучения: не уровень курса, а охват частотного ядра. */}
         {model.hasWordlist && (
           <button className="link-button" onClick={() => model.setScreen('wordlist')}>
-            3000 частых слов: знаю {model.wordlistCount.known} из {model.wordlistCount.total} ›
+            <span>3000 частых слов: знаю {model.wordlistCount.known} из {model.wordlistCount.total}</span>
+            <span aria-hidden="true">›</span>
           </button>
         )}
 
         {model.hasTheory && (
           <button className="link-button" onClick={() => model.setScreen('theory')}>
-            Разборы тем: правила, формы, ошибки ›
+            <span>Разборы тем: правила, формы, ошибки</span>
+            <span aria-hidden="true">›</span>
           </button>
         )}
 
         <button className="link-button" onClick={() => model.setScreen('topics')}>
-          Все темы уровня и мои проценты ›
+          <span>Все темы уровня и мои проценты</span>
+          <span aria-hidden="true">›</span>
         </button>
       </div>
     </>

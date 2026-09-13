@@ -261,7 +261,8 @@ export function Player() {
               этой ссылки они друг о друге не знали. Урок за разбором не закрывается. */}
           {shown.type === 'info' && theoryTopic && (
             <button className="link-button" onClick={() => model.openTheoryOverLesson(theoryTopic)}>
-              Полный разбор темы: формы, границы, ошибки ›
+              <span>Полный разбор темы: формы, границы, ошибки</span>
+              <span aria-hidden="true">›</span>
             </button>
           )}
 
