@@ -4,7 +4,7 @@ import { useStore } from './App'
 import { Icon } from '../kit/Icons'
 import { PlacementTest } from './Placement'
 import { disablePush, enablePush, pushState } from './push'
-import { APPLE, availableGenders, chooseGender, chosenGender, isCompact, speak, voiceByGender, voiceLabel } from './speech'
+import { APPLE, availableGenders, chooseGender, chosenGender, hasBuiltInVoice, isCompact, say, voiceByGender, voiceLabel } from './speech'
 import { THEMES, applyTheme, loadTheme } from './theme'
 import type { PushState } from './push'
 import { COMMON_COUNTRIES, LEVELS, importBackup } from '../core'
@@ -150,13 +150,14 @@ export function Settings() {
                 onClick={() => {
                   chooseGender(row.id)
                   setGender(row.id)
-                  speak(model.currentLanguage.greeting)
+                  // Образец — тем же голосом, который выбирают: вшитым, а не системным.
+                  say(model.currentLanguage.greeting)
                 }}
               >
                 <span className="label">{row.title}</span>
                 <span className="value">
                   {row.id === gender
-                    ? `выбран ✓ · ${voiceLabel(voiceByGender(row.id)!)}`
+                    ? (voiceByGender(row.id) ? `выбран ✓ · ${voiceLabel(voiceByGender(row.id)!)}` : 'выбран ✓')
                     : 'послушать ›'}
                 </span>
               </button>
@@ -175,14 +176,14 @@ export function Settings() {
             вариант, который Apple ставит по умолчанию; рядом бесплатно лежит живой, но
             его надо скачать. Когда система говорит, что голос облегчённый, экран не
             прячет это в сноску внизу, а пишет здесь же. */}
-        {isCompact(voiceByGender(gender ?? genders[0] ?? 'female')) === true && (
+        {!hasBuiltInVoice() && isCompact(voiceByGender(gender ?? genders[0] ?? 'female')) === true && (
           <p className="settings-warn">
             Сейчас выбран облегчённый голос — поэтому он и звучит механически. Живой
             ставится бесплатно и один раз, шагами ниже.
           </p>
         )}
 
-        {genders.length === 1 && (
+        {!hasBuiltInVoice() && genders.length === 1 && (
           <p className="settings-note">
             На этом устройстве установлен только {genders[0] === 'female' ? 'женский' : 'мужской'} голос
             {' '}{model.currentLanguage.genitive}. Второй ставится там же, где и первый — ниже написано где.

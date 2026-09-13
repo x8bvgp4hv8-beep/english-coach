@@ -167,8 +167,15 @@ export function isCompact(item: SpeechSynthesisVoice | null): boolean | null {
   return null
 }
 
-/** Какие из двух голосов вообще есть на этом устройстве. */
+/**
+ * Какие из двух голосов доступны.
+ *
+ * Со вшитой озвучкой — оба, всегда: файлы лежат в сборке и от системы не зависят. Это
+ * важно именно для испанского, где системного мужского голоса на устройстве может не
+ * быть вовсе — раньше строка «Мужской» там просто не показывалась, хотя записи есть.
+ */
 export function availableGenders(code: LanguageCode = language): VoiceGender[] {
+  if (hasBuiltInVoice(code)) return ['female', 'male']
   return (['female', 'male'] as VoiceGender[]).filter((gender) => voiceByGender(gender, code) !== null)
 }
 
@@ -242,14 +249,28 @@ export function activeVoice(): SpeechSynthesisVoice | null {
  * Фразы уроков по-прежнему читает система: их пятнадцать тысяч, и заранее озвучить их
  * значит увезти в сборку триста мегабайт.
  */
-const BUILT_IN_LANGUAGES: LanguageCode[] = ['en']
+/** Языки, для которых озвучен список слов. */
+const BUILT_IN_WORD_LANGUAGES: LanguageCode[] = ['en']
+/** Языки, для которых озвучены фразы уроков — то есть почти всё, что приложение говорит. */
+const BUILT_IN_PHRASE_LANGUAGES: LanguageCode[] = ['en', 'es']
 
-/** Имя файла из слова: пробелы в дефис, апострофы долой — как при генерации. */
+/** Есть ли у языка своя озвучка в сборке — от системных голосов она не зависит. */
+export function hasBuiltInVoice(code: LanguageCode = language): boolean {
+  return BUILT_IN_PHRASE_LANGUAGES.includes(code) || BUILT_IN_WORD_LANGUAGES.includes(code)
+}
+
+/**
+ * Имя файла из слова: пробелы в дефис, апострофы долой — как при генерации.
+ *
+ * Пунктуация тоже снимается, и это не косметика: образец голоса в настройках звучит как
+ * «Hello!», а файл называется `hello.opus`, и из-за одного восклицательного знака
+ * приветствие уходило в системный синтез — то есть человек выбирал голос и слышал не его.
+ */
 const voiceFileName = (word: string): string =>
-  word.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '')
+  word.toLowerCase().trim().replace(/[.!?,;:¡¿]/g, '').replace(/\s+/g, '-').replace(/'/g, '')
 
 export function builtInVoiceURL(word: string, gender: VoiceGender, code: LanguageCode = language): string | null {
-  if (!BUILT_IN_LANGUAGES.includes(code)) return null
+  if (!BUILT_IN_WORD_LANGUAGES.includes(code)) return null
   return `voice/${code}/${gender}/${voiceFileName(word)}.opus`
 }
 

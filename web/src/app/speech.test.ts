@@ -78,6 +78,15 @@ const APPLE_VOICES = [
 describe('выбор голоса', () => {
   beforeEach(() => { vi.resetModules(); vi.unstubAllGlobals() })
 
+  it('со вшитой озвучкой оба голоса доступны независимо от системы', async () => {
+    // Испанского мужского голоса в системе может не быть вовсе — записи в сборке есть,
+    // и строка «Мужской» обязана остаться доступной.
+    install([voice('Моника', 'es-ES')])
+    const speech = await import('./speech')
+    expect(speech.availableGenders('es')).toEqual(['female', 'male'])
+    expect(speech.hasBuiltInVoice('es')).toBe(true)
+  })
+
   it('оставляет два голоса — мужской и женский', async () => {
     install(APPLE_VOICES)
     const speech = await import('./speech')
@@ -120,7 +129,9 @@ describe('выбор голоса', () => {
     speech.setVoiceLanguage('es')
 
     expect(speech.hasVoice('es')).toBe(false)
-    expect(speech.availableGenders('es')).toEqual([])
+    // Системных голосов для языка нет; выбор пола при этом остаётся, потому что его
+    // теперь определяет вшитая озвучка, а не система.
+    expect(speech.voicesFor('es')).toEqual([])
 
     const ended = vi.fn()
     speech.speak('Hola, ¿qué tal?', ended)
