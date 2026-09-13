@@ -18,6 +18,7 @@
     "sync-content": "node scripts/sync-content.mjs",
     "comment:vocabulary": "Замер режима слов: сколько карточек проходит как лексическая единица. Запускать после sync-content; --sample N печатает выборку для проверки глазами.",
     "measure:vocabulary": "npm run sync-content && vite-node scripts/measure-vocabulary.mjs",
+    "measure:modes": "npm run sync-content && vite-node scripts/measure-modes.mjs",
     "measure:listening": "npm run sync-content && vite-node scripts/measure-listening.mjs",
     "comment:voice": "Озвучка 3000 слов двумя голосами (Piper). Нужен `uv tool install piper-tts` и ffmpeg; модели по 60 МБ качаются в .voice-models.",
     "build:voice": "node scripts/build-voice.mjs",

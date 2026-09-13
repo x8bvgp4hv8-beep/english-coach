@@ -28,11 +28,12 @@ import {
   loadContent,
   localProgressStore,
   personalise,
+  modeStates,
   taughtCourses,
 } from '../core'
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
-  LearnerHome, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
+  LearnerHome, ModeState, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
   TopicProgress, UserState, VerbForms, CheckupBank, CheckupItem, CheckupResult,
   WordlistPack, WordlistItem,
 } from '../core'
@@ -378,16 +379,20 @@ export class AppStore {
   get practiceIsAvailable(): boolean { return PracticeEngine.pool(this.practiceCourses, this.selectedLevel).length > 0 }
 
   /**
-   * Есть ли что тренировать, но нечего производить.
+   * Все режимы тренировки с их состоянием: открыт или чем открывается.
    *
-   * Так выглядит свежий уровень: карточки открыты, а перевод, сборка и тесты — нет,
-   * потому что производить можно то, чему учили. Три серых строки подряд без объяснения
-   * читаются как поломка, поэтому экран о них говорит.
+   * Одно место вместо шести счётчиков на экране — иначе правило «чем открывается режим»
+   * живёт в вёрстке и разъезжается на первой же правке (так и вышло: производство
+   * объяснялось общей сноской, а остальные закрытые режимы — ничем).
    */
-  get productionIsLocked(): boolean {
-    return PracticeEngine.pool(
-      this.practiceCourses, this.selectedLevel, ['translate', 'word_order', 'multiple_choice'],
-    ).length === 0
+  get practiceModes(): ModeState[] {
+    return modeStates({
+      courses: this.courses,
+      taught: this.practiceCourses,
+      level: this.selectedLevel,
+      language: this.language ?? DEFAULT_LANGUAGE,
+      theory: this.theory,
+    })
   }
 
   get suggestedNextLevel(): CEFRLevel | null {

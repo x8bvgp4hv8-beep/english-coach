@@ -1,104 +1,72 @@
 import { useStore } from './App'
 import { Header } from './Header'
-import { PRACTICE_KINDS } from '../core'
 import { Icon } from '../kit/Icons'
 import { EmptyNote, SectionTitle } from '../kit'
+import type { ModeID } from '../core'
 import type { IconName } from '../kit/Icons'
 
-const KIND_ICON: Record<string, IconName> = {
-  mixed: 'target', flashcard: 'dialogue', translate: 'write', word_order: 'order',
-  multiple_choice: 'choice',
+const MODE_ICON: Record<ModeID, IconName> = {
+  shadowing: 'audio', listening: 'audio', dialogue: 'dialogue', verbforms: 'order',
+  vocabulary: 'cards', mixed: 'target', flashcard: 'dialogue', translate: 'write',
+  word_order: 'order', multiple_choice: 'choice',
 }
-const KIND_COLOR: Record<string, string> = {
-  mixed: 'var(--violet)', flashcard: 'var(--ink)', translate: 'var(--amber)',
-  word_order: 'var(--mint)', multiple_choice: '#c17ce0',
+const MODE_COLOR: Record<ModeID, string> = {
+  shadowing: 'var(--coral)', listening: 'var(--blue)', dialogue: 'var(--blue)',
+  verbforms: 'var(--amber)', vocabulary: 'var(--violet)', mixed: 'var(--violet)',
+  flashcard: 'var(--ink)', translate: 'var(--amber)', word_order: 'var(--mint)',
+  multiple_choice: '#c17ce0',
 }
 
 /**
  * Drilling, and the places worth drilling first.
  *
  * The counts are gone from the rows on purpose. "Порядок слов · 210" reads as a debt,
- * and a debt is what makes a person close the app; a kind that has nothing in it yet
- * says "пока нечего" instead of showing a zero.
+ * and a debt is what makes a person close the app. Закрытый режим тоже не показывает
+ * нуль: он говорит, чем открывается, — и это решает ядро (`core/modes.ts`), а не вёрстка,
+ * потому что правило одно на все режимы, а экранов у него будет больше одного.
  */
 export function Practice() {
   const model = useStore()
   const weak = model.weakTopics
+
+  const start = (id: ModeID) => {
+    if (id === 'shadowing') return model.startShadowing()
+    if (id === 'listening') return model.startListening()
+    if (id === 'verbforms') return model.startVerbForms()
+    if (id === 'vocabulary') return model.startVocabulary()
+    if (id === 'dialogue') return
+    model.startPractice(id)
+  }
 
   return (
     <>
       <Header model={model} />
       <div className="scroll">
         <div className="kind-card">
-          {/* Speaking comes first: it is the only exercise that gets the mouth moving. */}
-          <KindRow
-            icon="audio" color="var(--coral)"
-            title="Вслух за диктором"
-            note="Слушай, повторяй, сравнивай себя с эталоном"
-            ready={model.shadowingCount > 0}
-            onClick={() => model.startShadowing()}
-          />
-          {/* And listening second: it is the only one where the English is not on screen. */}
-          <KindRow
-            icon="audio" color="var(--blue)"
-            title="Аудирование"
-            note="Слушай и записывай, текста на экране нет"
-            ready={model.listeningCount > 0}
-            onClick={() => model.startListening()}
-          />
-          {/* Dialogue drills are not built yet: the pool deliberately excludes dialogues,
-              because hearing an exchange again is exposure rather than practice. The row
-              stands anyway, dimmed and saying so — the same way an empty kind does — so
-              the list is the whole map of what practice will be, not just what it is. */}
-          <KindRow
-            icon="dialogue" color="var(--blue)"
-            title="Диалог"
-            note="Сначала целиком, потом по репликам"
-            ready={false}
-            onClick={() => {}}
-          />
-          {/* Формы глагола — единственный вид, где спрашивают не смысл, а память на форму. */}
-          <KindRow
-            icon="order" color="var(--amber)"
-            title="Формы глагола"
-            note="Показана первая — введи вторую и третью"
-            ready={model.verbFormsCount > 0}
-            onClick={() => model.startVerbForms()}
-          />
-          {/* Слова впереди остальных видов: «хочу поучить слова» — самый частый запрос к
-              тренажёру, и до этого режима приложение отвечало на него куском реплики. */}
-          <KindRow
-            icon="cards" color="var(--violet)"
-            title="Слова"
-            note="Слово, перевод и пример — без обрывков фраз"
-            ready={model.vocabularyCount > 0}
-            onClick={() => model.startVocabulary()}
-          />
-          {PRACTICE_KINDS.map((kind) => (
-            <KindRow
-              key={kind.id}
-              icon={KIND_ICON[kind.id] ?? 'target'}
-              color={KIND_COLOR[kind.id] ?? 'var(--violet)'}
-              title={kind.title}
-              note={kind.subtitle}
-              ready={(model.practiceCounts[kind.id] ?? 0) > 0}
-              onClick={() => model.startPractice(kind.id)}
-            />
+          {model.practiceModes.map((mode) => (
+            <button
+              key={mode.id}
+              className="kind-row"
+              disabled={!mode.ready}
+              onClick={() => start(mode.id)}
+            >
+              <span className="kind-tile" style={{ background: MODE_COLOR[mode.id] }}>
+                <Icon name={MODE_ICON[mode.id]} size={20} />
+              </span>
+              <span className="kind-body">
+                <span className="kind-name">{mode.title}</span>
+                {/* Открыт — что это за режим; закрыт — чем открывается. Строк в обоих
+                    случаях две, поэтому высота строки не скачет. */}
+                <span className="kind-note">{mode.note}</span>
+              </span>
+              {mode.ready && <span className="kind-chevron"><Icon name="chevron" size={17} /></span>}
+            </button>
           ))}
         </div>
 
-        {!model.practiceIsAvailable ? (
+        {!model.practiceIsAvailable && (
           <EmptyNote>
-            Тренировки собираются из пройденного. Пройди первый урок — и здесь появятся
-            карточки, перевод, аудирование и речь вслух.
-          </EmptyNote>
-        ) : model.productionIsLocked && (
-          /* Три серых строки подряд выглядят как пустое приложение, если не сказать, от
-             чего они открываются. Сказать честно: производить можно то, что объяснили. */
-          <EmptyNote>
-            Перевод, сборка и тесты открываются по пройденному: просить сказать самому по
-            теме, которую ещё не объясняли, — это стена, а не упражнение. Пройди урок или
-            разбери тему — и они появятся.
+            Тренировки собираются из пройденного: пройди первый урок — и режимы откроются.
           </EmptyNote>
         )}
 
@@ -150,22 +118,4 @@ function scoreColour(accuracy: number): string {
   if (accuracy < 0.6) return 'var(--coral)'
   if (accuracy < 0.8) return 'var(--amber)'
   return 'var(--mint)'
-}
-
-function KindRow(
-  { icon, color, title, note, ready, onClick }:
-  { icon: IconName; color: string; title: string; note: string; ready: boolean; onClick: () => void },
-) {
-  return (
-    <button className="kind-row" disabled={!ready} onClick={onClick}>
-      <span className="kind-tile" style={{ background: color }}><Icon name={icon} size={20} /></span>
-      <span className="kind-body">
-        <span className="kind-name">{title}</span>
-        <span className="kind-note">{note}</span>
-      </span>
-      {ready
-        ? <span className="kind-chevron"><Icon name="chevron" size={17} /></span>
-        : <span className="kind-empty">пока нечего</span>}
-    </button>
-  )
 }

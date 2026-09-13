@@ -8,7 +8,8 @@ import { decodeCourse, decodePlacement } from './content'
 import { SyllabusEngine, TopicProgressEngine, decodeSyllabus, unseenVocabulary } from './syllabus'
 import { CourseRouting, LevelOrder, PaceLog, PlacementScorer, PracticeLog, ProgressionEngine, ReviewEngine } from './engines'
 import { ListeningEngine, listeningPhrase } from './listening'
-import { PracticeEngine, prioritise, taughtCourses } from './practice'
+import { PRACTICE_MODES, modeStates } from './modes'
+import { PRACTICE_KINDS, PracticeEngine, prioritise, taughtCourses } from './practice'
 import { LearningSession } from './session'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { StudyEngine, decodeTheory } from './theory'
@@ -1679,5 +1680,77 @@ describe.each(LANGUAGE_CODES)('each shipped language: %s', (language) => {
     }
     expect(session.state.points).toBeGreaterThan(0)
     expect(session.state.completedLessonIDs).toContain(lesson.id)
+  })
+})
+
+describe('режимы тренировки', () => {
+  const language: LanguageCode = 'en'
+  const packs = readLanguage(language)
+  const fresh = (level: CEFRLevel) => modeStates({
+    courses: packs.courses,
+    taught: taughtCourses(packs.courses, level, new Set()),
+    level,
+    language,
+    theory: packs.theory.find((pack) => pack.level === level) ?? null,
+  })
+
+  it('закрытый режим говорит, чем он открывается, а не «пока нечего»', () => {
+    // Это и есть жалоба: на свежем B1 «Перевод» и «Тесты» молчали при 3 216 переводах и
+    // 2 790 тестах на уровне. Молчание читается как поломка, поэтому оно запрещено.
+    for (const level of LEVELS) {
+      for (const mode of fresh(level)) {
+        if (mode.ready) continue
+        expect(mode.note.trim(), `${level} · ${mode.title} закрыт без объяснения`).not.toBe('')
+      }
+    }
+  })
+
+  it('на свежем уровне открыто узнавание, а производство ещё нет', () => {
+    const states = fresh('B1')
+    const state = (id: string) => states.find((item) => item.id === id)!
+    expect(state('flashcard').ready, 'карточки доступны и в непройденных уроках').toBe(true)
+    expect(state('translate').ready, 'производство — только по пройденному').toBe(false)
+    expect(state('multiple_choice').ready).toBe(false)
+    // И выбрана та ветка, что называет условие открытия, а не «такого здесь нет».
+    const definition = PRACTICE_MODES.find((mode) => mode.id === 'translate')!
+    expect(state('translate').note).toBe(definition.unlock)
+  })
+
+  it('отличает «ещё не пройдено» от «на уровне такого нет»', () => {
+    // На A1 неправильных глаголов нет вовсе — и это другая причина, чем непройденный урок.
+    const verbs = PRACTICE_MODES.find((mode) => mode.id === 'verbforms')!
+    const a1 = fresh('A1').find((item) => item.id === 'verbforms')!
+    expect(a1.ready).toBe(false)
+    expect(a1.note, 'на A1 неправильных глаголов нет вовсе').toBe(verbs.missing)
+
+    // А на B2 они есть в разборе, значит причина другая — урок ещё не пройден.
+    const b2 = fresh('B2').find((item) => item.id === 'verbforms')!
+    expect(b2.note).toBe(verbs.unlock)
+  })
+
+  it('режим, которого ещё нет, так и говорит', () => {
+    const dialogue = fresh('B1').find((item) => item.id === 'dialogue')!
+    expect(dialogue.ready).toBe(false)
+    expect(dialogue.note).toMatch(/ещё не сделано/i)
+  })
+
+  it('подпись режима влезает в одну строку', () => {
+    // «Строчки слишком высокие, типа в два ряда» — жалоба 12.09. Замер на 390×844: при
+    // 34 знаках подпись держится одной строкой и все строки списка равны 66 px, при 42
+    // переносится и строка вырастает до 77 px.
+    for (const mode of PRACTICE_MODES) {
+      for (const [what, text] of Object.entries({ note: mode.note, unlock: mode.unlock, missing: mode.missing, soon: mode.soon ?? '' })) {
+        expect(text.length, `${mode.id}.${what} длиннее 34 знаков: «${text}»`).toBeLessThanOrEqual(34)
+      }
+    }
+  })
+
+  it('список режимов совпадает с тем, что умеет приложение', () => {
+    // Строки экрана и виды практики — один список: разойдутся, и экран начнёт врать.
+    const ids = PRACTICE_MODES.map((mode) => mode.id)
+    expect(new Set(ids).size, 'повторов в списке нет').toBe(ids.length)
+    for (const kind of PRACTICE_KINDS) {
+      expect(ids, `вид практики ${kind.id} обязан быть строкой на экране`).toContain(kind.id)
+    }
   })
 })
