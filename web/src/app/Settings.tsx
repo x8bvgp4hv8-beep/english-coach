@@ -4,13 +4,14 @@ import { useStore } from './App'
 import { Icon } from '../kit/Icons'
 import { PlacementTest } from './Placement'
 import { disablePush, enablePush, pushState } from './push'
-import { APPLE, chooseVoice, chosenVoiceName, speak, voiceLabel, voicesFor } from './speech'
+import { APPLE, availableGenders, chooseGender, chosenGender, isCompact, speak, voiceByGender, voiceLabel } from './speech'
 import { THEMES, applyTheme, loadTheme } from './theme'
 import type { PushState } from './push'
 import { COMMON_COUNTRIES, LEVELS, importBackup } from '../core'
 import { downloadBackup } from './backup'
 import type { CEFRLevel, LanguageCode } from '../core'
 import type { ThemeID } from './theme'
+import type { VoiceGender } from './speech'
 
 /**
  * Three fills apiece: background, card, accent. Enough to choose by eye — which means
@@ -30,6 +31,12 @@ const SWATCH: Record<LanguageCode, Record<ThemeID, string[]>> = {
   },
 }
 
+/** Порядок строк: женский первым — он чаще стоит в системе по умолчанию. */
+const GENDER_ROWS: Array<{ id: VoiceGender; title: string }> = [
+  { id: 'female', title: 'Женский' },
+  { id: 'male', title: 'Мужской' },
+]
+
 export function Settings() {
   const model = useStore()
   const [own, setOwn] = useState('')
@@ -40,8 +47,9 @@ export function Settings() {
   const reminderHour = model.state.profile?.reminderHour ?? 19
   const [updateNote, setUpdateNote] = useState<string | null>(null)
   // Голоса подгружаются асинхронно, поэтому список приходится дождаться.
-  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
-  const [voiceName, setVoiceName] = useState<string | null>(null)
+  // Голоса подгружаются асинхронно, поэтому список приходится дождаться.
+  const [genders, setGenders] = useState<VoiceGender[]>([])
+  const [gender, setGender] = useState<VoiceGender | null>(null)
 
   /** The manual escape hatch: the app checks on every foreground, but this says so out loud. */
   const checkForUpdate = async () => {
@@ -55,7 +63,7 @@ export function Settings() {
 
   useEffect(() => { pushState().then(setPush) }, [])
   useEffect(() => {
-    const load = () => { setVoices(voicesFor()); setVoiceName(chosenVoiceName()) }
+    const load = () => { setGenders(availableGenders()); setGender(chosenGender()) }
     load()
     if ('speechSynthesis' in window) speechSynthesis.addEventListener('voiceschanged', load)
     return () => { if ('speechSynthesis' in window) speechSynthesis.removeEventListener('voiceschanged', load) }
@@ -124,28 +132,59 @@ export function Settings() {
           </button>
         </div>
 
-        {voices.length > 0 && (
-          <>
-            <div className="section-title">
-              <h2>Голос</h2>
-              <p>Им читаются карточки и упражнения на слух. Нажми, чтобы послушать и выбрать.</p>
+        <div className="section-title">
+          <h2>Голос</h2>
+          <p>Им читаются карточки и упражнения на слух. Нажми, чтобы послушать и выбрать.</p>
+        </div>
+        {genders.length > 0 ? (
+          <div className="settings-group">
+            {/* Два голоса вместо шести имён: по имени всё равно не понять, как голос
+                звучит, а слушать шестерых никто не станет. */}
+            {GENDER_ROWS.filter((row) => genders.includes(row.id)).map((row) => (
+              <button
+                key={row.id}
+                className="settings-row"
+                onClick={() => {
+                  chooseGender(row.id)
+                  setGender(row.id)
+                  speak(model.currentLanguage.greeting)
+                }}
+              >
+                <span className="label">{row.title}</span>
+                <span className="value">
+                  {row.id === gender
+                    ? `выбран ✓ · ${voiceLabel(voiceByGender(row.id)!)}`
+                    : 'послушать ›'}
+                </span>
+              </button>
+            ))}
+          </div>
+        ) : (
+          /* Голоса для языка нет вовсе. Это важно сказать: приложение в таком случае
+             молчит, а раньше читало тем голосом, что нашёлся, — то есть чужой фонетикой. */
+          <div className="settings-group">
+            <div className="settings-row">
+              <span className="label">Нет голоса для {model.currentLanguage.genitive}</span>
             </div>
-            <div className="settings-group">
-              {voices.map((item) => (
-                <button
-                  key={item.name}
-                  className="settings-row"
-                  onClick={() => {
-                    chooseVoice(item.name)
-                    setVoiceName(item.name)
-                    speak(model.currentLanguage.greeting)
-                  }}
-                >
-                  <span className="label">{voiceLabel(item)}</span>
-                  <span className="value">{item.name === voiceName ? 'выбран ✓' : 'послушать ›'}</span>
-                </button>
-              ))}
-            </div>
+          </div>
+        )}
+        {/* Главная жалоба 13.09.2026 — «звучат как роботы». Это правда про облегчённый
+            вариант, который Apple ставит по умолчанию; рядом бесплатно лежит живой, но
+            его надо скачать. Когда система говорит, что голос облегчённый, экран не
+            прячет это в сноску внизу, а пишет здесь же. */}
+        {isCompact(voiceByGender(gender ?? genders[0] ?? 'female')) === true && (
+          <p className="settings-warn">
+            Сейчас выбран облегчённый голос — поэтому он и звучит механически. Живой
+            ставится бесплатно и один раз, шагами ниже.
+          </p>
+        )}
+
+        {genders.length === 1 && (
+          <p className="settings-note">
+            На этом устройстве установлен только {genders[0] === 'female' ? 'женский' : 'мужской'} голос
+            {' '}{model.currentLanguage.genitive}. Второй ставится там же, где и первый — ниже написано где.
+          </p>
+        )}
             <p className="settings-note">
               {APPLE ? (
                 <>
@@ -165,8 +204,6 @@ export function Settings() {
                 </>
               )}
             </p>
-          </>
-        )}
 
         <div className="section-title">
           <h2>Оформление</h2>
