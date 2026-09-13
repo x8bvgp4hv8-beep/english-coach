@@ -51,14 +51,24 @@ export function Settings() {
   const [genders, setGenders] = useState<VoiceGender[]>([])
   const [gender, setGender] = useState<VoiceGender | null>(null)
 
-  /** The manual escape hatch: the app checks on every foreground, but this says so out loud. */
+  /**
+   * Ручная проверка. Приложение и само спрашивает об обновлении при каждом открытии,
+   * но эта строка говорит вслух, что произошло: молчащая кнопка выглядит как сломанная.
+   *
+   * Ответов три, и все три — словами: «проверяю…», «обновляю…» (нашлось, применяю) и
+   * «уже свежая» (ничего не нашлось). Секунда с половиной — это время, за которое
+   * браузер успевает сходить за `sw.js` и поставить новый воркер в ожидание; раньше
+   * этого `updateReady` ещё не поднят, и ответ был бы неправдой.
+   */
   const checkForUpdate = async () => {
-    if (model.updateReady) { model.applyUpdateNow(); return }
+    if (model.updateReady) { setUpdateNote('обновляю…'); model.applyUpdateNow(); return }
     setUpdateNote('проверяю…')
     const registration = await navigator.serviceWorker?.getRegistration()
     await registration?.update()
-    // A found update arrives through onNeedRefresh, which flips `updateReady`.
-    setTimeout(() => setUpdateNote(model.updateReady ? 'есть новая версия' : 'установлена последняя'), 1500)
+    setTimeout(() => {
+      if (model.updateReady) { setUpdateNote('обновляю…'); model.applyUpdateNow(); return }
+      setUpdateNote('уже свежая')
+    }, 1500)
   }
 
   useEffect(() => { pushState().then(setPush) }, [])
