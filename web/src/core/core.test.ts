@@ -11,6 +11,8 @@ import { ListeningEngine, listeningPhrase } from './listening'
 import { PRACTICE_MODES, modeStates } from './modes'
 import { PRACTICE_KINDS, PracticeEngine, prioritise, taughtCourses } from './practice'
 import { LearningSession } from './session'
+import { HearingEngine, HEARING_OPTIONS } from './hearing'
+import { PAIRS_IN_ROUND, PairsEngine } from './pairs'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { hasSpanishVerb } from './spanish'
 import { StudyEngine, decodeTheory } from './theory'
@@ -1851,5 +1853,87 @@ describe('испанский на равных', () => {
     // А это полное предложение, хотя начинается с предлога.
     const whole = { id: 'w', type: 'flashcard' as const, prompt: 'Al final no fui a la fiesta.', translation: 'В итоге я не пошёл на праздник.' }
     expect(listeningPhrase(whole, 'es')).not.toBeNull()
+  })
+})
+
+describe('новые форматы заданий', () => {
+  const packs = readLanguage('en')
+  const state = freshState()
+
+  describe('найди пару', () => {
+    const rounds = PairsEngine.build({
+      courses: packs.courses, level: 'B1', language: 'en', state, rounds: 4, random: () => 0.42,
+    })
+
+    it('набор решаем: ни одинаковых слов, ни одинаковых переводов', () => {
+      // Иначе человек соединяет верно, а приложение считает это промахом. В курсе есть
+      // «la próxima» и «la próxima vez» с одним переводом — в одном наборе они бы
+      // встретились неизбежно.
+      expect(rounds.length).toBeGreaterThan(0)
+      for (const round of rounds) {
+        expect(round.length, 'набор всегда полный').toBe(PAIRS_IN_ROUND)
+        expect(new Set(round.map((pair) => pair.term.toLowerCase())).size).toBe(PAIRS_IN_ROUND)
+        expect(new Set(round.map((pair) => pair.meaning.toLowerCase())).size).toBe(PAIRS_IN_ROUND)
+        for (const pair of round) {
+          expect(pair.exerciseID, 'пара знает своё упражнение').toBeTruthy()
+        }
+      }
+    })
+
+    it('в парах только лексические единицы, а не обрывки реплик', () => {
+      // Материал общий с режимом слов: обрывок в паре не с чем соединять.
+      const pool = PairsEngine.pool(packs.courses, 'B1', 'en')
+      expect(pool.length).toBe(VocabularyEngine.count(packs.courses, 'B1', 'en'))
+      for (const round of rounds) {
+        for (const pair of round) {
+          expect(pair.term).not.toContain('…')
+          expect(pair.term.split(/\s+/).length).toBeLessThanOrEqual(3)
+        }
+      }
+    })
+
+    it('правая колонка — те же переводы в другом порядке', () => {
+      const round = rounds[0]
+      const meanings = PairsEngine.meanings(round, () => 0.7)
+      expect([...meanings].sort()).toEqual(round.map((pair) => pair.meaning).sort())
+    })
+  })
+
+  describe('что ты слышишь', () => {
+    const questions = HearingEngine.build({
+      courses: packs.courses, level: 'B1', language: 'en', state, size: 6, random: () => 0.31,
+    })
+
+    it('четыре варианта, и верный среди них', () => {
+      expect(questions.length).toBe(6)
+      for (const question of questions) {
+        expect(question.options.length).toBe(HEARING_OPTIONS)
+        expect(question.options).toContain(question.text)
+        expect(new Set(question.options).size, 'вариантов-двойников нет').toBe(HEARING_OPTIONS)
+      }
+    })
+
+    it('приманки — настоящие фразы уровня, а не выдумка', () => {
+      const said = new Set(
+        HearingEngine.pool(packs.courses, 'B1', 'en')
+          .map((exercise) => listeningPhrase(exercise, 'en')?.text)
+          .filter(Boolean) as string[],
+      )
+      for (const question of questions) {
+        for (const option of question.options) {
+          expect(said.has(option), `«${option}» нет в курсе`).toBe(true)
+        }
+      }
+    })
+
+    it('вопросы не повторяются в одном заходе', () => {
+      expect(new Set(questions.map((question) => question.text)).size).toBe(questions.length)
+    })
+
+    it('уровень без фраз режим не открывает', () => {
+      // Четыре фразы — минимум, иначе нечем набрать варианты, и режим честнее считать пустым.
+      const empty = HearingEngine.count([], 'B1', 'en')
+      expect(empty).toBe(0)
+    })
   })
 })

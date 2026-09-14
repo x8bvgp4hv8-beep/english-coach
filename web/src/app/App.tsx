@@ -13,6 +13,8 @@ import { Settings } from './Settings'
 import { Shadowing } from './Shadowing'
 import { TabBar } from './TabBar'
 import { Theory } from './Theory'
+import { Hearing } from './Hearing'
+import { Pairs } from './Pairs'
 import { VerbForms } from './VerbForms'
 import { Checkup } from './Checkup'
 import { Wordlist } from './Wordlist'
@@ -72,6 +74,8 @@ export function App() {
         : model.shadowingActive ? <Shadowing />
         : model.listeningActive ? <Listening />
         : model.verbFormsActive ? <VerbForms />
+        : model.pairsActive ? <Pairs />
+        : model.hearingActive ? <Hearing />
         : model.checkupActive ? <Checkup />
         : model.wordlistActive ? <Wordlist />
         // Разбор поверх урока: сессия за ним жива, и возврат ведёт на то же место.

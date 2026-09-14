@@ -28,12 +28,14 @@ import {
   loadContent,
   localProgressStore,
   personalise,
+  HearingEngine,
+  PairsEngine,
   modeStates,
   taughtCourses,
 } from '../core'
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
-  LearnerHome, ModeState, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
+  HearingQuestion, LearnerHome, ModeState, PairItem, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
   TopicProgress, UserState, VerbForms, CheckupBank, CheckupItem, CheckupResult,
   WordlistPack, WordlistItem,
 } from '../core'
@@ -178,6 +180,33 @@ export class AppStore {
   /** Ответ на текущее задание: показан после проверки, до перехода дальше. */
   checkupVerdict: { correct: boolean; answer: string } | null = null
 
+  /**
+   * «Найди пару»: наборы по шесть, текущий набор и то, что в нём уже соединено.
+   *
+   * Выбранное слово живёт отдельно от соединённых: человек нажимает слово, потом перевод,
+   * и между этими двумя нажатиями экран обязан показывать, что именно выбрано.
+   */
+  pairsActive = false
+  pairsRounds: PairItem[][] = []
+  pairsRound = 0
+  /** Перемешанная правая колонка текущего набора. */
+  pairsMeanings: string[] = []
+  /** Слова, для которых пара уже найдена. */
+  pairsMatched: string[] = []
+  /** Выбранное слово, ждущее перевода. */
+  pairsPicked: string | null = null
+  /** Последняя неверная пара — чтобы показать промах и погасить его. */
+  pairsMiss: { term: string; meaning: string } | null = null
+  pairsDone = 0
+  pairsMistakes = 0
+
+  /** «Что ты слышишь»: вопросы, текущий и выбранный вариант. */
+  hearingActive = false
+  hearingQuestions: HearingQuestion[] = []
+  hearingIndex = 0
+  hearingPicked: string | null = null
+  hearingCorrect = 0
+
   verbFormsActive = false
   verbFormsQueue: VerbForms[] = []
   verbFormsIndex = 0
@@ -219,6 +248,7 @@ export class AppStore {
   get isBusy(): boolean {
     return this.activeLesson !== null || this.placementActive || this.shadowingActive
       || this.listeningActive || this.verbFormsActive || this.checkupActive || this.wordlistActive
+      || this.pairsActive || this.hearingActive
   }
 
   onUpdateReady(apply: () => Promise<void>): void {
@@ -312,6 +342,10 @@ export class AppStore {
     this.verbFormsQueue = []
     this.theoryTopicID = null
     this.studyPlan = null
+    this.pairsActive = false
+    this.pairsRounds = []
+    this.hearingActive = false
+    this.hearingQuestions = []
     this.shadowingActive = false
     this.shadowingItems = []
     this.listeningActive = false
@@ -1065,6 +1099,162 @@ export class AppStore {
     })
     if (exercises.length === 0) return
     this.beginSession(VocabularyEngine.lesson(exercises), 'drill')
+  }
+
+  // MARK: - Найди пару
+
+  get pairsCount(): number {
+    return PairsEngine.count(this.practiceCourses, this.selectedLevel, this.language ?? DEFAULT_LANGUAGE)
+  }
+
+  get currentPairsRound(): PairItem[] { return this.pairsRounds[this.pairsRound] ?? [] }
+  get pairsIsComplete(): boolean { return this.pairsActive && this.pairsRound >= this.pairsRounds.length }
+  get pairsRoundsTotal(): number { return this.pairsRounds.length }
+
+  startPairs(): void {
+    const rounds = PairsEngine.build({
+      courses: this.practiceCourses, level: this.selectedLevel,
+      language: this.language ?? DEFAULT_LANGUAGE, state: this.state,
+    })
+    if (rounds.length === 0) return
+    this.pairsRounds = rounds
+    this.pairsRound = 0
+    this.pairsMeanings = PairsEngine.meanings(rounds[0])
+    this.pairsMatched = []
+    this.pairsPicked = null
+    this.pairsMiss = null
+    this.pairsDone = 0
+    this.pairsMistakes = 0
+    this.pairsActive = true
+    this.lessonStartedAt = new Date()
+    this.changed()
+  }
+
+  /** Нажатие на слово в левой колонке. Повторное нажатие снимает выбор. */
+  pickPairTerm(term: string): void {
+    if (this.pairsMatched.includes(term)) return
+    this.pairsPicked = this.pairsPicked === term ? null : term
+    this.pairsMiss = null
+    this.changed()
+  }
+
+  /**
+   * Нажатие на перевод. Верная пара закрывается, неверная показывается промахом.
+   *
+   * Попытка пишется против упражнения, из которого взято слово, — то есть промах в парах
+   * влияет на повторение так же, как промах в карточке. Иначе режим был бы развлечением
+   * рядом с учёбой, а не частью её.
+   */
+  pickPairMeaning(meaning: string): void {
+    const term = this.pairsPicked
+    if (!term) return
+    const pair = this.currentPairsRound.find((item) => item.term === term)
+    if (!pair) return
+
+    const correct = pair.meaning === meaning
+    this.state.attempts = trimAttempts([
+      ...this.state.attempts,
+      { id: crypto.randomUUID(), exerciseID: pair.exerciseID, correct, date: new Date() },
+    ])
+    if (correct) {
+      this.pairsMatched = [...this.pairsMatched, term]
+      this.pairsPicked = null
+      this.pairsMiss = null
+      this.pairsDone += 1
+      this.state.points += 5
+    } else {
+      this.pairsMiss = { term, meaning }
+      this.pairsPicked = null
+      this.pairsMistakes += 1
+    }
+    this.persist()
+    this.changed()
+
+    if (correct && this.pairsMatched.length >= this.currentPairsRound.length) {
+      // Набор закрыт целиком: пауза, чтобы человек увидел последнюю пару зелёной.
+      setTimeout(() => this.nextPairsRound(), 550)
+    }
+  }
+
+  nextPairsRound(): void {
+    if (!this.pairsActive) return
+    this.pairsRound += 1
+    this.pairsMatched = []
+    this.pairsPicked = null
+    this.pairsMiss = null
+    const round = this.currentPairsRound
+    this.pairsMeanings = round.length > 0 ? PairsEngine.meanings(round) : []
+    if (this.pairsRound >= this.pairsRounds.length) this.bankPracticeTime()
+    this.changed()
+  }
+
+  closePairs(): void {
+    this.bankPracticeTime()
+    this.pairsActive = false
+    this.pairsRounds = []
+    this.pairsMatched = []
+    this.pairsPicked = null
+    this.pairsMiss = null
+    this.changed()
+  }
+
+  // MARK: - Что ты слышишь
+
+  get hearingCount(): number {
+    return HearingEngine.count(this.practiceCourses, this.selectedLevel, this.language ?? DEFAULT_LANGUAGE)
+  }
+
+  get currentHearingQuestion(): HearingQuestion | null { return this.hearingQuestions[this.hearingIndex] ?? null }
+  get hearingIsComplete(): boolean { return this.hearingActive && this.hearingIndex >= this.hearingQuestions.length }
+  get hearingTotal(): number { return this.hearingQuestions.length }
+
+  startHearing(): void {
+    const questions = HearingEngine.build({
+      courses: this.practiceCourses, level: this.selectedLevel,
+      language: this.language ?? DEFAULT_LANGUAGE, state: this.state,
+    })
+    if (questions.length === 0) return
+    this.hearingQuestions = questions
+    this.hearingIndex = 0
+    this.hearingPicked = null
+    this.hearingCorrect = 0
+    this.hearingActive = true
+    this.lessonStartedAt = new Date()
+    this.changed()
+  }
+
+  /** Выбор варианта. Ответ сразу проверяется: второй попытки в этом формате нет. */
+  answerHearing(option: string): void {
+    const question = this.currentHearingQuestion
+    if (!question || this.hearingPicked) return
+    this.hearingPicked = option
+    const correct = option === question.text
+    if (correct) {
+      this.hearingCorrect += 1
+      this.state.points += 10
+    }
+    this.state.attempts = trimAttempts([
+      ...this.state.attempts,
+      { id: crypto.randomUUID(), exerciseID: question.exerciseID, correct, date: new Date() },
+    ])
+    this.persist()
+    this.changed()
+  }
+
+  nextHearing(): void {
+    if (!this.hearingPicked) return
+    this.hearingIndex += 1
+    this.hearingPicked = null
+    if (this.hearingIndex >= this.hearingQuestions.length) this.bankPracticeTime()
+    this.changed()
+  }
+
+  closeHearing(): void {
+    this.bankPracticeTime()
+    this.hearingActive = false
+    this.hearingQuestions = []
+    this.hearingPicked = null
+    this.changed()
   }
 
   // MARK: - Разбор темы и занятие на время

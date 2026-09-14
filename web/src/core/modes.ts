@@ -19,7 +19,9 @@
  * режима берётся дважды — по пройденному и по всему уровню, — и подпись выбирается по
  * второму. Второй счёт ленивый: он нужен только для закрытых режимов, а их немного.
  */
+import { HearingEngine } from './hearing'
 import { ListeningEngine } from './listening'
+import { PairsEngine } from './pairs'
 import { PRACTICE_KINDS, PracticeEngine } from './practice'
 import { ShadowingEngine } from './shadowing'
 import { VerbFormsEngine } from './verbforms'
@@ -29,7 +31,7 @@ import type { TheoryPack } from './theory'
 import type { CEFRLevel, CoursePack } from './types'
 
 export type ModeID =
-  | 'shadowing' | 'listening' | 'dialogue' | 'verbforms' | 'vocabulary'
+  | 'shadowing' | 'listening' | 'hearing' | 'dialogue' | 'verbforms' | 'vocabulary' | 'pairs'
   | 'mixed' | 'flashcard' | 'translate' | 'word_order' | 'multiple_choice'
 
 export type ModeDefinition = {
@@ -65,6 +67,13 @@ export const PRACTICE_MODES: ModeDefinition[] = [
     missing: 'На этом уровне фраз ещё нет',
   },
   {
+    id: 'hearing',
+    title: 'Что ты слышишь',
+    note: 'Фраза звучит — выбери её',
+    unlock: 'Откроется после первого урока',
+    missing: 'На этом уровне фраз ещё нет',
+  },
+  {
     id: 'dialogue',
     title: 'Диалог',
     note: 'Сначала целиком, потом по репликам',
@@ -87,6 +96,13 @@ export const PRACTICE_MODES: ModeDefinition[] = [
     note: 'Слово, перевод и пример',
     unlock: 'Набираются из пройденных уроков',
     missing: 'Отдельных слов здесь не набралось',
+  },
+  {
+    id: 'pairs',
+    title: 'Найди пару',
+    note: 'Шесть слов и шесть переводов',
+    unlock: 'Набираются из пройденных уроков',
+    missing: 'Слов здесь пока не набралось',
   },
   {
     id: 'mixed',
@@ -151,6 +167,8 @@ function countIn(id: ModeID, courses: CoursePack[], input: ModeStatesInput): num
   switch (id) {
     case 'shadowing': return ShadowingEngine.count(courses, level)
     case 'listening': return ListeningEngine.count(courses, level, language)
+    case 'hearing': return HearingEngine.count(courses, level, language)
+    case 'pairs': return PairsEngine.count(courses, level, language)
     case 'dialogue': return 0
     case 'verbforms': return VerbFormsEngine.count(courses, level, theory)
     case 'vocabulary': return VocabularyEngine.count(courses, level, language)

@@ -1202,3 +1202,42 @@ textarea,
 
 /* Своя страна в настройках и на онбординге: поле для того, чего нет в списке. */
 .home-input { margin-top: 10px; width: 100%; }
+
+/* Найди пару */
+/* Две колонки по шесть клеток. Клетки одной высоты — иначе колонки разъезжаются, и
+   пара, стоящая напротив, начинает выглядеть как подсказка. Перенос внутри клетки
+   разрешён, но не больше двух строк: длинный перевод обрезается многоточием. */
+.pair-hint {
+  margin: 0 0 12px; text-align: center;
+  font: 600 12px/1.3 var(--font); color: var(--ink-soft);
+}
+.pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pair-column { display: grid; gap: 10px; align-content: start; }
+.pair-cell {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  min-height: 58px; padding: 8px 10px; border-radius: var(--radius-btn);
+  background: var(--surface-solid); border: var(--border-w) solid var(--border-col);
+  box-shadow: var(--shadow-card); color: var(--ink);
+  font: 600 14px/1.25 var(--font-learn);
+  -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;
+}
+.pair-cell.picked { border-color: var(--violet); color: var(--violet); }
+.pair-cell.miss { border-color: var(--coral); color: var(--coral); }
+/* Найденная пара не исчезает, а гаснет: исчезающие клетки заставляют глаз заново
+   искать, где что было. */
+.pair-cell.done { opacity: 0.32; border-color: var(--mint); color: var(--mint); box-shadow: none; }
+.pair-cell:disabled { cursor: default; }
+
+/* Что ты слышишь */
+.hear-options { display: grid; gap: 10px; margin-top: 18px; }
+.hear-option {
+  width: 100%; min-height: var(--tap); padding: 12px 14px; text-align: left;
+  border-radius: var(--radius-btn); background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
+  font: 400 16px/1.3 var(--font-learn); color: var(--ink);
+}
+/* Цвет только после ответа: до него это была бы подсказка. */
+.hear-option.right { border-color: var(--mint); color: var(--mint); }
+.hear-option.wrong { border-color: var(--coral); color: var(--coral); }
+.hear-option.dim { opacity: 0.45; }
+.hear-option:disabled { cursor: default; }
