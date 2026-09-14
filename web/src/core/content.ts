@@ -2,6 +2,8 @@ import { DEFAULT_LANGUAGE } from './language'
 import { decodeSyllabus } from './syllabus'
 import { decodeTheory } from './theory'
 import { decodeCheckup } from './checkup'
+import { decodePictures } from './pictures'
+import type { PicturePack } from './pictures'
 import { decodeWordlist } from './wordlist'
 import { ContentError, LESSON_STEPS, SCHEMA_VERSIONS, stepOf } from './types'
 import type { LanguageCode } from './language'
@@ -88,9 +90,11 @@ export function decodePlacement(raw: unknown): PlacementBank {
 export async function loadContent(
   language: LanguageCode = DEFAULT_LANGUAGE,
   base = 'content',
-): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus; theory: TheoryPack[]; checkups: CheckupBank[]; wordlists: WordlistPack[] }> {
+): Promise<{ courses: CoursePack[]; placement: PlacementBank; syllabus: Syllabus; theory: TheoryPack[]; checkups: CheckupBank[]; wordlists: WordlistPack[]; pictures: PicturePack | null }> {
   const root = `${base}/${language}`
-  const index = (await fetchJSON(`${root}/index.json`)) as { courses: string[]; theory?: string[]; checkup?: string[]; wordlist?: string[] }
+  const index = (await fetchJSON(`${root}/index.json`)) as {
+    courses: string[]; theory?: string[]; checkup?: string[]; wordlist?: string[]; pictures?: string | null
+  }
   const courses = await Promise.all(
     [...index.courses].sort().map(async (file) => decodeCourse(await fetchJSON(`${root}/courses/${file}`))),
   )
@@ -111,7 +115,12 @@ export async function loadContent(
   const wordlists = await Promise.all(
     [...(index.wordlist ?? [])].sort().map(async (file) => decodeWordlist(await fetchJSON(`${root}/wordlist/${file}`))),
   )
-  return { courses, placement, syllabus, theory, checkups, wordlists }
+  // Карта картинок одна на язык, и её может не быть вовсе: язык без картинок обязан
+  // открываться, просто без формата «Выбери картинку».
+  const pictures = index.pictures
+    ? decodePictures(await fetchJSON(`${root}/${index.pictures}`), language)
+    : null
+  return { courses, placement, syllabus, theory, checkups, wordlists, pictures }
 }
 
 async function fetchJSON(url: string): Promise<unknown> {

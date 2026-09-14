@@ -22,16 +22,19 @@
 import { HearingEngine } from './hearing'
 import { ListeningEngine } from './listening'
 import { PairsEngine } from './pairs'
+import { PictureEngine } from './pictures'
 import { PRACTICE_KINDS, PracticeEngine } from './practice'
 import { ShadowingEngine } from './shadowing'
 import { VerbFormsEngine } from './verbforms'
 import { VocabularyEngine } from './vocabulary'
 import type { LanguageCode } from './language'
+import type { PicturePack } from './pictures'
 import type { TheoryPack } from './theory'
 import type { CEFRLevel, CoursePack } from './types'
 
 export type ModeID =
-  | 'shadowing' | 'listening' | 'hearing' | 'dialogue' | 'verbforms' | 'vocabulary' | 'pairs'
+  | 'shadowing' | 'listening' | 'hearing' | 'dialogue' | 'verbforms' | 'vocabulary'
+  | 'pictures' | 'pairs'
   | 'mixed' | 'flashcard' | 'translate' | 'word_order' | 'multiple_choice'
 
 export type ModeDefinition = {
@@ -98,6 +101,13 @@ export const PRACTICE_MODES: ModeDefinition[] = [
     missing: 'Отдельных слов здесь не набралось',
   },
   {
+    id: 'pictures',
+    title: 'Выбери картинку',
+    note: 'Слово и четыре картинки',
+    unlock: 'Откроется после первого урока',
+    missing: 'Для этих слов картинок нет',
+  },
+  {
     id: 'pairs',
     title: 'Найди пару',
     note: 'Шесть слов и шесть переводов',
@@ -159,16 +169,19 @@ export type ModeStatesInput = {
   level: CEFRLevel
   language: LanguageCode
   theory: TheoryPack | null
+  /** Карта картинок языка: без неё формат «Выбери картинку» пуст, а не сломан. */
+  pictures?: PicturePack | null
 }
 
 /** Счётчик режима по любому набору курсов — один и тот же для обоих замеров. */
 function countIn(id: ModeID, courses: CoursePack[], input: ModeStatesInput): number {
-  const { level, language, theory } = input
+  const { level, language, theory, pictures } = input
   switch (id) {
     case 'shadowing': return ShadowingEngine.count(courses, level)
     case 'listening': return ListeningEngine.count(courses, level, language)
     case 'hearing': return HearingEngine.count(courses, level, language)
     case 'pairs': return PairsEngine.count(courses, level, language)
+    case 'pictures': return PictureEngine.count(courses, level, language, pictures ?? null)
     case 'dialogue': return 0
     case 'verbforms': return VerbFormsEngine.count(courses, level, theory)
     case 'vocabulary': return VocabularyEngine.count(courses, level, language)

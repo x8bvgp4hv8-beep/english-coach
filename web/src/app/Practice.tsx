@@ -7,13 +7,13 @@ import type { IconName } from '../kit/Icons'
 
 const MODE_ICON: Record<ModeID, IconName> = {
   shadowing: 'audio', listening: 'audio', hearing: 'choice', dialogue: 'dialogue',
-  verbforms: 'order', vocabulary: 'cards', pairs: 'repeat', mixed: 'target',
+  verbforms: 'order', vocabulary: 'cards', pictures: 'cards', pairs: 'repeat', mixed: 'target',
   flashcard: 'dialogue', translate: 'write', word_order: 'order', multiple_choice: 'choice',
 }
 const MODE_COLOR: Record<ModeID, string> = {
   shadowing: 'var(--coral)', listening: 'var(--blue)', hearing: '#3aa0c8',
   dialogue: 'var(--blue)', verbforms: 'var(--amber)', vocabulary: 'var(--violet)',
-  pairs: 'var(--mint)', mixed: 'var(--violet)', flashcard: 'var(--ink)',
+  pictures: '#e8913a', pairs: 'var(--mint)', mixed: 'var(--violet)', flashcard: 'var(--ink)',
   translate: 'var(--amber)', word_order: 'var(--mint)', multiple_choice: '#c17ce0',
 }
 
@@ -35,6 +35,7 @@ export function Practice() {
     if (id === 'verbforms') return model.startVerbForms()
     if (id === 'vocabulary') return model.startVocabulary()
     if (id === 'pairs') return model.startPairs()
+    if (id === 'pictures') return model.startPictures()
     if (id === 'hearing') return model.startHearing()
     if (id === 'dialogue') return
     model.startPractice(id)

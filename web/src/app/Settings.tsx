@@ -427,6 +427,19 @@ export function Settings() {
             <span className="value">{updateNote ?? '›'}</span>
           </button>
         </div>
+
+        {/* Лицензия OpenMoji (CC BY-SA 4.0) требует упоминания. Это не мелкий шрифт для
+            приличия: набор бесплатный именно на этом условии. */}
+        <div className="settings-group">
+          <div className="settings-row">
+            <span className="label">Картинки</span>
+            <span className="value">OpenMoji, CC BY-SA 4.0</span>
+          </div>
+          <div className="settings-row">
+            <span className="label">Голоса</span>
+            <span className="value">Piper, MIT</span>
+          </div>
+        </div>
       </div>
     </>
   )

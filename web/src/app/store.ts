@@ -30,12 +30,13 @@ import {
   personalise,
   HearingEngine,
   PairsEngine,
+  PictureEngine,
   modeStates,
   taughtCourses,
 } from '../core'
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
-  HearingQuestion, LearnerHome, ModeState, PairItem, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
+  HearingQuestion, LearnerHome, ModeState, PairItem, PicturePack, PictureQuestion, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
   TopicProgress, UserState, VerbForms, CheckupBank, CheckupItem, CheckupResult,
   WordlistPack, WordlistItem,
 } from '../core'
@@ -200,6 +201,16 @@ export class AppStore {
   pairsDone = 0
   pairsMistakes = 0
 
+  /** Карта «слово → картинка» языка. Может отсутствовать: тогда формат просто пуст. */
+  pictures: PicturePack | null = null
+
+  /** «Выбери картинку»: вопросы, текущий и выбранная картинка. */
+  pictureQuestions: PictureQuestion[] = []
+  pictureActive = false
+  pictureIndex = 0
+  picturePicked: string | null = null
+  pictureCorrect = 0
+
   /** «Что ты слышишь»: вопросы, текущий и выбранный вариант. */
   hearingActive = false
   hearingQuestions: HearingQuestion[] = []
@@ -248,7 +259,7 @@ export class AppStore {
   get isBusy(): boolean {
     return this.activeLesson !== null || this.placementActive || this.shadowingActive
       || this.listeningActive || this.verbFormsActive || this.checkupActive || this.wordlistActive
-      || this.pairsActive || this.hearingActive
+      || this.pairsActive || this.hearingActive || this.pictureActive
   }
 
   onUpdateReady(apply: () => Promise<void>): void {
@@ -313,7 +324,7 @@ export class AppStore {
     this.language = language
     this.startupError = null
     try {
-      const { courses, placement, syllabus, theory, checkups, wordlists } = await loadContent(language)
+      const { courses, placement, syllabus, theory, checkups, wordlists, pictures } = await loadContent(language)
       this.rawCourses = courses
       this.state = localProgressStore(language).load()
       this.courses = personalise(courses, this.home)
@@ -322,6 +333,7 @@ export class AppStore {
       this.theoryPacks = theory
       this.checkupBanks = checkups
       this.wordlists = wordlists
+      this.pictures = pictures
       this.session = new LearningSession(this.state, language)
     } catch (error) {
       this.startupError = error instanceof Error ? error.message : 'Не удалось загрузить учебные материалы'
@@ -342,6 +354,8 @@ export class AppStore {
     this.verbFormsQueue = []
     this.theoryTopicID = null
     this.studyPlan = null
+    this.pictureActive = false
+    this.pictureQuestions = []
     this.pairsActive = false
     this.pairsRounds = []
     this.hearingActive = false
@@ -426,6 +440,7 @@ export class AppStore {
       level: this.selectedLevel,
       language: this.language ?? DEFAULT_LANGUAGE,
       theory: this.theory,
+      pictures: this.pictures,
     })
   }
 
@@ -1195,6 +1210,64 @@ export class AppStore {
     this.pairsMatched = []
     this.pairsPicked = null
     this.pairsMiss = null
+    this.changed()
+  }
+
+  // MARK: - Выбери картинку
+
+  get pictureCount(): number {
+    return PictureEngine.count(this.practiceCourses, this.selectedLevel, this.language ?? DEFAULT_LANGUAGE, this.pictures)
+  }
+
+  get currentPictureQuestion(): PictureQuestion | null { return this.pictureQuestions[this.pictureIndex] ?? null }
+  get pictureIsComplete(): boolean { return this.pictureActive && this.pictureIndex >= this.pictureQuestions.length }
+  get pictureTotal(): number { return this.pictureQuestions.length }
+
+  startPictures(): void {
+    const questions = PictureEngine.build({
+      courses: this.practiceCourses, level: this.selectedLevel,
+      language: this.language ?? DEFAULT_LANGUAGE, pictures: this.pictures, state: this.state,
+    })
+    if (questions.length === 0) return
+    this.pictureQuestions = questions
+    this.pictureIndex = 0
+    this.picturePicked = null
+    this.pictureCorrect = 0
+    this.pictureActive = true
+    this.lessonStartedAt = new Date()
+    this.changed()
+  }
+
+  answerPicture(hex: string): void {
+    const question = this.currentPictureQuestion
+    if (!question || this.picturePicked) return
+    this.picturePicked = hex
+    const correct = hex === question.hex
+    if (correct) {
+      this.pictureCorrect += 1
+      this.state.points += 10
+    }
+    this.state.attempts = trimAttempts([
+      ...this.state.attempts,
+      { id: crypto.randomUUID(), exerciseID: question.exerciseID, correct, date: new Date() },
+    ])
+    this.persist()
+    this.changed()
+  }
+
+  nextPicture(): void {
+    if (!this.picturePicked) return
+    this.pictureIndex += 1
+    this.picturePicked = null
+    if (this.pictureIndex >= this.pictureQuestions.length) this.bankPracticeTime()
+    this.changed()
+  }
+
+  closePictures(): void {
+    this.bankPracticeTime()
+    this.pictureActive = false
+    this.pictureQuestions = []
+    this.picturePicked = null
     this.changed()
   }
 

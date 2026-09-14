@@ -15,6 +15,7 @@ import { TabBar } from './TabBar'
 import { Theory } from './Theory'
 import { Hearing } from './Hearing'
 import { Pairs } from './Pairs'
+import { Pictures } from './Pictures'
 import { VerbForms } from './VerbForms'
 import { Checkup } from './Checkup'
 import { Wordlist } from './Wordlist'
@@ -75,6 +76,7 @@ export function App() {
         : model.listeningActive ? <Listening />
         : model.verbFormsActive ? <VerbForms />
         : model.pairsActive ? <Pairs />
+        : model.pictureActive ? <Pictures />
         : model.hearingActive ? <Hearing />
         : model.checkupActive ? <Checkup />
         : model.wordlistActive ? <Wordlist />

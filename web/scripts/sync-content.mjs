@@ -32,8 +32,10 @@ for (const language of languages) {
   const isTheory = (file) => /^theory-/.test(plain(file))
   const isCheckup = (file) => /^checkup-/.test(plain(file))
   const isWordlist = (file) => /^wordlist-/.test(plain(file))
+  const isPictures = (file) => /^pictures-?/.test(plain(file))
   const courseFiles = files
-    .filter((file) => !/placement|syllabus/.test(file) && !isTheory(file) && !isCheckup(file) && !isWordlist(file))
+    .filter((file) => !/placement|syllabus/.test(file) && !isTheory(file) && !isCheckup(file)
+      && !isWordlist(file) && !isPictures(file))
     .map(plain).sort()
   // Разборы тем едут отдельной папкой и своим списком: это не курс, декодер у них свой,
   // и в `courses/` такой файл уронил бы загрузку целиком.
@@ -47,12 +49,17 @@ for (const language of languages) {
   const wordlistFiles = files.filter(isWordlist).map((file) => plain(file).replace('wordlist-', '')).sort()
   if (wordlistFiles.length > 0) mkdirSync(join(to, 'wordlist'), { recursive: true })
 
+  // Карта «слово → картинка» лежит одним файлом на язык, поэтому папки ей не нужно —
+  // достаточно строки в манифесте: есть она или нет.
+  const picturesFile = files.find(isPictures) ? 'pictures.json' : null
+
   for (const file of files) {
     const name = plain(file)
     const target = isTheory(file)
       ? join('theory', name.replace('theory-', ''))
       : isCheckup(file) ? join('checkup', name.replace('checkup-', ''))
       : isWordlist(file) ? join('wordlist', name.replace('wordlist-', ''))
+      : isPictures(file) ? 'pictures.json'
       : courseFiles.includes(name) ? join('courses', name) : name
     // Re-emitted without the authoring indentation: the Spanish A1 pack is 3.4 MB
     // pretty-printed and the phone downloads it before the first lesson.
@@ -65,6 +72,7 @@ for (const language of languages) {
     join(to, 'index.json'),
     JSON.stringify({
       courses: courseFiles, theory: theoryFiles, checkup: checkupFiles, wordlist: wordlistFiles,
+      pictures: picturesFile,
     }, null, 2) + '\n',
   )
   summary.push(

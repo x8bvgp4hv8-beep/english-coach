@@ -1241,3 +1241,22 @@ textarea,
 .hear-option.wrong { border-color: var(--coral); color: var(--coral); }
 .hear-option.dim { opacity: 0.45; }
 .hear-option:disabled { cursor: default; }
+
+/* Выбери картинку */
+.picture-word {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font: 700 26px/1.2 var(--font-learn); color: var(--ink); margin: 6px 0 18px;
+}
+.picture-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* Квадрат, а не «как получится»: четыре разных по высоте плитки читаются как сбой,
+   а не как выбор. `aspect-ratio` держит их равными на любой ширине экрана. */
+.picture-tile {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  padding: 14px; border-radius: var(--radius); background: var(--surface-solid);
+  border: var(--border-w) solid var(--border-col); box-shadow: var(--shadow-card);
+}
+.picture-tile img { width: 100%; height: 100%; object-fit: contain; }
+.picture-tile.right { border-color: var(--mint); }
+.picture-tile.wrong { border-color: var(--coral); }
+.picture-tile.dim { opacity: 0.4; }
+.picture-tile:disabled { cursor: default; }

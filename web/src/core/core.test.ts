@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
@@ -13,6 +13,7 @@ import { PRACTICE_KINDS, PracticeEngine, prioritise, taughtCourses } from './pra
 import { LearningSession } from './session'
 import { HearingEngine, HEARING_OPTIONS } from './hearing'
 import { PAIRS_IN_ROUND, PairsEngine } from './pairs'
+import { PICTURE_OPTIONS, PictureEngine, decodePictures, pictureFor, pictureURL } from './pictures'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { hasSpanishVerb } from './spanish'
 import { StudyEngine, decodeTheory } from './theory'
@@ -1935,5 +1936,59 @@ describe('новые форматы заданий', () => {
       const empty = HearingEngine.count([], 'B1', 'en')
       expect(empty).toBe(0)
     })
+  })
+})
+
+describe('картинки к словам', () => {
+  const pack = decodePictures(readJSON('en/pictures.json'), 'en')
+  const packs = readLanguage('en')
+  const publicDir = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'public')
+
+  it('карта не пустая и слова в нижнем регистре', () => {
+    expect(pack.byWord.size).toBeGreaterThan(200)
+    for (const word of pack.byWord.keys()) {
+      expect(word, `«${word}» должно быть в нижнем регистре`).toBe(word.toLowerCase())
+    }
+  })
+
+  it('у каждой картинки из карты есть файл', () => {
+    // Храповик: битая картинка в приложении выглядит как поломка, а поймать её глазами
+    // нельзя — карта на 248 слов.
+    const broken: string[] = []
+    for (const [word, hex] of pack.byWord) {
+      if (!existsSync(join(publicDir, pictureURL(hex)))) broken.push(`${word} → ${hex}`)
+    }
+    expect(broken, `нет файлов картинок:\n${broken.join('\n')}`).toEqual([])
+  })
+
+  it('картинка ищется по слову, а не по строке', () => {
+    expect(pictureFor('dog', pack)).toBeTruthy()
+    expect(pictureFor('Dog', pack), 'регистр не важен').toBe(pictureFor('dog', pack))
+    expect(pictureFor('dog.', pack), 'точка снимается').toBe(pictureFor('dog', pack))
+    expect(pictureFor('the dog', pack), 'группа — не слово').toBeNull()
+    expect(pictureFor('freedom', pack), 'чего нельзя нарисовать — того нет').toBeNull()
+    expect(pictureFor('dog', null), 'без карты режим пуст, а не сломан').toBeNull()
+  })
+
+  it('в вопросе четыре разных картинки и верная среди них', () => {
+    const questions = PictureEngine.build({
+      courses: packs.courses, level: 'B1', language: 'en', pictures: pack,
+      state: freshState(), size: 8, random: () => 0.37,
+    })
+    expect(questions.length).toBeGreaterThan(0)
+    for (const question of questions) {
+      expect(question.options.length).toBe(PICTURE_OPTIONS)
+      expect(question.options).toContain(question.hex)
+      // У «day» и «sun» картинка одна: две одинаковые плитки сделали бы вопрос нерешаемым.
+      expect(new Set(question.options).size).toBe(PICTURE_OPTIONS)
+      expect(pictureFor(question.word, pack)).toBe(question.hex)
+    }
+  })
+
+  it('без карты режим просто пуст', () => {
+    expect(PictureEngine.count(packs.courses, 'B1', 'en', null)).toBe(0)
+    expect(PictureEngine.build({
+      courses: packs.courses, level: 'B1', language: 'en', pictures: null, state: freshState(),
+    })).toEqual([])
   })
 })

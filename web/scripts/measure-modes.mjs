@@ -29,6 +29,7 @@ const { taughtCourses } = await import('../src/core/practice.ts')
 const { decodeCourse } = await import('../src/core/content.ts')
 const { decodeTheory } = await import('../src/core/theory.ts')
 const { decodeSyllabus } = await import('../src/core/syllabus.ts')
+const { decodePictures } = await import('../src/core/pictures.ts')
 
 const read = (path) => JSON.parse(readFileSync(join(contentDir, path), 'utf8'))
 const languages = read('index.json').languages
@@ -40,6 +41,9 @@ for (const language of languages) {
   const index = read(`${language}/index.json`)
   const courses = index.courses.map((file) => decodeCourse(read(`${language}/courses/${file}`)))
   const syllabus = decodeSyllabus(read(`${language}/syllabus.json`))
+  // Карта картинок передаётся замеру: без неё он говорил «картинок нет» на всех уровнях,
+  // хотя они есть — то есть замер врал ровно про то, что должен был мерить.
+  const pictures = index.pictures ? decodePictures(read(`${language}/${index.pictures}`), language) : null
   const topicIDs = new Set(syllabus.topics.map((topic) => topic.id))
 
   for (const course of courses) {
@@ -51,7 +55,7 @@ for (const language of languages) {
 
     // Чистый прогресс: ни одного пройденного урока — то, что видит человек в первый день.
     const taught = taughtCourses(courses, level, new Set())
-    const states = modeStates({ courses, taught, level, language, theory })
+    const states = modeStates({ courses, taught, level, language, theory, pictures })
 
     const open = states.filter((state) => state.ready)
     const mute = states.filter((state) => !state.ready && !state.note.trim())
