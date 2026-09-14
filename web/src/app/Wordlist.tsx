@@ -1,4 +1,5 @@
 import { useStore } from './App'
+import { pictureFor, pictureURL } from '../core'
 import { speak, speakBuiltIn } from './speech'
 import { plural } from './plural'
 import { Icon } from '../kit/Icons'
@@ -108,6 +109,7 @@ export function Wordlist() {
 function Runner({ model }: { model: AppStore }) {
   const word = model.currentWord
   const sieving = model.wordlistMode === 'sieve'
+  const picture = word ? pictureFor(word.w, model.pictures) : null
 
   if (model.wordlistIsComplete || !word) {
     return (
@@ -142,6 +144,10 @@ function Runner({ model }: { model: AppStore }) {
       <div className="scroll">
         <div className="wl-card">
           <span className="wl-card-rank">{word.r}-е по частоте · {word.p}</span>
+          {/* Картинка, если она есть у слова: на просеивании это ускоряет решение
+              «знаю / не знаю» — предмет узнаётся быстрее, чем читается перевод.
+              Где картинки нет, не рисуется ничего: пустая рамка хуже её отсутствия. */}
+          {picture && <img className="wl-card-picture" src={pictureURL(picture)} alt="" />}
           <span className="wl-card-word" lang="en">
             {word.w}
             {/* Слова озвучены заранее и лежат в приложении: системный синтез нужен
