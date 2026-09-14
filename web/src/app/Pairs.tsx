@@ -1,17 +1,14 @@
 import { useStore } from './App'
-import { say } from './speech'
+import { PairsBoard } from './formats'
 import { Icon } from '../kit/Icons'
 import { PrimaryButton, SecondaryButton } from '../kit'
 
 /**
- * «Найди пару»: шесть слов слева, шесть переводов справа.
+ * «Найди пару» отдельным заходом: три набора по шесть.
  *
- * Два нажатия вместо перетаскивания. Перетаскивание на телефоне требует точности,
- * которой нет у человека в метро, и ломается на первом же промахе пальцем; нажал слово,
- * нажал перевод — работает одинаково на любом экране и не мешает думать.
- *
- * Слово вслух читается при нажатии: звук у нас уже есть на все фразы, и связка «вижу —
- * слышу — знаю смысл» тут собирается бесплатно.
+ * Само взаимодействие лежит в `formats.tsx` и то же самое, что внутри урока: экран здесь
+ * отвечает только за очередь наборов, счёт и выход. Две копии поведения разъехались бы на
+ * первой правке — в этом проекте так уже было со списком фраз для озвучки.
  */
 export function Pairs() {
   const model = useStore()
@@ -40,21 +37,6 @@ export function Pairs() {
     )
   }
 
-  const matched = new Set(model.pairsMatched)
-  const matchedMeanings = new Set(round.filter((pair) => matched.has(pair.term)).map((pair) => pair.meaning))
-
-  const termClass = (term: string) => {
-    if (matched.has(term)) return 'pair-cell done'
-    if (model.pairsPicked === term) return 'pair-cell picked'
-    if (model.pairsMiss?.term === term) return 'pair-cell miss'
-    return 'pair-cell'
-  }
-  const meaningClass = (meaning: string) => {
-    if (matchedMeanings.has(meaning)) return 'pair-cell done'
-    if (model.pairsMiss?.meaning === meaning) return 'pair-cell miss'
-    return 'pair-cell'
-  }
-
   return (
     <>
       <header className="player-bar">
@@ -65,41 +47,18 @@ export function Pairs() {
         <span className="player-count">{model.pairsRound + 1} / {model.pairsRoundsTotal}</span>
       </header>
       <div className="bar" style={{ borderRadius: 0 }}>
-        <span style={{ width: `${(matched.size / round.length) * 100}%`, background: 'var(--mint)' }} />
+        <span style={{ width: `${(model.pairsRound / model.pairsRoundsTotal) * 100}%`, background: 'var(--mint)' }} />
       </div>
 
       <div className="scroll" style={{ paddingTop: 18 }}>
-        <p className="pair-hint">
-          {model.pairsPicked ? 'Теперь перевод' : 'Нажми слово, потом его перевод'}
-        </p>
-
-        <div className="pair-grid">
-          <div className="pair-column">
-            {round.map((pair) => (
-              <button
-                key={pair.term}
-                className={termClass(pair.term)}
-                lang={model.currentLanguage.code}
-                disabled={matched.has(pair.term)}
-                onClick={() => { model.pickPairTerm(pair.term); say(pair.term, model.selectedLevel) }}
-              >
-                {pair.term}
-              </button>
-            ))}
-          </div>
-          <div className="pair-column">
-            {model.pairsMeanings.map((meaning) => (
-              <button
-                key={meaning}
-                className={meaningClass(meaning)}
-                disabled={matchedMeanings.has(meaning) || !model.pairsPicked}
-                onClick={() => model.pickPairMeaning(meaning)}
-              >
-                {meaning}
-              </button>
-            ))}
-          </div>
-        </div>
+        <PairsBoard
+          key={model.pairsRound}
+          pairs={round}
+          language={model.currentLanguage.code}
+          speakLevel={model.selectedLevel}
+          onAttempt={(id, correct) => model.recordFormatAttempt(id, correct, 'pairs')}
+          onDone={() => model.nextPairsRound()}
+        />
       </div>
     </>
   )

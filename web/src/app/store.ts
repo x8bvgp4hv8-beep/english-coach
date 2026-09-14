@@ -31,12 +31,13 @@ import {
   HearingEngine,
   PairsEngine,
   PictureEngine,
+  lessonWithFormats,
   modeStates,
   taughtCourses,
 } from '../core'
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
-  HearingQuestion, LearnerHome, ModeState, PairItem, PicturePack, PictureQuestion, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
+  FormatType, HearingQuestion, LearnerHome, ModeState, PairItem, PicturePack, PictureQuestion, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
   TopicProgress, UserState, VerbForms, CheckupBank, CheckupItem, CheckupResult,
   WordlistPack, WordlistItem,
 } from '../core'
@@ -190,14 +191,6 @@ export class AppStore {
   pairsActive = false
   pairsRounds: PairItem[][] = []
   pairsRound = 0
-  /** Перемешанная правая колонка текущего набора. */
-  pairsMeanings: string[] = []
-  /** Слова, для которых пара уже найдена. */
-  pairsMatched: string[] = []
-  /** Выбранное слово, ждущее перевода. */
-  pairsPicked: string | null = null
-  /** Последняя неверная пара — чтобы показать промах и погасить его. */
-  pairsMiss: { term: string; meaning: string } | null = null
   pairsDone = 0
   pairsMistakes = 0
 
@@ -208,14 +201,12 @@ export class AppStore {
   pictureQuestions: PictureQuestion[] = []
   pictureActive = false
   pictureIndex = 0
-  picturePicked: string | null = null
   pictureCorrect = 0
 
   /** «Что ты слышишь»: вопросы, текущий и выбранный вариант. */
   hearingActive = false
   hearingQuestions: HearingQuestion[] = []
   hearingIndex = 0
-  hearingPicked: string | null = null
   hearingCorrect = 0
 
   verbFormsActive = false
@@ -719,9 +710,20 @@ export class AppStore {
 
   // MARK: - Lessons
 
+  /**
+   * Запуск урока. Шаги новых форматов добавляются здесь, а не в контенте.
+   *
+   * Контент трогать нельзя: на `id` упражнений стоит прогресс и повторение. Поэтому урок
+   * обогащается на ходу — из его же карточек собираются один-два шага другого вида, а
+   * попытки пишутся против настоящих `id`. Файл курса при этом не меняется.
+   */
   startLesson(lesson: Lesson, recordsCompletion = true): void {
+    const shown = lessonWithFormats(lesson, {
+      language: this.language ?? DEFAULT_LANGUAGE,
+      pictures: this.pictures,
+    })
     this.session = new LearningSession(this.state, this.language ?? DEFAULT_LANGUAGE)
-    this.session.start(lesson, { recordsCompletion })
+    this.session.start(shown, { recordsCompletion })
     this.lessonStartedAt = new Date()
     this.sessionMode = 'lesson'
     this.sessionMistakes = 0
@@ -1116,6 +1118,35 @@ export class AppStore {
     this.beginSession(VocabularyEngine.lesson(exercises), 'drill')
   }
 
+  // MARK: - Новые форматы
+
+  /**
+   * Попытка внутри формата: пишется против настоящего упражнения, из которого взята
+   * карточка. Без этого формат был бы развлечением рядом с учёбой, а не её частью:
+   * промах в парах обязан вернуть слово в повторение так же, как промах в карточке.
+   *
+   * `mode` нужен только отдельным режимам — для их итогового экрана. Внутри урока
+   * счётчиков нет: там итог считает сам урок.
+   */
+  recordFormatAttempt(exerciseID: string, correct: boolean, mode?: FormatType): void {
+    this.state.attempts = trimAttempts([
+      ...this.state.attempts,
+      { id: crypto.randomUUID(), exerciseID, correct, date: new Date() },
+    ])
+    if (correct) this.state.points += mode === 'pairs' ? 5 : 10
+    if (mode === 'pairs') correct ? (this.pairsDone += 1) : (this.pairsMistakes += 1)
+    if (mode === 'hearing' && correct) this.hearingCorrect += 1
+    if (mode === 'pictures' && correct) this.pictureCorrect += 1
+    this.persist()
+    this.changed()
+  }
+
+  /** Шаг формата пройден: он сам записал попытки, здесь только переход дальше. */
+  completeFormatStep(): void {
+    this.session.completeFormatStep()
+    this.changed()
+  }
+
   // MARK: - Найди пару
 
   get pairsCount(): number {
@@ -1134,10 +1165,6 @@ export class AppStore {
     if (rounds.length === 0) return
     this.pairsRounds = rounds
     this.pairsRound = 0
-    this.pairsMeanings = PairsEngine.meanings(rounds[0])
-    this.pairsMatched = []
-    this.pairsPicked = null
-    this.pairsMiss = null
     this.pairsDone = 0
     this.pairsMistakes = 0
     this.pairsActive = true
@@ -1145,60 +1172,10 @@ export class AppStore {
     this.changed()
   }
 
-  /** Нажатие на слово в левой колонке. Повторное нажатие снимает выбор. */
-  pickPairTerm(term: string): void {
-    if (this.pairsMatched.includes(term)) return
-    this.pairsPicked = this.pairsPicked === term ? null : term
-    this.pairsMiss = null
-    this.changed()
-  }
-
-  /**
-   * Нажатие на перевод. Верная пара закрывается, неверная показывается промахом.
-   *
-   * Попытка пишется против упражнения, из которого взято слово, — то есть промах в парах
-   * влияет на повторение так же, как промах в карточке. Иначе режим был бы развлечением
-   * рядом с учёбой, а не частью её.
-   */
-  pickPairMeaning(meaning: string): void {
-    const term = this.pairsPicked
-    if (!term) return
-    const pair = this.currentPairsRound.find((item) => item.term === term)
-    if (!pair) return
-
-    const correct = pair.meaning === meaning
-    this.state.attempts = trimAttempts([
-      ...this.state.attempts,
-      { id: crypto.randomUUID(), exerciseID: pair.exerciseID, correct, date: new Date() },
-    ])
-    if (correct) {
-      this.pairsMatched = [...this.pairsMatched, term]
-      this.pairsPicked = null
-      this.pairsMiss = null
-      this.pairsDone += 1
-      this.state.points += 5
-    } else {
-      this.pairsMiss = { term, meaning }
-      this.pairsPicked = null
-      this.pairsMistakes += 1
-    }
-    this.persist()
-    this.changed()
-
-    if (correct && this.pairsMatched.length >= this.currentPairsRound.length) {
-      // Набор закрыт целиком: пауза, чтобы человек увидел последнюю пару зелёной.
-      setTimeout(() => this.nextPairsRound(), 550)
-    }
-  }
-
+  /** Набор собран: дальше следующий, а на последнем — итог захода. */
   nextPairsRound(): void {
     if (!this.pairsActive) return
     this.pairsRound += 1
-    this.pairsMatched = []
-    this.pairsPicked = null
-    this.pairsMiss = null
-    const round = this.currentPairsRound
-    this.pairsMeanings = round.length > 0 ? PairsEngine.meanings(round) : []
     if (this.pairsRound >= this.pairsRounds.length) this.bankPracticeTime()
     this.changed()
   }
@@ -1207,9 +1184,6 @@ export class AppStore {
     this.bankPracticeTime()
     this.pairsActive = false
     this.pairsRounds = []
-    this.pairsMatched = []
-    this.pairsPicked = null
-    this.pairsMiss = null
     this.changed()
   }
 
@@ -1231,43 +1205,32 @@ export class AppStore {
     if (questions.length === 0) return
     this.pictureQuestions = questions
     this.pictureIndex = 0
-    this.picturePicked = null
     this.pictureCorrect = 0
     this.pictureActive = true
     this.lessonStartedAt = new Date()
     this.changed()
   }
 
-  answerPicture(hex: string): void {
-    const question = this.currentPictureQuestion
-    if (!question || this.picturePicked) return
-    this.picturePicked = hex
-    const correct = hex === question.hex
-    if (correct) {
-      this.pictureCorrect += 1
-      this.state.points += 10
-    }
-    this.state.attempts = trimAttempts([
-      ...this.state.attempts,
-      { id: crypto.randomUUID(), exerciseID: question.exerciseID, correct, date: new Date() },
-    ])
-    this.persist()
-    this.changed()
-  }
 
-  nextPicture(): void {
-    if (!this.picturePicked) return
-    this.pictureIndex += 1
-    this.picturePicked = null
-    if (this.pictureIndex >= this.pictureQuestions.length) this.bankPracticeTime()
-    this.changed()
-  }
 
   closePictures(): void {
     this.bankPracticeTime()
     this.pictureActive = false
     this.pictureQuestions = []
-    this.picturePicked = null
+    this.changed()
+  }
+
+  /** Заход «что слышишь» закончен: очередь ведёт компонент, здесь только итог. */
+  finishHearing(): void {
+    this.hearingIndex = this.hearingQuestions.length
+    this.bankPracticeTime()
+    this.changed()
+  }
+
+  /** То же для картинок. */
+  finishPictures(): void {
+    this.pictureIndex = this.pictureQuestions.length
+    this.bankPracticeTime()
     this.changed()
   }
 
@@ -1289,7 +1252,6 @@ export class AppStore {
     if (questions.length === 0) return
     this.hearingQuestions = questions
     this.hearingIndex = 0
-    this.hearingPicked = null
     this.hearingCorrect = 0
     this.hearingActive = true
     this.lessonStartedAt = new Date()
@@ -1297,36 +1259,12 @@ export class AppStore {
   }
 
   /** Выбор варианта. Ответ сразу проверяется: второй попытки в этом формате нет. */
-  answerHearing(option: string): void {
-    const question = this.currentHearingQuestion
-    if (!question || this.hearingPicked) return
-    this.hearingPicked = option
-    const correct = option === question.text
-    if (correct) {
-      this.hearingCorrect += 1
-      this.state.points += 10
-    }
-    this.state.attempts = trimAttempts([
-      ...this.state.attempts,
-      { id: crypto.randomUUID(), exerciseID: question.exerciseID, correct, date: new Date() },
-    ])
-    this.persist()
-    this.changed()
-  }
 
-  nextHearing(): void {
-    if (!this.hearingPicked) return
-    this.hearingIndex += 1
-    this.hearingPicked = null
-    if (this.hearingIndex >= this.hearingQuestions.length) this.bankPracticeTime()
-    this.changed()
-  }
 
   closeHearing(): void {
     this.bankPracticeTime()
     this.hearingActive = false
     this.hearingQuestions = []
-    this.hearingPicked = null
     this.changed()
   }
 

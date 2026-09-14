@@ -11,9 +11,10 @@ import { ListeningEngine, listeningPhrase } from './listening'
 import { PRACTICE_MODES, modeStates } from './modes'
 import { PRACTICE_KINDS, PracticeEngine, prioritise, taughtCourses } from './practice'
 import { LearningSession } from './session'
-import { HearingEngine, HEARING_OPTIONS } from './hearing'
+import { HearingEngine, HEARING_OPTIONS, hearingQuestions } from './hearing'
+import { FORMATS_PER_LESSON, availableFormats, lessonWithFormats } from './lessonformats'
 import { PAIRS_IN_ROUND, PairsEngine } from './pairs'
-import { PICTURE_OPTIONS, PictureEngine, decodePictures, pictureFor, pictureURL } from './pictures'
+import { PICTURE_OPTIONS, PictureEngine, decodePictures, pictureFor, pictureQuestions, pictureURL } from './pictures'
 import { ShadowingEngine, shadowingPhrase } from './shadowing'
 import { hasSpanishVerb } from './spanish'
 import { StudyEngine, decodeTheory } from './theory'
@@ -23,7 +24,7 @@ import { CheckupEngine, courseFingerprints, decodeCheckup } from './checkup'
 import { STREAK_TO_KNOW, WordlistEngine, decodeWordlist } from './wordlist'
 import { deserialize, serialize } from './storage'
 import { LANGUAGE_CODES } from './language'
-import { ATTEMPT_LOG_LIMIT, EXERCISE_TYPES, LEVELS, freshState, seenExerciseIDs, trimAttempts } from './types'
+import { ATTEMPT_LOG_LIMIT, EXERCISE_TYPES, LEVELS, freshState, seenExerciseIDs, stepOf, trimAttempts } from './types'
 import type { LanguageCode } from './language'
 import type { CEFRLevel, CoursePack, Exercise, Lesson, PlacementBank } from './types'
 
@@ -1992,5 +1993,87 @@ describe('картинки к словам', () => {
     expect(PictureEngine.build({
       courses: packs.courses, level: 'B1', language: 'en', pictures: null, state: freshState(),
     })).toEqual([])
+  })
+})
+
+describe('форматы внутри урока', () => {
+  const packs = readLanguage('en')
+  const pictures = decodePictures(readJSON('en/pictures.json'), 'en')
+  const options = { language: 'en' as LanguageCode, pictures }
+  const lessons = packs.courses
+    .find((pack) => pack.level === 'A1')!
+    .chapters.flatMap((chapter) => chapter.lessons)
+
+  it('id упражнений и их порядок не меняются', () => {
+    // На id стоит весь прогресс: пройденные уроки, очередь повторения, журнал попыток.
+    // Формат обязан только ДОБАВЛЯТЬ шаги, никогда не двигая существующие.
+    for (const lesson of lessons.slice(0, 60)) {
+      const rich = lessonWithFormats(lesson, options)
+      expect(rich.id, 'id урока тот же').toBe(lesson.id)
+      const original = lesson.exercises.map((exercise) => exercise.id)
+      const kept = rich.exercises.filter((exercise) => !exercise.id.includes('::')).map((exercise) => exercise.id)
+      expect(kept, `${lesson.id}: прежние упражнения на месте и в том же порядке`).toEqual(original)
+    }
+  })
+
+  it('шаг формата собран из карточек этого же урока', () => {
+    const lesson = lessons.find((item) => availableFormats(item, options).length > 0)!
+    const rich = lessonWithFormats(lesson, options)
+    const added = rich.exercises.filter((exercise) => exercise.id.includes('::'))
+    expect(added.length).toBeGreaterThan(0)
+    expect(added.length).toBeLessThanOrEqual(FORMATS_PER_LESSON)
+    const cardIDs = new Set(lesson.exercises.filter((item) => item.type === 'flashcard').map((item) => item.id))
+    for (const step of added) {
+      expect(step.sources?.length, `${step.id}: материал есть`).toBeGreaterThan(0)
+      for (const source of step.sources ?? []) {
+        expect([...cardIDs], `${step.id}: карточка из этого урока`).toContain(source.id)
+      }
+      // Шаг — это узнавание, и лестница урока не ломается.
+      expect(stepOf(step.type)).toBe('recognise')
+    }
+  })
+
+  it('шаг встаёт после последней карточки, а не в конце', () => {
+    const lesson = lessons.find((item) => availableFormats(item, options).length > 0)!
+    const rich = lessonWithFormats(lesson, options)
+    const positions = rich.exercises.map((exercise) => exercise.type)
+    const lastCard = positions.lastIndexOf('flashcard')
+    const firstFormat = positions.findIndex((type) => type === 'pairs' || type === 'pictures' || type === 'hearing')
+    expect(firstFormat, 'формат сразу после карточек').toBe(lastCard + 1)
+  })
+
+  it('урок без материала остаётся как был', () => {
+    // Пустой шаг хуже его отсутствия, поэтому формат не добавляется «для галочки».
+    const bare = { id: 'x', title: 'x', summary: 'x', estimatedMinutes: 2, exercises: [
+      { id: 'x-1', type: 'info' as const, explanation: 'правило' },
+      { id: 'x-2', type: 'translate' as const, prompt: 'Скажи это', canonicalAnswer: 'Say it' },
+    ] }
+    expect(lessonWithFormats(bare, options)).toEqual(bare)
+    expect(availableFormats(bare, options)).toEqual([])
+  })
+
+  it('вопросы шага решаемы: варианты не повторяются', () => {
+    const lesson = lessons.find((item) => availableFormats(item, options).includes('pictures'))!
+    const step = lessonWithFormats(lesson, options).exercises.find((item) => item.type === 'pictures')!
+    const questions = pictureQuestions(step.sources ?? [], pictures, () => 0.42)
+    expect(questions.length).toBeGreaterThan(0)
+    for (const question of questions) {
+      expect(new Set(question.options).size).toBe(PICTURE_OPTIONS)
+      expect(question.options).toContain(question.hex)
+    }
+
+    const heard = lessons.find((item) => availableFormats(item, options).includes('hearing'))!
+    const step2 = lessonWithFormats(heard, options).exercises.find((item) => item.type === 'hearing')!
+    for (const question of hearingQuestions(step2.sources ?? [], 'en', () => 0.42)) {
+      expect(new Set(question.options).size).toBe(HEARING_OPTIONS)
+      expect(question.options).toContain(question.text)
+    }
+  })
+
+  it('формат достаётся большинству уроков A1, а не единицам', () => {
+    // Замер 15.09.2026: 64% уроков A1. Если правило однажды закрутят так, что формат
+    // перестанет показываться, это должно упасть здесь, а не заметиться через месяц.
+    const withFormat = lessons.filter((lesson) => availableFormats(lesson, options).length > 0)
+    expect(withFormat.length / lessons.length).toBeGreaterThan(0.4)
   })
 })

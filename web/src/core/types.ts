@@ -5,8 +5,25 @@ import type { LearnerHome } from './home'
 export type CEFRLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1'
 export const LEVELS: readonly CEFRLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1'] as const
 
-export type ExerciseType = 'info' | 'flashcard' | 'translate' | 'word_order' | 'multiple_choice' | 'dialogue'
-export const EXERCISE_TYPES: readonly ExerciseType[] = ['info', 'flashcard', 'translate', 'word_order', 'multiple_choice', 'dialogue'] as const
+/** Типы, которые бывают в контенте. Этот список — и есть проверка при разборе курса. */
+export type ContentExerciseType = 'info' | 'flashcard' | 'translate' | 'word_order' | 'multiple_choice' | 'dialogue'
+export const EXERCISE_TYPES: readonly ContentExerciseType[] = ['info', 'flashcard', 'translate', 'word_order', 'multiple_choice', 'dialogue'] as const
+
+/**
+ * Способы показать шаг, которых в контенте не бывает.
+ *
+ * Новый формат — это другой способ задать тот же шаг лестницы, а не новое упражнение:
+ * те же карточки урока можно показать парами, картинками или на слух. Поэтому в файлах
+ * курса таких типов нет (и `EXERCISE_TYPES` их не содержит — разбор курса отбракует
+ * такое упражнение), а шаг собирается на ходу из упражнений самого урока.
+ *
+ * Так сделано ради `id`: на них стоит весь прогресс, и добавление настоящих упражнений
+ * в контент сдвинуло бы их. Формат ничего не сдвигает — он только показывает.
+ */
+export type FormatType = 'pairs' | 'pictures' | 'hearing'
+export const FORMAT_TYPES: readonly FormatType[] = ['pairs', 'pictures', 'hearing'] as const
+
+export type ExerciseType = ContentExerciseType | FormatType
 
 /**
  * The five steps of a lesson, always in this order.
@@ -31,6 +48,11 @@ const STEP_OF: Record<ExerciseType, LessonStep> = {
   multiple_choice: 'recognise',
   word_order: 'recognise',
   translate: 'produce',
+  // Форматы — это узнавание: соединить пару, узнать картинку, узнать фразу на слух.
+  // Ответ есть, но производить самому ещё не надо, и место им ровно здесь.
+  pairs: 'recognise',
+  pictures: 'recognise',
+  hearing: 'recognise',
 }
 
 export function stepOf(type: ExerciseType): LessonStep {
@@ -72,6 +94,11 @@ export interface Exercise {
   topics?: string[]
   /** The exchange to listen through, for a `dialogue`. Nothing to answer. */
   lines?: DialogueLine[]
+  /**
+   * Упражнения, из которых собран шаг нового формата. В контенте этого поля нет:
+   * оно появляется только у шага, собранного на ходу (`lessonWithFormats`).
+   */
+  sources?: Exercise[]
 }
 
 export interface SyllabusTopic {

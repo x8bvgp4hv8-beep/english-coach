@@ -64,6 +64,52 @@ function closeness(answer: string, candidate: string): number {
   return shared * 2 - lengthPenalty
 }
 
+/**
+ * Вопросы по заданным фразам: приманки берутся из того же набора.
+ *
+ * Внутри урока это то, что нужно: все четыре варианта — фразы, которые человек только
+ * что видел на карточках, и выбор решается слухом, а не узнаванием незнакомой строки.
+ * Отдельный режим передаёт сюда весь пул уровня и получает то же самое.
+ */
+export function hearingQuestions(
+  sources: Exercise[],
+  language: LanguageCode = DEFAULT_LANGUAGE,
+  random: () => number = Math.random,
+  limit = DEFAULT_SIZE,
+): HearingQuestion[] {
+  // Множество, а не список: одна и та же фраза встречается в курсе под разными
+  // упражнениями, и без этого в варианты попадали две одинаковые строки.
+  const texts = new Set<string>()
+  for (const exercise of sources) {
+    const item = listeningPhrase(exercise, language)
+    if (item) texts.add(item.text)
+  }
+  if (texts.size < HEARING_OPTIONS) return []
+
+  const questions: HearingQuestion[] = []
+  const used = new Set<string>()
+  for (const exercise of sources) {
+    const item = listeningPhrase(exercise, language)
+    if (!item || used.has(item.text)) continue
+
+    const distractors = [...texts]
+      .filter((text) => text !== item.text)
+      .sort((a, b) => closeness(item.text, b) - closeness(item.text, a))
+      // Из десятка самых похожих берутся три случайных: иначе одна и та же фраза
+      // приманивала бы в каждом наборе, и набор запоминался бы целиком.
+      .slice(0, 10)
+      .sort(() => random() - 0.5)
+      .slice(0, HEARING_OPTIONS - 1)
+    if (distractors.length < HEARING_OPTIONS - 1) continue
+
+    const options = [item.text, ...distractors].sort(() => random() - 0.5)
+    questions.push({ exerciseID: exercise.id, text: item.text, options, gloss: item.gloss })
+    used.add(item.text)
+    if (questions.length >= limit) break
+  }
+  return questions
+}
+
 export const HearingEngine = {
   /** Фразы, которые можно дать на слух. Тот же отбор, что в аудировании. */
   pool(courses: CoursePack[], level: CEFRLevel, language: LanguageCode = DEFAULT_LANGUAGE): Exercise[] {
@@ -79,37 +125,8 @@ export const HearingEngine = {
   build({ courses, level, language = DEFAULT_LANGUAGE, state, size = DEFAULT_SIZE, now = new Date(), random = Math.random }: HearingOptions): HearingQuestion[] {
     const pool = this.pool(courses, level, language)
     if (pool.length < HEARING_OPTIONS) return []
-
-    // Множество, а не список: одна и та же фраза встречается в курсе под разными
-    // упражнениями, и без этого в варианты попадали две одинаковые строки — задание
-    // выглядело сломанным ещё до того, как его слышали.
-    const texts = new Set<string>()
-    for (const exercise of pool) {
-      const item = listeningPhrase(exercise, language)
-      if (item) texts.add(item.text)
-    }
-
-    const questions: HearingQuestion[] = []
-    const used = new Set<string>()
-    for (const exercise of prioritise(pool, state, now, random)) {
-      const item = listeningPhrase(exercise, language)
-      if (!item || used.has(item.text)) continue
-
-      const distractors = [...texts]
-        .filter((text) => text !== item.text)
-        .sort((a, b) => closeness(item.text, b) - closeness(item.text, a))
-        // Из десятка самых похожих берутся три случайных: иначе одна и та же фраза
-        // приманивала бы в каждом наборе, и набор запоминался бы целиком.
-        .slice(0, 10)
-        .sort(() => random() - 0.5)
-        .slice(0, HEARING_OPTIONS - 1)
-      if (distractors.length < HEARING_OPTIONS - 1) continue
-
-      const options = [item.text, ...distractors].sort(() => random() - 0.5)
-      questions.push({ exerciseID: exercise.id, text: item.text, options, gloss: item.gloss })
-      used.add(item.text)
-      if (questions.length >= size) break
-    }
-    return questions
+    // Порядок — общий для всей практики (сначала то, что пора повторить), сборка вопроса
+    // — общая с шагом внутри урока.
+    return hearingQuestions(prioritise(pool, state, now, random), language, random, size)
   },
 }

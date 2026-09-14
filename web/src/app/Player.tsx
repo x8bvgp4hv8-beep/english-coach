@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { useStore } from './App'
+import { HearingRun, PairsBoard, PictureRun } from './formats'
 import { plural, spell } from './plural'
 import { speak, speakBuiltIn } from './speech'
 import { hatFor, lineForVerdict, Rhino, RhinoPop } from '../mascot/Rhino'
-import { diffSummary, vocabularyUnit, pictureFor, pictureURL } from '../core'
+import { diffSummary, vocabularyUnit, pictureFor, pictureURL, hearingQuestions, pictureQuestions } from '../core'
 import { Icon } from '../kit/Icons'
 import type { RhinoLine } from '../mascot/Rhino'
 import {
@@ -61,6 +62,9 @@ const kindLabel = (
     translate: `ПЕРЕВЕДИ НА ${language.title.toUpperCase()}`,
     word_order: 'СОБЕРИ ПРЕДЛОЖЕНИЕ',
     multiple_choice: 'ВЫБЕРИ ОТВЕТ',
+    pairs: 'НАЙДИ ПАРУ',
+    pictures: 'ВЫБЕРИ КАРТИНКУ',
+    hearing: 'ЧТО ТЫ СЛЫШИШЬ',
   }[type]
 }
 
@@ -175,6 +179,31 @@ export function Player() {
   // Картинка ищется по слову карточки — у большинства карточек её нет, и тогда ничего
   // не рисуется: пустая рамка хуже отсутствия картинки.
   const cardPicture = shown?.type === 'flashcard' ? pictureFor(shown.prompt ?? '', model.pictures) : null
+
+  /**
+   * Материал шага формата — один раз на шаг.
+   *
+   * Считать его прямо в разметке нельзя, и это не вкусовщина: массив пересоздавался на
+   * каждую перерисовку, поэтому выбор клетки сбрасывался в тот же миг (поймано живым
+   * прохождением урока), а у картинок и вариантов на слух заново тасовался порядок —
+   * плитки прыгали под пальцем.
+   */
+  const formatPairs = useMemo(
+    () => (shown?.type === 'pairs' ? (shown.sources ?? []).map((card) => ({
+      exerciseID: card.id,
+      term: (card.prompt ?? '').trim(),
+      meaning: (card.translation ?? '').trim(),
+    })) : []),
+    [shown?.id, shown?.type],
+  )
+  const formatPictures = useMemo(
+    () => (shown?.type === 'pictures' ? pictureQuestions(shown.sources ?? [], model.pictures) : []),
+    [shown?.id, shown?.type, model.pictures],
+  )
+  const formatHearing = useMemo(
+    () => (shown?.type === 'hearing' ? hearingQuestions(shown.sources ?? [], model.currentLanguage.code) : []),
+    [shown?.id, shown?.type, model.currentLanguage.code],
+  )
   const view: Omit<Step, 'index'> = past ?? { answer, picked, option, feedback, recall: model.currentIsRecall }
 
   const total = lesson.exercises.length
@@ -264,6 +293,38 @@ export function Player() {
                 <button className="speak" style={{ marginLeft: 8 }} onClick={() => { if (!speakBuiltIn(shown.prompt!)) speak(shown.prompt!) }} aria-label="Произнести">🔊</button>
               )}
             </div>
+          )}
+
+          {/* Шаги новых форматов: те же карточки урока, показанные иначе. Материал уже
+              лежит в шаге (`sources`), собранный ядром при запуске урока. */}
+          {shown.type === 'pairs' && (
+            <PairsBoard
+              pairs={formatPairs}
+              language={model.currentLanguage.code}
+              speakLevel={model.selectedLevel}
+              onAttempt={(id, correct) => model.recordFormatAttempt(id, correct)}
+              onDone={() => model.completeFormatStep()}
+            />
+          )}
+
+          {shown.type === 'pictures' && (
+            <PictureRun
+              questions={formatPictures}
+              language={model.currentLanguage.code}
+              speakLevel={model.selectedLevel}
+              onAttempt={(id, correct) => model.recordFormatAttempt(id, correct)}
+              onDone={() => model.completeFormatStep()}
+            />
+          )}
+
+          {shown.type === 'hearing' && (
+            <HearingRun
+              questions={formatHearing}
+              language={model.currentLanguage.code}
+              speakLevel={model.selectedLevel}
+              onAttempt={(id, correct) => model.recordFormatAttempt(id, correct)}
+              onDone={() => model.completeFormatStep()}
+            />
           )}
 
           {shown.type === 'dialogue' && <DialoguePlayer lines={shown.lines ?? []} />}

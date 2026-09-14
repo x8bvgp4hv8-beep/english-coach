@@ -106,6 +106,17 @@ export class LearningSession {
     return result
   }
 
+  /**
+   * Шаг нового формата пройден.
+   *
+   * Попытку здесь не пишут: формат уже записал её против настоящих упражнений, из
+   * которых собран (`recordFormatAttempt`). Записать ещё и синтетический `id` значило бы
+   * завести в повторении карточку, которой нет в курсе.
+   */
+  completeFormatStep(): void {
+    this.advance()
+  }
+
   completePassiveExercise(now: Date = new Date()): void {
     const exercise = this.currentExercise
     if (!exercise) return

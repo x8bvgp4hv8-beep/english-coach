@@ -87,6 +87,47 @@ export function pictureFor(text: string, pictures: PicturePack | null): string |
   return pictures.byWord.get(word) ?? null
 }
 
+/**
+ * Вопросы по заданным карточкам: приманки берутся из всей карты, а не из набора.
+ *
+ * Так устроен и Duolingo, и иначе формат почти не показывается: в уроке пять карточек,
+ * картинка есть у одной-двух, и требование «четыре разные картинки в одном уроке»
+ * пропускало 2 урока из 508. Слово для вопроса — из набора, картинки-приманки — откуда
+ * угодно, лишь бы не совпадали с верной.
+ */
+export function pictureQuestions(
+  sources: Exercise[],
+  pictures: PicturePack | null,
+  random: () => number = Math.random,
+  limit = 4,
+): PictureQuestion[] {
+  if (!pictures || pictures.byWord.size < PICTURE_OPTIONS) return []
+  const all = [...new Set(pictures.byWord.values())]
+
+  const questions: PictureQuestion[] = []
+  const used = new Set<string>()
+  for (const exercise of sources) {
+    const word = (exercise.prompt ?? '').trim()
+    const hex = pictureFor(word, pictures)
+    if (!hex || used.has(hex)) continue
+    const others = all
+      .filter((code) => code !== hex)
+      .sort(() => random() - 0.5)
+      .slice(0, PICTURE_OPTIONS - 1)
+    if (others.length < PICTURE_OPTIONS - 1) continue
+    questions.push({
+      exerciseID: exercise.id,
+      word,
+      translation: exercise.translation,
+      hex,
+      options: [hex, ...others].sort(() => random() - 0.5),
+    })
+    used.add(hex)
+    if (questions.length >= limit) break
+  }
+  return questions
+}
+
 export const PictureEngine = {
   /** Слова уровня, у которых есть картинка. */
   pool(courses: CoursePack[], level: CEFRLevel, language: LanguageCode, pictures: PicturePack | null): Exercise[] {
@@ -105,39 +146,8 @@ export const PictureEngine = {
   build({ courses, level, language, pictures, state, size = DEFAULT_SIZE, now = new Date(), random = Math.random }: PictureOptions): PictureQuestion[] {
     const pool = this.pool(courses, level, language, pictures)
     if (pool.length < PICTURE_OPTIONS) return []
-
-    // Коды, а не слова: у «day» и «sun» картинка одна и та же, и без этого в вопросе
-    // оказались бы две одинаковые картинки — выбрать верную стало бы невозможно.
-    const codes = new Set<string>()
-    for (const exercise of pool) {
-      const hex = pictureFor(exercise.prompt ?? '', pictures)
-      if (hex) codes.add(hex)
-    }
-    if (codes.size < PICTURE_OPTIONS) return []
-
-    const questions: PictureQuestion[] = []
-    const used = new Set<string>()
-    for (const exercise of prioritise(pool, state, now, random)) {
-      const word = (exercise.prompt ?? '').trim()
-      const hex = pictureFor(word, pictures)
-      if (!hex || used.has(hex)) continue
-
-      const others = [...codes]
-        .filter((code) => code !== hex)
-        .sort(() => random() - 0.5)
-        .slice(0, PICTURE_OPTIONS - 1)
-      if (others.length < PICTURE_OPTIONS - 1) continue
-
-      questions.push({
-        exerciseID: exercise.id,
-        word,
-        translation: exercise.translation,
-        hex,
-        options: [hex, ...others].sort(() => random() - 0.5),
-      })
-      used.add(hex)
-      if (questions.length >= size) break
-    }
-    return questions
+    // Порядок — общий для всей практики (сначала то, что пора повторить), сборка вопроса
+    // — общая с шагом внутри урока.
+    return pictureQuestions(prioritise(pool, state, now, random), pictures, random, size)
   },
 }
