@@ -1260,3 +1260,7 @@ textarea,
 .picture-tile.wrong { border-color: var(--coral); }
 .picture-tile.dim { opacity: 0.4; }
 .picture-tile:disabled { cursor: default; }
+
+/* Картинка на карточке слова. Небольшая: карточка — про слово, картинка ей помогает,
+   а не заменяет. Поэтому и высота фиксированная, иначе карточки в уроке поехали бы. */
+.card-picture { display: block; width: 96px; height: 96px; object-fit: contain; margin: 4px auto 10px; }

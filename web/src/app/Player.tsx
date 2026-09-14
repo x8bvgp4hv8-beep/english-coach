@@ -4,7 +4,7 @@ import { useStore } from './App'
 import { plural, spell } from './plural'
 import { speak, speakBuiltIn } from './speech'
 import { hatFor, lineForVerdict, Rhino, RhinoPop } from '../mascot/Rhino'
-import { diffSummary, vocabularyUnit } from '../core'
+import { diffSummary, vocabularyUnit, pictureFor, pictureURL } from '../core'
 import { Icon } from '../kit/Icons'
 import type { RhinoLine } from '../mascot/Rhino'
 import {
@@ -172,6 +172,9 @@ export function Player() {
   const past = peekAt === null ? null : history.find((item) => item.index === peekAt) ?? null
   /** Everything below renders this pair: the exercise on screen and the answer on it. */
   const shown = past ? lesson.exercises[past.index] : exercise
+  // Картинка ищется по слову карточки — у большинства карточек её нет, и тогда ничего
+  // не рисуется: пустая рамка хуже отсутствия картинки.
+  const cardPicture = shown?.type === 'flashcard' ? pictureFor(shown.prompt ?? '', model.pictures) : null
   const view: Omit<Step, 'index'> = past ?? { answer, picked, option, feedback, recall: model.currentIsRecall }
 
   const total = lesson.exercises.length
@@ -242,6 +245,16 @@ export function Player() {
             {kindLabel(shown.type, model.currentLanguage, view.recall, shown, model.currentLanguage.code)}
           </div>
           {shown.title && <h2 className="exercise-title">{shown.title}</h2>}
+
+          {/* Картинка на карточке слова — та же, что в формате «Выбери картинку».
+              Слово, выученное через перевод, всегда идёт через перевод; картинка убирает
+              середину и ставит слово прямо на предмет. Её нет у большинства карточек — и
+              это нормально: нарисовать «a hard day» нельзя, а плохая картинка учит не
+              тому слову. */}
+          {shown.type === 'flashcard' && !answerHidden && cardPicture && (
+            <img className="card-picture" src={pictureURL(cardPicture)} alt="" />
+          )}
+
           {shown.prompt && !answerHidden && (
             /* A flashcard prompt is the word itself; every other kind asks its question
                in Russian, so only this one is handed to the second face. */
