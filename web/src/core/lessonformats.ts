@@ -17,6 +17,7 @@
  * (диалог → карточки → правило → узнавание → производство) при этом не нарушается:
  * `stepOf` для форматов возвращает `recognise`.
  */
+import { assemblyWords } from './assembly'
 import { HEARING_OPTIONS } from './hearing'
 import { listeningPhrase } from './listening'
 import { PICTURE_OPTIONS, pictureFor } from './pictures'
@@ -65,6 +66,14 @@ export function availableFormats(lesson: Lesson, { language, pictures }: LessonF
 
   const sayable = cards.filter((card) => listeningPhrase(card, language) !== null)
   if (sayable.length >= HEARING_OPTIONS) found.push('hearing')
+
+  // «Собери, что слышишь» — одной фразы достаточно: приманки берутся из соседних слов
+  // того же набора, а не из четырёх разных фраз.
+  const assemblable = sayable.filter((card) => {
+    const words = assemblyWords(listeningPhrase(card, language)!.text).length
+    return words >= 3 && words <= 9
+  })
+  if (assemblable.length >= 2) found.push('assembly')
 
   return found
 }
@@ -119,6 +128,15 @@ export function lessonWithFormats(lesson: Lesson, options: LessonFormatOptions):
     if (format === 'hearing') {
       const sources = cards.filter((card) => listeningPhrase(card, language) !== null)
       steps.push(formatStep(lesson, 'hearing', sources))
+    }
+    if (format === 'assembly') {
+      const sources = cards.filter((card) => {
+        const item = listeningPhrase(card, language)
+        if (!item) return false
+        const words = assemblyWords(item.text).length
+        return words >= 3 && words <= 9
+      })
+      steps.push(formatStep(lesson, 'assembly', sources))
     }
   }
 

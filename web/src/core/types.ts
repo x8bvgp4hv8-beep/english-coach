@@ -20,8 +20,8 @@ export const EXERCISE_TYPES: readonly ContentExerciseType[] = ['info', 'flashcar
  * Так сделано ради `id`: на них стоит весь прогресс, и добавление настоящих упражнений
  * в контент сдвинуло бы их. Формат ничего не сдвигает — он только показывает.
  */
-export type FormatType = 'pairs' | 'pictures' | 'hearing'
-export const FORMAT_TYPES: readonly FormatType[] = ['pairs', 'pictures', 'hearing'] as const
+export type FormatType = 'pairs' | 'pictures' | 'hearing' | 'assembly'
+export const FORMAT_TYPES: readonly FormatType[] = ['pairs', 'pictures', 'hearing', 'assembly'] as const
 
 export type ExerciseType = ContentExerciseType | FormatType
 
@@ -53,6 +53,8 @@ const STEP_OF: Record<ExerciseType, LessonStep> = {
   pairs: 'recognise',
   pictures: 'recognise',
   hearing: 'recognise',
+  // «Собери, что слышишь» — тоже узнавание: слова даны, сказать самому не нужно.
+  assembly: 'recognise',
 }
 
 export function stepOf(type: ExerciseType): LessonStep {

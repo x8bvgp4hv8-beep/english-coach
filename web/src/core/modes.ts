@@ -19,6 +19,7 @@
  * режима берётся дважды — по пройденному и по всему уровню, — и подпись выбирается по
  * второму. Второй счёт ленивый: он нужен только для закрытых режимов, а их немного.
  */
+import { AssemblyEngine } from './assembly'
 import { HearingEngine } from './hearing'
 import { ListeningEngine } from './listening'
 import { PairsEngine } from './pairs'
@@ -33,7 +34,7 @@ import type { TheoryPack } from './theory'
 import type { CEFRLevel, CoursePack } from './types'
 
 export type ModeID =
-  | 'shadowing' | 'listening' | 'hearing' | 'dialogue' | 'verbforms' | 'vocabulary'
+  | 'shadowing' | 'listening' | 'hearing' | 'assembly' | 'dialogue' | 'verbforms' | 'vocabulary'
   | 'pictures' | 'pairs'
   | 'mixed' | 'flashcard' | 'translate' | 'word_order' | 'multiple_choice'
 
@@ -73,6 +74,13 @@ export const PRACTICE_MODES: ModeDefinition[] = [
     id: 'hearing',
     title: 'Что ты слышишь',
     note: 'Фраза звучит — выбери её',
+    unlock: 'Откроется после первого урока',
+    missing: 'На этом уровне фраз ещё нет',
+  },
+  {
+    id: 'assembly',
+    title: 'Собери, что слышишь',
+    note: 'Слова даны, порядок — на слух',
     unlock: 'Откроется после первого урока',
     missing: 'На этом уровне фраз ещё нет',
   },
@@ -180,6 +188,7 @@ function countIn(id: ModeID, courses: CoursePack[], input: ModeStatesInput): num
     case 'shadowing': return ShadowingEngine.count(courses, level)
     case 'listening': return ListeningEngine.count(courses, level, language)
     case 'hearing': return HearingEngine.count(courses, level, language)
+    case 'assembly': return AssemblyEngine.count(courses, level, language)
     case 'pairs': return PairsEngine.count(courses, level, language)
     case 'pictures': return PictureEngine.count(courses, level, language, pictures ?? null)
     case 'dialogue': return 0

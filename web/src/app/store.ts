@@ -28,6 +28,7 @@ import {
   loadContent,
   localProgressStore,
   personalise,
+  AssemblyEngine,
   HearingEngine,
   PairsEngine,
   PictureEngine,
@@ -37,7 +38,7 @@ import {
 } from '../core'
 import type {
   AnswerResult, CEFRLevel, CoursePack, Exercise, LanguageCode, LearningLanguage, Lesson, ListeningItem,
-  FormatType, HearingQuestion, LearnerHome, ModeState, PairItem, PicturePack, PictureQuestion, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
+  AssemblyQuestion, FormatType, HearingQuestion, LearnerHome, ModeState, PairItem, PicturePack, PictureQuestion, PlacementQuestion, ShadowingItem, StudyPlan, Syllabus, TheoryPack, TheoryTopic,
   TopicProgress, UserState, VerbForms, CheckupBank, CheckupItem, CheckupResult,
   WordlistPack, WordlistItem,
 } from '../core'
@@ -203,6 +204,12 @@ export class AppStore {
   pictureIndex = 0
   pictureCorrect = 0
 
+  /** «Собери, что слышишь»: очередь фраз. */
+  assemblyActive = false
+  assemblyQuestions: AssemblyQuestion[] = []
+  assemblyIndex = 0
+  assemblyCorrect = 0
+
   /** «Что ты слышишь»: вопросы, текущий и выбранный вариант. */
   hearingActive = false
   hearingQuestions: HearingQuestion[] = []
@@ -250,7 +257,7 @@ export class AppStore {
   get isBusy(): boolean {
     return this.activeLesson !== null || this.placementActive || this.shadowingActive
       || this.listeningActive || this.verbFormsActive || this.checkupActive || this.wordlistActive
-      || this.pairsActive || this.hearingActive || this.pictureActive
+      || this.pairsActive || this.hearingActive || this.pictureActive || this.assemblyActive
   }
 
   onUpdateReady(apply: () => Promise<void>): void {
@@ -347,6 +354,8 @@ export class AppStore {
     this.studyPlan = null
     this.pictureActive = false
     this.pictureQuestions = []
+    this.assemblyActive = false
+    this.assemblyQuestions = []
     this.pairsActive = false
     this.pairsRounds = []
     this.hearingActive = false
@@ -1137,6 +1146,7 @@ export class AppStore {
     if (mode === 'pairs') correct ? (this.pairsDone += 1) : (this.pairsMistakes += 1)
     if (mode === 'hearing' && correct) this.hearingCorrect += 1
     if (mode === 'pictures' && correct) this.pictureCorrect += 1
+    if (mode === 'assembly' && correct) this.assemblyCorrect += 1
     this.persist()
     this.changed()
   }
@@ -1231,6 +1241,42 @@ export class AppStore {
   finishPictures(): void {
     this.pictureIndex = this.pictureQuestions.length
     this.bankPracticeTime()
+    this.changed()
+  }
+
+  // MARK: - Собери, что слышишь
+
+  get assemblyCount(): number {
+    return AssemblyEngine.count(this.practiceCourses, this.selectedLevel, this.language ?? DEFAULT_LANGUAGE)
+  }
+
+  get assemblyIsComplete(): boolean { return this.assemblyActive && this.assemblyIndex >= this.assemblyQuestions.length }
+  get assemblyTotal(): number { return this.assemblyQuestions.length }
+
+  startAssembly(): void {
+    const questions = AssemblyEngine.build({
+      courses: this.practiceCourses, level: this.selectedLevel,
+      language: this.language ?? DEFAULT_LANGUAGE, state: this.state,
+    })
+    if (questions.length === 0) return
+    this.assemblyQuestions = questions
+    this.assemblyIndex = 0
+    this.assemblyCorrect = 0
+    this.assemblyActive = true
+    this.lessonStartedAt = new Date()
+    this.changed()
+  }
+
+  finishAssembly(): void {
+    this.assemblyIndex = this.assemblyQuestions.length
+    this.bankPracticeTime()
+    this.changed()
+  }
+
+  closeAssembly(): void {
+    this.bankPracticeTime()
+    this.assemblyActive = false
+    this.assemblyQuestions = []
     this.changed()
   }
 

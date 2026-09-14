@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import { useStore } from './App'
-import { HearingRun, PairsBoard, PictureRun } from './formats'
+import { AssemblyRun, HearingRun, PairsBoard, PictureRun } from './formats'
 import { plural, spell } from './plural'
 import { speak, speakBuiltIn } from './speech'
 import { hatFor, lineForVerdict, Rhino, RhinoPop } from '../mascot/Rhino'
-import { diffSummary, vocabularyUnit, pictureFor, pictureURL, hearingQuestions, pictureQuestions } from '../core'
+import { diffSummary, vocabularyUnit, pictureFor, pictureURL, hearingQuestions, pictureQuestions, assemblyQuestions } from '../core'
 import { Icon } from '../kit/Icons'
 import type { RhinoLine } from '../mascot/Rhino'
 import {
@@ -65,6 +65,7 @@ const kindLabel = (
     pairs: 'НАЙДИ ПАРУ',
     pictures: 'ВЫБЕРИ КАРТИНКУ',
     hearing: 'ЧТО ТЫ СЛЫШИШЬ',
+    assembly: 'СОБЕРИ, ЧТО СЛЫШИШЬ',
   }[type]
 }
 
@@ -200,6 +201,10 @@ export function Player() {
     () => (shown?.type === 'pictures' ? pictureQuestions(shown.sources ?? [], model.pictures) : []),
     [shown?.id, shown?.type, model.pictures],
   )
+  const formatAssembly = useMemo(
+    () => (shown?.type === 'assembly' ? assemblyQuestions(shown.sources ?? [], model.currentLanguage.code) : []),
+    [shown?.id, shown?.type, model.currentLanguage.code],
+  )
   const formatHearing = useMemo(
     () => (shown?.type === 'hearing' ? hearingQuestions(shown.sources ?? [], model.currentLanguage.code) : []),
     [shown?.id, shown?.type, model.currentLanguage.code],
@@ -320,6 +325,16 @@ export function Player() {
           {shown.type === 'hearing' && (
             <HearingRun
               questions={formatHearing}
+              language={model.currentLanguage.code}
+              speakLevel={model.selectedLevel}
+              onAttempt={(id, correct) => model.recordFormatAttempt(id, correct)}
+              onDone={() => model.completeFormatStep()}
+            />
+          )}
+
+          {shown.type === 'assembly' && (
+            <AssemblyRun
+              questions={formatAssembly}
               language={model.currentLanguage.code}
               speakLevel={model.selectedLevel}
               onAttempt={(id, correct) => model.recordFormatAttempt(id, correct)}

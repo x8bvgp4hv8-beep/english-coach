@@ -11,6 +11,7 @@ import { ListeningEngine, listeningPhrase } from './listening'
 import { PRACTICE_MODES, modeStates } from './modes'
 import { PRACTICE_KINDS, PracticeEngine, prioritise, taughtCourses } from './practice'
 import { LearningSession } from './session'
+import { ASSEMBLY_DECOYS, AssemblyEngine, assemblyIsCorrect, assemblyQuestions, assemblyWords } from './assembly'
 import { HearingEngine, HEARING_OPTIONS, hearingQuestions } from './hearing'
 import { FORMATS_PER_LESSON, availableFormats, lessonWithFormats } from './lessonformats'
 import { PAIRS_IN_ROUND, PairsEngine } from './pairs'
@@ -2090,5 +2091,64 @@ describe('форматы внутри урока', () => {
     // перестанет показываться, это должно упасть здесь, а не заметиться через месяц.
     const withFormat = lessons.filter((lesson) => availableFormats(lesson, options).length > 0)
     expect(withFormat.length / lessons.length).toBeGreaterThan(0.4)
+  })
+})
+
+describe('собери, что слышишь', () => {
+  const packs = readLanguage('en')
+  const questions = AssemblyEngine.build({
+    courses: packs.courses, level: 'B1', language: 'en', state: freshState(), size: 12, random: () => 0.4,
+  })
+
+  it('банк собирается в фразу ровно одним способом', () => {
+    // Приманка, совпадающая со словом фразы, дала бы второй верный порядок — и приложение
+    // назвало бы ошибкой то, что ошибкой не является.
+    expect(questions.length).toBeGreaterThan(0)
+    for (const question of questions) {
+      const words = assemblyWords(question.text)
+      const own = new Set(words.map((word) => word.toLowerCase()))
+      const decoys = question.bank.filter((word) => !own.has(word.toLowerCase()))
+      expect(question.bank.length, `${question.exerciseID}: слова фразы плюс приманки`)
+        .toBe(words.length + decoys.length)
+      expect(decoys.length, `${question.exerciseID}: приманок не больше трёх`).toBeLessThanOrEqual(ASSEMBLY_DECOYS)
+      for (const decoy of decoys) {
+        expect(own.has(decoy.toLowerCase()), `${question.exerciseID}: приманка «${decoy}» повторяет слово фразы`).toBe(false)
+      }
+      // И все слова фразы в банке есть — иначе собрать нельзя вообще.
+      for (const word of words) {
+        expect(question.bank, `${question.exerciseID}: слово «${word}» в банке`).toContain(word)
+      }
+    }
+  })
+
+  it('проверка ответа не придирается к знакам и регистру', () => {
+    expect(assemblyIsCorrect(['I', 'have', 'seen', 'it'], 'I have seen it.')).toBe(true)
+    expect(assemblyIsCorrect(['i', 'have', 'seen', 'it'], 'I have seen it.')).toBe(true)
+    expect(assemblyIsCorrect(['Have', 'I', 'seen', 'it'], 'I have seen it.')).toBe(false)
+    expect(assemblyIsCorrect(['I', 'have', 'seen'], 'I have seen it.')).toBe(false)
+  })
+
+  it('слишком короткие и слишком длинные фразы не берутся', () => {
+    for (const question of questions) {
+      const words = assemblyWords(question.text).length
+      expect(words, `${question.exerciseID}: не короче трёх слов`).toBeGreaterThanOrEqual(3)
+      expect(words, `${question.exerciseID}: не длиннее девяти слов`).toBeLessThanOrEqual(9)
+    }
+  })
+
+  it('формат есть и в уроке', () => {
+    // Именно `slice(FORMATS_PER_LESSON)`: формат четвёртый по предпочтению, и в урок он
+    // попадает только там, где другим не хватило материала.
+    const lesson = packs.courses
+      .find((pack) => pack.level === 'B1')!
+      .chapters.flatMap((chapter) => chapter.lessons)
+      .find((item) => availableFormats(item, { language: 'en', pictures: null })
+        .slice(0, FORMATS_PER_LESSON)
+        .includes('assembly'))
+    expect(lesson, 'урок с этим форматом находится').toBeTruthy()
+    const step = lessonWithFormats(lesson!, { language: 'en', pictures: null })
+      .exercises.find((item) => item.type === 'assembly')
+    expect(step?.sources?.length).toBeGreaterThan(0)
+    expect(assemblyQuestions(step!.sources ?? [], 'en', () => 0.3).length).toBeGreaterThan(0)
   })
 })

@@ -6,12 +6,12 @@ import type { ModeID } from '../core'
 import type { IconName } from '../kit/Icons'
 
 const MODE_ICON: Record<ModeID, IconName> = {
-  shadowing: 'audio', listening: 'audio', hearing: 'choice', dialogue: 'dialogue',
+  shadowing: 'audio', listening: 'audio', hearing: 'choice', assembly: 'order', dialogue: 'dialogue',
   verbforms: 'order', vocabulary: 'cards', pictures: 'cards', pairs: 'repeat', mixed: 'target',
   flashcard: 'dialogue', translate: 'write', word_order: 'order', multiple_choice: 'choice',
 }
 const MODE_COLOR: Record<ModeID, string> = {
-  shadowing: 'var(--coral)', listening: 'var(--blue)', hearing: '#3aa0c8',
+  shadowing: 'var(--coral)', listening: 'var(--blue)', hearing: '#3aa0c8', assembly: '#5b8def',
   dialogue: 'var(--blue)', verbforms: 'var(--amber)', vocabulary: 'var(--violet)',
   pictures: '#e8913a', pairs: 'var(--mint)', mixed: 'var(--violet)', flashcard: 'var(--ink)',
   translate: 'var(--amber)', word_order: 'var(--mint)', multiple_choice: '#c17ce0',
@@ -37,6 +37,7 @@ export function Practice() {
     if (id === 'pairs') return model.startPairs()
     if (id === 'pictures') return model.startPictures()
     if (id === 'hearing') return model.startHearing()
+    if (id === 'assembly') return model.startAssembly()
     if (id === 'dialogue') return
     model.startPractice(id)
   }

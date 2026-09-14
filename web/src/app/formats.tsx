@@ -2,9 +2,9 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { SLOW_RATE, say, stopSpeaking } from './speech'
 import { Icon } from '../kit/Icons'
-import { PrimaryButton } from '../kit'
-import { pictureURL } from '../core'
-import type { HearingQuestion, PairItem, PictureQuestion } from '../core'
+import { PrimaryButton, WordOrderTray } from '../kit'
+import { assemblyIsCorrect, pictureURL } from '../core'
+import type { AssemblyQuestion, HearingQuestion, PairItem, PictureQuestion } from '../core'
 
 /**
  * Сами взаимодействия трёх новых форматов — по одному определению на всё приложение.
@@ -240,6 +240,75 @@ export function HearingRun({ questions, onAttempt, onDone, speakLevel, language 
           <PrimaryButton onClick={next}>{index + 1 >= questions.length ? 'Готово' : 'Дальше'}</PrimaryButton>
         </div>
       )}
+    </>
+  )
+}
+
+/**
+ * «Собери, что слышишь»: фраза звучит, внизу слова — из них надо собрать её порядок.
+ *
+ * Банк слов не написан заново: это тот же `WordOrderTray`, что в упражнениях курса, —
+ * поднос сверху и слова-кнопки снизу, нажатием туда и обратно. Новое здесь только одно:
+ * фразы на экране нет, её надо услышать.
+ */
+export function AssemblyRun({ questions, onAttempt, onDone, speakLevel, language }: FormatCallbacks & {
+  questions: AssemblyQuestion[]
+  speakLevel?: string
+  language?: string
+}) {
+  const { current, index, next } = useQueue(questions, onDone)
+  const [picked, setPicked] = useState<number[]>([])
+  const [verdict, setVerdict] = useState<boolean | null>(null)
+
+  const text = current?.text
+  useEffect(() => {
+    setPicked([])
+    setVerdict(null)
+    if (text) say(text, speakLevel)
+  }, [text])
+  useEffect(() => () => stopSpeaking(), [])
+
+  if (!current) return null
+
+  const answer = picked.map((i) => current.bank[i])
+  const check = () => {
+    const correct = assemblyIsCorrect(answer, current.text)
+    setVerdict(correct)
+    onAttempt(current.exerciseID, correct)
+  }
+
+  return (
+    <>
+      <button className="play-big" onClick={() => say(current.text, speakLevel)} aria-label="Прослушать">🔊</button>
+      <div className="listen-row">
+        <button className="listen blue" onClick={() => say(current.text, speakLevel)}>↻ Ещё раз</button>
+        <button className="listen blue" onClick={() => say(current.text, speakLevel, undefined, SLOW_RATE)}>🐢 Медленно</button>
+      </div>
+
+      <div lang={language}>
+        <WordOrderTray
+          tokens={current.bank}
+          picked={picked}
+          placeholder="Собери фразу из слов"
+          disabled={verdict !== null}
+          onPick={(i) => setPicked([...picked, i])}
+          onUnpick={(position) => setPicked(picked.filter((_, at) => at !== position))}
+        />
+      </div>
+
+      {verdict !== null && (
+        <div className={`feedback ${verdict ? 'correct' : 'wrong'}`}>
+          <div className="feedback-title">{verdict ? 'Точно так' : 'Вот что там было'}</div>
+          {!verdict && <div className="heard-line" lang={language}>{current.text}</div>}
+          {current.gloss && <div className="feedback-note">{current.gloss}</div>}
+        </div>
+      )}
+
+      <div className="format-next">
+        {verdict === null
+          ? <PrimaryButton disabled={picked.length === 0} onClick={check}>Проверить</PrimaryButton>
+          : <PrimaryButton onClick={next}>{index + 1 >= questions.length ? 'Готово' : 'Дальше'}</PrimaryButton>}
+      </div>
     </>
   )
 }
