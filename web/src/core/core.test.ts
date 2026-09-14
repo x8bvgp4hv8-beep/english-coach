@@ -1614,6 +1614,21 @@ describe.each(LANGUAGE_CODES)('each shipped language: %s', (language) => {
     }
   })
 
+  it('у каждой картинки из карты есть файл', () => {
+    // Храповик на оба языка: битую картинку в приложении глазами не найти — в картах
+    // 248 английских слов и 73 испанских.
+    const index = readJSON(`${language}/index.json`) as { pictures?: string | null }
+    if (!index.pictures) return
+    const pack = decodePictures(readJSON(`${language}/${index.pictures}`), language)
+    const publicDir = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'public')
+    const broken: string[] = []
+    for (const [word, hex] of pack.byWord) {
+      if (!existsSync(join(publicDir, pictureURL(hex)))) broken.push(`${word} → ${hex}`)
+    }
+    expect(broken, `нет файлов картинок:\n${broken.join('\n')}`).toEqual([])
+    expect(pack.byWord.size, `${language}: карта не пустая`).toBeGreaterThan(50)
+  })
+
   it('разборы теории привязаны к силлабусу', () => {
     // `decodeTheory` бросает на чужом topicID, и это уже проверено самой загрузкой выше.
     // Здесь — что пакет не пустой и что тема действительно разобрана, а не заявлена.

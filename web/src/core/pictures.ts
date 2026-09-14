@@ -81,9 +81,10 @@ export function pictureFor(text: string, pictures: PicturePack | null): string |
   const word = text
     .trim()
     .toLowerCase()
-    .replace(/^(a|an|the|my|your|his|her|our|their)\s+/, '')
+    .replace(/^(a|an|the|my|your|his|her|our|their|el|la|los|las|un|una|unos|unas)\s+/, '')
     .replace(/[.!?,]+$/, '')
-  if (/\s/.test(word)) return null
+  // Многословный ключ разрешён: в испанском «correo electrónico» — один предмет, а не
+  // группа. Ничего лишнего это не пускает — в карте есть только размеченное.
   return pictures.byWord.get(word) ?? null
 }
 

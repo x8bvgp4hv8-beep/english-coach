@@ -111,14 +111,108 @@ const CURATED = {
   language: 'speech balloon', name: 'identification card',
 }
 
+
+/**
+ * Испанские слова с картинкой — размечены руками по словам, которые в курсе есть.
+ *
+ * Иначе карта была бы мёртвым грузом: написать «el perro → 🐕» легко, но если курс
+ * никогда не говорит «perro», картинка не покажется ни разу. Поэтому список собран из
+ * 343 одиночных испанских слов курсов A1 и A2 — из них изображается вот столько.
+ *
+ * Вычитано глазами целиком (82 записи, 15.09.2026): шесть врали и убраны — «cola → 👯
+ * люди с ушами», «cuenta → 💸 улетающие деньги», «tostadora → 🍞 хлеб», «brazo → ✋ ладонь»,
+ * «norte» и «sur» получали одну и ту же 🧭 (в вопросе с картинками это два верных ответа).
+ * Убраны и сомнительные «espacio → 💺», «firma → 📝», «multa → 💸».
+ *
+ * Русский перевод как мост тоже работает и добавляется автоматически ниже: «el bolso —
+ * сумка» находит картинку английского «bag — сумка». Но сам по себе мост даёт мало (3
+ * слова на A1, 30 на A2): русские подписи у двух курсов сформулированы по-разному.
+ */
+const CURATED_ES = {
+  abrigo: 'coat',
+  accidente: 'collision',
+  ajo: 'garlic',
+  ambulancia: 'ambulance',
+  arroz: 'cooked rice',
+  ascensor: 'elevator',
+  barrio: 'cityscape',
+  'batería': 'battery',
+  boda: 'wedding',
+  bolso: 'handbag',
+  cargador: 'electric plug',
+  carretera: 'motorway',
+  'caña': 'beer mug',
+  cebolla: 'onion',
+  cumple: 'birthday cake',
+  puesto: 'briefcase',
+  resguardo: 'receipt',
+  chef: 'cook',
+  cita: 'spiral calendar',
+  'contraseña': 'locked with key',
+  'correo electrónico': 'e-mail',
+  cuchillo: 'kitchen knife',
+  destornillador: 'screwdriver',
+  enlace: 'link',
+  ensalada: 'green salad',
+  entradas: 'ticket',
+  'estación': 'station',
+  factura: 'receipt',
+  fontanero: 'mechanic',
+  gasolinera: 'fuel pump',
+  gimnasio: 'person lifting weights',
+  herramientas: 'hammer and wrench',
+  hierbas: 'herb',
+  hora: 'alarm clock',
+  lavadora: 'washing machine',
+  'librería': 'books',
+  libreta: 'notebook',
+  llaves: 'key',
+  'lámpara': 'light bulb',
+  medicamento: 'pill',
+  mercado: 'shopping cart',
+  mochila: 'backpack',
+  noticias: 'newspaper',
+  nube: 'cloud',
+  'otoño': 'fallen leaf',
+  'panadería': 'bread',
+  pantalla: 'desktop computer',
+  papelera: 'wastebasket',
+  papeles: 'page facing up',
+  paquete: 'package',
+  paracetamol: 'pill',
+  paraguas: 'umbrella',
+  parque: 'national park',
+  pastilla: 'pill',
+  pescado: 'fish',
+  postre: 'cupcake',
+  puente: 'bridge at night',
+  puerto: 'anchor',
+  'ratón': 'computer mouse',
+  'reunión': 'busts in silhouette',
+  rodilla: 'leg',
+  sal: 'salt',
+  'sartén': 'shallow pan of food',
+  siesta: 'sleeping face',
+  sombrero: 'top hat',
+  sonido: 'speaker high volume',
+  tarjeta: 'credit card',
+  tarta: 'birthday cake',
+  tique: 'receipt',
+  ventilador: 'wind face',
+  vuelo: 'airplane',
+  zapatillas: 'running shoe',
+  zumo: 'tropical drink',
+}
+
 const wordlistPath = join(
   root, '..', 'native', 'Sources', 'EnglishCoachCore', 'Resources', 'Languages', 'en',
   'en-wordlist-3000.json',
 )
-const mapPath = join(
-  root, '..', 'native', 'Sources', 'EnglishCoachCore', 'Resources', 'Languages', 'en',
-  'en-pictures.json',
+const mapPathFor = (language) => join(
+  root, '..', 'native', 'Sources', 'EnglishCoachCore', 'Resources', 'Languages', language,
+  `${language}-pictures.json`,
 )
+const contentDir = join(root, 'public', 'content')
 const outDir = join(root, 'public', 'pictures')
 
 async function main() {
@@ -181,7 +275,7 @@ async function main() {
   }
 
   const kept = items.filter((item) => !missing.includes(item.w))
-  await writeFile(mapPath, `${JSON.stringify({
+  await writeFile(mapPathFor('en'), `${JSON.stringify({
     schemaVersion: 1,
     language: 'en',
     source: 'OpenMoji (CC BY-SA 4.0), openmoji.org',
@@ -190,11 +284,107 @@ async function main() {
 
   const nouns = pack.items.filter((entry) => entry.p === 'сущ.').length
   console.log(
-    `слов с картинкой ${kept.length} из ${nouns} существительных `
+    `английских слов с картинкой ${kept.length} из ${nouns} существительных `
     + `(${Math.round(kept.length / nouns * 100)}%), скачано файлов ${downloaded}`
     + `${missing.length ? `, без файла ${missing.length}` : ''}`,
   )
-  console.log(`карта → ${mapPath}`)
+  console.log(`карта → ${mapPathFor('en')}`)
+
+  await buildSpanish({ byAnnotation, pack, english: kept })
+}
+
+/**
+ * Испанская карта: размеченное руками плюс мост через русский перевод.
+ *
+ * Перевод у двух курсов общий язык, поэтому «el bolso — сумка» может взять картинку
+ * английского «bag — сумка». Мост даёт мало (русские подписи сформулированы по-разному),
+ * но то, что даёт, — бесплатно и точно: совпадение полное, а не по догадке.
+ */
+async function buildSpanish({ byAnnotation, pack, english }) {
+  const clean = (text) => text.trim().toLowerCase()
+    .replace(/[¿¡]/g, '')
+    .replace(/\s*\([^)]*\)\s*/g, ' ')
+    .replace(/[.!?]+$/, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  const meanings = (text) => clean(text).split(/[,;]|\sили\s/).map((part) => part.trim()).filter(Boolean)
+
+  // Русский перевод → картинка, из английского списка и уже построенной карты.
+  const hexByRussian = new Map()
+  const hexByEnglish = new Map(english.map((item) => [item.w.toLowerCase(), item.hex]))
+  for (const item of pack.items) {
+    const hex = hexByEnglish.get(item.w.toLowerCase())
+    if (!hex) continue
+    for (const key of meanings(item.t)) if (!hexByRussian.has(key)) hexByRussian.set(key, hex)
+  }
+
+  // Слова, которые в испанском курсе действительно есть: карта не должна быть мёртвой.
+  const index = JSON.parse(await readFile(join(contentDir, 'es', 'index.json'), 'utf8'))
+  const ARTICLE = /^(el|la|los|las|un|una|unos|unas)\s+/
+  const courseWords = new Map()
+  for (const file of index.courses) {
+    const course = JSON.parse(await readFile(join(contentDir, 'es', 'courses', file), 'utf8'))
+    for (const chapter of course.chapters) {
+      for (const lesson of chapter.lessons) {
+        for (const exercise of lesson.exercises) {
+          if (exercise.type !== 'flashcard' || !exercise.prompt || !exercise.translation) continue
+          const bare = clean(exercise.prompt).replace(ARTICLE, '')
+          // Одно или два слова: «correo electrónico» — один предмет, «un café con leche» — нет.
+          if (!bare || bare.split(/\s+/).length > 2) continue
+          if (!courseWords.has(bare)) courseWords.set(bare, exercise.translation)
+        }
+      }
+    }
+  }
+
+  const byWord = new Map()
+  const broken = []
+  for (const [word, annotation] of Object.entries(CURATED_ES)) {
+    const hit = byAnnotation.get(annotation.toLowerCase())
+    if (!hit) { broken.push(`${word} → «${annotation}»`); continue }
+    if (!courseWords.has(word)) { broken.push(`${word}: в испанском курсе такого слова нет`); continue }
+    byWord.set(word, hit.hexcode)
+  }
+  if (broken.length) {
+    console.error(`Испанская разметка не сходится (${broken.length}):`)
+    for (const line of broken) console.error('   ', line)
+    process.exit(1)
+  }
+
+  /**
+   * Мост через русский перевод **выключен**, и это результат замера, а не лени.
+   *
+   * Идея верная: перевод у двух курсов общий, поэтому «el bolso — сумка» может взять
+   * картинку английского «bag — сумка». Но на деле мост нашёл всего пять слов, и два из
+   * них соврали: «brazo — рука» получил ✋ ладонь (рука ≠ ладонь), «espacio — место» —
+   * 💺 сиденье. Сорок процентов ошибок против правила «неверная картинка хуже
+   * отсутствующей» не проходят. Три верные находки (cumple, puesto, resguardo) перенесены
+   * в ручной список, а мост оставлен здесь кодом на случай, если словари сблизятся.
+   */
+  const bridged = 0
+  void hexByRussian
+
+  let downloaded = 0
+  for (const hex of new Set(byWord.values())) {
+    const file = join(outDir, `${hex}.svg`)
+    if (existsSync(file)) continue
+    const response = await fetch(`${SVG}/${hex}.svg`)
+    if (!response.ok) { byWord.forEach((value, key) => { if (value === hex) byWord.delete(key) }); continue }
+    await writeFile(file, await response.text(), 'utf8')
+    downloaded += 1
+  }
+
+  await writeFile(mapPathFor('es'), `${JSON.stringify({
+    schemaVersion: 1,
+    language: 'es',
+    source: 'OpenMoji (CC BY-SA 4.0), openmoji.org',
+    items: [...byWord].map(([w, hex]) => ({ w, hex })),
+  }, null, 2)}\n`, 'utf8')
+  console.log(
+    `испанских слов с картинкой ${byWord.size} из ${courseWords.size} одиночных слов курса`
+    + ` (руками ${byWord.size - bridged}, через русский перевод ${bridged}), скачано файлов ${downloaded}`,
+  )
+  console.log(`карта → ${mapPathFor('es')}`)
 }
 
 main().catch((error) => { console.error(error); process.exit(1) })
