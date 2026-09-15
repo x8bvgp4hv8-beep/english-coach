@@ -183,14 +183,19 @@ describe('выбор голоса', () => {
     expect(played).toEqual(['voice/en/male/water.opus'])
   })
 
-  it('для языка без вшитой озвучки возвращает false', async () => {
+  it('испанское слово читает свой файл, и диакритика в имени цела', async () => {
     install(APPLE_VOICES)
     vi.stubGlobal('Audio', class { addEventListener() {} pause() {} play() { return Promise.resolve() } })
     const speech = await import('./speech')
-    // Испанской озвучки в сборке нет: там остаётся системный синтез.
-    expect(speech.builtInVoiceURL('agua', 'female', 'es')).toBeNull()
-    speech.setVoiceLanguage('es')
-    expect(speech.speakBuiltIn('agua')).toBe(false)
+    // До 15.09.2026 испанского в списке озвученных языков не было, и кнопка 🔊 на
+    // карточке просеивания падала в системный синтез. Теперь у испанского свой
+    // частотный список и свои файлы.
+    expect(speech.builtInVoiceURL('agua', 'female', 'es')).toBe('voice/es/female/agua.opus')
+    // Буквы с надстрочными знаками остаются как есть: имя файла не транслитерируется,
+    // иначе `día.opus` никогда бы не нашёлся.
+    expect(speech.builtInVoiceURL('día', 'male', 'es')).toBe('voice/es/male/día.opus')
+    // А многословная единица по-прежнему без файла — её читает спрайт главы.
+    expect(speech.builtInVoiceURL('buenos días', 'male', 'es')).toBeNull()
   })
 
   it('фразу уровня читает спрайт, а не система', async () => {

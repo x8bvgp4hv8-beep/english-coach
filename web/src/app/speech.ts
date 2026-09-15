@@ -1,4 +1,4 @@
-import { DEFAULT_LANGUAGE, languageOf } from '../core'
+import { DEFAULT_LANGUAGE, languageOf, voiceWordPath } from '../core'
 import type { LanguageCode, LearningLanguage } from '../core'
 
 /** Slow enough that the words come apart, fast enough to still be a sentence. */
@@ -249,8 +249,14 @@ export function activeVoice(): SpeechSynthesisVoice | null {
  * Фразы уроков по-прежнему читает система: их пятнадцать тысяч, и заранее озвучить их
  * значит увезти в сборку триста мегабайт.
  */
-/** Языки, для которых озвучен список слов. */
-const BUILT_IN_WORD_LANGUAGES: LanguageCode[] = ['en']
+/**
+ * Языки, для которых озвучен список частых слов.
+ *
+ * Испанский добавлен 15.09.2026 вместе со своим частотным списком: до этого кнопка 🔊 на
+ * карточке просеивания падала в системный синтез — тот самый, из-за которого озвучку и
+ * вшили в приложение.
+ */
+const BUILT_IN_WORD_LANGUAGES: LanguageCode[] = ['en', 'es']
 /** Языки, для которых озвучены фразы уроков — то есть почти всё, что приложение говорит. */
 const BUILT_IN_PHRASE_LANGUAGES: LanguageCode[] = ['en', 'es']
 
@@ -285,23 +291,13 @@ export function hasBuiltInVoice(code: LanguageCode = language): boolean {
   return BUILT_IN_PHRASE_LANGUAGES.includes(code) || BUILT_IN_WORD_LANGUAGES.includes(code)
 }
 
-/**
- * Имя файла из слова: пробелы в дефис, апострофы долой — как при генерации.
- *
- * Пунктуация тоже снимается, и это не косметика: образец голоса в настройках звучит как
- * «Hello!», а файл называется `hello.opus`, и из-за одного восклицательного знака
- * приветствие уходило в системный синтез — то есть человек выбирал голос и слышал не его.
- */
-const voiceFileName = (word: string): string =>
-  word.toLowerCase().trim().replace(/[.!?,;:¡¿]/g, '').replace(/\s+/g, '-').replace(/'/g, '')
-
 export function builtInVoiceURL(word: string, gender: VoiceGender, code: LanguageCode = language): string | null {
   if (!BUILT_IN_WORD_LANGUAGES.includes(code) || !playsBuiltIn()) return null
   // Отдельными файлами озвучен список 3000 слов, и в нём все записи однословные. Без
   // этой проверки каждая фраза, не найденная в спрайте, сперва просила несуществующий
   // файл `and-it-was-not-a-joke.opus` — запрос впустую и задержка перед звуком.
   if (/\s/.test(word.trim())) return null
-  return `voice/${code}/${gender}/${voiceFileName(word)}.opus`
+  return voiceWordPath(word, code, gender)
 }
 
 let player: HTMLAudioElement | null = null

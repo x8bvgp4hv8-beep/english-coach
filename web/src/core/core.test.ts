@@ -22,6 +22,7 @@ import { StudyEngine, decodeTheory } from './theory'
 import { VocabularyEngine, vocabularyUnit } from './vocabulary'
 import { VerbFormsEngine, formIsCorrect, verbFormsFromCard, verbFormsFromTheory } from './verbforms'
 import { CheckupEngine, courseFingerprints, decodeCheckup } from './checkup'
+import { voiceWordPath } from './voicefiles'
 import { STREAK_TO_KNOW, WordlistEngine, decodeWordlist } from './wordlist'
 import { deserialize, serialize } from './storage'
 import { LANGUAGE_CODES } from './language'
@@ -1628,6 +1629,30 @@ describe.each(LANGUAGE_CODES)('each shipped language: %s', (language) => {
     }
     expect(broken, `нет файлов картинок:\n${broken.join('\n')}`).toEqual([])
     expect(pack.byWord.size, `${language}: карта не пустая`).toBeGreaterThan(50)
+  })
+
+  it('у каждого слова списка есть озвучка в двух голосах', () => {
+    // Храповик появился из-за предлога `con`. Piper прогоняет имя файла через
+    // `pathvalidate`, а тот дописывает подчёркивание к именам, зарезервированным в
+    // Windows (CON, PRN, AUX, NUL, COM1…) — файл вышел как `con_.wav`, сжатие его не
+    // нашло, и в испанском списке молча не хватало одного из самых частых слов.
+    // Пропажу озвучки глазами не поймать: приложение не падает, а тихо читает слово
+    // системным голосом — то есть человек выбрал голос и слышит не его.
+    //
+    // Имя файла берётся из ядра (`voiceFileName`), тем же вызовом, что в приложении:
+    // проверять копию правила означало бы проверять тест, а не тренажёр.
+    const publicDir = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'public')
+    if (!existsSync(join(publicDir, 'voice', language))) return
+    const silent: string[] = []
+    for (const pack of readLanguage(language).wordlists) {
+      for (const item of pack.items) {
+        for (const gender of ['male', 'female'] as const) {
+          const path = voiceWordPath(item.w, language, gender)
+          if (!existsSync(join(publicDir, path))) silent.push(path)
+        }
+      }
+    }
+    expect(silent, `нет файлов озвучки:\n${silent.slice(0, 20).join('\n')}`).toEqual([])
   })
 
   it('разборы теории привязаны к силлабусу', () => {

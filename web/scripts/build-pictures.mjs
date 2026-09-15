@@ -204,6 +204,127 @@ const CURATED_ES = {
   zumo: 'tropical drink',
 }
 
+/**
+ * Испанские слова, у которых картинка берётся через русское словарное значение.
+ *
+ * Значение здесь — английское слово, а не код картинки: код берётся из английской карты,
+ * и источник правды остаётся один. Список — результат вычитки всех 126 находок моста;
+ * выброшены «vez → ⏰», «lugar → 💺 сиденье», «caso → ❓», «equipo → ⚙️», «sitio → 💺»,
+ * «dado → 🦴», «voz → 📝», «partido → 🎉», «máquina → 🚗», «brazo → ✋ ладонь» и ещё восемь —
+ * все те, где русское значение совпало по второстепенному смыслу. Две записи поправлены
+ * руками: «pie» это ступня (не нога), «vestido» — платье (не одежда вообще).
+ */
+const BRIDGE_ES = {
+  agua: 'water',
+  amigo: 'friend',
+  'avión': 'plane',
+  'año': 'year',
+  banco: 'bank',
+  barco: 'ship',
+  'bebé': 'child',
+  boca: 'mouth',
+  boda: 'wedding',
+  bolsa: 'bag',
+  bomba: 'bomb',
+  bosque: 'forest',
+  caballo: 'horse',
+  'café': 'coffee',
+  caja: 'box',
+  calle: 'street',
+  cama: 'bed',
+  camino: 'road',
+  'camión': 'truck',
+  'canción': 'song',
+  carne: 'meat',
+  carta: 'letter',
+  casa: 'home',
+  cerebro: 'brain',
+  cerveza: 'beer',
+  chica: 'girl',
+  chico: 'boy',
+  cielo: 'sky',
+  ciudad: 'city',
+  coche: 'car',
+  cocina: 'kitchen',
+  colegio: 'school',
+  'corazón': 'heart',
+  'cuestión': 'question',
+  'cumpleaños': 'birthday',
+  dinero: 'money',
+  doctor: 'doctor',
+  'día': 'day',
+  encuentro: 'meeting',
+  escuela: 'school',
+  estrella: 'star',
+  familia: 'family',
+  fuego: 'fire',
+  gato: 'cat',
+  hielo: 'ice',
+  hogar: 'home',
+  hombre: 'man',
+  hora: 'hour',
+  hospital: 'hospital',
+  hotel: 'hotel',
+  idea: 'idea',
+  iglesia: 'church',
+  isla: 'island',
+  leche: 'milk',
+  libro: 'book',
+  lista: 'list',
+  llave: 'key',
+  luz: 'light',
+  maestro: 'teacher',
+  mano: 'hand',
+  matrimonio: 'wedding',
+  mes: 'month',
+  muchacho: 'boy',
+  mujer: 'woman',
+  'médico': 'doctor',
+  'música': 'music',
+  nave: 'ship',
+  nena: 'girl',
+  'niña': 'girl',
+  'niño': 'boy',
+  noche: 'night',
+  nombre: 'name',
+  'número': 'number',
+  oficina: 'office',
+  ojo: 'eye',
+  'oído': 'ear',
+  palabra: 'word',
+  pan: 'bread',
+  papel: 'paper',
+  perro: 'dog',
+  pie: 'foot',
+  playa: 'beach',
+  problema: 'problem',
+  profesor: 'teacher',
+  puerta: 'door',
+  radio: 'radio',
+  regalo: 'gift',
+  reloj: 'clock',
+  respuesta: 'answer',
+  ropa: 'clothes',
+  'río': 'river',
+  sal: 'salt',
+  sangre: 'blood',
+  semana: 'week',
+  'señorita': 'girl',
+  silla: 'chair',
+  sol: 'sun',
+  taxi: 'taxi',
+  'televisión': 'television',
+  'teléfono': 'phone',
+  tiempo: 'time',
+  tienda: 'store',
+  trabajo: 'job',
+  tren: 'train',
+  'té': 'tea',
+  universidad: 'university',
+  ventana: 'window',
+  vestido: 'dress',
+}
+
 const wordlistPath = join(
   root, '..', 'native', 'Sources', 'EnglishCoachCore', 'Resources', 'Languages', 'en',
   'en-wordlist-3000.json',
@@ -352,16 +473,33 @@ async function buildSpanish({ byAnnotation, pack, english }) {
   }
 
   /**
-   * Мост через русский перевод **выключен**, и это результат замера, а не лени.
+   * Мост через русский перевод: испанское слово → русское значение → картинка.
    *
-   * Идея верная: перевод у двух курсов общий, поэтому «el bolso — сумка» может взять
-   * картинку английского «bag — сумка». Но на деле мост нашёл всего пять слов, и два из
-   * них соврали: «brazo — рука» получил ✋ ладонь (рука ≠ ладонь), «espacio — место» —
-   * 💺 сиденье. Сорок процентов ошибок против правила «неверная картинка хуже
-   * отсутствующей» не проходят. Три верные находки (cumple, puesto, resguardo) перенесены
-   * в ручной список, а мост оставлен здесь кодом на случай, если словари сблизятся.
+   * 14.09 он не работал, и причина была не в идее, а в том, что сравнивать было нечего:
+   * с одной стороны стояло словарное значение английского слова, с другой — подпись
+   * испанской карточки («Пришлю расписание»). Совпадений почти не находилось, а два из
+   * пяти найденных соврали.
+   *
+   * 15.09 у испанского появился свой частотный список со словарными значениями, и мост
+   * сразу дал 126 находок. Все 126 вычитаны, 108 оставлены; выброшены те, где русское
+   * значение совпало по второстепенному смыслу.
+   *
+   * Автоматический поиск по `hexByRussian` при этом остаётся выключенным: он и находит
+   * те же слова, но без вычитки, а неверная картинка хуже отсутствующей.
    */
-  const bridged = 0
+  let bridged = 0
+  for (const [word, english] of Object.entries(BRIDGE_ES)) {
+    if (byWord.has(word)) continue
+    const hex = hexByEnglish.get(english.toLowerCase())
+    if (!hex) { broken.push(`${word}: у английского «${english}» нет картинки`); continue }
+    byWord.set(word, hex)
+    bridged += 1
+  }
+  if (broken.length) {
+    console.error(`Мост не сходится (${broken.length}):`)
+    for (const line of broken) console.error('   ', line)
+    process.exit(1)
+  }
   void hexByRussian
 
   let downloaded = 0

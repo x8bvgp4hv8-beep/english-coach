@@ -99,7 +99,9 @@ export function Practice() {
         {/* Отдельная группа изучения: не уровень курса, а охват частотного ядра. */}
         {model.hasWordlist && (
           <button className="link-button" onClick={() => model.setScreen('wordlist')}>
-            <span>3000 частых слов: знаю {model.wordlistCount.known} из {model.wordlistCount.total}</span>
+            {/* Название — из пакета, а не из кода: у английского список на 3000 слов, у
+                испанского на 826, и «3000» в подписи было бы неправдой. */}
+            <span>{model.wordlist?.title ?? 'Частые слова'}: знаю {model.wordlistCount.known} из {model.wordlistCount.total}</span>
             <span aria-hidden="true">›</span>
           </button>
         )}
